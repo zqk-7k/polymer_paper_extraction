@@ -15,6 +15,8 @@ services:
     volumes:
       - ${RUNTIME_DIR:-/srv/polymerlit/runtime}:/app/web_runtime
       - ${POLYINFO_DIR:-/srv/polymerlit/polyinfo}:/data/polyinfo:ro
+      - ${BATCH_RESULTS_DIR:-/srv/polymerlit/data/batch_results}:/app/batch_results:ro
+      - ${SOURCE_PDFS_DIR:-/srv/polymerlit/data/source_pdfs}:/app/source_pdfs:ro
     expose:
       - "8000"
     healthcheck:
