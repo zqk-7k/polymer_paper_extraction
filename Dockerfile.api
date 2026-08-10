@@ -15,7 +15,6 @@ COPY requirements.txt /tmp/requirements-base.txt
 COPY web_api/requirements.txt /tmp/requirements-api.txt
 RUN pip install --no-cache-dir --retries 5 --timeout 60 \
     --index-url https://mirrors.cloud.tencent.com/pypi/simple \
-    --extra-index-url https://pypi.org/simple \
     -r /tmp/requirements-base.txt -r /tmp/requirements-api.txt
 
 COPY . .
