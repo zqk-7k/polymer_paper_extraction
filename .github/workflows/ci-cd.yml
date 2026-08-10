@@ -31,6 +31,8 @@ jobs:
       - name: Test candidate publishing
         working-directory: preview
         run: python -m pytest tests -q
+      - name: Test web API
+        run: python -m pytest web_api/tests -q
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -113,10 +115,12 @@ jobs:
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        run: scp "/tmp/polymerlit-${GITHUB_SHA}.bundle" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/polymerlit-${GITHUB_SHA}.bundle"
+        run: |
+          scp "/tmp/polymerlit-${GITHUB_SHA}.bundle" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/polymerlit-${GITHUB_SHA}.bundle"
+          scp deploy/scripts/remote-deploy.sh "$DEPLOY_USER@$DEPLOY_HOST:/tmp/polymerlit-${GITHUB_SHA}-deploy.sh"
       - name: Deploy immutable revision
         if: steps.deployed.outputs.changed == 'true'
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        run: ssh "$DEPLOY_USER@$DEPLOY_HOST" "sudo /srv/polymerlit/current/deploy/scripts/remote-deploy.sh '${{ github.sha }}' '/tmp/polymerlit-${{ github.sha }}.bundle'"
+        run: ssh "$DEPLOY_USER@$DEPLOY_HOST" "sudo bash '/tmp/polymerlit-${{ github.sha }}-deploy.sh' '${{ github.sha }}' '/tmp/polymerlit-${{ github.sha }}.bundle'"

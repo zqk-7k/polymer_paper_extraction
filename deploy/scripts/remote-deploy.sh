@@ -15,6 +15,9 @@ RELEASE_ROOT="$RELEASES_ROOT/$SHA"
 CURRENT_LINK="$BASE_ROOT/current"
 ENV_FILE="/srv/polymerlit/deploy.env"
 TEMP_ROOT="$RELEASES_ROOT/.${SHA}.tmp"
+DATA_ROOT="$BASE_ROOT/data"
+DATA_WORKTREE="$BASE_ROOT/.data-worktree-$SHA"
+DATA_STAGE_ROOT="$BASE_ROOT/.data-stage-$SHA"
 
 if [[ ! "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
   echo "invalid git SHA" >&2
@@ -36,6 +39,49 @@ if [[ "$SOURCE" == *.bundle ]]; then
   rm -f "$SOURCE"
 fi
 
+PREVIOUS_SHA=""
+if [[ -L "$CURRENT_LINK" ]]; then
+  PREVIOUS_SHA="$(basename "$(readlink -f "$CURRENT_LINK")")"
+fi
+
+batch_changed=1
+pdfs_changed=1
+if [[ "$PREVIOUS_SHA" =~ ^[0-9a-f]{40}$ ]] && git -C "$REPO_ROOT" cat-file -e "${PREVIOUS_SHA}^{commit}"; then
+  git -C "$REPO_ROOT" diff --quiet "$PREVIOUS_SHA" "$SHA" -- batch_results && batch_changed=0
+  git -C "$REPO_ROOT" diff --quiet "$PREVIOUS_SHA" "$SHA" -- source_pdfs && pdfs_changed=0
+fi
+
+cleanup_data_stage() {
+  if [[ -d "$DATA_WORKTREE" ]]; then
+    git -C "$REPO_ROOT" worktree remove --force "$DATA_WORKTREE" >/dev/null 2>&1 || rm -rf "$DATA_WORKTREE"
+  fi
+  rm -rf "$DATA_STAGE_ROOT"
+  rm -f "/tmp/polymerlit-${SHA}-deploy.sh"
+}
+trap cleanup_data_stage EXIT
+
+if (( batch_changed || pdfs_changed )); then
+  rm -rf "$DATA_WORKTREE" "$DATA_STAGE_ROOT"
+  git -C "$REPO_ROOT" worktree prune
+  git -C "$REPO_ROOT" worktree add --detach "$DATA_WORKTREE" "$SHA" >/dev/null
+  mkdir -p "$DATA_STAGE_ROOT"
+
+  if (( batch_changed )); then
+    mkdir -p "$DATA_STAGE_ROOT/batch_results"
+    if [[ -d "$DATA_WORKTREE/batch_results" ]]; then
+      cp -a "$DATA_WORKTREE/batch_results/." "$DATA_STAGE_ROOT/batch_results/"
+    fi
+  fi
+  if (( pdfs_changed )); then
+    mkdir -p "$DATA_STAGE_ROOT/source_pdfs"
+    if [[ -d "$DATA_WORKTREE/source_pdfs" ]]; then
+      cp -a "$DATA_WORKTREE/source_pdfs/." "$DATA_STAGE_ROOT/source_pdfs/"
+    fi
+  fi
+
+  git -C "$REPO_ROOT" worktree remove --force "$DATA_WORKTREE" >/dev/null
+fi
+
 mkdir -p "$RELEASES_ROOT"
 rm -rf "$TEMP_ROOT"
 mkdir -p "$TEMP_ROOT"
@@ -50,6 +96,27 @@ COMPOSE_FILE="$RELEASE_ROOT/deploy/compose.production.yml"
 export DEPLOY_TAG="$SHA"
 
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" build --pull api frontend
+
+replace_data_directory() {
+  local staged="$1"
+  local target="$2"
+  local backup="${target}.previous"
+  mkdir -p "$(dirname "$target")"
+  rm -rf "$backup"
+  if [[ -e "$target" ]]; then
+    mv "$target" "$backup"
+  fi
+  mv "$staged" "$target"
+  rm -rf "$backup"
+}
+
+if (( batch_changed )); then
+  replace_data_directory "$DATA_STAGE_ROOT/batch_results" "$DATA_ROOT/batch_results"
+fi
+if (( pdfs_changed )); then
+  replace_data_directory "$DATA_STAGE_ROOT/source_pdfs" "$DATA_ROOT/source_pdfs"
+fi
+
 ln -sfn "$RELEASE_ROOT" "$CURRENT_LINK"
 docker compose --env-file "$ENV_FILE" -f "$CURRENT_LINK/deploy/compose.production.yml" up -d --remove-orphans --force-recreate
 

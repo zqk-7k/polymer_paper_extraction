@@ -2,6 +2,8 @@
 
 Repository ownership and upstream synchronization are documented in [REPOSITORY_WORKFLOW.md](REPOSITORY_WORKFLOW.md).
 
+The complete manual-sync, CI, data-publication, and server-release process is documented in [AUTOMATION_FLOW.md](AUTOMATION_FLOW.md).
+
 The public pilot runs as three containers: frontend, FastAPI/pipeline, and a Caddy gateway on host port 18120. PoLyInfo data and web task outputs are mounted from the host and are not stored in container layers.
 
 Static demo results and source PDFs are also mounted from `/srv/polymerlit/data`. They are excluded from release archives so ordinary code deployments do not repeatedly transfer unchanged research files.

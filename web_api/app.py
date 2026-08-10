@@ -20,7 +20,53 @@ from fastapi.responses import FileResponse, JSONResponse
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_ROOT = ROOT / "web_runtime" / "tasks"
-BATCH_ROOT = ROOT / "batch_results" / "demo20_preview_20260809"
+BATCH_PARENT = ROOT / "batch_results"
+
+
+def _read_batch_index_file(root: Path) -> dict[str, Any]:
+    try:
+        payload = json.loads((root / "RESULT_INDEX.json").read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _select_batch_root(parent: Path, requested: str = "") -> tuple[Path, dict[str, Any]]:
+    """Select an explicit collection or the newest indexed batch result."""
+    requested = requested.strip()
+    if requested and Path(requested).name == requested:
+        requested_root = parent / requested
+        requested_index = _read_batch_index_file(requested_root)
+        if requested_root.is_dir() and requested_index:
+            return requested_root, requested_index
+
+    candidates: list[tuple[tuple[str, str, str], Path, dict[str, Any]]] = []
+    if parent.is_dir():
+        for child in parent.iterdir():
+            if not child.is_dir():
+                continue
+            index = _read_batch_index_file(child)
+            if not index:
+                continue
+            key = (
+                str(index.get("result_date") or ""),
+                str(index.get("generated_at") or ""),
+                child.name,
+            )
+            candidates.append((key, child, index))
+
+    if candidates:
+        _, selected_root, selected_index = max(candidates, key=lambda item: item[0])
+        return selected_root, selected_index
+
+    fallback = parent / "demo20_preview_20260809"
+    return fallback, {}
+
+
+BATCH_ROOT, BATCH_INDEX = _select_batch_root(
+    BATCH_PARENT,
+    os.environ.get("BATCH_RESULTS_COLLECTION", ""),
+)
 SOURCE_PDF_ROOT = ROOT / "source_pdfs"
 EVIDENCE_PREVIEW_ROOT = ROOT / "web_runtime" / "evidence_pages"
 POLYINFO_DATA_ROOT = Path(os.environ.get("POLYINFO_DATA_ROOT", str(ROOT.parent / "整理结果" / "polyinfo数据")))
@@ -257,10 +303,9 @@ def _load_batch_candidate(ref_no: str) -> dict[str, Any]:
 
 
 def _batch_source_map() -> dict[str, str]:
-    index_path = BATCH_ROOT / "RESULT_INDEX.json"
-    if not index_path.is_file():
+    index = BATCH_INDEX or _read_batch_index_file(BATCH_ROOT)
+    if not index:
         return {}
-    index = _read_json(index_path, "Batch result index is invalid")
     mapping: dict[str, str] = {}
     for source_batch, refs in (index.get("batch_membership") or {}).items():
         for ref_no in refs or []:
@@ -837,6 +882,8 @@ def health(request: Request) -> dict[str, Any]:
         "max_upload_bytes": MAX_UPLOAD_BYTES,
         "mineru_key_ready": bool(env.get("MINERU_API_KEY")),
         "llm_key_ready": bool(env.get("DMX_API_KEY") or env.get("LLM_API_KEY")),
+        "batch_collection": BATCH_ROOT.name,
+        "batch_result_date": BATCH_INDEX.get("result_date"),
     }
 
 
@@ -963,6 +1010,8 @@ def list_batch_results() -> list[dict[str, Any]]:
     if not BATCH_ROOT.is_dir():
         return []
     source_map = _batch_source_map()
+    result_date = str(BATCH_INDEX.get("result_date") or BATCH_INDEX.get("generated_at") or "")
+    result_mode = str(BATCH_INDEX.get("result_mode") or BATCH_ROOT.name)
     results: list[dict[str, Any]] = []
     for result_dir in sorted(BATCH_ROOT.iterdir()):
         if not result_dir.is_dir() or not REF_NO_RE.fullmatch(result_dir.name):
@@ -978,8 +1027,8 @@ def list_batch_results() -> list[dict[str, Any]]:
         results.append({
             "source_kind": "batch",
             "collection_id": BATCH_ROOT.name,
-            "result_date": "2026-08-09",
-            "result_mode": "preview_stage4_rerun_and_candidate_publish",
+            "result_date": result_date,
+            "result_mode": result_mode,
             "ref_no": ref_no,
             "source_batch": source_map.get(ref_no),
             "result_url": f"/api/batch-results/{ref_no}/result",
