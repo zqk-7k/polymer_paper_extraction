@@ -830,7 +830,7 @@ def health(request: Request) -> dict[str, Any]:
     return {
         "status": "ok",
         "pipeline_root": str(ROOT),
-        "python_ready": PYTHON.is_file(),
+        "python_ready": PYTHON.is_file() or shutil.which("python") is not None,
         "accepts_user_keys": True,
         "requires_https_for_keys": REQUIRE_HTTPS_FOR_KEYS,
         "key_submission_allowed": not REQUIRE_HTTPS_FOR_KEYS or _is_secure_request(request),

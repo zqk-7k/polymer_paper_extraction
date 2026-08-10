@@ -872,6 +872,10 @@ button, input, select { font: inherit; }
   .precision-ui .tool-content { padding: 20px 12px 88px; }
   .precision-ui .page-title-row { min-height: 0; }
   .precision-ui .page-title-row h2 { font-size: 24px !important; }
+  .precision-ui .panel-heading { flex-wrap: wrap; }
+  .precision-ui .panel-heading .ant-tag { margin-inline-end: 0; }
+  .precision-ui .service-alert .ant-alert-content { min-width: 0; }
+  .precision-ui .service-alert .ant-alert-description { overflow-wrap: anywhere; }
   .precision-ui .paper-summary { padding: 18px; }
   .precision-ui .metric-strip { gap: 9px; }
   .precision-ui .metric-item { min-height: 82px; padding: 12px; }
