@@ -1,0 +1,52 @@
+name: polymerlit
+
+services:
+  api:
+    image: polymerlit-api:${DEPLOY_TAG:-local}
+    build:
+      context: ..
+      dockerfile: Dockerfile.api
+    restart: unless-stopped
+    environment:
+      POLYINFO_DATA_ROOT: /data/polyinfo
+      MAX_UPLOAD_BYTES: "52428800"
+      REQUIRE_HTTPS_FOR_KEYS: "true"
+    volumes:
+      - ${RUNTIME_DIR:-/srv/polymerlit/runtime}:/app/web_runtime
+      - ${POLYINFO_DIR:-/srv/polymerlit/polyinfo}:/data/polyinfo:ro
+    expose:
+      - "8000"
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 8
+      start_period: 20s
+
+  frontend:
+    image: polymerlit-frontend:${DEPLOY_TAG:-local}
+    build:
+      context: ..
+      dockerfile: Dockerfile.frontend
+    restart: unless-stopped
+    expose:
+      - "3000"
+
+  gateway:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+      frontend:
+        condition: service_started
+    ports:
+      - "${PUBLIC_PORT:-18120}:18120"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

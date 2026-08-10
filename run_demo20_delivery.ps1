@@ -7,6 +7,8 @@
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location -LiteralPath $Root
+$Python = Join-Path $Root ".venv\Scripts\python.exe"
+if (-not (Test-Path -LiteralPath $Python)) { $Python = "python" }
 
 $EnvFile = Join-Path $Root ".env"
 if (Test-Path -LiteralPath $EnvFile) {
@@ -42,5 +44,5 @@ if (-not $Strict) { $ArgsList += "--preview" }
 if ($DryRun) { $ArgsList += "--dry-run" }
 if ($Force) { $ArgsList += "--force" }
 
-& python @ArgsList
+& $Python @ArgsList
 exit $LASTEXITCODE
