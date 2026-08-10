@@ -31,6 +31,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile.frontend
+      network: host
     restart: unless-stopped
     expose:
       - "3000"
