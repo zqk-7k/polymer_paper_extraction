@@ -72,6 +72,7 @@ jobs:
     permissions:
       contents: read
     steps:
+      - uses: actions/checkout@v4
       - name: Configure deployment key
         env:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
@@ -81,8 +82,15 @@ jobs:
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
-      - name: Deploy immutable images
+      - name: Package tested revision
+        run: git archive --format=tar.gz --output="/tmp/polymerlit-${GITHUB_SHA}.tar.gz" "$GITHUB_SHA"
+      - name: Upload release archive
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        run: ssh "$DEPLOY_USER@$DEPLOY_HOST" "sudo /srv/polymerlit/app/deploy/scripts/remote-deploy.sh '${{ github.sha }}'"
+        run: scp "/tmp/polymerlit-${GITHUB_SHA}.tar.gz" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/polymerlit-${GITHUB_SHA}.tar.gz"
+      - name: Deploy immutable revision
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: ssh "$DEPLOY_USER@$DEPLOY_HOST" "sudo /srv/polymerlit/current/deploy/scripts/remote-deploy.sh '${{ github.sha }}' '/tmp/polymerlit-${{ github.sha }}.tar.gz'"
