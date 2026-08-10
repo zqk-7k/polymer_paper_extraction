@@ -31,6 +31,8 @@ jobs:
       - name: Test candidate publishing
         working-directory: preview
         run: python -m pytest tests -q
+      - name: Validate published batch results
+        run: python preview/validate_published_batches.py batch_results
       - name: Test web API
         run: python -m pytest web_api/tests -q
       - uses: actions/setup-node@v4

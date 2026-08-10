@@ -15,6 +15,8 @@
 >
 > **2026-08-10 Stage 4R 更新：** Preview 在 Stage 4 与 Stage 5 之间增加确定性表格补抽。Stage 4R 按稳定 `cell_id` 恢复明确缺失的表格性质；无法唯一归属的值保留为 unresolved，不随意绑定实体。Strict 流程不执行 Stage 4R。
 
+代码和正式数据提交请遵守 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [`batch_results` 发布规范](docs/batch_results_publishing_standard.md)。生产 CI 会校验批次索引、候选结果和文件 SHA-256。
+
 ## 1. 交付包目录总览
 
 ```text

@@ -31,6 +31,7 @@ jobs:
           git fetch development main
           before="$(git rev-parse HEAD)"
           git merge --no-edit development/main
+          python preview/validate_published_batches.py batch_results
           after="$(git rev-parse HEAD)"
           if [ "$before" = "$after" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
