@@ -6,6 +6,7 @@ services:
     build:
       context: ..
       dockerfile: Dockerfile.api
+      network: host
     restart: unless-stopped
     environment:
       POLYINFO_DATA_ROOT: /data/polyinfo
