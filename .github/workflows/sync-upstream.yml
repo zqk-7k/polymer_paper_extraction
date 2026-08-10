@@ -1,0 +1,46 @@
+name: Sync development upstream
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-development-upstream
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Merge development repository
+        id: merge
+        run: |
+          git config user.name "polymerlit-sync[bot]"
+          git config user.email "polymerlit-sync[bot]@users.noreply.github.com"
+          git remote add development https://github.com/leexh2333-jpg/polymer_paper_extraction.git
+          git fetch development main
+          before="$(git rev-parse HEAD)"
+          git merge --no-edit development/main
+          after="$(git rev-parse HEAD)"
+          if [ "$before" = "$after" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git push origin HEAD:main
+          fi
+
+      - name: Test and deploy merged revision
+        if: steps.merge.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ci-cd.yml --ref main

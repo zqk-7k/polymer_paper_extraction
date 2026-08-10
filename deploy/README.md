@@ -1,5 +1,7 @@
 # Production deployment
 
+Repository ownership and upstream synchronization are documented in [REPOSITORY_WORKFLOW.md](REPOSITORY_WORKFLOW.md).
+
 The public pilot runs as three containers: frontend, FastAPI/pipeline, and a Caddy gateway on host port 18120. PoLyInfo data and web task outputs are mounted from the host and are not stored in container layers.
 
 Required GitHub production environment secrets:
