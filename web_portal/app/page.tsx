@@ -785,6 +785,7 @@ export default function Home() {
             <PolyInfoResultsPage
               loading={archiveLoading}
               rows={polyInfoResults}
+              batchResults={batchResults}
               onRefresh={refreshPolyInfoResults}
               onCompare={openPolyInfoComparison}
             />
@@ -975,6 +976,10 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
   onOpenBatch: (item: BatchResultSummary) => void;
 }) {
   const emptyStats: ResultStats = { polymer_count: 0, sample_count: 0, property_count: 0, process_count: 0, characterization_count: 0, evidence_count: 0 };
+  const activeBatch = batchResults[0];
+  const batchCollection = activeBatch?.collection_id || "未发布批次";
+  const batchResultDate = activeBatch?.result_date || "未标注日期";
+  const batchMode = activeBatch?.result_mode || "preview";
   const rows: ArchiveRow[] = kind === "history"
     ? historyTasks.map((task) => ({
         key: task.task_id,
@@ -995,7 +1000,7 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
         title: displayPaperTitle(item.paper, item.ref_no),
         doi: item.paper?.doi,
         meta: displayPaperMeta(item.paper),
-        time: item.result_date || "2026-08-09",
+        time: item.result_date || "未标注日期",
         source: item.source_batch || item.collection_id,
         status: "complete",
         validation: item.validation_status,
@@ -1049,16 +1054,16 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
   return <div className="page-stack archive-page">
     <PageTitle
       title={kind === "history" ? "抽取结果" : "离线批处理结果"}
-      description={kind === "history" ? "按上传时间从新到旧展示网页任务。打开任一文献后，可按文献 → 聚合物 → 样品 → 性质逐层查看。" : "独立展示 2026-08-09 Stage 4 Preview 重跑并重新发布的 20 篇候选结果；这些记录不是在网页端生成，不会混入网页历史。"}
-      meta={kind === "history" ? "WEB EXTRACTION HISTORY" : "OFFLINE BATCH · DEMO20 PREVIEW 2026-08-09"}
+      description={kind === "history" ? "按上传时间从新到旧展示网页任务。打开任一文献后，可按文献 → 聚合物 → 样品 → 性质逐层查看。" : `独立展示 ${batchResultDate} 发布的 ${rows.length} 篇离线候选结果；这些记录不是在网页端生成，不会混入网页历史。`}
+      meta={kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}
       actions={<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新列表</Button>}
     />
     <Alert
       className="archive-source-alert"
       type={kind === "history" ? "info" : "warning"}
       showIcon
-      message={kind === "history" ? "数据源：web_runtime/tasks" : "数据源：batch_results/demo20_preview_20260809"}
-      description={kind === "history" ? "这里不会展示离线 demo20 批处理记录。运行中和失败任务仍保留，便于追踪抽取历史。" : "这 20 篇已完成 Stage 4 Preview 修复重跑和 Candidate 对账，但仍属于 Preview 数据，仅供审核和对比。"}
+      message={kind === "history" ? "数据源：web_runtime/tasks" : `数据源：batch_results/${batchCollection}`}
+      description={kind === "history" ? "这里不会展示离线批处理记录。运行中和失败任务仍保留，便于追踪抽取历史。" : `当前模式：${batchMode}。批处理结果属于候选数据，仅供审核和对比；是否可入库以科学校验状态为准。`}
     />
     <section className="archive-metrics">
       <Metric icon={<FileSearch size={19} />} label="文献" value={rows.length} tone="blue" />
@@ -1067,19 +1072,23 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
       <Metric icon={<Gauge size={19} />} label="性质观测" value={totals.property_count} tone="orange" />
     </section>
     <section className="work-panel archive-table-panel">
-      <div className="panel-heading"><div><Title level={4}>{kind === "history" ? "网页任务记录" : "Demo20 Preview 文献记录"}</Title><Text>每行显示文献及其关系链规模，点击后进入完整关系、图谱和样品详情。</Text></div><Tag color={kind === "history" ? "blue" : "purple"}>{rows.length} 篇</Tag></div>
-      <Table rowKey="key" loading={loading} columns={columns} dataSource={rows} pagination={{ pageSize: 10, showSizeChanger: false }} scroll={{ x: 1110 }} locale={{ emptyText: <Empty description={kind === "history" ? "还没有网页抽取记录" : "未发现 demo20 批处理结果"} /> }} />
+      <div className="panel-heading"><div><Title level={4}>{kind === "history" ? "网页任务记录" : `${batchCollection} 文献记录`}</Title><Text>每行显示文献及其关系链规模，点击后进入完整关系、图谱和样品详情。</Text></div><Tag color={kind === "history" ? "blue" : "purple"}>{rows.length} 篇</Tag></div>
+      <Table rowKey="key" loading={loading} columns={columns} dataSource={rows} pagination={{ pageSize: 10, showSizeChanger: false }} scroll={{ x: 1110 }} locale={{ emptyText: <Empty description={kind === "history" ? "还没有网页抽取记录" : "未发现可发布的批处理结果"} /> }} />
     </section>
   </div>;
 }
 
-function PolyInfoResultsPage({ loading, rows, onRefresh, onCompare }: {
+function PolyInfoResultsPage({ loading, rows, batchResults, onRefresh, onCompare }: {
   loading: boolean;
   rows: PolyInfoSummary[];
+  batchResults: BatchResultSummary[];
   onRefresh: () => void;
   onCompare: (refNo: string) => void;
 }) {
   const [search, setSearch] = useState("");
+  const activeBatch = batchResults[0];
+  const batchCollection = activeBatch?.collection_id || "当前批次";
+  const batchResultDate = activeBatch?.result_date || "日期未标注";
   const query = search.trim().toLowerCase();
   const filtered = rows.filter((item) => !query || [
     item.ref_no,
@@ -1122,8 +1131,8 @@ function PolyInfoResultsPage({ loading, rows, onRefresh, onCompare }: {
   ];
 
   return <div className="page-stack polyinfo-results-page">
-    <PageTitle title="最新批处理与 PoLyInfo 对照" description="按 reference_no 连接 demo20_preview_20260809 与本地真实 PoLyInfo 样品 JSON，比较聚合物、样品、性质、工艺和证据覆盖。" meta="PREVIEW EXTRACTION · POLYINFO REFERENCE" actions={<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新目录</Button>} />
-    <Alert className="polyinfo-source-alert" type="info" showIcon message="对照源：最新 Preview 批处理 ↔ 本地 PoLyInfo 数据" description="20 篇批处理文献中有 17 篇找到同 reference_no 的 PoLyInfo 记录。PoLyInfo 本地 JSON 没有页码、BBox 与原文片段，因此证据链数量按 0 统计。" />
+    <PageTitle title="最新批处理与 PoLyInfo 对照" description={`按 reference_no 连接 ${batchCollection} 与本地真实 PoLyInfo 样品 JSON，比较聚合物、样品、性质、工艺和证据覆盖。`} meta={`PREVIEW EXTRACTION · ${batchResultDate} · POLYINFO REFERENCE`} actions={<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新目录</Button>} />
+    <Alert className="polyinfo-source-alert" type="info" showIcon message={`对照源：${batchCollection} ↔ 本地 PoLyInfo 数据`} description={`${batchResults.length} 篇批处理文献中有 ${totals.matched} 篇找到同 reference_no 的 PoLyInfo 记录。PoLyInfo 本地 JSON 没有页码、BBox 与原文片段，因此证据链数量按 0 统计。`} />
     <section className="metric-strip polyinfo-metrics">
       <Metric icon={<FileSearch size={19} />} label="PoLyInfo 文献" value={rows.length} tone="blue" />
       <Metric icon={<Boxes size={19} />} label="聚合物 PID" value={totals.polymers} tone="violet" />
@@ -1564,7 +1573,7 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
 
   const overview = comparison && <div className="comparison-tab">
     <div className="comparison-heading"><div><Text className="page-meta">{comparison.ref_no}</Text><Title level={4}>{comparison.polyinfo.reference.journal || "PoLyInfo 文献记录"}</Title><Paragraph>{comparison.polyinfo.reference.doi || "无 DOI"} · {comparison.polyinfo.reference.year || "年份未记录"}</Paragraph></div><Space wrap><Tag color="blue">PoLyInfo: {comparison.polyinfo.group}</Tag>{comparison.extraction ? <Tag color="success">匹配批次 {comparison.extraction.collection_id}</Tag> : <Tag color="warning">本批次无结果</Tag>}</Space></div>
-    {!comparison.extraction && <Alert type="warning" showIcon message="最新批处理没有可比较结果" description="该 reference_no 不在 demo20_preview_20260809 中；这里只展示 PoLyInfo 原始记录。" />}
+    {!comparison.extraction && <Alert type="warning" showIcon message="最新批处理没有可比较结果" description="该 reference_no 不在当前网页所选批次中；这里只展示 PoLyInfo 原始记录。" />}
     {comparison.extraction && <Alert type="info" showIcon message={comparison.message} description="样品数量和实体数量受建模层级影响，不能直接当作准确率；逐性质表才用于判断具体缺失、额外抽取或数值冲突。" />}
     {comparison.alignment_stats && <div className="alignment-summary"><span className="matched"><b>{comparison.alignment_stats.matched || 0}</b>数值一致</span><span className="different"><b>{comparison.alignment_stats.value_diff || 0}</b>同名值不同</span><span className="pi-only"><b>{comparison.alignment_stats.polyinfo_only || 0}</b>仅 PoLyInfo</span><span className="web-only"><b>{comparison.alignment_stats.extraction_only || 0}</b>仅最新批处理</span></div>}
     <Table rowKey="key" className="comparison-metric-table" columns={metricColumns} dataSource={comparison.metrics} pagination={false} size="middle" />
