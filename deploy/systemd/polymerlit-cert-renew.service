@@ -1,0 +1,8 @@
+[Unit]
+Description=Renew the PolymerLit public IP TLS certificate
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/polymerlit-certbot/bin/certbot renew --cert-name polymerlit-ip --quiet --deploy-hook /srv/polymerlit/current/deploy/scripts/reload-caddy-certificate.sh

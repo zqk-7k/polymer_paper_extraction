@@ -27,6 +27,15 @@ if [[ ! -f "$SOURCE" ]]; then
   echo "release source not found: $SOURCE" >&2
   exit 2
 fi
+if [[ ! -f "$ENV_FILE" ]]; then
+  echo "production environment file not found: $ENV_FILE" >&2
+  exit 2
+fi
+
+set -a
+# shellcheck disable=SC1090
+source "$ENV_FILE"
+set +a
 
 ARCHIVE="$SOURCE"
 if [[ "$SOURCE" == *.bundle ]]; then
@@ -120,8 +129,15 @@ fi
 ln -sfn "$RELEASE_ROOT" "$CURRENT_LINK"
 docker compose --env-file "$ENV_FILE" -f "$CURRENT_LINK/deploy/compose.production.yml" up -d --remove-orphans --force-recreate
 
+if [[ -d "$RELEASE_ROOT/deploy/systemd" ]]; then
+  install -m 0644 "$RELEASE_ROOT/deploy/systemd/polymerlit-cert-renew.service" /etc/systemd/system/polymerlit-cert-renew.service
+  install -m 0644 "$RELEASE_ROOT/deploy/systemd/polymerlit-cert-renew.timer" /etc/systemd/system/polymerlit-cert-renew.timer
+  systemctl daemon-reload
+  systemctl enable --now polymerlit-cert-renew.timer
+fi
+
 for _ in $(seq 1 30); do
-  if curl -fsS "http://127.0.0.1:${PUBLIC_PORT:-18120}/api/health" >/dev/null; then
+  if curl -fsS "${PUBLIC_URL:-http://127.0.0.1:${PUBLIC_PORT:-18120}}/api/health" >/dev/null; then
     docker image prune -f >/dev/null
     exit 0
   fi

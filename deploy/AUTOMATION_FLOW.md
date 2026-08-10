@@ -40,7 +40,7 @@ Python/前端测试 -> 两个 Docker 镜像构建检查
 切换 /srv/polymerlit/current -> 重建容器 -> 健康检查
                      |
                      v
-             http://122.51.104.121:18120
+             https://122.51.104.121:18120
 ```
 
 ## 3. 如何手动拉取上游
@@ -158,6 +158,6 @@ API 启动时会扫描 `batch_results/` 下所有带 `RESULT_INDEX.json` 的集�
 | 确认线上版本和批次 | 访问 `/api/health` |
 | 检查批处理页面为何未更新 | 确认文件已 commit、已同步到生产 main、CI 部署成功、索引日期有效且未被环境变量固定 |
 
-## 10. 当前安全边界
+## 10. HTTPS 与密钥安全
 
-当前公开地址是 HTTP IP 加端口。生产配置会拒绝通过明文 HTTP 提交用户 API Key，因此公开页面可以浏览已有结果，但真实在线抽取应在配置域名和 HTTPS 后开放。服务器密码、SSH 私钥和 API Key 不得提交到任一仓库。
+公开地址为 `https://122.51.104.121:18120`，使用 Let's Encrypt 的短期 IP 证书，不强制购买域名。证书约 6 天有效，`polymerlit-cert-renew.timer` 每天检查两次，续期成功后自动热加载 Caddy。生产 API 仍拒绝通过明文 HTTP 提交用户 API Key。服务器密码、SSH 私钥和 API Key 不得提交到任一仓库。

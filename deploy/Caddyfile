@@ -1,12 +1,13 @@
-:18120 {
-    encode zstd gzip
+https://122.51.104.121:18120 {
+	tls /etc/letsencrypt/live/polymerlit-ip/fullchain.pem /etc/letsencrypt/live/polymerlit-ip/privkey.pem
+	encode zstd gzip
 
-    @api path /api/*
-    handle @api {
-        reverse_proxy api:8000
-    }
+	@api path /api/*
+	handle @api {
+		reverse_proxy api:8000
+	}
 
-    handle {
-        reverse_proxy frontend:3000
-    }
+	handle {
+		reverse_proxy frontend:3000
+	}
 }

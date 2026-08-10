@@ -49,6 +49,7 @@ services:
       - "${PUBLIC_PORT:-18120}:18120"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
       - caddy_data:/data
       - caddy_config:/config
 

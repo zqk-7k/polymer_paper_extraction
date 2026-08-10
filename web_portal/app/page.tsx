@@ -882,7 +882,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
         <Alert className="service-alert" type="warning" showIcon message="本地抽取服务尚未启动" description="运行项目根目录的 start_web_tool.ps1 后刷新服务状态。前端不会伪造抽取进度。" action={<Button onClick={onRefresh}>重新检测</Button>} />
       )}
       {health && !secureSubmission && (
-        <Alert className="service-alert" type="warning" showIcon message="当前地址仅供浏览，上传抽取暂未开放" description="API Key 必须通过 HTTPS 传输。绑定域名并启用 HTTPS 后，上传功能会自动开放；请勿在当前 HTTP 地址输入真实密钥。" />
+        <Alert className="service-alert" type="warning" showIcon message="当前地址仅供浏览，上传抽取暂未开放" description="API Key 必须通过 HTTPS 传输。请改用系统提供的 HTTPS 地址；请勿在当前 HTTP 地址输入真实密钥。" />
       )}
       <div className="upload-layout">
         <section className="work-panel upload-panel">
