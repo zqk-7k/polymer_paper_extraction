@@ -74,6 +74,10 @@ batch_results/
 
 ## 4. 每篇文献必须满足的条件
 
+所有 JSON、HTML、Markdown 和 TXT 结果文件必须使用 UTF-8 与 LF 换行。仓库中的
+`.gitattributes` 会固定这些文本格式；`size_bytes` 和 `sha256` 必须基于 LF 规范化后的
+字节计算，确保 Windows 与 Linux 的校验结果一致。
+
 1. 文件夹名、`candidate.document_id` 和索引中的 `reference_no` 完全一致。
 2. 必须有非空的 `candidate.json` 和 `report_candidate.html`。
 3. `candidate.publication.status` 必须为 `complete`。

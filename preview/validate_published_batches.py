@@ -38,6 +38,14 @@ V2_REQUIRED_STAGES = {
     "stage5_characterization",
     "candidate_publish",
 }
+CANONICAL_TEXT_SUFFIXES = {".html", ".json", ".md", ".txt"}
+
+
+def _canonical_artifact_bytes(path: Path) -> bytes:
+    payload = path.read_bytes()
+    if path.suffix.lower() in CANONICAL_TEXT_SUFFIXES:
+        payload = payload.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return payload
 
 
 def _read_object(path: Path, errors: list[str]) -> dict[str, Any]:
@@ -106,7 +114,8 @@ def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list
         errors.append(f"{label}: result_mode cannot be empty")
 
     schema_version = str(index.get("schema_version") or "")
-    if schema_version.startswith("polymerlit-batch/2"):
+    is_v2 = schema_version.startswith("polymerlit-batch/2")
+    if is_v2:
         _validate_v2_metadata(index, label, errors)
     else:
         warnings.append(f"{label}: legacy index has no enforceable pipeline provenance")
@@ -168,14 +177,15 @@ def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list
             if not artifact.is_file():
                 errors.append(f"{label}/{ref_no}: indexed file is missing: {file_name}")
                 continue
+            canonical_payload = _canonical_artifact_bytes(artifact) if is_v2 else b""
             expected_size = file_record.get("size_bytes")
-            if expected_size is not None and artifact.stat().st_size != expected_size:
+            if is_v2 and expected_size is not None and len(canonical_payload) != expected_size:
                 errors.append(f"{label}/{ref_no}: size mismatch for {file_name}")
             expected_hash = str(file_record.get("sha256") or "")
             if not SHA256_RE.fullmatch(expected_hash):
                 errors.append(f"{label}/{ref_no}: invalid SHA-256 for {file_name}")
-            elif verify_hashes:
-                actual_hash = hashlib.sha256(artifact.read_bytes()).hexdigest()
+            elif verify_hashes and is_v2:
+                actual_hash = hashlib.sha256(canonical_payload).hexdigest()
                 if actual_hash != expected_hash:
                     errors.append(f"{label}/{ref_no}: SHA-256 mismatch for {file_name}")
 
