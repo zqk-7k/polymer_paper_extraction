@@ -2,13 +2,14 @@
 set -euo pipefail
 
 if [[ $# -ne 2 ]]; then
-  echo "usage: remote-deploy.sh <git-sha> <release-archive>" >&2
+  echo "usage: remote-deploy.sh <git-sha> <release-source>" >&2
   exit 2
 fi
 
 SHA="$1"
-ARCHIVE="$2"
+SOURCE="$2"
 BASE_ROOT="/srv/polymerlit"
+REPO_ROOT="$BASE_ROOT/app"
 RELEASES_ROOT="$BASE_ROOT/releases"
 RELEASE_ROOT="$RELEASES_ROOT/$SHA"
 CURRENT_LINK="$BASE_ROOT/current"
@@ -19,9 +20,20 @@ if [[ ! "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
   echo "invalid git SHA" >&2
   exit 2
 fi
-if [[ ! -f "$ARCHIVE" ]]; then
-  echo "release archive not found: $ARCHIVE" >&2
+if [[ ! -f "$SOURCE" ]]; then
+  echo "release source not found: $SOURCE" >&2
   exit 2
+fi
+
+ARCHIVE="$SOURCE"
+if [[ "$SOURCE" == *.bundle ]]; then
+  BUNDLE_REF="refs/deploy/$SHA"
+  git -C "$REPO_ROOT" fetch "$SOURCE" "$BUNDLE_REF"
+  git -C "$REPO_ROOT" update-ref "$BUNDLE_REF" "$SHA"
+  git -C "$REPO_ROOT" cat-file -e "${SHA}^{commit}"
+  ARCHIVE="$BASE_ROOT/.release-${SHA}.tar.gz"
+  git -C "$REPO_ROOT" archive --format=tar.gz --output="$ARCHIVE" "$SHA"
+  rm -f "$SOURCE"
 fi
 
 mkdir -p "$RELEASES_ROOT"

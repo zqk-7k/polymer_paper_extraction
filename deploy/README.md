@@ -16,4 +16,4 @@ The extraction API accepts DMX and MinerU credentials with each multipart upload
 
 The default production configuration rejects credential submission over plain HTTP. The IP-and-port pilot can be used to inspect existing results, but a domain with HTTPS is required before public extraction uploads are enabled.
 
-After tests and container build checks pass, GitHub Actions sends an archive of the exact tested commit to the server. The release is unpacked under `/srv/polymerlit/releases/<sha>` and exposed through `/srv/polymerlit/current`; the server does not need to clone the full Git history.
+After tests and container build checks pass, GitHub Actions sends a small incremental Git bundle from the deployed revision to the exact tested commit. The server verifies those Git objects, generates the release archive locally, unpacks it under `/srv/polymerlit/releases/<sha>`, and exposes it through `/srv/polymerlit/current`.

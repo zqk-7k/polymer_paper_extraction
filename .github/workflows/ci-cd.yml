@@ -74,6 +74,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Configure deployment key
         env:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
@@ -83,15 +85,38 @@ jobs:
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
-      - name: Package tested revision
-        run: git archive --format=tar.gz --output="/tmp/polymerlit-${GITHUB_SHA}.tar.gz" "$GITHUB_SHA"
-      - name: Upload release archive
+      - name: Read deployed revision
+        id: deployed
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        run: scp "/tmp/polymerlit-${GITHUB_SHA}.tar.gz" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/polymerlit-${GITHUB_SHA}.tar.gz"
+        run: |
+          deployed_sha="$(ssh "$DEPLOY_USER@$DEPLOY_HOST" 'basename "$(readlink -f /srv/polymerlit/current)"')"
+          git cat-file -e "${deployed_sha}^{commit}"
+          echo "sha=$deployed_sha" >> "$GITHUB_OUTPUT"
+          if [ "$deployed_sha" = "$GITHUB_SHA" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Package incremental revision
+        if: steps.deployed.outputs.changed == 'true'
+        env:
+          DEPLOYED_SHA: ${{ steps.deployed.outputs.sha }}
+        run: |
+          bundle_ref="refs/deploy/${GITHUB_SHA}"
+          git update-ref "$bundle_ref" "$GITHUB_SHA"
+          git bundle create "/tmp/polymerlit-${GITHUB_SHA}.bundle" "$bundle_ref" "^${DEPLOYED_SHA}"
+          git update-ref -d "$bundle_ref"
+      - name: Upload incremental revision
+        if: steps.deployed.outputs.changed == 'true'
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: scp "/tmp/polymerlit-${GITHUB_SHA}.bundle" "$DEPLOY_USER@$DEPLOY_HOST:/tmp/polymerlit-${GITHUB_SHA}.bundle"
       - name: Deploy immutable revision
+        if: steps.deployed.outputs.changed == 'true'
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        run: ssh "$DEPLOY_USER@$DEPLOY_HOST" "sudo /srv/polymerlit/current/deploy/scripts/remote-deploy.sh '${{ github.sha }}' '/tmp/polymerlit-${{ github.sha }}.tar.gz'"
+        run: ssh "$DEPLOY_USER@$DEPLOY_HOST" "sudo /srv/polymerlit/current/deploy/scripts/remote-deploy.sh '${{ github.sha }}' '/tmp/polymerlit-${{ github.sha }}.bundle'"
