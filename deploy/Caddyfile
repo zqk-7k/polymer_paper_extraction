@@ -1,3 +1,7 @@
+{
+	default_sni 122.51.104.121
+}
+
 https://122.51.104.121:18120 {
 	tls /etc/letsencrypt/live/polymerlit-ip/fullchain.pem /etc/letsencrypt/live/polymerlit-ip/privkey.pem
 	encode zstd gzip
