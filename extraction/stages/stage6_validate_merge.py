@@ -57,9 +57,23 @@ from stages.stage4_property import (
     _resolve_surface_text,
     write_json_atomic,
 )
+from stages import evidence_matcher
+from stages.stage6_preview_salvage import PreviewCollections, salvage_preview
 
 
 STAGE_ID = "stage6_validate_merge"
+
+# Preview 下由 error 降级成 warning 的 issue code 前缀。列在这里而不是散在
+# 各处，是为了 payload 里的 degraded_codes 永远和实际降级点保持一致。
+_PREVIEW_DEGRADED_PREFIXES = (
+    "evidence_matched",
+    "preview_object_rejected_",
+    "preview_reference_pruned",
+    "table_locator_matched",
+    "table_locator_label_missing",
+    "table_locator_blank_cell_recovered",
+    "table_locator_table_scope_accepted",
+)
 SENSITIVE_KEYS = {
     "api_key",
     "authorization",
@@ -210,14 +224,66 @@ class EvidenceRegistry:
         block_map: dict[str, Any],
         errors: list[ValidationIssue],
         warnings: list[ValidationIssue],
+        *,
+        preview: bool = False,
     ) -> None:
         self.block_map = block_map
         self.errors = errors
         self.warnings = warnings
+        # preview=True 时，证据的「表示层」错误降级为 warning：先用 matcher
+        # 确认这句话确实在该 block 里（只是渲染形态不同），确认不了的仍记 error。
+        self.preview = preview
         self._ids: dict[str, str] = {}
         self.items: list[FinalEvidence] = []
-        self._validated: set[str] = set()
+        self._validated: set[tuple[str, str]] = set()
         self._stable_warnings: set[str] = set()
+        self._text_blocks: list[tuple[str, str]] | None = None
+
+    def _all_block_texts(self) -> list[tuple[str, str]]:
+        if self._text_blocks is None:
+            self._text_blocks = [
+                (block_id, _element_source_text(block) or "")
+                for block_id, block in self.block_map.items()
+            ]
+        return self._text_blocks
+
+    def _match_evidence_source(
+        self,
+        evidence: Evidence,
+        block: Any,
+        source: str,
+    ) -> evidence_matcher.EvidenceMatch:
+        """严格检查失败后，判断这到底是表示差异还是真的对不上。
+
+        表格块优先走确定性定位（cell_id → 行列下标 → 单元格集合），
+        定位不了再按正文规则看句子本身；正文块走归一化和词覆盖分层，
+        最后才尝试唯一块恢复。
+        """
+        if block.type == "table" and evidence.table_locator:
+            match = evidence_matcher.match_table_evidence(
+                block,
+                evidence.table_locator,
+                source,
+            )
+            if match.ok_relaxed:
+                return match
+            fallback = evidence_matcher.match_text_evidence(
+                evidence.source_sentence,
+                source,
+            )
+            return fallback if fallback.ok_relaxed else match
+        match = evidence_matcher.match_text_evidence(
+            evidence.source_sentence,
+            source,
+        )
+        if match.ok_relaxed:
+            return match
+        recovered = evidence_matcher.resolve_evidence_block(
+            evidence.source_sentence,
+            self._all_block_texts(),
+            exclude_block_id=evidence.block_id,
+        )
+        return recovered if recovered.status != evidence_matcher.UNRESOLVED else match
 
     def add(
         self,
@@ -225,20 +291,24 @@ class EvidenceRegistry:
         *,
         stage: str,
         object_id: str,
+        locator_scope: str = "cell",
     ) -> str:
-        evidence = self._with_stable_table_locator(
-            evidence,
-            stage=stage,
-            object_id=object_id,
-        )
-        key = _evidence_key(evidence)
-        if key not in self._validated:
-            self._validate(
+        if not (self.preview and locator_scope == "table"):
+            evidence = self._with_stable_table_locator(
                 evidence,
                 stage=stage,
                 object_id=object_id,
             )
-            self._validated.add(key)
+        key = _evidence_key(evidence)
+        validation_key = (key, locator_scope)
+        if validation_key not in self._validated:
+            self._validate(
+                evidence,
+                stage=stage,
+                object_id=object_id,
+                locator_scope=locator_scope,
+            )
+            self._validated.add(validation_key)
         evidence_id = self._ids.get(key)
         if evidence_id is None:
             evidence_id = f"ev{len(self.items) + 1:03d}"
@@ -292,9 +362,15 @@ class EvidenceRegistry:
         *,
         stage: str,
         object_id: str,
+        locator_scope: str = "cell",
     ) -> list[str]:
         return [
-            self.add(item, stage=stage, object_id=object_id)
+            self.add(
+                item,
+                stage=stage,
+                object_id=object_id,
+                locator_scope=locator_scope,
+            )
             for item in evidence_items
         ]
 
@@ -304,6 +380,7 @@ class EvidenceRegistry:
         *,
         stage: str,
         object_id: str,
+        locator_scope: str = "cell",
     ) -> None:
         block = self.block_map.get(evidence.block_id)
         if block is None:
@@ -345,13 +422,35 @@ class EvidenceRegistry:
             and _normalize_for_comparison(evidence.source_sentence)
             not in _normalize_for_comparison(source)
         ):
-            _add_issue(
-                self.errors,
-                stage=stage,
-                code="evidence_not_in_source",
-                message="Evidence.source_sentence 不是 Stage 0 原文子串",
-                object_id=object_id,
+            # Strict：直接判错，与改动前完全一致。
+            # Preview：先问 matcher 这是不是表示差异；是的话降级为 warning。
+            match = (
+                self._match_evidence_source(evidence, block, source)
+                if self.preview
+                else None
             )
+            if match is not None and match.ok_relaxed:
+                _add_issue(
+                    self.warnings,
+                    stage=stage,
+                    code=f"evidence_{match.status}",
+                    message=(
+                        "Evidence.source_sentence 与 Stage 0 原文表示不同，"
+                        f"已按等价表示接受：{match.detail}"
+                    ),
+                    object_id=object_id,
+                )
+            else:
+                _add_issue(
+                    self.errors,
+                    stage=stage,
+                    code="evidence_not_in_source",
+                    message=(
+                        "Evidence.source_sentence 不是 Stage 0 原文子串"
+                        + (f"（{match.detail}）" if match is not None else "")
+                    ),
+                    object_id=object_id,
+                )
         locator = evidence.table_locator
         if locator is None:
             return
@@ -364,23 +463,93 @@ class EvidenceRegistry:
                 object_id=object_id,
             )
             return
+        if self.preview and locator_scope == "table":
+            table_id = locator.get("table_id")
+            if not isinstance(table_id, str) or not table_id.strip():
+                _add_issue(
+                    self.errors,
+                    stage=stage,
+                    code="invalid_table_locator",
+                    message="表级 table_locator 必须包含非空 table_id",
+                    object_id=object_id,
+                )
+            elif table_id != evidence.block_id:
+                _add_issue(
+                    self.errors,
+                    stage=stage,
+                    code="table_id_mismatch",
+                    message="table_locator.table_id 必须等于 block_id",
+                    object_id=object_id,
+                )
+            else:
+                _add_issue(
+                    self.warnings,
+                    stage=stage,
+                    code="table_locator_table_scope_accepted",
+                    message="Preview 接受 Characterization 的表级 locator",
+                    object_id=object_id,
+                )
+            return
         required = ("table_id", "row_label", "column_label")
-        if any(
-            not isinstance(locator.get(field), str)
-            or not locator[field].strip()
+        missing = [
+            field
             for field in required
-        ):
-            _add_issue(
-                self.errors,
-                stage=stage,
-                code="invalid_table_locator",
-                message="table_locator 缺少行、列或单元格定位字段",
-                object_id=object_id,
+            if not isinstance(locator.get(field), str)
+            or not locator[field].strip()
+        ]
+        if missing:
+            # Strict：缺任何一个都判错。
+            # Preview：row_label/column_label 只是给人看的标签，真正的定位靠
+            # cell_id + 行列下标。表格首列为空时模型只能写 null —— 只要还能
+            # 按 cell_id 确定性地定位到那一格，就降级为 warning。
+            resolved = (
+                evidence_matcher.match_table_evidence(block, locator, "")
+                if self.preview and "table_id" not in missing
+                else None
             )
+            if resolved is not None and resolved.ok_relaxed:
+                _add_issue(
+                    self.warnings,
+                    stage=stage,
+                    code="table_locator_label_missing",
+                    message=(
+                        f"table_locator 缺少 {'、'.join(missing)}，"
+                        f"但单元格可确定性定位：{resolved.detail}"
+                    ),
+                    object_id=object_id,
+                )
+            else:
+                _add_issue(
+                    self.errors,
+                    stage=stage,
+                    code="invalid_table_locator",
+                    message="table_locator 缺少行、列或单元格定位字段",
+                    object_id=object_id,
+                )
             return
         cell_value = locator.get("cell_value")
         if cell_value is None:
             if not _is_stable_blank_table_cell(block, locator):
+                # Preview：cell_id 能在 Stage 0 表格里取到那一格、且那一格确实
+                # 是空的，就说明定位本身没问题，只是没走 _is_stable_ 认的那条
+                # 稳定路径。取不到格或格里有内容仍判错。
+                resolved = (
+                    evidence_matcher.match_table_evidence(block, locator, "")
+                    if self.preview
+                    else None
+                )
+                if resolved is not None and resolved.ok_relaxed:
+                    _add_issue(
+                        self.warnings,
+                        stage=stage,
+                        code="table_locator_blank_cell_recovered",
+                        message=(
+                            "空单元格 locator 未走稳定定位路径，"
+                            f"但可按坐标确认该格为空：{resolved.detail}"
+                        ),
+                        object_id=object_id,
+                    )
+                    return
                 _add_issue(
                     self.errors,
                     stage=stage,
@@ -408,23 +577,63 @@ class EvidenceRegistry:
             )
         for field in ("row_label", "column_label"):
             if _resolve_surface_text(source, locator[field]) is None:
-                _add_issue(
-                    self.errors,
+                self._locator_surface_issue(
+                    block,
+                    locator,
+                    locator[field],
+                    field=f"table_locator.{field}",
                     stage=stage,
-                    code="table_locator_not_in_source",
-                    message=f"table_locator.{field} 不是表格原文",
                     object_id=object_id,
                 )
         if isinstance(cell_value, str) and (
             _resolve_surface_text(source, cell_value) is None
         ):
-            _add_issue(
-                self.errors,
+            self._locator_surface_issue(
+                block,
+                locator,
+                cell_value,
+                field="table_locator.cell_value",
                 stage=stage,
-                code="table_locator_not_in_source",
-                message="table_locator.cell_value 不是表格原文",
                 object_id=object_id,
             )
+
+    def _locator_surface_issue(
+        self,
+        block: Any,
+        locator: dict[str, Any],
+        value: str,
+        *,
+        field: str,
+        stage: str,
+        object_id: str,
+    ) -> None:
+        """locator 的某个字段在表格原文里找不到。
+
+        Strict 一律判错。Preview 下先看这一格能不能被 cell_id 或行列下标
+        确定性地定位到 —— 能定位到就说明只是标签的渲染形态不同
+        （HTML 里是 `$T_{d}^{10\\%}$`，抽取侧写的是可读文本）。
+        """
+        if self.preview:
+            match = evidence_matcher.match_table_evidence(block, locator, "")
+            if match.ok_relaxed:
+                _add_issue(
+                    self.warnings,
+                    stage=stage,
+                    code=f"table_locator_{match.status}",
+                    message=(
+                        f"{field}={value!r} 与表格原文表示不同，"
+                        f"但单元格可确定性定位：{match.detail}"
+                    ),
+                    object_id=object_id,
+                )
+                return
+        _add_issue(
+            self.errors,
+            stage=stage,
+            code="table_locator_not_in_source",
+            message=f"{field} 不是表格原文",
+            object_id=object_id,
+        )
 
 
 def _without_evidence(model: BaseModel) -> dict[str, Any]:
@@ -1187,6 +1396,8 @@ def validate_and_merge(
     stage3: Stage3Document,
     stage4: Stage4Document,
     stage5: Stage5Document,
+    *,
+    preview: bool = False,
 ) -> tuple[FinalDocument | None, Stage6Validation]:
     errors: list[ValidationIssue] = []
     warnings: list[ValidationIssue] = []
@@ -1265,7 +1476,7 @@ def validate_and_merge(
     )
 
     block_map = {item.block_id: item for item in stage0.elements}
-    registry = EvidenceRegistry(block_map, errors, warnings)
+    registry = EvidenceRegistry(block_map, errors, warnings, preview=preview)
     final_mentions = [
         FinalMaterialMention(
             **_without_evidence(item),
@@ -1474,6 +1685,7 @@ def validate_and_merge(
                 item.evidence,
                 stage="stage5_characterization",
                 object_id=item.characterization_id,
+                locator_scope="table",
             ),
         )
         for item in stage5.characterizations
@@ -1527,6 +1739,63 @@ def validate_and_merge(
         "stage5_properties": len(stage5.properties),
         "evidence": len(registry.items),
     }
+    rejected_objects = None
+    preview_publication_summary = None
+    if preview:
+        salvaged = salvage_preview(
+            PreviewCollections(
+                material_mentions=final_mentions,
+                polymer_entities=final_entities,
+                unresolved_mention_ids=stage2.unresolved_mention_ids,
+                samples=final_samples,
+                process_steps=final_steps,
+                unresolved_entity_ids=stage3.unresolved_entity_ids,
+                measurement_conditions=final_conditions,
+                property_observations=[
+                    *final_stage4_properties,
+                    *final_stage5_properties,
+                ],
+                unresolved_property_observations=final_unresolved,
+                property_series=final_series,
+                characterizations=final_characterizations,
+                evidence=registry.items,
+            ),
+            errors,
+            warnings,
+        )
+        final_mentions = salvaged.collections.material_mentions
+        final_entities = salvaged.collections.polymer_entities
+        final_unresolved_mention_ids = salvaged.collections.unresolved_mention_ids
+        final_samples = salvaged.collections.samples
+        final_steps = salvaged.collections.process_steps
+        final_unresolved_entity_ids = salvaged.collections.unresolved_entity_ids
+        final_conditions = salvaged.collections.measurement_conditions
+        final_properties = salvaged.collections.property_observations
+        final_unresolved = salvaged.collections.unresolved_property_observations
+        final_series = salvaged.collections.property_series
+        final_characterizations = salvaged.collections.characterizations
+        final_evidence = salvaged.collections.evidence
+        errors = salvaged.remaining_errors
+        warnings = salvaged.warnings
+        rejected_objects = salvaged.rejected_objects
+        preview_publication_summary = salvaged.summary
+        checked_counts.update({
+            "preview_published_objects": sum(
+                preview_publication_summary.published_counts.values()
+            ),
+            "preview_rejected_objects": len(rejected_objects),
+            "preview_reference_cleanup_count": (
+                preview_publication_summary.reference_cleanup_count
+            ),
+        })
+    else:
+        final_unresolved_mention_ids = stage2.unresolved_mention_ids
+        final_unresolved_entity_ids = stage3.unresolved_entity_ids
+        final_properties = [
+            *final_stage4_properties,
+            *final_stage5_properties,
+        ]
+        final_evidence = registry.items
     status = (
         "failed"
         if errors
@@ -1557,19 +1826,16 @@ def validate_and_merge(
         paper=stage0.paper,
         material_mentions=final_mentions,
         polymer_entities=final_entities,
-        unresolved_mention_ids=stage2.unresolved_mention_ids,
+        unresolved_mention_ids=final_unresolved_mention_ids,
         samples=final_samples,
         process_steps=final_steps,
-        unresolved_entity_ids=stage3.unresolved_entity_ids,
-        property_observations=[
-            *final_stage4_properties,
-            *final_stage5_properties,
-        ],
+        unresolved_entity_ids=final_unresolved_entity_ids,
+        property_observations=final_properties,
         measurement_conditions=final_conditions,
         unresolved_property_observations=final_unresolved,
         property_series=final_series,
         characterizations=final_characterizations,
-        evidence=registry.items,
+        evidence=final_evidence,
         provenance=provenance,
         warnings=warnings,
         validation_summary=summary,
@@ -1582,6 +1848,8 @@ def validate_and_merge(
             stage5,
         ),
         quality_metrics=quality_metrics,
+        rejected_objects=rejected_objects,
+        preview_publication_summary=preview_publication_summary,
     )
     raw_final = final.model_dump(mode="json")
     _scan_sensitive(raw_final, errors)
@@ -1630,6 +1898,8 @@ def run_stage6(
     stage5_path: Path,
     validation_path: Path,
     final_path: Path,
+    *,
+    preview: bool = False,
 ) -> tuple[Stage6Validation, bool]:
     try:
         stage0 = _load_model(stage0_path, Stage0Document, "Stage 0")
@@ -1645,6 +1915,7 @@ def run_stage6(
             stage3,
             stage4,
             stage5,
+            preview=preview,
         )
     except Stage6Error as exc:
         final = None
@@ -1666,6 +1937,21 @@ def run_stage6(
         mode="json",
         exclude_none=False,
     )
+    if preview:
+        # 标注这份产物是 Preview 发布结果：表示差异可降级为 warning，
+        # 坏对象会进入 rejected_objects，悬空引用会被确定性清扫。
+        # 科学语义标准不放宽，无法发布的对象不会混入有效对象集合。
+        payload["validation_mode"] = "preview"
+        payload["validation_summary"] = {
+            **payload.get("validation_summary", {}),
+            "validation_mode": "preview",
+            "validation_status": "degraded",
+            "degraded_codes": sorted({
+                issue.code
+                for issue in validation.warnings
+                if issue.code.startswith(_PREVIEW_DEGRADED_PREFIXES)
+            }),
+        }
     write_json_atomic(final_path, payload)
     render_extraction_html(
         payload,
@@ -1683,6 +1969,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH)
     parser.add_argument("--input-root", type=Path)
     parser.add_argument("--output-root", type=Path)
+    parser.add_argument(
+        "--preview-relaxed",
+        action="store_true",
+        help=(
+            "Preview 模式：证据的表示层差异（HTML/管道表格/LaTeX 渲染不同）"
+            "经 evidence_matcher 确认后降级为 warning，仍产出 final.json；"
+            "科学语义校验不放宽，定位不上的证据照样判错"
+        ),
+    )
     return parser
 
 
@@ -1727,6 +2022,7 @@ def main() -> int:
             base / "stage5_characterizations.json",
             output / "stage6_validation.json",
             output / "final.json",
+            preview=bool(args.preview_relaxed),
         )
         if published:
             print(

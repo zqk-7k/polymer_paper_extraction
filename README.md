@@ -2,7 +2,7 @@
 
 首次交付日期：2026-08-07
 
-最近更新日期：2026-08-10
+最近更新日期：2026-08-12
 
 固定数据集：20 篇文献
 
@@ -16,6 +16,10 @@
 > **2026-08-10 Stage 4R 更新：** Preview 在 Stage 4 与 Stage 5 之间增加确定性表格补抽。Stage 4R 按稳定 `cell_id` 恢复明确缺失的表格性质；无法唯一归属的值保留为 unresolved，不随意绑定实体。当前版本进一步支持 `0-2-0-6` 等数字连字符样品编码、多层表头、LaTeX 数值和扩展性质别名。Strict 流程不执行 Stage 4R。
 >
 > **2026-08-10 Stage 2 名称更新：** 同一实体同时包含具体聚合物名称和样品代号/缩写时，优先采用有原文 mention 支持的具体名称；原代号继续保留用于追溯。无法安全确定时保持原名称，不生成或猜测 canonical name。
+>
+> **2026-08-11 Stage 6 Preview 更新：** Preview 现在会执行 Stage 6（带 `--preview-relaxed`），产出 `final.json` 和 `report.html`，此前 Preview 直接跳过 Stage 6。新增 `extraction/stages/evidence_matcher.py`：Stage 0 存 HTML 表格和 LaTeX，Stage 4R 写管道渲染行，Stage 4/5 写可读文本，三者指同一处原文但字面互不包含，旧版按字面子串判定会误报。Preview 下这类**表示层**差异经确定性定位确认后降级为 warning；**科学语义校验没有放宽**，定位不上的证据、指错单元格的 locator、引用不存在 property 的 `derived_property_ids` 一律仍判 error。**Strict 分支代码未改动，判定结果逐条不变。**
+>
+> **2026-08-12 Preview 完整发布更新：** Stage 6 新增逐对象隔离和引用清扫。坏对象进入 `rejected_objects`，合法对象继续进入 `final.json`；悬空 `derived_property_ids` 只剪枝、不猜 ID。Characterization 允许表级 locator，Property 和 Series Point 仍要求单元格级定位。Stage 4R 的 evidence 直接保存稳定 `cell_id` 对应的 Stage 0 单元格文本，不再重新拼接管道行。Stage 3 同时新增 `polymer_type` 和 `material_type`。Strict 的校验规则和失败语义保持不变。最新规范化 20 篇结果位于 `batch_results/demo20_preview_final_20260812/`。
 
 代码和正式数据提交请遵守 [CONTRIBUTING.md](CONTRIBUTING.md)、[上游开发者代码与批处理结果交付规范](docs/upstream_code_and_batch_results_standard.md) 与 [`batch_results` 发布规范](docs/batch_results_publishing_standard.md)。生产 CI 会校验批次索引、候选结果和文件 SHA-256。
 
@@ -35,6 +39,7 @@ polymer_extraction_delivery_20260807/
 ├─ acceptance/                         历史验收摘要与报告
 ├─ batch_results/demo20_20260807/      2026-08-07 历史跑批结果
 ├─ batch_results/demo20_preview_20260809/  2026-08-09 Preview 修复验证结果
+├─ batch_results/demo20_preview_final_20260812/  2026-08-12 Preview 最终发布结果
 ├─ docs/                               项目和风险说明
 ├─ .env.example                        密钥占位模板，不含真实密钥
 ├─ requirements.txt                    运行依赖
@@ -68,6 +73,7 @@ polymer_extraction_delivery_20260807/
 | `extraction/stages/stage2_polymer_entity.py` | 聚合物实体归并、名称选择、重复 mention 修复和 unresolved 处理 |
 | `extraction/stages/stage4r_table_recovery.py` | Preview-only 表格缺口恢复，按 `cell_id` 合并；支持数字连字符样品编码的严格别名匹配 |
 | `extraction/stages/table_recall_audit.py` | 单元格级表格召回审计，识别性质值、坐标、LaTeX 数值和多层表头 |
+| `extraction/stages/evidence_matcher.py` | Preview-only 证据定位器：按 `cell_id` → 行列下标 → 单元格集合逐层确定性定位，判定表示层差异；仅被 Stage 6 的 Preview 分支调用 |
 | `extraction/prompts/` | 各 Stage Prompt |
 | `extraction/schema/` | Pydantic/JSON 数据结构 |
 | `extraction/stages/` | Stage 0–6 实现 |
@@ -77,7 +83,7 @@ polymer_extraction_delivery_20260807/
 
 ### 2.2 `extraction/tests/`：自动化测试，不是运行数据
 
-该目录包含 18 个 `test_*.py` 和一个公共辅助文件 `helpers.py`。文件较多是因为 Stage 0–6、模型客户端、批处理器、HTML、缓存和失败回放都分别有行为测试。
+该目录包含 19 个 `test_*.py` 和一个公共辅助文件 `helpers.py`。文件较多是因为 Stage 0–6、模型客户端、批处理器、HTML、缓存和失败回放都分别有行为测试。
 
 典型文件：
 
@@ -86,9 +92,10 @@ polymer_extraction_delivery_20260807/
 - `test_stage3_sample_process.py`：样品标签、Process 图和 evidence；
 - `test_stage4_property.py`：性能、条件、单位和 evidence；
 - `test_stage5_characterization.py`：表征数据；
-- `test_stage6_validate_merge.py`：严格合并和一致性校验；
+- `test_stage6_validate_merge.py`：严格合并和一致性校验，以及 Preview 降级分支（表示层差异降级、指错单元格仍判 error、降级标记写入 `final.json`）；
+- `test_evidence_matcher.py`：证据定位器的分层匹配与**拒绝**行为（`44` 不被 `446` 顶掉、两个独立整数不被粘连、重复值无 `cell_id` 时判 ambiguous）；
 - `test_llm_client.py`：JSON 解析、非法转义修复和传输错误；
-- `test_batch_runner.py`：批处理、缓存、续跑、partial、Stage 4R Preview 编排和退出码；
+- `test_batch_runner.py`：批处理、缓存、续跑、partial、Stage 4R Preview 编排、Stage 6 Preview 编排和退出码；
 - `test_stage4r_table_recovery.py`：`cell_id` 合并、确定性实体归属、备份和强制重跑；
 - `test_table_recall_audit.py`：表格数值单元格角色和召回缺口审计。
 
@@ -119,7 +126,7 @@ polymer_extraction_delivery_20260807/
 ```text
 标准化 document.json
   ↓
-Preview：Stage 0 → 1 → 2 → 3 → 4 → 4R → 5
+Preview：Stage 0 → 1 → 2 → 3 → 4 → 4R → 5 → 6（--preview-relaxed）
   ↓
 preview/publish_candidate.py
   ├─ candidate.json
@@ -131,6 +138,8 @@ preview/verify_demo20.py
 ```
 
 `candidate.json` 是聚合运行视图；`report_candidate.html` 是供人查看的候选报告。它们不替代各 Stage 原始 JSON。
+
+Preview 下 Stage 6 会隔离可定位到单个对象的错误，清扫悬空引用后产出 `final.json` 和 `report.html`（带降级标记，见 8.5）。只有文档级错误或无法安全隔离的错误仍会阻止 final；此时仍发布 `candidate.json`，状态记为 `candidate_partial`，不阻断整批推进。
 
 Strict 仍按 `Stage 0 → 1 → 2 → 3 → 4 → 5 → 6` 执行，不经过 Stage 4R。Preview 中 Stage 4R 会生成 `stage4r_recovery.json` 和 `stage4_properties.recovery_preview.json`，应用前的 Stage 4 保存在 `stage4_properties.pre_recovery.json`；补抽后的 `stage4_properties.json` 再交给 Stage 5 和候选发布器。
 
@@ -212,6 +221,55 @@ sample_data/processed_documents/
 ```text
 output_preview/
 ```
+
+每篇文献会得到 Stage 0–5 的原始 JSON、Stage 4R 的恢复报告、`candidate.json` 和
+`report_candidate.html`；Stage 6 校验通过的文献另外得到 `final.json` 和 `report.html`。
+
+#### 直接调用 batch_runner（需要自定义参数时）
+
+```powershell
+python extraction/batch_runner.py --preview `
+  --input-dir  ./sample_data/processed_documents `
+  --output-dir ./output_preview `
+  --workers 8 --llm-workers 4
+```
+
+`--preview` 一个开关就同时做了四件事，不需要再逐个 Stage 指定：
+
+1. 在 Stage 4 和 Stage 5 之间插入 Stage 4R 表格恢复（自动带 `--apply`）；
+2. 给 Stage 1–5 加 `--preview-relaxed`，失败时先尝试离线重放恢复；
+3. 给 Stage 6 加 `--preview-relaxed`（本次新增）；
+4. 最后发布 `candidate.json` 和 `report_candidate.html`，某个 Stage 失败时也照常发布。
+
+#### 只补 Stage 6 和最终产物（不调模型，不花钱）
+
+Stage 0–5 的产物已经在手上、只想重跑校验和合并时：
+
+```powershell
+python extraction/stages/stage6_validate_merge.py --batch --preview-relaxed `
+  --input-root ./output_preview --output-root ./output_preview
+```
+
+去掉 `--preview-relaxed` 就是 Strict 校验，代码路径与本次改动前完全一致。
+
+#### 只补 candidate（不调模型，不花钱）
+
+```powershell
+Get-ChildItem ./output_preview -Directory -Filter reference_no_* | ForEach-Object {
+  python preview/publish_candidate.py --ref-no $_.Name `
+    --input-root ./output_preview --output-root ./output_preview
+}
+```
+
+`publish_candidate.py` 一次只处理一篇，没有 `--batch`，所以这里用循环。
+`--ref-no` 需要传完整目录名（含 `reference_no_` 前缀）。传错或目录不存在时脚本会
+报错退出（exit code 非 0），不会创建输出目录，也不会写出空的 `candidate.json`。
+
+`candidate.json` 由这个脚本直接读取 Stage 0–5 的 JSON 合并而成，**不经过 Stage 6**，
+因此 Stage 6 是否通过不影响它能否生成。
+
+> Preview / Strict 的全部分支、命令行开关、两个容易混淆的 retry 设置，以及
+> `evidence_matcher` 的定位优先级，见 `docs/Preview分支与开关说明.md`。
 
 ### 6.2 Strict
 
@@ -326,8 +384,23 @@ Preview 的原则是：不伪造事实、不修改数值和证据；局部对象
 - Stage 2：重复 mention 能唯一归属时自动修复，否则标记 unresolved；实体同时包含具体名称和样品代号时，优先采用有原文支持的具体名称；
 - Stage 3：结构和 Process 图合法时，局部 `sample_label_raw` evidence 定位问题可保留并 warning；
 - Stage 4/5：单个可选字段 evidence 无法定位时删除字段；对象整体不可信时删除对象；
+- Stage 6：证据的**表示层**差异经 `evidence_matcher` 确定性定位确认后降级为 warning；无法通过的单个对象进入 `rejected_objects`，不再连坐整篇；
+- Stage 6：删除对象后确定性清扫悬空引用，并输出 `preview_publication_summary` 做对象守恒检查；
+- Stage 6：Characterization 方法允许表级 locator；Property 和 Series Point 仍要求单元格级定位；
+- Stage 4R：恢复值的 evidence 直接使用稳定 `cell_id` 对应的 Stage 0 单元格文本；
+- Stage 3：Sample 新增 `polymer_type` 和 `material_type`，无证据时保持 `null`。
 - 非法 JSON：先做有限、确定性的语法修复；仍无法解析时保存原始响应，并生成 degraded 空运行视图；
 - 所有恢复、删除、unresolved 和空壳结果都必须写入 warning，不允许静默放行。
+
+Stage 6 不降低对象事实标准。以下情况不会作为有效对象发布：
+
+- 证据内容根本不在所引 block 里（按词多重集覆盖率判定，不做模糊数值替换——`44` 不会被原文的 `446` 顶掉）；
+- `cell_id` 指向的单元格与 `cell_value` 声明的值不符；
+- 同一个值在表里出现多次又没有 `cell_id`，无法唯一定位（判 `ambiguous`，不猜第一个）；
+- `table_locator` 指向整张表而不是某个单元格；
+- Property / Series Point 只有整表级 locator、无法定位到具体格子。
+
+能够确定性清扫的反向悬空引用（例如不存在的 `derived_property_ids`）会被删除并记录 warning；不会猜测 `prop003 → prop_s5_003`。无法安全隔离的文档级错误仍会导致整篇失败。
 
 ### 8.3 “流程跑完”不等于“数据完整”
 
@@ -382,6 +455,36 @@ Stage 2 的 `polymer_name` 用于展示实体名称，`source_names`、`resolved
 只有同一实体的 resolved mention 中存在可靠 `polymer_name` 时才会替换。两字符类别代号、复杂配方编码和无法唯一判断的名称继续保留，例如 `HS`、`0-2-0-I`、`1AQA-PPDI`。流程不会根据常识翻译、扩写或猜测名称。
 
 名称更新不改变 `entity_id`、`sample_id`、Sample→Entity 关联或 Property/Series/Point ID。重新发布 Candidate 后，具体名称会同步展示在 `candidate.json` 和 `report_candidate.html`。
+
+### 8.5 怎么判断一份 `final.json` 是不是降级通过的
+
+Preview 产出的 `final.json` 顶层带标记，Strict 产出的**没有**这个字段，可以直接区分：
+
+```json
+{
+  "validation_mode": "preview",
+  "validation_summary": {
+    "validation_status": "degraded",
+    "degraded_codes": [
+      "evidence_matched_after_normalization",
+      "table_locator_matched"
+    ]
+  }
+}
+```
+
+降级码含义：
+
+| code | 含义 |
+|---|---|
+| `evidence_matched` | 按 `cell_id` 精确命中，只是 `source_sentence` 渲染形态不同 |
+| `evidence_matched_after_normalization` | 归一化（LaTeX 命令、控制字符、被 PDF 拆散的数字）后一致 |
+| `evidence_matched_after_block_recovery` | 词覆盖率 90–98%，或一个 `cell_value` 拼了多个单元格且各分量均可定位 |
+| `table_locator_matched*` | locator 标签的渲染形态不同，但单元格可确定性定位 |
+| `table_locator_label_missing` | `row_label` 为 null（表格首列为空），但 `cell_id` 能定位到该格 |
+| `table_locator_blank_cell_recovered` | 空单元格 locator 未走稳定路径，但按坐标确认该格确实为空 |
+
+带 `validation_mode: preview` 的数据属于**候选**，未经科学语义人工确认，不得直接宣称可入库。
 
 ## 9. 非法 JSON、网络错误与 failure 回放
 
@@ -446,6 +549,8 @@ output_preview/
 │  ├─ stage4r_recovery.json                  Preview-only 表格召回审计/恢复记录
 │  ├─ stage4_properties.recovery_preview.json Preview-only Stage 4R 合并结果
 │  ├─ stage5_characterizations.json
+│  ├─ final.json                             Stage 6 通过时才有；Preview 下带降级标记
+│  ├─ report.html                            同上
 │  ├─ candidate.json
 │  ├─ report_candidate.html
 │  ├─ stageN_failure.json           仅失败或历史失败时存在
@@ -461,9 +566,9 @@ output_preview/
 
 测试分布：
 
-- `extraction/tests/`：18 个 `test_*.py`，覆盖抽取核心；
+- `extraction/tests/`：19 个 `test_*.py`，覆盖抽取核心；
 - `ocr/tests/`：2 个 `test_*.py`，覆盖 OCR/标准化；
-- `preview/tests/`：2 个 `test_*.py`，覆盖候选发布和验收。
+- `preview/tests/`：2 个 `test_*.py`，覆盖候选发布（含输入目录校验）和验收。
 
 运行全部交付测试：
 
@@ -488,6 +593,15 @@ python -m pytest `
 ```text
 484 passed
 ```
+
+2026-08-11 增加 Stage 6 Preview 与 `evidence_matcher` 后重跑：
+
+```text
+extraction 490 passed / ocr 13 passed / preview 18 passed
+```
+
+（`preview` 由 13 增至 18，是因为新增了 `publish_candidate.py` 输入目录校验的
+5 个用例，见下方 2026-08-11 条目。）
 
 ## 12. 已有验收结论
 
@@ -557,6 +671,76 @@ python -m pytest `
 - 性质别名归一名必须存在于 `property_vocabulary`，避免词表外名称被下游静默丢弃。
 
 交付仓库完整测试为 `484 passed`。本次提交更新代码与文档，仓库自带的历史结果目录仍为 `demo20_20260807` 和 `demo20_preview_20260809`；使用当前代码运行 Preview 时会生成新的 Stage 4R 产物。
+
+### 2026-08-11 Stage 6 Preview 代码验证
+
+本次改动只新增 Preview 分支和 `evidence_matcher` 模块，Strict 分支代码未改动。
+
+在开发机 20 篇上做的对照验证（不调模型，仅重跑 Stage 6）：
+
+- **Strict：改动前后判定逐条一致**，通过数 `0/20` 不变，错误码分布也不变
+  （`evidence_not_in_source` 294、`table_locator_not_in_source` 81、
+  `invalid_table_locator` 16、`unknown_property_reference` 12）；
+- **Preview：`0/20` → `12/20` 通过**，产出 12 份 `final.json` 和 `report.html`，
+  全部带 `validation_mode: preview` / `validation_status: degraded`；
+- 对全部 2809 条 evidence 单独跑 matcher：旧检查已通过 2277 条不受影响（回归 0），
+  旧检查失败的 532 条中救回 520 条（97.7%），其余 9 条 `unresolved`、3 条 `ambiguous`；
+- **12 条经核对确认是真的错**（引用 block 里根本没有该数值），保持判 error，未降级；
+- 数量守恒对账：Stage 4 恢复前 96 + Stage 4R 123 = 恢复后 219；4R 的 123 个 `cell_id`
+  全部进入 candidate（缺失 0）；`property_series` 105 条前后一致且无重编号；异常 0 条。
+
+仍判 error 的残留问题**没有**被降级掩盖，属于待修的真实缺陷：
+
+- `unknown_property_reference` 12 条 / 3 篇：Stage 5 的 `derived_property_ids` 引用了
+  任何 Stage 都不存在的 `prop011`…`prop045`，属于 Stage 5 输出问题，Stage 4R 前后一致；
+- `table_locator_not_in_source` 10 条、`invalid_table_locator` 4 条：locator 指向整张表
+  或坐标字段全为 null；
+- `evidence_not_in_source` 9 条：证据内容确实不在所引 block 内。
+
+本条结论只覆盖 Stage 6 校验行为，不代表重新调用模型抽取时结果不变。
+
+### 2026-08-11 `publish_candidate.py` 输入校验修复
+
+`publish_candidate.py` 此前对不存在的 `--ref-no` **不报错**：它会按传入的名字
+新建输出目录，写出一份 0 条 `property_observations` 的 `candidate.json`，
+并以 exit code 0 退出。最常见的触发方式是漏掉 `reference_no_` 前缀
+（传 `0020284` 而不是 `reference_no_0020284`）。
+
+静默产出错误结果比直接失败更危险——看起来"跑成功了"，实际数据是空的。
+
+现在的行为：
+
+- 输入目录不存在时抛 `CandidatePublishError`，CLI 以非 0 exit code 退出；
+- **不创建输出目录，不写任何 candidate 文件**；
+- 若只是漏了前缀、加上前缀后目录确实存在，错误信息会直接给出正确写法。
+
+不受影响的行为：目录存在、只是缺少某几个 Stage 文件时，仍按原样发布
+candidate（`candidate_partial`），这是 Preview 的既定设计。
+
+### 2026-08-12 A 期与 Stage 3 类型字段验证
+
+本次先完成 Preview A 期和 B 期第一项，不包含正文 fallback、Stage 4 Prompt 增强或 Caption 主体恢复：
+
+- Stage 6 Preview：逐对象隔离、引用清扫、对象守恒统计；
+- locator 分级：Characterization 可表级，Property / Series Point 保持单元格级；
+- Stage 4R：按稳定 `cell_id` 写入精确单元格 evidence；
+- Stage 3：新增 `polymer_type` / `material_type`，并升级 Stage 3 Schema、Prompt 和实现版本；旧 Stage 3 缓存不再静默复用。
+
+在开发机已有 20 篇 Stage 0–5 / Stage 4R 产物上，仅离线重跑 Stage 6（不调用模型）：
+
+- `final.json`：`20/20`；
+- `report.html`：`20/20`；
+- Stage 6 errors：每篇均为 `0`；
+- 发布对象：`3485`；
+- 隔离对象：`15`；
+- 清扫悬空引用：`78`；
+- 对象守恒：`20/20` 通过。
+
+完整测试：`513 passed`。规范化后的 20 篇结果已作为独立数据提交发布到
+`batch_results/demo20_preview_final_20260812/`，没有与功能代码提交混合。
+
+新增 5 个用例（`preview/tests/test_publish_candidate.py`），并通过移除守卫的
+反向对照确认这些用例确实能捕获该缺陷。
 
 ## 13. 便携配置和路径规则
 
@@ -630,6 +814,7 @@ Get-FileHash -Algorithm SHA256 <交付ZIP路径>
 
 更详细的架构、阶段输入输出、现状和风险见：
 
+- `docs/Preview分支与开关说明.md`（Preview / Strict 全部分支和开关的逐项对照）
 - `docs/项目说明与文件清理建议.md`
 - `docs/候选演示流程_20篇现状与重跑风险.md`
 - `preview/README.md`（组件级说明；交付运行路径以本文件为准）
