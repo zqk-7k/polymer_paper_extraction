@@ -23,6 +23,8 @@
 
 代码和正式数据提交请遵守 [CONTRIBUTING.md](CONTRIBUTING.md)、[上游开发者代码与批处理结果交付规范](docs/upstream_code_and_batch_results_standard.md) 与 [`batch_results` 发布规范](docs/batch_results_publishing_standard.md)。生产 CI 会校验批次索引、候选结果和文件 SHA-256。
 
+> **2026-08-14 Preview 类型更新：** Stage 2/3 类型策略升级为可审计的确定性补全。材料配方中的 `composite` 不再被误当成 homopolymer 结构证据；Composite 必须有填料或增强体证据；无填料的多组分共混判为 Compound；成分保持加工会继承 `polymer_type` 和 `material_type`。JSON 与 HTML 始终显式展示 `polymer_type`、`copolymer_type`、`material_type`，未知值保留 `null` / `not specified`。新增固定 GT 评测、离线回填和正式批次发布校验工具。最新 20 篇结果位于 `batch_results/demo20_types_preview_20260814/`：实体类型弃权 10.65%，Sample 材料类型弃权 13.93%，Blend 文档检测在实体或 Sample 口径下 P/R 为 1.00/1.00，Preview 对象守恒 20/20。
+
 ## 1. 交付包目录总览
 
 ```text
