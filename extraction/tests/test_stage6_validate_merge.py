@@ -12,6 +12,8 @@ from schema.polymer_schema import (
     ProcessStep,
     Stage0Element,
     Stage1Document,
+    Stage2Document,
+    Stage3Document,
     StageCost,
     TokenUsageSummary,
 )
@@ -99,6 +101,26 @@ def all_stages():
 
 
 class Stage6Tests(unittest.TestCase):
+    def test_copolymer_type_is_preserved_in_final_entity_and_sample(self) -> None:
+        stages = list(all_stages())
+        stage2_payload = stages[2].model_dump(mode="json")
+        stage2_payload["polymer_entities"][0]["polymer_type"] = "copolymer"
+        stage2_payload["polymer_entities"][0]["copolymer_type"] = "block"
+        stages[2] = Stage2Document.model_validate(stage2_payload)
+        stage3_payload = stages[3].model_dump(mode="json")
+        stage3_payload["samples"][0]["polymer_type"] = "copolymer"
+        stage3_payload["samples"][0]["copolymer_type"] = "block"
+        stage3_payload["samples"][0]["material_type"] = "compound"
+        stages[3] = Stage3Document.model_validate(stage3_payload)
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertEqual(validation.error_count, 0)
+        assert final is not None
+        self.assertEqual(final.polymer_entities[0].copolymer_type, "block")
+        self.assertEqual(final.samples[0].copolymer_type, "block")
+        self.assertEqual(final.samples[0].material_type, "compound")
+
     def test_merges_and_deduplicates_evidence(self) -> None:
         stages = list(all_stages())
         condition = stages[4].measurement_conditions[0]
@@ -690,6 +712,11 @@ class Stage6Tests(unittest.TestCase):
         self.assertTrue(published)
         self.assertIn("doi", written["paper"])
         self.assertIsNone(written["paper"]["doi"])
+        self.assertIn("polymer_type", written["polymer_entities"][0])
+        self.assertIn("copolymer_type", written["polymer_entities"][0])
+        self.assertIn("polymer_type", written["samples"][0])
+        self.assertIn("copolymer_type", written["samples"][0])
+        self.assertIn("material_type", written["samples"][0])
         self.assertIn('"cost_summary"', json.dumps(written))
         self.assertEqual(
             len(written["property_observations"]),
@@ -861,6 +888,39 @@ class Stage6PreviewTests(unittest.TestCase):
         }
         self.assertIn("prop001", rejected)
         self.assertIn("evidence_not_in_source", rejected["prop001"].error_codes)
+        self.assertTrue(final.preview_publication_summary.conservation_passed)
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_dependency_rejection_uses_property_id(self) -> None:
+        """Condition 被隔离时，依赖 Property 不能误记成它引用的 Sample。"""
+        stages = list(all_stages())
+        stage4 = stages[4].model_copy(deep=True)
+        condition = stage4.measurement_conditions[0]
+        condition.evidence = Evidence(
+            block_id="P_2_0",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="text",
+            source_sentence="This fabricated condition is absent from the source.",
+        )
+        stages[4] = stage4
+
+        final, preview = validate_and_merge(*stages, preview=True)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertIn("s001", {item.sample_id for item in final.samples})
+        self.assertNotIn(
+            "prop001", {item.property_id for item in final.property_observations}
+        )
+        rejected = {
+            item.object_id: item for item in final.rejected_objects or []
+        }
+        self.assertEqual(rejected["prop001"].object_type, "property")
+        self.assertEqual(
+            final.preview_publication_summary.rejected_counts,
+            {"measurement_condition": 1, "property": 1},
+        )
         self.assertTrue(final.preview_publication_summary.conservation_passed)
         self.assertEqual(preview.errors, [])
 

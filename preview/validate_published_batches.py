@@ -9,15 +9,22 @@ import re
 import sys
 from datetime import date
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any, Iterable, Sequence
 
 
 COLLECTION_RE = re.compile(r"^[a-z0-9][a-z0-9._-]*_(\d{8})$")
 REF_RE = re.compile(r"^reference_no_\d+$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 GIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
-PROHIBITED_NAMES = {".env", ".env.local"}
+PROHIBITED_NAMES = {".env", ".env.local", "progress_state.json", "run_manifest.json"}
 PROHIBITED_SUFFIXES = {".db", ".key", ".log", ".pem", ".sqlite", ".sqlite3"}
+MAX_FILE_BYTES = 95 * 1024 * 1024
+ABSOLUTE_PATH_RE = re.compile(r"(?:[A-Za-z]:\\|/Users/|/home/[^/]+/)")
+SECRET_RE = re.compile(
+    r"(?:github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+|sk-[A-Za-z0-9]{16,}|"
+    r"-----BEGIN [A-Z ]*PRIVATE KEY-----)",
+    re.IGNORECASE,
+)
 REQUIRED_CANDIDATE_FIELDS = {
     "document_id",
     "paper",
@@ -78,6 +85,79 @@ def _validate_v2_metadata(index: dict[str, Any], label: str, errors: list[str]) 
         errors.append(f"{label}: pipeline.stages is missing {', '.join(missing)}")
     if not SHA256_RE.fullmatch(str(pipeline.get("config_sha256") or "")):
         errors.append(f"{label}: pipeline.config_sha256 must be a SHA-256 digest")
+
+
+def _collect_ids(items: Any, field: str, label: str, errors: list[str]) -> set[str]:
+    values = items if isinstance(items, list) else []
+    ids = [str(item.get(field) or "") for item in values if isinstance(item, dict)]
+    valid = {value for value in ids if value}
+    if len(ids) != len(values) or len(valid) != len(values):
+        errors.append(f"{label}: {field} values must be present and unique")
+    return valid
+
+
+def _check_subset(
+    values: Iterable[Any],
+    allowed: set[str],
+    label: str,
+    errors: list[str],
+) -> None:
+    invalid = sorted({str(value) for value in values if value is not None and str(value) not in allowed})
+    if invalid:
+        errors.append(f"{label}: dangling references {invalid[:5]}")
+
+
+def _walk_evidence_ids(value: Any) -> Iterable[str]:
+    if isinstance(value, dict):
+        evidence_ids = value.get("evidence_ids")
+        if isinstance(evidence_ids, list):
+            yield from (str(item) for item in evidence_ids)
+        for key, child in value.items():
+            if key != "evidence_ids":
+                yield from _walk_evidence_ids(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from _walk_evidence_ids(child)
+
+
+def _validate_candidate_relationships(
+    candidate: dict[str, Any],
+    label: str,
+    errors: list[str],
+) -> None:
+    entity_ids = _collect_ids(candidate.get("polymer_entities"), "entity_id", f"{label}/polymer_entities", errors)
+    sample_ids = _collect_ids(candidate.get("samples"), "sample_id", f"{label}/samples", errors)
+    evidence_ids = _collect_ids(candidate.get("evidence"), "evidence_id", f"{label}/evidence", errors)
+
+    for sample in candidate.get("samples") or []:
+        if isinstance(sample, dict) and sample.get("refers_to_entity") is not None:
+            _check_subset([sample.get("refers_to_entity")], entity_ids, f"{label}/Sample.refers_to_entity", errors)
+    for step in candidate.get("process_steps") or []:
+        if isinstance(step, dict):
+            _check_subset(
+                [*(step.get("input_sample_ids") or []), *(step.get("output_sample_ids") or [])],
+                sample_ids,
+                f"{label}/ProcessStep.sample_ids",
+                errors,
+            )
+    for observation in candidate.get("property_observations") or []:
+        if isinstance(observation, dict) and observation.get("sample_id") is not None:
+            _check_subset([observation.get("sample_id")], sample_ids, f"{label}/Property.sample_id", errors)
+    for characterization in candidate.get("characterizations") or []:
+        if isinstance(characterization, dict):
+            _check_subset(
+                characterization.get("sample_ids") or [],
+                sample_ids,
+                f"{label}/Characterization.sample_ids",
+                errors,
+            )
+            _check_subset(
+                characterization.get("entity_ids") or [],
+                entity_ids,
+                f"{label}/Characterization.entity_ids",
+                errors,
+            )
+    _check_subset(_walk_evidence_ids(candidate), evidence_ids, f"{label}/evidence_ids", errors)
 
 
 def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list[str], list[str]]:
@@ -160,6 +240,8 @@ def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list
             publication = candidate.get("publication")
             if not isinstance(publication, dict) or publication.get("status") != "complete":
                 errors.append(f"{label}/{ref_no}: candidate publication status must be complete")
+            if is_v2:
+                _validate_candidate_relationships(candidate, f"{label}/{ref_no}", errors)
 
         files = document.get("files")
         if not isinstance(files, list) or not files:
@@ -188,6 +270,15 @@ def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list
                 actual_hash = hashlib.sha256(canonical_payload).hexdigest()
                 if actual_hash != expected_hash:
                     errors.append(f"{label}/{ref_no}: SHA-256 mismatch for {file_name}")
+        if is_v2:
+            manifest_names = {
+                str(file_record.get("name") or "")
+                for file_record in files
+                if isinstance(file_record, dict)
+            }
+            actual_names = {path.name for path in result_dir.iterdir() if path.is_file()}
+            if manifest_names != actual_names:
+                errors.append(f"{label}/{ref_no}: files manifest does not match directory contents")
 
     if len(indexed_refs) != len(set(indexed_refs)):
         errors.append(f"{label}: duplicate reference_no values in documents")
@@ -207,8 +298,14 @@ def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list
             continue
         if path.name in PROHIBITED_NAMES or path.suffix.lower() in PROHIBITED_SUFFIXES:
             errors.append(f"{label}: prohibited file in published data: {path.relative_to(root)}")
-        if path.stat().st_size >= 95 * 1024 * 1024:
+        if path.stat().st_size >= MAX_FILE_BYTES:
             errors.append(f"{label}: file is too large for normal GitHub publication: {path.relative_to(root)}")
+        if is_v2 and path.suffix.lower() in CANONICAL_TEXT_SUFFIXES:
+            content = path.read_text(encoding="utf-8-sig", errors="replace")
+            if ABSOLUTE_PATH_RE.search(content):
+                errors.append(f"{label}: local absolute path found in published data: {path.relative_to(root)}")
+            if SECRET_RE.search(content):
+                errors.append(f"{label}: possible secret found in published data: {path.relative_to(root)}")
 
     return errors, warnings
 

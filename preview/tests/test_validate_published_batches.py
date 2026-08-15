@@ -109,3 +109,24 @@ def test_v2_text_hash_uses_canonical_lf_line_endings(tmp_path: Path) -> None:
     errors, _ = validate_collection(collection)
 
     assert errors == []
+
+
+def test_dangling_entity_reference_fails(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    candidate_path = collection / "reference_no_0000001" / "candidate.json"
+    candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+    candidate["polymer_entities"] = [{"entity_id": "pe001"}]
+    candidate["samples"] = [{"sample_id": "s001", "refers_to_entity": "pe999"}]
+    candidate_path.write_text(json.dumps(candidate), encoding="utf-8")
+
+    index_path = collection / "RESULT_INDEX.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    normalized = candidate_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    record = index["documents"][0]["files"][0]
+    record["size_bytes"] = len(normalized)
+    record["sha256"] = hashlib.sha256(normalized).hexdigest()
+    index_path.write_text(json.dumps(index), encoding="utf-8")
+
+    errors, _ = validate_collection(collection)
+
+    assert any("dangling references" in error for error in errors)
