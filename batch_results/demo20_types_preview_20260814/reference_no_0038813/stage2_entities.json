@@ -5,7 +5,6 @@
     {
       "entity_id": "pe001",
       "polymer_name": "polystyrene",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -31,22 +30,27 @@
       "confidence": {
         "score": 0.99
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe002",
       "polymer_name": "poly(amide-urea)s",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "poly(amide-urea)s"
+        "poly(amide-urea)s",
+        "polyureas"
       ],
       "resolved_from_mentions": [
         "m002",
         "m007",
+        "m027",
         "m039",
-        "m048"
+        "m048",
+        "m057",
+        "m059"
       ],
       "evidence": {
         "block_id": "P_4_66",
@@ -75,47 +79,43 @@
         }
       ],
       "confidence": {
-        "score": 0.96
+        "score": 0.9
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe003",
       "polymer_name": "polyureas",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
         "polyureas"
       ],
       "resolved_from_mentions": [
-        "m003",
-        "m027",
-        "m057",
-        "m059"
+        "m003"
       ],
       "evidence": {
-        "block_id": "P_7_100",
-        "page": 7,
+        "block_id": "P_2_46",
+        "page": 2,
         "bbox": [
-          53.0,
-          505.0,
-          465.0,
-          604.0
+          529.0,
+          248.0,
+          942.0,
+          675.0
         ],
         "source_type": "text",
-        "source_sentence": "The solubility behavior of the polyureas is summarized in Table 5."
+        "source_sentence": "Diamines are valuable monomers for the preparation of variety of polymers including polyureas, polyamides, and polyimides.<sup>15–17</sup>"
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.83
+        "score": 0.78
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe004",
       "polymer_name": "polyamides",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -134,18 +134,18 @@
           675.0
         ],
         "source_type": "text",
-        "source_sentence": "Diamines are valuable monomers for the preparation of variety of polymers including polyureas, polyamides, and polyimides.<sup>15–17</sup> For this purpose, the anthraquinone containing diamines were prepared via a two-step route."
+        "source_sentence": "Diamines are valuable monomers for the preparation of variety of polymers including polyureas, polyamides, and polyimides.<sup>15–17</sup>"
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.98
+        "score": 0.95
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe005",
       "polymer_name": "polyimides",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -164,18 +164,20 @@
           675.0
         ],
         "source_type": "text",
-        "source_sentence": "Diamines are valuable monomers for the preparation of variety of polymers including polyureas, polyamides, and polyimides.<sup>15–17</sup> For this purpose, the anthraquinone containing diamines were prepared via a two-step route."
+        "source_sentence": "Diamines are valuable monomers for the preparation of variety of polymers including polyureas, polyamides, and polyimides.<sup>15–17</sup>"
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.98
+        "score": 0.95
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe006",
       "polymer_name": "1AQA-PPDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -193,27 +195,28 @@
         "m049"
       ],
       "evidence": {
-        "block_id": "P_4_64",
+        "block_id": "I_4_69",
         "page": 4,
         "bbox": [
-          87.0,
-          274.0,
-          500.0,
-          374.0
+          534.0,
+          61.0,
+          937.0,
+          222.0
         ],
-        "source_type": "text",
-        "source_sentence": "To optimize the reaction conditions of these primary amines with isocyanates, the polyaddition of 1AQA with PPDI was investigated. The effect of reaction temperature on the inherent viscosity of the polyurea was examined in NMP at temperature between 30 and 1508C (Fig. 2). The optimized temperature range was between 60 and $1 1 0 ^ { \\circ } \\mathrm { C } ,$, giving polyurea with the highest molecular weights."
+        "source_type": "image",
+        "source_sentence": "Figure 2. Temperature dependence of inherent viscosity of polyurea 1AQA-PPDI formed by the polyaddition of 1AQA (5.0 mmol) with PPDI (5.0 mmol) in NMP for 10 hr."
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.94
+        "score": 0.96
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe007",
       "polymer_name": "1AQA-NDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -240,14 +243,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe008",
       "polymer_name": "1AQA-MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -262,27 +266,28 @@
         "m051"
       ],
       "evidence": {
-        "block_id": "P_6_84",
-        "page": 6,
+        "block_id": "T_5_77",
+        "page": 5,
         "bbox": [
-          87.0,
-          249.0,
-          500.0,
-          476.0
+          55.0,
+          80.0,
+          905.0,
+          522.0
         ],
-        "source_type": "text",
-        "source_sentence": "Thermal behavior of the polymers was studied using dynamic mechanical thermal analysis (DMTA). By increasing the temperature from 30 to $3 0 0 ^ { \\circ } \\mathrm { C }$, one transition was seen for the polymers at which tan d went through a maximum. This transition was related to the glass transition temperature of the polymers. Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\mathrm { g } } )$was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers. Thermal analysis of the polymers is summarized in Table 3 and the representative curves of DMTA for 1AQA-PPDI $( T _ { \\mathrm { g } } =$1908C) and DSC for 1AQA-MDI $( T _ { \\mathrm { g } } { = } 1 7 8 ^ { \\circ } \\mathrm { C } )$are shown in Figs 4 and 5, respectively. The glass transition temperature of 1AQA-PPDI was higher than 1AQA-MDI due to the more rigidity of PPDI with respect to MDI structure."
+        "source_type": "table",
+        "source_sentence": "1AQA-MDI"
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe009",
       "polymer_name": "1AQA-H $_{12}$ MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -309,14 +314,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe010",
       "polymer_name": "2AQA-PPDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -343,14 +349,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe011",
       "polymer_name": "2AQA-NDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -377,14 +384,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe012",
       "polymer_name": "2AQA-MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -411,14 +419,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe013",
       "polymer_name": "2AQA-H $_{12}$ MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -445,15 +454,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe014",
       "polymer_name": "PPDI-derived polyurea",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe003",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -476,15 +485,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.76
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe015",
       "polymer_name": "$\\mathrm { H } _ { 1 2 } \\mathrm { M D I }$-derived polyurea",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe003",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -507,15 +516,15 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.76
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe016",
       "polymer_name": "Aromatic polyureas",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe003",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -538,7 +547,7 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.92
+        "score": 0.73
       },
       "copolymer_type": null
     }
@@ -552,139 +561,34 @@
       "gpt-5.6-terra-2026-07-09"
     ],
     "prompt_id": "polymer.stage2.polymer_entity",
-    "prompt_version": "1.3.0",
-    "prompt_sha256": "0d376da340b979a77fcd231e0148cc26c8b9d125f7209025c7055483abb7d7e1",
+    "prompt_version": "1.5.1",
+    "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
     "input_hash": "d0bc034ad8d4b3d94620531fbde056d1489de0d04e001f7ac1e1855f3fab1105",
     "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
-    "cache_key": "6665bbae7b1491ad792e65cfbed2684eb247da202ab3e88b7eab4b734ff1907a",
+    "cache_key": "7d132cb82b79b764f7cfe3edb7df806df0187e79341a75ab6b2a0ff290b3dd85",
     "output_schema_version": "polymer_entity_schema.v3",
-    "implementation_version": "1.4.0",
+    "implementation_version": "1.6.1",
     "context_block_count": 54,
     "context_chars": 34843,
     "call_count": 1,
     "usage": {
-      "input_tokens": 20076,
-      "output_tokens": 3858,
+      "input_tokens": 20297,
+      "output_tokens": 3342,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 20076,
-      "total_tokens": 23934
+      "billable_input_tokens": 20297,
+      "total_tokens": 23639
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "17",
       "output_per_million": "101",
-      "input_cost": "0.341292",
-      "output_cost": "0.389658",
-      "total_cost": "0.730950"
+      "input_cost": "0.345049",
+      "output_cost": "0.337542",
+      "total_cost": "0.682591"
     },
     "status": "success"
   },
-  "warnings": [
-    {
-      "stage": "stage2_polymer_entity",
-      "code": "polymer_type_default_inferred",
-      "message": "Backfill：无共聚或共混反证的实体已推断为 homopolymer",
-      "items": [
-        {
-          "entity_id": "pe001",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe002",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe003",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe004",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe005",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe006",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe007",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe008",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe009",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe010",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe011",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe012",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe013",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe014",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe015",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        },
-        {
-          "entity_id": "pe016",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证"
-        }
-      ],
-      "backfill": true
-    }
-  ]
+  "warnings": []
 }

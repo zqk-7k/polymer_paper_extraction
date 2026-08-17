@@ -6,12 +6,13 @@
       "characterization_id": "char001",
       "method_raw": "SEC",
       "method_normalized": "GPC",
-      "sample_id": "s003",
+      "sample_id": "s001",
+      "entity_id": "pe001",
       "sample_resolution_status": "resolved",
       "parameters": {
         "eluent": "water"
       },
-      "result_summary": "Mn of the obtained poly(MPC) brushes was estimated to be approximately 30000~120000",
+      "result_summary": "Mₙ of poly(MPC) brushes on silicon wafer is approximately 30000 ~ 120000",
       "derived_property_ids": [],
       "evidence": [
         {
@@ -33,14 +34,36 @@
     },
     {
       "characterization_id": "char002",
-      "method_raw": "AFM observation",
+      "method_raw": "AFM",
       "method_normalized": "AFM",
-      "sample_id": "s003",
+      "sample_id": "s001",
+      "entity_id": "pe001",
       "sample_resolution_status": "resolved",
-      "parameters": {
-        "state": "dried"
+      "measurement_context": {
+        "other_conditions": {
+          "state": "dried"
+        },
+        "other_condition_evidence": {
+          "state": [
+            {
+              "block_id": "P_3_40",
+              "page": 3,
+              "bbox": [
+                89.0,
+                569.0,
+                486.0,
+                915.0
+              ],
+              "source_type": "text",
+              "source_sentence": "the surface roughness was $0 . 8 \\sim 1 . 5$nm in the dried state in a $5 \\times 5 \\mu \\mathrm { m } ^ { 2 }$scanning area."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
       },
-      "result_summary": "Homogeneous poly(MPC) layer formed on substrate, surface roughness 0.8~1.5 nm",
+      "parameters": {},
+      "result_summary": "Homogeneous poly(MPC) polymer layer formed on substrate with surface roughness 0.8~1.5 nm in dried state; adhesion and lateral force measured in aqueous solution",
       "derived_property_ids": [],
       "evidence": [
         {
@@ -54,24 +77,7 @@
           ],
           "source_type": "text",
           "source_sentence": "The AFM observation revealed that a homogeneous polymer layer was formed on the substrate, and the surface roughness was $0 . 8 \\sim 1 . 5$nm in the dried state in a $5 \\times 5 \\mu \\mathrm { m } ^ { 2 }$scanning area."
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char003",
-      "method_raw": "AFM",
-      "method_normalized": "AFM",
-      "sample_id": "s004",
-      "sample_resolution_status": "resolved",
-      "parameters": {
-        "normal_load": "10 nN"
-      },
-      "result_summary": "Adhesion and lateral force of poly(MPC) brush measured in ethanol/water and NaCl aqueous solutions",
-      "derived_property_ids": [],
-      "evidence": [
+        },
         {
           "block_id": "P_6_84",
           "page": 6,
@@ -83,18 +89,6 @@
           ],
           "source_type": "text",
           "source_sentence": "Figure 4 shows adhesion and lateral force for the high-density poly(MPC) brush surface measured by AFM using a colloidal probe in aqueous solution."
-        },
-        {
-          "block_id": "I_6_80",
-          "page": 6,
-          "bbox": [
-            500.0,
-            33.0,
-            813.0,
-            208.0
-          ],
-          "source_type": "image",
-          "source_sentence": "Adhesion force (a) and friction (lateral) force (b) of poly(MPC) brush in a ethanol/water $( 7 0 / 3 0 , \\boldsymbol { \\mathrm v } / \\boldsymbol { \\mathrm v } )$ solution and NaCl aqueous solution measured by AFM using a colloidal probe cantilever with silica sphere $( d = 5 0 \\ \\mu \\mathrm { m } )$ Friction force is represented by output of the photo diode at a scan rate of 10 $\\mu \\mathrm { m } / \\mathsf { s }$ under normal load of 10 nN."
         }
       ],
       "confidence": {
@@ -114,30 +108,30 @@
     "prompt_version": "1.6.2",
     "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "72b661e059aee0bddfd1c5ea21a6b05cd05767bd38c7bcdbff975c0cc000483b",
+    "input_hash": "5d89011490d4ba004d26f6bc4451a31ab98fe4a6ca38b133d7b809228598311c",
     "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-    "cache_key": "248b068c6670186f2b7c50d915c965bee65c143633e0e33b2562527351e0a72a",
+    "cache_key": "052783c4a1aec0f379f3dd8efc03584f53880674b934399898ea9cf72cbf607e",
     "output_schema_version": "characterization_schema.v4",
     "implementation_version": "1.7.1",
     "context_block_count": 23,
     "context_chars": 17377,
     "call_count": 1,
     "usage": {
-      "input_tokens": 12086,
-      "output_tokens": 4950,
+      "input_tokens": 13130,
+      "output_tokens": 3893,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 12086,
-      "total_tokens": 17036
+      "billable_input_tokens": 13130,
+      "total_tokens": 17023
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.05221152",
-      "output_cost": "0.1442925",
-      "total_cost": "0.19650402"
+      "input_cost": "0.0567216",
+      "output_cost": "0.11348095",
+      "total_cost": "0.17020255"
     },
     "status": "success"
   },
@@ -146,18 +140,18 @@
       "stage": "stage5_characterization",
       "code": "preview_unsupported_characterization_details_cleared",
       "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
-      "field_path": "characterizations[1]",
+      "field_path": "characterizations[0]",
       "fields": [
-        "parameters"
+        "measurement_context"
       ]
     },
     {
       "stage": "stage5_characterization",
       "code": "preview_unsupported_characterization_details_cleared",
       "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
-      "field_path": "characterizations[2]",
+      "field_path": "characterizations[1]",
       "fields": [
-        "parameters"
+        "measurement_context.other_conditions"
       ]
     },
     {

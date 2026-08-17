@@ -1161,13 +1161,15 @@
         "m025",
         "m029",
         "m030",
+        "m033",
         "m036",
         "m049",
         "m052",
-        "m053",
         "m054",
         "m059",
         "m061",
+        "m066",
+        "m071",
         "m077",
         "m084",
         "m096"
@@ -1177,7 +1179,7 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.92
+        "score": 0.98
       },
       "copolymer_type": null
     },
@@ -1201,12 +1203,16 @@
         "m027",
         "m032",
         "m038",
+        "m041",
         "m046",
         "m055",
         "m058",
         "m062",
+        "m074",
         "m075",
         "m083",
+        "m089",
+        "m093",
         "m098"
       ],
       "evidence_ids": [
@@ -1214,7 +1220,7 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.88
+        "score": 0.98
       },
       "copolymer_type": null
     },
@@ -1239,12 +1245,18 @@
         "m026",
         "m028",
         "m031",
+        "m034",
         "m037",
+        "m040",
         "m047",
         "m056",
         "m060",
+        "m069",
+        "m073",
         "m076",
         "m082",
+        "m090",
+        "m094",
         "m097"
       ],
       "evidence_ids": [
@@ -1252,100 +1264,40 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.88
+        "score": 0.96
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe004",
-      "polymer_name": "PLA",
+      "polymer_name": "PDLLA=PCL",
+      "polymer_type": "polymer_blend",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "PLA"
+        "PDLLA=PCL",
+        "PCL=PDLLA"
       ],
       "resolved_from_mentions": [
-        "m045",
-        "m048",
-        "m095"
+        "m063",
+        "m068",
+        "m079",
+        "m100"
       ],
       "evidence_ids": [
-        "ev022"
+        "ev032"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.8
+        "score": 0.97
       },
-      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe005",
-      "polymer_name": "PLLA",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "PLLA"
-      ],
-      "resolved_from_mentions": [
-        "m080"
-      ],
-      "evidence_ids": [
-        "ev039"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.8
-      },
-      "polymer_type": null,
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe006",
-      "polymer_name": "PEO",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "PEO"
-      ],
-      "resolved_from_mentions": [
-        "m081"
-      ],
-      "evidence_ids": [
-        "ev039"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.8
-      },
-      "polymer_type": null,
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe007",
-      "polymer_name": "PDLA",
-      "polymer_type": "homopolymer",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "PDLA"
-      ],
-      "resolved_from_mentions": [
-        "m085"
-      ],
-      "evidence_ids": [
-        "ev043"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.64
-      },
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe008",
       "polymer_name": "PDLLA20/PCL80",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe004",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1361,27 +1313,24 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.91
+        "score": 0.96
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe009",
+      "entity_id": "pe006",
       "polymer_name": "PDLLA50/PCL50",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe004",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
         "PDLLA50/PCL50",
-        "PCL",
-        "PDLLA",
         "PCL 50% PDLLA=50% PCL",
         "50%PDLLA= 50%PCL"
       ],
       "resolved_from_mentions": [
         "m016",
-        "m033",
-        "m034",
         "m035",
         "m050",
         "m064"
@@ -1391,14 +1340,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe010",
+      "entity_id": "pe007",
       "polymer_name": "PDLLA80/PCL20",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe004",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1414,14 +1364,40 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.91
+        "score": 0.96
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe011",
+      "entity_id": "pe008",
+      "polymer_name": "PLGA=PCL",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PLGA=PCL",
+        "PLGA= PCL"
+      ],
+      "resolved_from_mentions": [
+        "m057",
+        "m070",
+        "m078",
+        "m099"
+      ],
+      "evidence_ids": [
+        "ev035"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.97
+      },
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe009",
       "polymer_name": "PLGA20/PCL80",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe008",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1435,14 +1411,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.9
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe012",
+      "entity_id": "pe010",
       "polymer_name": "PLGA50/PCL50",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe008",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1458,14 +1435,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.91
+        "score": 0.97
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe013",
+      "entity_id": "pe011",
       "polymer_name": "PLGA80/PCL20",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe008",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1479,14 +1457,40 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.9
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe014",
+      "entity_id": "pe012",
+      "polymer_name": "PDLLA=PLGA",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PDLLA=PLGA",
+        "PDLLA= PLGA"
+      ],
+      "resolved_from_mentions": [
+        "m072",
+        "m086",
+        "m091",
+        "m101"
+      ],
+      "evidence_ids": [
+        "ev044"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      },
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe013",
       "polymer_name": "PDLLA80/PLGA20",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe012",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1499,18 +1503,19 @@
         "m092"
       ],
       "evidence_ids": [
-        "ev048"
+        "ev021"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.91
+        "score": 0.97
       },
       "copolymer_type": null
     },
     {
-      "entity_id": "pe015",
+      "entity_id": "pe014",
       "polymer_name": "PDLLA50/PLGA50",
       "polymer_type": "polymer_blend",
+      "variant_of": "pe012",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1528,148 +1533,125 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.92
+        "score": 0.98
+      },
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe015",
+      "polymer_name": "PDLLA20/PLGA20",
+      "polymer_type": "polymer_blend",
+      "variant_of": "pe012",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PDLLA20/PLGA20",
+        "20%PDLLA= 80%PLGA",
+        "20%PDLLA=80%PLGA"
+      ],
+      "resolved_from_mentions": [
+        "m023",
+        "m044",
+        "m088"
+      ],
+      "evidence_ids": [
+        "ev021"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.78
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe016",
-      "polymer_name": "PDLLA20/PLGA20",
-      "polymer_type": "polymer_blend",
+      "polymer_name": "PLA",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "PDLLA20/PLGA20"
+        "PLA"
       ],
       "resolved_from_mentions": [
-        "m023"
+        "m045",
+        "m048",
+        "m095"
       ],
       "evidence_ids": [
-        "ev014"
+        "ev022"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.65
+        "score": 0.88
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe017",
-      "polymer_name": "20%PDLLA= 80%PLGA",
-      "polymer_type": "polymer_blend",
+      "polymer_name": "PLLA",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "20%PDLLA= 80%PLGA",
-        "20%PDLLA=80%PLGA"
+        "PLLA"
       ],
       "resolved_from_mentions": [
-        "m044",
-        "m088"
+        "m080"
       ],
       "evidence_ids": [
-        "ev046"
+        "ev039"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.91
+        "score": 0.86
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe018",
-      "polymer_name": "PDLLA=PCL",
-      "polymer_type": "polymer_blend",
+      "polymer_name": "PEO",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "PDLLA=PCL",
-        "PCL",
-        "PCL=PDLLA",
-        "PDLLA"
+        "PEO"
       ],
       "resolved_from_mentions": [
-        "m063",
-        "m066",
-        "m068",
-        "m069",
-        "m079",
-        "m100"
+        "m081"
       ],
       "evidence_ids": [
-        "ev032"
+        "ev039"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.88
+        "score": 0.86
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe019",
-      "polymer_name": "PLGA= PCL",
-      "polymer_type": "polymer_blend",
+      "polymer_name": "PDLA",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "PLGA=PCL",
-        "PLGA= PCL",
-        "PCL",
-        "PLGA"
+        "PDLA"
       ],
       "resolved_from_mentions": [
-        "m057",
-        "m070",
-        "m071",
-        "m074",
-        "m078",
-        "m099"
+        "m085"
       ],
       "evidence_ids": [
-        "ev035"
+        "ev043"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.88
+        "score": 0.62
       },
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe020",
-      "polymer_name": "PDLLA=PLGA",
-      "polymer_type": "polymer_blend",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "PDLLA=PLGA",
-        "PDLLA",
-        "PLGA",
-        "PDLLA= PLGA"
-      ],
-      "resolved_from_mentions": [
-        "m072",
-        "m073",
-        "m086",
-        "m089",
-        "m090",
-        "m091",
-        "m093",
-        "m094",
-        "m101"
-      ],
-      "evidence_ids": [
-        "ev044"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.9
-      },
+      "polymer_type": null,
       "copolymer_type": null
     }
   ],
   "unresolved_mention_ids": [
-    "m040",
-    "m041"
+    "m053"
   ],
   "samples": [
     {
@@ -1678,16 +1660,17 @@
       "refers_to_entity": "pe001",
       "polymer_name": "Poly (e-caprolactone)",
       "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "Tone Polymer, P-676 TM",
+      "sample_label_raw": "Poly (e-caprolactone)",
+      "state_description": "granular form",
       "intended_use": [],
       "evidence_ids": [
         "ev055"
       ],
       "confidence": {
-        "score": 0.9
+        "score": 1.0
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s002",
@@ -1695,16 +1678,17 @@
       "refers_to_entity": "pe002",
       "polymer_name": "Poly (l-lactide-glycolide) copolymer",
       "polymer_type": "copolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "Purasorb PLG",
+      "sample_label_raw": "Poly (l-lactide-glycolide) copolymer",
+      "state_description": "granular form",
       "intended_use": [],
       "evidence_ids": [
         "ev056"
       ],
       "confidence": {
-        "score": 0.9
+        "score": 1.0
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s003",
@@ -1712,95 +1696,257 @@
       "refers_to_entity": "pe003",
       "polymer_name": "Poly (dl-lactic acid)",
       "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "Galastic, PABR-L-68",
+      "sample_label_raw": "Poly (dl-lactic acid)",
+      "state_description": "granular form",
       "intended_use": [],
       "evidence_ids": [
         "ev057"
       ],
       "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s004",
-      "sample_kind": "intermediate",
-      "polymer_name": "The solvents investigated for dissolving the base polymers (PLGA, PCL and PDLLA) were dichloromethane, tetrahydrofuran, ethyl acetate and chloroform. Different ratios of polymer to solvent were initially investigated, with the optimum ratio found to be 5 g polymer to 50 ml solvent. It was found that chloroform was the most efficient solvent at room temperature for the base polymers, thus this solvent was chosen for all solvent cast blend preparations. A two-step procedure was developed for the solvent casting of the thin films. The first step involved dissolving the polymer or polymer mixtures; $5 \\mathrm { g }$of the polymer or polymer mixtures were weighed and placed into a glass beaker, 50 ml of chloroform was added and the polymer=solvent mixture was agitated using a magnetic stirrer for a period of between 2–4 hr until the polymers were fully dissolved. The second step involved removal of the solvent and formation of the film; the polymer=solvent solution was poured into a flat glass container, the solvent was removed via evaporation at room temperature under a fume hood for a period of 24 hr and for 12 hr in an oven at a temperature of $4 0 ^ { \\circ } \\mathbf { C } .$The mixing ratio of the thin film polymer blends prepared by both the solution casting and compression moulding techniques are presented in Table 1. Note that for all experimental works in this study, weights were measured using a Sartorius scales capable of being read to five decimal places.",
-      "polymer_type": "polymer_blend",
-      "material_type": "compound",
-      "state_description": "The solvents investigated for dissolving the base polymers (PLGA, PCL and PDLLA) were dichloromethane, tetrahydrofuran, ethyl acetate and chloroform. Different ratios of polymer to solvent were initially investigated, with the optimum ratio found to be 5 g polymer to 50 ml solvent. It was found that chloroform was the most efficient solvent at room temperature for the base polymers, thus this solvent was chosen for all solvent cast blend preparations. A two-step procedure was developed for the solvent casting of the thin films. The first step involved dissolving the polymer or polymer mixtures; $5 \\mathrm { g }$of the polymer or polymer mixtures were weighed and placed into a glass beaker, 50 ml of chloroform was added and the polymer=solvent mixture was agitated using a magnetic stirrer for a period of between 2–4 hr until the polymers were fully dissolved. The second step involved removal of the solvent and formation of the film; the polymer=solvent solution was poured into a flat glass container, the solvent was removed via evaporation at room temperature under a fume hood for a period of 24 hr and for 12 hr in an oven at a temperature of $4 0 ^ { \\circ } \\mathbf { C } .$The mixing ratio of the thin film polymer blends prepared by both the solution casting and compression moulding techniques are presented in Table 1. Note that for all experimental works in this study, weights were measured using a Sartorius scales capable of being read to five decimal places.",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev058"
-      ],
-      "confidence": {
-        "score": 0.85
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s005",
-      "sample_kind": "processed_material",
-      "refers_to_entity": "pe008",
-      "polymer_name": "PDLLA20/PCL80",
-      "polymer_type": "polymer_blend",
-      "material_type": "compound",
-      "sample_label_raw": "20%PDLLA=80%PCL",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev033"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s006",
-      "sample_kind": "processed_material",
-      "refers_to_entity": "pe009",
-      "polymer_name": "PDLLA50/PCL50",
-      "polymer_type": "polymer_blend",
-      "sample_label_raw": "50%PDLLA= 50%PCL",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev025"
-      ],
-      "confidence": {
-        "score": 0.9
+        "score": 1.0
       },
       "copolymer_type": null,
       "material_type": null
     },
     {
-      "sample_id": "s007",
-      "sample_kind": "test_specimen",
-      "polymer_name": "The testing procedure for the phosphate buffered saline (PBS) adsorption was based on ASTM international standard D570-81 standard test method for water adsorption of plastics. This test covers the determination of the relative rate of adsorption of water by plastics when immersed. Three samples of each batch were cut into 60 mm by 10 mm strips and placed in test-tubes and dried in an oven for 24 hr at a temperature of 50<sup>\u0001</sup>C. Samples were immersed in PBS at a temperature of 50<sup>\u0001</sup>C. The PBS was made using distilled water and PBS tablets (Sigma Aldrich). After regular time intervals (24, 48 and 120 hr), samples were taken from the test tubes, surface water was removed using blotting paper, the samples were weighed and re-immersed in PBS. The percentage weight was calculated using the following equation:",
+      "sample_id": "s004",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe013",
+      "polymer_name": "PDLLA80/PLGA20",
       "polymer_type": "polymer_blend",
-      "state_description": "The testing procedure for the phosphate buffered saline (PBS) adsorption was based on ASTM international standard D570-81 standard test method for water adsorption of plastics. This test covers the determination of the relative rate of adsorption of water by plastics when immersed. Three samples of each batch were cut into 60 mm by 10 mm strips and placed in test-tubes and dried in an oven for 24 hr at a temperature of 50<sup>\u0001</sup>C. Samples were immersed in PBS at a temperature of 50<sup>\u0001</sup>C. The PBS was made using distilled water and PBS tablets (Sigma Aldrich). After regular time intervals (24, 48 and 120 hr), samples were taken from the test tubes, surface water was removed using blotting paper, the samples were weighed and re-immersed in PBS. The percentage weight was calculated using the following equation:",
+      "material_type": "compound",
+      "sample_label_raw": "PDLLA80/PLGA20",
       "intended_use": [],
+      "evidence_ids": [
+        "ev012"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s005",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe014",
+      "polymer_name": "PDLLA50/PLGA50",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PDLLA50/PLGA50",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev013"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s006",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe015",
+      "polymer_name": "PDLLA20/PLGA20",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PDLLA20/PLGA20",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev014"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s007",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe005",
+      "polymer_name": "PDLLA20/PCL80",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PDLLA20/PCL80",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev006"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s008",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe006",
+      "polymer_name": "PDLLA50/PCL50",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PDLLA50/PCL50",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev007"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s009",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe007",
+      "polymer_name": "PDLLA80/PCL20",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PDLLA80/PCL20",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev008"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s010",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe009",
+      "polymer_name": "PLGA20/PCL80",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PLGA20/PCL80",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev009"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s011",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe010",
+      "polymer_name": "PLGA50/PCL50",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PLGA50/PCL50",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev010"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s012",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe011",
+      "polymer_name": "PLGA80/PCL20",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PLGA80/PCL20",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev011"
+      ],
+      "confidence": {
+        "score": 0.95
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s013",
+      "sample_kind": "processed_material",
+      "polymer_name": "solvent cast thin film",
+      "state_description": "solvent cast thin film",
+      "intended_use": [
+        "for characterization tests"
+      ],
+      "evidence_ids": [
+        "ev058"
+      ],
+      "confidence": {
+        "score": 0.9
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s014",
+      "sample_kind": "processed_material",
+      "polymer_name": "compression moulded thin film",
+      "state_description": "compression moulded thin film",
+      "intended_use": [
+        "for characterization tests"
+      ],
       "evidence_ids": [
         "ev059"
       ],
       "confidence": {
         "score": 0.9
       },
+      "polymer_type": null,
       "copolymer_type": null,
       "material_type": null
     },
     {
-      "sample_id": "s008",
-      "sample_kind": "test_specimen",
-      "polymer_name": "The samples were cut into tensile samples using a dumbbell cutter, which gave a sample test length of 20 mm and a width of 4 mm.",
+      "sample_id": "s015",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe004",
+      "polymer_name": "PDLLA=PCL",
       "polymer_type": "polymer_blend",
-      "state_description": "The samples were cut into tensile samples using a dumbbell cutter, which gave a sample test length of 20 mm and a width of 4 mm.",
+      "sample_label_raw": "PDLLA=PCL blend",
+      "state_description": "thin film",
       "intended_use": [],
       "evidence_ids": [
-        "ev060"
+        "ev032"
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.85
+      },
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s016",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe008",
+      "polymer_name": "PLGA=PCL",
+      "polymer_type": "polymer_blend",
+      "sample_label_raw": "PLGA=PCL blend",
+      "state_description": "thin film",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev035"
+      ],
+      "confidence": {
+        "score": 0.85
+      },
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s017",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe012",
+      "polymer_name": "PDLLA=PLGA",
+      "polymer_type": "polymer_blend",
+      "sample_label_raw": "PDLLA=PLGA blend",
+      "state_description": "thin film",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev044"
+      ],
+      "confidence": {
+        "score": 0.85
       },
       "copolymer_type": null,
       "material_type": null
@@ -1809,42 +1955,62 @@
   "process_steps": [
     {
       "step_id": "ps001",
-      "process_type": "mixing",
+      "process_type": "blending",
       "input_sample_ids": [
         "s001",
         "s002",
         "s003"
       ],
       "output_sample_ids": [
-        "s004"
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012"
       ],
       "parameters": {
-        "polymer to solvent ratio": "5 g polymer to 50 ml solvent",
-        "agitation time": "2–4 hr",
-        "solvent": "chloroform"
+        "polymer_to_solvent_ratio": "5 g polymer to 50 ml solvent",
+        "solvent": "chloroform",
+        "agitation_time": "2–4 hr"
       },
       "evidence_ids": [
-        "ev061"
+        "ev060"
       ],
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       }
     },
     {
       "step_id": "ps002",
       "process_type": "casting",
       "input_sample_ids": [
-        "s004"
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012"
       ],
       "output_sample_ids": [
-        "s005"
+        "s013"
       ],
       "parameters": {
-        "room temp evaporation time": "24 hr",
-        "oven evaporation time": "12 hr"
+        "room_temp_evaporation_time": "24 hr",
+        "oven_evaporation_time": "12 hr",
+        "oven_temperature": "40 °C"
       },
       "evidence_ids": [
-        "ev062"
+        "ev061"
       ],
       "confidence": {
         "score": 0.9
@@ -1852,41 +2018,32 @@
     },
     {
       "step_id": "ps003",
-      "process_type": "hot_pressing",
+      "process_type": "molding",
       "input_sample_ids": [
         "s001",
         "s002",
-        "s003"
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012"
       ],
       "output_sample_ids": [
-        "s006"
+        "s014"
       ],
       "parameters": {
         "pressure": "1000 psi",
-        "moulding cycle time": "1 min",
-        "pre-heat time": "1 min"
+        "moulding_temperature": "170 °C",
+        "moulding_cycle_time": "1 min",
+        "sample_weight": "1 g"
       },
       "evidence_ids": [
-        "ev063"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "step_id": "ps004",
-      "process_type": "cutting",
-      "input_sample_ids": [
-        "s005",
-        "s006"
-      ],
-      "output_sample_ids": [
-        "s007",
-        "s008"
-      ],
-      "parameters": {},
-      "evidence_ids": [
-        "ev060"
+        "ev062"
       ],
       "confidence": {
         "score": 0.9
@@ -1894,21 +2051,10 @@
     }
   ],
   "unresolved_entity_ids": [
-    "pe004",
-    "pe005",
-    "pe006",
-    "pe007",
-    "pe010",
-    "pe011",
-    "pe012",
-    "pe013",
-    "pe014",
-    "pe015",
     "pe016",
     "pe017",
     "pe018",
-    "pe019",
-    "pe020"
+    "pe019"
   ],
   "property_observations": [
     {
@@ -1918,20 +2064,24 @@
       "property_name_normalized": "melting_temperature",
       "property_code": "P3120",
       "property_category": "thermal_property",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
       "observation_role": "single",
       "value_raw": "145",
       "value_min": 145.0,
       "value_max": 145.0,
       "unit_raw": "°C",
-      "unit_normalized": "°C",
       "measurement_condition_id": "mc001",
       "measurement_context": {
         "other_conditions": {
-          "heating_rate": "10 °C per minute"
+          "heating_rate": "10°C per minute",
+          "sample_mass_range": "9.3–10.3 mg"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
           "heating_rate": [
+            "ev063"
+          ],
+          "sample_mass_range": [
             "ev064"
           ]
         },
@@ -1952,20 +2102,24 @@
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
       "property_category": "thermal_property",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
       "observation_role": "single",
       "value_raw": "48.8",
       "value_min": 48.8,
       "value_max": 48.8,
       "unit_raw": "°C",
-      "unit_normalized": "°C",
       "measurement_condition_id": "mc001",
       "measurement_context": {
         "other_conditions": {
-          "heating_rate": "10 °C per minute"
+          "heating_rate": "10°C per minute",
+          "sample_mass_range": "9.3–10.3 mg"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
           "heating_rate": [
+            "ev063"
+          ],
+          "sample_mass_range": [
             "ev064"
           ]
         },
@@ -1986,20 +2140,24 @@
       "property_name_normalized": "melting_temperature",
       "property_code": "P3120",
       "property_category": "thermal_property",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
       "observation_role": "single",
       "value_raw": "60",
       "value_min": 60.0,
       "value_max": 60.0,
       "unit_raw": "°C",
-      "unit_normalized": "°C",
       "measurement_condition_id": "mc001",
       "measurement_context": {
         "other_conditions": {
-          "heating_rate": "10 °C per minute"
+          "heating_rate": "10°C per minute",
+          "sample_mass_range": "9.3–10.3 mg"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
           "heating_rate": [
+            "ev063"
+          ],
+          "sample_mass_range": [
             "ev064"
           ]
         },
@@ -2010,13 +2168,14 @@
         "ev077"
       ],
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       }
     },
     {
       "property_id": "prop004",
       "sample_id": "s001",
       "property_name_raw": "percentage crystallinity",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
       "observation_role": "single",
       "value_raw": "53.5",
       "value_min": 53.5,
@@ -2025,11 +2184,15 @@
       "measurement_condition_id": "mc001",
       "measurement_context": {
         "other_conditions": {
-          "heating_rate": "10 °C per minute"
+          "heating_rate": "10°C per minute",
+          "sample_mass_range": "9.3–10.3 mg"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
           "heating_rate": [
+            "ev063"
+          ],
+          "sample_mass_range": [
             "ev064"
           ]
         },
@@ -2040,35 +2203,32 @@
         "ev078"
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
       "property_id": "prop005",
-      "sample_id": "s001",
-      "property_name_raw": "PBS adsorption percentage",
+      "sample_id": "s007",
+      "property_name_raw": "percentage crystallinity",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
       "observation_role": "single",
-      "value_raw": "2",
-      "value_min": 2.0,
-      "value_max": 2.0,
-      "unit_raw": "wt%",
-      "measurement_condition_id": "mc003",
+      "value_raw": "44.4",
+      "value_min": 44.4,
+      "value_max": 44.4,
+      "unit_raw": "%",
+      "measurement_condition_id": "mc001",
       "measurement_context": {
         "other_conditions": {
-          "sample_dimensions": "60 mm by 10 mm",
-          "drying_time": "24 hr",
-          "pH": "7.0"
+          "heating_rate": "10°C per minute",
+          "sample_mass_range": "9.3–10.3 mg"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
-          "sample_dimensions": [
-            "ev069"
+          "heating_rate": [
+            "ev063"
           ],
-          "drying_time": [
-            "ev070"
-          ],
-          "pH": [
-            "ev071"
+          "sample_mass_range": [
+            "ev064"
           ]
         },
         "condition_status": "reported"
@@ -2083,22 +2243,69 @@
     },
     {
       "property_id": "prop006",
-      "sample_id": "s002",
-      "property_name_raw": "contact angle",
+      "sample_id": "s009",
+      "property_name_raw": "percentage crystallinity",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
       "observation_role": "single",
-      "value_raw": "72",
-      "value_min": 72.0,
-      "value_max": 72.0,
-      "unit_raw": "°",
-      "measurement_condition_id": "mc004",
+      "value_raw": "5",
+      "value_min": 5.0,
+      "value_max": 5.0,
+      "unit_raw": "%",
+      "measurement_condition_id": "mc001",
       "measurement_context": {
         "other_conditions": {
-          "drop_volume": "0.1 ml"
+          "heating_rate": "10°C per minute",
+          "sample_mass_range": "9.3–10.3 mg"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
-          "drop_volume": [
-            "ev073"
+          "heating_rate": [
+            "ev063"
+          ],
+          "sample_mass_range": [
+            "ev064"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev079"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s001",
+      "property_name_raw": "PBS uptake",
+      "property_name_normalized": "water_absorption",
+      "property_code": "P5120",
+      "property_category": "physicochemical_property",
+      "determination_method_raw": "ASTM international standard D570-81 standard test method for water adsorption of plastics",
+      "observation_role": "single",
+      "value_raw": "2",
+      "value_min": 2.0,
+      "value_max": 2.0,
+      "unit_raw": "wt%",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_dimensions": "60 mm by 10 mm",
+          "drying_time": "24 hr",
+          "pH": "7.0"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_dimensions": [
+            "ev070"
+          ],
+          "drying_time": [
+            "ev071"
+          ],
+          "pH": [
+            "ev072"
           ]
         },
         "condition_status": "reported"
@@ -2108,27 +2315,37 @@
         "ev080"
       ],
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       }
     },
     {
-      "property_id": "prop007",
-      "sample_id": "s005",
-      "property_name_raw": "percentage crystallinity",
+      "property_id": "prop008",
+      "sample_id": "s002",
+      "property_name_raw": "PBS uptake",
+      "property_name_normalized": "water_absorption",
+      "property_code": "P5120",
+      "property_category": "physicochemical_property",
+      "determination_method_raw": "ASTM international standard D570-81 standard test method for water adsorption of plastics",
       "observation_role": "single",
-      "value_raw": "44.4",
-      "value_min": 44.4,
-      "value_max": 44.4,
-      "unit_raw": "%",
-      "measurement_condition_id": "mc001",
+      "value_raw": "less than 2",
+      "unit_raw": "wt%",
+      "measurement_condition_id": "mc004",
       "measurement_context": {
         "other_conditions": {
-          "heating_rate": "10 °C per minute"
+          "sample_dimensions": "60 mm by 10 mm",
+          "drying_time": "24 hr",
+          "pH": "7.0"
         },
         "other_condition_evidence": {},
         "other_condition_evidence_ids": {
-          "heating_rate": [
-            "ev064"
+          "sample_dimensions": [
+            "ev070"
+          ],
+          "drying_time": [
+            "ev071"
+          ],
+          "pH": [
+            "ev072"
           ]
         },
         "condition_status": "reported"
@@ -2140,16 +2357,282 @@
       "confidence": {
         "score": 0.8
       }
+    },
+    {
+      "property_id": "prop009",
+      "sample_id": "s003",
+      "property_name_raw": "Tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting",
+      "observation_role": "single",
+      "value_raw": "2.85",
+      "value_min": 2.85,
+      "value_max": 2.85,
+      "unit_raw": "Mpa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_test_length": "20 mm",
+          "sample_width": "4 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_test_length": [
+            "ev066"
+          ],
+          "sample_width": [
+            "ev066"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev082",
+        "ev037"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop010",
+      "sample_id": "s003",
+      "property_name_raw": "Young's Modulus",
+      "property_name_normalized": "tensile_modulus",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting",
+      "observation_role": "single",
+      "value_raw": "0.163",
+      "value_min": 0.163,
+      "value_max": 0.163,
+      "unit_raw": "Gpa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_test_length": "20 mm",
+          "sample_width": "4 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_test_length": [
+            "ev066"
+          ],
+          "sample_width": [
+            "ev066"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev083",
+        "ev037"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop011",
+      "sample_id": "s002",
+      "property_name_raw": "Tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting",
+      "observation_role": "single",
+      "value_raw": "5.82",
+      "value_min": 5.82,
+      "value_max": 5.82,
+      "unit_raw": "Mpa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_test_length": "20 mm",
+          "sample_width": "4 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_test_length": [
+            "ev066"
+          ],
+          "sample_width": [
+            "ev066"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev084"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop012",
+      "sample_id": "s002",
+      "property_name_raw": "Young's Modulus",
+      "property_name_normalized": "tensile_modulus",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting",
+      "observation_role": "single",
+      "value_raw": "0.193",
+      "value_min": 0.193,
+      "value_max": 0.193,
+      "unit_raw": "Gpa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_test_length": "20 mm",
+          "sample_width": "4 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_test_length": [
+            "ev066"
+          ],
+          "sample_width": [
+            "ev066"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev085"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop013",
+      "sample_id": "s001",
+      "property_name_raw": "Tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting",
+      "observation_role": "single",
+      "value_raw": "10.22",
+      "value_min": 10.22,
+      "value_max": 10.22,
+      "unit_raw": "Mpa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_test_length": "20 mm",
+          "sample_width": "4 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_test_length": [
+            "ev066"
+          ],
+          "sample_width": [
+            "ev066"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev086"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop014",
+      "sample_id": "s001",
+      "property_name_raw": "Young's Modulus",
+      "property_name_normalized": "tensile_modulus",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting",
+      "observation_role": "single",
+      "value_raw": "0.277",
+      "value_min": 0.277,
+      "value_max": 0.277,
+      "unit_raw": "Gpa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "sample_test_length": "20 mm",
+          "sample_width": "4 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "sample_test_length": [
+            "ev066"
+          ],
+          "sample_width": [
+            "ev066"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev087",
+        "ev088"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop015",
+      "sample_id": "s002",
+      "property_name_raw": "contact angle",
+      "determination_method_raw": "contact angle analysis using a Rame-Hart Goniometer",
+      "observation_role": "single",
+      "value_raw": "72",
+      "value_min": 72.0,
+      "value_max": 72.0,
+      "unit_raw": "°",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "drop_volume": "0.1 ml"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "drop_volume": [
+            "ev068"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev089"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
     }
   ],
   "measurement_conditions": [
     {
       "condition_id": "mc001",
       "other_conditions": {
-        "heating_rate": "10 °C per minute"
+        "heating_rate": "10°C per minute",
+        "sample_mass_range": "9.3–10.3 mg"
       },
       "other_condition_evidence_ids": {
         "heating_rate": [
+          "ev063"
+        ],
+        "sample_mass_range": [
           "ev064"
         ]
       },
@@ -2164,20 +2647,20 @@
     {
       "condition_id": "mc002",
       "other_conditions": {
-        "test_length": "20 mm",
+        "sample_test_length": "20 mm",
         "sample_width": "4 mm"
       },
       "other_condition_evidence_ids": {
-        "test_length": [
+        "sample_test_length": [
           "ev066"
         ],
         "sample_width": [
-          "ev067"
+          "ev066"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev068"
+        "ev067"
       ],
       "confidence": {
         "score": 0.9
@@ -2186,24 +2669,16 @@
     {
       "condition_id": "mc003",
       "other_conditions": {
-        "sample_dimensions": "60 mm by 10 mm",
-        "drying_time": "24 hr",
-        "pH": "7.0"
+        "drop_volume": "0.1 ml"
       },
       "other_condition_evidence_ids": {
-        "sample_dimensions": [
-          "ev069"
-        ],
-        "drying_time": [
-          "ev070"
-        ],
-        "pH": [
-          "ev071"
+        "drop_volume": [
+          "ev068"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev072"
+        "ev069"
       ],
       "confidence": {
         "score": 0.9
@@ -2212,387 +2687,102 @@
     {
       "condition_id": "mc004",
       "other_conditions": {
-        "drop_volume": "0.1 ml"
+        "sample_dimensions": "60 mm by 10 mm",
+        "drying_time": "24 hr",
+        "pH": "7.0"
       },
       "other_condition_evidence_ids": {
-        "drop_volume": [
-          "ev073"
+        "sample_dimensions": [
+          "ev070"
+        ],
+        "drying_time": [
+          "ev071"
+        ],
+        "pH": [
+          "ev072"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev074"
+        "ev073"
       ],
       "confidence": {
         "score": 0.9
       }
-    }
-  ],
-  "unresolved_property_observations": [
+    },
     {
-      "unresolved_id": "uprop001",
-      "entity_id": "pe015",
-      "property_name_raw": "T_g",
-      "observation_role": "single",
-      "value_raw": "54",
-      "unit_raw": "°C",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_not_found",
+      "condition_id": "mc005",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
       "evidence_ids": [
-        "ev082"
+        "ev074"
       ],
       "confidence": {
         "score": 0.8
       }
-    },
-    {
-      "unresolved_id": "uprop002",
-      "entity_id": "pe010",
-      "property_name_raw": "percentage crystallinity",
-      "observation_role": "single",
-      "value_raw": "5",
-      "unit_raw": "%",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_not_found",
-      "evidence_ids": [
-        "ev081"
-      ],
-      "confidence": {
-        "score": 0.75
-      }
     }
   ],
-  "property_series": [
-    {
-      "series_id": "series001",
-      "sample_resolution_status": "unresolved",
-      "property_name_raw": "Tensile strength",
-      "property_name_normalized": "tensile_stress_at_break",
-      "property_code": "P8110",
-      "property_category": "tensile_property",
-      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester, cross-head speed 20 mm/min",
-      "unit_raw": "Mpa",
-      "unit_normalized": "MPa",
-      "measurement_context": {
-        "other_conditions": {
-          "standard": "ASTM D882-02",
-          "test_length": "20 mm",
-          "sample_width": "4 mm",
-          "cross_head_speed": "20 mm/min"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "points": [
-        {
-          "point_id": "pt001",
-          "observation_role": "series_point",
-          "sample_id": "s003",
-          "entity_id": "pe003",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "2.85",
-          "value_min": 2.85,
-          "value_max": 2.85,
-          "unit_raw": "Mpa",
-          "unit_normalized": "MPa",
-          "measurement_context": {
-            "other_conditions": {
-              "standard": "ASTM D882-02",
-              "test_length": "20 mm",
-              "sample_width": "4 mm",
-              "cross_head_speed": "20 mm/min"
-            },
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev083"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt002",
-          "observation_role": "series_point",
-          "sample_id": "s002",
-          "entity_id": "pe002",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "5.82",
-          "value_min": 5.82,
-          "value_max": 5.82,
-          "unit_raw": "Mpa",
-          "unit_normalized": "MPa",
-          "measurement_context": {
-            "other_conditions": {
-              "standard": "ASTM D882-02",
-              "test_length": "20 mm",
-              "sample_width": "4 mm",
-              "cross_head_speed": "20 mm/min"
-            },
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev084"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt003",
-          "observation_role": "series_point",
-          "sample_id": "s001",
-          "entity_id": "pe001",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "10.22",
-          "value_min": 10.22,
-          "value_max": 10.22,
-          "unit_raw": "Mpa",
-          "unit_normalized": "MPa",
-          "measurement_context": {
-            "other_conditions": {
-              "standard": "ASTM D882-02",
-              "test_length": "20 mm",
-              "sample_width": "4 mm",
-              "cross_head_speed": "20 mm/min"
-            },
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev085"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        }
-      ],
-      "coverage": {
-        "expected": 3,
-        "covered": 3,
-        "missing": 0,
-        "not_applicable": 0,
-        "ratio": 1.0
-      },
-      "evidence_ids": [
-        "ev060"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "series_id": "series002",
-      "sample_resolution_status": "unresolved",
-      "property_name_raw": "Young's Modulus",
-      "property_name_normalized": "tensile_modulus",
-      "property_code": "P8110",
-      "property_category": "tensile_property",
-      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester, cross-head speed 20 mm/min",
-      "unit_raw": "Gpa",
-      "unit_normalized": "GPa",
-      "measurement_context": {
-        "other_conditions": {
-          "standard": "ASTM D882-02",
-          "test_length": "20 mm",
-          "sample_width": "4 mm",
-          "cross_head_speed": "20 mm/min"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "points": [
-        {
-          "point_id": "pt004",
-          "observation_role": "series_point",
-          "sample_id": "s003",
-          "entity_id": "pe003",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "0.163",
-          "value_min": 0.163,
-          "value_max": 0.163,
-          "unit_raw": "Gpa",
-          "unit_normalized": "GPa",
-          "measurement_context": {
-            "other_conditions": {
-              "standard": "ASTM D882-02",
-              "test_length": "20 mm",
-              "sample_width": "4 mm",
-              "cross_head_speed": "20 mm/min"
-            },
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev086"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt005",
-          "observation_role": "series_point",
-          "sample_id": "s002",
-          "entity_id": "pe002",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "0.193",
-          "value_min": 0.193,
-          "value_max": 0.193,
-          "unit_raw": "Gpa",
-          "unit_normalized": "GPa",
-          "measurement_context": {
-            "other_conditions": {
-              "standard": "ASTM D882-02",
-              "test_length": "20 mm",
-              "sample_width": "4 mm",
-              "cross_head_speed": "20 mm/min"
-            },
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev087"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt006",
-          "observation_role": "series_point",
-          "sample_id": "s001",
-          "entity_id": "pe001",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "0.277",
-          "value_min": 0.277,
-          "value_max": 0.277,
-          "unit_raw": "Gpa",
-          "unit_normalized": "GPa",
-          "measurement_context": {
-            "other_conditions": {
-              "standard": "ASTM D882-02",
-              "test_length": "20 mm",
-              "sample_width": "4 mm",
-              "cross_head_speed": "20 mm/min"
-            },
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev088"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        }
-      ],
-      "coverage": {
-        "expected": 3,
-        "covered": 3,
-        "missing": 0,
-        "not_applicable": 0,
-        "ratio": 1.0
-      },
-      "evidence_ids": [
-        "ev060"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    }
-  ],
+  "unresolved_property_observations": [],
+  "property_series": [],
   "characterizations": [
     {
       "characterization_id": "char001",
-      "method_raw": "Attenuated total reflectance Fourier transform infrared spectroscopy",
-      "method_normalized": "FTIR",
-      "sample_ids": [
-        "s001",
-        "s002",
-        "s003",
-        "s005",
-        "s006"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Nicolet Avator 360 FTIR",
-      "parameters": {
-        "scan per sample cycle": "32"
-      },
-      "result_summary": "IR spectra of compression moulded base polymers (PCL, PDLLA, PLGA) and their blends showed no new peaks beyond the characteristic bands of the base polymers, indicating no detectable new chemical interactions between blend components.",
-      "derived_property_ids": [],
-      "evidence_ids": [
-        "ev089",
-        "ev054",
-        "ev090"
-      ],
-      "confidence": {
-        "score": 0.85
-      }
-    },
-    {
-      "characterization_id": "char002",
-      "method_raw": "Differential scanning calorimetry",
+      "method_raw": "Differential scanning calorimetry (DSC)",
       "method_normalized": "DSC",
       "sample_ids": [
         "s001",
         "s002",
         "s003",
-        "s005",
-        "s006"
-      ],
-      "entity_ids": [
-        "pe010",
-        "pe015"
+        "s007",
+        "s009"
       ],
       "sample_resolution_status": "multi_resolved",
       "instrument": "Perkin-Elmer, Pyris 6 DSC",
       "parameters": {
-        "sample weight range": "9.3–10.3 mg",
-        "calibration standard": "High-purity indium"
+        "sample_weight_range": "9.3–10.3 mg"
       },
-      "result_summary": "Measured Tg, Tm and percentage crystallinity of base polymers (PCL, PDLLA, PLGA) and their blends; miscibility of PDLLA/PLGA blends confirmed by observation of single Tg for all blend ratios; crystallinity of PCL-containing blends decreased as the content of PDLLA or PLGA increased.",
+      "result_summary": "Measured glass transition temperature (Tg), melting temperature (Tm), and percentage crystallinity of base polymers and polymer blends.",
       "derived_property_ids": [
         "prop001",
         "prop002",
         "prop003",
         "prop004",
-        "prop007",
-        "uprop001",
-        "uprop002"
+        "prop005",
+        "prop006"
       ],
+      "evidence_ids": [
+        "ev090"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "Attenuated total reflectance Fourier transform infrared spectroscopy (ATR-FTIR)",
+      "method_normalized": "FTIR",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "instrument": "Nicolet Avator 360 FTIR",
+      "parameters": {
+        "scan_count_per_sample": "32"
+      },
+      "result_summary": "Recorded infrared spectra of compression moulded base polymer and blend samples; no new peaks observed in blend spectra relative to base polymers.",
+      "derived_property_ids": [],
       "evidence_ids": [
         "ev091"
       ],
@@ -3314,7 +3504,7 @@
         806.0
       ],
       "source_type": "text",
-      "source_sentence": "The Poly (e-caprolactone) (brand name Tone Polymer, P-676 TM) was supplied by the Dow Chemical Company",
+      "source_sentence": "The Poly (e-caprolactone) (brand name Tone Polymer, P-676 TM) was supplied by the Dow Chemical Company;... all in granular form.",
       "evidence_id": "ev055"
     },
     {
@@ -3327,7 +3517,7 @@
         806.0
       ],
       "source_type": "text",
-      "source_sentence": "the Poly (l-lactide-glycolide) copolymer with a molar ratio of 83=17 (brand name Purasorb PLG) was obtained from Purac Biochem Bv Gorinchem",
+      "source_sentence": "the Poly (l-lactide-glycolide) copolymer with a molar ratio of 83=17 (brand name Purasorb PLG) was obtained from Purac Biochem Bv Gorinchem;... all in granular form.",
       "evidence_id": "ev056"
     },
     {
@@ -3340,7 +3530,7 @@
         806.0
       ],
       "source_type": "text",
-      "source_sentence": "the Poly (dl-lactic acid) (brand name Galastic, PABR-L-68) was obtained from Galactic Laboratories (a division of Brussels Biotech), all in granular form.",
+      "source_sentence": "while the Poly (dl-lactic acid) (brand name Galastic, PABR-L-68) was obtained from Galactic Laboratories (a division of Brussels Biotech), all in granular form.",
       "evidence_id": "ev057"
     },
     {
@@ -3353,60 +3543,8 @@
         898.0
       ],
       "source_type": "text",
-      "source_sentence": "The solvents investigated for dissolving the base polymers (PLGA, PCL and PDLLA) were dichloromethane, tetrahydrofuran, ethyl acetate and chloroform. Different ratios of polymer to solvent were initially investigated, with the optimum ratio found to be 5 g polymer to 50 ml solvent. It was found that chloroform was the most efficient solvent at room temperature for the base polymers, thus this solvent was chosen for all solvent cast blend preparations. A two-step procedure was developed for the solvent casting of the thin films. The first step involved dissolving the polymer or polymer mixtures; $5 \\mathrm { g }$of the polymer or polymer mixtures were weighed and placed into a glass beaker, 50 ml of chloroform was added and the polymer=solvent mixture was agitated using a magnetic stirrer for a period of between 2–4 hr until the polymers were fully dissolved. The second step involved removal of the solvent and formation of the film; the polymer=solvent solution was poured into a flat glass container, the solvent was removed via evaporation at room temperature under a fume hood for a period of 24 hr and for 12 hr in an oven at a temperature of $4 0 ^ { \\circ } \\mathbf { C } .$The mixing ratio of the thin film polymer blends prepared by both the solution casting and compression moulding techniques are presented in Table 1. Note that for all experimental works in this study, weights were measured using a Sartorius scales capable of being read to five decimal places.",
+      "source_sentence": "A two-step procedure was developed for the solvent casting of the thin films.",
       "evidence_id": "ev058"
-    },
-    {
-      "block_id": "P_2_39",
-      "page": 2,
-      "bbox": [
-        501.0,
-        776.0,
-        921.0,
-        898.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The testing procedure for the phosphate buffered saline (PBS) adsorption was based on ASTM international standard D570-81 standard test method for water adsorption of plastics. This test covers the determination of the relative rate of adsorption of water by plastics when immersed. Three samples of each batch were cut into 60 mm by 10 mm strips and placed in test-tubes and dried in an oven for 24 hr at a temperature of 50<sup>\u0001</sup>C. Samples were immersed in PBS at a temperature of 50<sup>\u0001</sup>C. The PBS was made using distilled water and PBS tablets (Sigma Aldrich). After regular time intervals (24, 48 and 120 hr), samples were taken from the test tubes, surface water was removed using blotting paper, the samples were weighed and re-immersed in PBS. The percentage weight was calculated using the following equation:",
-      "evidence_id": "ev059"
-    },
-    {
-      "block_id": "P_3_47",
-      "page": 3,
-      "bbox": [
-        73.0,
-        297.0,
-        495.0,
-        450.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The samples were cut into tensile samples using a dumbbell cutter, which gave a sample test length of 20 mm and a width of 4 mm.",
-      "evidence_id": "ev060"
-    },
-    {
-      "block_id": "P_1_22",
-      "page": 1,
-      "bbox": [
-        504.0,
-        837.0,
-        924.0,
-        898.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Different ratios of polymer to solvent were initially investigated, with the optimum ratio found to be 5 g polymer to 50 ml solvent.",
-      "evidence_id": "ev061"
-    },
-    {
-      "block_id": "P_1_22",
-      "page": 1,
-      "bbox": [
-        504.0,
-        837.0,
-        924.0,
-        898.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The second step involved removal of the solvent and formation of the film; the polymer=solvent solution was poured into a flat glass container, the solvent was removed via evaporation at room temperature under a fume hood for a period of 24 hr and for 12 hr in an oven at a temperature of $4 0 ^ { \\circ } \\mathbf { C } .$The mixing ratio of the thin film polymer blends prepared by both the solution casting and compression moulding techniques are presented in Table 1.",
-      "evidence_id": "ev062"
     },
     {
       "block_id": "P_2_33",
@@ -3419,7 +3557,46 @@
       ],
       "source_type": "text",
       "source_sentence": "A Daniels compression press, flat mould and a pressure of 1000 psi was used for the fabrication of the polymer films.",
-      "evidence_id": "ev063"
+      "evidence_id": "ev059"
+    },
+    {
+      "block_id": "P_1_22",
+      "page": 1,
+      "bbox": [
+        504.0,
+        837.0,
+        924.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The first step involved dissolving the polymer or polymer mixtures; 5 g of the polymer or polymer mixtures were weighed and placed into a glass beaker, 50 ml of chloroform was added and the polymer=solvent mixture was agitated using a magnetic stirrer for a period of between 2–4 hr until the polymers were fully dissolved.",
+      "evidence_id": "ev060"
+    },
+    {
+      "block_id": "P_1_22",
+      "page": 1,
+      "bbox": [
+        504.0,
+        837.0,
+        924.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "the second step involved removal of the solvent and formation of the film; the polymer=solvent solution was poured into a flat glass container, the solvent was removed via evaporation at room temperature under a fume hood for a period of 24 hr and for 12 hr in an oven at a temperature of 40 °C.",
+      "evidence_id": "ev061"
+    },
+    {
+      "block_id": "P_2_33",
+      "page": 2,
+      "bbox": [
+        500.0,
+        159.0,
+        921.0,
+        371.0
+      ],
+      "source_type": "text",
+      "source_sentence": "A Daniels compression press, flat mould and a pressure of 1000 psi was used for the fabrication of the polymer films. Following processing trials, a sample weight of 1 g, a moulding cycle time of 1 min and a temperature of 170 °C were chosen, as these parameters produced thin films with optimum properties.",
+      "evidence_id": "ev062"
     },
     {
       "block_id": "P_2_37",
@@ -3431,7 +3608,7 @@
         750.0
       ],
       "source_type": "text",
-      "source_sentence": "Differential scanning calorimetry (DSC) analysis was carried out using a Perkin-Elmer, Pyris 6 DSC. Samples of between 9.3–10.3 mg were prepared from the base polymers and polymer blends. All measurements were conducted in crimped non-hermetic aluminium pans with an empty crimped aluminium pan being used as the reference cell. To assess the melting points and miscibility of the polymer(s), the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute. For investigation of the crystalline interactions, samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute and held isothermal for a 5-min period. The samples were then cooled down from 200 °C to 20 °C at a rate of 2 °C per minute. All DSC tests were carried out under a 20 ml/min flow of nitrogen to prevent oxidation.",
+      "source_sentence": "Differential scanning calorimetry (DSC) analysis was carried out using a Perkin-Elmer, Pyris 6 DSC. Samples of between 9.3–10.3 mg were prepared from the base polymers and polymer blends. All measurements were conducted in crimped non-hermetic aluminium pans with an empty crimped aluminium pan being used as the reference cell. To assess the melting points and miscibility of the polymer(s), the samples were heated from a temperature of 20°C to 200°C at a rate of 10°C per minute. All DSC tests were carried out under a 20 ml/min flow of nitrogen to prevent oxidation.",
       "evidence_id": "ev065"
     },
     {
@@ -3445,20 +3622,7 @@
       ],
       "source_type": "text",
       "source_sentence": "The tensile testing procedure used was based on the ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting. The samples were cut into tensile samples using a dumbbell cutter, which gave a sample test length of 20 mm and a width of 4 mm. Five samples were tested from each batch using a Lloyd Lrx Tensile tester, with Nexygen software. A cross-head speed of 20 mm/min was used during all tests.",
-      "evidence_id": "ev068"
-    },
-    {
-      "block_id": "P_2_39",
-      "page": 2,
-      "bbox": [
-        501.0,
-        776.0,
-        921.0,
-        898.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The testing procedure for the phosphate buffered saline (PBS) adsorption was based on ASTM international standard D570-81 standard test method for water adsorption of plastics. Three samples of each batch were cut into 60 mm by 10 mm strips and placed in test-tubes and dried in an oven for 24 hr at a temperature of 50°C. Samples were immersed in PBS at a temperature of 50°C. The PBS was made using distilled water and PBS tablets (Sigma Aldrich).",
-      "evidence_id": "ev072"
+      "evidence_id": "ev067"
     },
     {
       "block_id": "P_3_49",
@@ -3471,6 +3635,32 @@
       ],
       "source_type": "text",
       "source_sentence": "The contact angles of water on the thin film polymers were measured using a Rame-Hart Goniometer at room temperature (20°C). The drops were made using a Gilson Pipetman set to 0.1 ml.",
+      "evidence_id": "ev069"
+    },
+    {
+      "block_id": "P_2_39",
+      "page": 2,
+      "bbox": [
+        501.0,
+        776.0,
+        921.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The testing procedure for the phosphate buffered saline (PBS) adsorption was based on ASTM international standard D570-81 standard test method for water adsorption of plastics. Three samples of each batch were cut into 60 mm by 10 mm strips and placed in test-tubes and dried in an oven for 24 hr at a temperature of 50°C. Samples were immersed in PBS at a temperature of 50°C. The PBS was made using distilled water and PBS tablets (Sigma Aldrich). After regular time intervals (24, 48 and 120 hr), samples were taken from the test tubes",
+      "evidence_id": "ev073"
+    },
+    {
+      "block_id": "P_5_74",
+      "page": 5,
+      "bbox": [
+        73.0,
+        731.0,
+        495.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The number average molecular weight quoted by Dow for this grade of PCL was approximately 50,000.",
       "evidence_id": "ev074"
     },
     {
@@ -3509,7 +3699,7 @@
         731.0
       ],
       "source_type": "text",
-      "source_sentence": "PCL was found to have a T_m of approximately 60°C in agreement with the literature",
+      "source_sentence": "PCL was found to have a T_m of approximately 60°C in agreement with the literature.",
       "evidence_id": "ev077"
     },
     {
@@ -3526,32 +3716,6 @@
       "evidence_id": "ev078"
     },
     {
-      "block_id": "P_5_79",
-      "page": 5,
-      "bbox": [
-        504.0,
-        837.0,
-        926.0,
-        900.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Films of PCL were found to have a PBS uptake of approximately 2 wt% after 120 hr",
-      "evidence_id": "ev079"
-    },
-    {
-      "block_id": "P_8_111",
-      "page": 8,
-      "bbox": [
-        500.0,
-        99.0,
-        923.0,
-        630.0
-      ],
-      "source_type": "text",
-      "source_sentence": "PLGA was found to have a contact angle of approximately 72°",
-      "evidence_id": "ev080"
-    },
-    {
       "block_id": "P_5_77",
       "page": 5,
       "bbox": [
@@ -3562,20 +3726,33 @@
       ],
       "source_type": "text",
       "source_sentence": "the calculated crystallinity decreased from 44.4% to 5% as the blend ratio of PDLLA with PCL increased from 20:80 to 80:20",
-      "evidence_id": "ev081"
+      "evidence_id": "ev079"
     },
     {
-      "block_id": "P_4_64",
-      "page": 4,
+      "block_id": "P_5_79",
+      "page": 5,
       "bbox": [
-        71.0,
-        640.0,
-        491.0,
+        504.0,
+        837.0,
+        926.0,
         900.0
       ],
       "source_type": "text",
-      "source_sentence": "In the 50% blend of the two polymers, a single T_g was evident at 54 °C.",
-      "evidence_id": "ev082"
+      "source_sentence": "Films of PCL were found to have a PBS uptake of approximately 2 wt% after 120 hr",
+      "evidence_id": "ev080"
+    },
+    {
+      "block_id": "P_5_79",
+      "page": 5,
+      "bbox": [
+        504.0,
+        837.0,
+        926.0,
+        900.0
+      ],
+      "source_type": "text",
+      "source_sentence": "the films exhibiting a PBS uptake of less than 2 wt% after 120 hr",
+      "evidence_id": "ev081"
     },
     {
       "block_id": "T_7_98",
@@ -3596,6 +3773,28 @@
         "cell_id": "T_7_98:r0001:c0001",
         "row_index": 1,
         "column_index": 1
+      },
+      "evidence_id": "ev082"
+    },
+    {
+      "block_id": "T_7_98",
+      "page": 7,
+      "bbox": [
+        76.0,
+        800.0,
+        493.0,
+        893.0
+      ],
+      "source_type": "table",
+      "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+      "table_locator": {
+        "table_id": "T_7_98",
+        "row_label": "PDLA",
+        "column_label": "Young's Modulus (Gpa)",
+        "cell_value": "0.163",
+        "cell_id": "T_7_98:r0001:c0002",
+        "row_index": 1,
+        "column_index": 2
       },
       "evidence_id": "ev083"
     },
@@ -3634,12 +3833,12 @@
       "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
       "table_locator": {
         "table_id": "T_7_98",
-        "row_label": "PCL",
-        "column_label": "Tensile strength (Mpa)",
-        "cell_value": "10.22",
-        "cell_id": "T_7_98:r0003:c0001",
-        "row_index": 3,
-        "column_index": 1
+        "row_label": "PLGA",
+        "column_label": "Young's Modulus (Gpa)",
+        "cell_value": "0.193",
+        "cell_id": "T_7_98:r0002:c0002",
+        "row_index": 2,
+        "column_index": 2
       },
       "evidence_id": "ev085"
     },
@@ -3656,36 +3855,14 @@
       "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
       "table_locator": {
         "table_id": "T_7_98",
-        "row_label": "PDLA",
-        "column_label": "Young's Modulus (Gpa)",
-        "cell_value": "0.163",
-        "cell_id": "T_7_98:r0001:c0002",
-        "row_index": 1,
-        "column_index": 2
+        "row_label": "PCL",
+        "column_label": "Tensile strength (Mpa)",
+        "cell_value": "10.22",
+        "cell_id": "T_7_98:r0003:c0001",
+        "row_index": 3,
+        "column_index": 1
       },
       "evidence_id": "ev086"
-    },
-    {
-      "block_id": "T_7_98",
-      "page": 7,
-      "bbox": [
-        76.0,
-        800.0,
-        493.0,
-        893.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
-      "table_locator": {
-        "table_id": "T_7_98",
-        "row_label": "PLGA",
-        "column_label": "Young's Modulus (Gpa)",
-        "cell_value": "0.193",
-        "cell_id": "T_7_98:r0002:c0002",
-        "row_index": 2,
-        "column_index": 2
-      },
-      "evidence_id": "ev087"
     },
     {
       "block_id": "T_7_98",
@@ -3707,7 +3884,46 @@
         "row_index": 3,
         "column_index": 2
       },
+      "evidence_id": "ev087"
+    },
+    {
+      "block_id": "P_7_97",
+      "page": 7,
+      "bbox": [
+        73.0,
+        542.0,
+        495.0,
+        724.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The Young’s modulus of 0.277 Gpa for PCL is close to the value of 0.282 Gpa, which was obtained by Vertuccio et al. (2009) for compression moulded films of PCL",
       "evidence_id": "ev088"
+    },
+    {
+      "block_id": "P_8_111",
+      "page": 8,
+      "bbox": [
+        500.0,
+        99.0,
+        923.0,
+        630.0
+      ],
+      "source_type": "text",
+      "source_sentence": "PLGA was found to have a contact angle of approximately 72°",
+      "evidence_id": "ev089"
+    },
+    {
+      "block_id": "P_2_37",
+      "page": 2,
+      "bbox": [
+        500.0,
+        505.0,
+        921.0,
+        750.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Differential scanning calorimetry (DSC) analysis was carried out using a Perkin-Elmer, Pyris 6 DSC. Samples of between 9.3–10.3 mg were prepared from the base polymers and polymer blends. All measurements were conducted in crimped non-hermetic aluminium pans with an empty crimped aluminium pan being used as the reference cell. To assess the melting points and miscibility of the polymer(s), the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute. For investigation of the crystalline interactions, samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute and held isothermal for a 5-min period. The samples were then cooled down from 200 °C to 20 °C at a rate of 2 °C per minute. All DSC tests were carried out under a 20 ml/min flow of nitrogen to prevent oxidation. High-purity indium was used to calibrate the DSC cell.",
+      "evidence_id": "ev090"
     },
     {
       "block_id": "P_2_35",
@@ -3720,32 +3936,6 @@
       ],
       "source_type": "text",
       "source_sentence": "Attenuated total reflectance Fourier transform infrared spectroscopy (ATR-FTIR) was carried out on rectangular samples using a Nicolet Avator 360 FTIR, with a 32 scan per sample cycle.",
-      "evidence_id": "ev089"
-    },
-    {
-      "block_id": "P_4_62",
-      "page": 4,
-      "bbox": [
-        71.0,
-        439.0,
-        491.0,
-        607.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Throughout this study, there were no peaks present in the IR spectra of the blends that could not be explained by the characteristic IR bands of the base polymers.",
-      "evidence_id": "ev090"
-    },
-    {
-      "block_id": "P_2_37",
-      "page": 2,
-      "bbox": [
-        500.0,
-        505.0,
-        921.0,
-        750.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Differential scanning calorimetry (DSC) analysis was carried out using a Perkin-Elmer, Pyris 6 DSC. Samples of between 9.3–10.3 mg were prepared from the base polymers and polymer blends. All measurements were conducted in crimped non-hermetic aluminium pans with an empty crimped aluminium pan being used as the reference cell. To assess the melting points and miscibility of the polymer(s), the samples were heated from a temperature of $2 0 \\mathrm { { } ^ { \\circ } C }$to $2 0 0 ^ { \\circ } \\mathrm { C }$at a rate of $1 0 ^ { \\circ } \\mathrm { C }$per minute. For investigation of the crystalline interactions, samples were heated from a temperature of $2 0 \\mathrm { { } ^ { \\circ } C }$to $2 0 0 ^ { \\circ } \\mathrm { C }$at a rate of $1 0 ^ { \\circ } \\mathbf { C }$per minute and held isothermal for a 5-min period. The samples were then cooled down from 200<sup>\u0001</sup>C to 20<sup>\u0001</sup>C at a rate of 2<sup>\u0001</sup>C per minute. All DSC tests were carried out under a 20 ml=min flow of nitrogen to prevent oxidation. High-purity indium was used to calibrate the DSC cell.",
       "evidence_id": "ev091"
     }
   ],
@@ -3808,32 +3998,32 @@
         "gpt-5.6-terra-2026-07-09"
       ],
       "prompt_id": "polymer.stage2.polymer_entity",
-      "prompt_version": "1.3.0",
-      "prompt_sha256": "0d376da340b979a77fcd231e0148cc26c8b9d125f7209025c7055483abb7d7e1",
+      "prompt_version": "1.5.1",
+      "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
       "input_hash": "9cdfc62d01ada83fb2d6ea1118e6977fc42266ec993b98555d3b8933ca461c75",
       "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
-      "cache_key": "6afc2cddd400fb9bda6b46d5db5e387396eda38b973a49afbbfeecb219e473d8",
+      "cache_key": "ee36bf67d612be43d048d13acff4dc2420d575990df6be879bcfccd73133709c",
       "output_schema_version": "polymer_entity_schema.v3",
-      "implementation_version": "1.4.0",
+      "implementation_version": "1.6.1",
       "context_block_count": 67,
       "context_chars": 41309,
       "call_count": 1,
       "usage": {
-        "input_tokens": 23793,
-        "output_tokens": 4610,
+        "input_tokens": 24014,
+        "output_tokens": 4122,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 23793,
-        "total_tokens": 28403
+        "billable_input_tokens": 24014,
+        "total_tokens": 28136
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "17",
         "output_per_million": "101",
-        "input_cost": "0.404481",
-        "output_cost": "0.46561",
-        "total_cost": "0.870091"
+        "input_cost": "0.408238",
+        "output_cost": "0.416322",
+        "total_cost": "0.824560"
       },
       "status": "success"
     },
@@ -3845,23 +4035,23 @@
         "doubao-seed-2.0-pro"
       ],
       "prompt_id": "polymer.stage3.sample_process",
-      "prompt_version": "1.4.0",
-      "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-      "input_hash": "7037d38813472a1ee9f358ecb05a1d8ab8214e107640637ec4dbf01ba08ad8e1",
+      "prompt_version": "1.6.0",
+      "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+      "input_hash": "442a4342679701b5f8cdc9c587dce04a1e22319bd3e786d3f6b05d6b729eef46",
       "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-      "cache_key": "85f0febde1124032aef8726e4e303dd36a0695ea4522dd7dda33295b0c3122f3",
+      "cache_key": "84dc8e14cab59bccb1f42a83ce3a67bd80b2c73b4ad225b7917d1cf470242c10",
       "output_schema_version": "sample_process_schema.v4",
-      "implementation_version": "1.5.0",
-      "context_block_count": 33,
-      "context_chars": 21979,
+      "implementation_version": "1.7.1",
+      "context_block_count": 32,
+      "context_chars": 21086,
       "call_count": 1,
       "usage": {
         "input_tokens": 14279,
-        "output_tokens": 5101,
+        "output_tokens": 6494,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "billable_input_tokens": 14279,
-        "total_tokens": 19380
+        "total_tokens": 20773
       },
       "cost": {
         "status": "calculated",
@@ -3869,8 +4059,8 @@
         "input_per_million": "4.32",
         "output_per_million": "29.15",
         "input_cost": "0.06168528",
-        "output_cost": "0.14869415",
-        "total_cost": "0.21037943"
+        "output_cost": "0.1893001",
+        "total_cost": "0.25098538"
       },
       "status": "success"
     },
@@ -3885,30 +4075,30 @@
       "prompt_version": "1.7.2",
       "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "776d87b11714343a2072d92a6ffbd66cbba22765fd538de14028c72d4272d3f6",
+      "input_hash": "ab8df6b81545985f9d79d48d718e6a75fb84c5038bf9e749da798d1cfca71672",
       "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-      "cache_key": "2e2510fe61091f30658f0a58b7a226c5def962a3b35dd26a054794f759dd4c86",
+      "cache_key": "1929d284c190675c1f70a795d8c84fba32d27ec5abf6a9a46b89c46c6118a92b",
       "output_schema_version": "property_observation_schema.v7",
       "implementation_version": "1.7.10",
       "context_block_count": 69,
       "context_chars": 46072,
       "call_count": 1,
       "usage": {
-        "input_tokens": 28677,
-        "output_tokens": 12547,
+        "input_tokens": 28725,
+        "output_tokens": 13439,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 28677,
-        "total_tokens": 41224
+        "billable_input_tokens": 28725,
+        "total_tokens": 42164
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.12388464",
-        "output_cost": "0.36574505",
-        "total_cost": "0.48962969"
+        "input_cost": "0.124092",
+        "output_cost": "0.39174685",
+        "total_cost": "0.51583885"
       },
       "status": "success"
     },
@@ -3923,30 +4113,30 @@
       "prompt_version": "1.6.2",
       "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "2961fff28336e7e66603cb24436e3846fec6fba1976b6c557ab6f708ec6ada01",
+      "input_hash": "2cb993365460956bf2a7808d0df8d1d0f1201f195a4514976ec93ece8abdf092",
       "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-      "cache_key": "a27ec29dc617d748e3b15fe6875a55a5058877f9ae374357526c4b5cc5d43fe2",
+      "cache_key": "617f04aa6fc708219134418c5f1144b1a200372db2cf7403acd713585f5fd8fa",
       "output_schema_version": "characterization_schema.v4",
       "implementation_version": "1.7.1",
       "context_block_count": 69,
       "context_chars": 46072,
       "call_count": 1,
       "usage": {
-        "input_tokens": 22222,
-        "output_tokens": 4510,
+        "input_tokens": 22862,
+        "output_tokens": 5112,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 22222,
-        "total_tokens": 26732
+        "billable_input_tokens": 22862,
+        "total_tokens": 27974
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.09599904",
-        "output_cost": "0.1314665",
-        "total_cost": "0.22746554"
+        "input_cost": "0.09876384",
+        "output_cost": "0.1490148",
+        "total_cost": "0.24777864"
       },
       "status": "success"
     }
@@ -3959,38 +4149,33 @@
     },
     {
       "stage": "stage2_polymer_entity",
-      "code": "unresolved_mentions",
-      "message": "2 个 mention 未解析为实体，已原样保留引用"
+      "code": "component_blend_nested_mentions_split",
+      "message": "组分名称与包含该名称的 blend 实体已保留为不同实体"
     },
     {
       "stage": "stage2_polymer_entity",
-      "code": "polymer_type_default_inferred",
-      "message": "Backfill：无共聚或共混反证的实体已推断为 homopolymer"
+      "code": "missing_mentions_marked_unresolved",
+      "message": "模型漏覆盖的 mention 已保守标记为 unresolved"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "1 个 mention 未解析为实体，已原样保留引用"
     },
     {
       "stage": "stage3_sample_process",
-      "code": "state_description_replaced_with_evidence",
-      "message": "无标签 Sample 的 state_description 无法逐字定位；已使用验证后的完整 evidence.source_sentence"
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema/Process 图合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
     },
     {
       "stage": "stage3_sample_process",
-      "code": "unsupported_state_descriptions_dropped",
-      "message": "已有有效 sample_label_raw；删除无法逐字定位的 state_description"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "parameters_not_in_source",
-      "message": "无法定位到 evidence 原文的参数已舍弃"
+      "code": "material_type_evidence_inferred",
+      "message": "已根据样品中的明确配方或增强组分证据补全 material_type"
     },
     {
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "15 个 entity 未解析到实际样品"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "unresolved_entities_completed",
-      "message": "模型遗漏了 entity 覆盖清单；已将没有任何 Sample 引用的已知 entity 确定性补入 unresolved_entity_ids"
+      "message": "4 个 entity 未解析到实际样品"
     },
     {
       "stage": "stage3_sample_process",
@@ -3999,53 +4184,13 @@
     },
     {
       "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_process_inferred",
-      "message": "Backfill：已按配方输入或成分保持工艺补全 polymer_type"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_evidence_inferred",
-      "message": "Backfill：已按明确配方或增强组分证据补全 material_type"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_process_inherited",
-      "message": "Backfill：成分保持工艺输出已继承一致输入 material_type"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin"
-    },
-    {
-      "stage": "stage4_property",
-      "code": "multi_subject_series_normalized",
-      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
-    },
-    {
-      "stage": "stage4_property",
-      "code": "series_context_evidence_supplemented",
-      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block"
+      "code": "orphan_noninitial_samples",
+      "message": "非初始样品缺少原文支持的生成 ProcessStep"
     },
     {
       "stage": "stage4_property",
       "code": "preview_semantic_validation_bypassed",
       "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
-    },
-    {
-      "stage": "stage4_property",
-      "code": "preview_objects_salvaged",
-      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
-    },
-    {
-      "stage": "stage4_property",
-      "code": "unresolved_properties",
-      "message": "2 条性质无法可靠关联具体 Sample"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_unlocatable_additional_evidence_removed",
-      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence"
     },
     {
       "stage": "stage5_characterization",
@@ -4065,25 +4210,169 @@
     {
       "stage": "stage4_property",
       "code": "unused_measurement_condition",
-      "message": "MeasurementCondition 未被性质引用：['mc002']"
+      "message": "MeasurementCondition 未被性质引用：['mc005']"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s015"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s016"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s017"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unsupported_specific_value",
+      "message": "ProcessStep 参数无法在 evidence 原文定位：['oven_temperature']",
+      "object_id": "ps002"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unsupported_specific_value",
+      "message": "ProcessStep 参数无法在 evidence 原文定位：['moulding_temperature']",
+      "object_id": "ps003"
     },
     {
       "stage": "stage3_sample_process",
       "code": "polymer_name_contamination",
       "message": "polymer_name 疑似包含样品状态、形态或配方数值",
-      "object_id": "s004"
+      "object_id": "s013"
     },
     {
       "stage": "stage3_sample_process",
       "code": "polymer_name_contamination",
       "message": "polymer_name 疑似包含样品状态、形态或配方数值",
-      "object_id": "s007"
+      "object_id": "s014"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop002"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop004"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop005"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop006"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop007"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop008"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop009"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop010"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop011"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop012"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop013"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop014"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop015"
     },
     {
       "stage": "stage3_sample_process",
-      "code": "polymer_name_contamination",
-      "message": "polymer_name 疑似包含样品状态、形态或配方数值",
-      "object_id": "s008"
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "s001"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "s002"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "ps001"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 98.2%，内容在本块内但字符被打散",
+      "object_id": "ps002"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 98.1%，内容在本块内但字符被打散",
+      "object_id": "ps003"
     },
     {
       "stage": "stage4_property",
@@ -4093,8 +4382,8 @@
     },
     {
       "stage": "stage4_property",
-      "code": "evidence_matched_after_block_recovery",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 96.2%，疑似跨块或被截断，建议人工确认",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 99.0%，内容在本块内但字符被打散",
       "object_id": "mc001"
     },
     {
@@ -4137,19 +4426,19 @@
       "stage": "stage4_property",
       "code": "evidence_matched_after_normalization",
       "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
-      "object_id": "prop006"
+      "object_id": "prop015"
     },
     {
-      "stage": "stage4_property",
+      "stage": "stage5_characterization",
       "code": "evidence_matched_after_block_recovery",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 94.1%，疑似跨块或被截断，建议人工确认",
-      "object_id": "uprop001"
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 96.4%，疑似跨块或被截断，建议人工确认",
+      "object_id": "char001"
     }
   ],
   "validation_summary": {
     "status": "passed_with_warnings",
     "error_count": 0,
-    "warning_count": 36,
+    "warning_count": 51,
     "validation_mode": "preview",
     "validation_status": "degraded",
     "degraded_codes": [
@@ -4219,21 +4508,21 @@
         "model": "gpt-5.6-terra-2026-07-09",
         "call_count": 1,
         "usage": {
-          "input_tokens": 23793,
-          "output_tokens": 4610,
+          "input_tokens": 24014,
+          "output_tokens": 4122,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 23793,
-          "total_tokens": 28403
+          "billable_input_tokens": 24014,
+          "total_tokens": 28136
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "17",
           "output_per_million": "101",
-          "input_cost": "0.404481",
-          "output_cost": "0.46561",
-          "total_cost": "0.870091"
+          "input_cost": "0.408238",
+          "output_cost": "0.416322",
+          "total_cost": "0.824560"
         }
       },
       {
@@ -4243,11 +4532,11 @@
         "call_count": 1,
         "usage": {
           "input_tokens": 14279,
-          "output_tokens": 5101,
+          "output_tokens": 6494,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
           "billable_input_tokens": 14279,
-          "total_tokens": 19380
+          "total_tokens": 20773
         },
         "cost": {
           "status": "calculated",
@@ -4255,8 +4544,8 @@
           "input_per_million": "4.32",
           "output_per_million": "29.15",
           "input_cost": "0.06168528",
-          "output_cost": "0.14869415",
-          "total_cost": "0.21037943"
+          "output_cost": "0.1893001",
+          "total_cost": "0.25098538"
         }
       },
       {
@@ -4265,21 +4554,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 28677,
-          "output_tokens": 12547,
+          "input_tokens": 28725,
+          "output_tokens": 13439,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 28677,
-          "total_tokens": 41224
+          "billable_input_tokens": 28725,
+          "total_tokens": 42164
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.12388464",
-          "output_cost": "0.36574505",
-          "total_cost": "0.48962969"
+          "input_cost": "0.124092",
+          "output_cost": "0.39174685",
+          "total_cost": "0.51583885"
         }
       },
       {
@@ -4288,21 +4577,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 22222,
-          "output_tokens": 4510,
+          "input_tokens": 22862,
+          "output_tokens": 5112,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 22222,
-          "total_tokens": 26732
+          "billable_input_tokens": 22862,
+          "total_tokens": 27974
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.09599904",
-          "output_cost": "0.1314665",
-          "total_cost": "0.22746554"
+          "input_cost": "0.09876384",
+          "output_cost": "0.1490148",
+          "total_cost": "0.24777864"
         }
       },
       {
@@ -4328,7 +4617,7 @@
         }
       }
     ],
-    "total_cost": "2.59739266"
+    "total_cost": "2.63898987"
   },
   "quality_metrics": {
     "properties_with_units": {
@@ -4337,23 +4626,23 @@
       "ratio": 1.0
     },
     "standard_process_steps": {
-      "complete": 4,
-      "total": 4,
+      "complete": 3,
+      "total": 3,
       "ratio": 1.0
     },
     "stage4_methods_with_characterization": {
       "complete": 0,
-      "total": 0,
-      "ratio": 1.0
+      "total": 15,
+      "ratio": 0.0
     },
     "objects_with_confidence": {
-      "complete": 156,
-      "total": 156,
+      "complete": 162,
+      "total": 162,
       "ratio": 1.0
     },
     "series_points_covered": {
-      "complete": 6,
-      "total": 6,
+      "complete": 0,
+      "total": 0,
       "ratio": 1.0
     }
   },
@@ -4362,26 +4651,26 @@
     "input_counts": {
       "characterization": 2,
       "material_mention": 101,
-      "measurement_condition": 4,
-      "polymer_entity": 20,
-      "process_step": 4,
-      "property": 7,
-      "property_series": 2,
-      "property_series_point": 6,
-      "sample": 8,
-      "unresolved_property": 2
+      "measurement_condition": 5,
+      "polymer_entity": 19,
+      "process_step": 3,
+      "property": 15,
+      "property_series": 0,
+      "property_series_point": 0,
+      "sample": 17,
+      "unresolved_property": 0
     },
     "published_counts": {
       "characterization": 2,
       "material_mention": 101,
-      "measurement_condition": 4,
-      "polymer_entity": 20,
-      "process_step": 4,
-      "property": 7,
-      "property_series": 2,
-      "property_series_point": 6,
-      "sample": 8,
-      "unresolved_property": 2
+      "measurement_condition": 5,
+      "polymer_entity": 19,
+      "process_step": 3,
+      "property": 15,
+      "property_series": 0,
+      "property_series_point": 0,
+      "sample": 17,
+      "unresolved_property": 0
     },
     "rejected_counts": {},
     "reference_cleanup_count": 0,

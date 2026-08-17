@@ -71,7 +71,7 @@
         "table_locator": null
       },
       "confidence": {
-        "score": 1.0
+        "score": 0.95
       }
     },
     {
@@ -132,7 +132,7 @@
         "table_locator": null
       },
       "confidence": {
-        "score": 1.0
+        "score": 0.95
       }
     },
     {
@@ -159,7 +159,7 @@
         "table_locator": null
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
@@ -170,27 +170,11 @@
       "pressure": null,
       "wavelength": null,
       "other_conditions": {
-        "atmosphere": "standard atmosphere",
         "gauge_length": "20 mm",
         "crosshead_speed": "5 mm/min",
-        "specimen_width": "~5 mm"
+        "atmosphere": "standard atmosphere"
       },
       "other_condition_evidence": {
-        "atmosphere": [
-          {
-            "block_id": "P_8_78",
-            "page": 8,
-            "bbox": [
-              161.0,
-              461.0,
-              838.0,
-              600.0
-            ],
-            "source_type": "text",
-            "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
-            "table_locator": null
-          }
-        ],
         "gauge_length": [
           {
             "block_id": "P_3_41",
@@ -202,7 +186,7 @@
               233.0
             ],
             "source_type": "text",
-            "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+            "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
             "table_locator": null
           }
         ],
@@ -217,22 +201,22 @@
               233.0
             ],
             "source_type": "text",
-            "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+            "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
             "table_locator": null
           }
         ],
-        "specimen_width": [
+        "atmosphere": [
           {
-            "block_id": "P_3_41",
-            "page": 3,
+            "block_id": "P_8_78",
+            "page": 8,
             "bbox": [
-              157.0,
-              124.0,
-              834.0,
-              233.0
+              161.0,
+              461.0,
+              838.0,
+              600.0
             ],
             "source_type": "text",
-            "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance.",
+            "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
             "table_locator": null
           }
         ]
@@ -252,14 +236,14 @@
         "table_locator": null
       },
       "confidence": {
-        "score": 1.0
+        "score": 0.9
       }
     }
   ],
   "properties": [
     {
       "property_id": "prop001",
-      "sample_id": "s003",
+      "sample_id": "s004",
       "property_name_raw": "$\\eta_{inh}$",
       "property_name_normalized": null,
       "property_code": null,
@@ -274,7 +258,7 @@
       "value_min": 1.3,
       "value_max": 1.3,
       "unit_raw": "dL/g",
-      "unit_normalized": "dL/g",
+      "unit_normalized": null,
       "measurement_condition_id": "mc001",
       "measurement_context": {
         "temperature": null,
@@ -309,13 +293,13 @@
     },
     {
       "property_id": "prop002",
-      "sample_id": "s003",
+      "sample_id": "s004",
       "property_name_raw": "elongation at break",
       "property_name_normalized": "elongation_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
       "molecular_weight_type": null,
-      "determination_method_raw": "XQ-1 instrument",
+      "determination_method_raw": "tensile test",
       "observation_group_id": null,
       "observation_role": "single",
       "series_id": null,
@@ -324,7 +308,7 @@
       "value_min": 29.0,
       "value_max": 29.0,
       "unit_raw": "%",
-      "unit_normalized": "%",
+      "unit_normalized": null,
       "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
@@ -333,27 +317,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "atmosphere": "standard atmosphere",
           "gauge_length": "20 mm",
           "crosshead_speed": "5 mm/min",
-          "specimen_width": "~5 mm"
+          "atmosphere": "standard atmosphere"
         },
         "other_condition_evidence": {
-          "atmosphere": [
-            {
-              "block_id": "P_8_78",
-              "page": 8,
-              "bbox": [
-                161.0,
-                461.0,
-                838.0,
-                600.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
-              "table_locator": null
-            }
-          ],
           "gauge_length": [
             {
               "block_id": "P_3_41",
@@ -365,7 +333,7 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
@@ -380,22 +348,22 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
-          "specimen_width": [
+          "atmosphere": [
             {
-              "block_id": "P_3_41",
-              "page": 3,
+              "block_id": "P_8_78",
+              "page": 8,
               "bbox": [
-                157.0,
-                124.0,
-                834.0,
-                233.0
+                161.0,
+                461.0,
+                838.0,
+                600.0
               ],
               "source_type": "text",
-              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance.",
+              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
               "table_locator": null
             }
           ]
@@ -415,32 +383,32 @@
             600.0
           ],
           "source_type": "text",
-          "source_sentence": "The maximum elongation at break is 29%",
+          "source_sentence": "The maximum elongation at break is 29%.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
       "property_id": "prop003",
-      "sample_id": "s002",
-      "property_name_raw": "elongation at break",
-      "property_name_normalized": "elongation_at_break",
+      "sample_id": "s004",
+      "property_name_raw": "elongation at yield",
+      "property_name_normalized": "elongation_at_yield",
       "property_code": "P8110",
       "property_category": "tensile_property",
       "molecular_weight_type": null,
-      "determination_method_raw": "XQ-1 instrument",
+      "determination_method_raw": null,
       "observation_group_id": null,
       "observation_role": "single",
       "series_id": null,
       "series_ids": null,
-      "value_raw": "6",
-      "value_min": 6.0,
-      "value_max": 6.0,
+      "value_raw": "~14",
+      "value_min": 14.0,
+      "value_max": 14.0,
       "unit_raw": "%",
-      "unit_normalized": "%",
+      "unit_normalized": null,
       "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
@@ -449,27 +417,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "atmosphere": "standard atmosphere",
           "gauge_length": "20 mm",
           "crosshead_speed": "5 mm/min",
-          "specimen_width": "~5 mm"
+          "atmosphere": "standard atmosphere"
         },
         "other_condition_evidence": {
-          "atmosphere": [
-            {
-              "block_id": "P_8_78",
-              "page": 8,
-              "bbox": [
-                161.0,
-                461.0,
-                838.0,
-                600.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
-              "table_locator": null
-            }
-          ],
           "gauge_length": [
             {
               "block_id": "P_3_41",
@@ -481,7 +433,7 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
@@ -496,22 +448,22 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
-          "specimen_width": [
+          "atmosphere": [
             {
-              "block_id": "P_3_41",
-              "page": 3,
+              "block_id": "P_8_78",
+              "page": 8,
               "bbox": [
-                157.0,
-                124.0,
-                834.0,
-                233.0
+                161.0,
+                461.0,
+                838.0,
+                600.0
               ],
               "source_type": "text",
-              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance.",
+              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
               "table_locator": null
             }
           ]
@@ -531,23 +483,23 @@
             600.0
           ],
           "source_type": "text",
-          "source_sentence": "The elongation at break of PAA is only 6%",
+          "source_sentence": "The obvious yield behavior at an elongation of ~14% is shown in the S–S curves of polyimide.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.85
       }
     },
     {
       "property_id": "prop004",
-      "sample_id": "s003",
+      "sample_id": "s004",
       "property_name_raw": "tensile strength",
       "property_name_normalized": "tensile_stress_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
       "molecular_weight_type": null,
-      "determination_method_raw": "XQ-1 instrument",
+      "determination_method_raw": null,
       "observation_group_id": null,
       "observation_role": "single",
       "series_id": null,
@@ -556,7 +508,7 @@
       "value_min": 100.0,
       "value_max": 100.0,
       "unit_raw": "MPa",
-      "unit_normalized": "MPa",
+      "unit_normalized": null,
       "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
@@ -565,27 +517,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "atmosphere": "standard atmosphere",
           "gauge_length": "20 mm",
           "crosshead_speed": "5 mm/min",
-          "specimen_width": "~5 mm"
+          "atmosphere": "standard atmosphere"
         },
         "other_condition_evidence": {
-          "atmosphere": [
-            {
-              "block_id": "P_8_78",
-              "page": 8,
-              "bbox": [
-                161.0,
-                461.0,
-                838.0,
-                600.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
-              "table_locator": null
-            }
-          ],
           "gauge_length": [
             {
               "block_id": "P_3_41",
@@ -597,7 +533,7 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
@@ -612,22 +548,22 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
-          "specimen_width": [
+          "atmosphere": [
             {
-              "block_id": "P_3_41",
-              "page": 3,
+              "block_id": "P_8_78",
+              "page": 8,
               "bbox": [
-                157.0,
-                124.0,
-                834.0,
-                233.0
+                161.0,
+                461.0,
+                838.0,
+                600.0
               ],
               "source_type": "text",
-              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance.",
+              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
               "table_locator": null
             }
           ]
@@ -658,21 +594,21 @@
     {
       "property_id": "prop005",
       "sample_id": "s002",
-      "property_name_raw": "tensile strength",
-      "property_name_normalized": "tensile_stress_at_break",
+      "property_name_raw": "elongation at break",
+      "property_name_normalized": "elongation_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
       "molecular_weight_type": null,
-      "determination_method_raw": "XQ-1 instrument",
+      "determination_method_raw": null,
       "observation_group_id": null,
       "observation_role": "single",
       "series_id": null,
       "series_ids": null,
-      "value_raw": "40.5",
-      "value_min": 40.5,
-      "value_max": 40.5,
-      "unit_raw": "MPa",
-      "unit_normalized": "MPa",
+      "value_raw": "6",
+      "value_min": 6.0,
+      "value_max": 6.0,
+      "unit_raw": "%",
+      "unit_normalized": null,
       "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
@@ -681,27 +617,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "atmosphere": "standard atmosphere",
           "gauge_length": "20 mm",
           "crosshead_speed": "5 mm/min",
-          "specimen_width": "~5 mm"
+          "atmosphere": "standard atmosphere"
         },
         "other_condition_evidence": {
-          "atmosphere": [
-            {
-              "block_id": "P_8_78",
-              "page": 8,
-              "bbox": [
-                161.0,
-                461.0,
-                838.0,
-                600.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
-              "table_locator": null
-            }
-          ],
           "gauge_length": [
             {
               "block_id": "P_3_41",
@@ -713,7 +633,7 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
@@ -728,11 +648,81 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
               "table_locator": null
             }
           ],
-          "specimen_width": [
+          "atmosphere": [
+            {
+              "block_id": "P_8_78",
+              "page": 8,
+              "bbox": [
+                161.0,
+                461.0,
+                838.0,
+                600.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_8_78",
+          "page": 8,
+          "bbox": [
+            161.0,
+            461.0,
+            838.0,
+            600.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The elongation at break of PAA is only 6% and it does not exhibit an apparent yield.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop006",
+      "sample_id": "s002",
+      "property_name_raw": "tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "40.5",
+      "value_min": 40.5,
+      "value_max": 40.5,
+      "unit_raw": "MPa",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc005",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "gauge_length": "20 mm",
+          "crosshead_speed": "5 mm/min",
+          "atmosphere": "standard atmosphere"
+        },
+        "other_condition_evidence": {
+          "gauge_length": [
             {
               "block_id": "P_3_41",
               "page": 3,
@@ -743,7 +733,37 @@
                 233.0
               ],
               "source_type": "text",
-              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance.",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
+              "table_locator": null
+            }
+          ],
+          "crosshead_speed": [
+            {
+              "block_id": "P_3_41",
+              "page": 3,
+              "bbox": [
+                157.0,
+                124.0,
+                834.0,
+                233.0
+              ],
+              "source_type": "text",
+              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance. The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min. Each specimen was measured five times and the values were averaged.",
+              "table_locator": null
+            }
+          ],
+          "atmosphere": [
+            {
+              "block_id": "P_8_78",
+              "page": 8,
+              "bbox": [
+                161.0,
+                461.0,
+                838.0,
+                600.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
               "table_locator": null
             }
           ]
@@ -770,122 +790,6 @@
       "confidence": {
         "score": 0.95
       }
-    },
-    {
-      "property_id": "prop006",
-      "sample_id": "s003",
-      "property_name_raw": "elongation at yield",
-      "property_name_normalized": "elongation_at_yield",
-      "property_code": "P8110",
-      "property_category": "tensile_property",
-      "molecular_weight_type": null,
-      "determination_method_raw": "XQ-1 instrument",
-      "observation_group_id": null,
-      "observation_role": "single",
-      "series_id": null,
-      "series_ids": null,
-      "value_raw": "~14",
-      "value_min": 14.0,
-      "value_max": 14.0,
-      "unit_raw": "%",
-      "unit_normalized": "%",
-      "measurement_condition_id": "mc005",
-      "measurement_context": {
-        "temperature": null,
-        "frequency": null,
-        "humidity": null,
-        "pressure": null,
-        "wavelength": null,
-        "other_conditions": {
-          "atmosphere": "standard atmosphere",
-          "gauge_length": "20 mm",
-          "crosshead_speed": "5 mm/min",
-          "specimen_width": "~5 mm"
-        },
-        "other_condition_evidence": {
-          "atmosphere": [
-            {
-              "block_id": "P_8_78",
-              "page": 8,
-              "bbox": [
-                161.0,
-                461.0,
-                838.0,
-                600.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The mechanical properties of polyamic acid and polyimide were measured under standard atmosphere.",
-              "table_locator": null
-            }
-          ],
-          "gauge_length": [
-            {
-              "block_id": "P_3_41",
-              "page": 3,
-              "bbox": [
-                157.0,
-                124.0,
-                834.0,
-                233.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
-              "table_locator": null
-            }
-          ],
-          "crosshead_speed": [
-            {
-              "block_id": "P_3_41",
-              "page": 3,
-              "bbox": [
-                157.0,
-                124.0,
-                834.0,
-                233.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The measurement was conducted on an XQ-1 instrument with a gauge length of 20 mm and a crosshead speed of 5 mm/min.",
-              "table_locator": null
-            }
-          ],
-          "specimen_width": [
-            {
-              "block_id": "P_3_41",
-              "page": 3,
-              "bbox": [
-                157.0,
-                124.0,
-                834.0,
-                233.0
-              ],
-              "source_type": "text",
-              "source_sentence": "To measure the mechanical properties, the polymer films were cut into strips with a width of ${ \\sim } 5 $mm in advance.",
-              "table_locator": null
-            }
-          ]
-        },
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "source_type": "text",
-      "evidence": [
-        {
-          "block_id": "P_8_78",
-          "page": 8,
-          "bbox": [
-            161.0,
-            461.0,
-            838.0,
-            600.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The obvious yield behavior at an elongation of ~14% is shown in the S–S curves of polyimide.",
-          "table_locator": null
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
     }
   ],
   "unresolved_properties": [],
@@ -901,30 +805,30 @@
     "prompt_version": "1.7.2",
     "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "b05f931a1aab860502986905eb786d7075a9340d3550c1bab1264a209beb4a2a",
+    "input_hash": "103c9dfade159d054e5eea3ae3bcc8eadae07b4850bba6e798785f243226bfc9",
     "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-    "cache_key": "5093ab858f213dee8fd55f9259bb24c4bd7187688eaba7f65891b54b42dd51e8",
+    "cache_key": "67c903da8febda8677e995bfeebaed62060dacf937960b218516c9ef6a111b96",
     "output_schema_version": "property_observation_schema.v7",
     "implementation_version": "1.7.10",
     "context_block_count": 39,
     "context_chars": 21339,
     "call_count": 1,
     "usage": {
-      "input_tokens": 20801,
-      "output_tokens": 9993,
+      "input_tokens": 20802,
+      "output_tokens": 9525,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 20801,
-      "total_tokens": 30794
+      "billable_input_tokens": 20802,
+      "total_tokens": 30327
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.08986032",
-      "output_cost": "0.29129595",
-      "total_cost": "0.38115627"
+      "input_cost": "0.08986464",
+      "output_cost": "0.27765375",
+      "total_cost": "0.36751839"
     },
     "status": "success"
   },
@@ -933,7 +837,7 @@
       "stage": "stage4_property",
       "code": "preview_semantic_validation_bypassed",
       "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
-      "reason": "prop011.property_name_raw='elongation at yield' 不是任一 evidence block 的原文子串"
+      "reason": "prop008.determination_method_raw='tensile test' 不是任一 evidence block 的原文子串"
     }
   ]
 }

@@ -7,8 +7,7 @@
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe002",
       "polymer_name": "NBR18",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "NBR18",
       "intended_use": [],
       "evidence": {
@@ -24,17 +23,17 @@
         "source_sentence": "NBRには，アクリロニトリル（AN）成分が少ない低ニトリル（NBR18, ムーニー粘度＝32），およびAN成分が多"
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s002",
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe003",
       "polymer_name": "NBR43",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "NBR43",
       "intended_use": [],
       "evidence": {
@@ -50,17 +49,16 @@
         "source_sentence": "い高ニトリル（NBR43, ムーニー粘度＝78）のものをそれぞれ用いた．"
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s003",
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe004",
       "polymer_name": "ブタジエンゴム",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "NBR0",
       "intended_use": [],
       "evidence": {
@@ -76,17 +74,17 @@
         "source_sentence": "また，本論文中のブタジエンゴムについては，他のニトリルゴムと表記を統一させるため，略号にNBR0を用いることとする．"
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s004",
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe005",
       "polymer_name": "ポリエチレンオキシド",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "PEO",
       "intended_use": [],
       "evidence": {
@@ -102,18 +100,18 @@
         "source_sentence": "ポリエーテルには，平均分子量50万のPEO（和光純薬），日本ゼオンのエチレンオキシド（EO）/プロピレンオキシド（PO）共重合体（P（EO/PO），EO成分量88 mol％），ポリ［（オリゴEO/PO）グラフト型メタクリラート］（PM（EO/PO））をそれぞれ用いた．"
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s005",
       "sample_kind": "commercial_batch",
-      "refers_to_entity": "pe007",
+      "refers_to_entity": "pe006",
       "polymer_name": "エチレンオキシド（EO）/プロピレンオキシド（PO）共重合体",
       "polymer_type": "copolymer",
-      "copolymer_type": "ran",
-      "material_type": "neat_resin",
       "sample_label_raw": "P（EO/PO）",
       "intended_use": [],
       "evidence": {
@@ -129,16 +127,18 @@
         "source_sentence": "ポリエーテルには，平均分子量50万のPEO（和光純薬），日本ゼオンのエチレンオキシド（EO）/プロピレンオキシド（PO）共重合体（P（EO/PO），EO成分量88 mol％），ポリ［（オリゴEO/PO）グラフト型メタクリラート］（PM（EO/PO））をそれぞれ用いた．"
       },
       "confidence": {
-        "score": 0.9
-      }
+        "score": 0.95
+      },
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s006",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe010",
-      "polymer_name": "PM（EO/PO）-LiClO<sub>4</sub>",
+      "refers_to_entity": "pe008",
+      "polymer_name": "PM（EO/PO）-$\\mathrm { L i C l O _ { 4 } }$",
       "material_type": "compound",
-      "state_description": "膜形状を保持できる透明な高分子であるが，力学的にはもろく，柔らかい寒天状",
+      "state_description": "膜形状を保持できる透明な高分子であるが，力学的にはもろく，柔らかい寒天状であった．",
       "intended_use": [],
       "evidence": {
         "block_id": "P_2_42",
@@ -161,10 +161,10 @@
     {
       "sample_id": "s007",
       "sample_kind": "intermediate",
-      "refers_to_entity": "pe010",
-      "polymer_name": "PM（EO/PO）-LiClO<sub>4</sub>",
+      "refers_to_entity": "pe008",
+      "polymer_name": "PM（EO/PO）-$\\mathrm { L i C l O _ { 4 } }$",
       "material_type": "compound",
-      "state_description": "細かく砕いて粉状",
+      "state_description": "粉状",
       "intended_use": [],
       "evidence": {
         "block_id": "P_2_42",
@@ -179,19 +179,18 @@
         "source_sentence": "得られたPM（EO/PO）-$\\mathrm { L i C l O _ { 4 } }$は，細かく砕いて粉状にした．"
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       },
       "polymer_type": null,
       "copolymer_type": null
     },
     {
       "sample_id": "s008",
-      "sample_kind": "processed_material",
-      "refers_to_entity": "pe018",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe015",
       "polymer_name": "NBR18/PM（EO/PO）<sub>poly</sub>-LiClO<sub>4</sub>",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
-      "sample_label_raw": "NBR18/PM（EO/PO）<sub>poly</sub>-LiClO<sub>4</sub>",
       "intended_use": [],
       "evidence": {
         "block_id": "P_2_42",
@@ -203,7 +202,7 @@
           319.0
         ],
         "source_type": "text",
-        "source_sentence": "NBRを二軸オープ$ \\cup \\sqsubset  \\pi -  \\pi$を用 $\\textsf { V } ^ { 1 } \\textsf { C } 3 5$℃で5分間素練りし，そこに所定量の粉状PM（ $\\mathrm { ( E O P O ) . L i C l O _ { 4 } }$を5分かけて加え，続いて約80分混練した．以降， $= 0 . 7 V = K$方法により得られた試料を，NBR18/PM（EO/PO）<sub>poly</sub>-LiClO<sub>4</sub>と表記する．"
+        "source_sentence": "NBRを二軸オープ$ \\cup \\sqsubset  \\pi -  \\pi$を用 $\\textsf { V } ^ { 1 } \\textsf { C } 3 5$℃で5分間素練りし，そこに所定量の粉状PM（ $\\mathrm { ( E O P O ) . L i C l O _ { 4 } }$を5分かけて加え，続いて約80分混練した．"
       },
       "confidence": {
         "score": 0.9
@@ -212,8 +211,8 @@
     },
     {
       "sample_id": "s009",
-      "sample_kind": "test_specimen",
-      "refers_to_entity": "pe018",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe015",
       "polymer_name": "NBR18/PM（EO/PO）<sub>poly</sub>-LiClO<sub>4</sub>",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
@@ -238,8 +237,58 @@
     },
     {
       "sample_id": "s010",
-      "sample_kind": "processed_material",
-      "refers_to_entity": "pe019",
+      "sample_kind": "intermediate",
+      "polymer_name": "均一な溶液",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "state_description": "均一な溶液",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_2_44",
+        "page": 2,
+        "bbox": [
+          67.0,
+          342.0,
+          478.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "所定量の重量比のNBR18（またはNBR0, NBR43）およびM（EO/PO）を，LiClO（［Li<sup>+</sup>］/［EO］［PO］＝1/20）およびAIBN（モノマーに対して1 mol％）とともに脱水THFに加え，均一な溶液を作製した．"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s011",
+      "sample_kind": "intermediate",
+      "polymer_name": "粘性液体",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "state_description": "粘性液体",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_2_44",
+        "page": 2,
+        "bbox": [
+          67.0,
+          342.0,
+          478.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "テフロン<sup>獏</sup>シャーレに注いだTHF溶液を減圧下で4時間脱溶媒し，得られた粘性液体（NBR/M（EO/PO）-LiClO ）を室温で24時間真空乾燥した"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s012",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe016",
       "polymer_name": "NBR/$\\mathrm { P M ( E O / P O ) } _ { \\mathrm { m o n o } ^ { - } } \\mathrm { L i C l O } _ { 4 }$",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
@@ -255,7 +304,7 @@
           562.0
         ],
         "source_type": "text",
-        "source_sentence": "以降，このブレンド方法により得られた試料を，NBR/$\\mathrm { P M ( E O / P O ) } _ { \\mathrm { m o n o } ^ { - } } \\mathrm { L i C l O } _ { 4 }$と表記する"
+        "source_sentence": "シャーレ上のNBR混合物を，そのまま100 ℃のホットプレート上で乾燥 $\\mathrm { N _ { 2 } }$ガスをフローしながら6時間保持して重合させた．"
       },
       "confidence": {
         "score": 0.9
@@ -263,25 +312,25 @@
       "copolymer_type": null
     },
     {
-      "sample_id": "s011",
+      "sample_id": "s013",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe020",
+      "refers_to_entity": "pe017",
       "polymer_name": "NBR43/PM（EO/PO）<sub>mono</sub>-LiClO<sub>4</sub>",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
-      "sample_label_raw": "NBR43/PM（EO/PO）<sub>mono</sub>-LiClO<sub>4</sub>",
+      "state_description": "厚さ約500～800μmの均一な膜",
       "intended_use": [],
       "evidence": {
-        "block_id": "P_7_105",
-        "page": 7,
+        "block_id": "P_2_44",
+        "page": 2,
         "bbox": [
-          68.0,
-          546.0,
-          480.0,
-          933.0
+          67.0,
+          342.0,
+          478.0,
+          562.0
         ],
         "source_type": "text",
-        "source_sentence": "これらの条件を満たすNBR43/PM（EO/PO）<sub>mono</sub>-LiClO<sub>4</sub>は，吸湿状態と乾燥状態の伝導度に差異がほとんど見られず，湿度環境に対する伝導度の安定性の向上が達成できた．"
+        "source_sentence": "得られた電解質膜を，さらに18時間100 ℃で真空乾燥させて，厚さ約500～800μmの均一な膜を得た"
       },
       "confidence": {
         "score": 0.9
@@ -289,11 +338,10 @@
       "copolymer_type": null
     },
     {
-      "sample_id": "s012",
+      "sample_id": "s014",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe006",
+      "refers_to_entity": "pe009",
       "polymer_name": "PEO-LiClO4",
-      "polymer_type": "homopolymer",
       "material_type": "compound",
       "sample_label_raw": "PEO-LiClO4",
       "intended_use": [],
@@ -310,17 +358,17 @@
         "source_sentence": "PEO-LiClO4"
       },
       "confidence": {
-        "score": 0.8
+        "score": 0.85
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
-      "sample_id": "s013",
+      "sample_id": "s015",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe008",
+      "refers_to_entity": "pe010",
       "polymer_name": "P (EO/PO)-LiClO4",
       "polymer_type": "copolymer",
-      "copolymer_type": "ran",
       "material_type": "compound",
       "sample_label_raw": "P (EO/PO)-LiClO4",
       "intended_use": [],
@@ -337,8 +385,87 @@
         "source_sentence": "P (EO/PO)-LiClO4"
       },
       "confidence": {
-        "score": 0.8
-      }
+        "score": 0.85
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s016",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe018",
+      "polymer_name": "NBR18/PEO system",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "NBR18/PEO system",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_3_62",
+        "page": 3,
+        "bbox": [
+          220.0,
+          109.0,
+          778.0,
+          294.0
+        ],
+        "source_type": "table",
+        "source_sentence": "NBR18/PEO system"
+      },
+      "confidence": {
+        "score": 0.85
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s017",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe019",
+      "polymer_name": "/P (EO/PO)",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_3_62",
+        "page": 3,
+        "bbox": [
+          220.0,
+          109.0,
+          778.0,
+          294.0
+        ],
+        "source_type": "table",
+        "source_sentence": "/P (EO/PO)"
+      },
+      "confidence": {
+        "score": 0.85
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s018",
+      "sample_kind": "test_specimen",
+      "refers_to_entity": "pe020",
+      "polymer_name": "$\\mathrm { N B R 1 8 / P M ( E O / P O ) _ { m o n o } \\mathrm { - L i C l O _ { 4 } 5 0 / 5 0 } }$",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "$\\mathrm { N B R 1 8 / P M ( E O / P O ) _ { m o n o } \\mathrm { - L i C l O _ { 4 } 5 0 / 5 0 } }$",
+      "state_description": "micro- (or nano-) scale Sea-Island phase separation",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_0_4",
+        "page": 0,
+        "bbox": [
+          65.0,
+          373.0,
+          927.0,
+          557.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Obtained samples showed micro- (or nano-) scale Sea-Island phase separation, which was revealed from the TEM observation in case of $\\mathrm { N B R 1 8 / P M ( E O / P O ) _ { m o n o } \\mathrm { - L i C l O _ { 4 } 5 0 / 5 0 } }$wt% blend"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
     }
   ],
   "process_steps": [
@@ -350,8 +477,10 @@
         "s006"
       ],
       "parameters": {
-        "温度": "100 ℃",
-        "時間": "6時間"
+        "重合温度": "100 ℃",
+        "重合時間": "6時間",
+        "後処理真空乾燥温度": "100 ℃",
+        "後処理真空乾燥時間": "18時間"
       },
       "evidence": {
         "block_id": "P_2_42",
@@ -392,12 +521,12 @@
         "source_sentence": "得られたPM（EO/PO）-$\\mathrm { L i C l O _ { 4 } }$は，細かく砕いて粉状にした．"
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       }
     },
     {
       "step_id": "ps003",
-      "process_type": "mixing",
+      "process_type": "blending",
       "input_sample_ids": [
         "s001",
         "s007"
@@ -422,12 +551,12 @@
         "source_sentence": "NBRを二軸オープ$ \\cup \\sqsubset  \\pi -  \\pi$を用 $\\textsf { V } ^ { 1 } \\textsf { C } 3 5$℃で5分間素練りし，そこに所定量の粉状PM（ $\\mathrm { ( E O P O ) . L i C l O _ { 4 } }$を5分かけて加え，続いて約80分混練した．"
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       }
     },
     {
       "step_id": "ps004",
-      "process_type": "pressing",
+      "process_type": "molding",
       "input_sample_ids": [
         "s008"
       ],
@@ -435,9 +564,9 @@
         "s009"
       ],
       "parameters": {
-        "温度": "60 ℃",
-        "圧力": "20 MPa",
-        "時間": "3分間",
+        "圧縮成形温度": "60 ℃",
+        "圧縮成形圧力": "20 MPa",
+        "圧縮成形時間": "3分間",
         "真空乾燥時間": "24時間"
       },
       "evidence": {
@@ -458,21 +587,72 @@
     },
     {
       "step_id": "ps005",
-      "process_type": "polymerization",
+      "process_type": "mixing",
       "input_sample_ids": [
         "s001",
         "s002",
         "s003"
       ],
       "output_sample_ids": [
-        "s010",
+        "s010"
+      ],
+      "parameters": {},
+      "evidence": {
+        "block_id": "P_2_44",
+        "page": 2,
+        "bbox": [
+          67.0,
+          342.0,
+          478.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "所定量の重量比のNBR18（またはNBR0, NBR43）およびM（EO/PO）を，LiClO（［Li<sup>+</sup>］/［EO］［PO］＝1/20）およびAIBN（モノマーに対して1 mol％）とともに脱水THFに加え，均一な溶液を作製した．"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "step_id": "ps006",
+      "process_type": "drying",
+      "input_sample_ids": [
+        "s010"
+      ],
+      "output_sample_ids": [
         "s011"
       ],
       "parameters": {
-        "［Li+］/［EO］［PO］": "1/20",
-        "AIBN添加量": "1 mol％",
         "脱溶媒時間": "4時間",
-        "真空乾燥時間": "24時間",
+        "真空乾燥温度": "室温",
+        "真空乾燥時間": "24時間"
+      },
+      "evidence": {
+        "block_id": "P_2_44",
+        "page": 2,
+        "bbox": [
+          67.0,
+          342.0,
+          478.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "テフロン<sup>獏</sup>シャーレに注いだTHF溶液を減圧下で4時間脱溶媒し，得られた粘性液体（NBR/M（EO/PO）-LiClO ）を室温で24時間真空乾燥した"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "step_id": "ps007",
+      "process_type": "polymerization",
+      "input_sample_ids": [
+        "s011"
+      ],
+      "output_sample_ids": [
+        "s012"
+      ],
+      "parameters": {
         "重合温度": "100 ℃",
         "重合時間": "6時間"
       },
@@ -486,30 +666,49 @@
           562.0
         ],
         "source_type": "text",
-        "source_sentence": "所定量の重量比のNBR18（またはNBR0, NBR43）およびM（EO/PO）を，LiClO（［Li<sup>+</sup>］/［EO］［PO］＝1/20）およびAIBN（モノマーに対して1 mol％）とともに脱水THFに加え，均一な溶液を作製した．テフロン<sup>獏</sup>シャーレに注いだTHF溶液を減圧下で4時間脱溶媒し，得られた粘性液体（NBR/M（EO/PO）-LiClO ）を室温で24時間真空乾燥したシャーレ上のNBR混合物を，そのまま100 ℃のホットプレート上で乾燥 $\\mathrm { N _ { 2 } }$ガスをフローしながら6時間保持して重合させた．"
+        "source_sentence": "シャーレ上のNBR混合物を，そのまま100 ℃のホットプレート上で乾燥 $\\mathrm { N _ { 2 } }$ガスをフローしながら6時間保持して重合させた．"
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.9
+      }
+    },
+    {
+      "step_id": "ps008",
+      "process_type": "drying",
+      "input_sample_ids": [
+        "s012"
+      ],
+      "output_sample_ids": [
+        "s013"
+      ],
+      "parameters": {
+        "真空乾燥温度": "100 ℃",
+        "真空乾燥時間": "18時間"
+      },
+      "evidence": {
+        "block_id": "P_2_44",
+        "page": 2,
+        "bbox": [
+          67.0,
+          342.0,
+          478.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "得られた電解質膜を，さらに18時間100 ℃で真空乾燥させて，厚さ約500～800μmの均一な膜を得た"
+      },
+      "confidence": {
+        "score": 0.9
       }
     }
   ],
   "unresolved_entity_ids": [
     "pe001",
-    "pe009",
+    "pe007",
     "pe011",
     "pe012",
     "pe013",
-    "pe014",
-    "pe015",
-    "pe016",
-    "pe017",
-    "pe021",
-    "pe022",
-    "pe023",
-    "pe024",
-    "pe025",
-    "pe026",
-    "pe027"
+    "pe014"
   ],
   "provenance": {
     "stage": "stage3_sample_process",
@@ -519,32 +718,32 @@
       "doubao-seed-2.0-pro"
     ],
     "prompt_id": "polymer.stage3.sample_process",
-    "prompt_version": "1.4.0",
-    "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-    "input_hash": "dabebee5ac04a5d552def48176ce2a7b8d6d673e4b2cae9fdf14f50f3fa55ffb",
+    "prompt_version": "1.6.0",
+    "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+    "input_hash": "47e5dc3cb2dc200a44ab18ff01e9759696fa4e5bc9eef48dd74450a21a580d33",
     "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-    "cache_key": "49403aad97f73cca095be1a03bd7ea0a7d134537f4f213a07c025b8407eb8cc2",
+    "cache_key": "3ddf73e3f6daa4165479e8ae1000e571fda40810f7142ce46127c29ec42562de",
     "output_schema_version": "sample_process_schema.v4",
-    "implementation_version": "1.5.0",
-    "context_block_count": 16,
-    "context_chars": 15097,
+    "implementation_version": "1.7.1",
+    "context_block_count": 12,
+    "context_chars": 12368,
     "call_count": 1,
     "usage": {
-      "input_tokens": 30598,
-      "output_tokens": 7889,
+      "input_tokens": 23285,
+      "output_tokens": 8209,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 30598,
-      "total_tokens": 38487
+      "billable_input_tokens": 23285,
+      "total_tokens": 31494
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.13218336",
-      "output_cost": "0.22996435",
-      "total_cost": "0.36214771"
+      "input_cost": "0.1005912",
+      "output_cost": "0.23929235",
+      "total_cost": "0.33988355"
     },
     "status": "success"
   },
@@ -556,10 +755,80 @@
     },
     {
       "stage": "stage3_sample_process",
+      "code": "sample_polymer_type_process_inferred",
+      "message": "已根据多聚合物配方步骤或成分保持工艺补全 polymer_type",
+      "items": [
+        {
+          "sample_id": "s010",
+          "field": "polymer_type",
+          "value": "polymer_blend",
+          "step_id": "ps005",
+          "process_type": "mixing",
+          "input_entity_ids": [
+            "pe002",
+            "pe003",
+            "pe004"
+          ],
+          "reason": "配方步骤包含至少两个不同的聚合物实体输入"
+        },
+        {
+          "sample_id": "s011",
+          "field": "polymer_type",
+          "value": "polymer_blend",
+          "step_id": "ps006",
+          "process_type": "drying",
+          "input_sample_ids": [
+            "s010"
+          ],
+          "reason": "成分保持工艺的全部输入具有一致 polymer_type"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "material_type_evidence_inferred",
+      "message": "已根据样品中的明确配方或增强组分证据补全 material_type",
+      "items": [
+        {
+          "sample_id": "s010",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps005",
+          "process_type": "mixing",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "material_type_process_inherited",
+      "message": "成分保持工艺的输出样品已继承一致的输入 material_type",
+      "items": [
+        {
+          "sample_id": "s011",
+          "field": "material_type",
+          "value": "compound",
+          "step_id": "ps006",
+          "process_type": "drying",
+          "input_sample_ids": [
+            "s010"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
       "code": "unsupported_sample_labels_dropped",
       "message": "sample_label_raw 无法在 evidence 中定位；已有逐字 state_description，故删除无依据标签",
       "sample_ids": [
-        "s006"
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s011",
+        "s013",
+        "s017"
       ]
     },
     {
@@ -578,30 +847,42 @@
           "parameter_keys": [
             "素練り温度"
           ]
+        },
+        {
+          "step_id": "ps005",
+          "parameter_keys": [
+            "Li塩比",
+            "AIBN添加量"
+          ]
+        },
+        {
+          "step_id": "ps007",
+          "parameter_keys": [
+            "雰囲気"
+          ]
         }
       ]
     },
     {
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "16 个 entity 未解析到实际样品",
+      "message": "6 个 entity 未解析到实际样品",
       "entity_ids": [
         "pe001",
-        "pe009",
+        "pe007",
         "pe011",
         "pe012",
         "pe013",
-        "pe014",
-        "pe015",
-        "pe016",
-        "pe017",
-        "pe021",
-        "pe022",
-        "pe023",
-        "pe024",
-        "pe025",
-        "pe026",
-        "pe027"
+        "pe014"
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "samples_without_entity",
+      "message": "部分样品无法可靠关联 PolymerEntity",
+      "sample_ids": [
+        "s010",
+        "s011"
       ]
     },
     {
@@ -609,161 +890,12 @@
       "code": "orphan_noninitial_samples",
       "message": "非初始样品缺少原文支持的生成 ProcessStep",
       "sample_ids": [
-        "s012",
-        "s013"
+        "s014",
+        "s015",
+        "s016",
+        "s017",
+        "s018"
       ]
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型",
-      "items": [
-        {
-          "sample_id": "s001",
-          "entity_id": "pe002",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s002",
-          "entity_id": "pe003",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s003",
-          "entity_id": "pe004",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s004",
-          "entity_id": "pe005",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s012",
-          "entity_id": "pe006",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_evidence_inferred",
-      "message": "Backfill：已按明确配方或增强组分证据补全 material_type",
-      "items": [
-        {
-          "sample_id": "s006",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s007",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s008",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s009",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s010",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s011",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s012",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        },
-        {
-          "sample_id": "s013",
-          "field": "material_type",
-          "value": "compound",
-          "reason": "样品证据明确包含掺杂剂、电解质盐、增塑剂或其他配方组分"
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin",
-      "items": [
-        {
-          "sample_id": "s001",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s002",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s003",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s004",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s005",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        }
-      ],
-      "backfill": true
     }
   ]
 }

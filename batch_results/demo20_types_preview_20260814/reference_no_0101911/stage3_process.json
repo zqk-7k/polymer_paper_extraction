@@ -7,8 +7,6 @@
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe001",
       "polymer_name": "polyvinyl chloride",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "state_description": "The dried ABS and PVC powder and the additives $\\mathrm { ( C a / Z n }$stabilizer (2.5wt%), ACR (1wt%), and organotin, 1 mL) were mixed in proportion.",
       "intended_use": [],
       "evidence": {
@@ -26,7 +24,9 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s002",
@@ -35,7 +35,6 @@
       "polymer_name": "polybutadiene grafted styrene and acrylonitrile copolymer",
       "polymer_type": "copolymer",
       "copolymer_type": "graft",
-      "material_type": "neat_resin",
       "sample_label_raw": "ABS",
       "intended_use": [],
       "evidence": {
@@ -52,41 +51,15 @@
       },
       "confidence": {
         "score": 0.9
-      }
+      },
+      "material_type": null
     },
     {
       "sample_id": "s003",
-      "sample_kind": "commercial_batch",
-      "refers_to_entity": "pe007",
-      "polymer_name": "acrylic resin",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "ACR",
-      "intended_use": [],
-      "evidence": {
-        "block_id": "P_1_30",
-        "page": 1,
-        "bbox": [
-          507.0,
-          406.0,
-          926.0,
-          496.0
-        ],
-        "source_type": "text",
-        "source_sentence": "The dried ABS and PVC powder and the additives $\\mathrm { ( C a / Z n }$stabilizer (2.5wt%), ACR (1wt%), and organotin, 1 mL) were mixed in proportion."
-      },
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s004",
-      "sample_kind": "commercial_batch",
+      "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe003",
       "polymer_name": "styrene-N-phenylmaleimide-acrylonitrile terpolymer",
       "polymer_type": "copolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "SMIA",
       "intended_use": [],
       "evidence": {
@@ -102,14 +75,15 @@
         "source_sentence": "The heat-resistant modifier styrene-N-phenylmaleimide-acrylonitrile terpolymer (SMIA) synthesized by bulk polymerization was added to PVC/ABS to improve the heat resistance of the composite."
       },
       "confidence": {
-        "score": 0.7
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
-      "sample_id": "s005",
+      "sample_id": "s004",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe011",
+      "refers_to_entity": "pe012",
       "polymer_name": "PVC/ABS composite material",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
@@ -133,28 +107,28 @@
       "copolymer_type": null
     },
     {
-      "sample_id": "s006",
+      "sample_id": "s005",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe012",
+      "refers_to_entity": "pe004",
       "polymer_name": "PVC/ABS/ SMIA composites",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
-      "sample_label_raw": "SMIA/PVC/ABS composites",
+      "sample_label_raw": "PVC/ABS/ SMIA composites",
       "intended_use": [],
       "evidence": {
-        "block_id": "P_1_30",
-        "page": 1,
+        "block_id": "P_3_64",
+        "page": 3,
         "bbox": [
           507.0,
-          406.0,
-          926.0,
-          496.0
+          450.0,
+          927.0,
+          627.0
         ],
         "source_type": "text",
-        "source_sentence": "The preparation of SMIA/PVC/ABS composites was similar to the aforementioned preparation of PVC/ABS composites."
+        "source_sentence": "To deeply understand the impact performance of PVC/ABS/ SMIA composites, SEM images were acquired."
       },
       "confidence": {
-        "score": 0.8
+        "score": 0.9
       },
       "copolymer_type": null
     }
@@ -162,17 +136,16 @@
   "process_steps": [
     {
       "step_id": "ps001",
-      "process_type": "blending",
+      "process_type": "compounding",
       "input_sample_ids": [
         "s001",
-        "s002",
-        "s003"
+        "s002"
       ],
       "output_sample_ids": [
-        "s005"
+        "s004"
       ],
       "parameters": {
-        "mixing_time": "3 min",
+        "time": "3 min",
         "equipment": "two-roll kneader"
       },
       "evidence": {
@@ -185,7 +158,7 @@
           496.0
         ],
         "source_type": "text",
-        "source_sentence": "The PVC/ABS composite material was obtained by melting and mixing for 3 min using a two-roll kneader at $1 7 0 ^ { \\circ } \\mathrm { C }$"
+        "source_sentence": "The PVC/ABS composite material was obtained by melting and mixing for 3 min using a two-roll kneader at $1 7 0 ^ { \\circ } \\mathrm { C }$The preparation of SMIA/PVC/ABS composites was similar to the aforementioned preparation of PVC/ABS composites."
       },
       "confidence": {
         "score": 0.9
@@ -193,17 +166,17 @@
     },
     {
       "step_id": "ps002",
-      "process_type": "blending",
+      "process_type": "compounding",
       "input_sample_ids": [
-        "s001",
-        "s002",
         "s003",
         "s004"
       ],
       "output_sample_ids": [
-        "s006"
+        "s005"
       ],
-      "parameters": {},
+      "parameters": {
+        "preparation_method": "similar to the aforementioned preparation of PVC/ABS composites"
+      },
       "evidence": {
         "block_id": "P_1_30",
         "page": 1,
@@ -217,17 +190,18 @@
         "source_sentence": "The preparation of SMIA/PVC/ABS composites was similar to the aforementioned preparation of PVC/ABS composites."
       },
       "confidence": {
-        "score": 0.8
+        "score": 0.9
       }
     }
   ],
   "unresolved_entity_ids": [
-    "pe004",
     "pe005",
     "pe006",
+    "pe007",
     "pe008",
     "pe009",
     "pe010",
+    "pe011",
     "pe013",
     "pe014",
     "pe015"
@@ -240,32 +214,32 @@
       "doubao-seed-2.0-pro"
     ],
     "prompt_id": "polymer.stage3.sample_process",
-    "prompt_version": "1.4.0",
-    "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-    "input_hash": "58c748d2aea4ff1a76ae0c7e862df4aea3f556390d31c281b019c0906f86d746",
+    "prompt_version": "1.6.0",
+    "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+    "input_hash": "1fc35cf03a14474a0d1ce60d22b64dc9078e534ae3e5d515d095aaa74cc4464e",
     "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-    "cache_key": "6c1dd3dbf1970d2cfa0c7db34afd2262b65ad3660e5b6f53ec6fa70df7f23b7d",
+    "cache_key": "90787d50388285fbe2a761354e502e9c8a8e4befeb58e3103bd78349773f2245",
     "output_schema_version": "sample_process_schema.v4",
-    "implementation_version": "1.5.0",
+    "implementation_version": "1.7.1",
     "context_block_count": 7,
     "context_chars": 8992,
     "call_count": 1,
     "usage": {
-      "input_tokens": 9509,
-      "output_tokens": 6800,
+      "input_tokens": 9820,
+      "output_tokens": 3893,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 9509,
-      "total_tokens": 16309
+      "billable_input_tokens": 9820,
+      "total_tokens": 13713
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.04107888",
-      "output_cost": "0.19822",
-      "total_cost": "0.23929888"
+      "input_cost": "0.0424224",
+      "output_cost": "0.11348095",
+      "total_cost": "0.15590335"
     },
     "status": "success"
   },
@@ -293,6 +267,18 @@
     },
     {
       "stage": "stage3_sample_process",
+      "code": "sample_evidence_relinked",
+      "message": "样品标签仅在一个输入 block 中出现，已重定位 evidence",
+      "samples": [
+        {
+          "sample_id": "s005",
+          "from_block_id": "P_1_30",
+          "to_block_id": "P_3_64"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
       "code": "unsupported_sample_labels_dropped",
       "message": "sample_label_raw 无法在 evidence 中定位；已有逐字 state_description，故删除无依据标签",
       "sample_ids": [
@@ -307,7 +293,8 @@
         {
           "step_id": "ps001",
           "parameter_keys": [
-            "temperature"
+            "temperature",
+            "additives"
           ]
         }
       ]
@@ -315,104 +302,19 @@
     {
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "9 个 entity 未解析到实际样品",
+      "message": "10 个 entity 未解析到实际样品",
       "entity_ids": [
-        "pe004",
         "pe005",
         "pe006",
+        "pe007",
         "pe008",
         "pe009",
         "pe010",
+        "pe011",
         "pe013",
         "pe014",
         "pe015"
       ]
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型",
-      "items": [
-        {
-          "sample_id": "s001",
-          "entity_id": "pe001",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s003",
-          "entity_id": "pe007",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_evidence_inferred",
-      "message": "Backfill：已按明确配方或增强组分证据补全 material_type",
-      "items": [
-        {
-          "sample_id": "s005",
-          "field": "material_type",
-          "previous_value": "composite",
-          "value": "compound",
-          "step_id": "ps001",
-          "process_type": "blending",
-          "reason": "多组分配方步骤无填料或增强体证据"
-        },
-        {
-          "sample_id": "s006",
-          "field": "material_type",
-          "previous_value": "composite",
-          "value": "compound",
-          "step_id": "ps002",
-          "process_type": "blending",
-          "reason": "多组分配方步骤无填料或增强体证据"
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin",
-      "items": [
-        {
-          "sample_id": "s001",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s002",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s003",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s004",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        }
-      ],
-      "backfill": true
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 首次交付日期：2026-08-07
 
-最近更新日期：2026-08-12
+最近更新日期：2026-08-17
 
 固定数据集：20 篇文献
 
@@ -24,6 +24,8 @@
 代码和正式数据提交请遵守 [CONTRIBUTING.md](CONTRIBUTING.md)、[上游开发者代码与批处理结果交付规范](docs/upstream_code_and_batch_results_standard.md) 与 [`batch_results` 发布规范](docs/batch_results_publishing_standard.md)。生产 CI 会校验批次索引、候选结果和文件 SHA-256。
 
 > **2026-08-14 Preview 类型更新：** Stage 2/3 类型策略升级为可审计的确定性补全。材料配方中的 `composite` 不再被误当成 homopolymer 结构证据；Composite 必须有填料或增强体证据；无填料的多组分共混判为 Compound；成分保持加工会继承 `polymer_type` 和 `material_type`。JSON 与 HTML 始终显式展示 `polymer_type`、`copolymer_type`、`material_type`，未知值保留 `null` / `not specified`。新增固定 GT 评测、离线回填和正式批次发布校验工具。最新 20 篇结果位于 `batch_results/demo20_types_preview_20260814/`：实体类型弃权 10.65%，Sample 材料类型弃权 13.93%，Blend 文档检测在实体或 Sample 口径下 P/R 为 1.00/1.00，Preview 对象守恒 20/20。
+
+> **2026-08-17 Preview 类型与归属更新：** Stage 2 v1.6.1 不再把“未发现共聚或共混反证”作为 `homopolymer` 证据；Stage 3 v1.7.1 不再把“未发现第二组分”作为 `neat_resin` 证据。缺少直接证据时统一保留 `null` / `not specified`。Stage 4R 仅在 Sample 标签唯一匹配时把性质迁移到正式对象，无法唯一归属时继续保留 unresolved。最新20篇结果已覆盖到 `batch_results/demo20_types_preview_20260814/`，20/20 Candidate 完整、Stage failures 为 0、Stage 6 errors 为 0；最终展示文件为每篇目录下的 `report.html`。
 
 ## 1. 交付包目录总览
 

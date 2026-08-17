@@ -6,38 +6,24 @@
     "table_count": 3,
     "tables_with_numeric_cells": 3,
     "numeric_cell_count": 89,
-    "represented_numeric_cell_count": 0,
-    "representation_ratio": 0.0,
+    "represented_numeric_cell_count": 9,
+    "representation_ratio": 0.101124,
     "role_counts": {
       "property_value_candidate": 6,
       "unknown": 83
     },
     "property_value_candidate_count": 6,
-    "covered_property_value_candidate_count": 0,
-    "missing_property_value_candidate_count": 6,
-    "property_value_ratio": 0.0,
+    "covered_property_value_candidate_count": 2,
+    "missing_property_value_candidate_count": 4,
+    "property_value_ratio": 0.333333,
     "gap_table_count": 1,
-    "numeric_zero_coverage_table_count": 3,
-    "property_zero_coverage_table_count": 1
+    "numeric_zero_coverage_table_count": 1,
+    "property_zero_coverage_table_count": 0
   },
   "recovered_count": 0,
-  "skipped_ambiguous_count": 6,
+  "skipped_ambiguous_count": 4,
   "recovered": [],
   "skipped_ambiguous": [
-    {
-      "cell_id": "T_3_38:r0001:c0001",
-      "table_id": "T_3_38",
-      "property_name_normalized": "glass_transition_temperature",
-      "value_raw": "275",
-      "reason": "entity_ambiguous"
-    },
-    {
-      "cell_id": "T_3_38:r0001:c0002",
-      "table_id": "T_3_38",
-      "property_name_normalized": "glass_transition_temperature",
-      "value_raw": "245",
-      "reason": "entity_ambiguous"
-    },
     {
       "cell_id": "T_3_38:r0001:c0003",
       "table_id": "T_3_38",
@@ -67,19 +53,32 @@
       "reason": "entity_ambiguous"
     }
   ],
-  "sample_resolution_summary": {},
-  "sample_resolution": [],
+  "sample_resolution_summary": {
+    "missing_cell_locator": 2
+  },
+  "sample_resolution": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe005",
+      "status": "missing_cell_locator"
+    },
+    {
+      "unresolved_id": "uprop002",
+      "entity_id": "pe005",
+      "status": "missing_cell_locator"
+    }
+  ],
   "property_id_migrations": [],
   "input_hashes": {
     "stage0_blocks.json": "6012fb4c1d6afd11b4531b2239b7b108116f46812821168a36205daa823af414",
-    "stage2_entities.json": "5a744ff2deae992d04dd75f2e472866bb29e5b3e6b99ddaebe7537e33000dd32",
-    "stage3_process.json": "cb037ab865ad4b08e0343a2d0c96bc99a36ca63a227a81fd0e9058e0d76760db",
-    "stage4_properties.json": "cbfecd59fd002578c1d44bba1438d2a4092307440a045af6ad45617c9014c353"
+    "stage2_entities.json": "c20e6cf4adb736f83d504a0a33d268b0f401a3a66ebbff20cfb5df96c8008428",
+    "stage3_process.json": "81f781e7d269e3be02a5340ab3c584554e91cda3212d439e9448e94a45c0ce55",
+    "stage4_properties.json": "b872babd4a916d75ee078cb394de74560c27db3a8449261611775f3ea353f3da"
   },
   "settings": {
     "threshold": 0.8,
     "apply": true,
     "allow_filled_up_sample_binding": true
   },
-  "output_sha256": "df8d6c629147f5629f6429e2db194f936d8daecb548cd8fe5b58ffd665113125"
+  "output_sha256": "4744802eafaf9f8bfa61d7bfed93176856cd4c894782cce22520fffe0365dbd6"
 }

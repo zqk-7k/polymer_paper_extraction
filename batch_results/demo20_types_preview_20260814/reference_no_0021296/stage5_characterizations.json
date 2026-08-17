@@ -4,7 +4,42 @@
   "characterizations": [
     {
       "characterization_id": "char001",
-      "method_raw": "Fourier-transform infrared (FTIR)",
+      "method_raw": "Ubbelohde-type viscometer",
+      "method_normalized": "viscometry",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "series_id": "series001",
+      "parameters": {
+        "solvent": "m-cresol"
+      },
+      "result_summary": "Intrinsic viscosities of as-synthesized DA-polyesters measured in m-cresol at 25 ± 0.02°C.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_3_39",
+          "page": 3,
+          "bbox": [
+            117.0,
+            739.0,
+            501.0,
+            909.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The dilute solution in m-cresol was charged into a Ubbelohde-type viscometer for testing."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "Fourier-transform infrared (FTIR) spectra",
       "method_normalized": "FTIR",
       "sample_ids": [
         "s001",
@@ -14,7 +49,7 @@
       ],
       "sample_resolution_status": "multi_resolved",
       "parameters": {},
-      "result_summary": "FTIR spectra of as-synthesised DA-polyesters HS, HI, HT, and OT(2) were recorded, showing characteristic peaks for methyl groups, benzene ring CH wagging, and diacetylene groups.",
+      "result_summary": "FTIR spectra collected for as-synthesized HS, HI, HT, OT(2) DA-polyesters.",
       "derived_property_ids": [
         "prop_s5_001",
         "prop_s5_002",
@@ -33,6 +68,18 @@
           ],
           "source_type": "text",
           "source_sentence": "Fourier-transform infrared (FTIR) spectra of the DA-polyesters were recorded using a Perkin– Elmer system 2000 FTIR spectrometer equipped with microscope and diamond press accessories."
+        },
+        {
+          "block_id": "P_3_43",
+          "page": 3,
+          "bbox": [
+            529.0,
+            369.0,
+            913.0,
+            508.0
+          ],
+          "source_type": "text",
+          "source_sentence": "FTIR spectra of the as-synthesised DA-polyesters HS, HI, HT, and OT(2) are shown in Figure 1."
         }
       ],
       "confidence": {
@@ -40,25 +87,24 @@
       }
     },
     {
-      "characterization_id": "char002",
-      "method_raw": "Raman spectroscopy",
+      "characterization_id": "char003",
+      "method_raw": "Raman spectroscopy analysis",
       "method_normalized": "Raman",
       "sample_ids": [
         "s001",
         "s002",
         "s003",
-        "s005"
+        "s005",
+        "s008"
       ],
       "sample_resolution_status": "multi_resolved",
       "instrument": "Renishaw Ramascope 3000 spectrometer",
       "parameters": {
-        "laser_wavelength": "632.8 nm",
-        "laser_power": "25-mV"
+        "laser_wavelength": "632.8 nm"
       },
-      "result_summary": "Raman spectra of as-synthesised and thermally treated DA-polyesters were obtained, showing peaks for unreacted diacetylene and polydiacetylene chains formed via cross-polymerization.",
+      "result_summary": "Raman spectra collected for as-synthesized and thermally treated HS, HI, HT, OT(2) DA-polyesters.",
       "derived_property_ids": [
-        "prop_s5_005",
-        "prop_s5_006"
+        "prop_s5_005"
       ],
       "evidence": [
         {
@@ -72,6 +118,18 @@
           ],
           "source_type": "text",
           "source_sentence": "Raman spectroscopy analysis was conducted using a Renishaw Ramascope 3000 spectrometer equipped with a modified Olympus microscope."
+        },
+        {
+          "block_id": "P_4_49",
+          "page": 4,
+          "bbox": [
+            117.0,
+            513.0,
+            501.0,
+            756.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Raman spectra of as-synthesised DApolyesters of HS, HI, HT, and OT(2) are shown in Figure 2."
         }
       ],
       "confidence": {
@@ -79,8 +137,8 @@
       }
     },
     {
-      "characterization_id": "char003",
-      "method_raw": "Wide-angle X-ray diffraction (WAXD)",
+      "characterization_id": "char004",
+      "method_raw": "Wide-angle X-ray diffraction (WAXD) patterns",
       "method_normalized": "XRD",
       "sample_ids": [
         "s001",
@@ -95,8 +153,9 @@
         "current": "20 mA",
         "scanning_rate": "2°/min"
       },
-      "result_summary": "WAXD patterns of as-synthesised DA-polyesters confirmed semicrystalline structure, with crystalline diffraction peaks and an amorphous halo around 2θ≈23°.",
+      "result_summary": "WAXD patterns collected for as-synthesized HS, HI, HT, OT(2) DA-polyesters, with 2θ values reported in Table IV.",
       "derived_property_ids": [
+        "prop_s5_006",
         "prop_s5_007",
         "prop_s5_008",
         "prop_s5_009",
@@ -107,8 +166,7 @@
         "prop_s5_014",
         "prop_s5_015",
         "prop_s5_016",
-        "prop_s5_017",
-        "prop_s5_018"
+        "prop_s5_017"
       ],
       "evidence": [
         {
@@ -129,7 +187,7 @@
       }
     },
     {
-      "characterization_id": "char004",
+      "characterization_id": "char005",
       "method_raw": "Thermogravimetric analysis (TGA)",
       "method_normalized": "TGA",
       "sample_ids": [
@@ -139,10 +197,15 @@
         "s005"
       ],
       "sample_resolution_status": "multi_resolved",
+      "series_ids": [
+        "series002",
+        "series003",
+        "series004"
+      ],
       "parameters": {
         "heating_rate": "10°C/min"
       },
-      "result_summary": "TGA showed aromatic DA-polyesters have higher thermal stability than aliphatic HS, with degradation occurring in two stages in air and one stage in nitrogen.",
+      "result_summary": "TGA performed on HS, HI, HT, OT(2) DA-polyesters under nitrogen and air atmosphere, with T3% and residue data reported in Table V.",
       "derived_property_ids": [],
       "evidence": [
         {
@@ -163,8 +226,8 @@
       }
     },
     {
-      "characterization_id": "char005",
-      "method_raw": "Differential scanning calorimetry (DSC)",
+      "characterization_id": "char006",
+      "method_raw": "Differential scanning calorimetry (DSC) analysis",
       "method_normalized": "DSC",
       "sample_ids": [
         "s001",
@@ -173,13 +236,19 @@
         "s005"
       ],
       "sample_resolution_status": "multi_resolved",
+      "series_ids": [
+        "series005",
+        "series006",
+        "series007",
+        "series008"
+      ],
       "instrument": "Perkin–Elmer DSC-7",
       "parameters": {
         "heating_rate": "10°C/min",
         "atmosphere": "nitrogen",
         "temperature_range": "40 to 250°C"
       },
-      "result_summary": "DSC revealed melting behavior only for HS and OT(2), with exothermic cross-polymerization peaks observed for all samples, with HS and HI showing sharp exotherms and HT/OT(2) showing broader peaks.",
+      "result_summary": "DSC performed on as-synthesized HS, HI, HT, OT(2) DA-polyesters, with Tm, ΔHm, Texo, ΔHexo data reported in Table VI.",
       "derived_property_ids": [],
       "evidence": [
         {
@@ -200,21 +269,22 @@
       }
     },
     {
-      "characterization_id": "char006",
-      "method_raw": "Dynamic mechanical analysis (DMA)",
+      "characterization_id": "char007",
+      "method_raw": "Dynamic mechanical analysis (DMA) data",
       "method_normalized": "DMA",
       "sample_ids": [
-        "s003",
-        "s005"
+        "s006",
+        "s007"
       ],
       "sample_resolution_status": "multi_resolved",
+      "series_id": "series009",
       "instrument": "TA Instruments Dynamic Mechanical Analyzer 2980",
       "parameters": {
         "heating_rate": "3°C/min",
         "frequency": "1 Hz",
         "atmosphere": "air"
       },
-      "result_summary": "DMA of HT films and OT(2) sheets showed glass transition followed by storage modulus increase due to cross-polymerization, with higher Tg and modulus for HT compared to OT(2).",
+      "result_summary": "DMA performed on solution-cast HT films and melt-processed OT(2) sheets, with Tg values determined from tan δ peak temperature.",
       "derived_property_ids": [],
       "evidence": [
         {
@@ -228,41 +298,18 @@
           ],
           "source_type": "text",
           "source_sentence": "Dynamic mechanical analysis (DMA) data were collected through a TA Instruments Dynamic Mechanical Analyzer 2980."
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char007",
-      "method_raw": "Ubbelohde-type viscometer",
-      "method_normalized": "viscometry",
-      "sample_ids": [
-        "s001",
-        "s002",
-        "s003",
-        "s005"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Ubbelohde-type viscometer",
-      "parameters": {
-        "solvent": "m-cresol"
-      },
-      "result_summary": "Intrinsic viscosity measurements showed HT has the highest molecular weight, with OT(2) having the lowest among the synthesized DA-polyesters.",
-      "derived_property_ids": [],
-      "evidence": [
+        },
         {
-          "block_id": "P_3_39",
-          "page": 3,
+          "block_id": "P_7_81",
+          "page": 7,
           "bbox": [
-            117.0,
-            739.0,
-            501.0,
-            909.0
+            529.0,
+            503.0,
+            913.0,
+            568.0
           ],
           "source_type": "text",
-          "source_sentence": "The dilute solution in m-cresol was charged into a Ubbelohde-type viscometer for testing."
+          "source_sentence": "Solution-cast films and melt processed OT(2) sheets were analyzed using DMA in tension mode and single-cantilever mode, respectively."
         }
       ],
       "confidence": {
@@ -273,10 +320,10 @@
   "properties": [
     {
       "property_id": "prop_s5_001",
-      "characterization_id": "char001",
+      "characterization_id": "char002",
       "sample_id": "s005",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "asymmetric stretching band",
+      "property_name_raw": "asymmetric stretching bands",
       "property_name_normalized": "ftir_peak_wavenumber",
       "property_category": "composition_structure",
       "value_raw": "2990",
@@ -295,7 +342,7 @@
             508.0
           ],
           "source_type": "text",
-          "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>, while deformation bands at 1450 and $1 3 7 8 ~ \\mathrm { { c m } ^ { - 1 } }$, respectively."
+          "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm⁻¹, while deformation bands at 1450 and 1378 cm⁻¹, respectively."
         }
       ],
       "confidence": {
@@ -304,10 +351,10 @@
     },
     {
       "property_id": "prop_s5_002",
-      "characterization_id": "char001",
+      "characterization_id": "char002",
       "sample_id": "s005",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "symmetric stretching band",
+      "property_name_raw": "symmetric stretching bands",
       "property_name_normalized": "ftir_peak_wavenumber",
       "property_category": "composition_structure",
       "value_raw": "2870",
@@ -326,7 +373,7 @@
             508.0
           ],
           "source_type": "text",
-          "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>, while deformation bands at 1450 and $1 3 7 8 ~ \\mathrm { { c m } ^ { - 1 } }$, respectively."
+          "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm⁻¹, while deformation bands at 1450 and 1378 cm⁻¹, respectively."
         }
       ],
       "confidence": {
@@ -335,10 +382,10 @@
     },
     {
       "property_id": "prop_s5_003",
-      "characterization_id": "char001",
+      "characterization_id": "char002",
       "sample_id": "s005",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "deformation band",
+      "property_name_raw": "deformation bands",
       "property_name_normalized": "ftir_peak_wavenumber",
       "property_category": "composition_structure",
       "value_raw": "1450",
@@ -357,7 +404,7 @@
             508.0
           ],
           "source_type": "text",
-          "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>, while deformation bands at 1450 and $1 3 7 8 ~ \\mathrm { { c m } ^ { - 1 } }$, respectively."
+          "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm⁻¹, while deformation bands at 1450 and 1378 cm⁻¹, respectively."
         }
       ],
       "confidence": {
@@ -366,7 +413,7 @@
     },
     {
       "property_id": "prop_s5_004",
-      "characterization_id": "char001",
+      "characterization_id": "char002",
       "sample_ids": [
         "s001",
         "s002",
@@ -374,7 +421,7 @@
         "s005"
       ],
       "sample_resolution_status": "multi_resolved",
-      "property_name_raw": "characteristic stretching mode of diacetylene group",
+      "property_name_raw": "characteristic stretching modes of diacetylene group",
       "property_name_normalized": "ftir_peak_wavenumber",
       "property_category": "composition_structure",
       "value_raw": "2260",
@@ -393,7 +440,7 @@
             508.0
           ],
           "source_type": "text",
-          "source_sentence": "The characteristic stretching modes of diacetylene group $\\scriptstyle - \\mathrm { C } = \\mathrm { C } -$C'C— are seen at about 2260 and $2 \\bar { 1 } 6 0 ~ \\mathrm { { c m } ^ { - 1 } }$as weak bands."
+          "source_sentence": "The characteristic stretching modes of diacetylene group -C≡C-C≡C- are seen at about 2260 and 2160 cm⁻¹ as weak bands."
         }
       ],
       "confidence": {
@@ -402,10 +449,10 @@
     },
     {
       "property_id": "prop_s5_005",
-      "characterization_id": "char002",
+      "characterization_id": "char003",
       "sample_id": "s001",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "band of C'C vibration in polydiacetylene",
+      "property_name_raw": "band of C≡C vibration in polydiacetylene",
       "property_name_normalized": "raman_peak_wavenumber",
       "property_category": "composition_structure",
       "value_raw": "2106",
@@ -424,7 +471,7 @@
             756.0
           ],
           "source_type": "text",
-          "source_sentence": "in addition to the band of unreacted diacetylene $( { \\mathrm { - } } \\mathrm { C } { \\equiv } \\mathrm { C } { \\mathrm { - } } \\mathrm { C } { \\equiv } \\mathrm { C } { \\mathrm { - } } )$at about $2 2 6 0 ~ \\mathrm { c m } ^ { - 1 }$, bands of C'C and C|C vibration in polydiacetylene are also seen at 2106 and $1 5 0 7 \\mathrm { c m } ^ { - 1 }$."
+          "source_sentence": "in addition to the band of unreacted diacetylene (-C≡C-C≡C-) at about 2260 cm⁻¹, bands of C≡C and C=C vibration in polydiacetylene are also seen at 2106 and 1507 cm⁻¹."
         }
       ],
       "confidence": {
@@ -433,46 +480,10 @@
     },
     {
       "property_id": "prop_s5_006",
-      "characterization_id": "char002",
-      "sample_ids": [
-        "s001",
-        "s002",
-        "s003",
-        "s005"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "property_name_raw": "vibrational band of reacted diacetylene",
-      "property_name_normalized": "raman_peak_wavenumber",
-      "property_category": "composition_structure",
-      "value_raw": "2110",
-      "value_min": 2110.0,
-      "value_max": 2110.0,
-      "source_stage": "stage5",
-      "source_type": "text",
-      "evidence": [
-        {
-          "block_id": "P_4_50",
-          "page": 4,
-          "bbox": [
-            117.0,
-            755.0,
-            501.0,
-            909.0
-          ],
-          "source_type": "text",
-          "source_sentence": "By monitoring the three vibrational bands of the unreacted and reacted diacetylenes at about 2260, 2110, and $1 5 0 0 ~ \\mathrm { { c m } ^ { - 1 } }$"
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop_s5_007",
-      "characterization_id": "char003",
+      "characterization_id": "char004",
       "sample_id": "s001",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "22.1",
@@ -494,8 +505,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "First data row (22.1, 4.02, 100 for HS)",
-            "column_label": "HS $2\\theta^{\\circ}$",
+            "row_label": "HS",
+            "column_label": "2θ°",
             "cell_value": "22.1",
             "cell_id": null,
             "row_index": null,
@@ -508,11 +519,11 @@
       }
     },
     {
-      "property_id": "prop_s5_008",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_007",
+      "characterization_id": "char004",
       "sample_id": "s001",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "24.3",
@@ -534,8 +545,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Second data row (24.3, 3.66, 72 for HS)",
-            "column_label": "HS $2\\theta^{\\circ}$",
+            "row_label": "HS",
+            "column_label": "2θ°",
             "cell_value": "24.3",
             "cell_id": null,
             "row_index": null,
@@ -548,11 +559,11 @@
       }
     },
     {
-      "property_id": "prop_s5_009",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_008",
+      "characterization_id": "char004",
       "sample_id": "s001",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "26.9",
@@ -574,8 +585,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Third data row (26.9, 3.31, 58 for HS)",
-            "column_label": "HS $2\\theta^{\\circ}$",
+            "row_label": "HS",
+            "column_label": "2θ°",
             "cell_value": "26.9",
             "cell_id": null,
             "row_index": null,
@@ -588,11 +599,11 @@
       }
     },
     {
-      "property_id": "prop_s5_010",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_009",
+      "characterization_id": "char004",
       "sample_id": "s002",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "13.0",
@@ -614,8 +625,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "First data row (13.0, 6.80, 100 for HI)",
-            "column_label": "HI $2\\theta^{\\circ}$",
+            "row_label": "HI",
+            "column_label": "2θ°",
             "cell_value": "13.0",
             "cell_id": null,
             "row_index": null,
@@ -628,11 +639,11 @@
       }
     },
     {
-      "property_id": "prop_s5_011",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_010",
+      "characterization_id": "char004",
       "sample_id": "s002",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "21.0",
@@ -654,8 +665,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Second data row (21.0, 4.24, 68 for HI)",
-            "column_label": "HI $2\\theta^{\\circ}$",
+            "row_label": "HI",
+            "column_label": "2θ°",
             "cell_value": "21.0",
             "cell_id": null,
             "row_index": null,
@@ -668,11 +679,11 @@
       }
     },
     {
-      "property_id": "prop_s5_012",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_011",
+      "characterization_id": "char004",
       "sample_id": "s002",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "26.9",
@@ -694,8 +705,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Third data row (26.9, 3.31, 75 for HI)",
-            "column_label": "HI $2\\theta^{\\circ}$",
+            "row_label": "HI",
+            "column_label": "2θ°",
             "cell_value": "26.9",
             "cell_id": null,
             "row_index": null,
@@ -708,11 +719,11 @@
       }
     },
     {
-      "property_id": "prop_s5_013",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_012",
+      "characterization_id": "char004",
       "sample_id": "s003",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "11.3",
@@ -734,8 +745,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "First data row (11.3, 7.86, 51 for HT)",
-            "column_label": "HT $2\\theta^{\\circ}$",
+            "row_label": "HT",
+            "column_label": "2θ°",
             "cell_value": "11.3",
             "cell_id": null,
             "row_index": null,
@@ -748,11 +759,11 @@
       }
     },
     {
-      "property_id": "prop_s5_014",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_013",
+      "characterization_id": "char004",
       "sample_id": "s003",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "19.0",
@@ -774,8 +785,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Second data row (19.0, 4.68, 100 for HT)",
-            "column_label": "HT $2\\theta^{\\circ}$",
+            "row_label": "HT",
+            "column_label": "2θ°",
             "cell_value": "19.0",
             "cell_id": null,
             "row_index": null,
@@ -788,11 +799,11 @@
       }
     },
     {
-      "property_id": "prop_s5_015",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_014",
+      "characterization_id": "char004",
       "sample_id": "s003",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "25.7",
@@ -814,8 +825,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Third data row (25.7, 3.46, 87 for HT)",
-            "column_label": "HT $2\\theta^{\\circ}$",
+            "row_label": "HT",
+            "column_label": "2θ°",
             "cell_value": "25.7",
             "cell_id": null,
             "row_index": null,
@@ -828,11 +839,11 @@
       }
     },
     {
-      "property_id": "prop_s5_016",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_015",
+      "characterization_id": "char004",
       "sample_id": "s005",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "15.9",
@@ -854,8 +865,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "First data row (15.9, 5.57, 100 for OT(2))",
-            "column_label": "OT(2) $2\\theta^{\\circ}$",
+            "row_label": "OT(2)",
+            "column_label": "2θ°",
             "cell_value": "15.9",
             "cell_id": null,
             "row_index": null,
@@ -868,11 +879,11 @@
       }
     },
     {
-      "property_id": "prop_s5_017",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_016",
+      "characterization_id": "char004",
       "sample_id": "s005",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "23.3",
@@ -894,8 +905,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Second data row (23.3, 3.81, 62 for OT(2))",
-            "column_label": "OT(2) $2\\theta^{\\circ}$",
+            "row_label": "OT(2)",
+            "column_label": "2θ°",
             "cell_value": "23.3",
             "cell_id": null,
             "row_index": null,
@@ -908,11 +919,11 @@
       }
     },
     {
-      "property_id": "prop_s5_018",
-      "characterization_id": "char003",
+      "property_id": "prop_s5_017",
+      "characterization_id": "char004",
       "sample_id": "s005",
       "sample_resolution_status": "resolved",
-      "property_name_raw": "2θ diffraction peak",
+      "property_name_raw": "2θ peak",
       "property_name_normalized": "xrd_diffraction_peak_2theta",
       "property_category": "morphology",
       "value_raw": "25.8",
@@ -934,8 +945,8 @@
           "source_sentence": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
           "table_locator": {
             "table_id": "T_5_61",
-            "row_label": "Third data row (25.8, 3.46, 50 for OT(2))",
-            "column_label": "OT(2) $2\\theta^{\\circ}$",
+            "row_label": "OT(2)",
+            "column_label": "2θ°",
             "cell_value": "25.8",
             "cell_id": null,
             "row_index": null,
@@ -959,39 +970,75 @@
     "prompt_version": "1.6.2",
     "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "30386bbf08a22836af5e06ff736741524d0ccf86f01211b783be747a7862dbc4",
+    "input_hash": "92aa67a63e17dec46a1dbc221efe45275bbe5c5e18f8bc7eb570a1135c661bbf",
     "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-    "cache_key": "43d520428f503321d8d3bf66580ba7389c13c627beabb694444b4ceeb634a068",
+    "cache_key": "340f0335045610e60869a3a0dc986cf5a5c22504fa93a3aac96f7d0baf4807e3",
     "output_schema_version": "characterization_schema.v4",
     "implementation_version": "1.7.1",
     "context_block_count": 49,
     "context_chars": 36880,
     "call_count": 1,
     "usage": {
-      "input_tokens": 18306,
-      "output_tokens": 17030,
+      "input_tokens": 19004,
+      "output_tokens": 15453,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 18306,
-      "total_tokens": 35336
+      "billable_input_tokens": 19004,
+      "total_tokens": 34457
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.07908192",
-      "output_cost": "0.4964245",
-      "total_cost": "0.57550642"
+      "input_cost": "0.08209728",
+      "output_cost": "0.45045495",
+      "total_cost": "0.53255223"
     },
     "status": "success"
   },
   "warnings": [
     {
       "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[3].evidence",
+      "block_ids": [
+        "T_5_61"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[4].evidence",
+      "block_ids": [
+        "T_6_64"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[5].evidence",
+      "block_ids": [
+        "T_7_77"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
       "code": "preview_unsupported_characterization_details_cleared",
       "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
       "field_path": "characterizations[0]",
+      "fields": [
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[1]",
       "fields": [
         "instrument"
       ]
@@ -1000,9 +1047,8 @@
       "stage": "stage5_characterization",
       "code": "preview_unsupported_characterization_details_cleared",
       "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
-      "field_path": "characterizations[3]",
+      "field_path": "characterizations[2]",
       "fields": [
-        "instrument",
         "parameters"
       ]
     },
@@ -1010,8 +1056,9 @@
       "stage": "stage5_characterization",
       "code": "preview_unsupported_characterization_details_cleared",
       "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
-      "field_path": "characterizations[6]",
+      "field_path": "characterizations[4]",
       "fields": [
+        "instrument",
         "parameters"
       ]
     },
@@ -1112,16 +1159,18 @@
       "field_path": "properties[10]",
       "property_id": "prop_s5_011",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_unsupported_stage5_property_removed",
-      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
-      "field_path": "properties[11].value_raw",
-      "property_id": "prop_s5_012"
+      "code": "preview_unsupported_stage5_optional_fields_cleared",
+      "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+      "field_path": "properties[11]",
+      "property_id": "prop_s5_012",
+      "fields": [
+        "unit_raw"
+      ]
     },
     {
       "stage": "stage5_characterization",
@@ -1130,8 +1179,7 @@
       "field_path": "properties[12]",
       "property_id": "prop_s5_013",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1141,8 +1189,7 @@
       "field_path": "properties[13]",
       "property_id": "prop_s5_014",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1152,8 +1199,7 @@
       "field_path": "properties[14]",
       "property_id": "prop_s5_015",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1163,8 +1209,7 @@
       "field_path": "properties[15]",
       "property_id": "prop_s5_016",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1174,8 +1219,7 @@
       "field_path": "properties[16]",
       "property_id": "prop_s5_017",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1185,8 +1229,7 @@
       "field_path": "properties[17]",
       "property_id": "prop_s5_018",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1196,8 +1239,7 @@
       "field_path": "properties[18]",
       "property_id": "prop_s5_019",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1207,8 +1249,7 @@
       "field_path": "properties[19]",
       "property_id": "prop_s5_020",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1218,8 +1259,7 @@
       "field_path": "properties[20]",
       "property_id": "prop_s5_021",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
     },
     {
@@ -1229,38 +1269,8 @@
       "field_path": "properties[21]",
       "property_id": "prop_s5_022",
       "fields": [
-        "unit_raw",
-        "spectral_assignment"
+        "unit_raw"
       ]
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_unsupported_stage5_optional_fields_cleared",
-      "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
-      "field_path": "properties[22]",
-      "property_id": "prop_s5_023",
-      "fields": [
-        "unit_raw",
-        "spectral_assignment"
-      ]
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_unsupported_stage5_optional_fields_cleared",
-      "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
-      "field_path": "properties[23]",
-      "property_id": "prop_s5_024",
-      "fields": [
-        "unit_raw",
-        "spectral_assignment"
-      ]
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_unsupported_stage5_property_removed",
-      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
-      "field_path": "properties[24].value_raw",
-      "property_id": "prop_s5_025"
     },
     {
       "stage": "stage5_characterization",
@@ -1269,31 +1279,31 @@
       "items": [
         {
           "property_id": "prop_s5_001",
-          "characterization_id": "char001",
+          "characterization_id": "char002",
           "sample_id": "s005",
           "entity_id": null
         },
         {
           "property_id": "prop_s5_002",
-          "characterization_id": "char001",
+          "characterization_id": "char002",
           "sample_id": "s005",
           "entity_id": null
         },
         {
           "property_id": "prop_s5_003",
-          "characterization_id": "char001",
+          "characterization_id": "char002",
           "sample_id": "s005",
           "entity_id": null
         },
         {
           "property_id": "prop_s5_009",
-          "characterization_id": "char002",
+          "characterization_id": "char003",
           "sample_id": "s001",
           "entity_id": null
         },
         {
-          "property_id": "prop_s5_013",
-          "characterization_id": "char003",
+          "property_id": "prop_s5_011",
+          "characterization_id": "char004",
           "sample_id": "s001",
           "entity_id": null
         }
@@ -1303,7 +1313,7 @@
       "stage": "stage5_characterization",
       "code": "preview_semantic_validation_bypassed",
       "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
-      "reason": "T_5_61.table_locator.row_label 不是表格原文"
+      "reason": "T_5_61.table_locator.column_label 不是表格原文"
     }
   ]
 }

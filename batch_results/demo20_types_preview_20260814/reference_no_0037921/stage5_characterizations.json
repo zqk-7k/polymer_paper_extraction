@@ -6,48 +6,136 @@
   "provenance": {
     "stage": "stage5_characterization",
     "provider": "dmx",
-    "model": "doubao-seed-2-0-pro-260215",
+    "model": "doubao-seed-2.0-pro",
     "models": [
-      "doubao-seed-2-0-pro-260215"
+      "doubao-seed-2.0-pro"
     ],
     "prompt_id": "polymer.stage5.characterization",
     "prompt_version": "1.6.2",
     "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "069f4cdf32d2ba0bffe0c7a588a6c5ba47b425f9eb4ec837c3c7dab2bdd79824",
+    "input_hash": "492a1592c5dd8e549304838cfa5b852e9026d05b2a36fe02c5e9d6ee3c043fec",
     "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-    "cache_key": "3e4dcb5c3dcc09f6cd5ba8d6551cfc0d2987ddc8354c935c678028b44fabc982",
+    "cache_key": "680c48a8550fdff84f45d0d351829fda5ba4b41af06248c3b49b026b45013878",
     "output_schema_version": "characterization_schema.v4",
     "implementation_version": "1.7.1",
     "context_block_count": 39,
     "context_chars": 21339,
-    "call_count": 0,
+    "call_count": 1,
     "usage": {
-      "input_tokens": 0,
-      "output_tokens": 0,
+      "input_tokens": 13864,
+      "output_tokens": 7749,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 0,
-      "total_tokens": 0
+      "billable_input_tokens": 13864,
+      "total_tokens": 21613
     },
     "cost": {
-      "status": "not_applicable",
+      "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0",
-      "output_cost": "0",
-      "total_cost": "0"
+      "input_cost": "0.05989248",
+      "output_cost": "0.22588335",
+      "total_cost": "0.28577583"
     },
     "status": "success"
   },
   "warnings": [
     {
       "stage": "stage5_characterization",
+      "code": "preview_unlocatable_additional_evidence_removed",
+      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "P_5_56"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unlocatable_additional_evidence_removed",
+      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+      "field_path": "characterizations[1].evidence",
+      "block_ids": [
+        "P_7_70"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unlocatable_additional_evidence_removed",
+      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+      "field_path": "characterizations[2].evidence",
+      "block_ids": [
+        "P_3_41"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+      "field_path": "characterizations[2].method_raw",
+      "method_normalized": "TGA"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+      "field_path": "characterizations[3].method_raw",
+      "method_normalized": "DMA"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[1]",
+      "fields": [
+        "instrument",
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[2]",
+      "fields": [
+        "instrument",
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_property_removed",
+      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+      "field_path": "properties[0].value_raw",
+      "property_id": "prop_s5_001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_property_removed",
+      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+      "field_path": "properties[1].value_raw",
+      "property_id": "prop_s5_002"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_property_removed",
+      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+      "field_path": "properties[2].value_raw",
+      "property_id": "prop_s5_003"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "未知 evidence block：P_7_72"
+    },
+    {
+      "stage": "stage5_characterization",
       "code": "preview_degraded_empty_shell",
       "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果",
       "degraded": true,
-      "reason": "LLM 请求重试后失败（ProxyError）"
+      "reason": "结构化候选无法安全物化：'P_7_72'"
     }
   ]
 }

@@ -6,95 +6,362 @@
     "table_count": 2,
     "tables_with_numeric_cells": 2,
     "numeric_cell_count": 32,
-    "represented_numeric_cell_count": 20,
-    "representation_ratio": 0.625,
+    "represented_numeric_cell_count": 0,
+    "representation_ratio": 0.0,
     "role_counts": {
       "property_value_candidate": 20,
       "unknown": 12
     },
     "property_value_candidate_count": 20,
-    "covered_property_value_candidate_count": 20,
-    "missing_property_value_candidate_count": 0,
-    "property_value_ratio": 1.0,
-    "gap_table_count": 0,
-    "numeric_zero_coverage_table_count": 0,
-    "property_zero_coverage_table_count": 0
+    "covered_property_value_candidate_count": 0,
+    "missing_property_value_candidate_count": 20,
+    "property_value_ratio": 0.0,
+    "gap_table_count": 2,
+    "numeric_zero_coverage_table_count": 2,
+    "property_zero_coverage_table_count": 2
   },
-  "recovered_count": 0,
+  "recovered_count": 20,
   "skipped_ambiguous_count": 0,
-  "recovered": [],
+  "recovered": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe001",
+      "property_name_raw": "intrinsic_viscosity",
+      "value_raw": "0.75",
+      "cell_id": "T_7_73:r0002:c0005",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop002",
+      "entity_id": "pe002",
+      "property_name_raw": "intrinsic_viscosity",
+      "value_raw": "0.70",
+      "cell_id": "T_7_73:r0003:c0005",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop003",
+      "entity_id": "pe003",
+      "property_name_raw": "intrinsic_viscosity",
+      "value_raw": "0.66",
+      "cell_id": "T_7_73:r0004:c0005",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop004",
+      "entity_id": "pe004",
+      "property_name_raw": "intrinsic_viscosity",
+      "value_raw": "0.64",
+      "cell_id": "T_7_73:r0005:c0005",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop005",
+      "entity_id": "pe001",
+      "property_name_raw": "tensile_stress_at_break",
+      "value_raw": "93",
+      "cell_id": "T_8_84:r0002:c0001",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop006",
+      "entity_id": "pe001",
+      "property_name_raw": "tensile_modulus",
+      "value_raw": "2.6",
+      "cell_id": "T_8_84:r0002:c0002",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop007",
+      "entity_id": "pe001",
+      "property_name_raw": "elongation_at_break",
+      "value_raw": "10",
+      "cell_id": "T_8_84:r0002:c0003",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop008",
+      "entity_id": "pe001",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "value_raw": "435",
+      "cell_id": "T_8_84:r0002:c0004",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop009",
+      "entity_id": "pe002",
+      "property_name_raw": "tensile_stress_at_break",
+      "value_raw": "90",
+      "cell_id": "T_8_84:r0003:c0001",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop010",
+      "entity_id": "pe002",
+      "property_name_raw": "tensile_modulus",
+      "value_raw": "2.4",
+      "cell_id": "T_8_84:r0003:c0002",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop011",
+      "entity_id": "pe002",
+      "property_name_raw": "elongation_at_break",
+      "value_raw": "15",
+      "cell_id": "T_8_84:r0003:c0003",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop012",
+      "entity_id": "pe002",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "value_raw": "438",
+      "cell_id": "T_8_84:r0003:c0004",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop013",
+      "entity_id": "pe003",
+      "property_name_raw": "tensile_stress_at_break",
+      "value_raw": "87",
+      "cell_id": "T_8_84:r0004:c0001",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop014",
+      "entity_id": "pe003",
+      "property_name_raw": "tensile_modulus",
+      "value_raw": "2.0",
+      "cell_id": "T_8_84:r0004:c0002",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop015",
+      "entity_id": "pe003",
+      "property_name_raw": "elongation_at_break",
+      "value_raw": "12",
+      "cell_id": "T_8_84:r0004:c0003",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop016",
+      "entity_id": "pe003",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "value_raw": "409",
+      "cell_id": "T_8_84:r0004:c0004",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop017",
+      "entity_id": "pe004",
+      "property_name_raw": "tensile_stress_at_break",
+      "value_raw": "79",
+      "cell_id": "T_8_84:r0005:c0001",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop018",
+      "entity_id": "pe004",
+      "property_name_raw": "tensile_modulus",
+      "value_raw": "1.7",
+      "cell_id": "T_8_84:r0005:c0002",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop019",
+      "entity_id": "pe004",
+      "property_name_raw": "elongation_at_break",
+      "value_raw": "9",
+      "cell_id": "T_8_84:r0005:c0003",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    },
+    {
+      "unresolved_id": "uprop020",
+      "entity_id": "pe004",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "value_raw": "416",
+      "cell_id": "T_8_84:r0005:c0004",
+      "entity_resolution_basis": "row_label_exact_entity_alias"
+    }
+  ],
   "skipped_ambiguous": [],
   "sample_resolution_summary": {
-    "missing_cell_locator": 11
+    "ambiguous": 15,
+    "label_not_found": 5
   },
   "sample_resolution": [
     {
       "unresolved_id": "uprop001",
       "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "status": "ambiguous",
+      "sample_ids": [
+        "s002",
+        "s006"
+      ]
     },
     {
       "unresolved_id": "uprop002",
-      "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "entity_id": "pe002",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s003",
+        "s007"
+      ]
     },
     {
       "unresolved_id": "uprop003",
-      "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "entity_id": "pe003",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s004",
+        "s008"
+      ]
     },
     {
       "unresolved_id": "uprop004",
-      "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "entity_id": "pe004",
+      "status": "label_not_found"
     },
     {
       "unresolved_id": "uprop005",
       "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "status": "ambiguous",
+      "sample_ids": [
+        "s002",
+        "s006"
+      ]
     },
     {
       "unresolved_id": "uprop006",
       "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "status": "ambiguous",
+      "sample_ids": [
+        "s002",
+        "s006"
+      ]
     },
     {
       "unresolved_id": "uprop007",
       "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "status": "ambiguous",
+      "sample_ids": [
+        "s002",
+        "s006"
+      ]
     },
     {
       "unresolved_id": "uprop008",
       "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "status": "ambiguous",
+      "sample_ids": [
+        "s002",
+        "s006"
+      ]
     },
     {
       "unresolved_id": "uprop009",
-      "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "entity_id": "pe002",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s003",
+        "s007"
+      ]
     },
     {
       "unresolved_id": "uprop010",
-      "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "entity_id": "pe002",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s003",
+        "s007"
+      ]
     },
     {
       "unresolved_id": "uprop011",
-      "entity_id": "pe001",
-      "status": "missing_cell_locator"
+      "entity_id": "pe002",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s003",
+        "s007"
+      ]
+    },
+    {
+      "unresolved_id": "uprop012",
+      "entity_id": "pe002",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s003",
+        "s007"
+      ]
+    },
+    {
+      "unresolved_id": "uprop013",
+      "entity_id": "pe003",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s004",
+        "s008"
+      ]
+    },
+    {
+      "unresolved_id": "uprop014",
+      "entity_id": "pe003",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s004",
+        "s008"
+      ]
+    },
+    {
+      "unresolved_id": "uprop015",
+      "entity_id": "pe003",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s004",
+        "s008"
+      ]
+    },
+    {
+      "unresolved_id": "uprop016",
+      "entity_id": "pe003",
+      "status": "ambiguous",
+      "sample_ids": [
+        "s004",
+        "s008"
+      ]
+    },
+    {
+      "unresolved_id": "uprop017",
+      "entity_id": "pe004",
+      "status": "label_not_found"
+    },
+    {
+      "unresolved_id": "uprop018",
+      "entity_id": "pe004",
+      "status": "label_not_found"
+    },
+    {
+      "unresolved_id": "uprop019",
+      "entity_id": "pe004",
+      "status": "label_not_found"
+    },
+    {
+      "unresolved_id": "uprop020",
+      "entity_id": "pe004",
+      "status": "label_not_found"
     }
   ],
   "property_id_migrations": [],
   "input_hashes": {
     "stage0_blocks.json": "e3c8d24cd0c0ec5913a9e709e19a6e19f4cb04c065f9fcd509ebfd19cc64d9e5",
-    "stage2_entities.json": "567a2c5ca2859b8dd056cd03159b471d8a3cd91761159b9e8e17b8054fcab505",
-    "stage3_process.json": "7da9a17101bcc553bc26d18873dbdce35a95783ecebf0bdba87e31cc5f9d345e",
-    "stage4_properties.json": "ee86ef0831465c4414a599502844b4fa3a3aaeef3d145728b544d3ed56592bdc"
+    "stage2_entities.json": "f6f5f03f3da721e70478d63ca41d14573d7ca419f7a1d0db9d350fd4bdebc56d",
+    "stage3_process.json": "6a0d933ec651df1920070cf9a7e841e454f13b6ad92edcbda61a96a4aba6aa5e",
+    "stage4_properties.json": "7cfc5310fd1c1877b7813805d688151f1b287ea2d77becdb2e904332e6b17cb5"
   },
   "settings": {
     "threshold": 0.8,
     "apply": true,
     "allow_filled_up_sample_binding": true
   },
-  "output_sha256": "f0dd87f53c450a0e5a71fcbdb150877e128dd24257e005d82a322771d853b469"
+  "output_sha256": "bf6cb15c196dd479955c24cf77f5509d1503082fb55b4aad2a69c93737a8b195"
 }

@@ -5,7 +5,7 @@
     {
       "sample_id": "s001",
       "sample_kind": "intermediate",
-      "refers_to_entity": "pe006",
+      "refers_to_entity": "pe005",
       "polymer_name": "polyamide/HCl complex",
       "sample_label_raw": "polyamide/HCl complex",
       "intended_use": [],
@@ -31,10 +31,9 @@
     {
       "sample_id": "s002",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe002",
+      "refers_to_entity": "pe001",
       "polymer_name": "I",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "I",
       "intended_use": [],
       "evidence": {
@@ -47,20 +46,20 @@
           908.0
         ],
         "source_type": "text",
-        "source_sentence": "The elemental analysis values, i.e., C, H, and N content of polymers I–IV (Table 1) are in close agreement with theoretical values confirming the proposed structure."
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s003",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe003",
+      "refers_to_entity": "pe002",
       "polymer_name": "II",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "II",
       "intended_use": [],
       "evidence": {
@@ -73,20 +72,20 @@
           908.0
         ],
         "source_type": "text",
-        "source_sentence": "The elemental analysis values, i.e., C, H, and N content of polymers I–IV (Table 1) are in close agreement with theoretical values confirming the proposed structure."
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s004",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe004",
+      "refers_to_entity": "pe003",
       "polymer_name": "III",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "III",
       "intended_use": [],
       "evidence": {
@@ -99,20 +98,20 @@
           908.0
         ],
         "source_type": "text",
-        "source_sentence": "The elemental analysis values, i.e., C, H, and N content of polymers I–IV (Table 1) are in close agreement with theoretical values confirming the proposed structure."
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s005",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe005",
+      "refers_to_entity": "pe004",
       "polymer_name": "polymer IV",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "polymer IV",
       "intended_use": [],
       "evidence": {
@@ -128,18 +127,20 @@
         "source_sentence": "Thus, we try to explore the effect of different conditions on the inherent viscosities $( \\eta _ { \\mathrm { i n h } } )$of polymer IV as one example, which are listed as follows:"
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.95
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s006",
       "sample_kind": "conditioned_state",
-      "polymer_name": "dried at 100 °C for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at 100 °C for 24 h under vacuum again",
-      "state_description": "dried at 100 °C for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at 100 °C for 24 h under vacuum again",
-      "intended_use": [
-        "elemental analysis"
-      ],
+      "refers_to_entity": "pe001",
+      "polymer_name": "I",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "I",
+      "state_description": "dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again",
+      "intended_use": [],
       "evidence": {
         "block_id": "P_6_69",
         "page": 6,
@@ -150,24 +151,103 @@
           908.0
         ],
         "source_type": "text",
-        "source_sentence": "The samples of polymers I-IV were dried at 100 °C for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at 100 °C for 24 h under vacuum again before they were characterized by the elemental analysis."
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       },
-      "polymer_type": null,
       "copolymer_type": null,
       "material_type": null
     },
     {
       "sample_id": "s007",
+      "sample_kind": "conditioned_state",
+      "refers_to_entity": "pe002",
+      "polymer_name": "II",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "II",
+      "state_description": "dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_6_69",
+        "page": 6,
+        "bbox": [
+          109.0,
+          872.0,
+          888.0,
+          908.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s008",
+      "sample_kind": "conditioned_state",
+      "refers_to_entity": "pe003",
+      "polymer_name": "III",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "III",
+      "state_description": "dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_6_69",
+        "page": 6,
+        "bbox": [
+          109.0,
+          872.0,
+          888.0,
+          908.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s009",
+      "sample_kind": "conditioned_state",
+      "refers_to_entity": "pe004",
+      "polymer_name": "polymer IV",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "polymer IV",
+      "state_description": "dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_6_69",
+        "page": 6,
+        "bbox": [
+          109.0,
+          872.0,
+          888.0,
+          908.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s010",
       "sample_kind": "processed_material",
-      "polymer_name": "cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: 80 °C/3 h, 120 °C/2 h, 150 °C/2 h and 180 °C/2 h",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "state_description": "cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: 80 °C/3 h, 120 °C/2 h, 150 °C/2 h and 180 °C/2 h",
+      "polymer_name": "cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: $8 0 ~ ^ { \\circ } \\mathrm { C } / 3$h, $1 2 0 ~ ^ { \\circ } \\mathrm { C } / 2$h, $1 5 0 ~ ^ { \\circ } \\mathrm { C } / 2$h and $1 8 0 ~ ^ { \\circ } \\mathrm { C } / 2$h",
+      "polymer_type": "copolymer",
+      "state_description": "cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: $8 0 ~ ^ { \\circ } \\mathrm { C } / 3$h, $1 2 0 ~ ^ { \\circ } \\mathrm { C } / 2$h, $1 5 0 ~ ^ { \\circ } \\mathrm { C } / 2$h and $1 8 0 ~ ^ { \\circ } \\mathrm { C } / 2$h",
       "intended_use": [
-        "mechanical properties testing"
+        "mechanical properties evaluation"
       ],
       "evidence": {
         "block_id": "P_2_30",
@@ -179,38 +259,13 @@
           909.0
         ],
         "source_type": "text",
-        "source_sentence": "The mechanical properties of thin films(cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: 80 °C/3 h, 120 °C/2 h, 150 °C/2 h and 180 °C/2 h were evaluated at room temperature on an Instro 1121 instrument at a strain rate of 10 mm $\\operatorname* { m i n } ^ { - 1 }$"
+        "source_sentence": "The mechanical properties of thin films(cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: $8 0 ~ ^ { \\circ } \\mathrm { C } / 3$h, $1 2 0 ~ ^ { \\circ } \\mathrm { C } / 2$h, $1 5 0 ~ ^ { \\circ } \\mathrm { C } / 2$h and $1 8 0 ~ ^ { \\circ } \\mathrm { C } / 2$h were evaluated at room temperature on an Instro 1121 instrument at a strain rate of 10 mm $\\operatorname* { m i n } ^ { - 1 }$"
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.8
       },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s008",
-      "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe001",
-      "polymer_name": "novel soluble aromatic polyamides with pendant cyano groups",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "novel soluble aromatic polyamides with pendant cyano groups",
-      "intended_use": [],
-      "evidence": {
-        "block_id": "P_2_28",
-        "page": 2,
-        "bbox": [
-          107.0,
-          732.0,
-          886.0,
-          788.0
-        ],
-        "source_type": "text",
-        "source_sentence": "The novel soluble aromatic polyamides with pendant cyano groups were synthesized by polycondensation of 2,6-bis(4-chloroformylphenoxy)benzonitrile (ClPOBN) and different aromatic diamines as shown in Scheme 2."
-      },
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     }
   ],
   "process_steps": [
@@ -222,9 +277,7 @@
         "s001"
       ],
       "parameters": {
-        "reaction_temperature": "0 °C for 1 h, room temperature for 2–3 h",
-        "HCl_absorbent": "tertiary amide",
-        "neutralizer": "Ca(OH)2"
+        "reaction_condition": "stirred at $0 ~ ^ { \\circ } \\mathrm { C }$for 1 h and warmed to room temperature for 2–3 h"
       },
       "evidence": {
         "block_id": "P_2_27",
@@ -236,7 +289,7 @@
           732.0
         ],
         "source_type": "text",
-        "source_sentence": "To a 100-mL round-bottomed flask equipped with a mechanical stirrer, a thermometer, nitrogen inlet and out tubes. 0.01 mol diamines, 15 mL of N,Ndimethylacetamide (DMAC), and 1 mL tertiary amide as the absorbent of HCl were added. Into the resulting suspension were added 5 mL DMAC and 0.01 mol 2,6- bis(4-chloroformylphenoxy)benzonitrile (ClPOBN). The reaction mixture was stirred at $0 ~ ^ { \\circ } \\mathrm { C }$for 1 h and warmed to room temperature for 2–3 h. Then the mixture of 0.74 g $\\mathrm { C a ( O H ) } _ { 2 }$and 5 mL DMAC were added to neutralize HCl."
+        "source_sentence": "The reaction mixture was stirred at $0 ~ ^ { \\circ } \\mathrm { C }$for 1 h and warmed to room temperature for 2–3 h."
       },
       "confidence": {
         "score": 0.9
@@ -252,13 +305,12 @@
         "s002",
         "s003",
         "s004",
-        "s005",
-        "s008"
+        "s005"
       ],
       "parameters": {
+        "neutralization_agent": "Ca(OH)2",
         "precipitation_solvent": "water",
-        "washing_solvent": "water",
-        "drying_condition": "100 °C under vacuum overnight"
+        "drying_condition": "1 0 0 ~ ^ { \\circ } \\mathrm { C }$under vacuum overnight"
       },
       "evidence": {
         "block_id": "P_2_27",
@@ -270,7 +322,7 @@
           732.0
         ],
         "source_type": "text",
-        "source_sentence": "After the reaction is over, the products were precipitated from water, and washed with water, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$under vacuum overnight to give the novel aromatic soluble polyamides with pendant cyano groups."
+        "source_sentence": "Then the mixture of 0.74 g $\\mathrm { C a ( O H ) } _ { 2 }$and 5 mL DMAC were added to neutralize HCl. After the reaction is over, the products were precipitated from water, and washed with water, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$under vacuum overnight to give the novel aromatic soluble polyamides with pendant cyano groups."
       },
       "confidence": {
         "score": 0.9
@@ -286,13 +338,15 @@
         "s005"
       ],
       "output_sample_ids": [
-        "s006"
+        "s006",
+        "s007",
+        "s008",
+        "s009"
       ],
       "parameters": {
         "first_drying": "100 °C for 24 h under vacuum",
-        "extraction_solvent": "boiling propanone",
-        "extraction_duration": "10 h",
-        "second_drying": "100 °C for 24 h under vacuum again"
+        "extraction": "boiling propanone for 10 h",
+        "second_drying": "100 °C for 24 h under vacuum"
       },
       "evidence": {
         "block_id": "P_6_69",
@@ -307,26 +361,24 @@
         "source_sentence": "The samples of polymers I-IV were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum, extracted with boiling propanone for 10 h, and were dried at $1 0 0 ~ ^ { \\circ } \\mathrm { C }$for 24 h under vacuum again before they were characterized by the elemental analysis."
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       }
     },
     {
       "step_id": "ps004",
       "process_type": "casting",
       "input_sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s008"
+        "s006",
+        "s007",
+        "s008",
+        "s009"
       ],
       "output_sample_ids": [
-        "s007"
+        "s010"
       ],
       "parameters": {
         "casting_solution": "10% DMF solution",
-        "substrate": "glass plates",
-        "thermal_backing_conditions": "80 °C/3 h, 120 °C/2 h, 150 °C/2 h and 180 °C/2 h"
+        "thermal_backing_conditions": "$8 0 ~ ^ { \\circ } \\mathrm { C } / 3$h, $1 2 0 ~ ^ { \\circ } \\mathrm { C } / 2$h, $1 5 0 ~ ^ { \\circ } \\mathrm { C } / 2$h and $1 8 0 ~ ^ { \\circ } \\mathrm { C } / 2$h"
       },
       "evidence": {
         "block_id": "P_2_30",
@@ -341,7 +393,7 @@
         "source_sentence": "The mechanical properties of thin films(cast from 10% DMF solution onto glass plates, and followed by thermally backing with the following conditions: $8 0 ~ ^ { \\circ } \\mathrm { C } / 3$h, $1 2 0 ~ ^ { \\circ } \\mathrm { C } / 2$h, $1 5 0 ~ ^ { \\circ } \\mathrm { C } / 2$h and $1 8 0 ~ ^ { \\circ } \\mathrm { C } / 2$h were evaluated at room temperature on an Instro 1121 instrument at a strain rate of 10 mm $\\operatorname* { m i n } ^ { - 1 }$"
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.8
       }
     }
   ],
@@ -354,32 +406,32 @@
       "doubao-seed-2.0-pro"
     ],
     "prompt_id": "polymer.stage3.sample_process",
-    "prompt_version": "1.4.0",
-    "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-    "input_hash": "420a9407db48846a80d1c7f20f65c47faa18786ffa09846353fe85f8d2f8dada",
+    "prompt_version": "1.6.0",
+    "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+    "input_hash": "9a5f76ab0699b100cecdaab00580948014406cc3f68a2ac5fe375ccae03f845f",
     "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-    "cache_key": "441bf87fb8a1cb2b5f0e6cffee04c97c81652968e328f317b3ad153772a3bf8e",
+    "cache_key": "5092e8165649dda88569a52c2286d5afa4ef919d0fcab523ffc7a50216166e0c",
     "output_schema_version": "sample_process_schema.v4",
-    "implementation_version": "1.5.0",
+    "implementation_version": "1.7.1",
     "context_block_count": 18,
     "context_chars": 10582,
     "call_count": 1,
     "usage": {
-      "input_tokens": 8244,
-      "output_tokens": 7223,
+      "input_tokens": 8404,
+      "output_tokens": 7507,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 8244,
-      "total_tokens": 15467
+      "billable_input_tokens": 8404,
+      "total_tokens": 15911
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.03561408",
-      "output_cost": "0.21055045",
-      "total_cost": "0.24616453"
+      "input_cost": "0.03630528",
+      "output_cost": "0.21882905",
+      "total_cost": "0.25513433"
     },
     "status": "success"
   },
@@ -392,137 +444,32 @@
     },
     {
       "stage": "stage3_sample_process",
-      "code": "samples_without_entity",
-      "message": "部分样品无法可靠关联 PolymerEntity",
-      "sample_ids": [
-        "s006",
-        "s007"
+      "code": "sample_polymer_type_process_inferred",
+      "message": "已根据多聚合物配方步骤或成分保持工艺补全 polymer_type",
+      "items": [
+        {
+          "sample_id": "s010",
+          "field": "polymer_type",
+          "value": "copolymer",
+          "step_id": "ps004",
+          "process_type": "casting",
+          "input_sample_ids": [
+            "s006",
+            "s007",
+            "s008",
+            "s009"
+          ],
+          "reason": "成分保持工艺的全部输入具有一致 polymer_type"
+        }
       ]
     },
     {
       "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型",
-      "items": [
-        {
-          "sample_id": "s002",
-          "entity_id": "pe002",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s003",
-          "entity_id": "pe003",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s004",
-          "entity_id": "pe004",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s005",
-          "entity_id": "pe005",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s008",
-          "entity_id": "pe001",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_process_inferred",
-      "message": "Backfill：已按配方输入或成分保持工艺补全 polymer_type",
-      "items": [
-        {
-          "sample_id": "s007",
-          "field": "polymer_type",
-          "value": "homopolymer",
-          "step_id": "ps004",
-          "process_type": "casting",
-          "input_sample_ids": [
-            "s002",
-            "s003",
-            "s004",
-            "s005",
-            "s008"
-          ],
-          "reason": "成分保持工艺的全部输入具有一致 polymer_type"
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin",
-      "items": [
-        {
-          "sample_id": "s002",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s003",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s004",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s005",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s007",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s008",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        }
-      ],
-      "backfill": true
+      "code": "samples_without_entity",
+      "message": "部分样品无法可靠关联 PolymerEntity",
+      "sample_ids": [
+        "s010"
+      ]
     }
   ]
 }

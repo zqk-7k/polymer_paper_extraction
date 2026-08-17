@@ -1,7 +1,53 @@
 {
   "schema_version": "1.0",
   "document_id": "reference_no_0073324",
-  "characterizations": [],
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "inherent viscosities",
+      "method_normalized": "viscometry",
+      "entity_ids": [
+        "pe006",
+        "pe033"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "Inherent viscosities of aliphatic-aromatic and oxalic-aromatic polyhydrazides range from 0.3 to 1.5.",
+      "derived_property_ids": [
+        "uprop005",
+        "uprop006"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_1_12",
+          "page": 1,
+          "bbox": [
+            115.0,
+            507.0,
+            877.0,
+            558.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Polymer melt temperatures (PMT) and inherent viscosities (  $\\eta_{inh}$ ) were obtained by standard methods of polymer characterization as recommended by Beaman and Cramer  $^{15}$  and by Sorenson and Campbell.  $^{16}$"
+        },
+        {
+          "block_id": "P_0_3",
+          "page": 0,
+          "bbox": [
+            106.0,
+            356.0,
+            863.0,
+            487.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Aliphatic-aromatic and oxalic-aromatic polyhydrazides which undergo dehydration at different rates had polymer melt temperatures ranging from 250 to 300°C. and inherent viscosities ranging from 0.3 to 1.5."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
   "properties": [],
   "provenance": {
     "stage": "stage5_characterization",
@@ -14,32 +60,61 @@
     "prompt_version": "1.6.2",
     "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "5acfb8a363480de421e6d05ac73663b2ceb483f6b5445d14c68ba5ef6210ede5",
+    "input_hash": "785eeda15fbf670cccfe79a797588d33561010470b9db29dc7605de3f6980c28",
     "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-    "cache_key": "69cf1cb853c149a783d1f1a78bb125f650cb4727074258599d7235d788c9ad12",
+    "cache_key": "48ab66e4b9d99e0a4e05e260dea3bb4721cc67f9bce76e21a56943d7f0a9ac08",
     "output_schema_version": "characterization_schema.v4",
     "implementation_version": "1.7.1",
     "context_block_count": 39,
     "context_chars": 24823,
     "call_count": 1,
     "usage": {
-      "input_tokens": 20051,
-      "output_tokens": 597,
+      "input_tokens": 20420,
+      "output_tokens": 3357,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 20051,
-      "total_tokens": 20648
+      "billable_input_tokens": 20420,
+      "total_tokens": 23777
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.08662032",
-      "output_cost": "0.01740255",
-      "total_cost": "0.10402287"
+      "input_cost": "0.0882144",
+      "output_cost": "0.09785655",
+      "total_cost": "0.18607095"
     },
     "status": "success"
   },
-  "warnings": []
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_subject_scope_normalized",
+      "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+      "field_path": "characterizations[0]"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+      "field_path": "characterizations[0].method_raw",
+      "method_normalized": "viscometry"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "char001 跨实体引用 unresolved property：['uprop005', 'uprop006']"
+    }
+  ]
 }

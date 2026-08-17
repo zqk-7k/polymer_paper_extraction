@@ -626,7 +626,6 @@
     {
       "entity_id": "pe001",
       "polymer_name": "poly-(4-trimethylsilyl styrene)",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -645,14 +644,14 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.99
+        "score": 0.98
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe002",
       "polymer_name": "poly(4-dibromoboryl styrene)",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -668,14 +667,14 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.99
+        "score": 0.98
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe003",
       "polymer_name": "PSBPhBr",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -693,14 +692,14 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.96
+        "score": 0.94
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe004",
       "polymer_name": "polystyrene",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -711,18 +710,18 @@
         "m020"
       ],
       "evidence_ids": [
-        "ev017"
+        "ev005"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.91
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe005",
       "polymer_name": "boron quinolate polymers",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -748,99 +747,86 @@
       "evidence_ids": [
         "ev006"
       ],
-      "source_image_refs": [
-        {
-          "block_id": "I_3_40",
-          "page": 3,
-          "bbox": [
-            531.0,
-            171.0,
-            888.0,
-            356.0
-          ],
-          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
-          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
-        }
-      ],
+      "source_image_refs": [],
       "confidence": {
-        "score": 0.87
+        "score": 0.82
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe006",
       "polymer_name": "thienylsubstituted organoboron quinolate polymers",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
         "thienylsubstituted organoboron quinolate polymers",
-        "quinolate polymers",
-        "thiophene substituted boron quinolate polymers"
+        "quinolate polymers"
       ],
       "resolved_from_mentions": [
         "m024",
-        "m025",
-        "m029"
+        "m025"
       ],
       "evidence_ids": [
         "ev046"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.86
+        "score": 0.9
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe007",
       "polymer_name": "tert-butylphenyl-substituted quinolate polymers",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "tert-butylphenyl-substituted quinolate polymers"
+        "tert-butylphenyl-substituted quinolate polymers",
+        "quinolate polymers with phenyl groups on boron"
       ],
       "resolved_from_mentions": [
-        "m026"
+        "m026",
+        "m027"
       ],
       "evidence_ids": [
         "ev020"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.8
+        "score": 0.86
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe008",
-      "polymer_name": "quinolate polymers with phenyl groups on boron",
-      "polymer_type": "homopolymer",
+      "polymer_name": "thiophene substituted boron quinolate polymers",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "quinolate polymers with phenyl groups on boron"
+        "thiophene substituted boron quinolate polymers"
       ],
       "resolved_from_mentions": [
-        "m027"
+        "m029"
       ],
       "evidence_ids": [
-        "ev021"
+        "ev047"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.72
+        "score": 0.86
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe009",
       "polymer_name": "PSBPhQ-Bpin",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
@@ -856,16 +842,29 @@
       "evidence_ids": [
         "ev033"
       ],
-      "source_image_refs": [],
+      "source_image_refs": [
+        {
+          "block_id": "I_3_40",
+          "page": 3,
+          "bbox": [
+            531.0,
+            171.0,
+            888.0,
+            356.0
+          ],
+          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
+          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
+        }
+      ],
       "confidence": {
-        "score": 0.94
+        "score": 0.93
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe010",
       "polymer_name": "PSBPhQ-C $_{6}$ F $_{5}$",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
@@ -884,17 +883,30 @@
       "evidence_ids": [
         "ev033"
       ],
-      "source_image_refs": [],
+      "source_image_refs": [
+        {
+          "block_id": "I_3_40",
+          "page": 3,
+          "bbox": [
+            531.0,
+            171.0,
+            888.0,
+            356.0
+          ],
+          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
+          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
+        }
+      ],
       "confidence": {
         "score": 0.92
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe011",
       "polymer_name": "PSBPhQ-H",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe005",
+      "variant_of": "pe007",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -909,7 +921,7 @@
         "m052"
       ],
       "evidence_ids": [
-        "ev047"
+        "ev048"
       ],
       "source_image_refs": [
         {
@@ -925,6 +937,18 @@
           "caption": "Figure 2. Aromatic region of the $^ { 1 3 } \\mathrm { C }$ NMR spectra of PSBPhQ-H (R ) polymer backbone) and (<sup>t</sup>BuPh) BQ (R ) <sup>t</sup>Bu). Ph, <sup>t</sup>Ph and Q represent phenyl groups attached to the polymer backbone, tert-butylphenyl, and quinolato groups, respectively."
         },
         {
+          "block_id": "I_3_40",
+          "page": 3,
+          "bbox": [
+            531.0,
+            171.0,
+            888.0,
+            356.0
+          ],
+          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
+          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
+        },
+        {
           "block_id": "I_4_49",
           "page": 4,
           "bbox": [
@@ -938,14 +962,14 @@
         }
       ],
       "confidence": {
-        "score": 0.94
+        "score": 0.96
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe012",
       "polymer_name": "PSBPhQ-Cl",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
@@ -958,18 +982,31 @@
         "m048"
       ],
       "evidence_ids": [
-        "ev038"
+        "ev028"
       ],
-      "source_image_refs": [],
+      "source_image_refs": [
+        {
+          "block_id": "I_3_40",
+          "page": 3,
+          "bbox": [
+            531.0,
+            171.0,
+            888.0,
+            356.0
+          ],
+          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
+          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
+        }
+      ],
       "confidence": {
-        "score": 0.91
+        "score": 0.88
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe013",
       "polymer_name": "PSBPhQ-C $_{6}$ H $_{4}$ OMe",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
@@ -984,18 +1021,31 @@
         "m049"
       ],
       "evidence_ids": [
-        "ev039"
+        "ev029"
       ],
-      "source_image_refs": [],
+      "source_image_refs": [
+        {
+          "block_id": "I_3_40",
+          "page": 3,
+          "bbox": [
+            531.0,
+            171.0,
+            888.0,
+            356.0
+          ],
+          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
+          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
+        }
+      ],
       "confidence": {
-        "score": 0.91
+        "score": 0.89
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe014",
       "polymer_name": "PSBPhQ-C $_{6}$ H $_{4}$ NMe $_{2}$",
-      "polymer_type": "homopolymer",
       "variant_of": "pe005",
       "representation_status": "expert_review_required",
       "structural_features": [],
@@ -1014,10 +1064,24 @@
       "evidence_ids": [
         "ev016"
       ],
-      "source_image_refs": [],
+      "source_image_refs": [
+        {
+          "block_id": "I_3_40",
+          "page": 3,
+          "bbox": [
+            531.0,
+            171.0,
+            888.0,
+            356.0
+          ],
+          "image_path": "organized/reference_no_0037645/images/e9199d12b540a7abecc5b4c065eb4f4ba8071d7b972146674b5be59f7aab085f.jpg",
+          "caption": "Figure 3. Left: Absorption and emission spectra of the organoboron quinolate polymers PSBPhQ-X (refer to Scheme 2 for the polymer structures). The functional group concentration was estimated to ca. $2 \\times 1 0 ^ { - 5 }$ M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima. Right: Photographs of solutions of PSBPhQ-X in THF (c $1 . 2 \\times 1 0 ^ { - 3 } \\mathrm { M } )$ excited with black light at 365 nm (from left to right: $\\mathbf { X } \\stackrel { \\mathbf { \\cdot } } { = }$ Bpin, $\\mathrm { C } _ { 6 } \\mathrm { F } _ { 5 } ,$ H, Cl, C<sub>6</sub>H<sub>4</sub>OMe, C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>, respectively)."
+        }
+      ],
       "confidence": {
         "score": 0.93
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
@@ -1025,7 +1089,6 @@
       "polymer_name": "PSBPhQ-H-co-PSSiMe<sub>3</sub>",
       "polymer_type": "copolymer",
       "copolymer_type": "ran",
-      "variant_of": "pe011",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1037,7 +1100,7 @@
         "m054"
       ],
       "evidence_ids": [
-        "ev048"
+        "ev049"
       ],
       "source_image_refs": [
         {
@@ -1054,7 +1117,7 @@
         }
       ],
       "confidence": {
-        "score": 0.98
+        "score": 0.97
       }
     }
   ],
@@ -1065,26 +1128,7 @@
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe001",
       "polymer_name": "poly-(4-trimethylsilyl styrene)",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "PSSiMe<sub>3</sub>",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev049"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s002",
-      "sample_kind": "intermediate",
-      "refers_to_entity": "pe002",
-      "polymer_name": "poly(4-dibromoboryl styrene)",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "PSBBr<sub>2</sub>",
       "intended_use": [],
       "evidence_ids": [
         "ev050"
@@ -1092,16 +1136,16 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
-      "sample_id": "s003",
+      "sample_id": "s002",
       "sample_kind": "intermediate",
-      "refers_to_entity": "pe003",
-      "polymer_name": "PSBPhBr",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "PSBPhBr",
+      "refers_to_entity": "pe002",
+      "polymer_name": "poly(4-dibromoboryl styrene)",
+      "sample_label_raw": "PSBBr<sub>2</sub>",
       "intended_use": [],
       "evidence_ids": [
         "ev051"
@@ -1109,16 +1153,33 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s003",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe003",
+      "polymer_name": "PSBPhBr",
+      "sample_label_raw": "PSBPhBr",
+      "intended_use": [],
+      "evidence_ids": [
+        "ev045"
+      ],
+      "confidence": {
+        "score": 0.9
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s004",
-      "sample_kind": "commercial_batch",
-      "refers_to_entity": "pe004",
-      "polymer_name": "polystyrene",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "polystyrene",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe009",
+      "polymer_name": "PSBPhQ-Bpin",
+      "sample_label_raw": "PSBPhQ-Bpin",
       "intended_use": [],
       "evidence_ids": [
         "ev052"
@@ -1126,16 +1187,15 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s005",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe009",
-      "polymer_name": "PSBPhQ-Bpin",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "PSBPhQ-Bpin",
+      "refers_to_entity": "pe010",
+      "polymer_name": "PSBPhQ-C $_{6}$ F $_{5}$",
       "intended_use": [],
       "evidence_ids": [
         "ev053"
@@ -1143,82 +1203,65 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s006",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe010",
-      "polymer_name": "PSBPhQ-C $_{6}$ F $_{5}$",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "refers_to_entity": "pe011",
+      "polymer_name": "PSBPhQ-H",
+      "sample_label_raw": "PSBPhQ-H",
       "intended_use": [],
       "evidence_ids": [
-        "ev054"
+        "ev048"
       ],
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s007",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe011",
-      "polymer_name": "PSBPhQ-H",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "PSBPhQ-H",
+      "refers_to_entity": "pe012",
+      "polymer_name": "PSBPhQ-Cl",
+      "sample_label_raw": "PSBPhQ-Cl",
       "intended_use": [],
       "evidence_ids": [
-        "ev055"
+        "ev028"
       ],
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s008",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe012",
-      "polymer_name": "PSBPhQ-Cl",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "PSBPhQ-Cl",
+      "refers_to_entity": "pe013",
+      "polymer_name": "PSBPhQ-C $_{6}$ H $_{4}$ OMe",
       "intended_use": [],
       "evidence_ids": [
-        "ev038"
+        "ev029"
       ],
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s009",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe013",
-      "polymer_name": "PSBPhQ-C $_{6}$ H $_{4}$ OMe",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev039"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s010",
-      "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe014",
       "polymer_name": "PSBPhQ-C $_{6}$ H $_{4}$ NMe $_{2}$",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "PSBPhQ-C<sub>6</sub>H<sub>4</sub>NMe<sub>2</sub>",
       "intended_use": [],
       "evidence_ids": [
         "ev016"
@@ -1226,40 +1269,41 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
-      "sample_id": "s011",
+      "sample_id": "s010",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe015",
       "polymer_name": "PSBPhQ-H-co-PSSiMe<sub>3</sub>",
       "polymer_type": "copolymer",
       "copolymer_type": "ran",
-      "material_type": "neat_resin",
       "sample_label_raw": "PSBPhQ-H-co-PSSiMe<sub>3</sub>",
-      "state_description": "10% boron functionalization",
       "intended_use": [],
       "evidence_ids": [
-        "ev056"
+        "ev049"
       ],
       "confidence": {
         "score": 0.9
-      }
+      },
+      "material_type": null
     }
   ],
   "process_steps": [
     {
       "step_id": "ps001",
-      "process_type": "polymerization",
-      "input_sample_ids": [],
-      "output_sample_ids": [
+      "process_type": "other",
+      "input_sample_ids": [
         "s001"
       ],
-      "parameters": {
-        "polymerization_method": "atom transfer radical polymerization (ATRP)"
-      },
+      "output_sample_ids": [
+        "s002"
+      ],
+      "parameters": {},
       "evidence_ids": [
-        "ev049"
+        "ev051"
       ],
       "confidence": {
         "score": 0.9
@@ -1269,16 +1313,16 @@
       "step_id": "ps002",
       "process_type": "other",
       "input_sample_ids": [
-        "s001"
-      ],
-      "output_sample_ids": [
         "s002"
       ],
+      "output_sample_ids": [
+        "s003"
+      ],
       "parameters": {
-        "reactant": "slight excess of BBr<sub>3</sub>"
+        "reagent": "slight excess of 1-trimethylstannyl-4-tert-butylbenzene"
       },
       "evidence_ids": [
-        "ev050"
+        "ev054"
       ],
       "confidence": {
         "score": 0.9
@@ -1288,16 +1332,23 @@
       "step_id": "ps003",
       "process_type": "other",
       "input_sample_ids": [
-        "s002"
-      ],
-      "output_sample_ids": [
         "s003"
       ],
+      "output_sample_ids": [
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009"
+      ],
       "parameters": {
-        "reactant": "slight excess of 1-trimethylstannyl-4-tert-butylbenzene"
+        "ligand": "8-hydroxyquinoline or methyl-protected 8-hydroxyquinoline derivatives",
+        "reaction_time": "12 h",
+        "yield": "65-85%"
       },
       "evidence_ids": [
-        "ev057"
+        "ev006"
       ],
       "confidence": {
         "score": 0.9
@@ -1305,44 +1356,19 @@
     },
     {
       "step_id": "ps004",
-      "process_type": "other",
-      "input_sample_ids": [
-        "s003"
-      ],
-      "output_sample_ids": [
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009",
-        "s010"
-      ],
-      "parameters": {
-        "reaction_time": "12 h",
-        "yield": "65-85%"
-      },
-      "evidence_ids": [
-        "ev058"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "step_id": "ps005",
       "process_type": "copolymerization",
       "input_sample_ids": [
         "s001"
       ],
       "output_sample_ids": [
-        "s011"
+        "s010"
       ],
       "parameters": {
-        "BBr<sub>3</sub> equivalent": "0.1 equiv",
-        "boron functionalization ratio": "10%"
+        "BBr3_equivalent": "0.1 equiv",
+        "functionalization": "10% boron functionalization"
       },
       "evidence_ids": [
-        "ev059"
+        "ev055"
       ],
       "confidence": {
         "score": 0.85
@@ -1350,6 +1376,7 @@
     }
   ],
   "unresolved_entity_ids": [
+    "pe004",
     "pe005",
     "pe006",
     "pe007",
@@ -1357,18 +1384,90 @@
   ],
   "property_observations": [
     {
-      "property_id": "prop_s5_001",
-      "characterization_id": "char001",
-      "sample_ids": [
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009",
-        "s010",
-        "s011"
+      "property_id": "prop001",
+      "sample_id": "s010",
+      "property_name_raw": "degree of functionalization",
+      "determination_method_raw": "1H NMR integration",
+      "observation_role": "single",
+      "value_raw": "10.5%",
+      "value_min": 10.5,
+      "value_max": 10.5,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev059"
       ],
-      "sample_resolution_status": "multi_resolved",
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s010",
+      "property_name_raw": "degree of functionalization",
+      "determination_method_raw": "GPC-MALLS",
+      "observation_role": "single",
+      "value_raw": "12.8%",
+      "value_min": 12.8,
+      "value_max": 12.8,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev060"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s010",
+      "property_name_raw": "quantum efficiency",
+      "determination_method_raw": "photoluminescence measurement",
+      "observation_role": "single",
+      "value_raw": "0.18",
+      "value_min": 0.18,
+      "value_max": 0.18,
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "solution solvent": "THF",
+          "solution concentration": "ca. 2 × 10^-5 M",
+          "excitation": "at absorption maxima"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev061"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop_s5_001",
+      "characterization_id": "char007",
+      "entity_id": "pe005",
+      "sample_resolution_status": "unresolved",
       "property_name_raw": "ca. 7 ppm",
       "property_name_normalized": "nmr_chemical_shift",
       "property_category": "composition_structure",
@@ -1380,42 +1479,437 @@
       "source_stage": "stage5",
       "source_type": "text",
       "evidence_ids": [
+        "ev078"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev015"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {
+        "TGA atmosphere": "nitrogen"
+      },
+      "other_condition_evidence_ids": {
+        "TGA atmosphere": [
+          "ev056"
+        ]
+      },
+      "condition_status": "reported",
+      "evidence_ids": [
+        "ev022"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "other_conditions": {
+        "solution solvent": "THF",
+        "solution concentration": "ca. 2 × 10^-5 M",
+        "excitation": "at absorption maxima"
+      },
+      "other_condition_evidence_ids": {},
+      "condition_status": "reported",
+      "evidence_ids": [
+        "ev057"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc004",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev058"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "unresolved_property_observations": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe005",
+      "property_name_raw": "glass transition temperatures",
+      "observation_role": "single",
+      "value_raw": "210 to 275 °C",
+      "unit_raw": "°C",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence_ids": [
+        "ev062"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "unresolved_id": "uprop002",
+      "entity_id": "pe005",
+      "property_name_raw": "decomposition temperatures",
+      "observation_role": "single",
+      "value_raw": "over 300 °C",
+      "unit_raw": "°C",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence_ids": [
         "ev063"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "M<sub>w</sub>",
+      "determination_method_raw": "Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "measurement_context": {
+        "other_conditions": {
+          "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "59 540",
+          "value_min": 59540.0,
+          "value_max": 59540.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev064",
+            "ev065"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe009",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "172 700",
+          "value_min": 172700.0,
+          "value_max": 172700.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev066"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt003",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe010",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "189 200",
+          "value_min": 189200.0,
+          "value_max": 189200.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev067"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt004",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe011",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "135 700",
+          "value_min": 135700.0,
+          "value_max": 135700.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev068"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt005",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe012",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "144 100",
+          "value_min": 144100.0,
+          "value_max": 144100.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev069"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt006",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe013",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "169 800",
+          "value_min": 169800.0,
+          "value_max": 169800.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev070"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt007",
+          "observation_role": "series_point",
+          "sample_id": "s009",
+          "entity_id": "pe014",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "178 900",
+          "value_min": 178900.0,
+          "value_max": 178900.0,
+          "measurement_context": {
+            "other_conditions": {
+              "solvent": "THF, 0.2 wt % [Bu4N]Br added for PSBPhQ-C6H4NMe2"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev071"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 7,
+        "covered": 7,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence_ids": [
+        "ev064",
+        "ev065"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series002",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "T<sub>g</sub>",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "determination_method_raw": "differential scanning calorimetry (DSC)",
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_context": {
+        "other_conditions": {
+          "TGA atmosphere": "nitrogen"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "points": [
+        {
+          "point_id": "pt008",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe009",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "275",
+          "value_min": 275.0,
+          "value_max": 275.0,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "measurement_context": {
+            "other_conditions": {
+              "TGA atmosphere": "nitrogen"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev072"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt009",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe010",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "245",
+          "value_min": 245.0,
+          "value_max": 245.0,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "measurement_context": {
+            "other_conditions": {
+              "TGA atmosphere": "nitrogen"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence_ids": [
+            "ev073"
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 2,
+        "covered": 2,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence_ids": [
+        "ev022"
       ],
       "confidence": {
         "score": 0.9
       }
     }
   ],
-  "measurement_conditions": [],
-  "unresolved_property_observations": [],
-  "property_series": [],
   "characterizations": [
     {
       "characterization_id": "char001",
       "method_raw": "NMR",
       "method_normalized": "NMR",
-      "sample_ids": [
-        "s003",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009",
-        "s010",
-        "s011"
-      ],
-      "sample_resolution_status": "multi_resolved",
+      "sample_id": "s010",
+      "entity_id": "pe015",
+      "sample_resolution_status": "resolved",
       "parameters": {},
-      "result_summary": "Confirmed monosubstitution pattern of PSBPhBr, high degree of functionalization of quinolate polymers, tetracoordinated boron centers, and functionalization degree of copolymer PSBPhQ-H-co-PSSiMe<sub>3</sub>.",
+      "result_summary": "Degree of functionalization of s010 determined as 10.5% by 1H NMR integration.",
       "derived_property_ids": [
-        "prop_s5_001"
+        "prop001"
       ],
       "evidence_ids": [
-        "ev060",
-        "ev007",
-        "ev020",
-        "ev061"
+        "ev074"
       ],
       "confidence": {
         "score": 0.9
@@ -1423,27 +1917,18 @@
     },
     {
       "characterization_id": "char002",
-      "method_raw": "gel permeation chromatography (GPC)",
+      "method_raw": "GPC-MALLS",
       "method_normalized": "GPC",
-      "sample_ids": [
-        "s001",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009",
-        "s010",
-        "s011"
+      "sample_id": "s010",
+      "entity_id": "pe015",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "Degree of functionalization of s010 determined as 12.8% by GPC-MALLS.",
+      "derived_property_ids": [
+        "prop002"
       ],
-      "sample_resolution_status": "multi_resolved",
-      "parameters": {
-        "detectors": "refractive index (RI) and multiangle laser light scattering (MALLS)"
-      },
-      "result_summary": "Monomodal elution profiles with narrow PDI (1.11-1.18) observed for all polymers; absolute molecular weights determined, DP nearly unchanged relative to starting PSSiMe<sub>3</sub>, no backbone cleavage or cross-linking during synthesis.",
-      "derived_property_ids": [],
       "evidence_ids": [
-        "ev015",
-        "ev062"
+        "ev074"
       ],
       "confidence": {
         "score": 0.9
@@ -1451,19 +1936,54 @@
     },
     {
       "characterization_id": "char003",
-      "method_raw": "differential scanning calorimetry (DSC)",
-      "method_normalized": "DSC",
+      "method_raw": "GPC",
+      "method_normalized": "GPC",
       "sample_ids": [
+        "s001",
+        "s004",
         "s005",
         "s006",
         "s007",
         "s008",
-        "s009",
-        "s010"
+        "s009"
+      ],
+      "entity_ids": [
+        "pe001",
+        "pe009",
+        "pe010",
+        "pe011",
+        "pe012",
+        "pe013",
+        "pe014"
       ],
       "sample_resolution_status": "multi_resolved",
+      "series_id": "series001",
       "parameters": {},
-      "result_summary": "Glass transition temperatures of quinolate polymers range from 210 to 275 °C.",
+      "result_summary": "Absolute molecular weights of multiple quinolate polymers determined by GPC-MALLS.",
+      "derived_property_ids": [],
+      "evidence_ids": [
+        "ev075"
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char004",
+      "method_raw": "differential scanning calorimetry (DSC)",
+      "method_normalized": "DSC",
+      "sample_ids": [
+        "s004",
+        "s005"
+      ],
+      "entity_ids": [
+        "pe009",
+        "pe010"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "series_id": "series002",
+      "parameters": {},
+      "result_summary": "Glass transition temperatures of quinolate polymers determined by DSC.",
       "derived_property_ids": [],
       "evidence_ids": [
         "ev022"
@@ -1473,28 +1993,57 @@
       }
     },
     {
-      "characterization_id": "char004",
-      "method_raw": "thermogravimetric analysis (TGA)",
-      "method_normalized": "TGA",
-      "sample_ids": [
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009",
-        "s010"
+      "characterization_id": "char005",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "entity_id": "pe005",
+      "sample_resolution_status": "unresolved",
+      "parameters": {},
+      "result_summary": "Glass transition temperatures of boron quinolate polymers range from 210 to 275 °C by DSC.",
+      "derived_property_ids": [
+        "uprop001"
       ],
-      "sample_resolution_status": "multi_resolved",
-      "parameters": {
-        "atmosphere": "nitrogen"
-      },
-      "result_summary": "Decomposition temperatures over 300 °C; up to 30% residual material observed after heating to 800 °C under nitrogen.",
-      "derived_property_ids": [],
       "evidence_ids": [
-        "ev022"
+        "ev076"
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
+      }
+    },
+    {
+      "characterization_id": "char006",
+      "method_raw": "TGA",
+      "method_normalized": "TGA",
+      "entity_id": "pe005",
+      "sample_resolution_status": "unresolved",
+      "parameters": {},
+      "result_summary": "Decomposition temperatures of boron quinolate polymers are over 300 °C by TGA.",
+      "derived_property_ids": [
+        "uprop002"
+      ],
+      "evidence_ids": [
+        "ev077"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "characterization_id": "char007",
+      "method_raw": "NMR",
+      "method_normalized": "NMR",
+      "entity_id": "pe005",
+      "sample_resolution_status": "unresolved",
+      "parameters": {},
+      "result_summary": "11B NMR signals of organoboron quinolate polymers observed at ca. 7 ppm, confirming tetracoordinated boron centers.",
+      "derived_property_ids": [
+        "prop_s5_001"
+      ],
+      "evidence_ids": [
+        "ev078"
+      ],
+      "confidence": {
+        "score": 0.8
       }
     }
   ],
@@ -2098,17 +2647,30 @@
       "evidence_id": "ev046"
     },
     {
-      "block_id": "P_3_43",
-      "page": 3,
+      "block_id": "P_2_34",
+      "page": 2,
       "bbox": [
-        81.0,
-        705.0,
-        483.0,
+        511.0,
+        900.0,
+        915.0,
         958.0
       ],
       "source_type": "text",
-      "source_sentence": "The parent polymer PSBPhQ-H shows an absorption maximum at 395 nm and green emission at 507 nm, which correlates very well with the previously reported data for $\\mathrm { P h } _ { 2 } \\mathrm { B Q } \\left( \\lambda _ { \\mathrm { m a x } } = 3 9 5 \\right.$nm; $\\lambda _ { \\mathrm { e m } } =$504 nm) and for $\\mathrm { ( ^ { t } B u P h ) _ { 2 } B Q } \\left( \\lambda _ { \\operatorname* { m a x } } = 3 9 5 ~ \\mathrm { n m } ; \\lambda _ { \\mathrm { e m } } = 5 0 6 ~ \\mathrm { n m } \\right) , ^ { 2 2 }$which contains tert-butyl groups in the 4-position of the phenyl rings and thus more closely mimics the structure of the polymer.",
+      "source_sentence": "We have shown previously that the thiophene substituted boron quinolate polymers (A, Scheme 1) display green luminescence in solution ( 508 nm) when excited at their absorption maxima ( 393 nm).",
       "evidence_id": "ev047"
+    },
+    {
+      "block_id": "P_2_34",
+      "page": 2,
+      "bbox": [
+        511.0,
+        900.0,
+        915.0,
+        958.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Replacement of the pendent thiophene substituent with a tert-butylphenyl group in the parent polymer PSBPhQ-H gives essentially identical optical properties with an absorption maximum at 395 nm and green emission at 507 nm.",
+      "evidence_id": "ev048"
     },
     {
       "block_id": "P_4_51",
@@ -2121,19 +2683,6 @@
       ],
       "source_type": "text",
       "source_sentence": "To further confirm these conclusions, we synthesized a random copolymer, $\\mathbf { P S B P h Q - H - } c o \\mathbf { - } \\mathbf { P S S i M e } _ { 3 } ,$with only 10% boron functionalization.",
-      "evidence_id": "ev048"
-    },
-    {
-      "block_id": "P_1_19",
-      "page": 1,
-      "bbox": [
-        81.0,
-        594.0,
-        483.0,
-        959.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The silyl-functionalized polymer poly-(4-trimethylsilyl styrene) (PSSiMe<sub>3</sub>) with $M _ { \\mathrm { w } } = 5 9 ~ 5 4 0$and PDI $= 1 . 1 2$was prepared by atom transfer radical polymerization (ATRP)<sup>20</sup>",
       "evidence_id": "ev049"
     },
     {
@@ -2146,7 +2695,7 @@
         959.0
       ],
       "source_type": "text",
-      "source_sentence": "quantitatively converted to poly(4-dibromoboryl styrene), PSBBr<sub>2</sub>, with a slight excess of BBr<sub>3</sub> as previously described.",
+      "source_sentence": "The silyl-functionalized polymer poly-(4-trimethylsilyl styrene) (PSSiMe<sub>3</sub>) with $M _ { \\mathrm { w } } = 5 9 ~ 5 4 0$and PDI $= 1 . 1 2$was prepared by atom transfer radical polymerization (ATRP)<sup>20</sup>",
       "evidence_id": "ev050"
     },
     {
@@ -2159,21 +2708,8 @@
         959.0
       ],
       "source_type": "text",
-      "source_sentence": "selective replacement of only one of the boron-bound bromine substituents by the tert-butylphenyl group led to the formation of PSBPhBr (Scheme $\\dot { 2 } ) .",
+      "source_sentence": "quantitatively converted to poly(4-dibromoboryl styrene), PSBBr<sub>2</sub>, with a slight excess of BBr<sub>3</sub> as previously described.<sup>21</sup>",
       "evidence_id": "ev051"
-    },
-    {
-      "block_id": "P_2_29",
-      "page": 2,
-      "bbox": [
-        81.0,
-        651.0,
-        483.0,
-        929.0
-      ],
-      "source_type": "text",
-      "source_sentence": "the molecular weights determined by GPC-RI detection vs polystyrene standards were generally considerably lower than expected.",
-      "evidence_id": "ev052"
     },
     {
       "block_id": "P_3_43",
@@ -2186,46 +2722,20 @@
       ],
       "source_type": "text",
       "source_sentence": "attachment of a pinacolatoborane moiety in PSBPhQ-Bpin provides for blue emission at 486 nm.",
+      "evidence_id": "ev052"
+    },
+    {
+      "block_id": "P_3_43",
+      "page": 3,
+      "bbox": [
+        81.0,
+        705.0,
+        483.0,
+        958.0
+      ],
+      "source_type": "text",
+      "source_sentence": "the pentafluorophenyl substituted derivative $\\mathbf { P S B P h Q  – C _ { 6 } F _ { 5 } }$emits at 497 nm $( \\mathrm { A l Q } _ { 3 }$derivative: 516 nm)",
       "evidence_id": "ev053"
-    },
-    {
-      "block_id": "P_3_43",
-      "page": 3,
-      "bbox": [
-        81.0,
-        705.0,
-        483.0,
-        958.0
-      ],
-      "source_type": "text",
-      "source_sentence": "the pentafluorophenyl substituted derivative $\\mathbf { P S B P h Q  – C _ { 6 } F _ { 5 } }$emits at 497 nm",
-      "evidence_id": "ev054"
-    },
-    {
-      "block_id": "P_3_43",
-      "page": 3,
-      "bbox": [
-        81.0,
-        705.0,
-        483.0,
-        958.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The parent polymer PSBPhQ-H shows an absorption maximum at 395 nm and green emission at 507 nm",
-      "evidence_id": "ev055"
-    },
-    {
-      "block_id": "P_4_51",
-      "page": 4,
-      "bbox": [
-        81.0,
-        371.0,
-        483.0,
-        789.0
-      ],
-      "source_type": "text",
-      "source_sentence": "we synthesized a random copolymer, $\\mathbf { P S B P h Q - H - } c o \\mathbf { - } \\mathbf { P S S i M e } _ { 3 } ,$with only 10% boron functionalization.",
-      "evidence_id": "ev056"
     },
     {
       "block_id": "P_1_19",
@@ -2237,20 +2747,46 @@
         959.0
       ],
       "source_type": "text",
-      "source_sentence": "The reactive polymer $\\mathbf { P S B } \\mathbf { B r } _ { 2 }$was then treated in situ with a slight excess of 1-trimethylstannyl-4-tert-butylbenzene at $- 2 0 ~ ^ { \\circ } \\mathrm { C }$in $\\mathrm { C H } _ { 2 } \\mathrm { C l } _ { 2 } .$Under these conditions, selective replacement of only one of the boron-bound bromine substituents by the tert-butylphenyl group led to the formation of PSBPhBr",
+      "source_sentence": "The reactive polymer $\\mathbf { P S B } \\mathbf { B r } _ { 2 }$was then treated in situ with a slight excess of 1-trimethylstannyl-4-tert-butylbenzene at $- 2 0 ~ ^ { \\circ } \\mathrm { C }$in $\\mathrm { C H } _ { 2 } \\mathrm { C l } _ { 2 } .$Under these conditions, selective replacement of only one of the boron-bound bromine substituents by the tert-butylphenyl group led to the formation of PSBPhBr (Scheme $\\dot { 2 } ) .",
+      "evidence_id": "ev054"
+    },
+    {
+      "block_id": "P_4_51",
+      "page": 4,
+      "bbox": [
+        81.0,
+        371.0,
+        483.0,
+        789.0
+      ],
+      "source_type": "text",
+      "source_sentence": "To further confirm these conclusions, we synthesized a random copolymer, $\\mathbf { P S B P h Q - H - } c o \\mathbf { - } \\mathbf { P S S i M e } _ { 3 } ,$with only 10% boron functionalization. The copolymer was obtained using similar methods as for the homopolymers, except that only 0.1 equiv of BBr<sub>3</sub> were used in the initial Si-B exchange reaction.",
+      "evidence_id": "ev055"
+    },
+    {
+      "block_id": "I_3_40",
+      "page": 3,
+      "bbox": [
+        531.0,
+        171.0,
+        888.0,
+        356.0
+      ],
+      "source_type": "image",
+      "source_sentence": "The functional group concentration was estimated to ca. 2 × 10^-5 M in THF on the basis of the repeat units assuming 100% functionalization; the polymers were excited at the absorption maxima.",
       "evidence_id": "ev057"
     },
     {
-      "block_id": "P_1_21",
-      "page": 1,
+      "block_id": "P_4_51",
+      "page": 4,
       "bbox": [
-        511.0,
-        621.0,
-        913.0,
-        801.0
+        81.0,
+        371.0,
+        483.0,
+        789.0
       ],
       "source_type": "text",
-      "source_sentence": "The transformations proceeded to completion within 12 h, and the resulting polymers were isolated in good yields (65-85%) by repeated precipitation into methanol and dried under high vacuum.",
+      "source_sentence": "The degree of functionalization for the isolated copolymer PSBPhQ-H-co-PSSiMe was calculated to be 10.5% according to <sup>1</sup>H NMR integration and 12.8% according to GPC-MALLS, which is very close to the feed ratio of BBr<sub>3</sub> to $\\mathrm { S i M e } _ { 3 }$functional groups.<sup>30</sup> The absorption and emission spectra of PSBPhQ-H-co-PSSiMe<sub>3</sub> are virtually identical to those of PSBPhQ-H (Figure 4), and the quantum efficiency of 0.18 for PSBPhQ-H-co-PSSiMe<sub>3</sub> matches very well with that of 0.17 determined for PSBPhQ-H.",
       "evidence_id": "ev058"
     },
     {
@@ -2263,20 +2799,20 @@
         789.0
       ],
       "source_type": "text",
-      "source_sentence": "we synthesized a random copolymer, $\\mathbf { P S B P h Q - H - } c o \\mathbf { - } \\mathbf { P S S i M e } _ { 3 } ,$with only 10% boron functionalization. The copolymer was obtained using similar methods as for the homopolymers, except that only 0.1 equiv of BBr<sub>3</sub> were used in the initial Si-B exchange reaction.",
+      "source_sentence": "The degree of functionalization for the isolated copolymer PSBPhQ-H-co-PSSiMe was calculated to be 10.5% according to <sup>1</sup>H NMR integration",
       "evidence_id": "ev059"
     },
     {
-      "block_id": "P_1_19",
-      "page": 1,
+      "block_id": "P_4_51",
+      "page": 4,
       "bbox": [
         81.0,
-        594.0,
+        371.0,
         483.0,
-        959.0
+        789.0
       ],
       "source_type": "text",
-      "source_sentence": "Transfer of a single phenyl group to the boron moieties was evident from multinuclear NMR spectroscopy and further confirmed by comparison of the polymer data withthoseofthecorrespondingmolecularcompound(<sup>t</sup>BuPh)<sub>2</sub>BBr.",
+      "source_sentence": "12.8% according to GPC-MALLS",
       "evidence_id": "ev060"
     },
     {
@@ -2289,8 +2825,258 @@
         789.0
       ],
       "source_type": "text",
-      "source_sentence": "The degree of functionalization for the isolated copolymer PSBPhQ-H-co-PSSiMe was calculated to be 10.5% according to <sup>1</sup>H NMR integration and 12.8% according to GPC-MALLS, which is very close to the feed ratio of BBr<sub>3</sub> to $\\mathrm { S i M e } _ { 3 }$functional groups.",
+      "source_sentence": "the quantum efficiency of 0.18 for PSBPhQ-H-co-PSSiMe<sub>3</sub> matches very well with that of 0.17 determined for PSBPhQ-H.",
       "evidence_id": "ev061"
+    },
+    {
+      "block_id": "P_2_33",
+      "page": 2,
+      "bbox": [
+        511.0,
+        731.0,
+        915.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "DSC analysis revealed high glass transition temperatures (ranging from 210 to 275 °C) for the quinolate polymers",
+      "evidence_id": "ev062"
+    },
+    {
+      "block_id": "P_2_33",
+      "page": 2,
+      "bbox": [
+        511.0,
+        731.0,
+        915.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "the TGA plots confirmed high thermal stability with decomposition temperatures over 300 °C.",
+      "evidence_id": "ev063"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSSiMe $_{3}$",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "59 540",
+        "cell_id": "T_2_27:r0001:c0001",
+        "row_index": 1,
+        "column_index": 1
+      },
+      "evidence_id": "ev064"
+    },
+    {
+      "block_id": "P_1_19",
+      "page": 1,
+      "bbox": [
+        81.0,
+        594.0,
+        483.0,
+        959.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The silyl-functionalized polymer poly-(4-trimethylsilyl styrene) (PSSiMe<sub>3</sub>) with $M _ { \\mathrm { w } } = 5 9 ~ 5 4 0$ and PDI $= 1 . 1 2$ was prepared by atom transfer radical polymerization (ATRP)",
+      "evidence_id": "ev065"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSBPhQ-Bpin",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "172 700",
+        "cell_id": "T_2_27:r0002:c0001",
+        "row_index": 2,
+        "column_index": 1
+      },
+      "evidence_id": "ev066"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSBPhQ-C $_{6}$ F $_{5}$",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "189 200",
+        "cell_id": "T_2_27:r0003:c0001",
+        "row_index": 3,
+        "column_index": 1
+      },
+      "evidence_id": "ev067"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSBPhQ-H",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "135 700",
+        "cell_id": "T_2_27:r0004:c0001",
+        "row_index": 4,
+        "column_index": 1
+      },
+      "evidence_id": "ev068"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSBPhQ-Cl",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "144 100",
+        "cell_id": "T_2_27:r0005:c0001",
+        "row_index": 5,
+        "column_index": 1
+      },
+      "evidence_id": "ev069"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSBPhQ-C $_{6}$ H $_{4}$ OMe",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "169 800",
+        "cell_id": "T_2_27:r0006:c0001",
+        "row_index": 6,
+        "column_index": 1
+      },
+      "evidence_id": "ev070"
+    },
+    {
+      "block_id": "T_2_27",
+      "page": 2,
+      "bbox": [
+        86.0,
+        366.0,
+        475.0,
+        477.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+      "table_locator": {
+        "table_id": "T_2_27",
+        "row_label": "PSBPhQ-C $_{6}$ H $_{4}$ NMe $_{2}$ $^{c}$",
+        "column_label": "$M_{\\text{w}}^{b}$",
+        "cell_value": "178 900",
+        "cell_id": "T_2_27:r0007:c0001",
+        "row_index": 7,
+        "column_index": 1
+      },
+      "evidence_id": "ev071"
+    },
+    {
+      "block_id": "T_3_38",
+      "page": 3,
+      "bbox": [
+        88.0,
+        71.0,
+        908.0,
+        128.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 2. Differential Scanning Calorimetry (DSC) and Thermogravimetric Analysis (TGA) Data for the Boron Quinolate Polymers",
+      "table_locator": {
+        "table_id": "T_3_38",
+        "row_label": "$T_{\\text{g}}$ (°C)a",
+        "column_label": "PSBPhQ-Bpin",
+        "cell_value": "275",
+        "cell_id": "T_3_38:r0001:c0001",
+        "row_index": 1,
+        "column_index": 1
+      },
+      "evidence_id": "ev072"
+    },
+    {
+      "block_id": "T_3_38",
+      "page": 3,
+      "bbox": [
+        88.0,
+        71.0,
+        908.0,
+        128.0
+      ],
+      "source_type": "table",
+      "source_sentence": "Table 2. Differential Scanning Calorimetry (DSC) and Thermogravimetric Analysis (TGA) Data for the Boron Quinolate Polymers",
+      "table_locator": {
+        "table_id": "T_3_38",
+        "row_label": "$T_{\\text{g}}$ (°C)a",
+        "column_label": "PSBPhQ-C6F5",
+        "cell_value": "245",
+        "cell_id": "T_3_38:r0001:c0002",
+        "row_index": 1,
+        "column_index": 2
+      },
+      "evidence_id": "ev073"
+    },
+    {
+      "block_id": "P_4_51",
+      "page": 4,
+      "bbox": [
+        81.0,
+        371.0,
+        483.0,
+        789.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The degree of functionalization for the isolated copolymer PSBPhQ-H-co-PSSiMe was calculated to be 10.5% according to <sup>1</sup>H NMR integration and 12.8% according to GPC-MALLS, which is very close to the feed ratio of BBr<sub>3</sub> to $\\mathrm { S i M e } _ { 3 }$functional groups.",
+      "evidence_id": "ev074"
     },
     {
       "block_id": "P_2_30",
@@ -2303,7 +3089,33 @@
       ],
       "source_type": "text",
       "source_sentence": "We turned to in-line GPC-MALLS (multiangle laser light scattering) detection for the determination of absolute molecular weights.",
-      "evidence_id": "ev062"
+      "evidence_id": "ev075"
+    },
+    {
+      "block_id": "P_2_33",
+      "page": 2,
+      "bbox": [
+        511.0,
+        731.0,
+        915.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "DSC analysis revealed high glass transition temperatures (ranging from 210 to $2 7 5 \\ ^ { \\circ } \\mathrm { C } )$for the quinolate polymers",
+      "evidence_id": "ev076"
+    },
+    {
+      "block_id": "P_2_33",
+      "page": 2,
+      "bbox": [
+        511.0,
+        731.0,
+        915.0,
+        898.0
+      ],
+      "source_type": "text",
+      "source_sentence": "the TGA plots confirmed high thermal stability with decomposition temperatures over $3 0 0 ~ ^ { \\circ } \\mathrm { C } .$",
+      "evidence_id": "ev077"
     },
     {
       "block_id": "P_1_22",
@@ -2316,7 +3128,7 @@
       ],
       "source_type": "text",
       "source_sentence": "Sharp signals in the $^ { 1 1 } \\mathrm { B }$NMR spectra at ca. 7 ppm $( w _ { 1 / 2 } = 3 5 0 – 5 7 0$Hz) confirm the tetracoordinated nature of the boron centers.",
-      "evidence_id": "ev063"
+      "evidence_id": "ev078"
     }
   ],
   "provenance": [
@@ -2378,32 +3190,32 @@
         "gpt-5.6-terra-2026-07-09"
       ],
       "prompt_id": "polymer.stage2.polymer_entity",
-      "prompt_version": "1.3.0",
-      "prompt_sha256": "0d376da340b979a77fcd231e0148cc26c8b9d125f7209025c7055483abb7d7e1",
+      "prompt_version": "1.5.1",
+      "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
       "input_hash": "dd7214ad00eccad00caa7cfb3cb507500512b67c16159da06a307a53afb611ec",
       "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
-      "cache_key": "ed23eecda9455056a345db448b681dc4369a34c787441ef6b79fde73a208a276",
+      "cache_key": "2b0b7edb1487cd33165a1437310bda82ab9e156aa6113a749689ed121857bf8d",
       "output_schema_version": "polymer_entity_schema.v3",
-      "implementation_version": "1.4.0",
+      "implementation_version": "1.6.1",
       "context_block_count": 20,
       "context_chars": 22683,
       "call_count": 1,
       "usage": {
-        "input_tokens": 15320,
-        "output_tokens": 4041,
+        "input_tokens": 15541,
+        "output_tokens": 4251,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 15320,
-        "total_tokens": 19361
+        "billable_input_tokens": 15541,
+        "total_tokens": 19792
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "17",
         "output_per_million": "101",
-        "input_cost": "0.26044",
-        "output_cost": "0.408141",
-        "total_cost": "0.668581"
+        "input_cost": "0.264197",
+        "output_cost": "0.429351",
+        "total_cost": "0.693548"
       },
       "status": "success"
     },
@@ -2415,70 +3227,70 @@
         "doubao-seed-2.0-pro"
       ],
       "prompt_id": "polymer.stage3.sample_process",
-      "prompt_version": "1.4.0",
-      "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-      "input_hash": "40dfb08733f666e776353a18c2d385269d77298967bb76e91b2fa2bc5530c67a",
+      "prompt_version": "1.6.0",
+      "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+      "input_hash": "34cd97c992b999181179b4bc8dd5f759d79d23af1488544441d63e446c283ca3",
       "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-      "cache_key": "71a30be98e9d0cb8e81daf61aab2a1249a4bc85200ca163b9a220303626ab3f4",
+      "cache_key": "ba2d41cb0bab425532b75778abde91e25265aec02ddbebb6d533df0292c5c332",
       "output_schema_version": "sample_process_schema.v4",
-      "implementation_version": "1.5.0",
-      "context_block_count": 10,
-      "context_chars": 14963,
+      "implementation_version": "1.7.1",
+      "context_block_count": 11,
+      "context_chars": 15538,
       "call_count": 1,
       "usage": {
-        "input_tokens": 12111,
-        "output_tokens": 6586,
+        "input_tokens": 12309,
+        "output_tokens": 7094,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 12111,
-        "total_tokens": 18697
+        "billable_input_tokens": 12309,
+        "total_tokens": 19403
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.05231952",
-        "output_cost": "0.1919819",
-        "total_cost": "0.24430142"
+        "input_cost": "0.05317488",
+        "output_cost": "0.2067901",
+        "total_cost": "0.25996498"
       },
       "status": "success"
     },
     {
       "stage": "stage4_property",
       "provider": "dmx",
-      "model": "doubao-seed-2-0-pro-260215",
+      "model": "doubao-seed-2.0-pro",
       "models": [
-        "doubao-seed-2-0-pro-260215"
+        "doubao-seed-2.0-pro"
       ],
       "prompt_id": "polymer.stage4.property",
       "prompt_version": "1.7.2",
       "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "2845fa2d85261c59cdd4218d2322d98f30d42005d8f0a1851fc2b6e6c84e2aa1",
+      "input_hash": "46303615855e7d0ff6aa4d096ea41f13f3ebde5da68d9c15b3c832c45b9a7c24",
       "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-      "cache_key": "b4b1b16b4a83decfd256d10230a2e27959f6b10fc31f0ec5595a54c775b48825",
+      "cache_key": "2a54a32b361acbc8fb15f81b3168cf26fb99a7b583300359159132d4be16e102",
       "output_schema_version": "property_observation_schema.v7",
       "implementation_version": "1.7.10",
       "context_block_count": 19,
       "context_chars": 23663,
-      "call_count": 0,
+      "call_count": 1,
       "usage": {
-        "input_tokens": 23481,
-        "output_tokens": 16296,
+        "input_tokens": 23371,
+        "output_tokens": 13434,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 23481,
-        "total_tokens": 39777
+        "billable_input_tokens": 23371,
+        "total_tokens": 36805
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.10143792",
-        "output_cost": "0.4750284",
-        "total_cost": "0.57646632"
+        "input_cost": "0.10096272",
+        "output_cost": "0.3916011",
+        "total_cost": "0.49256382"
       },
       "status": "success"
     },
@@ -2493,30 +3305,30 @@
       "prompt_version": "1.6.2",
       "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "17207eaced8b62ac256915cbb36413c077a103553c32101d00736695f1499091",
+      "input_hash": "cf96af67e4abed6216ab35b6a80703d724df45f79ae215fe1e32fb0e960a96cf",
       "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-      "cache_key": "857772c6ce689fea1d0f9545d01dc15e2edd61877112a5251694c10ddc1d8df2",
+      "cache_key": "503a6a58a5e8c082fa99c6869c8db0c8a5e01007c2aaaf9be4b1fecedae5e9c2",
       "output_schema_version": "characterization_schema.v4",
       "implementation_version": "1.7.1",
       "context_block_count": 19,
       "context_chars": 23663,
       "call_count": 1,
       "usage": {
-        "input_tokens": 15725,
-        "output_tokens": 5866,
+        "input_tokens": 16478,
+        "output_tokens": 6836,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 15725,
-        "total_tokens": 21591
+        "billable_input_tokens": 16478,
+        "total_tokens": 23314
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.067932",
-        "output_cost": "0.1709939",
-        "total_cost": "0.2389259"
+        "input_cost": "0.07118496",
+        "output_cost": "0.1992694",
+        "total_cost": "0.27045436"
       },
       "status": "success"
     }
@@ -2533,24 +3345,9 @@
       "message": "Preview 模式已保留无法确定合并关系的嵌套 mention 拆分；需在正式数据中复核"
     },
     {
-      "stage": "stage2_polymer_entity",
-      "code": "polymer_type_default_inferred",
-      "message": "Backfill：无共聚或共混反证的实体已推断为 homopolymer"
-    },
-    {
       "stage": "stage3_sample_process",
       "code": "section_fallback",
       "message": "Methods 为空，仅使用 Stage 2 entity 的 evidence block；结果需人工复核"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "unsupported_state_descriptions_dropped",
-      "message": "已有有效 sample_label_raw；删除无法逐字定位的 state_description"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "unsupported_intended_uses_dropped",
-      "message": "Sample 已由逐字标签或状态锚定；删除无法在 evidence 中逐字定位的 intended_use"
     },
     {
       "stage": "stage3_sample_process",
@@ -2565,22 +3362,52 @@
     {
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "4 个 entity 未解析到实际样品"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin"
+      "message": "5 个 entity 未解析到实际样品"
     },
     {
       "stage": "stage4_property",
-      "code": "preview_degraded_empty_shell",
-      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果"
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "empty_reported_context_downgraded",
+      "message": "measurement_context 标记为 reported 但没有任何条件值；已确定性改为 not_reported"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "condition_evidence_surfaces_repaired",
+      "message": "条件 evidence 的候选摘要无法逐字定位；已用同一条件下性质字段的原文 anchor 恢复"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_method_evidence_supplemented",
+      "message": "Series determination method 不在 point 表格 evidence；已补入全文中唯一的完全匹配原文 block"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unresolved_properties",
+      "message": "2 条性质无法可靠关联具体 Sample"
     },
     {
       "stage": "stage5_characterization",
@@ -2589,13 +3416,13 @@
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_characterization_method_surface_recovered",
-      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形"
+      "code": "characterization_method_evidence_supplemented",
+      "message": "method_raw 仅在一个输入 block 中逐字出现；已补入该原文 evidence"
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_unsupported_characterization_details_cleared",
-      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形"
     },
     {
       "stage": "stage5_characterization",
@@ -2604,8 +3431,18 @@
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_property_subject_subscope_retained",
-      "message": "Preview 模式已保留多主体 Characterization 下的明确单主体性质；需在正式数据中复核"
+      "code": "series_point_subject_scope_inherited",
+      "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "unresolved_characterizations",
+      "message": "3 条表征无法可靠关联具体 Sample"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "unresolved_stage5_properties",
+      "message": "1 条 Stage 5 性质无法可靠关联具体 Sample"
     },
     {
       "stage": "meta_extract",
@@ -2613,10 +3450,15 @@
       "message": "Paper metadata_status=failed，需人工复核"
     },
     {
+      "stage": "stage4_property",
+      "code": "unused_measurement_condition",
+      "message": "MeasurementCondition 未被性质引用：['mc002']"
+    },
+    {
       "stage": "stage3_sample_process",
-      "code": "orphan_sample",
-      "message": "Sample 未被工艺、性质或表征引用",
-      "object_id": "s004"
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps001"
     },
     {
       "stage": "stage3_sample_process",
@@ -2631,19 +3473,52 @@
       "object_id": "ps003"
     },
     {
-      "stage": "stage3_sample_process",
-      "code": "generic_process_type",
-      "message": "ProcessStep 使用了通用 process_type=other",
-      "object_id": "ps004"
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 95.7%，疑似跨块或被截断，建议人工确认",
+      "object_id": "mc002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 96.9%，疑似跨块或被截断，建议人工确认",
+      "object_id": "mc003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 94.1%，疑似跨块或被截断，建议人工确认",
+      "object_id": "uprop001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 92.3%，疑似跨块或被截断，建议人工确认",
+      "object_id": "uprop002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "pt001"
     }
   ],
   "validation_summary": {
     "status": "passed_with_warnings",
     "error_count": 0,
-    "warning_count": 22,
+    "warning_count": 33,
     "validation_mode": "preview",
     "validation_status": "degraded",
-    "degraded_codes": []
+    "degraded_codes": [
+      "evidence_matched_after_block_recovery",
+      "evidence_matched_after_normalization"
+    ]
   },
   "cost_summary": {
     "currency": "CNY",
@@ -2707,21 +3582,21 @@
         "model": "gpt-5.6-terra-2026-07-09",
         "call_count": 1,
         "usage": {
-          "input_tokens": 15320,
-          "output_tokens": 4041,
+          "input_tokens": 15541,
+          "output_tokens": 4251,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 15320,
-          "total_tokens": 19361
+          "billable_input_tokens": 15541,
+          "total_tokens": 19792
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "17",
           "output_per_million": "101",
-          "input_cost": "0.26044",
-          "output_cost": "0.408141",
-          "total_cost": "0.668581"
+          "input_cost": "0.264197",
+          "output_cost": "0.429351",
+          "total_cost": "0.693548"
         }
       },
       {
@@ -2730,44 +3605,44 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 12111,
-          "output_tokens": 6586,
+          "input_tokens": 12309,
+          "output_tokens": 7094,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 12111,
-          "total_tokens": 18697
+          "billable_input_tokens": 12309,
+          "total_tokens": 19403
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.05231952",
-          "output_cost": "0.1919819",
-          "total_cost": "0.24430142"
+          "input_cost": "0.05317488",
+          "output_cost": "0.2067901",
+          "total_cost": "0.25996498"
         }
       },
       {
         "stage": "stage4_property",
         "provider": "dmx",
-        "model": "doubao-seed-2-0-pro-260215",
-        "call_count": 0,
+        "model": "doubao-seed-2.0-pro",
+        "call_count": 1,
         "usage": {
-          "input_tokens": 23481,
-          "output_tokens": 16296,
+          "input_tokens": 23371,
+          "output_tokens": 13434,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 23481,
-          "total_tokens": 39777
+          "billable_input_tokens": 23371,
+          "total_tokens": 36805
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.10143792",
-          "output_cost": "0.4750284",
-          "total_cost": "0.57646632"
+          "input_cost": "0.10096272",
+          "output_cost": "0.3916011",
+          "total_cost": "0.49256382"
         }
       },
       {
@@ -2776,21 +3651,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 15725,
-          "output_tokens": 5866,
+          "input_tokens": 16478,
+          "output_tokens": 6836,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 15725,
-          "total_tokens": 21591
+          "billable_input_tokens": 16478,
+          "total_tokens": 23314
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.067932",
-          "output_cost": "0.1709939",
-          "total_cost": "0.2389259"
+          "input_cost": "0.07118496",
+          "output_cost": "0.1992694",
+          "total_cost": "0.27045436"
         }
       },
       {
@@ -2816,60 +3691,60 @@
         }
       }
     ],
-    "total_cost": "2.33278364"
+    "total_cost": "2.32104016"
   },
   "quality_metrics": {
     "properties_with_units": {
-      "complete": 1,
-      "total": 1,
-      "ratio": 1.0
+      "complete": 7,
+      "total": 15,
+      "ratio": 0.4666666666666667
     },
     "standard_process_steps": {
-      "complete": 2,
-      "total": 5,
-      "ratio": 0.4
+      "complete": 1,
+      "total": 4,
+      "ratio": 0.25
     },
     "stage4_methods_with_characterization": {
-      "complete": 0,
-      "total": 0,
-      "ratio": 1.0
+      "complete": 2,
+      "total": 3,
+      "ratio": 0.6666666666666666
     },
     "objects_with_confidence": {
-      "complete": 90,
-      "total": 90,
+      "complete": 111,
+      "total": 111,
       "ratio": 1.0
     },
     "series_points_covered": {
-      "complete": 0,
-      "total": 0,
+      "complete": 9,
+      "total": 9,
       "ratio": 1.0
     }
   },
   "rejected_objects": [],
   "preview_publication_summary": {
     "input_counts": {
-      "characterization": 4,
+      "characterization": 7,
       "material_mention": 54,
-      "measurement_condition": 0,
+      "measurement_condition": 4,
       "polymer_entity": 15,
-      "process_step": 5,
-      "property": 1,
-      "property_series": 0,
-      "property_series_point": 0,
-      "sample": 11,
-      "unresolved_property": 0
+      "process_step": 4,
+      "property": 4,
+      "property_series": 2,
+      "property_series_point": 9,
+      "sample": 10,
+      "unresolved_property": 2
     },
     "published_counts": {
-      "characterization": 4,
+      "characterization": 7,
       "material_mention": 54,
-      "measurement_condition": 0,
+      "measurement_condition": 4,
       "polymer_entity": 15,
-      "process_step": 5,
-      "property": 1,
-      "property_series": 0,
-      "property_series_point": 0,
-      "sample": 11,
-      "unresolved_property": 0
+      "process_step": 4,
+      "property": 4,
+      "property_series": 2,
+      "property_series_point": 9,
+      "sample": 10,
+      "unresolved_property": 2
     },
     "rejected_counts": {},
     "reference_cleanup_count": 0,

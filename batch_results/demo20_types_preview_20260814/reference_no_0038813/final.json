@@ -681,7 +681,6 @@
     {
       "entity_id": "pe001",
       "polymer_name": "polystyrene",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -698,22 +697,27 @@
       "confidence": {
         "score": 0.99
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe002",
       "polymer_name": "poly(amide-urea)s",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
-        "poly(amide-urea)s"
+        "poly(amide-urea)s",
+        "polyureas"
       ],
       "resolved_from_mentions": [
         "m002",
         "m007",
+        "m027",
         "m039",
-        "m048"
+        "m048",
+        "m057",
+        "m059"
       ],
       "evidence_ids": [
         "ev005"
@@ -733,38 +737,34 @@
         }
       ],
       "confidence": {
-        "score": 0.96
+        "score": 0.9
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe003",
       "polymer_name": "polyureas",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
         "polyureas"
       ],
       "resolved_from_mentions": [
-        "m003",
-        "m027",
-        "m057",
-        "m059"
+        "m003"
       ],
       "evidence_ids": [
-        "ev053"
+        "ev056"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.83
+        "score": 0.78
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe004",
       "polymer_name": "polyamides",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -774,18 +774,18 @@
         "m004"
       ],
       "evidence_ids": [
-        "ev003"
+        "ev056"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.98
+        "score": 0.95
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe005",
       "polymer_name": "polyimides",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -795,18 +795,20 @@
         "m005"
       ],
       "evidence_ids": [
-        "ev003"
+        "ev056"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.98
+        "score": 0.95
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe006",
       "polymer_name": "1AQA-PPDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -824,18 +826,19 @@
         "m049"
       ],
       "evidence_ids": [
-        "ev056"
+        "ev057"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.94
+        "score": 0.96
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe007",
       "polymer_name": "1AQA-NDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -853,14 +856,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe008",
       "polymer_name": "1AQA-MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -875,18 +879,19 @@
         "m051"
       ],
       "evidence_ids": [
-        "ev057"
+        "ev008"
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe009",
       "polymer_name": "1AQA-H $_{12}$ MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -904,14 +909,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe010",
       "polymer_name": "2AQA-PPDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -929,14 +935,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe011",
       "polymer_name": "2AQA-NDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -954,14 +961,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe012",
       "polymer_name": "2AQA-MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -979,14 +987,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe013",
       "polymer_name": "2AQA-H $_{12}$ MDI",
-      "polymer_type": "homopolymer",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1004,15 +1013,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.97
+        "score": 0.84
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe014",
       "polymer_name": "PPDI-derived polyurea",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe003",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1026,15 +1035,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.76
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe015",
       "polymer_name": "$\\mathrm { H } _ { 1 2 } \\mathrm { M D I }$-derived polyurea",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe003",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1048,15 +1057,15 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.76
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe016",
       "polymer_name": "Aromatic polyureas",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe003",
+      "polymer_type": "copolymer",
+      "variant_of": "pe002",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1070,7 +1079,7 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.92
+        "score": 0.73
       },
       "copolymer_type": null
     }
@@ -1082,221 +1091,151 @@
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe001",
       "polymer_name": "polystyrene",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "polystyrene standards",
-      "intended_use": [
-        "molecular weight calibration"
-      ],
+      "intended_use": [],
       "evidence_ids": [
         "ev001"
       ],
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s002",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe006",
       "polymer_name": "1AQA-PPDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "1AQA-PPDI",
       "intended_use": [],
       "evidence_ids": [
-        "ev006"
+        "ev057"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s003",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe007",
       "polymer_name": "1AQA-NDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "1AQA-NDI",
       "intended_use": [],
       "evidence_ids": [
         "ev007"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s004",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe008",
       "polymer_name": "1AQA-MDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "1AQA-MDI",
       "intended_use": [],
       "evidence_ids": [
         "ev008"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s005",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe009",
       "polymer_name": "1AQA-H $_{12}$ MDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "1AQA-H $_{12}$ MDI",
       "intended_use": [],
       "evidence_ids": [
         "ev009"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s006",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe010",
       "polymer_name": "2AQA-PPDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "2AQA-PPDI",
       "intended_use": [],
       "evidence_ids": [
         "ev010"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s007",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe011",
       "polymer_name": "2AQA-NDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "2AQA-NDI",
       "intended_use": [],
       "evidence_ids": [
         "ev011"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s008",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe012",
       "polymer_name": "2AQA-MDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "2AQA-MDI",
       "intended_use": [],
       "evidence_ids": [
         "ev012"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s009",
       "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe013",
       "polymer_name": "2AQA-H $_{12}$ MDI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "polymer_type": "copolymer",
       "sample_label_raw": "2AQA-H $_{12}$ MDI",
       "intended_use": [],
       "evidence_ids": [
         "ev013"
       ],
       "confidence": {
-        "score": 0.95
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s010",
-      "sample_kind": "intermediate",
-      "polymer_name": "1AQN",
-      "sample_label_raw": "1AQN",
-      "state_description": "dinitro compound",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev058"
-      ],
-      "confidence": {
         "score": 0.9
       },
-      "polymer_type": null,
-      "copolymer_type": null,
-      "material_type": null
-    },
-    {
-      "sample_id": "s011",
-      "sample_kind": "intermediate",
-      "polymer_name": "2AQN",
-      "sample_label_raw": "2AQN",
-      "state_description": "dinitro compound",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev059"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "polymer_type": null,
-      "copolymer_type": null,
-      "material_type": null
-    },
-    {
-      "sample_id": "s012",
-      "sample_kind": "intermediate",
-      "polymer_name": "1AQA",
-      "sample_label_raw": "1AQA",
-      "state_description": "diamine compound",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev060"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "polymer_type": null,
-      "copolymer_type": null,
-      "material_type": null
-    },
-    {
-      "sample_id": "s013",
-      "sample_kind": "intermediate",
-      "polymer_name": "2AQA",
-      "sample_label_raw": "2AQA",
-      "state_description": "diamine compound",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev061"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "polymer_type": null,
       "copolymer_type": null,
       "material_type": null
     }
@@ -1304,84 +1243,8 @@
   "process_steps": [
     {
       "step_id": "ps001",
-      "process_type": "other",
+      "process_type": "copolymerization",
       "input_sample_ids": [],
-      "output_sample_ids": [
-        "s010"
-      ],
-      "parameters": {
-        "yield": "92%",
-        "drying_temperature": "708C"
-      },
-      "evidence_ids": [
-        "ev062"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "step_id": "ps002",
-      "process_type": "other",
-      "input_sample_ids": [],
-      "output_sample_ids": [
-        "s011"
-      ],
-      "parameters": {
-        "yield": "95%"
-      },
-      "evidence_ids": [
-        "ev063"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "step_id": "ps003",
-      "process_type": "other",
-      "input_sample_ids": [
-        "s010"
-      ],
-      "output_sample_ids": [
-        "s012"
-      ],
-      "parameters": {
-        "yield": "92%"
-      },
-      "evidence_ids": [
-        "ev064"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "step_id": "ps004",
-      "process_type": "other",
-      "input_sample_ids": [
-        "s011"
-      ],
-      "output_sample_ids": [
-        "s013"
-      ],
-      "parameters": {
-        "yield": "88%"
-      },
-      "evidence_ids": [
-        "ev065"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "step_id": "ps005",
-      "process_type": "polymerization",
-      "input_sample_ids": [
-        "s012",
-        "s013"
-      ],
       "output_sample_ids": [
         "s002",
         "s003",
@@ -1393,10 +1256,12 @@
         "s009"
       ],
       "parameters": {
-        "drying_temperature": "$8 0 ^ { \\circ } \\mathrm { C }$"
+        "room_temp_stir_time": "1 hr",
+        "reaction_time": "4 hr",
+        "solvent": "NMP"
       },
       "evidence_ids": [
-        "ev066"
+        "ev058"
       ],
       "confidence": {
         "score": 0.9
@@ -1416,11 +1281,258 @@
     {
       "property_id": "prop001",
       "sample_id": "s002",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "190",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc008",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev067"
+      ]
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s002",
       "property_name_raw": "thermal_decomposition_temperature",
       "observation_role": "single",
       "value_raw": "49",
       "unit_raw": "%",
-      "measurement_condition_id": "mc007",
+      "measurement_condition_id": "mc009",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev068"
+      ]
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s003",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "185",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc010",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev069"
+      ]
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s003",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "observation_role": "single",
+      "value_raw": "46",
+      "unit_raw": "%",
+      "measurement_condition_id": "mc011",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev070"
+      ]
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s004",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "178",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc012",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev071"
+      ]
+    },
+    {
+      "property_id": "prop006",
+      "sample_id": "s004",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "observation_role": "single",
+      "value_raw": "45",
+      "unit_raw": "%",
+      "measurement_condition_id": "mc013",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev072"
+      ]
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s005",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "156",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc014",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev073"
+      ]
+    },
+    {
+      "property_id": "prop008",
+      "sample_id": "s005",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "observation_role": "single",
+      "value_raw": "38",
+      "unit_raw": "%",
+      "measurement_condition_id": "mc015",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev074"
+      ]
+    },
+    {
+      "property_id": "prop009",
+      "sample_id": "s006",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "184",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc016",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev075"
+      ]
+    },
+    {
+      "property_id": "prop010",
+      "sample_id": "s006",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "observation_role": "single",
+      "value_raw": "47",
+      "unit_raw": "%",
+      "measurement_condition_id": "mc017",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev076"
+      ]
+    },
+    {
+      "property_id": "prop011",
+      "sample_id": "s007",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "178",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc018",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev077"
+      ]
+    },
+    {
+      "property_id": "prop012",
+      "sample_id": "s007",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "observation_role": "single",
+      "value_raw": "44",
+      "unit_raw": "%",
+      "measurement_condition_id": "mc019",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev078"
+      ]
+    },
+    {
+      "property_id": "prop013",
+      "sample_id": "s008",
+      "property_name_raw": "glass_transition_temperature",
+      "observation_role": "single",
+      "value_raw": "168",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc020",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence_ids": [
+        "ev079"
+      ]
+    },
+    {
+      "property_id": "prop014",
+      "sample_id": "s008",
+      "property_name_raw": "thermal_decomposition_temperature",
+      "observation_role": "single",
+      "value_raw": "43",
+      "unit_raw": "%",
+      "measurement_condition_id": "mc021",
       "measurement_context": {
         "other_conditions": {},
         "other_condition_evidence": {},
@@ -1433,13 +1545,13 @@
       ]
     },
     {
-      "property_id": "prop002",
-      "sample_id": "s003",
-      "property_name_raw": "thermal_decomposition_temperature",
+      "property_id": "prop015",
+      "sample_id": "s009",
+      "property_name_raw": "glass_transition_temperature",
       "observation_role": "single",
-      "value_raw": "46",
-      "unit_raw": "%",
-      "measurement_condition_id": "mc008",
+      "value_raw": "148",
+      "unit_raw": "°C",
+      "measurement_condition_id": "mc022",
       "measurement_context": {
         "other_conditions": {},
         "other_condition_evidence": {},
@@ -1452,13 +1564,13 @@
       ]
     },
     {
-      "property_id": "prop003",
-      "sample_id": "s004",
+      "property_id": "prop016",
+      "sample_id": "s009",
       "property_name_raw": "thermal_decomposition_temperature",
       "observation_role": "single",
-      "value_raw": "45",
+      "value_raw": "36",
       "unit_raw": "%",
-      "measurement_condition_id": "mc009",
+      "measurement_condition_id": "mc023",
       "measurement_context": {
         "other_conditions": {},
         "other_condition_evidence": {},
@@ -1469,208 +1581,68 @@
       "evidence_ids": [
         "ev082"
       ]
-    },
-    {
-      "property_id": "prop004",
-      "sample_id": "s005",
-      "property_name_raw": "thermal_decomposition_temperature",
-      "observation_role": "single",
-      "value_raw": "38",
-      "unit_raw": "%",
-      "measurement_condition_id": "mc010",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "table",
-      "evidence_ids": [
-        "ev083"
-      ]
-    },
-    {
-      "property_id": "prop005",
-      "sample_id": "s006",
-      "property_name_raw": "thermal_decomposition_temperature",
-      "observation_role": "single",
-      "value_raw": "47",
-      "unit_raw": "%",
-      "measurement_condition_id": "mc011",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "table",
-      "evidence_ids": [
-        "ev084"
-      ]
-    },
-    {
-      "property_id": "prop006",
-      "sample_id": "s007",
-      "property_name_raw": "thermal_decomposition_temperature",
-      "observation_role": "single",
-      "value_raw": "44",
-      "unit_raw": "%",
-      "measurement_condition_id": "mc012",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "table",
-      "evidence_ids": [
-        "ev085"
-      ]
-    },
-    {
-      "property_id": "prop007",
-      "sample_id": "s008",
-      "property_name_raw": "thermal_decomposition_temperature",
-      "observation_role": "single",
-      "value_raw": "43",
-      "unit_raw": "%",
-      "measurement_condition_id": "mc013",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "table",
-      "evidence_ids": [
-        "ev086"
-      ]
-    },
-    {
-      "property_id": "prop008",
-      "sample_id": "s009",
-      "property_name_raw": "thermal_decomposition_temperature",
-      "observation_role": "single",
-      "value_raw": "36",
-      "unit_raw": "%",
-      "measurement_condition_id": "mc014",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "table",
-      "evidence_ids": [
-        "ev087"
-      ]
-    },
-    {
-      "property_id": "prop_s5_001",
-      "characterization_id": "char008",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "property_name_raw": "crystallinity",
-      "property_name_normalized": "xrd_crystallinity",
-      "property_category": "morphology",
-      "value_raw": "amorphous",
-      "source_stage": "stage5",
-      "source_type": "text",
-      "evidence_ids": [
-        "ev055"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop_s5_002",
-      "characterization_id": "char004",
-      "sample_id": "s002",
-      "sample_resolution_status": "resolved",
-      "property_name_raw": "IR peak wavenumber",
-      "property_name_normalized": "ftir_peak_wavenumber",
-      "property_category": "composition_structure",
-      "value_raw": "3338",
-      "value_min": 3338.0,
-      "value_max": 3338.0,
-      "unit_raw": "cm^{-1}",
-      "unit_normalized": "cm⁻¹",
-      "source_stage": "stage5",
-      "source_type": "table",
-      "evidence_ids": [
-        "ev134"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
     }
   ],
   "measurement_conditions": [
     {
       "condition_id": "mc001",
       "temperature": {
-        "raw": "30 ^ { \\circ } \\mathrm { C }",
+        "raw": "30°C",
         "value": 30.0,
         "unit": "°C",
         "evidence": [],
         "evidence_ids": [
-          "ev067"
+          "ev059"
         ]
       },
       "other_conditions": {
         "solvent": "NMP",
-        "concentration": "0.5 g/dl"
+        "concentration": "0.5 g/dl",
+        "instrument": "Ubbelohde viscometer"
       },
       "other_condition_evidence_ids": {
         "solvent": [
-          "ev067"
+          "ev059"
         ],
         "concentration": [
-          "ev067"
+          "ev059"
+        ],
+        "instrument": [
+          "ev059"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev067"
+        "ev059"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
       "condition_id": "mc002",
       "other_conditions": {
-        "solvent": "DMF",
-        "flow_rate": "1 ml/min",
-        "calibration_standard": "polystyrene"
+        "solvent": "dimethylformamide (DMF)",
+        "flow rate": "1 ml/min",
+        "calibration standard": "polystyrene"
       },
       "other_condition_evidence_ids": {
         "solvent": [
-          "ev068"
+          "ev060"
         ],
-        "flow_rate": [
-          "ev069"
+        "flow rate": [
+          "ev060"
         ],
-        "calibration_standard": [
-          "ev070"
+        "calibration standard": [
+          "ev001"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev071"
+        "ev061"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
@@ -1681,58 +1653,56 @@
         "unit": "Hz",
         "evidence": [],
         "evidence_ids": [
-          "ev074"
+          "ev063"
         ]
       },
       "other_conditions": {
-        "DSC_atmosphere": "air",
-        "DMTA_temperature_range": "25-300 °C",
-        "TGA_atmosphere": "air"
+        "atmosphere": "air"
       },
       "other_condition_evidence_ids": {
-        "DSC_atmosphere": [
-          "ev072"
-        ],
-        "DMTA_temperature_range": [
-          "ev073"
-        ],
-        "TGA_atmosphere": [
-          "ev072"
+        "atmosphere": [
+          "ev062"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev075"
+        "ev064"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
       "condition_id": "mc004",
       "other_conditions": {
-        "solvent": "NMP"
+        "atmosphere": "air"
       },
       "other_condition_evidence_ids": {
-        "solvent": [
-          "ev076"
+        "atmosphere": [
+          "ev062"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev077"
+        "ev062"
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
       "condition_id": "mc005",
-      "other_conditions": {},
-      "other_condition_evidence_ids": {},
-      "condition_status": "not_reported",
+      "other_conditions": {
+        "solvent": "NMP"
+      },
+      "other_condition_evidence_ids": {
+        "solvent": [
+          "ev065"
+        ]
+      },
+      "condition_status": "reported",
       "evidence_ids": [
-        "ev078"
+        "ev065"
       ],
       "confidence": {
         "score": 0.9
@@ -1744,10 +1714,10 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev079"
+        "ev053"
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
@@ -1756,8 +1726,11 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev080"
-      ]
+        "ev066"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
     },
     {
       "condition_id": "mc008",
@@ -1765,7 +1738,7 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev081"
+        "ev067"
       ]
     },
     {
@@ -1774,7 +1747,7 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev082"
+        "ev068"
       ]
     },
     {
@@ -1783,7 +1756,7 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev083"
+        "ev069"
       ]
     },
     {
@@ -1792,7 +1765,7 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev084"
+        "ev070"
       ]
     },
     {
@@ -1801,7 +1774,7 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev085"
+        "ev071"
       ]
     },
     {
@@ -1810,7 +1783,7 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev086"
+        "ev072"
       ]
     },
     {
@@ -1819,54 +1792,92 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev087"
+        "ev073"
+      ]
+    },
+    {
+      "condition_id": "mc015",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev074"
+      ]
+    },
+    {
+      "condition_id": "mc016",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev075"
+      ]
+    },
+    {
+      "condition_id": "mc017",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev076"
+      ]
+    },
+    {
+      "condition_id": "mc018",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev077"
+      ]
+    },
+    {
+      "condition_id": "mc019",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev078"
+      ]
+    },
+    {
+      "condition_id": "mc020",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev079"
+      ]
+    },
+    {
+      "condition_id": "mc021",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev080"
+      ]
+    },
+    {
+      "condition_id": "mc022",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev081"
+      ]
+    },
+    {
+      "condition_id": "mc023",
+      "other_conditions": {},
+      "other_condition_evidence_ids": {},
+      "condition_status": "not_reported",
+      "evidence_ids": [
+        "ev082"
       ]
     }
   ],
-  "unresolved_property_observations": [
-    {
-      "unresolved_id": "uprop001",
-      "entity_id": "pe002",
-      "property_name_raw": "$M_n$",
-      "determination_method_raw": "GPC",
-      "observation_role": "single",
-      "value_raw": "14,200 to 22,000",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_ambiguous",
-      "evidence_ids": [
-        "ev088"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "unresolved_id": "uprop002",
-      "entity_id": "pe002",
-      "property_name_raw": "$M_w$",
-      "determination_method_raw": "GPC",
-      "observation_role": "single",
-      "value_raw": "35,700 to 48,500",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_ambiguous",
-      "evidence_ids": [
-        "ev089"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    }
-  ],
+  "unresolved_property_observations": [],
   "property_series": [
     {
       "series_id": "series001",
@@ -1891,6 +1902,7 @@
           "value_raw": "92",
           "value_min": 92.0,
           "value_max": 92.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -1899,7 +1911,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev090"
+            "ev083"
           ],
           "confidence": {
             "score": 0.9
@@ -1915,6 +1927,7 @@
           "value_raw": "89",
           "value_min": 89.0,
           "value_max": 89.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -1923,7 +1936,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev091"
+            "ev084"
           ],
           "confidence": {
             "score": 0.9
@@ -1939,6 +1952,7 @@
           "value_raw": "93",
           "value_min": 93.0,
           "value_max": 93.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -1947,7 +1961,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev092"
+            "ev085"
           ],
           "confidence": {
             "score": 0.9
@@ -1963,6 +1977,7 @@
           "value_raw": "88",
           "value_min": 88.0,
           "value_max": 88.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -1971,7 +1986,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev093"
+            "ev086"
           ],
           "confidence": {
             "score": 0.9
@@ -1987,6 +2002,7 @@
           "value_raw": "87",
           "value_min": 87.0,
           "value_max": 87.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -1995,7 +2011,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev094"
+            "ev087"
           ],
           "confidence": {
             "score": 0.9
@@ -2011,6 +2027,7 @@
           "value_raw": "91",
           "value_min": 91.0,
           "value_max": 91.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -2019,7 +2036,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev095"
+            "ev088"
           ],
           "confidence": {
             "score": 0.9
@@ -2035,6 +2052,7 @@
           "value_raw": "90",
           "value_min": 90.0,
           "value_max": 90.0,
+          "unit_raw": "%",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -2043,31 +2061,7 @@
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev096"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt008",
-          "observation_role": "series_point",
-          "sample_id": "s009",
-          "entity_id": "pe013",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "89",
-          "value_min": 89.0,
-          "value_max": 89.0,
-          "measurement_context": {
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "not_reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev097"
+            "ev089"
           ],
           "confidence": {
             "score": 0.9
@@ -2075,14 +2069,14 @@
         }
       ],
       "coverage": {
-        "expected": 8,
-        "covered": 8,
+        "expected": 7,
+        "covered": 7,
         "missing": 0,
         "not_applicable": 0,
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev090"
+        "ev083"
       ],
       "confidence": {
         "score": 0.9
@@ -2091,7 +2085,7 @@
     {
       "series_id": "series002",
       "sample_resolution_status": "unresolved",
-      "property_name_raw": "$\\eta_{\\text{inh}}$",
+      "property_name_raw": "η<sub>inh</sub>",
       "property_name_normalized": "intrinsic_viscosity",
       "property_code": "P6120",
       "property_category": "dilute_solution_property",
@@ -2100,12 +2094,12 @@
       "unit_normalized": "dl/g",
       "measurement_context": {
         "temperature": {
-          "raw": "30 ^ { \\circ } \\mathrm { C }",
+          "raw": "30°C",
           "value": 30.0,
           "unit": "°C",
           "evidence": [],
           "evidence_ids": [
-            "ev067"
+            "ev059"
           ]
         },
         "other_conditions": {
@@ -2113,19 +2107,12 @@
           "concentration": "0.5 g/dl"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "solvent": [
-            "ev067"
-          ],
-          "concentration": [
-            "ev067"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
-          "point_id": "pt009",
+          "point_id": "pt008",
           "observation_role": "series_point",
           "sample_id": "s002",
           "entity_id": "pe006",
@@ -2134,14 +2121,15 @@
           "value_raw": "0.73",
           "value_min": 0.73,
           "value_max": 0.73,
+          "unit_raw": "dl/g",
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [],
               "evidence_ids": [
-                "ev067"
+                "ev059"
               ]
             },
             "other_conditions": {
@@ -2149,26 +2137,19 @@
               "concentration": "0.5 g/dl"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "solvent": [
-                "ev067"
-              ],
-              "concentration": [
-                "ev067"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev098"
+            "ev090"
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt010",
+          "point_id": "pt009",
           "observation_role": "series_point",
           "sample_id": "s004",
           "entity_id": "pe008",
@@ -2177,14 +2158,15 @@
           "value_raw": "0.66",
           "value_min": 0.66,
           "value_max": 0.66,
+          "unit_raw": "dl/g",
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [],
               "evidence_ids": [
-                "ev067"
+                "ev059"
               ]
             },
             "other_conditions": {
@@ -2192,26 +2174,19 @@
               "concentration": "0.5 g/dl"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "solvent": [
-                "ev067"
-              ],
-              "concentration": [
-                "ev067"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev099"
+            "ev091"
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt011",
+          "point_id": "pt010",
           "observation_role": "series_point",
           "sample_id": "s006",
           "entity_id": "pe010",
@@ -2220,14 +2195,15 @@
           "value_raw": "0.62",
           "value_min": 0.62,
           "value_max": 0.62,
+          "unit_raw": "dl/g",
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [],
               "evidence_ids": [
-                "ev067"
+                "ev059"
               ]
             },
             "other_conditions": {
@@ -2235,26 +2211,19 @@
               "concentration": "0.5 g/dl"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "solvent": [
-                "ev067"
-              ],
-              "concentration": [
-                "ev067"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev100"
+            "ev092"
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt012",
+          "point_id": "pt011",
           "observation_role": "series_point",
           "sample_id": "s007",
           "entity_id": "pe011",
@@ -2263,14 +2232,15 @@
           "value_raw": "0.54",
           "value_min": 0.54,
           "value_max": 0.54,
+          "unit_raw": "dl/g",
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [],
               "evidence_ids": [
-                "ev067"
+                "ev059"
               ]
             },
             "other_conditions": {
@@ -2278,26 +2248,19 @@
               "concentration": "0.5 g/dl"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "solvent": [
-                "ev067"
-              ],
-              "concentration": [
-                "ev067"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev101"
+            "ev093"
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt013",
+          "point_id": "pt012",
           "observation_role": "series_point",
           "sample_id": "s008",
           "entity_id": "pe012",
@@ -2306,14 +2269,15 @@
           "value_raw": "0.55",
           "value_min": 0.55,
           "value_max": 0.55,
+          "unit_raw": "dl/g",
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [],
               "evidence_ids": [
-                "ev067"
+                "ev059"
               ]
             },
             "other_conditions": {
@@ -2321,26 +2285,19 @@
               "concentration": "0.5 g/dl"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "solvent": [
-                "ev067"
-              ],
-              "concentration": [
-                "ev067"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev102"
+            "ev094"
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt014",
+          "point_id": "pt013",
           "observation_role": "series_point",
           "sample_id": "s009",
           "entity_id": "pe013",
@@ -2349,14 +2306,15 @@
           "value_raw": "0.56",
           "value_min": 0.56,
           "value_max": 0.56,
+          "unit_raw": "dl/g",
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [],
               "evidence_ids": [
-                "ev067"
+                "ev059"
               ]
             },
             "other_conditions": {
@@ -2364,22 +2322,15 @@
               "concentration": "0.5 g/dl"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "solvent": [
-                "ev067"
-              ],
-              "concentration": [
-                "ev067"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev103"
+            "ev095"
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         }
       ],
@@ -2391,655 +2342,14 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev104"
-      ],
-      "confidence": {
-        "score": 0.95
-      }
-    },
-    {
-      "series_id": "series003",
-      "sample_resolution_status": "unresolved",
-      "property_name_raw": "$T_{g}$",
-      "property_name_normalized": "glass_transition_temperature",
-      "property_code": "P3110",
-      "property_category": "thermal_property",
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_context": {
-        "frequency": {
-          "raw": "1 Hz",
-          "value": 1.0,
-          "unit": "Hz",
-          "evidence": [],
-          "evidence_ids": [
-            "ev074"
-          ]
-        },
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "points": [
-        {
-          "point_id": "pt015",
-          "observation_role": "series_point",
-          "sample_id": "s002",
-          "entity_id": "pe006",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "190",
-          "value_min": 190.0,
-          "value_max": 190.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev105",
-            "ev106"
-          ],
-          "confidence": {
-            "score": 0.95
-          }
-        },
-        {
-          "point_id": "pt016",
-          "observation_role": "series_point",
-          "sample_id": "s003",
-          "entity_id": "pe007",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "185",
-          "value_min": 185.0,
-          "value_max": 185.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev107"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt017",
-          "observation_role": "series_point",
-          "sample_id": "s004",
-          "entity_id": "pe008",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "178",
-          "value_min": 178.0,
-          "value_max": 178.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev108",
-            "ev109"
-          ],
-          "confidence": {
-            "score": 0.95
-          }
-        },
-        {
-          "point_id": "pt018",
-          "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe009",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "156",
-          "value_min": 156.0,
-          "value_max": 156.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev110"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt019",
-          "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe010",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "184",
-          "value_min": 184.0,
-          "value_max": 184.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev111"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt020",
-          "observation_role": "series_point",
-          "sample_id": "s007",
-          "entity_id": "pe011",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "178",
-          "value_min": 178.0,
-          "value_max": 178.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev112"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt021",
-          "observation_role": "series_point",
-          "sample_id": "s008",
-          "entity_id": "pe012",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "168",
-          "value_min": 168.0,
-          "value_max": 168.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev113"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt022",
-          "observation_role": "series_point",
-          "sample_id": "s009",
-          "entity_id": "pe013",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "148",
-          "value_min": 148.0,
-          "value_max": 148.0,
-          "measurement_context": {
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [],
-              "evidence_ids": [
-                "ev074"
-              ]
-            },
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence_ids": [
-            "ev114"
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        }
-      ],
-      "coverage": {
-        "expected": 8,
-        "covered": 8,
-        "missing": 0,
-        "not_applicable": 0,
-        "ratio": 1.0
-      },
-      "evidence_ids": [
-        "ev115",
-        "ev116"
-      ],
-      "confidence": {
-        "score": 0.5
-      }
-    }
-  ],
-  "characterizations": [
-    {
-      "characterization_id": "char001",
-      "method_raw": "Gel permeation chromatography (GPC)",
-      "method_normalized": "GPC",
-      "entity_id": "pe002",
-      "sample_resolution_status": "unresolved",
-      "instrument": "Waters 150-C instrument",
-      "measurement_context": {
-        "other_conditions": {
-          "solvent": "dimethylformamide (DMF)",
-          "flow_rate": "1 ml/min",
-          "calibration_standard": "polystyrene standards"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "solvent": [
-            "ev068"
-          ],
-          "flow_rate": [
-            "ev069"
-          ],
-          "calibration_standard": [
-            "ev070"
-          ]
-        },
-        "condition_status": "reported"
-      },
-      "parameters": {
-        "columns": "Styragel columns",
-        "detector": "differential refractometer detector"
-      },
-      "result_summary": "Mn of poly(amide-urea)s ranges from 14200 to 22000, Mw ranges from 35700 to 48500, dispersity ranges from 2.20 to 2.51",
-      "derived_property_ids": [
-        "uprop001",
-        "uprop002"
-      ],
-      "evidence_ids": [
-        "ev071"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char002",
-      "method_raw": "Ubbelohde viscometer",
-      "method_normalized": "viscometry",
-      "sample_ids": [
-        "s002",
-        "s004",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "entity_ids": [
-        "pe006",
-        "pe008",
-        "pe010",
-        "pe011",
-        "pe012",
-        "pe013"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "series_id": "series002",
-      "instrument": "Ubbelohde viscometer",
-      "measurement_context": {
-        "other_conditions": {
-          "concentration": "0.5 g/dl",
-          "solvent": "NMP"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "concentration": [
-            "ev117"
-          ],
-          "solvent": [
-            "ev118"
-          ]
-        },
-        "condition_status": "reported"
-      },
-      "parameters": {},
-      "result_summary": "Inherent viscosity measurements for poly(amide-urea)s series",
-      "derived_property_ids": [],
-      "evidence_ids": [
-        "ev104"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char003",
-      "method_raw": "thermogravimetric analysis (TGA)",
-      "method_normalized": "TGA",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Stanton Redcraft STA-780",
-      "measurement_context": {
-        "other_conditions": {
-          "atmosphere": "air"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "atmosphere": [
-            "ev072"
-          ]
-        },
-        "condition_status": "reported"
-      },
-      "parameters": {},
-      "result_summary": "Char yield of synthesized polyureas at 700°C ranges from 36% to 49%",
-      "derived_property_ids": [
-        "prop001",
-        "prop002",
-        "prop003",
-        "prop004",
-        "prop005",
-        "prop006",
-        "prop007",
-        "prop008"
-      ],
-      "evidence_ids": [
-        "ev119",
-        "ev120",
-        "ev121"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char004",
-      "method_raw": "Fourier Transform Infrared (FTIR) spectrometer",
-      "method_normalized": "FTIR",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer",
-      "parameters": {
-        "sampling": "KBr"
-      },
-      "result_summary": "FTIR spectra confirmed the chemical structure of synthesized poly(amide-urea)s, showing characteristic urea and amide peaks",
-      "derived_property_ids": [
-        "prop_s5_002"
-      ],
-      "evidence_ids": [
-        "ev122",
-        "ev123"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char005",
-      "method_raw": "H-nuclear magnetic resonance (NMR) spectra",
-      "method_normalized": "NMR",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Bruker Avance DPX 250 MHz",
-      "parameters": {
-        "frequency": "250 MHz"
-      },
-      "result_summary": "1H NMR spectra confirmed the chemical structure of synthesized poly(amide-urea)s, showing characteristic urea NH and aromatic proton peaks",
-      "derived_property_ids": [],
-      "evidence_ids": [
-        "ev124",
-        "ev125"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char006",
-      "method_raw": "Differential scanning calorimetry (DSC)",
-      "method_normalized": "DSC",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Stanton Redcraft STA-780",
-      "measurement_context": {
-        "other_conditions": {
-          "atmosphere": "air"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "atmosphere": [
-            "ev072"
-          ]
-        },
-        "condition_status": "reported"
-      },
-      "parameters": {},
-      "result_summary": "DSC confirmed glass transition temperatures of synthesized polyureas, no melting endotherms observed confirming amorphous nature",
-      "derived_property_ids": [],
-      "evidence_ids": [
-        "ev126",
-        "ev127"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char007",
-      "method_raw": "dynamic mechanical thermal analyzer",
-      "method_normalized": "DMA",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "instrument": "Polymer Laboratories dynamic mechanical thermal analyzer",
-      "measurement_context": {
-        "frequency": {
-          "raw": "1 Hz",
-          "value": 1.0,
-          "unit": "Hz",
-          "evidence": [],
-          "evidence_ids": [
-            "ev074"
-          ]
-        },
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "parameters": {},
-      "result_summary": "DMTA measured glass transition temperatures of synthesized polyureas via tan δ maximum",
-      "derived_property_ids": [],
-      "evidence_ids": [
-        "ev128",
-        "ev129"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char008",
-      "method_raw": "Wide-angle X-ray diffraction (WAXD)",
-      "method_normalized": "XRD",
-      "sample_ids": [
-        "s002",
-        "s003",
-        "s004",
-        "s005",
-        "s006",
-        "s007",
-        "s008",
-        "s009"
-      ],
-      "sample_resolution_status": "multi_resolved",
-      "measurement_context": {
-        "temperature": {
-          "raw": "room temperature",
-          "evidence": [],
-          "evidence_ids": [
-            "ev131"
-          ]
-        },
-        "other_conditions": {
-          "voltage": "40 kV",
-          "current": "25 mA"
-        },
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "voltage": [
-            "ev130"
-          ],
-          "current": [
-            "ev130"
-          ]
-        },
-        "condition_status": "reported"
-      },
-      "parameters": {},
-      "result_summary": "All synthesized polyureas are amorphous, no crystalline diffraction peaks observed",
-      "derived_property_ids": [
-        "prop_s5_001"
-      ],
-      "evidence_ids": [
-        "ev132",
-        "ev133"
+        "ev096"
       ],
       "confidence": {
         "score": 0.9
       }
     }
   ],
+  "characterizations": [],
   "evidence": [
     {
       "block_id": "P_1_21",
@@ -3757,134 +3067,30 @@
       "evidence_id": "ev055"
     },
     {
-      "block_id": "P_4_64",
-      "page": 4,
+      "block_id": "P_2_46",
+      "page": 2,
       "bbox": [
-        87.0,
-        274.0,
-        500.0,
-        374.0
+        529.0,
+        248.0,
+        942.0,
+        675.0
       ],
       "source_type": "text",
-      "source_sentence": "To optimize the reaction conditions of these primary amines with isocyanates, the polyaddition of 1AQA with PPDI was investigated. The effect of reaction temperature on the inherent viscosity of the polyurea was examined in NMP at temperature between 30 and 1508C (Fig. 2). The optimized temperature range was between 60 and $1 1 0 ^ { \\circ } \\mathrm { C } ,$, giving polyurea with the highest molecular weights.",
+      "source_sentence": "Diamines are valuable monomers for the preparation of variety of polymers including polyureas, polyamides, and polyimides.<sup>15–17</sup>",
       "evidence_id": "ev056"
     },
     {
-      "block_id": "P_6_84",
-      "page": 6,
+      "block_id": "I_4_69",
+      "page": 4,
       "bbox": [
-        87.0,
-        249.0,
-        500.0,
-        476.0
+        534.0,
+        61.0,
+        937.0,
+        222.0
       ],
-      "source_type": "text",
-      "source_sentence": "Thermal behavior of the polymers was studied using dynamic mechanical thermal analysis (DMTA). By increasing the temperature from 30 to $3 0 0 ^ { \\circ } \\mathrm { C }$, one transition was seen for the polymers at which tan d went through a maximum. This transition was related to the glass transition temperature of the polymers. Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\mathrm { g } } )$was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers. Thermal analysis of the polymers is summarized in Table 3 and the representative curves of DMTA for 1AQA-PPDI $( T _ { \\mathrm { g } } =$1908C) and DSC for 1AQA-MDI $( T _ { \\mathrm { g } } { = } 1 7 8 ^ { \\circ } \\mathrm { C } )$are shown in Figs 4 and 5, respectively. The glass transition temperature of 1AQA-PPDI was higher than 1AQA-MDI due to the more rigidity of PPDI with respect to MDI structure.",
+      "source_type": "image",
+      "source_sentence": "Figure 2. Temperature dependence of inherent viscosity of polyurea 1AQA-PPDI formed by the polyaddition of 1AQA (5.0 mmol) with PPDI (5.0 mmol) in NMP for 10 hr.",
       "evidence_id": "ev057"
-    },
-    {
-      "block_id": "P_1_23",
-      "page": 1,
-      "bbox": [
-        55.0,
-        830.0,
-        339.0,
-        845.0
-      ],
-      "source_type": "title",
-      "source_sentence": "Synthesis of dinitro compound 1AQN",
-      "evidence_id": "ev058"
-    },
-    {
-      "block_id": "P_1_27",
-      "page": 1,
-      "bbox": [
-        497.0,
-        501.0,
-        781.0,
-        516.0
-      ],
-      "source_type": "title",
-      "source_sentence": "Synthesis of dinitro compound 2AQN",
-      "evidence_id": "ev059"
-    },
-    {
-      "block_id": "P_1_31",
-      "page": 1,
-      "bbox": [
-        497.0,
-        872.0,
-        786.0,
-        887.0
-      ],
-      "source_type": "title",
-      "source_sentence": "Synthesis of diamine compound 1AQA",
-      "evidence_id": "ev060"
-    },
-    {
-      "block_id": "P_2_39",
-      "page": 2,
-      "bbox": [
-        90.0,
-        509.0,
-        379.0,
-        524.0
-      ],
-      "source_type": "title",
-      "source_sentence": "Synthesis of diamine compound 2AQA",
-      "evidence_id": "ev061"
-    },
-    {
-      "block_id": "P_1_24",
-      "page": 1,
-      "bbox": [
-        55.0,
-        845.0,
-        465.0,
-        916.0
-      ],
-      "source_type": "text",
-      "source_sentence": "A 100-ml, two-necked, round-bottomed flask equipped with a magnetic stirrer, nitrogen gas inlet tube, and calcium chloride drying tube was charged with 26 mmol of the 1-aminoanthraquinone and 75 ml of dry NMP. The mixture was stirred at $0 ^ { \\circ } \\mathrm { C }$for 0.5 hr. Then 21.6 ml of propylene oxide was added, and after about 3 min, 30 mmol of $^ { 3 , 5 \\cdot }$-dinitrobenzoyl chloride was added and the mixture was stirred at $0 ^ { \\circ } \\mathrm { C }$for 0.5 hr. The temperature was raised to room temperature and the solution was stirred for 6 hr. The product was precipitated by pouring the content of the flask into water. Then it was filtered, washed with hot water, and dried overnight under vacuum at 708C. The yield of the reaction was about 92%.",
-      "evidence_id": "ev062"
-    },
-    {
-      "block_id": "P_1_28",
-      "page": 1,
-      "bbox": [
-        495.0,
-        516.0,
-        907.0,
-        574.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The aforementioned procedure was applied to the synthesis of the dinitro compound. However, 2-aminoanthraquinone was used instead of 1-aminoanthraquinone. The yield of the reaction was about 95%.",
-      "evidence_id": "ev063"
-    },
-    {
-      "block_id": "P_2_37",
-      "page": 2,
-      "bbox": [
-        87.0,
-        64.0,
-        500.0,
-        193.0
-      ],
-      "source_type": "text",
-      "source_sentence": "75 ml of hydrazine monohydrate was added dropwise over a period of 1 hr at 858C. After the complete addition, the reaction was continued at reflux temperature for another 12 hr. To the suspension, 80 ml of tetrahydrofuran (THF) was added to re-dissolve the precipitated product, and refluxing was continued for 3 hr. The mixture was filtered to remove the Pd–C and the filtrate was poured into water. The product was filtered off, washed with hot water, and dried. The yield of the reaction was about 92%.",
-      "evidence_id": "ev064"
-    },
-    {
-      "block_id": "P_2_40",
-      "page": 2,
-      "bbox": [
-        89.0,
-        524.0,
-        499.0,
-        568.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The aforementioned procedure was applied for the synthesis of the diamine. However 2AQN was used instead of 1AQN. The yield of the reaction was about 88%.",
-      "evidence_id": "ev065"
     },
     {
       "block_id": "P_2_44",
@@ -3897,7 +3103,7 @@
       ],
       "source_type": "text",
       "source_sentence": "A round-bottomed flask equipped with an $\\Nu _ { 2 }$inlet tube, condenser, and thermometer was charged with 0.005 mol of diamine and 10 ml of dry NMP. Then a solution containing 0.005 mol of diisocyanate in 10 ml of dry NMP was added in one lot to the flask contents. The solution was stirred for 1 hr at room temperature and 4 hr at $7 0 ^ { \\circ } \\mathrm { C } ,$and then it was precipitated in water. The polymer was filtered, washed with hot water and methanol, and dried at vacuum oven at $8 0 ^ { \\circ } \\mathrm { C }$",
-      "evidence_id": "ev066"
+      "evidence_id": "ev058"
     },
     {
       "block_id": "P_1_21",
@@ -3909,8 +3115,8 @@
         787.0
       ],
       "source_type": "text",
-      "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-      "evidence_id": "ev067"
+      "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
+      "evidence_id": "ev059"
     },
     {
       "block_id": "P_1_21",
@@ -3923,7 +3129,7 @@
       ],
       "source_type": "text",
       "source_sentence": "Gel permeation chromatography (GPC) was performed on a Waters 150-C instrument using Styragel columns and a differential refractometer detector. The molecular weight calibration was carried out using polystyrene standards. Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent.",
-      "evidence_id": "ev071"
+      "evidence_id": "ev061"
     },
     {
       "block_id": "P_1_21",
@@ -3935,8 +3141,8 @@
         787.0
       ],
       "source_type": "text",
-      "source_sentence": "at 1 Hz",
-      "evidence_id": "ev074"
+      "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 10°C/min.",
+      "evidence_id": "ev062"
     },
     {
       "block_id": "P_1_21",
@@ -3948,8 +3154,21 @@
         787.0
       ],
       "source_type": "text",
-      "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of $2 5 { - } 3 0 0 ^ { \\circ } \\mathrm { C }$ at 1 Hz and a heating rate of 58C/min (Surrey, UK).",
-      "evidence_id": "ev075"
+      "source_sentence": "The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of 25-300°C at 1 Hz and a heating rate of 5°C/min (Surrey, UK).",
+      "evidence_id": "ev063"
+    },
+    {
+      "block_id": "P_1_21",
+      "page": 1,
+      "bbox": [
+        53.0,
+        330.0,
+        467.0,
+        787.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 10°C/min. In DSC thermograms, the samples were heated from 30 to 200°C, they were cooled, and then re-heated to eliminate the thermal history. The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of 25-300°C at 1 Hz and a heating rate of 5°C/min (Surrey, UK).",
+      "evidence_id": "ev064"
     },
     {
       "block_id": "P_6_89",
@@ -3962,20 +3181,7 @@
       ],
       "source_type": "text",
       "source_sentence": "The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution.",
-      "evidence_id": "ev077"
-    },
-    {
-      "block_id": "T_7_98",
-      "page": 7,
-      "bbox": [
-        55.0,
-        223.0,
-        463.0,
-        345.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 5. Solubility of poly(amide-urea)s",
-      "evidence_id": "ev078"
+      "evidence_id": "ev065"
     },
     {
       "block_id": "T_5_77",
@@ -3997,7 +3203,29 @@
         "row_index": 0,
         "column_index": 0
       },
-      "evidence_id": "ev079"
+      "evidence_id": "ev066"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "190",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0001:c0001",
+        "row_index": 1,
+        "column_index": 1,
+        "row_label": "1AQA-PPDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "190"
+      },
+      "evidence_id": "ev067"
     },
     {
       "block_id": "T_6_86",
@@ -4019,7 +3247,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "49"
       },
-      "evidence_id": "ev080"
+      "evidence_id": "ev068"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "185",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0002:c0001",
+        "row_index": 2,
+        "column_index": 1,
+        "row_label": "1AQA-NDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "185"
+      },
+      "evidence_id": "ev069"
     },
     {
       "block_id": "T_6_86",
@@ -4041,7 +3291,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "46"
       },
-      "evidence_id": "ev081"
+      "evidence_id": "ev070"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "178",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0003:c0001",
+        "row_index": 3,
+        "column_index": 1,
+        "row_label": "1AQA-MDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "178"
+      },
+      "evidence_id": "ev071"
     },
     {
       "block_id": "T_6_86",
@@ -4063,7 +3335,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "45"
       },
-      "evidence_id": "ev082"
+      "evidence_id": "ev072"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "156",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0004:c0001",
+        "row_index": 4,
+        "column_index": 1,
+        "row_label": "1AQA-H $_{12}$ MDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "156"
+      },
+      "evidence_id": "ev073"
     },
     {
       "block_id": "T_6_86",
@@ -4085,7 +3379,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "38"
       },
-      "evidence_id": "ev083"
+      "evidence_id": "ev074"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "184",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0005:c0001",
+        "row_index": 5,
+        "column_index": 1,
+        "row_label": "2AQA-PPDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "184"
+      },
+      "evidence_id": "ev075"
     },
     {
       "block_id": "T_6_86",
@@ -4107,7 +3423,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "47"
       },
-      "evidence_id": "ev084"
+      "evidence_id": "ev076"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "178",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0006:c0001",
+        "row_index": 6,
+        "column_index": 1,
+        "row_label": "2AQA-NDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "178"
+      },
+      "evidence_id": "ev077"
     },
     {
       "block_id": "T_6_86",
@@ -4129,7 +3467,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "44"
       },
-      "evidence_id": "ev085"
+      "evidence_id": "ev078"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "168",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0007:c0001",
+        "row_index": 7,
+        "column_index": 1,
+        "row_label": "2AQA-MDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "168"
+      },
+      "evidence_id": "ev079"
     },
     {
       "block_id": "T_6_86",
@@ -4151,7 +3511,29 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "43"
       },
-      "evidence_id": "ev086"
+      "evidence_id": "ev080"
+    },
+    {
+      "block_id": "T_6_86",
+      "page": 6,
+      "bbox": [
+        90.0,
+        742.0,
+        510.0,
+        863.0
+      ],
+      "source_type": "table",
+      "source_sentence": "148",
+      "table_locator": {
+        "table_id": "T_6_86",
+        "cell_id": "T_6_86:r0008:c0001",
+        "row_index": 8,
+        "column_index": 1,
+        "row_label": "2AQA-H $_{12}$ MDI",
+        "column_label": "$T_{g}$ (°C)",
+        "cell_value": "148"
+      },
+      "evidence_id": "ev081"
     },
     {
       "block_id": "T_6_86",
@@ -4173,33 +3555,7 @@
         "column_label": "Char yield at 700°C (%)",
         "cell_value": "36"
       },
-      "evidence_id": "ev087"
-    },
-    {
-      "block_id": "P_6_83",
-      "page": 6,
-      "bbox": [
-        87.0,
-        93.0,
-        500.0,
-        249.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The numerous molecular weights $\\left( M _ { \\mathrm { n } } \\right)$ranged from 14,200 to 22,000 corresponding to a degree of polymerization between 25 and 42.",
-      "evidence_id": "ev088"
-    },
-    {
-      "block_id": "P_6_83",
-      "page": 6,
-      "bbox": [
-        87.0,
-        93.0,
-        500.0,
-        249.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The $M _ { \\mathrm { w } }$values were about 35,700–48,500 which means that the ratio of $M _ { \\mathrm { w } } / M _ { \\mathrm { n } }$was between 2.20 and 2.51.",
-      "evidence_id": "ev089"
+      "evidence_id": "ev082"
     },
     {
       "block_id": "T_5_77",
@@ -4221,7 +3577,7 @@
         "row_index": 1,
         "column_index": 3
       },
-      "evidence_id": "ev090"
+      "evidence_id": "ev083"
     },
     {
       "block_id": "T_5_77",
@@ -4243,7 +3599,7 @@
         "row_index": 5,
         "column_index": 3
       },
-      "evidence_id": "ev091"
+      "evidence_id": "ev084"
     },
     {
       "block_id": "T_5_77",
@@ -4265,7 +3621,7 @@
         "row_index": 9,
         "column_index": 3
       },
-      "evidence_id": "ev092"
+      "evidence_id": "ev085"
     },
     {
       "block_id": "T_5_77",
@@ -4287,7 +3643,7 @@
         "row_index": 13,
         "column_index": 3
       },
-      "evidence_id": "ev093"
+      "evidence_id": "ev086"
     },
     {
       "block_id": "T_5_77",
@@ -4309,7 +3665,7 @@
         "row_index": 17,
         "column_index": 3
       },
-      "evidence_id": "ev094"
+      "evidence_id": "ev087"
     },
     {
       "block_id": "T_5_77",
@@ -4331,7 +3687,7 @@
         "row_index": 21,
         "column_index": 3
       },
-      "evidence_id": "ev095"
+      "evidence_id": "ev088"
     },
     {
       "block_id": "T_5_77",
@@ -4353,29 +3709,7 @@
         "row_index": 25,
         "column_index": 3
       },
-      "evidence_id": "ev096"
-    },
-    {
-      "block_id": "T_5_77",
-      "page": 5,
-      "bbox": [
-        55.0,
-        80.0,
-        905.0,
-        522.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 1. Characterization of polymers",
-      "table_locator": {
-        "table_id": "T_5_77",
-        "row_label": "2AQA-H $_{12}$ MDI",
-        "column_label": "Yield (%)",
-        "cell_value": "89",
-        "cell_id": "T_5_77:r0029:c0003",
-        "row_index": 29,
-        "column_index": 3
-      },
-      "evidence_id": "ev097"
+      "evidence_id": "ev089"
     },
     {
       "block_id": "T_5_78",
@@ -4397,7 +3731,7 @@
         "row_index": 4,
         "column_index": 4
       },
-      "evidence_id": "ev098"
+      "evidence_id": "ev090"
     },
     {
       "block_id": "T_5_78",
@@ -4419,7 +3753,7 @@
         "row_index": 10,
         "column_index": 4
       },
-      "evidence_id": "ev099"
+      "evidence_id": "ev091"
     },
     {
       "block_id": "T_5_78",
@@ -4441,7 +3775,7 @@
         "row_index": 16,
         "column_index": 4
       },
-      "evidence_id": "ev100"
+      "evidence_id": "ev092"
     },
     {
       "block_id": "T_5_78",
@@ -4463,7 +3797,7 @@
         "row_index": 19,
         "column_index": 4
       },
-      "evidence_id": "ev101"
+      "evidence_id": "ev093"
     },
     {
       "block_id": "T_5_78",
@@ -4485,7 +3819,7 @@
         "row_index": 22,
         "column_index": 4
       },
-      "evidence_id": "ev102"
+      "evidence_id": "ev094"
     },
     {
       "block_id": "T_5_78",
@@ -4507,7 +3841,7 @@
         "row_index": 25,
         "column_index": 4
       },
-      "evidence_id": "ev103"
+      "evidence_id": "ev095"
     },
     {
       "block_id": "P_1_21",
@@ -4520,466 +3854,7 @@
       ],
       "source_type": "text",
       "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$.",
-      "evidence_id": "ev104"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "1AQA-PPDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "190",
-        "cell_id": "T_6_86:r0001:c0001",
-        "row_index": 1,
-        "column_index": 1
-      },
-      "evidence_id": "ev105"
-    },
-    {
-      "block_id": "P_6_84",
-      "page": 6,
-      "bbox": [
-        87.0,
-        249.0,
-        500.0,
-        476.0
-      ],
-      "source_type": "text",
-      "source_sentence": "the representative curves of DMTA for 1AQA-PPDI $( T _ { \\mathrm { g } } =$1908C)",
-      "evidence_id": "ev106"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "1AQA-NDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "185",
-        "cell_id": "T_6_86:r0002:c0001",
-        "row_index": 2,
-        "column_index": 1
-      },
-      "evidence_id": "ev107"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "1AQA-MDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "178",
-        "cell_id": "T_6_86:r0003:c0001",
-        "row_index": 3,
-        "column_index": 1
-      },
-      "evidence_id": "ev108"
-    },
-    {
-      "block_id": "P_6_84",
-      "page": 6,
-      "bbox": [
-        87.0,
-        249.0,
-        500.0,
-        476.0
-      ],
-      "source_type": "text",
-      "source_sentence": "DSC for 1AQA-MDI $( T _ { \\mathrm { g } } { = } 1 7 8 ^ { \\circ } \\mathrm { C } )$",
-      "evidence_id": "ev109"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "1AQA-H $_{12}$ MDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "156",
-        "cell_id": "T_6_86:r0004:c0001",
-        "row_index": 4,
-        "column_index": 1
-      },
-      "evidence_id": "ev110"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "2AQA-PPDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "184",
-        "cell_id": "T_6_86:r0005:c0001",
-        "row_index": 5,
-        "column_index": 1
-      },
-      "evidence_id": "ev111"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "2AQA-NDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "178",
-        "cell_id": "T_6_86:r0006:c0001",
-        "row_index": 6,
-        "column_index": 1
-      },
-      "evidence_id": "ev112"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "2AQA-MDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "168",
-        "cell_id": "T_6_86:r0007:c0001",
-        "row_index": 7,
-        "column_index": 1
-      },
-      "evidence_id": "ev113"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "2AQA-H $_{12}$ MDI",
-        "column_label": "$T_{g}$ (°C)",
-        "cell_value": "148",
-        "cell_id": "T_6_86:r0008:c0001",
-        "row_index": 8,
-        "column_index": 1
-      },
-      "evidence_id": "ev114"
-    },
-    {
-      "block_id": "P_6_84",
-      "page": 6,
-      "bbox": [
-        87.0,
-        249.0,
-        500.0,
-        476.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Also DSC analysis confirmed data obtained from DMTA.",
-      "evidence_id": "ev115"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of $2 5 { - } 3 0 0 ^ { \\circ } \\mathrm { C }$at 1 Hz and a heating rate of 58C/min (Surrey, UK).",
-      "evidence_id": "ev116"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.",
-      "evidence_id": "ev119"
-    },
-    {
-      "block_id": "P_6_85",
-      "page": 6,
-      "bbox": [
-        87.0,
-        476.0,
-        500.0,
-        691.0
-      ],
-      "source_type": "text",
-      "source_sentence": "the char yields of polymers at 7008C were about 36–49%",
-      "evidence_id": "ev120"
-    },
-    {
-      "block_id": "T_6_86",
-      "page": 6,
-      "bbox": [
-        90.0,
-        742.0,
-        510.0,
-        863.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 3. Thermal analysis of the polymers",
-      "table_locator": {
-        "table_id": "T_6_86",
-        "row_label": "1AQA-PPDI, 1AQA-NDI, 1AQA-MDI, 1AQA-H$_{12}$MDI, 2AQA-PPDI, 2AQA-NDI, 2AQA-MDI, 2AQA-H$_{12}$MDI",
-        "column_label": "Char yield at 700°C (%)",
-        "cell_value": "49, 46, 45, 38, 47, 44, 43, 36",
-        "cell_id": null,
-        "row_index": null,
-        "column_index": null
-      },
-      "evidence_id": "ev121"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Infrared measurements were performed on a Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer (Ettlingen, Germany).",
-      "evidence_id": "ev122"
-    },
-    {
-      "block_id": "T_5_77",
-      "page": 5,
-      "bbox": [
-        55.0,
-        80.0,
-        905.0,
-        522.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 1. Characterization of polymers",
-      "table_locator": {
-        "table_id": "T_5_77",
-        "row_label": "all polymer entries",
-        "column_label": "IR (KBr) $(cm^{-1})$",
-        "cell_value": "all listed wavenumber values",
-        "cell_id": null,
-        "row_index": null,
-        "column_index": null
-      },
-      "evidence_id": "ev123"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany).",
-      "evidence_id": "ev124"
-    },
-    {
-      "block_id": "T_5_77",
-      "page": 5,
-      "bbox": [
-        55.0,
-        80.0,
-        905.0,
-        522.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 1. Characterization of polymers",
-      "table_locator": {
-        "table_id": "T_5_77",
-        "row_label": "all polymer entries",
-        "column_label": "NMR (DMSO-$D_6$) ($\\delta$)",
-        "cell_value": "all listed chemical shift values",
-        "cell_id": null,
-        "row_index": null,
-        "column_index": null
-      },
-      "evidence_id": "ev125"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. In DSC thermograms, the samples were heated from 30 to $2 0 0 ^ { \\circ } \\mathrm { C } ,$ they were cooled, and then re-heated to eliminate the thermal history.",
-      "evidence_id": "ev126"
-    },
-    {
-      "block_id": "P_6_84",
-      "page": 6,
-      "bbox": [
-        87.0,
-        249.0,
-        500.0,
-        476.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\mathrm { g } } )$ was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers.",
-      "evidence_id": "ev127"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of $2 5 { - } 3 0 0 ^ { \\circ } \\mathrm { C }$ at 1 Hz and a heating rate of 58C/min (Surrey, UK).",
-      "evidence_id": "ev128"
-    },
-    {
-      "block_id": "P_6_84",
-      "page": 6,
-      "bbox": [
-        87.0,
-        249.0,
-        500.0,
-        476.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Thermal behavior of the polymers was studied using dynamic mechanical thermal analysis (DMTA). By increasing the temperature from 30 to $3 0 0 ^ { \\circ } \\mathrm { C }$, one transition was seen for the polymers at which tan d went through a maximum. This transition was related to the glass transition temperature of the polymers.",
-      "evidence_id": "ev129"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "at room temperature",
-      "evidence_id": "ev131"
-    },
-    {
-      "block_id": "P_1_21",
-      "page": 1,
-      "bbox": [
-        53.0,
-        330.0,
-        467.0,
-        787.0
-      ],
-      "source_type": "text",
-      "source_sentence": "Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min.",
-      "evidence_id": "ev132"
-    },
-    {
-      "block_id": "P_7_101",
-      "page": 7,
-      "bbox": [
-        53.0,
-        604.0,
-        467.0,
-        776.0
-      ],
-      "source_type": "text",
-      "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous.",
-      "evidence_id": "ev133"
-    },
-    {
-      "block_id": "T_5_77",
-      "page": 5,
-      "bbox": [
-        55.0,
-        80.0,
-        905.0,
-        522.0
-      ],
-      "source_type": "table",
-      "source_sentence": "Table 1. Characterization of polymers",
-      "table_locator": {
-        "table_id": "T_5_77",
-        "row_label": "1AQA-PPDI",
-        "column_label": "IR (KBr) $(cm^{-1})$",
-        "cell_value": "3338",
-        "cell_id": "T_5_77:r0001:c0001",
-        "row_index": 1,
-        "column_index": 1
-      },
-      "evidence_id": "ev134"
+      "evidence_id": "ev096"
     }
   ],
   "provenance": [
@@ -5041,32 +3916,32 @@
         "gpt-5.6-terra-2026-07-09"
       ],
       "prompt_id": "polymer.stage2.polymer_entity",
-      "prompt_version": "1.3.0",
-      "prompt_sha256": "0d376da340b979a77fcd231e0148cc26c8b9d125f7209025c7055483abb7d7e1",
+      "prompt_version": "1.5.1",
+      "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
       "input_hash": "d0bc034ad8d4b3d94620531fbde056d1489de0d04e001f7ac1e1855f3fab1105",
       "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
-      "cache_key": "6665bbae7b1491ad792e65cfbed2684eb247da202ab3e88b7eab4b734ff1907a",
+      "cache_key": "7d132cb82b79b764f7cfe3edb7df806df0187e79341a75ab6b2a0ff290b3dd85",
       "output_schema_version": "polymer_entity_schema.v3",
-      "implementation_version": "1.4.0",
+      "implementation_version": "1.6.1",
       "context_block_count": 54,
       "context_chars": 34843,
       "call_count": 1,
       "usage": {
-        "input_tokens": 20076,
-        "output_tokens": 3858,
+        "input_tokens": 20297,
+        "output_tokens": 3342,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 20076,
-        "total_tokens": 23934
+        "billable_input_tokens": 20297,
+        "total_tokens": 23639
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "17",
         "output_per_million": "101",
-        "input_cost": "0.341292",
-        "output_cost": "0.389658",
-        "total_cost": "0.730950"
+        "input_cost": "0.345049",
+        "output_cost": "0.337542",
+        "total_cost": "0.682591"
       },
       "status": "success"
     },
@@ -5078,32 +3953,32 @@
         "doubao-seed-2.0-pro"
       ],
       "prompt_id": "polymer.stage3.sample_process",
-      "prompt_version": "1.4.0",
-      "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-      "input_hash": "9af2f6e1fd737955be2dd70fd30feff01e5f7dcd41a5df9bbd85303c512837be",
+      "prompt_version": "1.6.0",
+      "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+      "input_hash": "f9886440c2c683b5bd79696342bfbdc2ad2032976492ce5ddac11f6dad829b37",
       "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-      "cache_key": "dd747d2a088d983f4e28edb239083782e23b7b14171fc122a98128f377752e1a",
+      "cache_key": "222ba6249bcaa88c3f4faae467887c02d8854d9ca1e59000426c78c85b161fa8",
       "output_schema_version": "sample_process_schema.v4",
-      "implementation_version": "1.5.0",
-      "context_block_count": 31,
-      "context_chars": 22731,
+      "implementation_version": "1.7.1",
+      "context_block_count": 30,
+      "context_chars": 21251,
       "call_count": 1,
       "usage": {
-        "input_tokens": 15875,
-        "output_tokens": 7726,
+        "input_tokens": 15629,
+        "output_tokens": 5360,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 15875,
-        "total_tokens": 23601
+        "billable_input_tokens": 15629,
+        "total_tokens": 20989
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.06858",
-        "output_cost": "0.2252129",
-        "total_cost": "0.2937929"
+        "input_cost": "0.06751728",
+        "output_cost": "0.156244",
+        "total_cost": "0.22376128"
       },
       "status": "success"
     },
@@ -5118,68 +3993,68 @@
       "prompt_version": "1.7.2",
       "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "72b928dcf0fe8b7a7ed48744cf08de381a5d2ebcffa8a0fe056462d9e399e545",
+      "input_hash": "e2b9f41bfe160dec567262af244fae3161f315661ef11e7ed2d10fa83f400082",
       "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-      "cache_key": "341a80baaaed2392c2c7bbe252cb2e40b37ed8863e810202081677146e2d2ef2",
+      "cache_key": "e69d1cd2627481278eeb770c00a811d12d8fd5f162d8b0443b43e4c219bee45f",
       "output_schema_version": "property_observation_schema.v7",
       "implementation_version": "1.7.10",
       "context_block_count": 51,
       "context_chars": 37423,
       "call_count": 1,
       "usage": {
-        "input_tokens": 29432,
-        "output_tokens": 17324,
+        "input_tokens": 28983,
+        "output_tokens": 16299,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 29432,
-        "total_tokens": 46756
+        "billable_input_tokens": 28983,
+        "total_tokens": 45282
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.12714624",
-        "output_cost": "0.5049946",
-        "total_cost": "0.63214084"
+        "input_cost": "0.12520656",
+        "output_cost": "0.47511585",
+        "total_cost": "0.60032241"
       },
       "status": "success"
     },
     {
       "stage": "stage5_characterization",
       "provider": "dmx",
-      "model": "doubao-seed-2.0-pro",
+      "model": "doubao-seed-2-0-pro-260215",
       "models": [
-        "doubao-seed-2.0-pro"
+        "doubao-seed-2-0-pro-260215"
       ],
       "prompt_id": "polymer.stage5.characterization",
       "prompt_version": "1.6.2",
       "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "a98e29d7e09c074f254a5e78e96dc0a728b45a57f57df600c98f66a1566f3054",
+      "input_hash": "0547719dda0973c53e0d38ddfe89f6e5f3e188413e2838b6247c9305f93c72cd",
       "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-      "cache_key": "63591360b6a5cec440c5ff3b1c83a9445b7e43191edad43b43eb39030b43fd84",
+      "cache_key": "5ce96504402141aba179f68eeab0a1a42e872d0d8dd741f886b6359e61395542",
       "output_schema_version": "characterization_schema.v4",
       "implementation_version": "1.7.1",
       "context_block_count": 51,
       "context_chars": 37423,
-      "call_count": 1,
+      "call_count": 0,
       "usage": {
-        "input_tokens": 23092,
-        "output_tokens": 9478,
+        "input_tokens": 23482,
+        "output_tokens": 11535,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 23092,
-        "total_tokens": 32570
+        "billable_input_tokens": 23482,
+        "total_tokens": 35017
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.09975744",
-        "output_cost": "0.2762837",
-        "total_cost": "0.37604114"
+        "input_cost": "0.10144224",
+        "output_cost": "0.33624525",
+        "total_cost": "0.43768749"
       },
       "status": "success"
     }
@@ -5191,11 +4066,6 @@
       "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
     },
     {
-      "stage": "stage2_polymer_entity",
-      "code": "polymer_type_default_inferred",
-      "message": "Backfill：无共聚或共混反证的实体已推断为 homopolymer"
-    },
-    {
       "stage": "stage3_sample_process",
       "code": "parameters_not_in_source",
       "message": "无法定位到 evidence 原文的参数已舍弃"
@@ -5204,21 +4074,6 @@
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
       "message": "7 个 entity 未解析到实际样品"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "samples_without_entity",
-      "message": "部分样品无法可靠关联 PolymerEntity"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin"
     },
     {
       "stage": "stage4_property",
@@ -5242,16 +4097,6 @@
     },
     {
       "stage": "stage4_property",
-      "code": "series_multimethod_downgraded",
-      "message": "Series 跨多种测定方法，无法保存为单一逐字 raw 字段；已置 null 并保留方法原文证据"
-    },
-    {
-      "stage": "stage4_property",
-      "code": "series_context_evidence_supplemented",
-      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block"
-    },
-    {
-      "stage": "stage4_property",
       "code": "preview_semantic_validation_bypassed",
       "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
     },
@@ -5262,48 +4107,18 @@
     },
     {
       "stage": "stage4_property",
-      "code": "unresolved_properties",
-      "message": "2 条性质无法可靠关联具体 Sample"
-    },
-    {
-      "stage": "stage4_property",
       "code": "stage4r_preview_table_recovery",
-      "message": "Stage 4R Preview 确定性补入 8 个表格性质格；样品归属保留 unresolved。"
+      "message": "Stage 4R Preview 确定性补入 16 个表格性质格；样品归属保留 unresolved。"
     },
     {
       "stage": "stage4_property",
       "code": "stage4r_unique_sample_label_resolved",
-      "message": "Stage 4R 按唯一 Stage 3 sample_label_raw 确定性归属 8 条性质。"
+      "message": "Stage 4R 按唯一 Stage 3 sample_label_raw 确定性归属 16 条性质。"
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_unlocatable_additional_evidence_removed",
-      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_unsupported_characterization_details_cleared",
-      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "series_point_subject_scope_inherited",
-      "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "derived_property_back_reference_completed",
-      "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_semantic_validation_bypassed",
-      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "unresolved_characterizations",
-      "message": "1 条表征无法可靠关联具体 Sample"
+      "code": "preview_degraded_empty_shell",
+      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果"
     },
     {
       "stage": "meta_extract",
@@ -5313,7 +4128,7 @@
     {
       "stage": "stage4_property",
       "code": "unused_measurement_condition",
-      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002', 'mc003', 'mc004', 'mc005', 'mc006']"
+      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002', 'mc003', 'mc004', 'mc005', 'mc006', 'mc007']"
     },
     {
       "stage": "stage3_sample_process",
@@ -5322,75 +4137,33 @@
       "object_id": "s001"
     },
     {
-      "stage": "stage3_sample_process",
-      "code": "generic_process_type",
-      "message": "ProcessStep 使用了通用 process_type=other",
-      "object_id": "ps001"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "generic_process_type",
-      "message": "ProcessStep 使用了通用 process_type=other",
-      "object_id": "ps002"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "generic_process_type",
-      "message": "ProcessStep 使用了通用 process_type=other",
-      "object_id": "ps003"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "generic_process_type",
-      "message": "ProcessStep 使用了通用 process_type=other",
-      "object_id": "ps004"
-    },
-    {
       "stage": "stage4_property",
       "code": "evidence_matched_after_normalization",
       "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "mc001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 96.6%，疑似跨块或被截断，建议人工确认",
       "object_id": "mc003"
     },
     {
-      "stage": "stage5_characterization",
-      "code": "table_locator_table_scope_accepted",
-      "message": "Preview 接受 Characterization 的表级 locator",
-      "object_id": "char003"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "table_locator_table_scope_accepted",
-      "message": "Preview 接受 Characterization 的表级 locator",
-      "object_id": "char004"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "table_locator_table_scope_accepted",
-      "message": "Preview 接受 Characterization 的表级 locator",
-      "object_id": "char005"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "evidence_matched_after_normalization",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
-      "object_id": "char006"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "evidence_matched_after_normalization",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
-      "object_id": "char007"
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 97.1%，疑似跨块或被截断，建议人工确认",
+      "object_id": "mc003"
     }
   ],
   "validation_summary": {
     "status": "passed_with_warnings",
     "error_count": 0,
-    "warning_count": 37,
+    "warning_count": 18,
     "validation_mode": "preview",
     "validation_status": "degraded",
     "degraded_codes": [
-      "evidence_matched_after_normalization",
-      "table_locator_table_scope_accepted"
+      "evidence_matched_after_block_recovery",
+      "evidence_matched_after_normalization"
     ]
   },
   "cost_summary": {
@@ -5455,21 +4228,21 @@
         "model": "gpt-5.6-terra-2026-07-09",
         "call_count": 1,
         "usage": {
-          "input_tokens": 20076,
-          "output_tokens": 3858,
+          "input_tokens": 20297,
+          "output_tokens": 3342,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 20076,
-          "total_tokens": 23934
+          "billable_input_tokens": 20297,
+          "total_tokens": 23639
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "17",
           "output_per_million": "101",
-          "input_cost": "0.341292",
-          "output_cost": "0.389658",
-          "total_cost": "0.730950"
+          "input_cost": "0.345049",
+          "output_cost": "0.337542",
+          "total_cost": "0.682591"
         }
       },
       {
@@ -5478,21 +4251,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 15875,
-          "output_tokens": 7726,
+          "input_tokens": 15629,
+          "output_tokens": 5360,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 15875,
-          "total_tokens": 23601
+          "billable_input_tokens": 15629,
+          "total_tokens": 20989
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.06858",
-          "output_cost": "0.2252129",
-          "total_cost": "0.2937929"
+          "input_cost": "0.06751728",
+          "output_cost": "0.156244",
+          "total_cost": "0.22376128"
         }
       },
       {
@@ -5501,44 +4274,44 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 29432,
-          "output_tokens": 17324,
+          "input_tokens": 28983,
+          "output_tokens": 16299,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 29432,
-          "total_tokens": 46756
+          "billable_input_tokens": 28983,
+          "total_tokens": 45282
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.12714624",
-          "output_cost": "0.5049946",
-          "total_cost": "0.63214084"
+          "input_cost": "0.12520656",
+          "output_cost": "0.47511585",
+          "total_cost": "0.60032241"
         }
       },
       {
         "stage": "stage5_characterization",
         "provider": "dmx",
-        "model": "doubao-seed-2.0-pro",
-        "call_count": 1,
+        "model": "doubao-seed-2-0-pro-260215",
+        "call_count": 0,
         "usage": {
-          "input_tokens": 23092,
-          "output_tokens": 9478,
+          "input_tokens": 23482,
+          "output_tokens": 11535,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 23092,
-          "total_tokens": 32570
+          "billable_input_tokens": 23482,
+          "total_tokens": 35017
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.09975744",
-          "output_cost": "0.2762837",
-          "total_cost": "0.37604114"
+          "input_cost": "0.10144224",
+          "output_cost": "0.33624525",
+          "total_cost": "0.43768749"
         }
       },
       {
@@ -5564,60 +4337,60 @@
         }
       }
     ],
-    "total_cost": "2.57348188"
+    "total_cost": "2.48491918"
   },
   "quality_metrics": {
     "properties_with_units": {
-      "complete": 9,
-      "total": 34,
-      "ratio": 0.2647058823529412
+      "complete": 29,
+      "total": 29,
+      "ratio": 1.0
     },
     "standard_process_steps": {
       "complete": 1,
-      "total": 5,
-      "ratio": 0.2
+      "total": 1,
+      "ratio": 1.0
     },
     "stage4_methods_with_characterization": {
-      "complete": 2,
-      "total": 2,
+      "complete": 0,
+      "total": 0,
       "ratio": 1.0
     },
     "objects_with_confidence": {
-      "complete": 136,
-      "total": 152,
-      "ratio": 0.8947368421052632
+      "complete": 107,
+      "total": 139,
+      "ratio": 0.7697841726618705
     },
     "series_points_covered": {
-      "complete": 22,
-      "total": 22,
+      "complete": 13,
+      "total": 13,
       "ratio": 1.0
     }
   },
   "rejected_objects": [],
   "preview_publication_summary": {
     "input_counts": {
-      "characterization": 8,
+      "characterization": 0,
       "material_mention": 59,
-      "measurement_condition": 14,
+      "measurement_condition": 23,
       "polymer_entity": 16,
-      "process_step": 5,
-      "property": 10,
-      "property_series": 3,
-      "property_series_point": 22,
-      "sample": 13,
-      "unresolved_property": 2
+      "process_step": 1,
+      "property": 16,
+      "property_series": 2,
+      "property_series_point": 13,
+      "sample": 9,
+      "unresolved_property": 0
     },
     "published_counts": {
-      "characterization": 8,
+      "characterization": 0,
       "material_mention": 59,
-      "measurement_condition": 14,
+      "measurement_condition": 23,
       "polymer_entity": 16,
-      "process_step": 5,
-      "property": 10,
-      "property_series": 3,
-      "property_series_point": 22,
-      "sample": 13,
-      "unresolved_property": 2
+      "process_step": 1,
+      "property": 16,
+      "property_series": 2,
+      "property_series_point": 13,
+      "sample": 9,
+      "unresolved_property": 0
     },
     "rejected_counts": {},
     "reference_cleanup_count": 0,

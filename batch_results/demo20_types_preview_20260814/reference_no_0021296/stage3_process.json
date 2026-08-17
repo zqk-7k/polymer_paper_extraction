@@ -5,89 +5,8 @@
     {
       "sample_id": "s001",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe003",
+      "refers_to_entity": "pe001",
       "polymer_name": "aliphatic DA-polyester",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "HS",
-      "intended_use": [],
-      "evidence": {
-        "block_id": "P_3_38",
-        "page": 3,
-        "bbox": [
-          117.0,
-          571.0,
-          501.0,
-          739.0
-        ],
-        "source_type": "text",
-        "source_sentence": "The synthesized DA-polyesters HS, HI, and HT are insoluble in most common solvents, while OT(2) can be readily dissolved in solvents such as THF, DMF, and DMSO."
-      },
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s002",
-      "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe006",
-      "polymer_name": "HI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "HI",
-      "intended_use": [],
-      "evidence": {
-        "block_id": "P_3_38",
-        "page": 3,
-        "bbox": [
-          117.0,
-          571.0,
-          501.0,
-          739.0
-        ],
-        "source_type": "text",
-        "source_sentence": "The synthesized DA-polyesters HS, HI, and HT are insoluble in most common solvents, while OT(2) can be readily dissolved in solvents such as THF, DMF, and DMSO."
-      },
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s003",
-      "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe007",
-      "polymer_name": "HT",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "HT",
-      "intended_use": [],
-      "evidence": {
-        "block_id": "P_3_38",
-        "page": 3,
-        "bbox": [
-          117.0,
-          571.0,
-          501.0,
-          739.0
-        ],
-        "source_type": "text",
-        "source_sentence": "The synthesized DA-polyesters HS, HI, and HT are insoluble in most common solvents, while OT(2) can be readily dissolved in solvents such as THF, DMF, and DMSO."
-      },
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s004",
-      "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe004",
-      "polymer_name": "HP",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "HP",
       "intended_use": [],
       "evidence": {
         "block_id": "P_2_33",
@@ -102,17 +21,95 @@
         "source_sentence": "DA-polyesters were synthesized via interfacial condensation in an aqueous-toluene and had reasonably good yields except for HP and OT(2M)."
       },
       "confidence": {
-        "score": 0.85
+        "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s002",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe002",
+      "polymer_name": "HI",
+      "sample_label_raw": "hi",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_2_33",
+        "page": 2,
+        "bbox": [
+          529.0,
+          875.0,
+          913.0,
+          907.0
+        ],
+        "source_type": "text",
+        "source_sentence": "DA-polyesters were synthesized via interfacial condensation in an aqueous-toluene and had reasonably good yields except for HP and OT(2M)."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s003",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe003",
+      "polymer_name": "aromatic DA-polyester",
+      "sample_label_raw": "ht",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_2_33",
+        "page": 2,
+        "bbox": [
+          529.0,
+          875.0,
+          913.0,
+          907.0
+        ],
+        "source_type": "text",
+        "source_sentence": "DA-polyesters were synthesized via interfacial condensation in an aqueous-toluene and had reasonably good yields except for HP and OT(2M)."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s004",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe004",
+      "polymer_name": "HP",
+      "sample_label_raw": "HP",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_2_33",
+        "page": 2,
+        "bbox": [
+          529.0,
+          875.0,
+          913.0,
+          907.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The poor yield of HP is likely due to steric hindrance in the ortho-substituted phthaloyl dichloride, which prevents the formation of long polymer chains."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s005",
       "sample_kind": "synthesis_batch",
-      "refers_to_entity": "pe008",
+      "refers_to_entity": "pe005",
       "polymer_name": "OT(2)",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "OT(2)",
       "intended_use": [],
       "evidence": {
@@ -130,15 +127,15 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s006",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe007",
-      "polymer_name": "HT",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
+      "refers_to_entity": "pe003",
+      "polymer_name": "aromatic DA-polyester",
       "state_description": "solution-cast HT thin film",
       "intended_use": [],
       "evidence": {
@@ -156,42 +153,41 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s007",
-      "sample_kind": "conditioned_state",
-      "refers_to_entity": "pe003",
-      "polymer_name": "aliphatic DA-polyester",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "state_description": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h.",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe005",
+      "polymer_name": "OT(2)",
+      "state_description": "melt-processed OT(2) samples",
       "intended_use": [],
       "evidence": {
-        "block_id": "P_4_50",
-        "page": 4,
+        "block_id": "P_2_30",
+        "page": 2,
         "bbox": [
-          117.0,
-          755.0,
-          501.0,
-          909.0
+          527.0,
+          460.0,
+          913.0,
+          814.0
         ],
         "source_type": "text",
-        "source_sentence": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h."
+        "source_sentence": "A film clamp and a single cantilever clamp were used to test solution-cast HT thin film and melt-processed OT(2) samples, respectively."
       },
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s008",
       "sample_kind": "conditioned_state",
-      "refers_to_entity": "pe006",
-      "polymer_name": "HI",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "state_description": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h.",
+      "polymer_name": "thermally treated DA-polyesters",
+      "state_description": "thermally treated DA-polyesters",
       "intended_use": [],
       "evidence": {
         "block_id": "P_4_50",
@@ -203,21 +199,21 @@
           909.0
         ],
         "source_type": "text",
-        "source_sentence": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h."
+        "source_sentence": "Figure 3 shows the Raman spectra of thermally treated DA-polyesters."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s009",
-      "sample_kind": "conditioned_state",
+      "sample_kind": "intermediate",
       "refers_to_entity": "pe007",
-      "polymer_name": "HT",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "state_description": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h.",
+      "polymer_name": "polydiacetylene",
+      "state_description": "polydiacetylene chains",
       "intended_use": [],
       "evidence": {
         "block_id": "P_4_50",
@@ -229,38 +225,40 @@
           909.0
         ],
         "source_type": "text",
-        "source_sentence": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h."
+        "source_sentence": "This indicated that most of the diacetylene units have crosspolymerized into polydiacetylene chains after the thermal treatment."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s010",
-      "sample_kind": "conditioned_state",
+      "sample_kind": "intermediate",
       "refers_to_entity": "pe008",
-      "polymer_name": "OT(2)",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "state_description": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h.",
+      "polymer_name": "PDA chains",
+      "state_description": "PDA chains",
       "intended_use": [],
       "evidence": {
-        "block_id": "P_4_50",
+        "block_id": "P_4_49",
         "page": 4,
         "bbox": [
           117.0,
-          755.0,
+          513.0,
           501.0,
-          909.0
+          756.0
         ],
         "source_type": "text",
-        "source_sentence": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h."
+        "source_sentence": "Raman spectroscopy is complementary to infrared spectroscopy, and is a better technique to detect the formation of the PDA chains and to investigate the factors that affect the crosspolymerization."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.7
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     }
   ],
   "process_steps": [
@@ -275,9 +273,7 @@
         "s004",
         "s005"
       ],
-      "parameters": {
-        "polymerization_method": "interfacial condensation"
-      },
+      "parameters": {},
       "evidence": {
         "block_id": "P_1_19",
         "page": 1,
@@ -288,7 +284,7 @@
           907.0
         ],
         "source_type": "text",
-        "source_sentence": "DA-polyesters were synthesised from diacid chlorides, i.e., succinyl chloride, terephthaloyl chloride, isophthaloyl chloride, and phthaloyl chloride (95%, Acros), and diacetylene diols, i.e., HDD, ODD-2, ODD-2M. The polymerization was carried out via interfacial condensation method in an aqueous-organic solvent system, and can be described in the reaction equation below, where the groups R and $\\mathrm { R ^ { \\prime } }$are shown in Table II."
+        "source_sentence": "DA-polyesters were synthesised from diacid chlorides, i.e., succinyl chloride, terephthaloyl chloride, isophthaloyl chloride, and phthaloyl chloride (95%, Acros), and diacetylene diols, i.e., HDD, ODD-2, ODD-2M. The polymerization was carried out via interfacial condensation method in an aqueous-organic solvent system"
       },
       "confidence": {
         "score": 0.9
@@ -324,6 +320,32 @@
     },
     {
       "step_id": "ps003",
+      "process_type": "other",
+      "input_sample_ids": [
+        "s005"
+      ],
+      "output_sample_ids": [
+        "s007"
+      ],
+      "parameters": {},
+      "evidence": {
+        "block_id": "P_2_30",
+        "page": 2,
+        "bbox": [
+          527.0,
+          460.0,
+          913.0,
+          814.0
+        ],
+        "source_type": "text",
+        "source_sentence": "A film clamp and a single cantilever clamp were used to test solution-cast HT thin film and melt-processed OT(2) samples, respectively."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "step_id": "ps004",
       "process_type": "annealing",
       "input_sample_ids": [
         "s001",
@@ -332,14 +354,13 @@
         "s005"
       ],
       "output_sample_ids": [
-        "s007",
         "s008",
         "s009",
         "s010"
       ],
       "parameters": {
-        "HS_treatment_duration": "15 h",
-        "HI_HT_OT(2)_treatment_duration": "45 h",
+        "treatment_time_HI_HT_OT2": "45 h",
+        "treatment_time_HS": "15 h",
         "atmosphere": "nitrogen"
       },
       "evidence": {
@@ -355,16 +376,12 @@
         "source_sentence": "The aromatic DA-polyesters HI, HT, and OT(2) were isothermally treated in nitrogen at $8 0 ^ { \\circ } \\mathrm { C }$for 45 h, while HS was treated for 15 h."
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     }
   ],
   "unresolved_entity_ids": [
-    "pe001",
-    "pe002",
-    "pe005",
-    "pe009",
-    "pe010"
+    "pe006"
   ],
   "provenance": {
     "stage": "stage3_sample_process",
@@ -374,45 +391,61 @@
       "doubao-seed-2.0-pro"
     ],
     "prompt_id": "polymer.stage3.sample_process",
-    "prompt_version": "1.4.0",
-    "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-    "input_hash": "49d01abc8e3647e5be78df31cd011bdc100262f6f991eae7b03924f83e921a52",
+    "prompt_version": "1.6.0",
+    "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+    "input_hash": "4180d88186a05216ec9f353ff4bba07c28a73c1f50585b6219221ee0fae4a6f5",
     "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-    "cache_key": "9861252af557f9a86f389eb438879e42176a2c364caa7f5d3c6ca0ee6af24ad4",
+    "cache_key": "e1d9b31348c9437bdc094249461db1c9a7be0c65aff0f8865a3adc9acf351755",
     "output_schema_version": "sample_process_schema.v4",
-    "implementation_version": "1.5.0",
+    "implementation_version": "1.7.1",
     "context_block_count": 17,
-    "context_chars": 13799,
+    "context_chars": 13867,
     "call_count": 1,
     "usage": {
-      "input_tokens": 10435,
-      "output_tokens": 6477,
+      "input_tokens": 9961,
+      "output_tokens": 5063,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 10435,
-      "total_tokens": 16912
+      "billable_input_tokens": 9961,
+      "total_tokens": 15024
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.0450792",
-      "output_cost": "0.18880455",
-      "total_cost": "0.23388375"
+      "input_cost": "0.04303152",
+      "output_cost": "0.14758645",
+      "total_cost": "0.19061797"
     },
     "status": "success"
   },
   "warnings": [
     {
       "stage": "stage3_sample_process",
-      "code": "state_description_replaced_with_evidence",
-      "message": "无标签 Sample 的 state_description 无法逐字定位；已使用验证后的完整 evidence.source_sentence",
+      "code": "sample_label_html_entity_surface_recovered",
+      "message": "sample_label_raw 与 evidence 仅存在 HTML entity 编码差异；已写回 Stage 0 原始文本",
+      "items": [
+        {
+          "sample_id": "s002",
+          "field": "sample_label_raw",
+          "from": "HI",
+          "to": "hi"
+        },
+        {
+          "sample_id": "s003",
+          "field": "sample_label_raw",
+          "from": "HT",
+          "to": "ht"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unsupported_sample_labels_dropped",
+      "message": "sample_label_raw 无法在 evidence 中定位；已有逐字 state_description，故删除无依据标签",
       "sample_ids": [
-        "s007",
-        "s008",
-        "s009",
-        "s010"
+        "s001"
       ]
     },
     {
@@ -423,16 +456,14 @@
         {
           "step_id": "ps001",
           "parameter_keys": [
-            "solvent_system",
-            "diacetylene_diol_amount",
-            "diacid_chloride_amount",
-            "stirring_duration"
+            "method",
+            "stirring_time"
           ]
         },
         {
-          "step_id": "ps003",
+          "step_id": "ps004",
           "parameter_keys": [
-            "temperature"
+            "treatment_temperature"
           ]
         }
       ]
@@ -440,190 +471,18 @@
     {
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "5 个 entity 未解析到实际样品",
+      "message": "1 个 entity 未解析到实际样品",
       "entity_ids": [
-        "pe001",
-        "pe002",
-        "pe005",
-        "pe009",
-        "pe010"
+        "pe006"
       ]
     },
     {
       "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型",
-      "items": [
-        {
-          "sample_id": "s001",
-          "entity_id": "pe003",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s002",
-          "entity_id": "pe006",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s003",
-          "entity_id": "pe007",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s004",
-          "entity_id": "pe004",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s005",
-          "entity_id": "pe008",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s006",
-          "entity_id": "pe007",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s007",
-          "entity_id": "pe003",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s008",
-          "entity_id": "pe006",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s009",
-          "entity_id": "pe007",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        },
-        {
-          "sample_id": "s010",
-          "entity_id": "pe008",
-          "fields": [
-            "polymer_type",
-            "copolymer_type"
-          ],
-          "polymer_type": "homopolymer",
-          "copolymer_type": null
-        }
-      ],
-      "backfill": true
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin",
-      "items": [
-        {
-          "sample_id": "s001",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s002",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s003",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s004",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s005",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s006",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s007",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s008",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s009",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        },
-        {
-          "sample_id": "s010",
-          "field": "material_type",
-          "value": "neat_resin",
-          "reason": "已建立单一聚合物样品，且没有第二配方组分反证"
-        }
-      ],
-      "backfill": true
+      "code": "samples_without_entity",
+      "message": "部分样品无法可靠关联 PolymerEntity",
+      "sample_ids": [
+        "s008"
+      ]
     }
   ]
 }

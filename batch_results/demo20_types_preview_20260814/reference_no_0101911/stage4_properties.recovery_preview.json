@@ -32,7 +32,7 @@
       "other_conditions": {
         "impact_test_standard": "ASTM D-256-2010",
         "tensile_test_standard": "ASTM D638-2000",
-        "crosshead_speed": "50 mm/min"
+        "tensile_crosshead_speed": "50 mm/min"
       },
       "other_condition_evidence": {
         "impact_test_standard": [
@@ -65,7 +65,7 @@
             "table_locator": null
           }
         ],
-        "crosshead_speed": [
+        "tensile_crosshead_speed": [
           {
             "block_id": "P_1_33",
             "page": 1,
@@ -127,9 +127,10 @@
       "pressure": null,
       "wavelength": null,
       "other_conditions": {
-        "test_mode": "tensile",
+        "test_mode": "tensile mode",
         "heating_rate": "3 °C/min",
-        "temperature_range": "30 °C to 160 °C"
+        "temperature_range": "30 °C to 160 °C",
+        "sample_dimension": "30 × 10 × 1 mm³"
       },
       "other_condition_evidence": {
         "test_mode": [
@@ -176,6 +177,21 @@
             "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
             "table_locator": null
           }
+        ],
+        "sample_dimension": [
+          {
+            "block_id": "P_1_35",
+            "page": 1,
+            "bbox": [
+              507.0,
+              714.0,
+              926.0,
+              804.0
+            ],
+            "source_type": "text",
+            "source_sentence": "All of the samples had the following dimension 30 × 10 × 1 mm³",
+            "table_locator": null
+          }
         ]
       },
       "condition_status": "reported",
@@ -206,7 +222,9 @@
       "other_conditions": {
         "heating_rate": "50 °C/h",
         "force": "50 N",
-        "method": "B50"
+        "method": "B50",
+        "sheet_thickness": "3.2 mm",
+        "penetration_depth": "1 mm"
       },
       "other_condition_evidence": {
         "heating_rate": [
@@ -253,6 +271,36 @@
             "source_sentence": "The force was set as 50 N, and the B50 method was used for measurement.",
             "table_locator": null
           }
+        ],
+        "sheet_thickness": [
+          {
+            "block_id": "P_2_44",
+            "page": 2,
+            "bbox": [
+              68.0,
+              186.0,
+              487.0,
+              289.0
+            ],
+            "source_type": "text",
+            "source_sentence": "The 3.2 mm sheet obtained by molding was placed on the Vicat softening tester (WKT-VST400, China) and heated up at a heating rate of 50 °C / h.",
+            "table_locator": null
+          }
+        ],
+        "penetration_depth": [
+          {
+            "block_id": "P_2_44",
+            "page": 2,
+            "bbox": [
+              68.0,
+              186.0,
+              487.0,
+              289.0
+            ],
+            "source_type": "text",
+            "source_sentence": "The temperature of a standard compression needle was recorded when it pierced the surface of a thermoplastic resin to a depth of 1 mm under standard loading conditions.",
+            "table_locator": null
+          }
         ]
       },
       "condition_status": "reported",
@@ -284,20 +332,20 @@
       "other_condition_evidence": {},
       "condition_status": "not_reported",
       "evidence": {
-        "block_id": "P_5_80",
-        "page": 5,
+        "block_id": "P_2_49",
+        "page": 2,
         "bbox": [
-          68.0,
-          684.0,
-          489.0,
-          818.0
+          505.0,
+          38.0,
+          927.0,
+          129.0
         ],
         "source_type": "text",
-        "source_sentence": "When ABS (10 phr) was added to PVC, T and $\\mathrm { T } _ { 5 0 }$increased from $2 6 1 ^ { \\circ } \\mathrm { C }$and 304°C to $2 7 3 ^ { \\circ } \\mathrm { C }$and $3 2 8 ^ { \\circ } \\mathrm { C }$respectively.",
+        "source_sentence": "To verify there is no homopolymerization for St, the DSC curves were recorded. As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA",
         "table_locator": null
       },
       "confidence": {
-        "score": 0.8
+        "score": 0.7
       }
     },
     {
@@ -311,27 +359,27 @@
       "other_condition_evidence": {},
       "condition_status": "not_reported",
       "evidence": {
-        "block_id": "P_2_49",
-        "page": 2,
+        "block_id": "P_4_75",
+        "page": 4,
         "bbox": [
           505.0,
-          38.0,
-          927.0,
-          129.0
+          900.0,
+          926.0,
+          930.0
         ],
         "source_type": "text",
-        "source_sentence": "To verify there is no homopolymerization for St, the DSC curves were recorded. As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA, and the results agree with the empirical formula proposed by Fox et al. [20] which indicated that the structure of copolymer SMIA is relatively homogeneous.",
+        "source_sentence": "To confirm the thermal stability, we conducted the TGA curves of PVC, SMIA, and PVC/ABS/SMIA composites (Figure  10).",
         "table_locator": null
       },
       "confidence": {
-        "score": 0.8
+        "score": 0.7
       }
     }
   ],
   "properties": [
     {
       "property_id": "prop001",
-      "sample_id": "s004",
+      "sample_id": "s003",
       "property_name_raw": "Tg",
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
@@ -347,7 +395,7 @@
       "value_max": 123.5,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc005",
+      "measurement_condition_id": "mc004",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -371,7 +419,7 @@
             129.0
           ],
           "source_type": "text",
-          "source_sentence": "As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA",
+          "source_sentence": "As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA",
           "table_locator": null
         }
       ],
@@ -382,7 +430,7 @@
     {
       "property_id": "prop002",
       "sample_id": "s001",
-      "property_name_raw": "initial decomposition temperature",
+      "property_name_raw": "Ti",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
@@ -397,7 +445,7 @@
       "value_max": 261.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
+      "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -421,18 +469,18 @@
             818.0
           ],
           "source_type": "text",
-          "source_sentence": "When ABS (10 phr) was added to PVC, T and T_50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
+          "source_sentence": "When ABS (10 phr) was added to PVC, Ti and T50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
       "property_id": "prop003",
       "sample_id": "s001",
-      "property_name_raw": "T_50",
+      "property_name_raw": "T50",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
@@ -447,7 +495,7 @@
       "value_max": 304.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
+      "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -471,18 +519,18 @@
             818.0
           ],
           "source_type": "text",
-          "source_sentence": "When ABS (10 phr) was added to PVC, T and T_50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
+          "source_sentence": "When ABS (10 phr) was added to PVC, Ti and T50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
       "property_id": "prop004",
-      "sample_id": "s005",
-      "property_name_raw": "initial decomposition temperature",
+      "sample_id": "s004",
+      "property_name_raw": "Ti",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
@@ -497,7 +545,7 @@
       "value_max": 273.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
+      "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -521,18 +569,18 @@
             818.0
           ],
           "source_type": "text",
-          "source_sentence": "When ABS (10 phr) was added to PVC, T and T_50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
+          "source_sentence": "When ABS (10 phr) was added to PVC, Ti and T50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
       "property_id": "prop005",
-      "sample_id": "s005",
-      "property_name_raw": "T_50",
+      "sample_id": "s004",
+      "property_name_raw": "T50",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
@@ -547,7 +595,7 @@
       "value_max": 328.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
+      "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -571,18 +619,18 @@
             818.0
           ],
           "source_type": "text",
-          "source_sentence": "When ABS (10 phr) was added to PVC, T and T_50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
+          "source_sentence": "When ABS (10 phr) was added to PVC, Ti and T50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
       "property_id": "prop006",
-      "sample_id": "s006",
-      "property_name_raw": "initial decomposition temperature",
+      "sample_id": "s005",
+      "property_name_raw": "Ti",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
@@ -597,7 +645,7 @@
       "value_max": 280.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
+      "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -621,18 +669,18 @@
             818.0
           ],
           "source_type": "text",
-          "source_sentence": "Importantly, T_i and T_50 increased to 280 °C and 408 °C with the addition of SMIA.",
+          "source_sentence": "Importantly, Ti and T50 increased to 280 °C and 408 °C with the addition of SMIA.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
       "property_id": "prop007",
-      "sample_id": "s006",
-      "property_name_raw": "T_50",
+      "sample_id": "s005",
+      "property_name_raw": "T50",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
@@ -647,7 +695,7 @@
       "value_max": 408.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
+      "measurement_condition_id": "mc005",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -671,12 +719,144 @@
             818.0
           ],
           "source_type": "text",
-          "source_sentence": "Importantly, T_i and T_50 increased to 280 °C and 408 °C with the addition of SMIA.",
+          "source_sentence": "Importantly, Ti and T50 increased to 280 °C and 408 °C with the addition of SMIA.",
           "table_locator": null
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop008",
+      "sample_id": "s005",
+      "property_name_raw": "Vicat softening temperature increase",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": "Vicat softening test",
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "3.1 °C",
+      "value_min": 3.1,
+      "value_max": 3.1,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "heating_rate": "50 °C/h",
+          "force": "50 N",
+          "method": "B50",
+          "sheet_thickness": "3.2 mm",
+          "penetration_depth": "1 mm"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_44",
+              "page": 2,
+              "bbox": [
+                68.0,
+                186.0,
+                487.0,
+                289.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The 3.2 mm sheet obtained by molding was placed on the Vicat softening tester (WKT-VST400, China) and heated up at a heating rate of 50 °C / h.",
+              "table_locator": null
+            }
+          ],
+          "force": [
+            {
+              "block_id": "P_2_44",
+              "page": 2,
+              "bbox": [
+                68.0,
+                186.0,
+                487.0,
+                289.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The force was set as 50 N, and the B50 method was used for measurement.",
+              "table_locator": null
+            }
+          ],
+          "method": [
+            {
+              "block_id": "P_2_44",
+              "page": 2,
+              "bbox": [
+                68.0,
+                186.0,
+                487.0,
+                289.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The force was set as 50 N, and the B50 method was used for measurement.",
+              "table_locator": null
+            }
+          ],
+          "sheet_thickness": [
+            {
+              "block_id": "P_2_44",
+              "page": 2,
+              "bbox": [
+                68.0,
+                186.0,
+                487.0,
+                289.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The 3.2 mm sheet obtained by molding was placed on the Vicat softening tester (WKT-VST400, China) and heated up at a heating rate of 50 °C / h.",
+              "table_locator": null
+            }
+          ],
+          "penetration_depth": [
+            {
+              "block_id": "P_2_44",
+              "page": 2,
+              "bbox": [
+                68.0,
+                186.0,
+                487.0,
+                289.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The temperature of a standard compression needle was recorded when it pierced the surface of a thermoplastic resin to a depth of 1 mm under standard loading conditions.",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_72",
+          "page": 4,
+          "bbox": [
+            68.0,
+            900.0,
+            489.0,
+            930.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Relying on merely 20 phr addition of SMIA, the VST of the blends increases by 3.1 °C compared to that of the one without SMIA.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.8
       }
     }
   ],
@@ -684,14 +864,14 @@
   "property_series": [
     {
       "series_id": "series001",
-      "sample_id": "s005",
-      "entity_id": "pe011",
+      "sample_id": "s004",
+      "entity_id": "pe012",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Impact strength",
       "property_name_normalized": "izod_impact",
       "property_code": "P8550",
       "property_category": "impact_strength",
-      "determination_method_raw": "notched impact strength test complies with ASTM D-256-2010",
+      "determination_method_raw": "ASTM D-256-2010",
       "observation_group_id": null,
       "unit_raw": "J/m",
       "unit_normalized": "J/m",
@@ -722,25 +902,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "impact_test_standard": "ASTM D-256-2010"
+          "impact_test_standard": "ASTM D-256-2010",
+          "tensile_test_standard": "ASTM D638-2000",
+          "tensile_crosshead_speed": "50 mm/min"
         },
-        "other_condition_evidence": {
-          "impact_test_standard": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -748,8 +914,8 @@
         {
           "point_id": "pt001",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -766,7 +932,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "0",
@@ -811,25 +977,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -845,7 +997,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "62.14 ± 3.93",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "0",
@@ -864,8 +1016,8 @@
         {
           "point_id": "pt002",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -882,7 +1034,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "6",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "6",
@@ -927,25 +1079,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -961,7 +1099,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "193.21 ± 38.92",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "6",
@@ -980,8 +1118,8 @@
         {
           "point_id": "pt003",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -998,7 +1136,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "8",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "8",
@@ -1043,25 +1181,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1077,7 +1201,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "1118.93 ± 41.49",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "8",
@@ -1096,8 +1220,8 @@
         {
           "point_id": "pt004",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -1114,7 +1238,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "10",
@@ -1159,25 +1283,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1193,7 +1303,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "1350.60 ± 23.10",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "10",
@@ -1203,45 +1313,6 @@
                 "row_index": 4,
                 "column_index": 1
               }
-            },
-            {
-              "block_id": "P_0_8",
-              "page": 0,
-              "bbox": [
-                80.0,
-                502.0,
-                915.0,
-                702.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The brittle-ductile transition point was found to be 1350.60 J/m addition of 10 phr ABS.",
-              "table_locator": null
-            },
-            {
-              "block_id": "P_2_51",
-              "page": 2,
-              "bbox": [
-                505.0,
-                200.0,
-                927.0,
-                556.0
-              ],
-              "source_type": "text",
-              "source_sentence": "It revealed a transition from brittle to ductile materials and a maximum value of 1350.60 J/m occurs at 10 phr.",
-              "table_locator": null
-            },
-            {
-              "block_id": "P_5_82",
-              "page": 5,
-              "bbox": [
-                68.0,
-                875.0,
-                487.0,
-                936.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The impact strength of PVC/ABS was 1350.60 J/m, which was 20 times higher than that of pure PVC.",
-              "table_locator": null
             }
           ],
           "confidence": {
@@ -1251,8 +1322,8 @@
         {
           "point_id": "pt005",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -1269,7 +1340,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "12",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "12",
@@ -1314,25 +1385,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1348,7 +1405,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "1263.75 ± 18.75",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "12",
@@ -1393,14 +1450,14 @@
     },
     {
       "series_id": "series002",
-      "sample_id": "s005",
-      "entity_id": "pe011",
+      "sample_id": "s004",
+      "entity_id": "pe012",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Tensile strength",
       "property_name_normalized": "tensile_stress_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "observation_group_id": null,
       "unit_raw": "MPa",
       "unit_normalized": "MPa",
@@ -1431,41 +1488,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
-        "other_condition_evidence": {
-          "tensile_test_standard": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ],
-          "crosshead_speed": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -1473,8 +1500,8 @@
         {
           "point_id": "pt006",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -1491,7 +1518,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "0",
@@ -1536,41 +1563,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1586,7 +1583,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "51.66 ± 0.55",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "0",
@@ -1605,8 +1602,8 @@
         {
           "point_id": "pt007",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -1623,7 +1620,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "6",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "6",
@@ -1668,41 +1665,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1718,7 +1685,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "50.56 ± 1.48",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "6",
@@ -1737,8 +1704,8 @@
         {
           "point_id": "pt008",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -1755,7 +1722,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "8",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "8",
@@ -1800,41 +1767,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1850,7 +1787,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "50.19 ± 1.56",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "8",
@@ -1869,8 +1806,8 @@
         {
           "point_id": "pt009",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -1887,7 +1824,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "10",
@@ -1932,41 +1869,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1982,7 +1889,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "48.02 ± 1.25",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "10",
@@ -2001,8 +1908,8 @@
         {
           "point_id": "pt010",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2019,7 +1926,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "12",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "12",
@@ -2064,41 +1971,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2114,7 +1991,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "47.41 ± 4.19",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "12",
@@ -2159,14 +2036,14 @@
     },
     {
       "series_id": "series003",
-      "sample_id": "s005",
-      "entity_id": "pe011",
+      "sample_id": "s004",
+      "entity_id": "pe012",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Elongation at break",
       "property_name_normalized": "elongation_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "observation_group_id": null,
       "unit_raw": "%",
       "unit_normalized": "%",
@@ -2197,41 +2074,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
-        "other_condition_evidence": {
-          "tensile_test_standard": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ],
-          "crosshead_speed": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -2239,8 +2086,8 @@
         {
           "point_id": "pt011",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2257,7 +2104,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "0",
@@ -2302,41 +2149,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2352,7 +2169,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "81.72 ± 5.35",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "0",
@@ -2371,8 +2188,8 @@
         {
           "point_id": "pt012",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2389,7 +2206,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "6",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "6",
@@ -2434,41 +2251,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2484,7 +2271,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "94.25 ± 4.32",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "6",
@@ -2503,8 +2290,8 @@
         {
           "point_id": "pt013",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2521,7 +2308,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "8",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "8",
@@ -2566,41 +2353,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2616,7 +2373,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "156.30 ± 8.08",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "8",
@@ -2635,8 +2392,8 @@
         {
           "point_id": "pt014",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2653,7 +2410,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "10",
@@ -2698,41 +2455,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2748,7 +2475,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "140.14 ± 18.22",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "10",
@@ -2767,8 +2494,8 @@
         {
           "point_id": "pt015",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2785,7 +2512,7 @@
                   875.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+                "source_sentence": "12",
                 "table_locator": {
                   "table_id": "T_3_58",
                   "row_label": "12",
@@ -2830,41 +2557,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2880,7 +2577,7 @@
                 875.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+              "source_sentence": "158.67 ± 11.98",
               "table_locator": {
                 "table_id": "T_3_58",
                 "row_label": "12",
@@ -2925,14 +2622,14 @@
     },
     {
       "series_id": "series004",
-      "sample_id": "s006",
-      "entity_id": "pe012",
+      "sample_id": "s005",
+      "entity_id": "pe004",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Impact strength",
       "property_name_normalized": "izod_impact",
       "property_code": "P8550",
       "property_category": "impact_strength",
-      "determination_method_raw": "notched impact strength test complies with ASTM D-256-2010",
+      "determination_method_raw": "ASTM D-256-2010",
       "observation_group_id": null,
       "unit_raw": "J/m",
       "unit_normalized": "J/m",
@@ -2963,25 +2660,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "impact_test_standard": "ASTM D-256-2010"
+          "impact_test_standard": "ASTM D-256-2010",
+          "tensile_test_standard": "ASTM D638-2000",
+          "tensile_crosshead_speed": "50 mm/min"
         },
-        "other_condition_evidence": {
-          "impact_test_standard": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -2989,8 +2672,8 @@
         {
           "point_id": "pt016",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3007,7 +2690,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "0",
@@ -3052,25 +2735,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3086,7 +2755,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "1350.60 ± 23.10",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "0",
@@ -3105,8 +2774,8 @@
         {
           "point_id": "pt017",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3123,7 +2792,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "5",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "5",
@@ -3168,25 +2837,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3202,7 +2857,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "1266.25 ± 15.18",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "5",
@@ -3221,8 +2876,8 @@
         {
           "point_id": "pt018",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3239,7 +2894,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "10",
@@ -3284,25 +2939,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3318,7 +2959,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "1031.61 ± 39.46",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "10",
@@ -3337,8 +2978,8 @@
         {
           "point_id": "pt019",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3355,7 +2996,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "15",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "15",
@@ -3400,25 +3041,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3434,7 +3061,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "651.9 ± 39.66",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "15",
@@ -3453,8 +3080,8 @@
         {
           "point_id": "pt020",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3471,7 +3098,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "20",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "20",
@@ -3516,25 +3143,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "impact_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The notched impact strength test complies with ASTM D-256-2010 (Model AJU-22, Chengde Tester Machinery Factory, China).",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3550,7 +3163,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "397.14 ± 7.07",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "20",
@@ -3560,32 +3173,6 @@
                 "row_index": 5,
                 "column_index": 1
               }
-            },
-            {
-              "block_id": "P_3_63",
-              "page": 3,
-              "bbox": [
-                507.0,
-                214.0,
-                927.0,
-                438.0
-              ],
-              "source_type": "text",
-              "source_sentence": "the impact strength showed a decreasing trend from 1350.60 to 397.14 J/m with the increase of SMIA content.",
-              "table_locator": null
-            },
-            {
-              "block_id": "P_5_82",
-              "page": 5,
-              "bbox": [
-                68.0,
-                875.0,
-                487.0,
-                936.0
-              ],
-              "source_type": "text",
-              "source_sentence": "Although the impact strength of the composite material has been reduced to a certain extent, the impact strength remains at 397.14 J/m, which is higher than that of pure PVC.",
-              "table_locator": null
             }
           ],
           "confidence": {
@@ -3621,14 +3208,14 @@
     },
     {
       "series_id": "series005",
-      "sample_id": "s006",
-      "entity_id": "pe012",
+      "sample_id": "s005",
+      "entity_id": "pe004",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Tensile strength",
       "property_name_normalized": "tensile_stress_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "observation_group_id": null,
       "unit_raw": "MPa",
       "unit_normalized": "MPa",
@@ -3659,41 +3246,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
-        "other_condition_evidence": {
-          "tensile_test_standard": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ],
-          "crosshead_speed": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -3701,8 +3258,8 @@
         {
           "point_id": "pt021",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3719,7 +3276,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "0",
@@ -3764,41 +3321,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3814,7 +3341,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "48.02 ± 1.25",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "0",
@@ -3833,8 +3360,8 @@
         {
           "point_id": "pt022",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3851,7 +3378,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "5",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "5",
@@ -3896,41 +3423,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -3946,7 +3443,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "42.63 ± 1.31",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "5",
@@ -3965,8 +3462,8 @@
         {
           "point_id": "pt023",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3983,7 +3480,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "10",
@@ -4028,41 +3525,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4078,7 +3545,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "44.45 ± 1.48",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "10",
@@ -4097,8 +3564,8 @@
         {
           "point_id": "pt024",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4115,7 +3582,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "15",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "15",
@@ -4160,41 +3627,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4210,7 +3647,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "44.80 ± 1.62",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "15",
@@ -4229,8 +3666,8 @@
         {
           "point_id": "pt025",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4247,7 +3684,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "20",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "20",
@@ -4292,41 +3729,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4342,7 +3749,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "45.58 ± 1.21",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "20",
@@ -4387,14 +3794,14 @@
     },
     {
       "series_id": "series006",
-      "sample_id": "s006",
-      "entity_id": "pe012",
+      "sample_id": "s005",
+      "entity_id": "pe004",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Elongation at break",
       "property_name_normalized": "elongation_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "observation_group_id": null,
       "unit_raw": "%",
       "unit_normalized": "%",
@@ -4425,41 +3832,11 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
-        "other_condition_evidence": {
-          "tensile_test_standard": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ],
-          "crosshead_speed": [
-            {
-              "block_id": "P_1_33",
-              "page": 1,
-              "bbox": [
-                507.0,
-                581.0,
-                926.0,
-                656.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -4467,8 +3844,8 @@
         {
           "point_id": "pt026",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4485,7 +3862,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "0",
@@ -4530,41 +3907,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4580,7 +3927,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "140.14 ± 18.22",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "0",
@@ -4599,8 +3946,8 @@
         {
           "point_id": "pt027",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4617,7 +3964,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "5",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "5",
@@ -4662,41 +4009,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4712,7 +4029,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "133.86 ± 9.07",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "5",
@@ -4731,8 +4048,8 @@
         {
           "point_id": "pt028",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4749,7 +4066,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "10",
@@ -4794,41 +4111,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4844,7 +4131,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "69.06 ± 4.24",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "10",
@@ -4863,8 +4150,8 @@
         {
           "point_id": "pt029",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4881,7 +4168,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "15",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "15",
@@ -4926,41 +4213,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -4976,7 +4233,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "43.89 ± 2.85",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "15",
@@ -4995,8 +4252,8 @@
         {
           "point_id": "pt030",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -5013,7 +4270,7 @@
                   615.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+                "source_sentence": "20",
                 "table_locator": {
                   "table_id": "T_4_70",
                   "row_label": "20",
@@ -5058,41 +4315,11 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
-            "other_condition_evidence": {
-              "tensile_test_standard": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ],
-              "crosshead_speed": [
-                {
-                  "block_id": "P_1_33",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    581.0,
-                    926.0,
-                    656.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tensile test was conducted under ASTM D638-2000 at 23 °C using an Instron tester with a crosshead speed of 50 mm/ min.",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -5108,7 +4335,7 @@
                 615.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+              "source_sentence": "30.03 ± 3.67",
               "table_locator": {
                 "table_id": "T_4_70",
                 "row_label": "20",
@@ -5153,14 +4380,14 @@
     },
     {
       "series_id": "series007",
-      "sample_id": "s006",
-      "entity_id": "pe012",
-      "sample_resolution_status": "resolved",
-      "property_name_raw": "Tg_1",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Tg1",
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
       "property_category": "thermal_property",
-      "determination_method_raw": "Dynamic Mechanical Analysis (DMA) under tensile mode, 1 Hz frequency, heating rate of 3 °C/min",
+      "determination_method_raw": "DMA",
       "observation_group_id": null,
       "unit_raw": "°C",
       "unit_normalized": "°C",
@@ -5191,41 +4418,12 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "test_mode": "tensile",
-          "heating_rate": "3 °C/min"
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
         },
-        "other_condition_evidence": {
-          "test_mode": [
-            {
-              "block_id": "P_1_35",
-              "page": 1,
-              "bbox": [
-                507.0,
-                714.0,
-                926.0,
-                804.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-              "table_locator": null
-            }
-          ],
-          "heating_rate": [
-            {
-              "block_id": "P_1_35",
-              "page": 1,
-              "bbox": [
-                507.0,
-                714.0,
-                926.0,
-                804.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -5233,8 +4431,8 @@
         {
           "point_id": "pt031",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -5251,7 +4449,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "0",
@@ -5296,41 +4494,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -5346,7 +4515,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "91.20",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "0",
@@ -5365,8 +4534,8 @@
         {
           "point_id": "pt032",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -5383,7 +4552,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "10",
@@ -5428,41 +4597,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -5478,7 +4618,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "89.30",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "10",
@@ -5497,8 +4637,8 @@
         {
           "point_id": "pt033",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -5515,7 +4655,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "20",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "20",
@@ -5560,41 +4700,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -5610,7 +4721,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "89.60",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "20",
@@ -5629,8 +4740,8 @@
         {
           "point_id": "pt034",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s003",
+          "entity_id": "pe003",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -5647,7 +4758,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "SMIA",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "SMIA",
@@ -5692,41 +4803,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -5742,15 +4824,15 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "—",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "SMIA",
-                "column_label": "$Tg_1$ (°C)",
+                "column_label": "Tg1 (°C)",
                 "cell_value": "—",
-                "cell_id": "T_5_83:r0005:c0001",
-                "row_index": 5,
-                "column_index": 1
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
               }
             }
           ],
@@ -5787,14 +4869,14 @@
     },
     {
       "series_id": "series008",
-      "sample_id": "s006",
-      "entity_id": "pe012",
-      "sample_resolution_status": "resolved",
-      "property_name_raw": "Tg_2",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Tg2",
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
       "property_category": "thermal_property",
-      "determination_method_raw": "Dynamic Mechanical Analysis (DMA) under tensile mode, 1 Hz frequency, heating rate of 3 °C/min",
+      "determination_method_raw": "DMA",
       "observation_group_id": null,
       "unit_raw": "°C",
       "unit_normalized": "°C",
@@ -5825,41 +4907,12 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "test_mode": "tensile",
-          "heating_rate": "3 °C/min"
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
         },
-        "other_condition_evidence": {
-          "test_mode": [
-            {
-              "block_id": "P_1_35",
-              "page": 1,
-              "bbox": [
-                507.0,
-                714.0,
-                926.0,
-                804.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-              "table_locator": null
-            }
-          ],
-          "heating_rate": [
-            {
-              "block_id": "P_1_35",
-              "page": 1,
-              "bbox": [
-                507.0,
-                714.0,
-                926.0,
-                804.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -5867,8 +4920,8 @@
         {
           "point_id": "pt035",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -5885,7 +4938,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "0",
@@ -5930,41 +4983,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -5980,15 +5004,15 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "—",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "0",
-                "column_label": "$Tg_2$ (°C)",
+                "column_label": "Tg2 (°C)",
                 "cell_value": "—",
-                "cell_id": "T_5_83:r0002:c0002",
-                "row_index": 2,
-                "column_index": 2
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
               }
             }
           ],
@@ -5999,8 +5023,8 @@
         {
           "point_id": "pt036",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6017,7 +5041,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "10",
@@ -6062,41 +5086,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -6112,7 +5107,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "129.80",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "10",
@@ -6131,8 +5126,8 @@
         {
           "point_id": "pt037",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6149,7 +5144,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "20",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "20",
@@ -6194,41 +5189,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -6244,7 +5210,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "131.90",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "20",
@@ -6263,8 +5229,8 @@
         {
           "point_id": "pt038",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s003",
+          "entity_id": "pe003",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6281,7 +5247,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "SMIA",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "SMIA",
@@ -6326,41 +5292,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -6376,7 +5313,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "132.00",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "SMIA",
@@ -6421,14 +5358,14 @@
     },
     {
       "series_id": "series009",
-      "sample_id": "s006",
-      "entity_id": "pe012",
-      "sample_resolution_status": "resolved",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
       "property_name_raw": "ΔT",
       "property_name_normalized": null,
       "property_code": null,
       "property_category": null,
-      "determination_method_raw": "Dynamic Mechanical Analysis (DMA) under tensile mode, 1 Hz frequency, heating rate of 3 °C/min",
+      "determination_method_raw": "DMA",
       "observation_group_id": null,
       "unit_raw": "°C",
       "unit_normalized": "°C",
@@ -6459,41 +5396,12 @@
         "pressure": null,
         "wavelength": null,
         "other_conditions": {
-          "test_mode": "tensile",
-          "heating_rate": "3 °C/min"
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
         },
-        "other_condition_evidence": {
-          "test_mode": [
-            {
-              "block_id": "P_1_35",
-              "page": 1,
-              "bbox": [
-                507.0,
-                714.0,
-                926.0,
-                804.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-              "table_locator": null
-            }
-          ],
-          "heating_rate": [
-            {
-              "block_id": "P_1_35",
-              "page": 1,
-              "bbox": [
-                507.0,
-                714.0,
-                926.0,
-                804.0
-              ],
-              "source_type": "text",
-              "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
@@ -6501,8 +5409,8 @@
         {
           "point_id": "pt039",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6519,7 +5427,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "0",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "0",
@@ -6564,41 +5472,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -6614,7 +5493,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "—",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "0",
@@ -6633,8 +5512,8 @@
         {
           "point_id": "pt040",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6651,7 +5530,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "10",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "10",
@@ -6696,41 +5575,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -6746,7 +5596,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "40.50",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "10",
@@ -6765,8 +5615,8 @@
         {
           "point_id": "pt041",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6783,7 +5633,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "20",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "20",
@@ -6828,41 +5678,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -6878,7 +5699,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "42.30",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "20",
@@ -6897,8 +5718,8 @@
         {
           "point_id": "pt042",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s003",
+          "entity_id": "pe003",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -6915,7 +5736,7 @@
                   514.0
                 ],
                 "source_type": "table",
-                "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+                "source_sentence": "SMIA",
                 "table_locator": {
                   "table_id": "T_5_83",
                   "row_label": "SMIA",
@@ -6960,41 +5781,12 @@
             "pressure": null,
             "wavelength": null,
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
-            "other_condition_evidence": {
-              "test_mode": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ],
-              "heating_rate": [
-                {
-                  "block_id": "P_1_35",
-                  "page": 1,
-                  "bbox": [
-                    507.0,
-                    714.0,
-                    926.0,
-                    804.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C .",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -7010,7 +5802,7 @@
                 514.0
               ],
               "source_type": "table",
-              "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+              "source_sentence": "—",
               "table_locator": {
                 "table_id": "T_5_83",
                 "row_label": "SMIA",
@@ -7065,30 +5857,30 @@
     "prompt_version": "1.7.2",
     "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "22b76248fd98e036e8ba8ae698f7ce89c61e6b31fbca5b32906222ad1ade7a8f",
+    "input_hash": "e9145bcd44cb3304dcb73c85b5b69dade323eda2c8a759569a516f11c77df37c",
     "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-    "cache_key": "bd46778d8ac0dde73930a28c37d03fc075af17fc4c091cf325e96a20c03af95c",
+    "cache_key": "cf5bbbf892c9fc78bea61bace336566c33330fceee581a12da6144d4804afb0f",
     "output_schema_version": "property_observation_schema.v7",
     "implementation_version": "1.7.10",
     "context_block_count": 79,
     "context_chars": 44870,
     "call_count": 1,
     "usage": {
-      "input_tokens": 27496,
-      "output_tokens": 26332,
+      "input_tokens": 27419,
+      "output_tokens": 30202,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 27496,
-      "total_tokens": 53828
+      "billable_input_tokens": 27419,
+      "total_tokens": 57621
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.11878272",
-      "output_cost": "0.7675778",
-      "total_cost": "0.88636052"
+      "input_cost": "0.11845008",
+      "output_cost": "0.8803883",
+      "total_cost": "0.99883838"
     },
     "status": "success"
   },
@@ -7111,40 +5903,46 @@
     },
     {
       "stage": "stage4_property",
+      "code": "preview_point_locator_recovered_from_unique_table_row",
+      "message": "Preview 模式已用唯一完整表格行、唯一列头及一致 value_raw 补全 Series point 的稳定坐标",
+      "points": 36
+    },
+    {
+      "stage": "stage4_property",
       "code": "series_entity_relinked_to_sample",
       "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正",
       "series": 9,
-      "points": 0
+      "points": 42
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 3
     },
     {
       "stage": "stage4_property",
       "code": "candidate_table_locator_surface_repaired",
       "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
-      "evidence": 10
-    },
-    {
-      "stage": "stage4_property",
-      "code": "condition_evidence_surfaces_repaired",
-      "message": "条件 evidence 的候选摘要无法逐字定位；已用同一条件下性质字段的原文 anchor 恢复",
-      "evidence": 1
+      "evidence": 8
     },
     {
       "stage": "stage4_property",
       "code": "series_method_evidence_supplemented",
       "message": "Series determination method 不在 point 表格 evidence；已补入全文中唯一的完全匹配原文 block",
-      "series": 2
+      "series": 6
     },
     {
       "stage": "stage4_property",
       "code": "series_context_evidence_supplemented",
       "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block",
-      "series_evidence": 7
+      "series_evidence": 3
     },
     {
       "stage": "stage4_property",
       "code": "preview_semantic_validation_bypassed",
       "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
-      "reason": "prop003.property_name_raw='initial decomposition temperature' 不是任一 evidence block 的原文子串"
+      "reason": "prop008.property_name_raw='Vicat softening temperature increase' 不是任一 evidence block 的原文子串"
     },
     {
       "stage": "stage4_property",

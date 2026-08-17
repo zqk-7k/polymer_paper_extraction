@@ -5,7 +5,7 @@
     {
       "condition_id": "mc001",
       "temperature": {
-        "raw": "30 ^ { \\circ } \\mathrm { C }",
+        "raw": "30°C",
         "value": 30.0,
         "unit": "°C",
         "evidence": [
@@ -19,7 +19,7 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
             "table_locator": null
           }
         ],
@@ -31,7 +31,8 @@
       "wavelength": null,
       "other_conditions": {
         "solvent": "NMP",
-        "concentration": "0.5 g/dl"
+        "concentration": "0.5 g/dl",
+        "instrument": "Ubbelohde viscometer"
       },
       "other_condition_evidence": {
         "solvent": [
@@ -45,7 +46,7 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
             "table_locator": null
           }
         ],
@@ -60,7 +61,22 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
+            "table_locator": null
+          }
+        ],
+        "instrument": [
+          {
+            "block_id": "P_1_21",
+            "page": 1,
+            "bbox": [
+              53.0,
+              330.0,
+              467.0,
+              787.0
+            ],
+            "source_type": "text",
+            "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
             "table_locator": null
           }
         ]
@@ -76,11 +92,11 @@
           787.0
         ],
         "source_type": "text",
-        "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+        "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
         "table_locator": null
       },
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
@@ -91,9 +107,9 @@
       "pressure": null,
       "wavelength": null,
       "other_conditions": {
-        "solvent": "DMF",
-        "flow_rate": "1 ml/min",
-        "calibration_standard": "polystyrene"
+        "solvent": "dimethylformamide (DMF)",
+        "flow rate": "1 ml/min",
+        "calibration standard": "polystyrene"
       },
       "other_condition_evidence": {
         "solvent": [
@@ -107,11 +123,11 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "dimethylformamide (DMF) was used as a solvent",
+            "source_sentence": "Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent.",
             "table_locator": null
           }
         ],
-        "flow_rate": [
+        "flow rate": [
           {
             "block_id": "P_1_21",
             "page": 1,
@@ -122,11 +138,11 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "flow rate of 1 ml/min",
+            "source_sentence": "Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent.",
             "table_locator": null
           }
         ],
-        "calibration_standard": [
+        "calibration standard": [
           {
             "block_id": "P_1_21",
             "page": 1,
@@ -137,7 +153,7 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "molecular weight calibration was carried out using polystyrene standards",
+            "source_sentence": "The molecular weight calibration was carried out using polystyrene standards.",
             "table_locator": null
           }
         ]
@@ -157,7 +173,7 @@
         "table_locator": null
       },
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
@@ -178,7 +194,7 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "at 1 Hz",
+            "source_sentence": "The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of 25-300°C at 1 Hz and a heating rate of 5°C/min (Surrey, UK).",
             "table_locator": null
           }
         ],
@@ -188,12 +204,10 @@
       "pressure": null,
       "wavelength": null,
       "other_conditions": {
-        "DSC_atmosphere": "air",
-        "DMTA_temperature_range": "25-300 °C",
-        "TGA_atmosphere": "air"
+        "atmosphere": "air"
       },
       "other_condition_evidence": {
-        "DSC_atmosphere": [
+        "atmosphere": [
           {
             "block_id": "P_1_21",
             "page": 1,
@@ -204,37 +218,7 @@
               787.0
             ],
             "source_type": "text",
-            "source_sentence": "in air",
-            "table_locator": null
-          }
-        ],
-        "DMTA_temperature_range": [
-          {
-            "block_id": "P_1_21",
-            "page": 1,
-            "bbox": [
-              53.0,
-              330.0,
-              467.0,
-              787.0
-            ],
-            "source_type": "text",
-            "source_sentence": "temperature range of $2 5 { - } 3 0 0 ^ { \\circ } \\mathrm { C }$",
-            "table_locator": null
-          }
-        ],
-        "TGA_atmosphere": [
-          {
-            "block_id": "P_1_21",
-            "page": 1,
-            "bbox": [
-              53.0,
-              330.0,
-              467.0,
-              787.0
-            ],
-            "source_type": "text",
-            "source_sentence": "in air",
+            "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 10°C/min.",
             "table_locator": null
           }
         ]
@@ -250,15 +234,60 @@
           787.0
         ],
         "source_type": "text",
-        "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of $2 5 { - } 3 0 0 ^ { \\circ } \\mathrm { C }$ at 1 Hz and a heating rate of 58C/min (Surrey, UK).",
+        "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 10°C/min. In DSC thermograms, the samples were heated from 30 to 200°C, they were cooled, and then re-heated to eliminate the thermal history. The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of 25-300°C at 1 Hz and a heating rate of 5°C/min (Surrey, UK).",
         "table_locator": null
       },
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
       "condition_id": "mc004",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {
+        "atmosphere": "air"
+      },
+      "other_condition_evidence": {
+        "atmosphere": [
+          {
+            "block_id": "P_1_21",
+            "page": 1,
+            "bbox": [
+              53.0,
+              330.0,
+              467.0,
+              787.0
+            ],
+            "source_type": "text",
+            "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 10°C/min.",
+            "table_locator": null
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          53.0,
+          330.0,
+          467.0,
+          787.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 10°C/min.",
+        "table_locator": null
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc005",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -279,7 +308,7 @@
               477.0
             ],
             "source_type": "text",
-            "source_sentence": "in NMP solution",
+            "source_sentence": "The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution.",
             "table_locator": null
           }
         ]
@@ -299,11 +328,11 @@
         "table_locator": null
       },
       "confidence": {
-        "score": 0.95
+        "score": 0.9
       }
     },
     {
-      "condition_id": "mc005",
+      "condition_id": "mc006",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -313,24 +342,24 @@
       "other_condition_evidence": {},
       "condition_status": "not_reported",
       "evidence": {
-        "block_id": "T_7_98",
+        "block_id": "P_7_100",
         "page": 7,
         "bbox": [
-          55.0,
-          223.0,
-          463.0,
-          345.0
+          53.0,
+          505.0,
+          465.0,
+          604.0
         ],
-        "source_type": "table",
-        "source_sentence": "Table 5. Solubility of poly(amide-urea)s",
+        "source_type": "text",
+        "source_sentence": "The solubility behavior of the polyureas is summarized in Table 5.",
         "table_locator": null
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
-      "condition_id": "mc006",
+      "condition_id": "mc007",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -361,11 +390,44 @@
         }
       },
       "confidence": {
-        "score": 0.9
+        "score": 0.8
       }
     },
     {
-      "condition_id": "mc007",
+      "condition_id": "mc008",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "190",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "row_label": "1AQA-PPDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "190"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc009",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -398,7 +460,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc008",
+      "condition_id": "mc010",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "185",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "row_label": "1AQA-NDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "185"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc011",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -431,7 +526,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc009",
+      "condition_id": "mc012",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "178",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "row_label": "1AQA-MDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "178"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc013",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -464,7 +592,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc010",
+      "condition_id": "mc014",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "156",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "row_label": "1AQA-H $_{12}$ MDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "156"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc015",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -497,7 +658,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc011",
+      "condition_id": "mc016",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "184",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "row_label": "2AQA-PPDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "184"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc017",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -530,7 +724,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc012",
+      "condition_id": "mc018",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "178",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0006:c0001",
+          "row_index": 6,
+          "column_index": 1,
+          "row_label": "2AQA-NDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "178"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc019",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -563,7 +790,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc013",
+      "condition_id": "mc020",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "168",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0007:c0001",
+          "row_index": 7,
+          "column_index": 1,
+          "row_label": "2AQA-MDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "168"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc021",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -596,7 +856,40 @@
       "confidence": null
     },
     {
-      "condition_id": "mc014",
+      "condition_id": "mc022",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_6_86",
+        "page": 6,
+        "bbox": [
+          90.0,
+          742.0,
+          510.0,
+          863.0
+        ],
+        "source_type": "table",
+        "source_sentence": "148",
+        "table_locator": {
+          "table_id": "T_6_86",
+          "cell_id": "T_6_86:r0008:c0001",
+          "row_index": 8,
+          "column_index": 1,
+          "row_label": "2AQA-H $_{12}$ MDI",
+          "column_label": "$T_{g}$ (°C)",
+          "cell_value": "148"
+        }
+      },
+      "confidence": null
+    },
+    {
+      "condition_id": "mc023",
       "temperature": null,
       "frequency": null,
       "humidity": null,
@@ -633,6 +926,62 @@
     {
       "property_id": "prop001",
       "sample_id": "s002",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "190",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc008",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "190",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "row_label": "1AQA-PPDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "190"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s002",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
       "property_code": null,
@@ -648,7 +997,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc007",
+      "measurement_condition_id": "mc009",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -687,7 +1036,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop002",
+      "property_id": "prop003",
+      "sample_id": "s003",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "185",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc010",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "185",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "row_label": "1AQA-NDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "185"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop004",
       "sample_id": "s003",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -704,7 +1109,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc008",
+      "measurement_condition_id": "mc011",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -743,7 +1148,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop003",
+      "property_id": "prop005",
+      "sample_id": "s004",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "178",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc012",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "178",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "row_label": "1AQA-MDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "178"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop006",
       "sample_id": "s004",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -760,7 +1221,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc009",
+      "measurement_condition_id": "mc013",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -799,7 +1260,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop004",
+      "property_id": "prop007",
+      "sample_id": "s005",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "156",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc014",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "156",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1,
+            "row_label": "1AQA-H $_{12}$ MDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "156"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop008",
       "sample_id": "s005",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -816,7 +1333,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc010",
+      "measurement_condition_id": "mc015",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -855,7 +1372,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop005",
+      "property_id": "prop009",
+      "sample_id": "s006",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "184",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc016",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "184",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1,
+            "row_label": "2AQA-PPDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "184"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop010",
       "sample_id": "s006",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -872,7 +1445,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc011",
+      "measurement_condition_id": "mc017",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -911,7 +1484,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop006",
+      "property_id": "prop011",
+      "sample_id": "s007",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "178",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc018",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "178",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0006:c0001",
+            "row_index": 6,
+            "column_index": 1,
+            "row_label": "2AQA-NDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "178"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop012",
       "sample_id": "s007",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -928,7 +1557,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc012",
+      "measurement_condition_id": "mc019",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -967,7 +1596,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop007",
+      "property_id": "prop013",
+      "sample_id": "s008",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "168",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc020",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "168",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0007:c0001",
+            "row_index": 7,
+            "column_index": 1,
+            "row_label": "2AQA-MDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "168"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop014",
       "sample_id": "s008",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -984,7 +1669,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc013",
+      "measurement_condition_id": "mc021",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -1023,7 +1708,63 @@
       "confidence": null
     },
     {
-      "property_id": "prop008",
+      "property_id": "prop015",
+      "sample_id": "s009",
+      "property_name_raw": "glass_transition_temperature",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "148",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": "°C",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc022",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_6_86",
+          "page": 6,
+          "bbox": [
+            90.0,
+            742.0,
+            510.0,
+            863.0
+          ],
+          "source_type": "table",
+          "source_sentence": "148",
+          "table_locator": {
+            "table_id": "T_6_86",
+            "cell_id": "T_6_86:r0008:c0001",
+            "row_index": 8,
+            "column_index": 1,
+            "row_label": "2AQA-H $_{12}$ MDI",
+            "column_label": "$T_{g}$ (°C)",
+            "cell_value": "148"
+          }
+        }
+      ],
+      "confidence": null
+    },
+    {
+      "property_id": "prop016",
       "sample_id": "s009",
       "property_name_raw": "thermal_decomposition_temperature",
       "property_name_normalized": null,
@@ -1040,7 +1781,7 @@
       "value_max": null,
       "unit_raw": "%",
       "unit_normalized": null,
-      "measurement_condition_id": "mc014",
+      "measurement_condition_id": "mc023",
       "measurement_context": {
         "temperature": null,
         "frequency": null,
@@ -1079,110 +1820,7 @@
       "confidence": null
     }
   ],
-  "unresolved_properties": [
-    {
-      "unresolved_id": "uprop001",
-      "entity_id": "pe002",
-      "sample_id": null,
-      "property_name_raw": "$M_n$",
-      "property_name_normalized": null,
-      "property_code": null,
-      "property_category": null,
-      "molecular_weight_type": null,
-      "determination_method_raw": "GPC",
-      "observation_group_id": null,
-      "observation_role": "single",
-      "series_id": null,
-      "series_ids": null,
-      "value_raw": "14,200 to 22,000",
-      "value_min": null,
-      "value_max": null,
-      "unit_raw": null,
-      "unit_normalized": null,
-      "measurement_condition_id": null,
-      "measurement_context": {
-        "temperature": null,
-        "frequency": null,
-        "humidity": null,
-        "pressure": null,
-        "wavelength": null,
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_ambiguous",
-      "evidence": [
-        {
-          "block_id": "P_6_83",
-          "page": 6,
-          "bbox": [
-            87.0,
-            93.0,
-            500.0,
-            249.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The numerous molecular weights $\\left( M _ { \\mathrm { n } } \\right)$ranged from 14,200 to 22,000 corresponding to a degree of polymerization between 25 and 42.",
-          "table_locator": null
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "unresolved_id": "uprop002",
-      "entity_id": "pe002",
-      "sample_id": null,
-      "property_name_raw": "$M_w$",
-      "property_name_normalized": null,
-      "property_code": null,
-      "property_category": null,
-      "molecular_weight_type": null,
-      "determination_method_raw": "GPC",
-      "observation_group_id": null,
-      "observation_role": "single",
-      "series_id": null,
-      "series_ids": null,
-      "value_raw": "35,700 to 48,500",
-      "value_min": null,
-      "value_max": null,
-      "unit_raw": null,
-      "unit_normalized": null,
-      "measurement_condition_id": null,
-      "measurement_context": {
-        "temperature": null,
-        "frequency": null,
-        "humidity": null,
-        "pressure": null,
-        "wavelength": null,
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_ambiguous",
-      "evidence": [
-        {
-          "block_id": "P_6_83",
-          "page": 6,
-          "bbox": [
-            87.0,
-            93.0,
-            500.0,
-            249.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The $M _ { \\mathrm { w } }$values were about 35,700–48,500 which means that the ratio of $M _ { \\mathrm { w } } / M _ { \\mathrm { n } }$was between 2.20 and 2.51.",
-          "table_locator": null
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    }
-  ],
+  "unresolved_properties": [],
   "property_series": [
     {
       "series_id": "series001",
@@ -1219,7 +1857,7 @@
           "value_raw": "92",
           "value_min": 92.0,
           "value_max": 92.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1270,7 +1908,7 @@
           "value_raw": "89",
           "value_min": 89.0,
           "value_max": 89.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1321,7 +1959,7 @@
           "value_raw": "93",
           "value_min": 93.0,
           "value_max": 93.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1372,7 +2010,7 @@
           "value_raw": "88",
           "value_min": 88.0,
           "value_max": 88.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1423,7 +2061,7 @@
           "value_raw": "87",
           "value_min": 87.0,
           "value_max": 87.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1474,7 +2112,7 @@
           "value_raw": "91",
           "value_min": 91.0,
           "value_max": 91.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1525,7 +2163,7 @@
           "value_raw": "90",
           "value_min": 90.0,
           "value_max": 90.0,
-          "unit_raw": null,
+          "unit_raw": "%",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": null,
@@ -1565,62 +2203,11 @@
           "confidence": {
             "score": 0.9
           }
-        },
-        {
-          "point_id": "pt008",
-          "observation_role": "series_point",
-          "sample_id": "s009",
-          "entity_id": "pe013",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "89",
-          "value_min": 89.0,
-          "value_max": 89.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": null,
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "not_reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_5_77",
-              "page": 5,
-              "bbox": [
-                55.0,
-                80.0,
-                905.0,
-                522.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 1. Characterization of polymers",
-              "table_locator": {
-                "table_id": "T_5_77",
-                "row_label": "2AQA-H $_{12}$ MDI",
-                "column_label": "Yield (%)",
-                "cell_value": "89",
-                "cell_id": "T_5_77:r0029:c0003",
-                "row_index": 29,
-                "column_index": 3
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
         }
       ],
       "coverage": {
-        "expected": 8,
-        "covered": 8,
+        "expected": 7,
+        "covered": 7,
         "missing": 0,
         "not_applicable": 0,
         "ratio": 1.0
@@ -1657,7 +2244,7 @@
       "sample_id": null,
       "entity_id": null,
       "sample_resolution_status": "unresolved",
-      "property_name_raw": "$\\eta_{\\text{inh}}$",
+      "property_name_raw": "η<sub>inh</sub>",
       "property_name_normalized": "intrinsic_viscosity",
       "property_code": "P6120",
       "property_category": "dilute_solution_property",
@@ -1667,7 +2254,7 @@
       "unit_normalized": "dl/g",
       "measurement_context": {
         "temperature": {
-          "raw": "30 ^ { \\circ } \\mathrm { C }",
+          "raw": "30°C",
           "value": 30.0,
           "unit": "°C",
           "evidence": [
@@ -1681,7 +2268,7 @@
                 787.0
               ],
               "source_type": "text",
-              "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+              "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
               "table_locator": null
             }
           ],
@@ -1695,44 +2282,13 @@
           "solvent": "NMP",
           "concentration": "0.5 g/dl"
         },
-        "other_condition_evidence": {
-          "solvent": [
-            {
-              "block_id": "P_1_21",
-              "page": 1,
-              "bbox": [
-                53.0,
-                330.0,
-                467.0,
-                787.0
-              ],
-              "source_type": "text",
-              "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-              "table_locator": null
-            }
-          ],
-          "concentration": [
-            {
-              "block_id": "P_1_21",
-              "page": 1,
-              "bbox": [
-                53.0,
-                330.0,
-                467.0,
-                787.0
-              ],
-              "source_type": "text",
-              "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-              "table_locator": null
-            }
-          ]
-        },
+        "other_condition_evidence": {},
         "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
-          "point_id": "pt009",
+          "point_id": "pt008",
           "observation_role": "series_point",
           "sample_id": "s002",
           "entity_id": "pe006",
@@ -1741,11 +2297,11 @@
           "value_raw": "0.73",
           "value_min": 0.73,
           "value_max": 0.73,
-          "unit_raw": null,
+          "unit_raw": "dl/g",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [
@@ -1759,7 +2315,7 @@
                     787.0
                   ],
                   "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
                   "table_locator": null
                 }
               ],
@@ -1773,38 +2329,7 @@
               "solvent": "NMP",
               "concentration": "0.5 g/dl"
             },
-            "other_condition_evidence": {
-              "solvent": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ],
-              "concentration": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1833,11 +2358,11 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt010",
+          "point_id": "pt009",
           "observation_role": "series_point",
           "sample_id": "s004",
           "entity_id": "pe008",
@@ -1846,11 +2371,11 @@
           "value_raw": "0.66",
           "value_min": 0.66,
           "value_max": 0.66,
-          "unit_raw": null,
+          "unit_raw": "dl/g",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [
@@ -1864,7 +2389,7 @@
                     787.0
                   ],
                   "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
                   "table_locator": null
                 }
               ],
@@ -1878,38 +2403,7 @@
               "solvent": "NMP",
               "concentration": "0.5 g/dl"
             },
-            "other_condition_evidence": {
-              "solvent": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ],
-              "concentration": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -1938,11 +2432,11 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt011",
+          "point_id": "pt010",
           "observation_role": "series_point",
           "sample_id": "s006",
           "entity_id": "pe010",
@@ -1951,11 +2445,11 @@
           "value_raw": "0.62",
           "value_min": 0.62,
           "value_max": 0.62,
-          "unit_raw": null,
+          "unit_raw": "dl/g",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [
@@ -1969,7 +2463,7 @@
                     787.0
                   ],
                   "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
                   "table_locator": null
                 }
               ],
@@ -1983,38 +2477,7 @@
               "solvent": "NMP",
               "concentration": "0.5 g/dl"
             },
-            "other_condition_evidence": {
-              "solvent": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ],
-              "concentration": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2043,11 +2506,11 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt012",
+          "point_id": "pt011",
           "observation_role": "series_point",
           "sample_id": "s007",
           "entity_id": "pe011",
@@ -2056,11 +2519,11 @@
           "value_raw": "0.54",
           "value_min": 0.54,
           "value_max": 0.54,
-          "unit_raw": null,
+          "unit_raw": "dl/g",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [
@@ -2074,7 +2537,7 @@
                     787.0
                   ],
                   "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
                   "table_locator": null
                 }
               ],
@@ -2088,38 +2551,7 @@
               "solvent": "NMP",
               "concentration": "0.5 g/dl"
             },
-            "other_condition_evidence": {
-              "solvent": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ],
-              "concentration": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2148,11 +2580,11 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt013",
+          "point_id": "pt012",
           "observation_role": "series_point",
           "sample_id": "s008",
           "entity_id": "pe012",
@@ -2161,11 +2593,11 @@
           "value_raw": "0.55",
           "value_min": 0.55,
           "value_max": 0.55,
-          "unit_raw": null,
+          "unit_raw": "dl/g",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [
@@ -2179,7 +2611,7 @@
                     787.0
                   ],
                   "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
                   "table_locator": null
                 }
               ],
@@ -2193,38 +2625,7 @@
               "solvent": "NMP",
               "concentration": "0.5 g/dl"
             },
-            "other_condition_evidence": {
-              "solvent": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ],
-              "concentration": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2253,11 +2654,11 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
-          "point_id": "pt014",
+          "point_id": "pt013",
           "observation_role": "series_point",
           "sample_id": "s009",
           "entity_id": "pe013",
@@ -2266,11 +2667,11 @@
           "value_raw": "0.56",
           "value_min": 0.56,
           "value_max": 0.56,
-          "unit_raw": null,
+          "unit_raw": "dl/g",
           "unit_normalized": null,
           "measurement_context": {
             "temperature": {
-              "raw": "30 ^ { \\circ } \\mathrm { C }",
+              "raw": "30°C",
               "value": 30.0,
               "unit": "°C",
               "evidence": [
@@ -2284,7 +2685,7 @@
                     787.0
                   ],
                   "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
+                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at 30°C.",
                   "table_locator": null
                 }
               ],
@@ -2298,38 +2699,7 @@
               "solvent": "NMP",
               "concentration": "0.5 g/dl"
             },
-            "other_condition_evidence": {
-              "solvent": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ],
-              "concentration": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$",
-                  "table_locator": null
-                }
-              ]
-            },
+            "other_condition_evidence": {},
             "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
@@ -2358,7 +2728,7 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         }
       ],
@@ -2385,686 +2755,7 @@
         }
       ],
       "confidence": {
-        "score": 0.95
-      }
-    },
-    {
-      "series_id": "series003",
-      "sample_id": null,
-      "entity_id": null,
-      "sample_resolution_status": "unresolved",
-      "property_name_raw": "$T_{g}$",
-      "property_name_normalized": "glass_transition_temperature",
-      "property_code": "P3110",
-      "property_category": "thermal_property",
-      "determination_method_raw": null,
-      "observation_group_id": null,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_context": {
-        "temperature": null,
-        "frequency": {
-          "raw": "1 Hz",
-          "value": 1.0,
-          "unit": "Hz",
-          "evidence": [
-            {
-              "block_id": "P_1_21",
-              "page": 1,
-              "bbox": [
-                53.0,
-                330.0,
-                467.0,
-                787.0
-              ],
-              "source_type": "text",
-              "source_sentence": "at 1 Hz",
-              "table_locator": null
-            }
-          ],
-          "evidence_ids": []
-        },
-        "humidity": null,
-        "pressure": null,
-        "wavelength": null,
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "points": [
-        {
-          "point_id": "pt015",
-          "observation_role": "series_point",
-          "sample_id": "s002",
-          "entity_id": "pe006",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "190",
-          "value_min": 190.0,
-          "value_max": 190.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "1AQA-PPDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "190",
-                "cell_id": "T_6_86:r0001:c0001",
-                "row_index": 1,
-                "column_index": 1
-              }
-            },
-            {
-              "block_id": "P_6_84",
-              "page": 6,
-              "bbox": [
-                87.0,
-                249.0,
-                500.0,
-                476.0
-              ],
-              "source_type": "text",
-              "source_sentence": "the representative curves of DMTA for 1AQA-PPDI $( T _ { \\mathrm { g } } =$1908C)",
-              "table_locator": null
-            }
-          ],
-          "confidence": {
-            "score": 0.95
-          }
-        },
-        {
-          "point_id": "pt016",
-          "observation_role": "series_point",
-          "sample_id": "s003",
-          "entity_id": "pe007",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "185",
-          "value_min": 185.0,
-          "value_max": 185.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "1AQA-NDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "185",
-                "cell_id": "T_6_86:r0002:c0001",
-                "row_index": 2,
-                "column_index": 1
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt017",
-          "observation_role": "series_point",
-          "sample_id": "s004",
-          "entity_id": "pe008",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "178",
-          "value_min": 178.0,
-          "value_max": 178.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "1AQA-MDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "178",
-                "cell_id": "T_6_86:r0003:c0001",
-                "row_index": 3,
-                "column_index": 1
-              }
-            },
-            {
-              "block_id": "P_6_84",
-              "page": 6,
-              "bbox": [
-                87.0,
-                249.0,
-                500.0,
-                476.0
-              ],
-              "source_type": "text",
-              "source_sentence": "DSC for 1AQA-MDI $( T _ { \\mathrm { g } } { = } 1 7 8 ^ { \\circ } \\mathrm { C } )$",
-              "table_locator": null
-            }
-          ],
-          "confidence": {
-            "score": 0.95
-          }
-        },
-        {
-          "point_id": "pt018",
-          "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe009",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "156",
-          "value_min": 156.0,
-          "value_max": 156.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "1AQA-H $_{12}$ MDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "156",
-                "cell_id": "T_6_86:r0004:c0001",
-                "row_index": 4,
-                "column_index": 1
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt019",
-          "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe010",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "184",
-          "value_min": 184.0,
-          "value_max": 184.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "2AQA-PPDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "184",
-                "cell_id": "T_6_86:r0005:c0001",
-                "row_index": 5,
-                "column_index": 1
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt020",
-          "observation_role": "series_point",
-          "sample_id": "s007",
-          "entity_id": "pe011",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "178",
-          "value_min": 178.0,
-          "value_max": 178.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "2AQA-NDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "178",
-                "cell_id": "T_6_86:r0006:c0001",
-                "row_index": 6,
-                "column_index": 1
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt021",
-          "observation_role": "series_point",
-          "sample_id": "s008",
-          "entity_id": "pe012",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "168",
-          "value_min": 168.0,
-          "value_max": 168.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "2AQA-MDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "168",
-                "cell_id": "T_6_86:r0007:c0001",
-                "row_index": 7,
-                "column_index": 1
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        },
-        {
-          "point_id": "pt022",
-          "observation_role": "series_point",
-          "sample_id": "s009",
-          "entity_id": "pe013",
-          "sample_resolution_status": "resolved",
-          "coordinates": [],
-          "value_raw": "148",
-          "value_min": 148.0,
-          "value_max": 148.0,
-          "unit_raw": null,
-          "unit_normalized": null,
-          "measurement_context": {
-            "temperature": null,
-            "frequency": {
-              "raw": "1 Hz",
-              "value": 1.0,
-              "unit": "Hz",
-              "evidence": [
-                {
-                  "block_id": "P_1_21",
-                  "page": 1,
-                  "bbox": [
-                    53.0,
-                    330.0,
-                    467.0,
-                    787.0
-                  ],
-                  "source_type": "text",
-                  "source_sentence": "at 1 Hz",
-                  "table_locator": null
-                }
-              ],
-              "evidence_ids": []
-            },
-            "humidity": null,
-            "pressure": null,
-            "wavelength": null,
-            "other_conditions": {},
-            "other_condition_evidence": {},
-            "other_condition_evidence_ids": {},
-            "condition_status": "reported"
-          },
-          "coverage_status": "covered",
-          "evidence": [
-            {
-              "block_id": "T_6_86",
-              "page": 6,
-              "bbox": [
-                90.0,
-                742.0,
-                510.0,
-                863.0
-              ],
-              "source_type": "table",
-              "source_sentence": "Table 3. Thermal analysis of the polymers",
-              "table_locator": {
-                "table_id": "T_6_86",
-                "row_label": "2AQA-H $_{12}$ MDI",
-                "column_label": "$T_{g}$ (°C)",
-                "cell_value": "148",
-                "cell_id": "T_6_86:r0008:c0001",
-                "row_index": 8,
-                "column_index": 1
-              }
-            }
-          ],
-          "confidence": {
-            "score": 0.9
-          }
-        }
-      ],
-      "coverage": {
-        "expected": 8,
-        "covered": 8,
-        "missing": 0,
-        "not_applicable": 0,
-        "ratio": 1.0
-      },
-      "evidence": [
-        {
-          "block_id": "P_6_84",
-          "page": 6,
-          "bbox": [
-            87.0,
-            249.0,
-            500.0,
-            476.0
-          ],
-          "source_type": "text",
-          "source_sentence": "Also DSC analysis confirmed data obtained from DMTA.",
-          "table_locator": null
-        },
-        {
-          "block_id": "P_1_21",
-          "page": 1,
-          "bbox": [
-            53.0,
-            330.0,
-            467.0,
-            787.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The dynamic mechanical measurements were recorded on a Polymer Laboratories dynamic mechanical thermal analyzer over a temperature range of $2 5 { - } 3 0 0 ^ { \\circ } \\mathrm { C }$at 1 Hz and a heating rate of 58C/min (Surrey, UK).",
-          "table_locator": null
-        }
-      ],
-      "confidence": {
-        "score": 0.5
+        "score": 0.9
       }
     }
   ],
@@ -3079,30 +2770,30 @@
     "prompt_version": "1.7.2",
     "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "72b928dcf0fe8b7a7ed48744cf08de381a5d2ebcffa8a0fe056462d9e399e545",
+    "input_hash": "e2b9f41bfe160dec567262af244fae3161f315661ef11e7ed2d10fa83f400082",
     "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-    "cache_key": "341a80baaaed2392c2c7bbe252cb2e40b37ed8863e810202081677146e2d2ef2",
+    "cache_key": "e69d1cd2627481278eeb770c00a811d12d8fd5f162d8b0443b43e4c219bee45f",
     "output_schema_version": "property_observation_schema.v7",
     "implementation_version": "1.7.10",
     "context_block_count": 51,
     "context_chars": 37423,
     "call_count": 1,
     "usage": {
-      "input_tokens": 29432,
-      "output_tokens": 17324,
+      "input_tokens": 28983,
+      "output_tokens": 16299,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 29432,
-      "total_tokens": 46756
+      "billable_input_tokens": 28983,
+      "total_tokens": 45282
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.12714624",
-      "output_cost": "0.5049946",
-      "total_cost": "0.63214084"
+      "input_cost": "0.12520656",
+      "output_cost": "0.47511585",
+      "total_cost": "0.60032241"
     },
     "status": "success"
   },
@@ -3111,13 +2802,13 @@
       "stage": "stage4_property",
       "code": "multi_subject_series_normalized",
       "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
-      "series": 3
+      "series": 2
     },
     {
       "stage": "stage4_property",
       "code": "candidate_table_locator_surface_repaired",
       "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
-      "evidence": 6
+      "evidence": 7
     },
     {
       "stage": "stage4_property",
@@ -3133,21 +2824,9 @@
     },
     {
       "stage": "stage4_property",
-      "code": "series_multimethod_downgraded",
-      "message": "Series 跨多种测定方法，无法保存为单一逐字 raw 字段；已置 null 并保留方法原文证据",
-      "series": 1
-    },
-    {
-      "stage": "stage4_property",
-      "code": "series_context_evidence_supplemented",
-      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block",
-      "series_evidence": 1
-    },
-    {
-      "stage": "stage4_property",
       "code": "preview_semantic_validation_bypassed",
       "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
-      "reason": "uprop002.value_raw='35,700 to 48,500' 不是任一 evidence block 的原文子串"
+      "reason": "series002.property_name_raw='η<sub>inh</sub>' 不是任一 evidence block 的原文子串"
     },
     {
       "stage": "stage4_property",
@@ -3164,24 +2843,15 @@
       }
     },
     {
-      "stage": "stage4_property",
-      "code": "unresolved_properties",
-      "message": "2 条性质无法可靠关联具体 Sample",
-      "unresolved_ids": [
-        "uprop001",
-        "uprop002"
-      ]
-    },
-    {
       "code": "stage4r_preview_table_recovery",
-      "message": "Stage 4R Preview 确定性补入 8 个表格性质格；样品归属保留 unresolved。",
-      "recovered_cell_count": 8,
+      "message": "Stage 4R Preview 确定性补入 16 个表格性质格；样品归属保留 unresolved。",
+      "recovered_cell_count": 16,
       "skipped_ambiguous_count": 2
     },
     {
       "code": "stage4r_unique_sample_label_resolved",
-      "message": "Stage 4R 按唯一 Stage 3 sample_label_raw 确定性归属 8 条性质。",
-      "resolved_count": 8,
+      "message": "Stage 4R 按唯一 Stage 3 sample_label_raw 确定性归属 16 条性质。",
+      "resolved_count": 16,
       "filled_up_enabled": true
     }
   ]

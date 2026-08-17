@@ -1242,7 +1242,6 @@
     {
       "entity_id": "pe001",
       "polymer_name": "polyvinyl chloride",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1287,6 +1286,7 @@
       "confidence": {
         "score": 0.99
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
@@ -1333,7 +1333,7 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.98
+        "score": 0.99
       }
     },
     {
@@ -1384,198 +1384,6 @@
     },
     {
       "entity_id": "pe004",
-      "polymer_name": "polybutadiene",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "polybutadiene",
-        "PBL"
-      ],
-      "resolved_from_mentions": [
-        "m014",
-        "m015"
-      ],
-      "evidence_ids": [
-        "ev006"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.98
-      },
-      "polymer_type": null,
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe005",
-      "polymer_name": "polystyrene-co-acrylonitrile",
-      "polymer_type": "copolymer",
-      "copolymer_type": "co",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "polystyrene-co-acrylonitrile",
-        "SAN"
-      ],
-      "resolved_from_mentions": [
-        "m016",
-        "m089",
-        "m092"
-      ],
-      "evidence_ids": [
-        "ev006"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.82
-      }
-    },
-    {
-      "entity_id": "pe006",
-      "polymer_name": "poly(a-methylstyrene-acrylonitrile)",
-      "polymer_type": "homopolymer",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "poly(a-methylstyrene-acrylonitrile)",
-        "a-MSAN"
-      ],
-      "resolved_from_mentions": [
-        "m017",
-        "m018"
-      ],
-      "evidence_ids": [
-        "ev057"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.98
-      },
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe007",
-      "polymer_name": "acrylic resin",
-      "polymer_type": "homopolymer",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "acrylic resin",
-        "ACR"
-      ],
-      "resolved_from_mentions": [
-        "m019",
-        "m020",
-        "m034"
-      ],
-      "evidence_ids": [
-        "ev057"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.96
-      },
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe008",
-      "polymer_name": "α-MSAN",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "α-MSAN"
-      ],
-      "resolved_from_mentions": [
-        "m022"
-      ],
-      "evidence_ids": [
-        "ev058"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.67
-      },
-      "polymer_type": null,
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe009",
-      "polymer_name": "a-methylstyrene/NPMI acrylonitrile random copolymer",
-      "polymer_type": "copolymer",
-      "copolymer_type": "ran",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "a-methylstyrene/NPMI acrylonitrile random copolymer",
-        "MSAMI"
-      ],
-      "resolved_from_mentions": [
-        "m024",
-        "m025"
-      ],
-      "evidence_ids": [
-        "ev059"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.98
-      }
-    },
-    {
-      "entity_id": "pe010",
-      "polymer_name": "poly(N-phenylmaleimide)-acrylonitrile–styrene copolymers",
-      "polymer_type": "copolymer",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "poly(N-phenylmaleimide)-acrylonitrile–styrene copolymers"
-      ],
-      "resolved_from_mentions": [
-        "m026"
-      ],
-      "evidence_ids": [
-        "ev060"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.96
-      },
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe011",
-      "polymer_name": "PVC/ABS composite material",
-      "polymer_type": "polymer_blend",
-      "representation_status": "expert_review_required",
-      "structural_features": [],
-      "source_names": [
-        "PVC/ABS composite material",
-        "PVC/ABS composites",
-        "PVC/ABS Composites",
-        "PVC/ABS blends",
-        "PVC/ ABS",
-        "PVC/ABS"
-      ],
-      "resolved_from_mentions": [
-        "m039",
-        "m041",
-        "m050",
-        "m055",
-        "m060",
-        "m064",
-        "m077",
-        "m106"
-      ],
-      "evidence_ids": [
-        "ev020"
-      ],
-      "source_image_refs": [],
-      "confidence": {
-        "score": 0.96
-      },
-      "copolymer_type": null
-    },
-    {
-      "entity_id": "pe012",
       "polymer_name": "PVC/ABS/ SMIA composites",
       "polymer_type": "polymer_blend",
       "representation_status": "expert_review_required",
@@ -1607,15 +1415,205 @@
       ],
       "source_image_refs": [],
       "confidence": {
+        "score": 0.98
+      },
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe005",
+      "polymer_name": "polybutadiene",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "polybutadiene",
+        "PBL"
+      ],
+      "resolved_from_mentions": [
+        "m014",
+        "m015"
+      ],
+      "evidence_ids": [
+        "ev006"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe006",
+      "polymer_name": "polystyrene-co-acrylonitrile",
+      "polymer_type": "copolymer",
+      "copolymer_type": "co",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "polystyrene-co-acrylonitrile",
+        "SAN"
+      ],
+      "resolved_from_mentions": [
+        "m016",
+        "m089",
+        "m092"
+      ],
+      "evidence_ids": [
+        "ev006"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.95
+      }
+    },
+    {
+      "entity_id": "pe007",
+      "polymer_name": "poly(a-methylstyrene-acrylonitrile)",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(a-methylstyrene-acrylonitrile)",
+        "a-MSAN"
+      ],
+      "resolved_from_mentions": [
+        "m017",
+        "m018"
+      ],
+      "evidence_ids": [
+        "ev057"
+      ],
+      "source_image_refs": [],
+      "confidence": {
         "score": 0.97
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe008",
+      "polymer_name": "acrylic resin",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "acrylic resin",
+        "ACR"
+      ],
+      "resolved_from_mentions": [
+        "m019",
+        "m020",
+        "m034"
+      ],
+      "evidence_ids": [
+        "ev057"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.93
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe009",
+      "polymer_name": "α-MSAN",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "α-MSAN"
+      ],
+      "resolved_from_mentions": [
+        "m022"
+      ],
+      "evidence_ids": [
+        "ev058"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.77
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe010",
+      "polymer_name": "a-methylstyrene/NPMI acrylonitrile random copolymer",
+      "polymer_type": "copolymer",
+      "copolymer_type": "ran",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "a-methylstyrene/NPMI acrylonitrile random copolymer",
+        "MSAMI"
+      ],
+      "resolved_from_mentions": [
+        "m024",
+        "m025"
+      ],
+      "evidence_ids": [
+        "ev059"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      }
+    },
+    {
+      "entity_id": "pe011",
+      "polymer_name": "poly(N-phenylmaleimide)-acrylonitrile–styrene copolymers",
+      "polymer_type": "copolymer",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(N-phenylmaleimide)-acrylonitrile–styrene copolymers"
+      ],
+      "resolved_from_mentions": [
+        "m026"
+      ],
+      "evidence_ids": [
+        "ev060"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.94
+      },
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe012",
+      "polymer_name": "PVC/ABS composite material",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PVC/ABS composite material",
+        "PVC/ABS composites",
+        "PVC/ABS Composites",
+        "PVC/ABS blends",
+        "PVC/ ABS",
+        "PVC/ABS"
+      ],
+      "resolved_from_mentions": [
+        "m039",
+        "m041",
+        "m050",
+        "m055",
+        "m060",
+        "m064",
+        "m077",
+        "m106"
+      ],
+      "evidence_ids": [
+        "ev020"
+      ],
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe013",
       "polymer_name": "ASA-modified PVC",
-      "polymer_type": "homopolymer",
-      "variant_of": "pe001",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1629,14 +1627,14 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.83
+        "score": 0.72
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
       "entity_id": "pe014",
       "polymer_name": "ASA",
-      "polymer_type": "homopolymer",
       "representation_status": "expert_review_required",
       "structural_features": [],
       "source_names": [
@@ -1651,8 +1649,9 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.61
+        "score": 0.66
       },
+      "polymer_type": null,
       "copolymer_type": null
     },
     {
@@ -1671,7 +1670,7 @@
       ],
       "source_image_refs": [],
       "confidence": {
-        "score": 0.59
+        "score": 0.72
       },
       "polymer_type": null,
       "copolymer_type": null
@@ -1684,8 +1683,6 @@
       "sample_kind": "commercial_batch",
       "refers_to_entity": "pe001",
       "polymer_name": "polyvinyl chloride",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
       "state_description": "The dried ABS and PVC powder and the additives $\\mathrm { ( C a / Z n }$stabilizer (2.5wt%), ACR (1wt%), and organotin, 1 mL) were mixed in proportion.",
       "intended_use": [],
       "evidence_ids": [
@@ -1694,7 +1691,9 @@
       "confidence": {
         "score": 0.9
       },
-      "copolymer_type": null
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
     },
     {
       "sample_id": "s002",
@@ -1703,7 +1702,6 @@
       "polymer_name": "polybutadiene grafted styrene and acrylonitrile copolymer",
       "polymer_type": "copolymer",
       "copolymer_type": "graft",
-      "material_type": "neat_resin",
       "sample_label_raw": "ABS",
       "intended_use": [],
       "evidence_ids": [
@@ -1711,46 +1709,30 @@
       ],
       "confidence": {
         "score": 0.9
-      }
+      },
+      "material_type": null
     },
     {
       "sample_id": "s003",
-      "sample_kind": "commercial_batch",
-      "refers_to_entity": "pe007",
-      "polymer_name": "acrylic resin",
-      "polymer_type": "homopolymer",
-      "material_type": "neat_resin",
-      "sample_label_raw": "ACR",
-      "intended_use": [],
-      "evidence_ids": [
-        "ev019"
-      ],
-      "confidence": {
-        "score": 0.9
-      },
-      "copolymer_type": null
-    },
-    {
-      "sample_id": "s004",
-      "sample_kind": "commercial_batch",
+      "sample_kind": "synthesis_batch",
       "refers_to_entity": "pe003",
       "polymer_name": "styrene-N-phenylmaleimide-acrylonitrile terpolymer",
       "polymer_type": "copolymer",
-      "material_type": "neat_resin",
       "sample_label_raw": "SMIA",
       "intended_use": [],
       "evidence_ids": [
         "ev003"
       ],
       "confidence": {
-        "score": 0.7
+        "score": 0.9
       },
-      "copolymer_type": null
+      "copolymer_type": null,
+      "material_type": null
     },
     {
-      "sample_id": "s005",
+      "sample_id": "s004",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe011",
+      "refers_to_entity": "pe012",
       "polymer_name": "PVC/ABS composite material",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
@@ -1765,19 +1747,19 @@
       "copolymer_type": null
     },
     {
-      "sample_id": "s006",
+      "sample_id": "s005",
       "sample_kind": "processed_material",
-      "refers_to_entity": "pe012",
+      "refers_to_entity": "pe004",
       "polymer_name": "PVC/ABS/ SMIA composites",
       "polymer_type": "polymer_blend",
       "material_type": "compound",
-      "sample_label_raw": "SMIA/PVC/ABS composites",
+      "sample_label_raw": "PVC/ABS/ SMIA composites",
       "intended_use": [],
       "evidence_ids": [
-        "ev062"
+        "ev040"
       ],
       "confidence": {
-        "score": 0.8
+        "score": 0.9
       },
       "copolymer_type": null
     }
@@ -1785,21 +1767,20 @@
   "process_steps": [
     {
       "step_id": "ps001",
-      "process_type": "blending",
+      "process_type": "compounding",
       "input_sample_ids": [
         "s001",
-        "s002",
-        "s003"
+        "s002"
       ],
       "output_sample_ids": [
-        "s005"
+        "s004"
       ],
       "parameters": {
-        "mixing_time": "3 min",
+        "time": "3 min",
         "equipment": "two-roll kneader"
       },
       "evidence_ids": [
-        "ev061"
+        "ev020"
       ],
       "confidence": {
         "score": 0.9
@@ -1807,32 +1788,33 @@
     },
     {
       "step_id": "ps002",
-      "process_type": "blending",
+      "process_type": "compounding",
       "input_sample_ids": [
-        "s001",
-        "s002",
         "s003",
         "s004"
       ],
       "output_sample_ids": [
-        "s006"
+        "s005"
       ],
-      "parameters": {},
+      "parameters": {
+        "preparation_method": "similar to the aforementioned preparation of PVC/ABS composites"
+      },
       "evidence_ids": [
         "ev062"
       ],
       "confidence": {
-        "score": 0.8
+        "score": 0.9
       }
     }
   ],
   "unresolved_entity_ids": [
-    "pe004",
     "pe005",
     "pe006",
+    "pe007",
     "pe008",
     "pe009",
     "pe010",
+    "pe011",
     "pe013",
     "pe014",
     "pe015"
@@ -1840,7 +1822,7 @@
   "property_observations": [
     {
       "property_id": "prop001",
-      "sample_id": "s004",
+      "sample_id": "s003",
       "property_name_raw": "Tg",
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
@@ -1850,122 +1832,6 @@
       "value_raw": "123.5°C",
       "value_min": 123.5,
       "value_max": 123.5,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc005",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence_ids": [
-        "ev072"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop003",
-      "sample_id": "s001",
-      "property_name_raw": "T_50",
-      "property_name_normalized": "thermal_decomposition_temperature",
-      "property_code": "P3170",
-      "property_category": "thermal_property",
-      "determination_method_raw": "TGA",
-      "observation_role": "single",
-      "value_raw": "304 °C",
-      "value_min": 304.0,
-      "value_max": 304.0,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence_ids": [
-        "ev073"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop004",
-      "sample_id": "s005",
-      "property_name_raw": "initial decomposition temperature",
-      "property_name_normalized": "thermal_decomposition_temperature",
-      "property_code": "P3170",
-      "property_category": "thermal_property",
-      "determination_method_raw": "TGA",
-      "observation_role": "single",
-      "value_raw": "273 °C",
-      "value_min": 273.0,
-      "value_max": 273.0,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence_ids": [
-        "ev073"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop005",
-      "sample_id": "s005",
-      "property_name_raw": "T_50",
-      "property_name_normalized": "thermal_decomposition_temperature",
-      "property_code": "P3170",
-      "property_category": "thermal_property",
-      "determination_method_raw": "TGA",
-      "observation_role": "single",
-      "value_raw": "328 °C",
-      "value_min": 328.0,
-      "value_max": 328.0,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc004",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence_ids": [
-        "ev073"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop007",
-      "sample_id": "s006",
-      "property_name_raw": "T_50",
-      "property_name_normalized": "thermal_decomposition_temperature",
-      "property_code": "P3170",
-      "property_category": "thermal_property",
-      "determination_method_raw": "TGA",
-      "observation_role": "single",
-      "value_raw": "408 °C",
-      "value_min": 408.0,
-      "value_max": 408.0,
       "unit_raw": "°C",
       "unit_normalized": "°C",
       "measurement_condition_id": "mc004",
@@ -1981,6 +1847,170 @@
       ],
       "confidence": {
         "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s001",
+      "property_name_raw": "T50",
+      "property_name_normalized": "thermal_decomposition_temperature",
+      "property_code": "P3170",
+      "property_category": "thermal_property",
+      "determination_method_raw": "TGA",
+      "observation_role": "single",
+      "value_raw": "304 °C",
+      "value_min": 304.0,
+      "value_max": 304.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc005",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev075"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s004",
+      "property_name_raw": "Ti",
+      "property_name_normalized": "thermal_decomposition_temperature",
+      "property_code": "P3170",
+      "property_category": "thermal_property",
+      "determination_method_raw": "TGA",
+      "observation_role": "single",
+      "value_raw": "273 °C",
+      "value_min": 273.0,
+      "value_max": 273.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc005",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev075"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s004",
+      "property_name_raw": "T50",
+      "property_name_normalized": "thermal_decomposition_temperature",
+      "property_code": "P3170",
+      "property_category": "thermal_property",
+      "determination_method_raw": "TGA",
+      "observation_role": "single",
+      "value_raw": "328 °C",
+      "value_min": 328.0,
+      "value_max": 328.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc005",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev075"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s005",
+      "property_name_raw": "T50",
+      "property_name_normalized": "thermal_decomposition_temperature",
+      "property_code": "P3170",
+      "property_category": "thermal_property",
+      "determination_method_raw": "TGA",
+      "observation_role": "single",
+      "value_raw": "408 °C",
+      "value_min": 408.0,
+      "value_max": 408.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc005",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev076"
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop008",
+      "sample_id": "s005",
+      "property_name_raw": "Vicat softening temperature increase",
+      "determination_method_raw": "Vicat softening test",
+      "observation_role": "single",
+      "value_raw": "3.1 °C",
+      "value_min": 3.1,
+      "value_max": 3.1,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "50 °C/h",
+          "force": "50 N",
+          "method": "B50",
+          "sheet_thickness": "3.2 mm",
+          "penetration_depth": "1 mm"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {
+          "heating_rate": [
+            "ev069"
+          ],
+          "force": [
+            "ev070"
+          ],
+          "method": [
+            "ev070"
+          ],
+          "sheet_thickness": [
+            "ev069"
+          ],
+          "penetration_depth": [
+            "ev071"
+          ]
+        },
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence_ids": [
+        "ev077"
+      ],
+      "confidence": {
+        "score": 0.8
       }
     }
   ],
@@ -1999,7 +2029,7 @@
       "other_conditions": {
         "impact_test_standard": "ASTM D-256-2010",
         "tensile_test_standard": "ASTM D638-2000",
-        "crosshead_speed": "50 mm/min"
+        "tensile_crosshead_speed": "50 mm/min"
       },
       "other_condition_evidence_ids": {
         "impact_test_standard": [
@@ -2008,7 +2038,7 @@
         "tensile_test_standard": [
           "ev064"
         ],
-        "crosshead_speed": [
+        "tensile_crosshead_speed": [
           "ev064"
         ]
       },
@@ -2021,61 +2051,34 @@
       }
     },
     {
-      "condition_id": "mc002",
-      "frequency": {
-        "raw": "1 Hz",
-        "value": 1.0,
-        "unit": "Hz",
-        "evidence": [],
-        "evidence_ids": [
-          "ev066"
-        ]
-      },
-      "other_conditions": {
-        "test_mode": "tensile",
-        "heating_rate": "3 °C/min",
-        "temperature_range": "30 °C to 160 °C"
-      },
-      "other_condition_evidence_ids": {
-        "test_mode": [
-          "ev066"
-        ],
-        "heating_rate": [
-          "ev066"
-        ],
-        "temperature_range": [
-          "ev066"
-        ]
-      },
-      "condition_status": "reported",
-      "evidence_ids": [
-        "ev067"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
       "condition_id": "mc003",
       "other_conditions": {
         "heating_rate": "50 °C/h",
         "force": "50 N",
-        "method": "B50"
+        "method": "B50",
+        "sheet_thickness": "3.2 mm",
+        "penetration_depth": "1 mm"
       },
       "other_condition_evidence_ids": {
         "heating_rate": [
-          "ev068"
+          "ev069"
         ],
         "force": [
-          "ev069"
+          "ev070"
         ],
         "method": [
+          "ev070"
+        ],
+        "sheet_thickness": [
           "ev069"
+        ],
+        "penetration_depth": [
+          "ev071"
         ]
       },
       "condition_status": "reported",
       "evidence_ids": [
-        "ev070"
+        "ev072"
       ],
       "confidence": {
         "score": 0.9
@@ -2087,10 +2090,10 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev052"
+        "ev073"
       ],
       "confidence": {
-        "score": 0.8
+        "score": 0.7
       }
     },
     {
@@ -2099,10 +2102,10 @@
       "other_condition_evidence_ids": {},
       "condition_status": "not_reported",
       "evidence_ids": [
-        "ev071"
+        "ev049"
       ],
       "confidence": {
-        "score": 0.8
+        "score": 0.7
       }
     }
   ],
@@ -2110,14 +2113,14 @@
   "property_series": [
     {
       "series_id": "series001",
-      "sample_id": "s005",
-      "entity_id": "pe011",
+      "sample_id": "s004",
+      "entity_id": "pe012",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Impact strength",
       "property_name_normalized": "izod_impact",
       "property_code": "P8550",
       "property_category": "impact_strength",
-      "determination_method_raw": "notched impact strength test complies with ASTM D-256-2010",
+      "determination_method_raw": "ASTM D-256-2010",
       "unit_raw": "J/m",
       "unit_normalized": "J/m",
       "measurement_context": {
@@ -2131,22 +2134,20 @@
           ]
         },
         "other_conditions": {
-          "impact_test_standard": "ASTM D-256-2010"
+          "impact_test_standard": "ASTM D-256-2010",
+          "tensile_test_standard": "ASTM D638-2000",
+          "tensile_crosshead_speed": "50 mm/min"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "impact_test_standard": [
-            "ev063"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt001",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2154,7 +2155,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev075"
+                "ev078"
               ]
             }
           ],
@@ -2174,19 +2175,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev076"
+            "ev079"
           ],
           "confidence": {
             "score": 0.9
@@ -2195,8 +2194,8 @@
         {
           "point_id": "pt002",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2204,7 +2203,7 @@
               "value_raw": "6",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev077"
+                "ev080"
               ]
             }
           ],
@@ -2224,19 +2223,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev078"
+            "ev081"
           ],
           "confidence": {
             "score": 0.9
@@ -2245,8 +2242,8 @@
         {
           "point_id": "pt003",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2254,7 +2251,7 @@
               "value_raw": "8",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev079"
+                "ev082"
               ]
             }
           ],
@@ -2274,19 +2271,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev080"
+            "ev083"
           ],
           "confidence": {
             "score": 0.9
@@ -2295,8 +2290,8 @@
         {
           "point_id": "pt004",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2304,7 +2299,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev081"
+                "ev084"
               ]
             }
           ],
@@ -2324,22 +2319,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev082",
-            "ev083",
-            "ev084",
-            "ev054"
+            "ev085"
           ],
           "confidence": {
             "score": 0.9
@@ -2348,8 +2338,8 @@
         {
           "point_id": "pt005",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2357,7 +2347,7 @@
               "value_raw": "12",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev085"
+                "ev086"
               ]
             }
           ],
@@ -2377,19 +2367,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev086"
+            "ev087"
           ],
           "confidence": {
             "score": 0.9
@@ -2412,14 +2400,14 @@
     },
     {
       "series_id": "series002",
-      "sample_id": "s005",
-      "entity_id": "pe011",
+      "sample_id": "s004",
+      "entity_id": "pe012",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Tensile strength",
       "property_name_normalized": "tensile_stress_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "unit_raw": "MPa",
       "unit_normalized": "MPa",
       "measurement_context": {
@@ -2433,26 +2421,20 @@
           ]
         },
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "tensile_test_standard": [
-            "ev064"
-          ],
-          "crosshead_speed": [
-            "ev064"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt006",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2460,7 +2442,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev075"
+                "ev078"
               ]
             }
           ],
@@ -2480,23 +2462,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev087"
+            "ev088"
           ],
           "confidence": {
             "score": 0.9
@@ -2505,8 +2481,8 @@
         {
           "point_id": "pt007",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2514,7 +2490,7 @@
               "value_raw": "6",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev077"
+                "ev080"
               ]
             }
           ],
@@ -2534,23 +2510,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev088"
+            "ev089"
           ],
           "confidence": {
             "score": 0.9
@@ -2559,8 +2529,8 @@
         {
           "point_id": "pt008",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2568,7 +2538,7 @@
               "value_raw": "8",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev079"
+                "ev082"
               ]
             }
           ],
@@ -2588,23 +2558,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev089"
+            "ev090"
           ],
           "confidence": {
             "score": 0.9
@@ -2613,8 +2577,8 @@
         {
           "point_id": "pt009",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2622,7 +2586,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev081"
+                "ev084"
               ]
             }
           ],
@@ -2642,23 +2606,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev090"
+            "ev091"
           ],
           "confidence": {
             "score": 0.9
@@ -2667,8 +2625,8 @@
         {
           "point_id": "pt010",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2676,7 +2634,7 @@
               "value_raw": "12",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev085"
+                "ev086"
               ]
             }
           ],
@@ -2696,23 +2654,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev091"
+            "ev092"
           ],
           "confidence": {
             "score": 0.9
@@ -2727,7 +2679,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev092"
+        "ev093"
       ],
       "confidence": {
         "score": 0.9
@@ -2735,14 +2687,14 @@
     },
     {
       "series_id": "series003",
-      "sample_id": "s005",
-      "entity_id": "pe011",
+      "sample_id": "s004",
+      "entity_id": "pe012",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Elongation at break",
       "property_name_normalized": "elongation_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "unit_raw": "%",
       "unit_normalized": "%",
       "measurement_context": {
@@ -2756,26 +2708,20 @@
           ]
         },
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "tensile_test_standard": [
-            "ev064"
-          ],
-          "crosshead_speed": [
-            "ev064"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt011",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2783,7 +2729,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev075"
+                "ev078"
               ]
             }
           ],
@@ -2803,23 +2749,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev093"
+            "ev094"
           ],
           "confidence": {
             "score": 0.9
@@ -2828,8 +2768,8 @@
         {
           "point_id": "pt012",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2837,7 +2777,7 @@
               "value_raw": "6",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev077"
+                "ev080"
               ]
             }
           ],
@@ -2857,23 +2797,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev094"
+            "ev095"
           ],
           "confidence": {
             "score": 0.9
@@ -2882,8 +2816,8 @@
         {
           "point_id": "pt013",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2891,7 +2825,7 @@
               "value_raw": "8",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev079"
+                "ev082"
               ]
             }
           ],
@@ -2911,23 +2845,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev095"
+            "ev096"
           ],
           "confidence": {
             "score": 0.9
@@ -2936,8 +2864,8 @@
         {
           "point_id": "pt014",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2945,7 +2873,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev081"
+                "ev084"
               ]
             }
           ],
@@ -2965,23 +2893,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev096"
+            "ev097"
           ],
           "confidence": {
             "score": 0.9
@@ -2990,8 +2912,8 @@
         {
           "point_id": "pt015",
           "observation_role": "series_point",
-          "sample_id": "s005",
-          "entity_id": "pe011",
+          "sample_id": "s004",
+          "entity_id": "pe012",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -2999,7 +2921,7 @@
               "value_raw": "12",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev085"
+                "ev086"
               ]
             }
           ],
@@ -3019,23 +2941,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev097"
+            "ev098"
           ],
           "confidence": {
             "score": 0.9
@@ -3050,7 +2966,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev092"
+        "ev093"
       ],
       "confidence": {
         "score": 0.9
@@ -3058,14 +2974,14 @@
     },
     {
       "series_id": "series004",
-      "sample_id": "s006",
-      "entity_id": "pe012",
+      "sample_id": "s005",
+      "entity_id": "pe004",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Impact strength",
       "property_name_normalized": "izod_impact",
       "property_code": "P8550",
       "property_category": "impact_strength",
-      "determination_method_raw": "notched impact strength test complies with ASTM D-256-2010",
+      "determination_method_raw": "ASTM D-256-2010",
       "unit_raw": "J/m",
       "unit_normalized": "J/m",
       "measurement_context": {
@@ -3079,22 +2995,20 @@
           ]
         },
         "other_conditions": {
-          "impact_test_standard": "ASTM D-256-2010"
+          "impact_test_standard": "ASTM D-256-2010",
+          "tensile_test_standard": "ASTM D638-2000",
+          "tensile_crosshead_speed": "50 mm/min"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "impact_test_standard": [
-            "ev063"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt016",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3102,7 +3016,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev098"
+                "ev099"
               ]
             }
           ],
@@ -3122,19 +3036,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev099"
+            "ev100"
           ],
           "confidence": {
             "score": 0.9
@@ -3143,8 +3055,8 @@
         {
           "point_id": "pt017",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3152,7 +3064,7 @@
               "value_raw": "5",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev100"
+                "ev101"
               ]
             }
           ],
@@ -3172,19 +3084,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev101"
+            "ev102"
           ],
           "confidence": {
             "score": 0.9
@@ -3193,8 +3103,8 @@
         {
           "point_id": "pt018",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3202,7 +3112,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev102"
+                "ev103"
               ]
             }
           ],
@@ -3222,19 +3132,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev103"
+            "ev104"
           ],
           "confidence": {
             "score": 0.9
@@ -3243,8 +3151,8 @@
         {
           "point_id": "pt019",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3252,7 +3160,7 @@
               "value_raw": "15",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev104"
+                "ev105"
               ]
             }
           ],
@@ -3272,19 +3180,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev105"
+            "ev106"
           ],
           "confidence": {
             "score": 0.9
@@ -3293,8 +3199,8 @@
         {
           "point_id": "pt020",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3302,7 +3208,7 @@
               "value_raw": "20",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev106"
+                "ev107"
               ]
             }
           ],
@@ -3322,21 +3228,17 @@
               ]
             },
             "other_conditions": {
-              "impact_test_standard": "ASTM D-256-2010"
+              "impact_test_standard": "ASTM D-256-2010",
+              "tensile_test_standard": "ASTM D638-2000",
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "impact_test_standard": [
-                "ev063"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev107",
-            "ev108",
-            "ev109"
+            "ev108"
           ],
           "confidence": {
             "score": 0.9
@@ -3359,14 +3261,14 @@
     },
     {
       "series_id": "series005",
-      "sample_id": "s006",
-      "entity_id": "pe012",
+      "sample_id": "s005",
+      "entity_id": "pe004",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Tensile strength",
       "property_name_normalized": "tensile_stress_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "unit_raw": "MPa",
       "unit_normalized": "MPa",
       "measurement_context": {
@@ -3380,26 +3282,20 @@
           ]
         },
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "tensile_test_standard": [
-            "ev064"
-          ],
-          "crosshead_speed": [
-            "ev064"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt021",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3407,7 +3303,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev098"
+                "ev099"
               ]
             }
           ],
@@ -3427,23 +3323,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev110"
+            "ev109"
           ],
           "confidence": {
             "score": 0.9
@@ -3452,8 +3342,8 @@
         {
           "point_id": "pt022",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3461,7 +3351,7 @@
               "value_raw": "5",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev100"
+                "ev101"
               ]
             }
           ],
@@ -3481,23 +3371,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev111"
+            "ev110"
           ],
           "confidence": {
             "score": 0.9
@@ -3506,8 +3390,8 @@
         {
           "point_id": "pt023",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3515,7 +3399,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev102"
+                "ev103"
               ]
             }
           ],
@@ -3535,23 +3419,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev112"
+            "ev111"
           ],
           "confidence": {
             "score": 0.9
@@ -3560,8 +3438,8 @@
         {
           "point_id": "pt024",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3569,7 +3447,7 @@
               "value_raw": "15",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev104"
+                "ev105"
               ]
             }
           ],
@@ -3589,23 +3467,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev113"
+            "ev112"
           ],
           "confidence": {
             "score": 0.9
@@ -3614,8 +3486,8 @@
         {
           "point_id": "pt025",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3623,7 +3495,7 @@
               "value_raw": "20",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev106"
+                "ev107"
               ]
             }
           ],
@@ -3643,23 +3515,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev114"
+            "ev113"
           ],
           "confidence": {
             "score": 0.9
@@ -3674,7 +3540,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev092"
+        "ev093"
       ],
       "confidence": {
         "score": 0.9
@@ -3682,14 +3548,14 @@
     },
     {
       "series_id": "series006",
-      "sample_id": "s006",
-      "entity_id": "pe012",
+      "sample_id": "s005",
+      "entity_id": "pe004",
       "sample_resolution_status": "resolved",
       "property_name_raw": "Elongation at break",
       "property_name_normalized": "elongation_at_break",
       "property_code": "P8110",
       "property_category": "tensile_property",
-      "determination_method_raw": "tensile test conducted under ASTM D638-2000 at 23 °C with crosshead speed of 50 mm/min",
+      "determination_method_raw": "ASTM D638-2000",
       "unit_raw": "%",
       "unit_normalized": "%",
       "measurement_context": {
@@ -3703,26 +3569,20 @@
           ]
         },
         "other_conditions": {
+          "impact_test_standard": "ASTM D-256-2010",
           "tensile_test_standard": "ASTM D638-2000",
-          "crosshead_speed": "50 mm/min"
+          "tensile_crosshead_speed": "50 mm/min"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "tensile_test_standard": [
-            "ev064"
-          ],
-          "crosshead_speed": [
-            "ev064"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt026",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3730,7 +3590,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev098"
+                "ev099"
               ]
             }
           ],
@@ -3750,23 +3610,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev115"
+            "ev114"
           ],
           "confidence": {
             "score": 0.9
@@ -3775,8 +3629,8 @@
         {
           "point_id": "pt027",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3784,7 +3638,7 @@
               "value_raw": "5",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev100"
+                "ev101"
               ]
             }
           ],
@@ -3804,23 +3658,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev116"
+            "ev115"
           ],
           "confidence": {
             "score": 0.9
@@ -3829,8 +3677,8 @@
         {
           "point_id": "pt028",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3838,7 +3686,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev102"
+                "ev103"
               ]
             }
           ],
@@ -3858,23 +3706,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev117"
+            "ev116"
           ],
           "confidence": {
             "score": 0.9
@@ -3883,8 +3725,8 @@
         {
           "point_id": "pt029",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3892,7 +3734,7 @@
               "value_raw": "15",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev104"
+                "ev105"
               ]
             }
           ],
@@ -3912,23 +3754,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev118"
+            "ev117"
           ],
           "confidence": {
             "score": 0.9
@@ -3937,8 +3773,8 @@
         {
           "point_id": "pt030",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -3946,7 +3782,7 @@
               "value_raw": "20",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev106"
+                "ev107"
               ]
             }
           ],
@@ -3966,23 +3802,17 @@
               ]
             },
             "other_conditions": {
+              "impact_test_standard": "ASTM D-256-2010",
               "tensile_test_standard": "ASTM D638-2000",
-              "crosshead_speed": "50 mm/min"
+              "tensile_crosshead_speed": "50 mm/min"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "tensile_test_standard": [
-                "ev064"
-              ],
-              "crosshead_speed": [
-                "ev064"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev119"
+            "ev118"
           ],
           "confidence": {
             "score": 0.9
@@ -3997,7 +3827,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev092"
+        "ev093"
       ],
       "confidence": {
         "score": 0.9
@@ -4005,14 +3835,12 @@
     },
     {
       "series_id": "series007",
-      "sample_id": "s006",
-      "entity_id": "pe012",
-      "sample_resolution_status": "resolved",
-      "property_name_raw": "Tg_1",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Tg1",
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
       "property_category": "thermal_property",
-      "determination_method_raw": "Dynamic Mechanical Analysis (DMA) under tensile mode, 1 Hz frequency, heating rate of 3 °C/min",
+      "determination_method_raw": "DMA",
       "unit_raw": "°C",
       "unit_normalized": "°C",
       "measurement_context": {
@@ -4026,26 +3854,21 @@
           ]
         },
         "other_conditions": {
-          "test_mode": "tensile",
-          "heating_rate": "3 °C/min"
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "test_mode": [
-            "ev066"
-          ],
-          "heating_rate": [
-            "ev066"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt031",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4053,7 +3876,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev120"
+                "ev119"
               ]
             }
           ],
@@ -4073,23 +3896,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev121"
+            "ev120"
           ],
           "confidence": {
             "score": 0.9
@@ -4098,8 +3916,8 @@
         {
           "point_id": "pt032",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4107,7 +3925,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev122"
+                "ev121"
               ]
             }
           ],
@@ -4127,23 +3945,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev123"
+            "ev122"
           ],
           "confidence": {
             "score": 0.9
@@ -4152,8 +3965,8 @@
         {
           "point_id": "pt033",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4161,7 +3974,7 @@
               "value_raw": "20",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev124"
+                "ev123"
               ]
             }
           ],
@@ -4181,23 +3994,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev125"
+            "ev124"
           ],
           "confidence": {
             "score": 0.9
@@ -4206,15 +4014,15 @@
         {
           "point_id": "pt034",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s003",
+          "entity_id": "pe003",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
               "name_raw": "SMIA content",
               "value_raw": "SMIA",
               "evidence_ids": [
-                "ev126"
+                "ev125"
               ]
             }
           ],
@@ -4230,23 +4038,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "not_applicable",
           "evidence_ids": [
-            "ev127"
+            "ev126"
           ],
           "confidence": {
             "score": 0.9
@@ -4261,7 +4064,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev128"
+        "ev127"
       ],
       "confidence": {
         "score": 0.9
@@ -4269,14 +4072,12 @@
     },
     {
       "series_id": "series008",
-      "sample_id": "s006",
-      "entity_id": "pe012",
-      "sample_resolution_status": "resolved",
-      "property_name_raw": "Tg_2",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Tg2",
       "property_name_normalized": "glass_transition_temperature",
       "property_code": "P3110",
       "property_category": "thermal_property",
-      "determination_method_raw": "Dynamic Mechanical Analysis (DMA) under tensile mode, 1 Hz frequency, heating rate of 3 °C/min",
+      "determination_method_raw": "DMA",
       "unit_raw": "°C",
       "unit_normalized": "°C",
       "measurement_context": {
@@ -4290,26 +4091,21 @@
           ]
         },
         "other_conditions": {
-          "test_mode": "tensile",
-          "heating_rate": "3 °C/min"
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "test_mode": [
-            "ev066"
-          ],
-          "heating_rate": [
-            "ev066"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt035",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4317,7 +4113,7 @@
               "value_raw": "0",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev120"
+                "ev119"
               ]
             }
           ],
@@ -4333,23 +4129,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "not_applicable",
           "evidence_ids": [
-            "ev129"
+            "ev128"
           ],
           "confidence": {
             "score": 0.9
@@ -4358,8 +4149,8 @@
         {
           "point_id": "pt036",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4367,7 +4158,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev122"
+                "ev121"
               ]
             }
           ],
@@ -4387,23 +4178,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev130"
+            "ev129"
           ],
           "confidence": {
             "score": 0.9
@@ -4412,8 +4198,8 @@
         {
           "point_id": "pt037",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4421,7 +4207,7 @@
               "value_raw": "20",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev124"
+                "ev123"
               ]
             }
           ],
@@ -4441,23 +4227,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev131"
+            "ev130"
           ],
           "confidence": {
             "score": 0.9
@@ -4466,15 +4247,15 @@
         {
           "point_id": "pt038",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s003",
+          "entity_id": "pe003",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
               "name_raw": "SMIA content",
               "value_raw": "SMIA",
               "evidence_ids": [
-                "ev126"
+                "ev125"
               ]
             }
           ],
@@ -4494,23 +4275,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev132"
+            "ev131"
           ],
           "confidence": {
             "score": 0.9
@@ -4525,7 +4301,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev128"
+        "ev127"
       ],
       "confidence": {
         "score": 0.9
@@ -4533,11 +4309,9 @@
     },
     {
       "series_id": "series009",
-      "sample_id": "s006",
-      "entity_id": "pe012",
-      "sample_resolution_status": "resolved",
+      "sample_resolution_status": "unresolved",
       "property_name_raw": "ΔT",
-      "determination_method_raw": "Dynamic Mechanical Analysis (DMA) under tensile mode, 1 Hz frequency, heating rate of 3 °C/min",
+      "determination_method_raw": "DMA",
       "unit_raw": "°C",
       "unit_normalized": "°C",
       "measurement_context": {
@@ -4551,26 +4325,21 @@
           ]
         },
         "other_conditions": {
-          "test_mode": "tensile",
-          "heating_rate": "3 °C/min"
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
         },
         "other_condition_evidence": {},
-        "other_condition_evidence_ids": {
-          "test_mode": [
-            "ev066"
-          ],
-          "heating_rate": [
-            "ev066"
-          ]
-        },
+        "other_condition_evidence_ids": {},
         "condition_status": "reported"
       },
       "points": [
         {
           "point_id": "pt040",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4578,7 +4347,7 @@
               "value_raw": "10",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev122"
+                "ev121"
               ]
             }
           ],
@@ -4598,23 +4367,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev134"
+            "ev133"
           ],
           "confidence": {
             "score": 0.9
@@ -4623,8 +4387,8 @@
         {
           "point_id": "pt041",
           "observation_role": "series_point",
-          "sample_id": "s006",
-          "entity_id": "pe012",
+          "sample_id": "s005",
+          "entity_id": "pe004",
           "sample_resolution_status": "resolved",
           "coordinates": [
             {
@@ -4632,7 +4396,7 @@
               "value_raw": "20",
               "unit_raw": "phr",
               "evidence_ids": [
-                "ev124"
+                "ev123"
               ]
             }
           ],
@@ -4652,23 +4416,18 @@
               ]
             },
             "other_conditions": {
-              "test_mode": "tensile",
-              "heating_rate": "3 °C/min"
+              "test_mode": "tensile mode",
+              "heating_rate": "3 °C/min",
+              "temperature_range": "30 °C to 160 °C",
+              "sample_dimension": "30 × 10 × 1 mm³"
             },
             "other_condition_evidence": {},
-            "other_condition_evidence_ids": {
-              "test_mode": [
-                "ev066"
-              ],
-              "heating_rate": [
-                "ev066"
-              ]
-            },
+            "other_condition_evidence_ids": {},
             "condition_status": "reported"
           },
           "coverage_status": "covered",
           "evidence_ids": [
-            "ev135"
+            "ev134"
           ],
           "confidence": {
             "score": 0.9
@@ -4683,7 +4442,7 @@
         "ratio": 1.0
       },
       "evidence_ids": [
-        "ev128"
+        "ev127"
       ],
       "confidence": {
         "score": 0.9
@@ -4695,15 +4454,16 @@
       "characterization_id": "char001",
       "method_raw": "DSC",
       "method_normalized": "DSC",
-      "sample_id": "s004",
+      "sample_id": "s003",
+      "entity_id": "pe003",
       "sample_resolution_status": "resolved",
       "parameters": {},
-      "result_summary": "SMIA terpolymer shows a single Tg at 123.5°C, indicating relatively homogeneous copolymer structure.",
+      "result_summary": "Single Tg at 123.5°C observed for SMIA terpolymer, indicating homogeneous copolymer structure.",
       "derived_property_ids": [
         "prop001"
       ],
       "evidence_ids": [
-        "ev137"
+        "ev136"
       ],
       "confidence": {
         "score": 0.9
@@ -4713,15 +4473,24 @@
       "characterization_id": "char002",
       "method_raw": "TGA",
       "method_normalized": "TGA",
-      "sample_id": "s001",
-      "sample_resolution_status": "resolved",
+      "sample_ids": [
+        "s001",
+        "s003",
+        "s004",
+        "s005"
+      ],
+      "sample_resolution_status": "multi_resolved",
       "parameters": {},
-      "result_summary": "Pure PVC has initial decomposition temperature of 261 °C and T_50 of 304 °C.",
+      "result_summary": "TGA tests confirmed improved thermal stability of PVC composites with addition of ABS and SMIA, with Ti and T50 increasing for modified samples.",
       "derived_property_ids": [
-        "prop003"
+        "prop003",
+        "prop004",
+        "prop005",
+        "prop007"
       ],
       "evidence_ids": [
-        "ev051"
+        "ev049",
+        "ev137"
       ],
       "confidence": {
         "score": 0.9
@@ -4729,75 +4498,42 @@
     },
     {
       "characterization_id": "char003",
-      "method_raw": "TGA",
-      "method_normalized": "TGA",
-      "sample_id": "s005",
-      "sample_resolution_status": "resolved",
-      "parameters": {},
-      "result_summary": "PVC/ABS composite has initial decomposition temperature of 273 °C and T_50 of 328 °C.",
-      "derived_property_ids": [
-        "prop004",
-        "prop005"
-      ],
-      "evidence_ids": [
-        "ev051"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char004",
-      "method_raw": "TGA",
-      "method_normalized": "TGA",
-      "sample_id": "s006",
-      "sample_resolution_status": "resolved",
-      "parameters": {},
-      "result_summary": "PVC/ABS/SMIA composite has initial decomposition temperature of 280 °C and T_50 of 408 °C.",
-      "derived_property_ids": [
-        "prop007"
-      ],
-      "evidence_ids": [
-        "ev051"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char005",
       "method_raw": "DMA",
       "method_normalized": "DMA",
-      "sample_id": "s006",
-      "sample_resolution_status": "resolved",
+      "sample_ids": [
+        "s005",
+        "s003"
+      ],
+      "entity_ids": [
+        "pe004",
+        "pe003"
+      ],
+      "sample_resolution_status": "multi_resolved",
       "series_ids": [
         "series007",
         "series008",
         "series009"
       ],
       "instrument": "Diamond-DMA, PerkinElmer, USA",
-      "parameters": {
-        "mode": "tensile mode",
-        "frequency": "1 Hz"
+      "measurement_context": {
+        "frequency": {
+          "raw": "1 Hz",
+          "value": 1.0,
+          "unit": "Hz",
+          "evidence": [],
+          "evidence_ids": [
+            "ev127"
+          ]
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
       },
-      "result_summary": "DMA test performed on PVC/ABS/SMIA blends to obtain dynamic mechanical properties.",
-      "derived_property_ids": [],
-      "evidence_ids": [
-        "ev021"
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char006",
-      "method_raw": "field emission SEM",
-      "method_normalized": "SEM",
-      "sample_id": "s005",
-      "sample_resolution_status": "resolved",
-      "instrument": "field emission SEM",
-      "parameters": {},
-      "result_summary": "Observed impact fracture surface micromorphology of PVC/ABS composites with different ABS content, identified brittle-ductile transition characteristics at 10 phr ABS addition.",
+      "parameters": {
+        "mode": "tensile"
+      },
+      "result_summary": "DMA tests performed on PVC/ABS/SMIA blends to measure glass transition temperatures.",
       "derived_property_ids": [],
       "evidence_ids": [
         "ev138"
@@ -4807,19 +4543,25 @@
       }
     },
     {
-      "characterization_id": "char007",
-      "method_raw": "SEM",
+      "characterization_id": "char004",
+      "method_raw": "field emission SEM",
       "method_normalized": "SEM",
-      "sample_id": "s006",
-      "sample_resolution_status": "resolved",
+      "sample_ids": [
+        "s004",
+        "s005"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "instrument": "field emission SEM",
       "parameters": {},
-      "result_summary": "Observed impact fracture surface micromorphology of PVC/ABS/SMIA composites, found no obvious phase separation, and morphology changes correlated with SMIA content and impact strength.",
+      "result_summary": "SEM observation of impact fracture surfaces showed no obvious phase separation in PVC/ABS/SMIA composites, confirming good component compatibility, and morphology changes correlated with ABS/SMIA content and impact performance.",
       "derived_property_ids": [],
       "evidence_ids": [
-        "ev139"
+        "ev139",
+        "ev140",
+        "ev141"
       ],
       "confidence": {
-        "score": 0.8
+        "score": 0.9
       }
     }
   ],
@@ -5683,19 +5425,6 @@
       "evidence_id": "ev066"
     },
     {
-      "block_id": "P_1_35",
-      "page": 1,
-      "bbox": [
-        507.0,
-        714.0,
-        926.0,
-        804.0
-      ],
-      "source_type": "text",
-      "source_sentence": "DMA for the PVC/ABS/SMIA blends was performed on a DMA apparatus (Diamond-DMA, PerkinElmer, USA). The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of 3 °C / min with a temperature range from 30 °C to 160 °C . All of the samples had the following dimension 30 × 10 × 1 mm³",
-      "evidence_id": "ev067"
-    },
-    {
       "block_id": "P_2_44",
       "page": 2,
       "bbox": [
@@ -5706,48 +5435,35 @@
       ],
       "source_type": "text",
       "source_sentence": "The 3.2 mm sheet obtained by molding was placed on the Vicat softening tester (WKT-VST400, China) and heated up at a heating rate of 50 °C / h. The temperature of a standard compression needle was recorded when it pierced the surface of a thermoplastic resin to a depth of 1 mm under standard loading conditions. The force was set as 50 N, and the B50 method was used for measurement.",
-      "evidence_id": "ev070"
-    },
-    {
-      "block_id": "P_2_49",
-      "page": 2,
-      "bbox": [
-        505.0,
-        38.0,
-        927.0,
-        129.0
-      ],
-      "source_type": "text",
-      "source_sentence": "To verify there is no homopolymerization for St, the DSC curves were recorded. As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA, and the results agree with the empirical formula proposed by Fox et al. [20] which indicated that the structure of copolymer SMIA is relatively homogeneous.",
-      "evidence_id": "ev071"
-    },
-    {
-      "block_id": "P_2_49",
-      "page": 2,
-      "bbox": [
-        505.0,
-        38.0,
-        927.0,
-        129.0
-      ],
-      "source_type": "text",
-      "source_sentence": "As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA",
       "evidence_id": "ev072"
     },
     {
-      "block_id": "P_5_80",
-      "page": 5,
+      "block_id": "P_2_49",
+      "page": 2,
       "bbox": [
-        68.0,
-        684.0,
-        489.0,
-        818.0
+        505.0,
+        38.0,
+        927.0,
+        129.0
       ],
       "source_type": "text",
-      "source_sentence": "When ABS (10 phr) was added to PVC, T and T_50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
+      "source_sentence": "To verify there is no homopolymerization for St, the DSC curves were recorded. As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA",
       "evidence_id": "ev073"
     },
     {
+      "block_id": "P_2_49",
+      "page": 2,
+      "bbox": [
+        505.0,
+        38.0,
+        927.0,
+        129.0
+      ],
+      "source_type": "text",
+      "source_sentence": "As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA",
+      "evidence_id": "ev074"
+    },
+    {
       "block_id": "P_5_80",
       "page": 5,
       "bbox": [
@@ -5757,73 +5473,33 @@
         818.0
       ],
       "source_type": "text",
-      "source_sentence": "Importantly, T_i and T_50 increased to 280 °C and 408 °C with the addition of SMIA.",
-      "evidence_id": "ev074"
-    },
-    {
-      "block_id": "T_3_58",
-      "page": 3,
-      "bbox": [
-        73.0,
-        714.0,
-        484.0,
-        875.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
-      "table_locator": {
-        "table_id": "T_3_58",
-        "row_label": "0",
-        "column_label": "ABS content (phr)",
-        "cell_value": "0",
-        "cell_id": "T_3_58:r0001:c0000",
-        "row_index": 1,
-        "column_index": 0
-      },
+      "source_sentence": "When ABS (10 phr) was added to PVC, Ti and T50 increased from 261 °C and 304°C to 273 °C and 328 °C respectively.",
       "evidence_id": "ev075"
     },
     {
-      "block_id": "T_3_58",
-      "page": 3,
+      "block_id": "P_5_80",
+      "page": 5,
       "bbox": [
-        73.0,
-        714.0,
-        484.0,
-        875.0
+        68.0,
+        684.0,
+        489.0,
+        818.0
       ],
-      "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
-      "table_locator": {
-        "table_id": "T_3_58",
-        "row_label": "0",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "62.14 ± 3.93",
-        "cell_id": "T_3_58:r0001:c0001",
-        "row_index": 1,
-        "column_index": 1
-      },
+      "source_type": "text",
+      "source_sentence": "Importantly, Ti and T50 increased to 280 °C and 408 °C with the addition of SMIA.",
       "evidence_id": "ev076"
     },
     {
-      "block_id": "T_3_58",
-      "page": 3,
+      "block_id": "P_4_72",
+      "page": 4,
       "bbox": [
-        73.0,
-        714.0,
-        484.0,
-        875.0
+        68.0,
+        900.0,
+        489.0,
+        930.0
       ],
-      "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
-      "table_locator": {
-        "table_id": "T_3_58",
-        "row_label": "6",
-        "column_label": "ABS content (phr)",
-        "cell_value": "6",
-        "cell_id": "T_3_58:r0002:c0000",
-        "row_index": 2,
-        "column_index": 0
-      },
+      "source_type": "text",
+      "source_sentence": "Relying on merely 20 phr addition of SMIA, the VST of the blends increases by 3.1 °C compared to that of the one without SMIA.",
       "evidence_id": "ev077"
     },
     {
@@ -5836,15 +5512,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "0",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "6",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "193.21 ± 38.92",
-        "cell_id": "T_3_58:r0002:c0001",
-        "row_index": 2,
-        "column_index": 1
+        "row_label": "0",
+        "column_label": "ABS content (phr)",
+        "cell_value": "0",
+        "cell_id": "T_3_58:r0001:c0000",
+        "row_index": 1,
+        "column_index": 0
       },
       "evidence_id": "ev078"
     },
@@ -5858,15 +5534,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "62.14 ± 3.93",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "8",
-        "column_label": "ABS content (phr)",
-        "cell_value": "8",
-        "cell_id": "T_3_58:r0003:c0000",
-        "row_index": 3,
-        "column_index": 0
+        "row_label": "0",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "62.14 ± 3.93",
+        "cell_id": "T_3_58:r0001:c0001",
+        "row_index": 1,
+        "column_index": 1
       },
       "evidence_id": "ev079"
     },
@@ -5880,15 +5556,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "6",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "8",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "1118.93 ± 41.49",
-        "cell_id": "T_3_58:r0003:c0001",
-        "row_index": 3,
-        "column_index": 1
+        "row_label": "6",
+        "column_label": "ABS content (phr)",
+        "cell_value": "6",
+        "cell_id": "T_3_58:r0002:c0000",
+        "row_index": 2,
+        "column_index": 0
       },
       "evidence_id": "ev080"
     },
@@ -5902,15 +5578,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "193.21 ± 38.92",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "10",
-        "column_label": "ABS content (phr)",
-        "cell_value": "10",
-        "cell_id": "T_3_58:r0004:c0000",
-        "row_index": 4,
-        "column_index": 0
+        "row_label": "6",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "193.21 ± 38.92",
+        "cell_id": "T_3_58:r0002:c0001",
+        "row_index": 2,
+        "column_index": 1
       },
       "evidence_id": "ev081"
     },
@@ -5924,42 +5600,60 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "8",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "10",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "1350.60 ± 23.10",
-        "cell_id": "T_3_58:r0004:c0001",
-        "row_index": 4,
-        "column_index": 1
+        "row_label": "8",
+        "column_label": "ABS content (phr)",
+        "cell_value": "8",
+        "cell_id": "T_3_58:r0003:c0000",
+        "row_index": 3,
+        "column_index": 0
       },
       "evidence_id": "ev082"
     },
     {
-      "block_id": "P_0_8",
-      "page": 0,
+      "block_id": "T_3_58",
+      "page": 3,
       "bbox": [
-        80.0,
-        502.0,
-        915.0,
-        702.0
+        73.0,
+        714.0,
+        484.0,
+        875.0
       ],
-      "source_type": "text",
-      "source_sentence": "The brittle-ductile transition point was found to be 1350.60 J/m addition of 10 phr ABS.",
+      "source_type": "table",
+      "source_sentence": "1118.93 ± 41.49",
+      "table_locator": {
+        "table_id": "T_3_58",
+        "row_label": "8",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "1118.93 ± 41.49",
+        "cell_id": "T_3_58:r0003:c0001",
+        "row_index": 3,
+        "column_index": 1
+      },
       "evidence_id": "ev083"
     },
     {
-      "block_id": "P_2_51",
-      "page": 2,
+      "block_id": "T_3_58",
+      "page": 3,
       "bbox": [
-        505.0,
-        200.0,
-        927.0,
-        556.0
+        73.0,
+        714.0,
+        484.0,
+        875.0
       ],
-      "source_type": "text",
-      "source_sentence": "It revealed a transition from brittle to ductile materials and a maximum value of 1350.60 J/m occurs at 10 phr.",
+      "source_type": "table",
+      "source_sentence": "10",
+      "table_locator": {
+        "table_id": "T_3_58",
+        "row_label": "10",
+        "column_label": "ABS content (phr)",
+        "cell_value": "10",
+        "cell_id": "T_3_58:r0004:c0000",
+        "row_index": 4,
+        "column_index": 0
+      },
       "evidence_id": "ev084"
     },
     {
@@ -5972,15 +5666,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "1350.60 ± 23.10",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "12",
-        "column_label": "ABS content (phr)",
-        "cell_value": "12",
-        "cell_id": "T_3_58:r0005:c0000",
-        "row_index": 5,
-        "column_index": 0
+        "row_label": "10",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "1350.60 ± 23.10",
+        "cell_id": "T_3_58:r0004:c0001",
+        "row_index": 4,
+        "column_index": 1
       },
       "evidence_id": "ev085"
     },
@@ -5994,15 +5688,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "12",
       "table_locator": {
         "table_id": "T_3_58",
         "row_label": "12",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "1263.75 ± 18.75",
-        "cell_id": "T_3_58:r0005:c0001",
+        "column_label": "ABS content (phr)",
+        "cell_value": "12",
+        "cell_id": "T_3_58:r0005:c0000",
         "row_index": 5,
-        "column_index": 1
+        "column_index": 0
       },
       "evidence_id": "ev086"
     },
@@ -6016,15 +5710,15 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "1263.75 ± 18.75",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "0",
-        "column_label": "Tensile strength (MPa)",
-        "cell_value": "51.66 ± 0.55",
-        "cell_id": "T_3_58:r0001:c0002",
-        "row_index": 1,
-        "column_index": 2
+        "row_label": "12",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "1263.75 ± 18.75",
+        "cell_id": "T_3_58:r0005:c0001",
+        "row_index": 5,
+        "column_index": 1
       },
       "evidence_id": "ev087"
     },
@@ -6038,14 +5732,14 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "51.66 ± 0.55",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "6",
+        "row_label": "0",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "50.56 ± 1.48",
-        "cell_id": "T_3_58:r0002:c0002",
-        "row_index": 2,
+        "cell_value": "51.66 ± 0.55",
+        "cell_id": "T_3_58:r0001:c0002",
+        "row_index": 1,
         "column_index": 2
       },
       "evidence_id": "ev088"
@@ -6060,14 +5754,14 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "50.56 ± 1.48",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "8",
+        "row_label": "6",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "50.19 ± 1.56",
-        "cell_id": "T_3_58:r0003:c0002",
-        "row_index": 3,
+        "cell_value": "50.56 ± 1.48",
+        "cell_id": "T_3_58:r0002:c0002",
+        "row_index": 2,
         "column_index": 2
       },
       "evidence_id": "ev089"
@@ -6082,14 +5776,14 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "50.19 ± 1.56",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "10",
+        "row_label": "8",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "48.02 ± 1.25",
-        "cell_id": "T_3_58:r0004:c0002",
-        "row_index": 4,
+        "cell_value": "50.19 ± 1.56",
+        "cell_id": "T_3_58:r0003:c0002",
+        "row_index": 3,
         "column_index": 2
       },
       "evidence_id": "ev090"
@@ -6104,7 +5798,29 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "48.02 ± 1.25",
+      "table_locator": {
+        "table_id": "T_3_58",
+        "row_label": "10",
+        "column_label": "Tensile strength (MPa)",
+        "cell_value": "48.02 ± 1.25",
+        "cell_id": "T_3_58:r0004:c0002",
+        "row_index": 4,
+        "column_index": 2
+      },
+      "evidence_id": "ev091"
+    },
+    {
+      "block_id": "T_3_58",
+      "page": 3,
+      "bbox": [
+        73.0,
+        714.0,
+        484.0,
+        875.0
+      ],
+      "source_type": "table",
+      "source_sentence": "47.41 ± 4.19",
       "table_locator": {
         "table_id": "T_3_58",
         "row_label": "12",
@@ -6114,7 +5830,7 @@
         "row_index": 5,
         "column_index": 2
       },
-      "evidence_id": "ev091"
+      "evidence_id": "ev092"
     },
     {
       "block_id": "P_1_33",
@@ -6127,28 +5843,6 @@
       ],
       "source_type": "text",
       "source_sentence": "The tensile test was conducted under ASTM D638-2000 at $2 3 ^ { \\circ } \\mathrm { C }$using an Instron tester with a crosshead speed of 50 mm/ min.",
-      "evidence_id": "ev092"
-    },
-    {
-      "block_id": "T_3_58",
-      "page": 3,
-      "bbox": [
-        73.0,
-        714.0,
-        484.0,
-        875.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
-      "table_locator": {
-        "table_id": "T_3_58",
-        "row_label": "0",
-        "column_label": "Elongation at break (%)",
-        "cell_value": "81.72 ± 5.35",
-        "cell_id": "T_3_58:r0001:c0003",
-        "row_index": 1,
-        "column_index": 3
-      },
       "evidence_id": "ev093"
     },
     {
@@ -6161,14 +5855,14 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "81.72 ± 5.35",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "6",
+        "row_label": "0",
         "column_label": "Elongation at break (%)",
-        "cell_value": "94.25 ± 4.32",
-        "cell_id": "T_3_58:r0002:c0003",
-        "row_index": 2,
+        "cell_value": "81.72 ± 5.35",
+        "cell_id": "T_3_58:r0001:c0003",
+        "row_index": 1,
         "column_index": 3
       },
       "evidence_id": "ev094"
@@ -6183,14 +5877,14 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "94.25 ± 4.32",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "8",
+        "row_label": "6",
         "column_label": "Elongation at break (%)",
-        "cell_value": "156.30 ± 8.08",
-        "cell_id": "T_3_58:r0003:c0003",
-        "row_index": 3,
+        "cell_value": "94.25 ± 4.32",
+        "cell_id": "T_3_58:r0002:c0003",
+        "row_index": 2,
         "column_index": 3
       },
       "evidence_id": "ev095"
@@ -6205,14 +5899,14 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "156.30 ± 8.08",
       "table_locator": {
         "table_id": "T_3_58",
-        "row_label": "10",
+        "row_label": "8",
         "column_label": "Elongation at break (%)",
-        "cell_value": "140.14 ± 18.22",
-        "cell_id": "T_3_58:r0004:c0003",
-        "row_index": 4,
+        "cell_value": "156.30 ± 8.08",
+        "cell_id": "T_3_58:r0003:c0003",
+        "row_index": 3,
         "column_index": 3
       },
       "evidence_id": "ev096"
@@ -6227,7 +5921,29 @@
         875.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "source_sentence": "140.14 ± 18.22",
+      "table_locator": {
+        "table_id": "T_3_58",
+        "row_label": "10",
+        "column_label": "Elongation at break (%)",
+        "cell_value": "140.14 ± 18.22",
+        "cell_id": "T_3_58:r0004:c0003",
+        "row_index": 4,
+        "column_index": 3
+      },
+      "evidence_id": "ev097"
+    },
+    {
+      "block_id": "T_3_58",
+      "page": 3,
+      "bbox": [
+        73.0,
+        714.0,
+        484.0,
+        875.0
+      ],
+      "source_type": "table",
+      "source_sentence": "158.67 ± 11.98",
       "table_locator": {
         "table_id": "T_3_58",
         "row_label": "12",
@@ -6236,28 +5952,6 @@
         "cell_id": "T_3_58:r0005:c0003",
         "row_index": 5,
         "column_index": 3
-      },
-      "evidence_id": "ev097"
-    },
-    {
-      "block_id": "T_4_70",
-      "page": 4,
-      "bbox": [
-        73.0,
-        453.0,
-        484.0,
-        615.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
-      "table_locator": {
-        "table_id": "T_4_70",
-        "row_label": "0",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "0",
-        "cell_id": "T_4_70:r0001:c0000",
-        "row_index": 1,
-        "column_index": 0
       },
       "evidence_id": "ev098"
     },
@@ -6271,15 +5965,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "0",
       "table_locator": {
         "table_id": "T_4_70",
         "row_label": "0",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "1350.60 ± 23.10",
-        "cell_id": "T_4_70:r0001:c0001",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "0",
+        "cell_id": "T_4_70:r0001:c0000",
         "row_index": 1,
-        "column_index": 1
+        "column_index": 0
       },
       "evidence_id": "ev099"
     },
@@ -6293,15 +5987,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "1350.60 ± 23.10",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "5",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "5",
-        "cell_id": "T_4_70:r0002:c0000",
-        "row_index": 2,
-        "column_index": 0
+        "row_label": "0",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "1350.60 ± 23.10",
+        "cell_id": "T_4_70:r0001:c0001",
+        "row_index": 1,
+        "column_index": 1
       },
       "evidence_id": "ev100"
     },
@@ -6315,15 +6009,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "5",
       "table_locator": {
         "table_id": "T_4_70",
         "row_label": "5",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "1266.25 ± 15.18",
-        "cell_id": "T_4_70:r0002:c0001",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "5",
+        "cell_id": "T_4_70:r0002:c0000",
         "row_index": 2,
-        "column_index": 1
+        "column_index": 0
       },
       "evidence_id": "ev101"
     },
@@ -6337,15 +6031,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "1266.25 ± 15.18",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "10",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "10",
-        "cell_id": "T_4_70:r0003:c0000",
-        "row_index": 3,
-        "column_index": 0
+        "row_label": "5",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "1266.25 ± 15.18",
+        "cell_id": "T_4_70:r0002:c0001",
+        "row_index": 2,
+        "column_index": 1
       },
       "evidence_id": "ev102"
     },
@@ -6359,15 +6053,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "10",
       "table_locator": {
         "table_id": "T_4_70",
         "row_label": "10",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "1031.61 ± 39.46",
-        "cell_id": "T_4_70:r0003:c0001",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "10",
+        "cell_id": "T_4_70:r0003:c0000",
         "row_index": 3,
-        "column_index": 1
+        "column_index": 0
       },
       "evidence_id": "ev103"
     },
@@ -6381,15 +6075,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "1031.61 ± 39.46",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "15",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "15",
-        "cell_id": "T_4_70:r0004:c0000",
-        "row_index": 4,
-        "column_index": 0
+        "row_label": "10",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "1031.61 ± 39.46",
+        "cell_id": "T_4_70:r0003:c0001",
+        "row_index": 3,
+        "column_index": 1
       },
       "evidence_id": "ev104"
     },
@@ -6403,15 +6097,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "15",
       "table_locator": {
         "table_id": "T_4_70",
         "row_label": "15",
-        "column_label": "Impact strength (J/m)",
-        "cell_value": "651.9 ± 39.66",
-        "cell_id": "T_4_70:r0004:c0001",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "15",
+        "cell_id": "T_4_70:r0004:c0000",
         "row_index": 4,
-        "column_index": 1
+        "column_index": 0
       },
       "evidence_id": "ev105"
     },
@@ -6425,15 +6119,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "651.9 ± 39.66",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "20",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "20",
-        "cell_id": "T_4_70:r0005:c0000",
-        "row_index": 5,
-        "column_index": 0
+        "row_label": "15",
+        "column_label": "Impact strength (J/m)",
+        "cell_value": "651.9 ± 39.66",
+        "cell_id": "T_4_70:r0004:c0001",
+        "row_index": 4,
+        "column_index": 1
       },
       "evidence_id": "ev106"
     },
@@ -6447,7 +6141,29 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "20",
+      "table_locator": {
+        "table_id": "T_4_70",
+        "row_label": "20",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "20",
+        "cell_id": "T_4_70:r0005:c0000",
+        "row_index": 5,
+        "column_index": 0
+      },
+      "evidence_id": "ev107"
+    },
+    {
+      "block_id": "T_4_70",
+      "page": 4,
+      "bbox": [
+        73.0,
+        453.0,
+        484.0,
+        615.0
+      ],
+      "source_type": "table",
+      "source_sentence": "397.14 ± 7.07",
       "table_locator": {
         "table_id": "T_4_70",
         "row_label": "20",
@@ -6457,32 +6173,28 @@
         "row_index": 5,
         "column_index": 1
       },
-      "evidence_id": "ev107"
-    },
-    {
-      "block_id": "P_3_63",
-      "page": 3,
-      "bbox": [
-        507.0,
-        214.0,
-        927.0,
-        438.0
-      ],
-      "source_type": "text",
-      "source_sentence": "the impact strength showed a decreasing trend from 1350.60 to 397.14 J/m with the increase of SMIA content.",
       "evidence_id": "ev108"
     },
     {
-      "block_id": "P_5_82",
-      "page": 5,
+      "block_id": "T_4_70",
+      "page": 4,
       "bbox": [
-        68.0,
-        875.0,
-        487.0,
-        936.0
+        73.0,
+        453.0,
+        484.0,
+        615.0
       ],
-      "source_type": "text",
-      "source_sentence": "Although the impact strength of the composite material has been reduced to a certain extent, the impact strength remains at 397.14 J/m, which is higher than that of pure PVC.",
+      "source_type": "table",
+      "source_sentence": "48.02 ± 1.25",
+      "table_locator": {
+        "table_id": "T_4_70",
+        "row_label": "0",
+        "column_label": "Tensile strength (MPa)",
+        "cell_value": "48.02 ± 1.25",
+        "cell_id": "T_4_70:r0001:c0002",
+        "row_index": 1,
+        "column_index": 2
+      },
       "evidence_id": "ev109"
     },
     {
@@ -6495,14 +6207,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "42.63 ± 1.31",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "0",
+        "row_label": "5",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "48.02 ± 1.25",
-        "cell_id": "T_4_70:r0001:c0002",
-        "row_index": 1,
+        "cell_value": "42.63 ± 1.31",
+        "cell_id": "T_4_70:r0002:c0002",
+        "row_index": 2,
         "column_index": 2
       },
       "evidence_id": "ev110"
@@ -6517,14 +6229,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "44.45 ± 1.48",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "5",
+        "row_label": "10",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "42.63 ± 1.31",
-        "cell_id": "T_4_70:r0002:c0002",
-        "row_index": 2,
+        "cell_value": "44.45 ± 1.48",
+        "cell_id": "T_4_70:r0003:c0002",
+        "row_index": 3,
         "column_index": 2
       },
       "evidence_id": "ev111"
@@ -6539,14 +6251,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "44.80 ± 1.62",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "10",
+        "row_label": "15",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "44.45 ± 1.48",
-        "cell_id": "T_4_70:r0003:c0002",
-        "row_index": 3,
+        "cell_value": "44.80 ± 1.62",
+        "cell_id": "T_4_70:r0004:c0002",
+        "row_index": 4,
         "column_index": 2
       },
       "evidence_id": "ev112"
@@ -6561,14 +6273,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "45.58 ± 1.21",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "15",
+        "row_label": "20",
         "column_label": "Tensile strength (MPa)",
-        "cell_value": "44.80 ± 1.62",
-        "cell_id": "T_4_70:r0004:c0002",
-        "row_index": 4,
+        "cell_value": "45.58 ± 1.21",
+        "cell_id": "T_4_70:r0005:c0002",
+        "row_index": 5,
         "column_index": 2
       },
       "evidence_id": "ev113"
@@ -6583,15 +6295,15 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "140.14 ± 18.22",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "20",
-        "column_label": "Tensile strength (MPa)",
-        "cell_value": "45.58 ± 1.21",
-        "cell_id": "T_4_70:r0005:c0002",
-        "row_index": 5,
-        "column_index": 2
+        "row_label": "0",
+        "column_label": "Elongation at break (%)",
+        "cell_value": "140.14 ± 18.22",
+        "cell_id": "T_4_70:r0001:c0003",
+        "row_index": 1,
+        "column_index": 3
       },
       "evidence_id": "ev114"
     },
@@ -6605,14 +6317,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "133.86 ± 9.07",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "0",
+        "row_label": "5",
         "column_label": "Elongation at break (%)",
-        "cell_value": "140.14 ± 18.22",
-        "cell_id": "T_4_70:r0001:c0003",
-        "row_index": 1,
+        "cell_value": "133.86 ± 9.07",
+        "cell_id": "T_4_70:r0002:c0003",
+        "row_index": 2,
         "column_index": 3
       },
       "evidence_id": "ev115"
@@ -6627,14 +6339,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "69.06 ± 4.24",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "5",
+        "row_label": "10",
         "column_label": "Elongation at break (%)",
-        "cell_value": "133.86 ± 9.07",
-        "cell_id": "T_4_70:r0002:c0003",
-        "row_index": 2,
+        "cell_value": "69.06 ± 4.24",
+        "cell_id": "T_4_70:r0003:c0003",
+        "row_index": 3,
         "column_index": 3
       },
       "evidence_id": "ev116"
@@ -6649,14 +6361,14 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "43.89 ± 2.85",
       "table_locator": {
         "table_id": "T_4_70",
-        "row_label": "10",
+        "row_label": "15",
         "column_label": "Elongation at break (%)",
-        "cell_value": "69.06 ± 4.24",
-        "cell_id": "T_4_70:r0003:c0003",
-        "row_index": 3,
+        "cell_value": "43.89 ± 2.85",
+        "cell_id": "T_4_70:r0004:c0003",
+        "row_index": 4,
         "column_index": 3
       },
       "evidence_id": "ev117"
@@ -6671,29 +6383,7 @@
         615.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
-      "table_locator": {
-        "table_id": "T_4_70",
-        "row_label": "15",
-        "column_label": "Elongation at break (%)",
-        "cell_value": "43.89 ± 2.85",
-        "cell_id": "T_4_70:r0004:c0003",
-        "row_index": 4,
-        "column_index": 3
-      },
-      "evidence_id": "ev118"
-    },
-    {
-      "block_id": "T_4_70",
-      "page": 4,
-      "bbox": [
-        73.0,
-        453.0,
-        484.0,
-        615.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "source_sentence": "30.03 ± 3.67",
       "table_locator": {
         "table_id": "T_4_70",
         "row_label": "20",
@@ -6702,6 +6392,28 @@
         "cell_id": "T_4_70:r0005:c0003",
         "row_index": 5,
         "column_index": 3
+      },
+      "evidence_id": "ev118"
+    },
+    {
+      "block_id": "T_5_83",
+      "page": 5,
+      "bbox": [
+        510.0,
+        384.0,
+        922.0,
+        514.0
+      ],
+      "source_type": "table",
+      "source_sentence": "0",
+      "table_locator": {
+        "table_id": "T_5_83",
+        "row_label": "0",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "0",
+        "cell_id": "T_5_83:r0002:c0000",
+        "row_index": 2,
+        "column_index": 0
       },
       "evidence_id": "ev119"
     },
@@ -6715,15 +6427,15 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "91.20",
       "table_locator": {
         "table_id": "T_5_83",
         "row_label": "0",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "0",
-        "cell_id": "T_5_83:r0002:c0000",
+        "column_label": "$Tg_1$ (°C)",
+        "cell_value": "91.20",
+        "cell_id": "T_5_83:r0002:c0001",
         "row_index": 2,
-        "column_index": 0
+        "column_index": 1
       },
       "evidence_id": "ev120"
     },
@@ -6737,15 +6449,15 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "10",
       "table_locator": {
         "table_id": "T_5_83",
-        "row_label": "0",
-        "column_label": "$Tg_1$ (°C)",
-        "cell_value": "91.20",
-        "cell_id": "T_5_83:r0002:c0001",
-        "row_index": 2,
-        "column_index": 1
+        "row_label": "10",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "10",
+        "cell_id": "T_5_83:r0003:c0000",
+        "row_index": 3,
+        "column_index": 0
       },
       "evidence_id": "ev121"
     },
@@ -6759,15 +6471,15 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "89.30",
       "table_locator": {
         "table_id": "T_5_83",
         "row_label": "10",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "10",
-        "cell_id": "T_5_83:r0003:c0000",
+        "column_label": "$Tg_1$ (°C)",
+        "cell_value": "89.30",
+        "cell_id": "T_5_83:r0003:c0001",
         "row_index": 3,
-        "column_index": 0
+        "column_index": 1
       },
       "evidence_id": "ev122"
     },
@@ -6781,15 +6493,15 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "20",
       "table_locator": {
         "table_id": "T_5_83",
-        "row_label": "10",
-        "column_label": "$Tg_1$ (°C)",
-        "cell_value": "89.30",
-        "cell_id": "T_5_83:r0003:c0001",
-        "row_index": 3,
-        "column_index": 1
+        "row_label": "20",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "20",
+        "cell_id": "T_5_83:r0004:c0000",
+        "row_index": 4,
+        "column_index": 0
       },
       "evidence_id": "ev123"
     },
@@ -6803,15 +6515,15 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "89.60",
       "table_locator": {
         "table_id": "T_5_83",
         "row_label": "20",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "20",
-        "cell_id": "T_5_83:r0004:c0000",
+        "column_label": "$Tg_1$ (°C)",
+        "cell_value": "89.60",
+        "cell_id": "T_5_83:r0004:c0001",
         "row_index": 4,
-        "column_index": 0
+        "column_index": 1
       },
       "evidence_id": "ev124"
     },
@@ -6825,15 +6537,15 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "SMIA",
       "table_locator": {
         "table_id": "T_5_83",
-        "row_label": "20",
-        "column_label": "$Tg_1$ (°C)",
-        "cell_value": "89.60",
-        "cell_id": "T_5_83:r0004:c0001",
-        "row_index": 4,
-        "column_index": 1
+        "row_label": "SMIA",
+        "column_label": "SMIA content (phr)",
+        "cell_value": "SMIA",
+        "cell_id": "T_5_83:r0005:c0000",
+        "row_index": 5,
+        "column_index": 0
       },
       "evidence_id": "ev125"
     },
@@ -6847,39 +6559,17 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "—",
       "table_locator": {
         "table_id": "T_5_83",
         "row_label": "SMIA",
-        "column_label": "SMIA content (phr)",
-        "cell_value": "SMIA",
-        "cell_id": "T_5_83:r0005:c0000",
-        "row_index": 5,
-        "column_index": 0
+        "column_label": "Tg1 (°C)",
+        "cell_value": "—",
+        "cell_id": null,
+        "row_index": null,
+        "column_index": null
       },
       "evidence_id": "ev126"
-    },
-    {
-      "block_id": "T_5_83",
-      "page": 5,
-      "bbox": [
-        510.0,
-        384.0,
-        922.0,
-        514.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
-      "table_locator": {
-        "table_id": "T_5_83",
-        "row_label": "SMIA",
-        "column_label": "$Tg_1$ (°C)",
-        "cell_value": "—",
-        "cell_id": "T_5_83:r0005:c0001",
-        "row_index": 5,
-        "column_index": 1
-      },
-      "evidence_id": "ev127"
     },
     {
       "block_id": "P_1_35",
@@ -6892,6 +6582,28 @@
       ],
       "source_type": "text",
       "source_sentence": "The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of $3 ^ { \\circ } \\mathrm { C } /$min with a temperature range from $3 0 ^ { \\circ } \\mathrm { C }$to $1 6 0 ^ { \\circ } \\mathrm { C } .$.",
+      "evidence_id": "ev127"
+    },
+    {
+      "block_id": "T_5_83",
+      "page": 5,
+      "bbox": [
+        510.0,
+        384.0,
+        922.0,
+        514.0
+      ],
+      "source_type": "table",
+      "source_sentence": "—",
+      "table_locator": {
+        "table_id": "T_5_83",
+        "row_label": "0",
+        "column_label": "Tg2 (°C)",
+        "cell_value": "—",
+        "cell_id": null,
+        "row_index": null,
+        "column_index": null
+      },
       "evidence_id": "ev128"
     },
     {
@@ -6904,14 +6616,14 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "129.80",
       "table_locator": {
         "table_id": "T_5_83",
-        "row_label": "0",
+        "row_label": "10",
         "column_label": "$Tg_2$ (°C)",
-        "cell_value": "—",
-        "cell_id": "T_5_83:r0002:c0002",
-        "row_index": 2,
+        "cell_value": "129.80",
+        "cell_id": "T_5_83:r0003:c0002",
+        "row_index": 3,
         "column_index": 2
       },
       "evidence_id": "ev129"
@@ -6926,14 +6638,14 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "131.90",
       "table_locator": {
         "table_id": "T_5_83",
-        "row_label": "10",
+        "row_label": "20",
         "column_label": "$Tg_2$ (°C)",
-        "cell_value": "129.80",
-        "cell_id": "T_5_83:r0003:c0002",
-        "row_index": 3,
+        "cell_value": "131.90",
+        "cell_id": "T_5_83:r0004:c0002",
+        "row_index": 4,
         "column_index": 2
       },
       "evidence_id": "ev130"
@@ -6948,14 +6660,14 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "132.00",
       "table_locator": {
         "table_id": "T_5_83",
-        "row_label": "20",
+        "row_label": "SMIA",
         "column_label": "$Tg_2$ (°C)",
-        "cell_value": "131.90",
-        "cell_id": "T_5_83:r0004:c0002",
-        "row_index": 4,
+        "cell_value": "132.00",
+        "cell_id": "T_5_83:r0005:c0002",
+        "row_index": 5,
         "column_index": 2
       },
       "evidence_id": "ev131"
@@ -6970,29 +6682,7 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
-      "table_locator": {
-        "table_id": "T_5_83",
-        "row_label": "SMIA",
-        "column_label": "$Tg_2$ (°C)",
-        "cell_value": "132.00",
-        "cell_id": "T_5_83:r0005:c0002",
-        "row_index": 5,
-        "column_index": 2
-      },
-      "evidence_id": "ev132"
-    },
-    {
-      "block_id": "T_5_83",
-      "page": 5,
-      "bbox": [
-        510.0,
-        384.0,
-        922.0,
-        514.0
-      ],
-      "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "40.50",
       "table_locator": {
         "table_id": "T_5_83",
         "row_label": "10",
@@ -7002,7 +6692,7 @@
         "row_index": 3,
         "column_index": 3
       },
-      "evidence_id": "ev134"
+      "evidence_id": "ev133"
     },
     {
       "block_id": "T_5_83",
@@ -7014,7 +6704,7 @@
         514.0
       ],
       "source_type": "table",
-      "source_sentence": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "source_sentence": "42.30",
       "table_locator": {
         "table_id": "T_5_83",
         "row_label": "20",
@@ -7024,7 +6714,7 @@
         "row_index": 4,
         "column_index": 3
       },
-      "evidence_id": "ev135"
+      "evidence_id": "ev134"
     },
     {
       "block_id": "P_2_49",
@@ -7037,7 +6727,46 @@
       ],
       "source_type": "text",
       "source_sentence": "To verify there is no homopolymerization for St, the DSC curves were recorded. As displayed in Figure 2, only one single Tg appeared at 123.5°C in the DSC curves of the terpolymer SMIA, and the results agree with the empirical formula proposed by Fox et al. [20] which indicated that the structure of copolymer SMIA is relatively homogeneous.",
+      "evidence_id": "ev136"
+    },
+    {
+      "block_id": "P_5_80",
+      "page": 5,
+      "bbox": [
+        68.0,
+        684.0,
+        489.0,
+        818.0
+      ],
+      "source_type": "text",
+      "source_sentence": "As for SMIA, a one-step degradation process was observed from $3 5 0 ^ { \\circ } \\mathrm { C }$to $4 5 0 ^ { \\circ } \\mathrm { C } .$. The TGA curves of blends were similar to PVC, exhibiting a typical dehydrochlorination and carbon chain-breaking degradation process. When ABS (10 phr) was added to PVC, T and $\\mathrm { T } _ { 5 0 }$increased from $2 6 1 ^ { \\circ } \\mathrm { C }$and 304°C to $2 7 3 ^ { \\circ } \\mathrm { C }$and $3 2 8 ^ { \\circ } \\mathrm { C }$respectively. Importantly, $\\mathrm { T _ { i } }$and $\\mathrm { T } _ { 5 0 }$increased to $2 8 0 ^ { \\circ } \\mathrm { C }$and $4 0 8 ^ { \\circ } \\mathrm { C }$with the addition of SMIA. The thermal stability of the composites was significantly boosted by SMIA.",
       "evidence_id": "ev137"
+    },
+    {
+      "block_id": "P_1_35",
+      "page": 1,
+      "bbox": [
+        507.0,
+        714.0,
+        926.0,
+        804.0
+      ],
+      "source_type": "text",
+      "source_sentence": "DMA for the PVC/ABS/SMIA blends was performed on a DMA apparatus (Diamond-DMA, PerkinElmer, USA). The tests were carried out under the tensile mode, at 1 Hz frequency and a heating rate of $3 ^ { \\circ } \\mathrm { C } /$min with a temperature range from $3 0 ^ { \\circ } \\mathrm { C }$to $1 6 0 ^ { \\circ } \\mathrm { C } .$. All of the samples had the following dimension $3 0 \\times 1 0 \\times 1 \\mathrm { m m } ^ { 3 }$",
+      "evidence_id": "ev138"
+    },
+    {
+      "block_id": "P_0_8",
+      "page": 0,
+      "bbox": [
+        80.0,
+        502.0,
+        915.0,
+        702.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Phase separation was not observed in the scanning electron microscope images of composites, elucidating the outstanding compatibility of ABS, PVC, and SMIA.",
+      "evidence_id": "ev139"
     },
     {
       "block_id": "P_2_53",
@@ -7049,8 +6778,8 @@
         938.0
       ],
       "source_type": "text",
-      "source_sentence": "The field emission SEM was used to explore the micromorphology of the impact fracture surface. As displayed in Figure  4a, the impact section of the composite material presents relatively flat with the addition of 6 phr ABS. The impact section of the PVC/ABS composite material contains well-distributed voids when the ABS is increased to 10 phr (Figure 4c). Some tree-root-like yielding fibers appear, which is a typical characteristic of toughness fracture. The fracture surface is not uniform at 12 phr (Figure 4d). Both the matrix yielding caused by the obvious plastic deformation and a number of voids, and some of the more flat and smooth planes appear the characteristics of brittle fracture.",
-      "evidence_id": "ev138"
+      "source_sentence": "The field emission SEM was used to explore the micromorphology of the impact fracture surface. As displayed in Figure  4a, the impact section of the composite material presents relatively flat with the addition of 6 phr ABS. The impact section of the PVC/ABS composite material contains well-distributed voids when the ABS is increased to 10 phr (Figure 4c). Some tree-root-like yielding fibers appear, which is a typical characteristic of toughness fracture. The fracture surface is not uniform at 12 phr (Figure 4d).",
+      "evidence_id": "ev140"
     },
     {
       "block_id": "P_3_64",
@@ -7062,8 +6791,8 @@
         627.0
       ],
       "source_type": "text",
-      "source_sentence": "To deeply understand the impact performance of PVC/ABS/ SMIA composites, SEM images were acquired. As shown in Figure $^ { 6 , }$the boundary between the two phases was not found, and no obvious phase separation occurred. The gradual decrease in the number of yielding fibers on the surface can be observed when the SMIA content is increased from 0 to 10 phr. As the SMIA content further increases, the degree of slatting increases, the surface becomes relatively smooth, and the number of micropores gradually decreases.",
-      "evidence_id": "ev139"
+      "source_sentence": "To deeply understand the impact performance of PVC/ABS/ SMIA composites, SEM images were acquired. As shown in Figure $^ { 6 , }$the boundary between the two phases was not found, and no obvious phase separation occurred.",
+      "evidence_id": "ev141"
     }
   ],
   "provenance": [
@@ -7125,32 +6854,32 @@
         "gpt-5.6-terra-2026-07-09"
       ],
       "prompt_id": "polymer.stage2.polymer_entity",
-      "prompt_version": "1.3.0",
-      "prompt_sha256": "0d376da340b979a77fcd231e0148cc26c8b9d125f7209025c7055483abb7d7e1",
+      "prompt_version": "1.5.1",
+      "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
       "input_hash": "51280cb054b491261152ac8500cc487173898a3983d93a8ac88c98a34b91247b",
       "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
-      "cache_key": "94d4ee1a7f371c7a89750a67626e4e8e5091a6718e7b41fc6cb63d3dd264a5fb",
+      "cache_key": "fd4c3227ad3abb754530d9c559b0fb78d3af1e070119520d2c9722694fb58d70",
       "output_schema_version": "polymer_entity_schema.v3",
-      "implementation_version": "1.4.0",
+      "implementation_version": "1.6.1",
       "context_block_count": 30,
       "context_chars": 25517,
       "call_count": 1,
       "usage": {
-        "input_tokens": 19140,
-        "output_tokens": 3435,
+        "input_tokens": 19361,
+        "output_tokens": 3416,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 19140,
-        "total_tokens": 22575
+        "billable_input_tokens": 19361,
+        "total_tokens": 22777
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "17",
         "output_per_million": "101",
-        "input_cost": "0.32538",
-        "output_cost": "0.346935",
-        "total_cost": "0.672315"
+        "input_cost": "0.329137",
+        "output_cost": "0.345016",
+        "total_cost": "0.674153"
       },
       "status": "success"
     },
@@ -7162,32 +6891,32 @@
         "doubao-seed-2.0-pro"
       ],
       "prompt_id": "polymer.stage3.sample_process",
-      "prompt_version": "1.4.0",
-      "prompt_sha256": "2fef2373a2f2e3883de6d7c0a91e886a87ba84f3ba7a74a86296c60d902f6cac",
-      "input_hash": "58c748d2aea4ff1a76ae0c7e862df4aea3f556390d31c281b019c0906f86d746",
+      "prompt_version": "1.6.0",
+      "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+      "input_hash": "1fc35cf03a14474a0d1ce60d22b64dc9078e534ae3e5d515d095aaa74cc4464e",
       "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
-      "cache_key": "6c1dd3dbf1970d2cfa0c7db34afd2262b65ad3660e5b6f53ec6fa70df7f23b7d",
+      "cache_key": "90787d50388285fbe2a761354e502e9c8a8e4befeb58e3103bd78349773f2245",
       "output_schema_version": "sample_process_schema.v4",
-      "implementation_version": "1.5.0",
+      "implementation_version": "1.7.1",
       "context_block_count": 7,
       "context_chars": 8992,
       "call_count": 1,
       "usage": {
-        "input_tokens": 9509,
-        "output_tokens": 6800,
+        "input_tokens": 9820,
+        "output_tokens": 3893,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 9509,
-        "total_tokens": 16309
+        "billable_input_tokens": 9820,
+        "total_tokens": 13713
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.04107888",
-        "output_cost": "0.19822",
-        "total_cost": "0.23929888"
+        "input_cost": "0.0424224",
+        "output_cost": "0.11348095",
+        "total_cost": "0.15590335"
       },
       "status": "success"
     },
@@ -7202,30 +6931,30 @@
       "prompt_version": "1.7.2",
       "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "22b76248fd98e036e8ba8ae698f7ce89c61e6b31fbca5b32906222ad1ade7a8f",
+      "input_hash": "e9145bcd44cb3304dcb73c85b5b69dade323eda2c8a759569a516f11c77df37c",
       "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-      "cache_key": "bd46778d8ac0dde73930a28c37d03fc075af17fc4c091cf325e96a20c03af95c",
+      "cache_key": "cf5bbbf892c9fc78bea61bace336566c33330fceee581a12da6144d4804afb0f",
       "output_schema_version": "property_observation_schema.v7",
       "implementation_version": "1.7.10",
       "context_block_count": 79,
       "context_chars": 44870,
       "call_count": 1,
       "usage": {
-        "input_tokens": 27496,
-        "output_tokens": 26332,
+        "input_tokens": 27419,
+        "output_tokens": 30202,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 27496,
-        "total_tokens": 53828
+        "billable_input_tokens": 27419,
+        "total_tokens": 57621
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.11878272",
-        "output_cost": "0.7675778",
-        "total_cost": "0.88636052"
+        "input_cost": "0.11845008",
+        "output_cost": "0.8803883",
+        "total_cost": "0.99883838"
       },
       "status": "success"
     },
@@ -7240,30 +6969,30 @@
       "prompt_version": "1.6.2",
       "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
       "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-      "input_hash": "b2689c1179710ec8626e513dde03c75548099c398381622524e17187aea16e54",
+      "input_hash": "b80c9bf7671a7493a930d35edd5c2f6a7862b10dffb2a746c56c34c442328cbd",
       "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-      "cache_key": "f29e88d0e1be0f66bae9771a6a2833ac3f7d07737fa1799862943dfc30952597",
+      "cache_key": "c062d767a75fa45b031bcf4791c19e58e9fb2cf2cfdf6d94dba1dd8414fcece4",
       "output_schema_version": "characterization_schema.v4",
       "implementation_version": "1.7.1",
-      "context_block_count": 12,
-      "context_chars": 12414,
+      "context_block_count": 14,
+      "context_chars": 13793,
       "call_count": 1,
       "usage": {
-        "input_tokens": 13421,
-        "output_tokens": 5805,
+        "input_tokens": 13612,
+        "output_tokens": 5047,
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
-        "billable_input_tokens": 13421,
-        "total_tokens": 19226
+        "billable_input_tokens": 13612,
+        "total_tokens": 18659
       },
       "cost": {
         "status": "calculated",
         "currency": "CNY",
         "input_per_million": "4.32",
         "output_per_million": "29.15",
-        "input_cost": "0.05797872",
-        "output_cost": "0.16921575",
-        "total_cost": "0.22719447"
+        "input_cost": "0.05880384",
+        "output_cost": "0.14712005",
+        "total_cost": "0.20592389"
       },
       "status": "success"
     }
@@ -7295,11 +7024,6 @@
       "message": "Preview 模式已保留无法确定合并关系的嵌套 mention 拆分；需在正式数据中复核"
     },
     {
-      "stage": "stage2_polymer_entity",
-      "code": "polymer_type_default_inferred",
-      "message": "Backfill：无共聚或共混反证的实体已推断为 homopolymer"
-    },
-    {
       "stage": "stage3_sample_process",
       "code": "section_fallback",
       "message": "Methods 为空，仅使用 Stage 2 entity 的 evidence block；结果需人工复核"
@@ -7316,6 +7040,11 @@
     },
     {
       "stage": "stage3_sample_process",
+      "code": "sample_evidence_relinked",
+      "message": "样品标签仅在一个输入 block 中出现，已重定位 evidence"
+    },
+    {
+      "stage": "stage3_sample_process",
       "code": "unsupported_sample_labels_dropped",
       "message": "sample_label_raw 无法在 evidence 中定位；已有逐字 state_description，故删除无依据标签"
     },
@@ -7327,22 +7056,7 @@
     {
       "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "9 个 entity 未解析到实际样品"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_evidence_inferred",
-      "message": "Backfill：已按明确配方或增强组分证据补全 material_type"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin"
+      "message": "10 个 entity 未解析到实际样品"
     },
     {
       "stage": "stage4_property",
@@ -7356,18 +7070,23 @@
     },
     {
       "stage": "stage4_property",
+      "code": "preview_point_locator_recovered_from_unique_table_row",
+      "message": "Preview 模式已用唯一完整表格行、唯一列头及一致 value_raw 补全 Series point 的稳定坐标"
+    },
+    {
+      "stage": "stage4_property",
       "code": "series_entity_relinked_to_sample",
       "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正"
     },
     {
       "stage": "stage4_property",
-      "code": "candidate_table_locator_surface_repaired",
-      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复"
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
     },
     {
       "stage": "stage4_property",
-      "code": "condition_evidence_surfaces_repaired",
-      "message": "条件 evidence 的候选摘要无法逐字定位；已用同一条件下性质字段的原文 anchor 恢复"
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复"
     },
     {
       "stage": "stage4_property",
@@ -7396,13 +7115,18 @@
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_characterization_method_surface_recovered",
-      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形"
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_unsupported_characterization_details_cleared",
-      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+      "code": "series_point_subject_scope_inherited",
+      "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
     },
     {
       "stage": "meta_extract",
@@ -7412,7 +7136,49 @@
     {
       "stage": "stage4_property",
       "code": "unused_measurement_condition",
-      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002', 'mc003']"
+      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002']"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop002"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop004"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop005"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop006"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop007"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop008"
     },
     {
       "stage": "stage4_property",
@@ -7452,6 +7218,24 @@
     },
     {
       "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "prop008"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_stable_cell_unresolved",
+      "message": "table_locator 无法唯一解析到稳定 cell_id；保留原行列文字定位",
+      "object_id": "pt034"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_stable_cell_unresolved",
+      "message": "table_locator 无法唯一解析到稳定 cell_id；保留原行列文字定位",
+      "object_id": "pt035"
+    },
+    {
+      "stage": "stage4_property",
       "code": "table_locator_stable_cell_unresolved",
       "message": "table_locator 无法唯一解析到稳定 cell_id；保留原行列文字定位",
       "object_id": "pt039"
@@ -7465,13 +7249,19 @@
     {
       "stage": "stage4_property",
       "code": "preview_object_rejected_evidence_not_in_source",
-      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 84.6%，内容不在该 block 内）",
+      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 75.0%，内容不在该 block 内）",
+      "object_id": "mc002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_object_rejected_evidence_not_in_source",
+      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 84.0%，内容不在该 block 内）",
       "object_id": "prop002"
     },
     {
       "stage": "stage4_property",
       "code": "preview_object_rejected_evidence_not_in_source",
-      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 83.3%，内容不在该 block 内）",
+      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 81.2%，内容不在该 block 内）",
       "object_id": "prop006"
     },
     {
@@ -7490,7 +7280,7 @@
   "validation_summary": {
     "status": "passed_with_warnings",
     "error_count": 0,
-    "warning_count": 41,
+    "warning_count": 51,
     "validation_mode": "preview",
     "validation_status": "degraded",
     "degraded_codes": [
@@ -7562,21 +7352,21 @@
         "model": "gpt-5.6-terra-2026-07-09",
         "call_count": 1,
         "usage": {
-          "input_tokens": 19140,
-          "output_tokens": 3435,
+          "input_tokens": 19361,
+          "output_tokens": 3416,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 19140,
-          "total_tokens": 22575
+          "billable_input_tokens": 19361,
+          "total_tokens": 22777
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "17",
           "output_per_million": "101",
-          "input_cost": "0.32538",
-          "output_cost": "0.346935",
-          "total_cost": "0.672315"
+          "input_cost": "0.329137",
+          "output_cost": "0.345016",
+          "total_cost": "0.674153"
         }
       },
       {
@@ -7585,21 +7375,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 9509,
-          "output_tokens": 6800,
+          "input_tokens": 9820,
+          "output_tokens": 3893,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 9509,
-          "total_tokens": 16309
+          "billable_input_tokens": 9820,
+          "total_tokens": 13713
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.04107888",
-          "output_cost": "0.19822",
-          "total_cost": "0.23929888"
+          "input_cost": "0.0424224",
+          "output_cost": "0.11348095",
+          "total_cost": "0.15590335"
         }
       },
       {
@@ -7608,21 +7398,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 27496,
-          "output_tokens": 26332,
+          "input_tokens": 27419,
+          "output_tokens": 30202,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 27496,
-          "total_tokens": 53828
+          "billable_input_tokens": 27419,
+          "total_tokens": 57621
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.11878272",
-          "output_cost": "0.7675778",
-          "total_cost": "0.88636052"
+          "input_cost": "0.11845008",
+          "output_cost": "0.8803883",
+          "total_cost": "0.99883838"
         }
       },
       {
@@ -7631,21 +7421,21 @@
         "model": "doubao-seed-2.0-pro",
         "call_count": 1,
         "usage": {
-          "input_tokens": 13421,
-          "output_tokens": 5805,
+          "input_tokens": 13612,
+          "output_tokens": 5047,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "billable_input_tokens": 13421,
-          "total_tokens": 19226
+          "billable_input_tokens": 13612,
+          "total_tokens": 18659
         },
         "cost": {
           "status": "calculated",
           "currency": "CNY",
           "input_per_million": "4.32",
           "output_per_million": "29.15",
-          "input_cost": "0.05797872",
-          "output_cost": "0.16921575",
-          "total_cost": "0.22719447"
+          "input_cost": "0.05880384",
+          "output_cost": "0.14712005",
+          "total_cost": "0.20592389"
         }
       },
       {
@@ -7671,12 +7461,12 @@
         }
       }
     ],
-    "total_cost": "2.96422487"
+    "total_cost": "2.97387462"
   },
   "quality_metrics": {
     "properties_with_units": {
-      "complete": 45,
-      "total": 45,
+      "complete": 46,
+      "total": 46,
       "ratio": 1.0
     },
     "standard_process_steps": {
@@ -7685,13 +7475,13 @@
       "ratio": 1.0
     },
     "stage4_methods_with_characterization": {
-      "complete": 7,
-      "total": 7,
-      "ratio": 1.0
+      "complete": 1,
+      "total": 8,
+      "ratio": 0.125
     },
     "objects_with_confidence": {
-      "complete": 203,
-      "total": 203,
+      "complete": 200,
+      "total": 200,
       "ratio": 1.0
     },
     "series_points_covered": {
@@ -7702,6 +7492,60 @@
   },
   "rejected_objects": [
     {
+      "object_id": "mc002",
+      "object_type": "measurement_condition",
+      "source_stage": "stage4_property",
+      "error_codes": [
+        "evidence_not_in_source"
+      ],
+      "messages": [
+        "Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 75.0%，内容不在该 block 内）"
+      ],
+      "raw_object": {
+        "condition_id": "mc002",
+        "temperature": null,
+        "frequency": {
+          "raw": "1 Hz",
+          "value": 1.0,
+          "unit": "Hz",
+          "evidence": [],
+          "evidence_ids": [
+            "ev066"
+          ]
+        },
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "test_mode": "tensile mode",
+          "heating_rate": "3 °C/min",
+          "temperature_range": "30 °C to 160 °C",
+          "sample_dimension": "30 × 10 × 1 mm³"
+        },
+        "other_condition_evidence_ids": {
+          "test_mode": [
+            "ev066"
+          ],
+          "heating_rate": [
+            "ev066"
+          ],
+          "temperature_range": [
+            "ev066"
+          ],
+          "sample_dimension": [
+            "ev067"
+          ]
+        },
+        "condition_status": "reported",
+        "evidence_ids": [
+          "ev068"
+        ],
+        "confidence": {
+          "score": 0.9
+        }
+      }
+    },
+    {
       "object_id": "prop002",
       "object_type": "property",
       "source_stage": "stage4_or_stage5",
@@ -7709,12 +7553,12 @@
         "evidence_not_in_source"
       ],
       "messages": [
-        "Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 84.6%，内容不在该 block 内）"
+        "Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 84.0%，内容不在该 block 内）"
       ],
       "raw_object": {
         "property_id": "prop002",
         "sample_id": "s001",
-        "property_name_raw": "initial decomposition temperature",
+        "property_name_raw": "Ti",
         "property_name_normalized": "thermal_decomposition_temperature",
         "property_code": "P3170",
         "property_category": "thermal_property",
@@ -7729,7 +7573,7 @@
         "value_max": 261.0,
         "unit_raw": "°C",
         "unit_normalized": "°C",
-        "measurement_condition_id": "mc004",
+        "measurement_condition_id": "mc005",
         "measurement_context": {
           "temperature": null,
           "frequency": null,
@@ -7743,10 +7587,10 @@
         },
         "source_type": "text",
         "evidence_ids": [
-          "ev073"
+          "ev075"
         ],
         "confidence": {
-          "score": 0.9
+          "score": 0.8
         }
       }
     },
@@ -7758,12 +7602,12 @@
         "evidence_not_in_source"
       ],
       "messages": [
-        "Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 83.3%，内容不在该 block 内）"
+        "Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 81.2%，内容不在该 block 内）"
       ],
       "raw_object": {
         "property_id": "prop006",
-        "sample_id": "s006",
-        "property_name_raw": "initial decomposition temperature",
+        "sample_id": "s005",
+        "property_name_raw": "Ti",
         "property_name_normalized": "thermal_decomposition_temperature",
         "property_code": "P3170",
         "property_category": "thermal_property",
@@ -7778,7 +7622,7 @@
         "value_max": 280.0,
         "unit_raw": "°C",
         "unit_normalized": "°C",
-        "measurement_condition_id": "mc004",
+        "measurement_condition_id": "mc005",
         "measurement_context": {
           "temperature": null,
           "frequency": null,
@@ -7792,10 +7636,10 @@
         },
         "source_type": "text",
         "evidence_ids": [
-          "ev074"
+          "ev076"
         ],
         "confidence": {
-          "score": 0.9
+          "score": 0.8
         }
       }
     },
@@ -7812,8 +7656,8 @@
       "raw_object": {
         "point_id": "pt039",
         "observation_role": "series_point",
-        "sample_id": "s006",
-        "entity_id": "pe012",
+        "sample_id": "s005",
+        "entity_id": "pe004",
         "sample_resolution_status": "resolved",
         "coordinates": [
           {
@@ -7821,7 +7665,7 @@
             "value_raw": "0",
             "unit_raw": "phr",
             "evidence_ids": [
-              "ev120"
+              "ev119"
             ]
           }
         ],
@@ -7845,23 +7689,18 @@
           "pressure": null,
           "wavelength": null,
           "other_conditions": {
-            "test_mode": "tensile",
-            "heating_rate": "3 °C/min"
+            "test_mode": "tensile mode",
+            "heating_rate": "3 °C/min",
+            "temperature_range": "30 °C to 160 °C",
+            "sample_dimension": "30 × 10 × 1 mm³"
           },
           "other_condition_evidence": {},
-          "other_condition_evidence_ids": {
-            "test_mode": [
-              "ev066"
-            ],
-            "heating_rate": [
-              "ev066"
-            ]
-          },
+          "other_condition_evidence_ids": {},
           "condition_status": "reported"
         },
         "coverage_status": "not_applicable",
         "evidence_ids": [
-          "ev133"
+          "ev132"
         ],
         "confidence": {
           "score": 0.9
@@ -7881,8 +7720,8 @@
       "raw_object": {
         "point_id": "pt042",
         "observation_role": "series_point",
-        "sample_id": "s006",
-        "entity_id": "pe012",
+        "sample_id": "s003",
+        "entity_id": "pe003",
         "sample_resolution_status": "resolved",
         "coordinates": [
           {
@@ -7890,7 +7729,7 @@
             "value_raw": "SMIA",
             "unit_raw": null,
             "evidence_ids": [
-              "ev126"
+              "ev125"
             ]
           }
         ],
@@ -7914,23 +7753,18 @@
           "pressure": null,
           "wavelength": null,
           "other_conditions": {
-            "test_mode": "tensile",
-            "heating_rate": "3 °C/min"
+            "test_mode": "tensile mode",
+            "heating_rate": "3 °C/min",
+            "temperature_range": "30 °C to 160 °C",
+            "sample_dimension": "30 × 10 × 1 mm³"
           },
           "other_condition_evidence": {},
-          "other_condition_evidence_ids": {
-            "test_mode": [
-              "ev066"
-            ],
-            "heating_rate": [
-              "ev066"
-            ]
-          },
+          "other_condition_evidence_ids": {},
           "condition_status": "reported"
         },
         "coverage_status": "not_applicable",
         "evidence_ids": [
-          "ev136"
+          "ev135"
         ],
         "confidence": {
           "score": 0.9
@@ -7940,30 +7774,31 @@
   ],
   "preview_publication_summary": {
     "input_counts": {
-      "characterization": 7,
+      "characterization": 4,
       "material_mention": 110,
       "measurement_condition": 5,
       "polymer_entity": 15,
       "process_step": 2,
-      "property": 7,
+      "property": 8,
       "property_series": 9,
       "property_series_point": 42,
-      "sample": 6,
+      "sample": 5,
       "unresolved_property": 0
     },
     "published_counts": {
-      "characterization": 7,
+      "characterization": 4,
       "material_mention": 110,
-      "measurement_condition": 5,
+      "measurement_condition": 4,
       "polymer_entity": 15,
       "process_step": 2,
-      "property": 5,
+      "property": 6,
       "property_series": 9,
       "property_series_point": 40,
-      "sample": 6,
+      "sample": 5,
       "unresolved_property": 0
     },
     "rejected_counts": {
+      "measurement_condition": 1,
       "property": 2,
       "property_series_point": 2
     },

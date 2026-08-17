@@ -17,84 +17,10 @@
           581.0
         ],
         "source_type": "text",
-        "source_sentence": "Amylopectin was thermally characterized by the melting point determination of DSC and TGA methods. These analyses were carried out by the USDA Forest Service in Madison, WI."
+        "source_sentence": "Amylopectin was thermally characterized by the melting point determination of DSC and TGA methods."
       },
       "confidence": {
         "score": 0.8
-      }
-    },
-    {
-      "condition_id": "mc002",
-      "other_conditions": {
-        "carrier_gas": "helium",
-        "flow_rate": "8 ml/minute"
-      },
-      "other_condition_evidence": {
-        "carrier_gas": [
-          {
-            "block_id": "P_12_102",
-            "page": 12,
-            "bbox": [
-              113.0,
-              226.0,
-              881.0,
-              746.0
-            ],
-            "source_type": "text",
-            "source_sentence": "From our previous experiments, it has been demonstrated that the flow rate of the carrier gas, helium, between 0 - 10 ml/minute had no significant effect on the retention volumes."
-          }
-        ],
-        "flow_rate": [
-          {
-            "block_id": "P_12_102",
-            "page": 12,
-            "bbox": [
-              113.0,
-              226.0,
-              881.0,
-              746.0
-            ],
-            "source_type": "text",
-            "source_sentence": "A flow rate of 8 ml/minute will be used throughout this work in order to eliminate the effect of flow rate (kinetic) on $V_{g}^{\\circ}$ values."
-          }
-        ]
-      },
-      "condition_status": "reported",
-      "evidence": {
-        "block_id": "P_12_102",
-        "page": 12,
-        "bbox": [
-          113.0,
-          226.0,
-          881.0,
-          746.0
-        ],
-        "source_type": "text",
-        "source_sentence": "A flow rate of 8 ml/minute will be used throughout this work in order to eliminate the effect of flow rate (kinetic) on $V_{g}^{\\circ}$ values. From our previous experiments, it has been demonstrated that the flow rate of the carrier gas, helium, between 0 - 10 ml/minute had no significant effect on the retention volumes."
-      },
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "condition_id": "mc003",
-      "other_conditions": {},
-      "other_condition_evidence": {},
-      "condition_status": "not_reported",
-      "evidence": {
-        "block_id": "T_11_95",
-        "page": 11,
-        "bbox": [
-          120.0,
-          141.0,
-          877.0,
-          753.0
-        ],
-        "source_type": "table",
-        "source_sentence": "Table I. Description of Biodegradable Polymers and Blends Studied"
-      },
-      "confidence": {
-        "score": 0.9
       }
     }
   ],
@@ -102,13 +28,12 @@
     {
       "property_id": "prop001",
       "sample_id": "s001",
-      "property_name_raw": "thermal decomposition temperature",
+      "property_name_raw": "decomposed at",
       "property_name_normalized": "thermal_decomposition_temperature",
       "property_code": "P3170",
       "property_category": "thermal_property",
-      "determination_method_raw": "TGA",
       "observation_role": "single",
-      "value_raw": "approximately 343",
+      "value_raw": "343",
       "value_min": 343.0,
       "value_max": 343.0,
       "unit_raw": "°C",
@@ -136,274 +61,17 @@
         }
       ],
       "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop002",
-      "sample_id": "s001",
-      "property_name_raw": "weight loss at decomposition temperature",
-      "determination_method_raw": "TGA",
-      "observation_role": "single",
-      "value_raw": "approximately 80",
-      "value_min": 80.0,
-      "value_max": 80.0,
-      "unit_raw": "%",
-      "unit_normalized": "%",
-      "measurement_condition_id": "mc001",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence": [
-        {
-          "block_id": "P_13_109",
-          "page": 13,
-          "bbox": [
-            115.0,
-            337.0,
-            881.0,
-            581.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The polymer was decomposed at approximately 343 °C with approximately 80% weight loss."
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "property_id": "prop003",
-      "sample_id": "s001",
-      "property_name_raw": "T_g (DSC)",
-      "property_name_normalized": "glass_transition_temperature",
-      "property_code": "P3110",
-      "property_category": "thermal_property",
-      "determination_method_raw": "DSC",
-      "observation_role": "single",
-      "value_raw": "105",
-      "value_min": 105.0,
-      "value_max": 105.0,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc001",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence": [
-        {
-          "block_id": "P_13_109",
-          "page": 13,
-          "bbox": [
-            115.0,
-            337.0,
-            881.0,
-            581.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The temperature of 166 °C was later identified to be the $T_{m}$ and 105 °C to be the $T_{g}$ of Amylopectin."
-        }
-      ],
-      "confidence": {
-        "score": 0.95
-      }
-    },
-    {
-      "property_id": "prop004",
-      "sample_id": "s001",
-      "property_name_raw": "T_m (DSC)",
-      "property_name_normalized": "melting_temperature",
-      "property_code": "P3120",
-      "property_category": "thermal_property",
-      "determination_method_raw": "DSC",
-      "observation_role": "single",
-      "value_raw": "166",
-      "value_min": 166.0,
-      "value_max": 166.0,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc001",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "source_type": "text",
-      "evidence": [
-        {
-          "block_id": "P_13_109",
-          "page": 13,
-          "bbox": [
-            115.0,
-            337.0,
-            881.0,
-            581.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The temperature of 166 °C was later identified to be the $T_{m}$ and 105 °C to be the $T_{g}$ of Amylopectin."
-        }
-      ],
-      "confidence": {
-        "score": 0.95
-      }
-    },
-    {
-      "property_id": "prop005",
-      "sample_id": "s001",
-      "property_name_raw": "T_m (with interactive solutes)",
-      "property_name_normalized": "melting_temperature",
-      "property_code": "P3120",
-      "property_category": "thermal_property",
-      "determination_method_raw": "IGC",
-      "observation_role": "single",
-      "value_raw": "151.50",
-      "value_min": 151.5,
-      "value_max": 151.5,
-      "unit_raw": "°C",
-      "unit_normalized": "°C",
-      "measurement_condition_id": "mc002",
-      "measurement_context": {
-        "other_conditions": {
-          "carrier_gas": "helium",
-          "flow_rate": "8 ml/minute"
-        },
-        "other_condition_evidence": {
-          "carrier_gas": [
-            {
-              "block_id": "P_12_102",
-              "page": 12,
-              "bbox": [
-                113.0,
-                226.0,
-                881.0,
-                746.0
-              ],
-              "source_type": "text",
-              "source_sentence": "From our previous experiments, it has been demonstrated that the flow rate of the carrier gas, helium, between 0 - 10 ml/minute had no significant effect on the retention volumes."
-            }
-          ],
-          "flow_rate": [
-            {
-              "block_id": "P_12_102",
-              "page": 12,
-              "bbox": [
-                113.0,
-                226.0,
-                881.0,
-                746.0
-              ],
-              "source_type": "text",
-              "source_sentence": "A flow rate of 8 ml/minute will be used throughout this work in order to eliminate the effect of flow rate (kinetic) on $V_{g}^{\\circ}$ values."
-            }
-          ]
-        },
-        "other_condition_evidence_ids": {},
-        "condition_status": "reported"
-      },
-      "source_type": "text",
-      "evidence": [
-        {
-          "block_id": "P_15_120",
-          "page": 15,
-          "bbox": [
-            115.0,
-            280.0,
-            881.0,
-            746.0
-          ],
-          "source_type": "text",
-          "source_sentence": "For pure AP, when solutes changed from alkanes to more interactive solutes such as alcohols and diethyl amine, $T_{m}$ is shifted from 160 °C to 151.50 °C."
-        }
-      ],
-      "confidence": {
-        "score": 0.9
-      }
-    }
-  ],
-  "unresolved_properties": [
-    {
-      "unresolved_id": "uprop001",
-      "entity_id": "pe014",
-      "property_name_raw": "B_23",
-      "determination_method_raw": "melting point elevation plot",
-      "observation_role": "single",
-      "value_raw": "+9.84",
-      "unit_raw": "Cal/mL",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_ambiguous",
-      "evidence": [
-        {
-          "block_id": "P_22_159",
-          "page": 22,
-          "bbox": [
-            113.0,
-            643.0,
-            884.0,
-            905.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The slope of the line yielded a value of $B_{23}$ of +9.84 Cal/mL and an intercept of +10.31 °C."
-        }
-      ],
-      "confidence": {
-        "score": 0.8
-      }
-    },
-    {
-      "unresolved_id": "uprop002",
-      "entity_id": "pe014",
-      "property_name_raw": "intercept of ΔT_m vs φ² plot",
-      "determination_method_raw": "melting point elevation plot",
-      "observation_role": "single",
-      "value_raw": "+10.31",
-      "unit_raw": "°C",
-      "measurement_context": {
-        "other_conditions": {},
-        "other_condition_evidence": {},
-        "other_condition_evidence_ids": {},
-        "condition_status": "not_reported"
-      },
-      "reason": "sample_ambiguous",
-      "evidence": [
-        {
-          "block_id": "P_22_159",
-          "page": 22,
-          "bbox": [
-            113.0,
-            643.0,
-            884.0,
-            905.0
-          ],
-          "source_type": "text",
-          "source_sentence": "The slope of the line yielded a value of $B_{23}$ of +9.84 Cal/mL and an intercept of +10.31 °C."
-        }
-      ],
-      "confidence": {
         "score": 0.8
       }
     }
   ],
+  "unresolved_properties": [],
   "property_series": [
     {
       "series_id": "series001",
       "sample_resolution_status": "unresolved",
       "property_name_raw": "Av. Molar Mass",
       "unit_raw": "g/mol",
-      "unit_normalized": "g/mol",
       "measurement_context": {
         "other_conditions": {},
         "other_condition_evidence": {},
@@ -418,11 +86,9 @@
           "entity_id": "pe001",
           "sample_resolution_status": "resolved",
           "coordinates": [],
-          "value_raw": "6.6 × 10^6",
+          "value_raw": "$6.6 \\times 10^{6}$",
           "value_min": 6600000.0,
           "value_max": 6600000.0,
-          "unit_raw": "g/mol",
-          "unit_normalized": "g/mol",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -441,7 +107,7 @@
                 753.0
               ],
               "source_type": "table",
-              "source_sentence": "Table I. Description of Biodegradable Polymers and Blends Studied",
+              "source_sentence": "Molar Mass, g/mol</td></tr><tr><td>100% Amylopectin</td><td>0.4870</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 10^{6}$ </td></tr><tr><td>100% Poly(ε-caprolactone) (PCL)</td><td>0.4680</td><td>Hot Water</td><td>7</td><td> $80.0 \\times 10^{3}$ </td></tr><tr><td>25 - 75% AP-PCL</td><td>0.125/0.375</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>50 -50% AP-PCL</td><td>0.249/0.250</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>75 - 25% AP-PCL</td><td>0.369/0.126</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td",
               "table_locator": {
                 "table_id": "T_11_95",
                 "row_label": "100% Amylopectin",
@@ -454,7 +120,7 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
           }
         },
         {
@@ -464,11 +130,9 @@
           "entity_id": "pe002",
           "sample_resolution_status": "resolved",
           "coordinates": [],
-          "value_raw": "80.0 × 10^3",
+          "value_raw": "$80.0 \\times 10^{3}$",
           "value_min": 80000.0,
           "value_max": 80000.0,
-          "unit_raw": "g/mol",
-          "unit_normalized": "g/mol",
           "measurement_context": {
             "other_conditions": {},
             "other_condition_evidence": {},
@@ -487,7 +151,7 @@
                 753.0
               ],
               "source_type": "table",
-              "source_sentence": "Table I. Description of Biodegradable Polymers and Blends Studied",
+              "source_sentence": "Molar Mass, g/mol</td></tr><tr><td>100% Amylopectin</td><td>0.4870</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 10^{6}$ </td></tr><tr><td>100% Poly(ε-caprolactone) (PCL)</td><td>0.4680</td><td>Hot Water</td><td>7</td><td> $80.0 \\times 10^{3}$ </td></tr><tr><td>25 - 75% AP-PCL</td><td>0.125/0.375</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>50 -50% AP-PCL</td><td>0.249/0.250</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>75 - 25% AP-PCL</td><td>0.369/0.126</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td",
               "table_locator": {
                 "table_id": "T_11_95",
                 "row_label": "100% Poly(ε-caprolactone) (PCL)",
@@ -500,13 +164,233 @@
             }
           ],
           "confidence": {
-            "score": 0.95
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt003",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$1.00 \\times 10^{5}$",
+          "value_min": 100000.0,
+          "value_max": 100000.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_11_95",
+              "page": 11,
+              "bbox": [
+                120.0,
+                141.0,
+                877.0,
+                753.0
+              ],
+              "source_type": "table",
+              "source_sentence": "\\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>50 -50% AP-PCL</td><td>0.249/0.250</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>75 - 25% AP-PCL</td><td>0.369/0.126</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td><td>0.200/0.200</td><td>Water/Acetonitrile</td><td>7</td><td> $6.6 \\times 106/1.00 \\times 10^{5}$ </td></tr><tr><td>100% Poly(3-hydroxy butyric acid) (PHBA)</td><td>0.4000</td><td>Hot Chloroform</td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times",
+              "table_locator": {
+                "table_id": "T_11_95",
+                "row_label": "100% Poly(DL-lactide-Co-glycolide) (PGL)",
+                "column_label": "Av. Molar Mass, g/mol",
+                "cell_value": "$1.00 \\times 10^{5}$",
+                "cell_id": "T_11_95:r0006:c0004",
+                "row_index": 6,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt004",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe004",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$4.37 \\times 10^{4}$",
+          "value_min": 43700.0,
+          "value_max": 43700.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_11_95",
+              "page": 11,
+              "bbox": [
+                120.0,
+                141.0,
+                877.0,
+                753.0
+              ],
+              "source_type": "table",
+              "source_sentence": "mes 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td><td>0.200/0.200</td><td>Water/Acetonitrile</td><td>7</td><td> $6.6 \\times 106/1.00 \\times 10^{5}$ </td></tr><tr><td>100% Poly(3-hydroxy butyric acid) (PHBA)</td><td>0.4000</td><td>Hot Chloroform</td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$",
+              "table_locator": {
+                "table_id": "T_11_95",
+                "row_label": "100% Poly(3-hydroxy butyric acid) (PHBA)",
+                "column_label": "Av. Molar Mass, g/mol",
+                "cell_value": "$4.37 \\times 10^{4}$",
+                "cell_id": "T_11_95:r0008:c0004",
+                "row_index": 8,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt005",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$2.00 \\times 10^{3}$",
+          "value_min": 2000.0,
+          "value_max": 2000.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_11_95",
+              "page": 11,
+              "bbox": [
+                120.0,
+                141.0,
+                877.0,
+                753.0
+              ],
+              "source_type": "table",
+              "source_sentence": "imes 106/1.00 \\times 10^{5}$ </td></tr><tr><td>100% Poly(3-hydroxy butyric acid) (PHBA)</td><td>0.4000</td><td>Hot Chloroform</td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$ </td></tr><tr><td>100% Polyacrylic Acid (750000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $7.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (2000)</td><td>0.249/0.252</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.50 \\times 1",
+              "table_locator": {
+                "table_id": "T_11_95",
+                "row_label": "100% Polyacrylic Acid (2000)(PAA)",
+                "column_label": "Av. Molar Mass, g/mol",
+                "cell_value": "$2.00 \\times 10^{3}$",
+                "cell_id": "T_11_95:r0010:c0004",
+                "row_index": 10,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt006",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$4.5 \\times 10^{5}$",
+          "value_min": 450000.0,
+          "value_max": 450000.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_11_95",
+              "page": 11,
+              "bbox": [
+                120.0,
+                141.0,
+                877.0,
+                753.0
+              ],
+              "source_type": "table",
+              "source_sentence": "/td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$ </td></tr><tr><td>100% Polyacrylic Acid (750000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $7.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (2000)</td><td>0.249/0.252</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.50 \\times 10^{3}$ </td></tr><tr><td>50 - 50% AP-PAA (450000)</td><td>0.249/0.246</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4",
+              "table_locator": {
+                "table_id": "T_11_95",
+                "row_label": "100% Polyacrylic Acid (450000)(PAA)",
+                "column_label": "Av. Molar Mass, g/mol",
+                "cell_value": "$4.5 \\times 10^{5}$",
+                "cell_id": "T_11_95:r0011:c0004",
+                "row_index": 11,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt007",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$7.5 \\times 10^{5}$",
+          "value_min": 750000.0,
+          "value_max": 750000.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_11_95",
+              "page": 11,
+              "bbox": [
+                120.0,
+                141.0,
+                877.0,
+                753.0
+              ],
+              "source_type": "table",
+              "source_sentence": "</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$ </td></tr><tr><td>100% Polyacrylic Acid (750000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $7.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (2000)</td><td>0.249/0.252</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.50 \\times 10^{3}$ </td></tr><tr><td>50 - 50% AP-PAA (450000)</td><td>0.249/0.246</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (750000)</td><td>0.250/0.251</td><td>Methanol</td><td>7</td><td> $6.6 \\ti",
+              "table_locator": {
+                "table_id": "T_11_95",
+                "row_label": "100% Polyacrylic Acid (750000)(PAA)",
+                "column_label": "Av. Molar Mass, g/mol",
+                "cell_value": "$7.5 \\times 10^{5}$",
+                "cell_id": "T_11_95:r0012:c0004",
+                "row_index": 12,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
           }
         }
       ],
       "coverage": {
-        "expected": 2,
-        "covered": 2,
+        "expected": 7,
+        "covered": 7,
         "missing": 0,
         "not_applicable": 0,
         "ratio": 1.0
@@ -522,7 +406,7 @@
             753.0
           ],
           "source_type": "table",
-          "source_sentence": "Table I. Description of Biodegradable Polymers and Blends Studied",
+          "source_sentence": "Molar Mass, g/mol</td></tr><tr><td>100% Amylopectin</td><td>0.4870</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 10^{6}$ </td></tr><tr><td>100% Poly(ε-caprolactone) (PCL)</td><td>0.4680</td><td>Hot Water</td><td>7</td><td> $80.0 \\times 10^{3}$ </td></tr><tr><td>25 - 75% AP-PCL</td><td>0.125/0.375</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>50 -50% AP-PCL</td><td>0.249/0.250</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>75 - 25% AP-PCL</td><td>0.369/0.126</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td",
           "table_locator": {
             "table_id": "T_11_95",
             "row_label": "100% Amylopectin",
@@ -532,10 +416,2208 @@
             "row_index": 1,
             "column_index": 4
           }
+        },
+        {
+          "block_id": "T_11_95",
+          "page": 11,
+          "bbox": [
+            120.0,
+            141.0,
+            877.0,
+            753.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Molar Mass, g/mol</td></tr><tr><td>100% Amylopectin</td><td>0.4870</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 10^{6}$ </td></tr><tr><td>100% Poly(ε-caprolactone) (PCL)</td><td>0.4680</td><td>Hot Water</td><td>7</td><td> $80.0 \\times 10^{3}$ </td></tr><tr><td>25 - 75% AP-PCL</td><td>0.125/0.375</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>50 -50% AP-PCL</td><td>0.249/0.250</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>75 - 25% AP-PCL</td><td>0.369/0.126</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td",
+          "table_locator": {
+            "table_id": "T_11_95",
+            "row_label": "100% Poly(ε-caprolactone) (PCL)",
+            "column_label": "Av. Molar Mass, g/mol",
+            "cell_value": "$80.0 \\times 10^{3}$",
+            "cell_id": "T_11_95:r0002:c0004",
+            "row_index": 2,
+            "column_index": 4
+          }
+        },
+        {
+          "block_id": "T_11_95",
+          "page": 11,
+          "bbox": [
+            120.0,
+            141.0,
+            877.0,
+            753.0
+          ],
+          "source_type": "table",
+          "source_sentence": "\\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>50 -50% AP-PCL</td><td>0.249/0.250</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>75 - 25% AP-PCL</td><td>0.369/0.126</td><td>Hot Water</td><td>7</td><td> $6.6 \\times 106/80.0 \\times 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td><td>0.200/0.200</td><td>Water/Acetonitrile</td><td>7</td><td> $6.6 \\times 106/1.00 \\times 10^{5}$ </td></tr><tr><td>100% Poly(3-hydroxy butyric acid) (PHBA)</td><td>0.4000</td><td>Hot Chloroform</td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times",
+          "table_locator": {
+            "table_id": "T_11_95",
+            "row_label": "100% Poly(DL-lactide-Co-glycolide) (PGL)",
+            "column_label": "Av. Molar Mass, g/mol",
+            "cell_value": "$1.00 \\times 10^{5}$",
+            "cell_id": "T_11_95:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4
+          }
+        },
+        {
+          "block_id": "T_11_95",
+          "page": 11,
+          "bbox": [
+            120.0,
+            141.0,
+            877.0,
+            753.0
+          ],
+          "source_type": "table",
+          "source_sentence": "mes 10^{3}$ </td></tr><tr><td>100% Poly(DL-lactide-Co-glycolide) (PGL)</td><td>0.4000</td><td>Acentonitrile</td><td>7</td><td> $1.00 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PLG</td><td>0.200/0.200</td><td>Water/Acetonitrile</td><td>7</td><td> $6.6 \\times 106/1.00 \\times 10^{5}$ </td></tr><tr><td>100% Poly(3-hydroxy butyric acid) (PHBA)</td><td>0.4000</td><td>Hot Chloroform</td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$",
+          "table_locator": {
+            "table_id": "T_11_95",
+            "row_label": "100% Poly(3-hydroxy butyric acid) (PHBA)",
+            "column_label": "Av. Molar Mass, g/mol",
+            "cell_value": "$4.37 \\times 10^{4}$",
+            "cell_id": "T_11_95:r0008:c0004",
+            "row_index": 8,
+            "column_index": 4
+          }
+        },
+        {
+          "block_id": "T_11_95",
+          "page": 11,
+          "bbox": [
+            120.0,
+            141.0,
+            877.0,
+            753.0
+          ],
+          "source_type": "table",
+          "source_sentence": "imes 106/1.00 \\times 10^{5}$ </td></tr><tr><td>100% Poly(3-hydroxy butyric acid) (PHBA)</td><td>0.4000</td><td>Hot Chloroform</td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$ </td></tr><tr><td>100% Polyacrylic Acid (750000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $7.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (2000)</td><td>0.249/0.252</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.50 \\times 1",
+          "table_locator": {
+            "table_id": "T_11_95",
+            "row_label": "100% Polyacrylic Acid (2000)(PAA)",
+            "column_label": "Av. Molar Mass, g/mol",
+            "cell_value": "$2.00 \\times 10^{3}$",
+            "cell_id": "T_11_95:r0010:c0004",
+            "row_index": 10,
+            "column_index": 4
+          }
+        },
+        {
+          "block_id": "T_11_95",
+          "page": 11,
+          "bbox": [
+            120.0,
+            141.0,
+            877.0,
+            753.0
+          ],
+          "source_type": "table",
+          "source_sentence": "/td><td>7</td><td> $4.37 \\times 10^{4}$ </td></tr><tr><td>50 - 50% AP-PHBA</td><td>0.20/0.20</td><td>Hot Chloroform</td><td>7</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$ </td></tr><tr><td>100% Polyacrylic Acid (750000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $7.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (2000)</td><td>0.249/0.252</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.50 \\times 10^{3}$ </td></tr><tr><td>50 - 50% AP-PAA (450000)</td><td>0.249/0.246</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4",
+          "table_locator": {
+            "table_id": "T_11_95",
+            "row_label": "100% Polyacrylic Acid (450000)(PAA)",
+            "column_label": "Av. Molar Mass, g/mol",
+            "cell_value": "$4.5 \\times 10^{5}$",
+            "cell_id": "T_11_95:r0011:c0004",
+            "row_index": 11,
+            "column_index": 4
+          }
+        },
+        {
+          "block_id": "T_11_95",
+          "page": 11,
+          "bbox": [
+            120.0,
+            141.0,
+            877.0,
+            753.0
+          ],
+          "source_type": "table",
+          "source_sentence": "</td><td> $6.6 \\times 106/4.37 \\times 10^{4}$ </td></tr><tr><td>100% Polyacrylic Acid (2000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $2.00 \\times 10^{3}$ </td></tr><tr><td>100% Polyacrylic Acid (450000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $4.5 \\times 10^{5}$ </td></tr><tr><td>100% Polyacrylic Acid (750000)(PAA)</td><td>0.4980</td><td>Methanol</td><td>7</td><td> $7.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (2000)</td><td>0.249/0.252</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.50 \\times 10^{3}$ </td></tr><tr><td>50 - 50% AP-PAA (450000)</td><td>0.249/0.246</td><td>Methanol</td><td>7</td><td> $6.6 \\times 10^{6}/4.5 \\times 10^{5}$ </td></tr><tr><td>50 - 50% AP-PAA (750000)</td><td>0.250/0.251</td><td>Methanol</td><td>7</td><td> $6.6 \\ti",
+          "table_locator": {
+            "table_id": "T_11_95",
+            "row_label": "100% Polyacrylic Acid (750000)(PAA)",
+            "column_label": "Av. Molar Mass, g/mol",
+            "cell_value": "$7.5 \\times 10^{5}$",
+            "cell_id": "T_11_95:r0012:c0004",
+            "row_index": 12,
+            "column_index": 4
+          }
         }
       ],
       "confidence": {
-        "score": 0.95
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series002",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "\\Delta Hs",
+      "unit_raw": "KJ/mol",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt008",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-40.87",
+          "value_min": -40.87,
+          "value_max": -40.87,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Amylopectin (AP)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-40.87",
+                "cell_id": "T_17_134:r0001:c0001",
+                "row_index": 1,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt009",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "----",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "not_applicable",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Poly (ε-caprolactone) (PCL)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "----",
+                "cell_id": "T_17_134:r0002:c0001",
+                "row_index": 2,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt010",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe004",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-47.23",
+          "value_min": -47.23,
+          "value_max": -47.23,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "$T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PC",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Poly (3-hydroxy butyric acid) (PHBA)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-47.23",
+                "cell_id": "T_17_134:r0003:c0001",
+                "row_index": 3,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt011",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-59.59",
+          "value_min": -59.59,
+          "value_max": -59.59,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Poly( DL-lactide-Co-glycolide) (PLG)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-59.59",
+                "cell_id": "T_17_134:r0004:c0001",
+                "row_index": 4,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt012",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe007",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "----",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "not_applicable",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "25-75% AP-PCL",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "----",
+                "cell_id": "T_17_134:r0005:c0001",
+                "row_index": 5,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt013",
+          "observation_role": "series_point",
+          "sample_id": "s009",
+          "entity_id": "pe008",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-20.04",
+          "value_min": -20.04,
+          "value_max": -20.04,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "d>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</t",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PCL",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-20.04",
+                "cell_id": "T_17_134:r0006:c0001",
+                "row_index": 6,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt014",
+          "observation_role": "series_point",
+          "sample_id": "s010",
+          "entity_id": "pe009",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "----",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "not_applicable",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "75-25% AP-PCL",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "----",
+                "cell_id": "T_17_134:r0007:c0001",
+                "row_index": 7,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt015",
+          "observation_role": "series_point",
+          "sample_id": "s011",
+          "entity_id": "pe010",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-51.68",
+          "value_min": -51.68,
+          "value_max": -51.68,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "de) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PLG",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-51.68",
+                "cell_id": "T_17_134:r0008:c0001",
+                "row_index": 8,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt016",
+          "observation_role": "series_point",
+          "sample_id": "s012",
+          "entity_id": "pe011",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-19.38",
+          "value_min": -19.38,
+          "value_max": -19.38,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PHBA",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-19.38",
+                "cell_id": "T_17_134:r0009:c0001",
+                "row_index": 9,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt017",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-14.52",
+          "value_min": -14.52,
+          "value_max": -14.52,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td><",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Poly acrylic acid (PAA) (MW:2000)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-14.52",
+                "cell_id": "T_17_134:r0010:c0001",
+                "row_index": 10,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt018",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-12.07",
+          "value_min": -12.07,
+          "value_max": -12.07,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "85*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>5",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Poly acrylic acid (PAA) (MW:450000)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-12.07",
+                "cell_id": "T_17_134:r0011:c0001",
+                "row_index": 11,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt019",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-7.50",
+          "value_min": -7.5,
+          "value_max": -7.5,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Poly acrylic acid (PAA) (MW:750000)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-7.50",
+                "cell_id": "T_17_134:r0012:c0001",
+                "row_index": 12,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt020",
+          "observation_role": "series_point",
+          "sample_id": "s013",
+          "entity_id": "pe013",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-6.60",
+          "value_min": -6.6,
+          "value_max": -6.6,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PAA (2000)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-6.60",
+                "cell_id": "T_17_134:r0013:c0001",
+                "row_index": 13,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt021",
+          "observation_role": "series_point",
+          "sample_id": "s014",
+          "entity_id": "pe014",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-5.90",
+          "value_min": -5.9,
+          "value_max": -5.9,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PAA (450000)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-5.90",
+                "cell_id": "T_17_134:r0014:c0001",
+                "row_index": 14,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt022",
+          "observation_role": "series_point",
+          "sample_id": "s015",
+          "entity_id": "pe015",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-4.5",
+          "value_min": -4.5,
+          "value_max": -4.5,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PAA (750000)",
+                "column_label": "$\\Delta Hs, KJ/mol$",
+                "cell_value": "-4.5",
+                "cell_id": "T_17_134:r0015:c0001",
+                "row_index": 15,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 12,
+        "covered": 12,
+        "missing": 0,
+        "not_applicable": 3,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-40.87",
+            "cell_id": "T_17_134:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Poly (ε-caprolactone) (PCL)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "----",
+            "cell_id": "T_17_134:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PC",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Poly (3-hydroxy butyric acid) (PHBA)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-47.23",
+            "cell_id": "T_17_134:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Poly( DL-lactide-Co-glycolide) (PLG)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-59.59",
+            "cell_id": "T_17_134:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "25-75% AP-PCL",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "----",
+            "cell_id": "T_17_134:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "d>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</t",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PCL",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-20.04",
+            "cell_id": "T_17_134:r0006:c0001",
+            "row_index": 6,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "75-25% AP-PCL",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "----",
+            "cell_id": "T_17_134:r0007:c0001",
+            "row_index": 7,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "de) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PLG",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-51.68",
+            "cell_id": "T_17_134:r0008:c0001",
+            "row_index": 8,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PHBA",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-19.38",
+            "cell_id": "T_17_134:r0009:c0001",
+            "row_index": 9,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td><",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "Poly acrylic acid (PAA) (MW:2000)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-14.52",
+            "cell_id": "T_17_134:r0010:c0001",
+            "row_index": 10,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "85*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>5",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "Poly acrylic acid (PAA) (MW:450000)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-12.07",
+            "cell_id": "T_17_134:r0011:c0001",
+            "row_index": 11,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "Poly acrylic acid (PAA) (MW:750000)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-7.50",
+            "cell_id": "T_17_134:r0012:c0001",
+            "row_index": 12,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PAA (2000)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-6.60",
+            "cell_id": "T_17_134:r0013:c0001",
+            "row_index": 13,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PAA (450000)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-5.90",
+            "cell_id": "T_17_134:r0014:c0001",
+            "row_index": 14,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PAA (750000)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-4.5",
+            "cell_id": "T_17_134:r0015:c0001",
+            "row_index": 15,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series003",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "T_g",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt023",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "105*",
+          "value_min": 105.0,
+          "value_max": 105.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Amylopectin (AP)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "105*",
+                "cell_id": "T_17_134:r0001:c0002",
+                "row_index": 1,
+                "column_index": 2
+              }
+            },
+            {
+              "block_id": "P_13_109",
+              "page": 13,
+              "bbox": [
+                115.0,
+                337.0,
+                881.0,
+                581.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The temperature of 166 °C was later identified to be the   $T_{m}$  and 105 °C to be the   $T_{g}$  of Amylopectin."
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt024",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-62",
+          "value_min": -62.0,
+          "value_max": -62.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Poly (ε-caprolactone) (PCL)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "-62",
+                "cell_id": "T_17_134:r0002:c0002",
+                "row_index": 2,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt025",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe004",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "48",
+          "value_min": 48.0,
+          "value_max": 48.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----<",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Poly (3-hydroxy butyric acid) (PHBA)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "48",
+                "cell_id": "T_17_134:r0003:c0002",
+                "row_index": 3,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt026",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "119*",
+          "value_min": 119.0,
+          "value_max": 119.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*<",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "100% Poly( DL-lactide-Co-glycolide) (PLG)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "119*",
+                "cell_id": "T_17_134:r0004:c0002",
+                "row_index": 4,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt027",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe007",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "152*",
+          "value_min": 152.0,
+          "value_max": 152.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>1",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "25-75% AP-PCL",
+                "column_label": "$T_g^oC$",
+                "cell_value": "152*",
+                "cell_id": "T_17_134:r0005:c0002",
+                "row_index": 5,
+                "column_index": 2
+              }
+            },
+            {
+              "block_id": "P_15_121",
+              "page": 15,
+              "bbox": [
+                115.0,
+                745.0,
+                881.0,
+                933.0
+              ],
+              "source_type": "text",
+              "source_sentence": "$T_{g}$  values ranged from 152 °C for 25-75%, 148 °C for 50-50% to 120 °C for 75-25% AP-PCL."
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt028",
+          "observation_role": "series_point",
+          "sample_id": "s009",
+          "entity_id": "pe008",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "148*",
+          "value_min": 148.0,
+          "value_max": 148.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</t",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PCL",
+                "column_label": "$T_g^oC$",
+                "cell_value": "148*",
+                "cell_id": "T_17_134:r0006:c0002",
+                "row_index": 6,
+                "column_index": 2
+              }
+            },
+            {
+              "block_id": "P_15_121",
+              "page": 15,
+              "bbox": [
+                115.0,
+                745.0,
+                881.0,
+                933.0
+              ],
+              "source_type": "text",
+              "source_sentence": "$T_{g}$  values ranged from 152 °C for 25-75%, 148 °C for 50-50% to 120 °C for 75-25% AP-PCL."
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt029",
+          "observation_role": "series_point",
+          "sample_id": "s010",
+          "entity_id": "pe009",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "120*",
+          "value_min": 120.0,
+          "value_max": 120.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:45",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "75-25% AP-PCL",
+                "column_label": "$T_g^oC$",
+                "cell_value": "120*",
+                "cell_id": "T_17_134:r0007:c0002",
+                "row_index": 7,
+                "column_index": 2
+              }
+            },
+            {
+              "block_id": "P_15_121",
+              "page": 15,
+              "bbox": [
+                115.0,
+                745.0,
+                881.0,
+                933.0
+              ],
+              "source_type": "text",
+              "source_sentence": "$T_{g}$  values ranged from 152 °C for 25-75%, 148 °C for 50-50% to 120 °C for 75-25% AP-PCL."
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt030",
+          "observation_role": "series_point",
+          "sample_id": "s011",
+          "entity_id": "pe010",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "140*",
+          "value_min": 140.0,
+          "value_max": 140.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acr",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PLG",
+                "column_label": "$T_g^oC$",
+                "cell_value": "140*",
+                "cell_id": "T_17_134:r0008:c0002",
+                "row_index": 8,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt031",
+          "observation_role": "series_point",
+          "sample_id": "s012",
+          "entity_id": "pe011",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "120*",
+          "value_min": 120.0,
+          "value_max": 120.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:45",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PHBA",
+                "column_label": "$T_g^oC$",
+                "cell_value": "120*",
+                "cell_id": "T_17_134:r0009:c0002",
+                "row_index": 9,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt032",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "105",
+          "value_min": 105.0,
+          "value_max": 105.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Poly acrylic acid (PAA) (MW:2000)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "105",
+                "cell_id": "T_17_134:r0010:c0002",
+                "row_index": 10,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt033",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "105",
+          "value_min": 105.0,
+          "value_max": 105.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Poly acrylic acid (PAA) (MW:450000)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "105",
+                "cell_id": "T_17_134:r0011:c0002",
+                "row_index": 11,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt034",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "105",
+          "value_min": 105.0,
+          "value_max": 105.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Poly acrylic acid (PAA) (MW:750000)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "105",
+                "cell_id": "T_17_134:r0012:c0002",
+                "row_index": 12,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt035",
+          "observation_role": "series_point",
+          "sample_id": "s013",
+          "entity_id": "pe013",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "126*",
+          "value_min": 126.0,
+          "value_max": 126.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PAA (2000)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "126*",
+                "cell_id": "T_17_134:r0013:c0002",
+                "row_index": 13,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt036",
+          "observation_role": "series_point",
+          "sample_id": "s014",
+          "entity_id": "pe014",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "117*",
+          "value_min": 117.0,
+          "value_max": 117.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PAA (450000)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "117*",
+                "cell_id": "T_17_134:r0014:c0002",
+                "row_index": 14,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt037",
+          "observation_role": "series_point",
+          "sample_id": "s015",
+          "entity_id": "pe015",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "117*",
+          "value_min": 117.0,
+          "value_max": 117.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "50-50% AP-PAA (750000)",
+                "column_label": "$T_g^oC$",
+                "cell_value": "117*",
+                "cell_id": "T_17_134:r0015:c0002",
+                "row_index": 15,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 15,
+        "covered": 15,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "105*",
+            "cell_id": "T_17_134:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "P_13_109",
+          "page": 13,
+          "bbox": [
+            115.0,
+            337.0,
+            881.0,
+            581.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The temperature of 166 °C was later identified to be the   $T_{m}$  and 105 °C to be the   $T_{g}$  of Amylopectin."
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Poly (ε-caprolactone) (PCL)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "-62",
+            "cell_id": "T_17_134:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----<",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Poly (3-hydroxy butyric acid) (PHBA)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "48",
+            "cell_id": "T_17_134:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*<",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Poly( DL-lactide-Co-glycolide) (PLG)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "119*",
+            "cell_id": "T_17_134:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>1",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "25-75% AP-PCL",
+            "column_label": "$T_g^oC$",
+            "cell_value": "152*",
+            "cell_id": "T_17_134:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "P_15_121",
+          "page": 15,
+          "bbox": [
+            115.0,
+            745.0,
+            881.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "$T_{g}$  values ranged from 152 °C for 25-75%, 148 °C for 50-50% to 120 °C for 75-25% AP-PCL."
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</t",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PCL",
+            "column_label": "$T_g^oC$",
+            "cell_value": "148*",
+            "cell_id": "T_17_134:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:45",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "75-25% AP-PCL",
+            "column_label": "$T_g^oC$",
+            "cell_value": "120*",
+            "cell_id": "T_17_134:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acr",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PLG",
+            "column_label": "$T_g^oC$",
+            "cell_value": "140*",
+            "cell_id": "T_17_134:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04</td><td>148*</td><td>181*</td><td>86</td><td>38.26</td></tr><tr><td>75-25% AP-PCL</td><td>----</td><td>120*</td><td>185*</td><td>75</td><td>6.50</td></tr><tr><td>50-50% AP-PLG</td><td>-51.68</td><td>140*</td><td>150*</td><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:45",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PHBA",
+            "column_label": "$T_g^oC$",
+            "cell_value": "120*",
+            "cell_id": "T_17_134:r0009:c0002",
+            "row_index": 9,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "Poly acrylic acid (PAA) (MW:2000)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "105",
+            "cell_id": "T_17_134:r0010:c0002",
+            "row_index": 10,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "Poly acrylic acid (PAA) (MW:450000)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "105",
+            "cell_id": "T_17_134:r0011:c0002",
+            "row_index": 11,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<table><tr><td>Name of Polymers or Blends</td><td> $\\Delta Hs, KJ/mol$ </td><td> $T_g^oC$ </td><td> $T_m^oC$ </td><td>Degree of Crystal-linity at 110 °C</td><td>Surface Energy,  $mJ/m^2$  (160 °C)</td></tr><tr><td>100% Amylopectin (AP)</td><td>-40.87</td><td>105*</td><td>166*</td><td>81</td><td>16.00</td></tr><tr><td>100% Poly (ε-caprolactone) (PCL)</td><td>----</td><td>-62</td><td>60</td><td>----</td><td>----</td></tr><tr><td>100% Poly (3-hydroxy butyric acid) (PHBA)</td><td>-47.23</td><td>48</td><td>130*</td><td>93</td><td>----</td></tr><tr><td>100% Poly( DL-lactide-Co-glycolide) (PLG)</td><td>-59.59</td><td>119*</td><td>172</td><td>45</td><td>48.90</td></tr><tr><td>25-75% AP-PCL</td><td>----</td><td>152*</td><td>210*</td><td>40</td><td>18.55</td></tr><tr><td>50-50% AP-PCL</td><td>-20.04",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "Poly acrylic acid (PAA) (MW:750000)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "105",
+            "cell_id": "T_17_134:r0012:c0002",
+            "row_index": 12,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PAA (2000)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "126*",
+            "cell_id": "T_17_134:r0013:c0002",
+            "row_index": 13,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PAA (450000)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "117*",
+            "cell_id": "T_17_134:r0014:c0002",
+            "row_index": 14,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "><td>77</td><td>46.30</td></tr><tr><td>50-50% AP-PHBA</td><td>-19.38</td><td>120*</td><td>130*</td><td>78</td><td>55.46</td></tr><tr><td>Poly acrylic acid (PAA) (MW:2000)</td><td>-14.52</td><td>105</td><td>124*</td><td>69</td><td>19.08</td></tr><tr><td>Poly acrylic acid (PAA) (MW:450000)</td><td>-12.07</td><td>105</td><td>133*</td><td>67</td><td>36.54</td></tr><tr><td>Poly acrylic acid (PAA) (MW:750000)</td><td>-7.50</td><td>105</td><td>129*</td><td>74</td><td>42.36</td></tr><tr><td>50-50% AP-PAA (2000)</td><td>-6.60</td><td>126*</td><td>138*</td><td>73</td><td>31.89</td></tr><tr><td>50-50% AP-PAA (450000)</td><td>-5.90</td><td>117*</td><td>142*</td><td>71</td><td>36.54</td></tr><tr><td>50-50% AP-PAA (750000)</td><td>-4.5</td><td>117*</td><td>141*</td><td>59</td><td>42.36</td></tr></table>",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "50-50% AP-PAA (750000)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "117*",
+            "cell_id": "T_17_134:r0015:c0002",
+            "row_index": 15,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
       }
     }
   ],
@@ -550,73 +2632,77 @@
     "prompt_version": "1.7.2",
     "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "b3088360a4e9f78cf3f6a6a1e17e400cfca42dd2233cca5237c6fba99ccc309a",
+    "input_hash": "74429f5c84abbe738d68f06c8a0ab2f32da914acde00e6adbc7c0abcdd3fcd5b",
     "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
-    "cache_key": "a57ffc736213d499b2cf8001c9eced76b01236f2c3de3ecba76cc143b163542c",
+    "cache_key": "9c9d26b79c35653ac3f87efe5273c89b4d42130513fcafdf332d61892bd0311b",
     "output_schema_version": "property_observation_schema.v7",
     "implementation_version": "1.7.10",
     "context_block_count": 53,
     "context_chars": 43522,
     "call_count": 1,
     "usage": {
-      "input_tokens": 31116,
-      "output_tokens": 10066,
+      "input_tokens": 30376,
+      "output_tokens": 17050,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 31116,
-      "total_tokens": 41182
+      "billable_input_tokens": 30376,
+      "total_tokens": 47426
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.13442112",
-      "output_cost": "0.2934239",
-      "total_cost": "0.42784502"
+      "input_cost": "0.13122432",
+      "output_cost": "0.4970075",
+      "total_cost": "0.62823182"
     },
     "status": "success"
   },
   "warnings": [
     {
       "stage": "stage4_property",
+      "code": "table_property_column_represented_as_coordinate",
+      "message": "候选模式发现未完整表示的多值性质列：部分列仅作为其他 Series 的 coordinate 留存，或尚未抽取；已有结果保留",
+      "columns": [
+        {
+          "table_id": "T_17_134",
+          "column_index": 3,
+          "column_label": "$T_m^oC$",
+          "value_count": 15,
+          "representation": "missing"
+        }
+      ]
+    },
+    {
+      "stage": "stage4_property",
       "code": "multi_subject_series_normalized",
       "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
-      "series": 1
+      "series": 3
     },
     {
       "stage": "stage4_property",
-      "code": "candidate_table_locator_surface_repaired",
-      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
-      "evidence": 2
+      "code": "empty_reported_context_downgraded",
+      "message": "measurement_context 标记为 reported 但没有任何条件值；已确定性改为 not_reported",
+      "contexts": 3
     },
     {
       "stage": "stage4_property",
-      "code": "preview_semantic_validation_bypassed",
-      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
-      "reason": "prop001.property_name_raw='thermal decomposition temperature' 不是任一 evidence block 的原文子串"
+      "code": "condition_table_locators_synthesized",
+      "message": "已将唯一包含条件 raw 的表头单元格绑定为条件 evidence",
+      "evidence": 5
     },
     {
       "stage": "stage4_property",
-      "code": "preview_objects_salvaged",
-      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
-      "details": {
-        "dropped_conditions": [],
-        "dropped_properties": [],
-        "dropped_unresolved_properties": [],
-        "dropped_series": [],
-        "dropped_points": [],
-        "dropped_evidence": 0,
-        "dropped_coordinates": 0
-      }
-    },
-    {
-      "stage": "stage4_property",
-      "code": "unresolved_properties",
-      "message": "2 条性质无法可靠关联具体 Sample",
-      "unresolved_ids": [
-        "uprop001",
-        "uprop002"
+      "code": "dropped_unused_conditions",
+      "message": "未被任何 PropertyObservation 引用的 MeasurementCondition 已舍弃",
+      "candidate_condition_ids": [
+        "mc001",
+        "mc002",
+        "mc003",
+        "mc004",
+        "mc005",
+        "mc006"
       ]
     }
   ]

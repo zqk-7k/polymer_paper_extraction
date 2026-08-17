@@ -10,39 +10,59 @@
         "s001",
         "s002",
         "s006",
-        "s008",
-        "s010",
-        "s011",
-        "s012",
-        "s013"
+        "s009",
+        "s013",
+        "s014",
+        "s015",
+        "s016",
+        "s017",
+        "s018"
       ],
       "sample_resolution_status": "multi_resolved",
-      "series_ids": [
-        "series001",
-        "series002",
-        "series003"
-      ],
-      "instrument": "DSC-50W（島津製作所）",
-      "parameters": {
-        "昇温速度": "10 ℃/min",
-        "測定温度範囲": "－100～150 ℃"
-      },
-      "result_summary": "DSCカーブの解析からガラス転移温度(Tg)、融点(Tm)、融解エンタルピー(ΔH)を求めた",
+      "parameters": {},
+      "result_summary": "各試料のガラス転移温度、融点、融解エンタルピーを測定した",
       "derived_property_ids": [
-        "uprop001"
+        "prop001",
+        "prop003",
+        "prop005",
+        "prop006",
+        "prop007",
+        "prop009",
+        "prop010",
+        "prop011",
+        "prop013",
+        "prop016",
+        "prop017",
+        "prop018",
+        "prop020",
+        "prop021",
+        "prop022",
+        "prop024",
+        "prop026",
+        "prop028",
+        "prop031"
       ],
       "evidence": [
         {
-          "block_id": "P_2_49",
-          "page": 2,
+          "block_id": "T_3_62",
+          "page": 3,
           "bbox": [
-            515.0,
-            84.0,
-            927.0,
-            228.0
+            220.0,
+            109.0,
+            778.0,
+            294.0
           ],
-          "source_type": "text",
-          "source_sentence": "アルミニウム製の専用パンを用い，一部の試料について示差走査熱量計（DSC）による熱分析を行った．測定装置には，DSC-50W（島津製作所）を用いた．乾燥N ガスフロー下（流量：30 mL/min）で，昇温速度を10 ℃/min，測定温度範囲を－100～150 ℃とした．"
+          "source_type": "table",
+          "source_sentence": "Table 1 Glass transition temperature $( T _ { \\mathrm { g } } , \\mathrm { o n s e t } )$ ）, melting point $( T _ { \\mathrm { m } } , \\mathrm { p e a k \\ t o p } )$ ）, heat of fusion （ ΔH）, storage modulus（E’ at 25 ℃）and AC ionic conductivity（ $( \\sigma_{i}$ at 25 ℃）of NBR, electrolytes and the blends.",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "all sample rows",
+            "column_label": "T_g / °C, T_m / °C, ΔH / kJ mol⁻¹",
+            "cell_value": "各試料対応数値",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
         }
       ],
       "confidence": {
@@ -51,28 +71,65 @@
     },
     {
       "characterization_id": "char002",
-      "method_raw": "動的粘弾性の温度依存性の測定",
+      "method_raw": "動的粘弾性測定",
       "method_normalized": "DMA",
       "sample_ids": [
         "s001",
         "s002",
         "s006",
-        "s008",
-        "s010",
-        "s011",
-        "s012",
-        "s013"
+        "s009",
+        "s013",
+        "s014",
+        "s015",
+        "s016",
+        "s017",
+        "s018"
       ],
       "sample_resolution_status": "multi_resolved",
-      "series_id": "series004",
       "instrument": "DVA-200S（アイティー計測）",
-      "parameters": {
-        "モード": "引張モード",
-        "温度範囲": "－100～50 ℃",
-        "周波数": "10 Hz"
+      "measurement_context": {
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz，正弦ひずみを0.1 ％として測定を実行した"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
       },
-      "result_summary": "貯蔵弾性率E'の温度依存性を測定した",
-      "derived_property_ids": [],
+      "parameters": {
+        "mode": "引張モード",
+        "temperature_range": "－100～50 ℃"
+      },
+      "result_summary": "各試料の25℃における貯蔵弾性率E'を測定した",
+      "derived_property_ids": [
+        "prop002",
+        "prop004",
+        "prop008",
+        "prop012",
+        "prop014",
+        "prop019",
+        "prop023",
+        "prop025",
+        "prop027",
+        "prop029"
+      ],
       "evidence": [
         {
           "block_id": "P_2_51",
@@ -85,6 +142,27 @@
           ],
           "source_type": "text",
           "source_sentence": "一部の試料について，動的粘弾性の温度依存性の測定を行った．測定装置には，DVA-200S（アイティー計測）を用い，引張モードで温度範囲を－100～50 ℃，昇温速度を5℃/min，周波数を10 Hz，正弦ひずみを0.1 ％として測定を実行した"
+        },
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1 Glass transition temperature $( T _ { \\mathrm { g } } , \\mathrm { o n s e t } )$ ）, melting point $( T _ { \\mathrm { m } } , \\mathrm { p e a k \\ t o p } )$ ）, heat of fusion （ ΔH）, storage modulus（E’ at 25 ℃）and AC ionic conductivity（ $( \\sigma_{i}$ at 25 ℃）of NBR, electrolytes and the blends.",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "all sample rows",
+            "column_label": "E' / MPa",
+            "cell_value": "各試料対応数値",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
         }
       ],
       "confidence": {
@@ -93,15 +171,16 @@
     },
     {
       "characterization_id": "char003",
-      "method_raw": "TEM observation",
+      "method_raw": "TEM測定",
       "method_normalized": "TEM",
       "sample_ids": [
-        "s010",
-        "s011"
+        "s009",
+        "s013",
+        "s018"
       ],
       "sample_resolution_status": "multi_resolved",
       "parameters": {},
-      "result_summary": "NBR/電解質ブレンドの海-島相分離構造を観察し、電解質島相のサイズを測定した",
+      "result_summary": "ブレンド体の海-島相分離構造および島相のサイズを観察した",
       "derived_property_ids": [
         "prop_s5_001",
         "prop_s5_002",
@@ -133,6 +212,18 @@
           "source_sentence": "このような傾向を示す要因として，ブレンド体の作製法によるモルホロジーの変化が影響しているのではないかと考え，TEM測定によるNBR/電解質間の相構造の違いを観察した．"
         },
         {
+          "block_id": "P_6_95",
+          "page": 6,
+          "bbox": [
+            65.0,
+            473.0,
+            478.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "NBR43系ブレンドにおいても，Figure 8（b）のNBR18系と同じような微細相分離構造を有することがTEM観察の結果から示唆されており"
+        },
+        {
           "block_id": "P_7_105",
           "page": 7,
           "bbox": [
@@ -146,34 +237,7 @@
         }
       ],
       "confidence": {
-        "score": 0.9
-      }
-    },
-    {
-      "characterization_id": "char004",
-      "method_raw": "<sup>1</sup>H-NMR",
-      "method_normalized": "NMR",
-      "entity_id": "pe009",
-      "sample_resolution_status": "unresolved",
-      "parameters": {},
-      "result_summary": "M(EO/PO)モノマー側鎖のEO繰り返し数3、PO繰り返し数4を確認した",
-      "derived_property_ids": [],
-      "evidence": [
-        {
-          "block_id": "P_1_31",
-          "page": 1,
-          "bbox": [
-            515.0,
-            287.0,
-            929.0,
-            562.0
-          ],
-          "source_type": "text",
-          "source_sentence": "PM（EO/PO）の合成には，日油のブレンマー 50PEP-300（（オリゴEO/PO）グラフト型メタクリラートモノマー（M（EO/PO）），側鎖の繰り返し数；EO=3，PO=4（<sup>1</sup>H-NMR））を用いた．"
-        }
-      ],
-      "confidence": {
-        "score": 0.8
+        "score": 0.85
       }
     }
   ],
@@ -181,7 +245,7 @@
     {
       "property_id": "prop_s5_001",
       "characterization_id": "char003",
-      "sample_id": "s010",
+      "sample_id": "s018",
       "sample_resolution_status": "resolved",
       "property_name_raw": "球形の島相のサイズ",
       "property_name_normalized": "morphology_domain_size",
@@ -214,7 +278,7 @@
     {
       "property_id": "prop_s5_002",
       "characterization_id": "char003",
-      "sample_id": "s010",
+      "sample_id": "s018",
       "sample_resolution_status": "resolved",
       "property_name_raw": "電解質島相のサイズ",
       "property_name_normalized": "morphology_domain_size",
@@ -247,12 +311,12 @@
     {
       "property_id": "prop_s5_003",
       "characterization_id": "char003",
-      "sample_id": "s011",
+      "sample_id": "s013",
       "sample_resolution_status": "resolved",
       "property_name_raw": "球形島相のサイズ",
       "property_name_normalized": "morphology_domain_size",
       "property_category": "morphology",
-      "value_raw": "200～300 nm",
+      "value_raw": "200～300 nmのオーダー",
       "value_min": 200.0,
       "value_max": 300.0,
       "unit_raw": "nm",
@@ -274,7 +338,7 @@
         }
       ],
       "confidence": {
-        "score": 0.9
+        "score": 0.85
       }
     }
   ],
@@ -289,30 +353,30 @@
     "prompt_version": "1.6.2",
     "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "36fd2696d85d00955c5ca18d5125e705574244dca996cdd509a78fd8f5e85526",
+    "input_hash": "e70310d49e4dbb838d8bcc2a6ad796b2b9ec961462e25ff3c8ae18073b954a71",
     "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-    "cache_key": "74614a60dfa1f24074c3e153657d7ae849d5153874913e019dbb3f1dbb20c95e",
+    "cache_key": "2ea223b126792d47b394806b81ab0e911fc97552dd795dcce3af40a7cc7ca902",
     "output_schema_version": "characterization_schema.v4",
     "implementation_version": "1.7.1",
-    "context_block_count": 20,
-    "context_chars": 18252,
+    "context_block_count": 17,
+    "context_chars": 16240,
     "call_count": 1,
     "usage": {
-      "input_tokens": 21900,
-      "output_tokens": 9033,
+      "input_tokens": 24400,
+      "output_tokens": 8193,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 21900,
-      "total_tokens": 30933
+      "billable_input_tokens": 24400,
+      "total_tokens": 32593
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.094608",
-      "output_cost": "0.26331195",
-      "total_cost": "0.35791995"
+      "input_cost": "0.105408",
+      "output_cost": "0.23882595",
+      "total_cost": "0.34423395"
     },
     "status": "success"
   },
@@ -324,11 +388,23 @@
     },
     {
       "stage": "stage5_characterization",
+      "code": "preview_unlocatable_additional_evidence_removed",
+      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "P_2_49"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
       "code": "preview_unsupported_characterization_details_cleared",
       "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
       "field_path": "characterizations[0]",
       "fields": [
-        "parameters"
+        "instrument",
+        "parameters",
+        "measurement_context.other_conditions",
+        "measurement_context"
       ]
     },
     {
@@ -342,17 +418,18 @@
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_semantic_validation_bypassed",
-      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
-      "reason": "char001 跨实体引用 unresolved property：['uprop001']"
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[2]",
+      "fields": [
+        "measurement_context"
+      ]
     },
     {
       "stage": "stage5_characterization",
-      "code": "unresolved_characterizations",
-      "message": "1 条表征无法可靠关联具体 Sample",
-      "characterization_ids": [
-        "char004"
-      ]
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "T_3_62.table_locator.row_label 不是表格原文"
     }
   ]
 }

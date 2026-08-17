@@ -17,7 +17,9 @@
         "m009",
         "m018",
         "m023",
+        "m032",
         "m038",
+        "m048",
         "m067",
         "m074",
         "m078",
@@ -39,7 +41,7 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.91
+        "score": 0.94
       },
       "copolymer_type": null
     },
@@ -55,8 +57,8 @@
         "Bisphenol S-based Homopolycarbonate",
         "Bisphenol S-based homopolycarbonate",
         "bisphenol S-based homopolycarbonate",
+        "Polycarbonates",
         "polycarbonate derived from bisphenol S",
-        "polycarbonate",
         "polycarbonate based on bisphenol S",
         "homopolymer"
       ],
@@ -71,10 +73,10 @@
         "m036",
         "m039",
         "m044",
+        "m045",
         "m047",
         "m055",
         "m056",
-        "m058",
         "m068",
         "m076",
         "m077",
@@ -96,7 +98,7 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.96
+        "score": 0.97
       },
       "copolymer_type": null
     },
@@ -121,16 +123,16 @@
         "m096"
       ],
       "evidence": {
-        "block_id": "P_6_79",
-        "page": 6,
+        "block_id": "P_3_57",
+        "page": 3,
         "bbox": [
-          100.0,
-          589.0,
-          480.0,
-          651.0
+          519.0,
+          527.0,
+          903.0,
+          681.0
         ],
         "source_type": "text",
-        "source_sentence": "The thermal stability of polycarbonate based on bisphenol S (PC-2) is less than that of polycarbonates based on bisphenol A (PC-1) and bisphenol AF (PC-3) because the thermal stability of aromatic polycarbonates depends on the linking group between the aromatic rings."
+        "source_sentence": " $^{37}$  Bisphenols such as bisphenol S (PC-2) and bisphenol AF (PC-3) gave less favorable results."
       },
       "source_image_refs": [],
       "confidence": {
@@ -196,13 +198,13 @@
         "m098"
       ],
       "evidence": {
-        "block_id": "T_3_58",
+        "block_id": "T_3_49",
         "page": 3,
         "bbox": [
           111.0,
-          720.0,
-          900.0,
-          903.0
+          135.0,
+          490.0,
+          275.0
         ],
         "source_type": "table",
         "source_sentence": "PC-5"
@@ -247,12 +249,103 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.88
+        "score": 0.9
       },
       "copolymer_type": null
     },
     {
       "entity_id": "pe007",
+      "polymer_name": "polyesters",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "polyesters"
+      ],
+      "resolved_from_mentions": [
+        "m052"
+      ],
+      "evidence": {
+        "block_id": "P_5_71",
+        "page": 5,
+        "bbox": [
+          111.0,
+          296.0,
+          496.0,
+          692.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Liaw  $^{37}$  reported that polyesters containing a sulfonyl group, which has a small van der Waals radius, have relatively greater crystallinity."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.68
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe008",
+      "polymer_name": "polyamides",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "polyamides"
+      ],
+      "resolved_from_mentions": [
+        "m053",
+        "m065"
+      ],
+      "evidence": {
+        "block_id": "P_5_71",
+        "page": 5,
+        "bbox": [
+          111.0,
+          296.0,
+          496.0,
+          692.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Nagata et al.  $^{40}$  reported that polyamides incorporating halogen substituents on the ring led to decreased crystallinity due to their large van der Waals radius."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.71
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe009",
+      "polymer_name": "bromine-containing polymers",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "bromine-containing polymers"
+      ],
+      "resolved_from_mentions": [
+        "m085"
+      ],
+      "evidence": {
+        "block_id": "P_6_79",
+        "page": 6,
+        "bbox": [
+          100.0,
+          589.0,
+          480.0,
+          651.0
+        ],
+        "source_type": "text",
+        "source_sentence": "This result may be explained by the fact that hydrogen bro mide is easily evolved from bromine-containing polymers during thermal degradation."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.61
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe010",
       "polymer_name": "Sulfone-containing random copolycarbonates",
       "polymer_type": "copolymer",
       "copolymer_type": "ran",
@@ -283,7 +376,7 @@
       },
       "source_image_refs": [],
       "confidence": {
-        "score": 0.84
+        "score": 0.92
       }
     }
   ],
@@ -301,29 +394,23 @@
     "m022",
     "m030",
     "m031",
-    "m032",
     "m037",
-    "m045",
     "m046",
-    "m048",
     "m050",
     "m051",
-    "m052",
-    "m053",
     "m054",
     "m057",
+    "m058",
     "m059",
     "m060",
     "m061",
     "m064",
-    "m065",
     "m066",
     "m073",
     "m080",
     "m081",
     "m082",
     "m084",
-    "m085",
     "m086",
     "m093",
     "m100",
@@ -341,40 +428,59 @@
       "gpt-5.6-terra-2026-07-09"
     ],
     "prompt_id": "polymer.stage2.polymer_entity",
-    "prompt_version": "1.3.0",
-    "prompt_sha256": "0d376da340b979a77fcd231e0148cc26c8b9d125f7209025c7055483abb7d7e1",
+    "prompt_version": "1.5.1",
+    "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
     "input_hash": "312e9d6aaa3ad4fd99b90b76bae64cc932c9b4918f5b5e9936aef07bdab04cf6",
     "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
-    "cache_key": "1e4b3dbb7e05ec5bce8245761a3fd59b7ae3bc304363101b4091d4a1ce12ef23",
+    "cache_key": "a8d1e267e4f9e0af8abb303441e39f20c9d53096d6a1c85350aed547a05c357b",
     "output_schema_version": "polymer_entity_schema.v3",
-    "implementation_version": "1.4.0",
+    "implementation_version": "1.6.1",
     "context_block_count": 61,
     "context_chars": 35164,
     "call_count": 1,
     "usage": {
-      "input_tokens": 24038,
-      "output_tokens": 4720,
+      "input_tokens": 24259,
+      "output_tokens": 3882,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 24038,
-      "total_tokens": 28758
+      "billable_input_tokens": 24259,
+      "total_tokens": 28141
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "17",
       "output_per_million": "101",
-      "input_cost": "0.408646",
-      "output_cost": "0.47672",
-      "total_cost": "0.885366"
+      "input_cost": "0.412403",
+      "output_cost": "0.392082",
+      "total_cost": "0.804485"
     },
     "status": "success"
   },
   "warnings": [
     {
       "stage": "stage2_polymer_entity",
+      "code": "preview_nested_mentions_split_retained",
+      "message": "Preview 模式已保留无法确定合并关系的嵌套 mention 拆分；需在正式数据中复核",
+      "items": [
+        {
+          "shorter_mention_id": "m048",
+          "longer_mention_id": "m046",
+          "shorter_assignment": "pe001",
+          "longer_assignment": "__unresolved__"
+        },
+        {
+          "shorter_mention_id": "m032",
+          "longer_mention_id": "m031",
+          "shorter_assignment": "pe001",
+          "longer_assignment": "__unresolved__"
+        }
+      ]
+    },
+    {
+      "stage": "stage2_polymer_entity",
       "code": "unresolved_mentions",
-      "message": "44 个 mention 未解析为实体，已原样保留引用",
+      "message": "38 个 mention 未解析为实体，已原样保留引用",
       "mention_ids": [
         "m001",
         "m002",
@@ -389,29 +495,23 @@
         "m022",
         "m030",
         "m031",
-        "m032",
         "m037",
-        "m045",
         "m046",
-        "m048",
         "m050",
         "m051",
-        "m052",
-        "m053",
         "m054",
         "m057",
+        "m058",
         "m059",
         "m060",
         "m061",
         "m064",
-        "m065",
         "m066",
         "m073",
         "m080",
         "m081",
         "m082",
         "m084",
-        "m085",
         "m086",
         "m093",
         "m100",

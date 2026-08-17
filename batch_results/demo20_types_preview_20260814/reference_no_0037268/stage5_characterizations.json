@@ -4,15 +4,14 @@
   "characterizations": [
     {
       "characterization_id": "char001",
-      "method_raw": "TGA",
-      "method_normalized": "TGA",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
       "sample_id": "s001",
       "sample_resolution_status": "resolved",
       "parameters": {},
-      "result_summary": "Amylopectin decomposed at approximately 343 °C with approximately 80% weight loss.",
+      "result_summary": "Measured Tm of Amylopectin as 166 °C, Tg as 105 °C.",
       "derived_property_ids": [
-        "prop001",
-        "prop002"
+        "uprop001"
       ],
       "evidence": [
         {
@@ -25,7 +24,7 @@
             581.0
           ],
           "source_type": "text",
-          "source_sentence": "Amylopectin was thermally characterized by the melting point determination of DSC and TGA methods. These analyses were carried out by the USDA Forest Service in Madison, WI. The polymer was decomposed at approximately 343 °C with approximately 80% weight loss."
+          "source_sentence": "Amylopectin was thermally characterized by the melting point determination of DSC and TGA methods. The temperature of 166 °C was later identified to be the $T_{m}$ and 105 °C to be the $T_{g}$ of Amylopectin. IGC has confirmed the findings of the DSC technique."
         }
       ],
       "confidence": {
@@ -34,15 +33,14 @@
     },
     {
       "characterization_id": "char002",
-      "method_raw": "DSC",
-      "method_normalized": "DSC",
+      "method_raw": "TGA",
+      "method_normalized": "TGA",
       "sample_id": "s001",
       "sample_resolution_status": "resolved",
       "parameters": {},
-      "result_summary": "Amylopectin had Tg of approximately 105 °C and Tm of approximately 166 °C, confirmed by IGC.",
+      "result_summary": "Amylopectin decomposed at 343 °C with ~80% weight loss.",
       "derived_property_ids": [
-        "prop003",
-        "prop004"
+        "prop001"
       ],
       "evidence": [
         {
@@ -55,7 +53,7 @@
             581.0
           ],
           "source_type": "text",
-          "source_sentence": "Amylopectin was thermally characterized by the melting point determination of DSC and TGA methods."
+          "source_sentence": "Amylopectin was thermally characterized by the melting point determination of DSC and TGA methods. The polymer was decomposed at approximately 343 °C with approximately 80% weight loss."
         }
       ],
       "confidence": {
@@ -64,19 +62,25 @@
     },
     {
       "characterization_id": "char003",
-      "method_raw": "XRD analysis",
+      "method_raw": "XRD",
       "method_normalized": "XRD",
       "sample_ids": [
         "s001",
         "s002",
-        "s015",
-        "s016",
-        "s017"
+        "s008",
+        "s009",
+        "s010"
       ],
       "sample_resolution_status": "multi_resolved",
       "parameters": {},
-      "result_summary": "XRD analysis was performed on Amylopectin (AP), poly(ε-caprolactone) (PCL), and AP-PCL blends, with Tm and crystallinity results consistent with IGC measurements.",
-      "derived_property_ids": [],
+      "result_summary": "XRD measurements of Amylopectin, PCL and their AP-PCL blends confirmed Tm values and crystallinity degrees consistent with IGC results.",
+      "derived_property_ids": [
+        "uprop001",
+        "prop002",
+        "prop004",
+        "prop006",
+        "prop008"
+      ],
       "evidence": [
         {
           "block_id": "P_15_121",
@@ -88,7 +92,19 @@
             933.0
           ],
           "source_type": "text",
-          "source_sentence": "The   $T_{m}$  values agreed well with the XRD analysis data (Figure 2)."
+          "source_sentence": "The $T_{m}$ values agreed well with the XRD analysis data (Figure 2)."
+        },
+        {
+          "block_id": "P_22_156",
+          "page": 22,
+          "bbox": [
+            111.0,
+            200.0,
+            881.0,
+            478.0
+          ],
+          "source_type": "text",
+          "source_sentence": "IGC has agreed with XRD measurements in regards to the degree of crystallinity and $T_{m}$ and $T_{g}$ values of the blends."
         },
         {
           "block_id": "I_18_138",
@@ -101,22 +117,10 @@
           ],
           "source_type": "image",
           "source_sentence": "Figure 2. XRD spectra of Amylopectin (AP), Poly(e-caprolactone) (PCL) and Blends of AP and PCL"
-        },
-        {
-          "block_id": "P_22_156",
-          "page": 22,
-          "bbox": [
-            111.0,
-            200.0,
-            881.0,
-            478.0
-          ],
-          "source_type": "text",
-          "source_sentence": "IGC has agreed with XRD measurements in regards to the degree of crystallinity and   $T_{m}$  and   $T_{g}$  values of the blends."
         }
       ],
       "confidence": {
-        "score": 0.8
+        "score": 0.85
       }
     }
   ],
@@ -132,32 +136,66 @@
     "prompt_version": "1.6.2",
     "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
     "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
-    "input_hash": "a5696f3c3166d5c19e072a9e7a8936721fcedbab7fef5df95c626cc8b3f33ab2",
+    "input_hash": "01ce3e824787dfeff4b321d8002ec7c473aa99089b7c6d5149be0a6794b06f11",
     "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
-    "cache_key": "a56bd95072a1e3c1b45e2d4a0816959b414d0fdb3a7b08b0cf7910543bb917da",
+    "cache_key": "561b9a76c7f1952db4df713e666b5e3a4913af8e8b707c6e615ba2a4204f9d09",
     "output_schema_version": "characterization_schema.v4",
     "implementation_version": "1.7.1",
     "context_block_count": 53,
     "context_chars": 43522,
     "call_count": 1,
     "usage": {
-      "input_tokens": 28992,
-      "output_tokens": 3550,
+      "input_tokens": 26240,
+      "output_tokens": 4514,
       "cache_creation_input_tokens": 0,
       "cache_read_input_tokens": 0,
-      "billable_input_tokens": 28992,
-      "total_tokens": 32542
+      "billable_input_tokens": 26240,
+      "total_tokens": 30754
     },
     "cost": {
       "status": "calculated",
       "currency": "CNY",
       "input_per_million": "4.32",
       "output_per_million": "29.15",
-      "input_cost": "0.12524544",
-      "output_cost": "0.1034825",
-      "total_cost": "0.22872794"
+      "input_cost": "0.1133568",
+      "output_cost": "0.1315831",
+      "total_cost": "0.2449399"
     },
     "status": "success"
   },
-  "warnings": []
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[1]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[2]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "char003 跨实体引用 unresolved property：['uprop001']"
+    }
+  ]
 }

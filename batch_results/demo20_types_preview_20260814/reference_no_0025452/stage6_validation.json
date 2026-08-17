@@ -3,7 +3,7 @@
   "document_id": "reference_no_0025452",
   "status": "passed_with_warnings",
   "error_count": 0,
-  "warning_count": 32,
+  "warning_count": 36,
   "errors": [],
   "warnings": [
     {
@@ -22,34 +22,14 @@
       "message": "Preview 模式已丢弃无法恢复为原文子串的 mention 候选"
     },
     {
-      "stage": "stage2_polymer_entity",
-      "code": "failure_response_replayed",
-      "message": "已离线回放保存的 Stage 2 响应，未请求模型"
-    },
-    {
-      "stage": "stage2_polymer_entity",
-      "code": "preview_invalid_entities_removed",
-      "message": "Preview 模式已移除 polymer_name 并非来自 resolved mention 的实体，将相关 mention 保守标记为 unresolved，并清除由此产生的悬空 variant_of 引用"
-    },
-    {
-      "stage": "stage2_polymer_entity",
-      "code": "missing_mentions_marked_unresolved",
-      "message": "模型漏覆盖的 mention 已保守标记为 unresolved"
-    },
-    {
-      "stage": "stage2_polymer_entity",
-      "code": "unresolved_mentions",
-      "message": "11 个 mention 未解析为实体，已原样保留引用"
-    },
-    {
-      "stage": "stage2_polymer_entity",
-      "code": "polymer_type_default_inferred",
-      "message": "Backfill：无共聚或共混反证的实体已推断为 homopolymer"
-    },
-    {
       "stage": "stage3_sample_process",
       "code": "section_fallback",
       "message": "Methods 为空，仅使用 Stage 2 entity 的 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "state_description_replaced_with_evidence",
+      "message": "无标签 Sample 的 state_description 无法逐字定位；已使用验证后的完整 evidence.source_sentence"
     },
     {
       "stage": "stage3_sample_process",
@@ -58,28 +38,33 @@
     },
     {
       "stage": "stage3_sample_process",
+      "code": "unsupported_sample_labels_dropped",
+      "message": "sample_label_raw 无法在 evidence 中定位；已有逐字 state_description，故删除无依据标签"
+    },
+    {
+      "stage": "stage3_sample_process",
       "code": "unresolved_entities",
-      "message": "12 个 entity 未解析到实际样品"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "samples_without_entity",
-      "message": "部分样品无法可靠关联 PolymerEntity"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "sample_polymer_type_backfilled_from_entity",
-      "message": "Backfill：Sample 已采用关联 PolymerEntity 的类型"
-    },
-    {
-      "stage": "stage3_sample_process",
-      "code": "material_type_default_inferred",
-      "message": "Backfill：无第二组分反证的样品已推断为 neat_resin"
+      "message": "7 个 entity 未解析到实际样品"
     },
     {
       "stage": "stage4_property",
       "code": "all_tables_included",
       "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_point_locator_recovered_from_unique_table_row",
+      "message": "Preview 模式已用唯一完整表格行、唯一列头及一致 value_raw 补全 Series point 的稳定坐标"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_unresolved_series_points_synthesized",
+      "message": "Preview 模式已补入 unresolved Series 同一表格列、已有行范围内唯一遗漏的非空数值单元格；confidence 降为 0.5"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正"
     },
     {
       "stage": "stage4_property",
@@ -93,23 +78,18 @@
     },
     {
       "stage": "stage4_property",
-      "code": "preview_semantic_validation_bypassed",
-      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+      "code": "preview_degraded_empty_shell",
+      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果"
     },
     {
       "stage": "stage4_property",
-      "code": "preview_objects_salvaged",
-      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+      "code": "stage4r_preview_table_recovery",
+      "message": "Stage 4R Preview 确定性补入 10 个表格性质格；样品归属保留 unresolved。"
     },
     {
       "stage": "stage4_property",
-      "code": "unresolved_properties",
-      "message": "3 条性质无法可靠关联具体 Sample"
-    },
-    {
-      "stage": "stage5_characterization",
-      "code": "preview_unsupported_characterization_details_cleared",
-      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+      "code": "stage4r_unique_sample_label_resolved",
+      "message": "Stage 4R 按唯一 Stage 3 sample_label_raw 确定性归属 6 条性质。"
     },
     {
       "stage": "stage5_characterization",
@@ -123,13 +103,13 @@
     },
     {
       "stage": "stage5_characterization",
-      "code": "preview_property_subject_subscope_retained",
-      "message": "Preview 模式已保留多主体 Characterization 下的明确单主体性质；需在正式数据中复核"
+      "code": "derived_property_back_reference_completed",
+      "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用"
     },
     {
       "stage": "stage5_characterization",
-      "code": "unresolved_characterizations",
-      "message": "1 条表征无法可靠关联具体 Sample"
+      "code": "preview_property_subject_subscope_retained",
+      "message": "Preview 模式已保留多主体 Characterization 下的明确单主体性质；需在正式数据中复核"
     },
     {
       "stage": "meta_extract",
@@ -137,68 +117,117 @@
       "message": "Paper metadata_status=failed，需人工复核"
     },
     {
-      "stage": "stage4_property",
-      "code": "unused_measurement_condition",
-      "message": "MeasurementCondition 未被性质引用：['mc001']"
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s001"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s005"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s006"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s010"
     },
     {
       "stage": "stage4_property",
-      "code": "evidence_matched_after_block_recovery",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 92.6%，疑似跨块或被截断，建议人工确认",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S2 / PMDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
       "object_id": "mc001"
     },
     {
       "stage": "stage4_property",
-      "code": "evidence_matched_after_block_recovery",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 96.3%，疑似跨块或被截断，建议人工确认",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S3 / PMDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
       "object_id": "mc002"
     },
     {
       "stage": "stage4_property",
-      "code": "evidence_matched_after_block_recovery",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 97.8%，疑似跨块或被截断，建议人工确认",
-      "object_id": "prop001"
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S4 / PMDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "mc003"
     },
     {
       "stage": "stage4_property",
-      "code": "evidence_matched_after_block_recovery",
-      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 96.8%，疑似跨块或被截断，建议人工确认",
-      "object_id": "prop004"
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S7 / BPDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "mc004"
     },
     {
       "stage": "stage4_property",
-      "code": "preview_object_rejected_evidence_not_in_source",
-      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 86.7%，内容不在该 block 内）",
-      "object_id": "uprop002"
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S8 / BPDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "mc005"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S9 / BPDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "mc006"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S1 / PMDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "uprop001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S5 / PMDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "uprop005"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S6 / BPDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "uprop006"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='S10 / BPDA' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "uprop010"
     }
   ],
   "checked_counts": {
     "stage0_blocks": 125,
     "material_mentions": 131,
-    "polymer_entities": 21,
+    "polymer_entities": 17,
     "samples": 10,
-    "process_steps": 1,
-    "measurement_conditions": 5,
-    "stage4_properties": 8,
-    "unresolved_properties": 3,
-    "property_series": 5,
-    "property_series_points": 50,
+    "process_steps": 0,
+    "measurement_conditions": 6,
+    "stage4_properties": 6,
+    "unresolved_properties": 4,
+    "property_series": 0,
+    "property_series_points": 0,
     "characterizations": 3,
     "stage5_properties": 3,
-    "evidence": 179,
-    "preview_published_objects": 239,
-    "preview_rejected_objects": 1,
-    "preview_reference_cleanup_count": 1
+    "evidence": 94,
+    "preview_published_objects": 180,
+    "preview_rejected_objects": 0,
+    "preview_reference_cleanup_count": 0
   },
   "quality_metrics": {
     "properties_with_units": {
-      "complete": 62,
-      "total": 64,
-      "ratio": 0.96875
+      "complete": 11,
+      "total": 13,
+      "ratio": 0.8461538461538461
     },
     "standard_process_steps": {
-      "complete": 1,
-      "total": 1,
+      "complete": 0,
+      "total": 0,
       "ratio": 1.0
     },
     "stage4_methods_with_characterization": {
@@ -207,13 +236,13 @@
       "ratio": 1.0
     },
     "objects_with_confidence": {
-      "complete": 240,
-      "total": 240,
-      "ratio": 1.0
+      "complete": 164,
+      "total": 180,
+      "ratio": 0.9111111111111111
     },
     "series_points_covered": {
-      "complete": 50,
-      "total": 50,
+      "complete": 0,
+      "total": 0,
       "ratio": 1.0
     }
   }
