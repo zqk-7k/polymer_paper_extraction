@@ -53,7 +53,7 @@ from schema.polymer_schema import (
 
 STAGE_ID = "stage3_sample_process"
 OUTPUT_SCHEMA_VERSION = "sample_process_schema.v4"
-IMPLEMENTATION_VERSION = "1.7.0"
+IMPLEMENTATION_VERSION = "1.7.1"
 # 类型推断与材料加工链继承已变化，旧缓存不能复用。
 COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS: tuple[str, ...] = ()
 DEFAULT_INPUT_SECTIONS = ("Methods",)
@@ -1778,7 +1778,7 @@ def _apply_material_type_policy(
     list[dict[str, Any]],
     list[dict[str, Any]],
 ]:
-    """Infer evidence-backed types, inherit safe processes, then default neat resin."""
+    """Infer evidence-backed types and inherit across composition-safe processes."""
 
     by_id = {sample.sample_id: sample for sample in samples}
     evidence_inferences: list[dict[str, Any]] = []
@@ -1884,28 +1884,6 @@ def _apply_material_type_policy(
                     "input_sample_ids": step.input_sample_ids,
                 })
                 changed = True
-
-    for sample_id, sample in list(by_id.items()):
-        if sample.material_type is not None:
-            continue
-        text = _sample_material_text(sample)
-        compact_text = _compact_formula_text(text)
-        has_contrary_evidence = bool(
-            sample.polymer_type not in {"homopolymer", "copolymer"}
-            or COMPOSITE_EVIDENCE_RE.search(text)
-            or COMPOUND_EVIDENCE_RE.search(text)
-            or "liclo4" in compact_text
-            or AMBIGUOUS_COMPOSITION_RE.search(text)
-        )
-        if has_contrary_evidence:
-            continue
-        by_id[sample_id] = sample.model_copy(update={"material_type": "neat_resin"})
-        default_inferences.append({
-            "sample_id": sample_id,
-            "field": "material_type",
-            "value": "neat_resin",
-            "reason": "已建立单一聚合物样品，且没有第二配方组分反证",
-        })
 
     return (
         [by_id[sample.sample_id] for sample in samples],

@@ -51,7 +51,7 @@ from schema.polymer_schema import (
 
 STAGE_ID = "stage2_polymer_entity"
 OUTPUT_SCHEMA_VERSION = "polymer_entity_schema.v3"
-IMPLEMENTATION_VERSION = "1.6.0"
+IMPLEMENTATION_VERSION = "1.6.1"
 DEFAULT_INPUT_SECTIONS = ("Methods", "Results")
 
 
@@ -906,7 +906,7 @@ def _materialize_entities(
 def _apply_polymer_type_policy(
     entities: list[PolymerEntity],
 ) -> tuple[list[PolymerEntity], list[dict[str, Any]], list[dict[str, Any]]]:
-    """Apply narrow negative rules and an auditable homopolymer default."""
+    """Apply narrow negative rules without guessing missing polymer types."""
 
     normalized: list[PolymerEntity] = []
     default_inferences: list[dict[str, Any]] = []
@@ -952,20 +952,6 @@ def _apply_polymer_type_policy(
                     "没有明确 copolymer 证据"
                 ),
             })
-        elif entity.polymer_type is None:
-            has_contrary_evidence = bool(
-                _EXPLICIT_NON_HOMOPOLYMER_RE.search(text)
-                or "/" in entity.polymer_name
-                or _BLEND_CODE_RE.fullmatch(entity.polymer_name.strip())
-            )
-            if not has_contrary_evidence:
-                entity = entity.model_copy(update={"polymer_type": "homopolymer"})
-                default_inferences.append({
-                    "entity_id": entity.entity_id,
-                    "field": "polymer_type",
-                    "value": "homopolymer",
-                    "reason": "已建立聚合物实体，且名称和证据中无共聚或共混反证",
-                })
         normalized.append(entity)
     return normalized, default_inferences, negative_rule_repairs
 

@@ -447,13 +447,13 @@ class Stage2Tests(unittest.TestCase):
             "confidence": {"score": 0.8},
         })
 
-    def test_missing_polymer_type_gets_auditable_homopolymer_default(self) -> None:
+    def test_missing_polymer_type_remains_not_specified(self) -> None:
         entities, defaults, repairs = _apply_polymer_type_policy([
             self._typed_entity(name="polycarbonate", polymer_type=None),
         ])
 
-        self.assertEqual(entities[0].polymer_type, "homopolymer")
-        self.assertEqual(defaults[0]["entity_id"], "pe001")
+        self.assertIsNone(entities[0].polymer_type)
+        self.assertEqual(defaults, [])
         self.assertEqual(repairs, [])
 
     def test_regioregular_alt_false_positive_is_repaired(self) -> None:

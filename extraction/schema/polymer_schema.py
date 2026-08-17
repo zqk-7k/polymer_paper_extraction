@@ -756,7 +756,7 @@ class Stage2Provenance(BaseModel):
     ]
     implementation_version: Literal[
         "1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4",
-        "1.3.5", "1.4.0", "1.5.0", "1.6.0",
+        "1.3.5", "1.4.0", "1.5.0", "1.6.0", "1.6.1",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt
@@ -999,7 +999,7 @@ class Stage3Provenance(BaseModel):
     implementation_version: Literal[
         "1.0.0", "1.1.0", "1.1.1", "1.1.2", "1.2.0", "1.3.0", "1.3.1",
         "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7",
-        "1.4.0", "1.5.0", "1.6.0", "1.7.0",
+        "1.4.0", "1.5.0", "1.6.0", "1.7.0", "1.7.1",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt

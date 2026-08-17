@@ -1,6 +1,6 @@
 ---
 prompt_id: polymer.stage2.polymer_entity
-version: 1.5.0
+version: 1.5.1
 stage: stage2_polymer_entity
 output_schema: polymer_entity_schema.v3
 ---
@@ -27,8 +27,8 @@ output_schema: polymer_entity_schema.v3
    `resolved_from_mentions` 中，不得丢弃。
 5. `polymer_type` 只能为 `homopolymer | copolymer | polymer_blend`。优先识别
    原文明示的共混物；其次依据明确的多个共聚单体、共聚反应或 copolymer 文字判为
-   `copolymer`。没有这些直接证据时返回 `null`，运行时会对无反证的已建立聚合物
-   做可审计的 `homopolymer` 默认推断。
+   `copolymer`。没有这些直接证据时返回 `null`，不得仅因没有看到共聚或共混反证
+   就推断为 `homopolymer`。
    `copolymer_type` 仅在 `polymer_type=copolymer` 且原文明示时填写，只能为
    `co | stat | ran | alt | per | block | graft`；共聚子类型不明确时返回
    `null`。statistical 与 random 不得互换。`regioregular`、`regiorandom` 描述的

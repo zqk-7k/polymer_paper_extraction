@@ -1031,10 +1031,10 @@ class Stage3Tests(unittest.TestCase):
             [],
         )
 
-        self.assertEqual(samples[0].material_type, "neat_resin")
+        self.assertIsNone(samples[0].material_type)
         self.assertEqual(evidence, [])
         self.assertEqual(inherited, [])
-        self.assertEqual(defaults[0]["sample_id"], "s001")
+        self.assertEqual(defaults, [])
 
     def test_polymer_blend_without_filler_is_compound(self) -> None:
         samples, evidence, inherited, defaults = _apply_material_type_policy(
@@ -1060,10 +1060,7 @@ class Stage3Tests(unittest.TestCase):
         self.assertEqual(evidence[0]["previous_value"], "composite")
         self.assertEqual(evidence[0]["step_id"], "ps001")
         self.assertEqual(inherited, [])
-        self.assertEqual(
-            [item["sample_id"] for item in defaults],
-            ["s001", "s002"],
-        )
+        self.assertEqual(defaults, [])
 
     def test_filler_blend_remains_composite(self) -> None:
         samples, evidence, inherited, defaults = _apply_material_type_policy(
@@ -1087,10 +1084,7 @@ class Stage3Tests(unittest.TestCase):
 
         self.assertEqual(samples[2].material_type, "composite")
         self.assertEqual(inherited, [])
-        self.assertEqual(
-            [item["sample_id"] for item in defaults],
-            ["s001"],
-        )
+        self.assertEqual(defaults, [])
 
     def test_multiple_polymer_inputs_infer_blend_output(self) -> None:
         samples, items = _apply_process_polymer_type_policy(
@@ -1141,16 +1135,16 @@ class Stage3Tests(unittest.TestCase):
             ["s003", "s004"],
         )
 
-    def test_single_polymer_sample_gets_neat_resin_default(self) -> None:
+    def test_single_polymer_sample_without_composition_evidence_is_unspecified(self) -> None:
         samples, evidence, inherited, defaults = _apply_material_type_policy(
             [self._material_sample("s001", "polycarbonate")],
             [],
         )
 
-        self.assertEqual(samples[0].material_type, "neat_resin")
+        self.assertIsNone(samples[0].material_type)
         self.assertEqual(evidence, [])
         self.assertEqual(inherited, [])
-        self.assertEqual(defaults[0]["sample_id"], "s001")
+        self.assertEqual(defaults, [])
 
     def test_old_material_type_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -1407,7 +1401,7 @@ class Stage3Tests(unittest.TestCase):
                 prompt,
             )
 
-            self.assertEqual(IMPLEMENTATION_VERSION, "1.7.0")
+            self.assertEqual(IMPLEMENTATION_VERSION, "1.7.1")
             self.assertFalse(cached)
             self.assertEqual(client.calls, calls_after_first + 1)
     def test_sample_label_html_entity_is_recovered_with_warning(self) -> None:
