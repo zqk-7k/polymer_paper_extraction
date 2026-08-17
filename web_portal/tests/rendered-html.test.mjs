@@ -68,3 +68,16 @@ test("keeps candidate limitations visible in the implementation", async () => {
   assert.match(page, /文档解析与加载/);
   assert.doesNotMatch(page, /@ant-design\/icons/);
 });
+
+test("uses MinerU normalized bbox coordinates and places source metadata below the visual", async () => {
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(page, /const sourceWidth = 1000;/);
+  assert.match(page, /const sourceHeight = 1000;/);
+  assert.doesNotMatch(page, /sourceWidth \* pageAspect/);
+
+  const drawerStart = page.indexOf("function EvidenceDrawer");
+  const visualIndex = page.indexOf("<EvidenceVisual", drawerStart);
+  const locationIndex = page.indexOf('className="evidence-location evidence-location-below"', drawerStart);
+  assert.ok(drawerStart >= 0 && visualIndex > drawerStart);
+  assert.ok(locationIndex > visualIndex);
+});

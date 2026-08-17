@@ -400,6 +400,8 @@ button, input, select { font: inherit; }
 .empty-page p { max-width: 430px; color: var(--muted); }
 .evidence-drawer, .entity-drawer { display: flex; flex-direction: column; gap: 18px; }
 .evidence-location { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.evidence-location-below { padding: 10px 12px; border: 1px solid #dce3ed; border-radius: 6px; background: #fff; }
+.evidence-location-label { margin-right: 5px; color: #536174; font-size: 12px; font-weight: 700; }
 .evidence-drawer blockquote { margin: 0; padding: 17px 18px; color: #2d374a; background: #f5f8fd; border-left: 3px solid var(--brand); font-size: 14px; line-height: 1.78; }
 .evidence-visual-panel { padding: 14px; display: grid; grid-template-columns: minmax(230px,.72fr) minmax(320px,1.28fr); gap: 16px; border: 1px solid #dce3ed; border-radius: 7px; background: #f8fafc; }
 .evidence-visual-heading { grid-column: 1 / -1; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
@@ -822,6 +824,7 @@ button, input, select { font: inherit; }
 .precision-ui .ant-drawer-header { padding: 20px 24px; background: rgba(255,255,255,.93); border-bottom-color: #dce2e9; backdrop-filter: blur(16px); }
 .precision-ui .ant-drawer-title { color: #162033; font-size: 18px; font-weight: 740; }
 .precision-ui .ant-drawer-body { padding: 22px 24px 30px; background: #f4f6f8; }
+.precision-ui .evidence-location-below { border-color: #d7dfe7; box-shadow: 0 7px 20px rgba(16,24,40,.045); }
 .precision-ui .evidence-drawer blockquote { padding: 18px 20px; background: #fff; border: 1px solid #dbe2e9; border-left: 4px solid #0066cc; border-radius: 0 8px 8px 0; box-shadow: 0 7px 20px rgba(16,24,40,.045); font-size: 15px; }
 .precision-ui .evidence-visual-panel { padding: 18px; gap: 18px; background: #fff; border-color: #d7dfe7; border-radius: 8px; box-shadow: 0 10px 26px rgba(16,24,40,.05); }
 .precision-ui .evidence-visual-heading strong,

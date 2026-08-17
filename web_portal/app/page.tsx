@@ -1480,12 +1480,11 @@ function NoResult({ onUpload, onSample }: { onUpload: () => void; onSample: () =
 }
 
 function EvidenceVisual({ evidence, pdfUrl }: { evidence: Evidence; pdfUrl: string }) {
-  const [pageAspect, setPageAspect] = useState(1.414);
   const [imageFailed, setImageFailed] = useState(false);
   const page = evidence.page ?? 0;
   const pageImageUrl = `${pdfUrl}/pages/${page}`;
   const sourceWidth = 1000;
-  const sourceHeight = sourceWidth * pageAspect;
+  const sourceHeight = 1000;
   const values = Array.isArray(evidence.bbox) ? evidence.bbox.map(Number) : [];
   const hasBox = values.length === 4 && values.every(Number.isFinite) && values[2] > values[0] && values[3] > values[1];
   const x0 = hasBox ? Math.max(0, Math.min(sourceWidth, values[0])) : 0;
@@ -1509,9 +1508,9 @@ function EvidenceVisual({ evidence, pdfUrl }: { evidence: Evidence; pdfUrl: stri
   if (imageFailed) return <Alert type="warning" showIcon message="证据页图像暂不可用" description="仍可通过下方按钮直接打开 PDF 对应页核对证据。" />;
 
   return <section className="evidence-visual-panel">
-    <div className="evidence-visual-heading"><div><strong>原文定位</strong><span>红框为抽取记录保存的 bbox 坐标</span></div><Tag color="red">Page {page + 1}</Tag></div>
+    <div className="evidence-visual-heading"><div><strong>原文定位</strong><span>红框为抽取记录保存的 bbox 坐标</span></div></div>
     <div className="evidence-page-preview">
-      <img src={pageImageUrl} alt={`原文第 ${page + 1} 页证据定位`} onLoad={(event) => setPageAspect(event.currentTarget.naturalHeight / event.currentTarget.naturalWidth)} onError={() => setImageFailed(true)} />
+      <img src={pageImageUrl} alt={`原文第 ${page + 1} 页证据定位`} onError={() => setImageFailed(true)} />
       {hasBox && <i className="evidence-bbox" style={boxStyle}><span>bbox</span></i>}
     </div>
     {hasBox && <div className="evidence-crop-section"><div><strong>证据区域放大</strong><span>{values.join(", ")}</span></div><div className="evidence-crop-frame" style={{ aspectRatio: `${boxWidth} / ${boxHeight}` }}><img src={pageImageUrl} alt="根据 bbox 裁剪的原文证据区域" style={cropImageStyle} /><i /></div></div>}
@@ -1599,7 +1598,7 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
 function EvidenceDrawer({ evidence, pdfUrl, onClose }: { evidence: Evidence | null; pdfUrl: string; onClose: () => void }) {
   return (
     <Drawer title="原文证据" width={820} open={Boolean(evidence)} onClose={onClose}>
-      {evidence && <div className="evidence-drawer"><div className="evidence-location"><Tag color="blue">第 {(evidence.page ?? 0) + 1} 页</Tag><Tag>{evidence.source_type || "text"}</Tag><Text type="secondary">{evidence.block_id}</Text></div><EvidenceVisual key={evidence.evidence_id} evidence={evidence} pdfUrl={pdfUrl} /><blockquote>{evidence.source_sentence || "未保存可展示的原文片段。"}</blockquote><Descriptions column={1} bordered size="small"><Descriptions.Item label="证据 ID">{evidence.evidence_id}</Descriptions.Item><Descriptions.Item label="来源阶段">{evidence.source_stage}</Descriptions.Item><Descriptions.Item label="对象 ID">{evidence.object_id}</Descriptions.Item><Descriptions.Item label="版面坐标">{evidence.bbox?.join(", ") || "未记录"}</Descriptions.Item></Descriptions><Button block type="primary" href={`${pdfUrl}#page=${(evidence.page ?? 0) + 1}`} target="_blank" icon={<FileSearch size={16} />}>在原文中打开本页</Button></div>}
+      {evidence && <div className="evidence-drawer"><EvidenceVisual key={evidence.evidence_id} evidence={evidence} pdfUrl={pdfUrl} /><div className="evidence-location evidence-location-below"><span className="evidence-location-label">原文位置</span><Tag color="blue">第 {(evidence.page ?? 0) + 1} 页</Tag><Tag>{evidence.source_type || "text"}</Tag><Text code>{evidence.block_id || "未记录块编号"}</Text></div><blockquote>{evidence.source_sentence || "未保存可展示的原文片段。"}</blockquote><Descriptions column={1} bordered size="small"><Descriptions.Item label="证据 ID">{evidence.evidence_id}</Descriptions.Item><Descriptions.Item label="来源阶段">{evidence.source_stage}</Descriptions.Item><Descriptions.Item label="对象 ID">{evidence.object_id}</Descriptions.Item><Descriptions.Item label="版面坐标">{evidence.bbox?.join(", ") || "未记录"}</Descriptions.Item></Descriptions><Button block type="primary" href={`${pdfUrl}#page=${(evidence.page ?? 0) + 1}`} target="_blank" icon={<FileSearch size={16} />}>在原文中打开本页</Button></div>}
     </Drawer>
   );
 }
