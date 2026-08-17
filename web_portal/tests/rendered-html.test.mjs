@@ -50,6 +50,9 @@ test("keeps candidate limitations visible in the implementation", async () => {
   assert.match(page, /PolymerDirectory/);
   assert.match(page, /PolymerPage/);
   assert.match(page, /SamplePage/);
+  assert.match(page, /relatedProcessSteps/);
+  assert.match(page, /工艺与样品谱系/);
+  assert.match(page, /input_sample_ids \/ output_sample_ids/);
   assert.match(page, /systemPid/);
   assert.match(page, /PolymerStructure/);
   assert.match(page, /EvidenceVisual/);
