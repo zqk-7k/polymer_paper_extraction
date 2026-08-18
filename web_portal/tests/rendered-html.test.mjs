@@ -69,6 +69,8 @@ test("keeps candidate limitations visible in the implementation", async () => {
   assert.match(page, /PoLyInfo 锚点一致性/);
   assert.match(page, /性质绑定合法样品/);
   assert.match(page, /当前批次的阶段变化/);
+  assert.match(page, /单篇论文评价指标/);
+  assert.match(page, /锚点 F1/);
   assert.match(page, /function displayApiText/);
   assert.match(page, /render: displayApiText/);
   assert.match(page, /process\.env\.NODE_ENV === "development" \? "http:\/\/localhost:8000"/);

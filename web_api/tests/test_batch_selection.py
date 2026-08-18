@@ -4,6 +4,7 @@ from pathlib import Path
 from web_api.app import (
     _alignment_metrics,
     _candidate_completeness,
+    _completeness_quality,
     _display_text,
     _polyinfo_properties,
     _select_batch_root,
@@ -104,16 +105,19 @@ def test_candidate_completeness_requires_valid_sample_and_evidence_links() -> No
     candidate = {
         "samples": [{"sample_id": "s001"}],
         "evidence": [{"evidence_id": "ev001"}],
+        "measurement_conditions": [{"condition_id": "mc002", "condition_status": "not_reported"}],
         "property_observations": [
             {
                 "sample_id": "s001",
                 "evidence_ids": ["ev001"],
                 "unit_raw": "MPa",
                 "measurement_condition_id": "mc001",
+                "measurement_context": {"condition_status": "reported", "temperature": "25 C"},
             },
             {
                 "sample_id": "missing",
                 "evidence_ids": ["missing"],
+                "measurement_condition_id": "mc002",
             },
         ],
     }
@@ -125,3 +129,18 @@ def test_candidate_completeness_requires_valid_sample_and_evidence_links() -> No
         "unit_complete": 1,
         "condition_bound": 1,
     }
+
+
+def test_completeness_quality_exposes_single_paper_coverage_rates() -> None:
+    quality = _completeness_quality({
+        "properties": 4,
+        "sample_bound": 3,
+        "evidence_bound": 4,
+        "unit_complete": 2,
+        "condition_bound": 1,
+    })
+
+    assert quality["sample_binding_coverage"] == 0.75
+    assert quality["evidence_coverage"] == 1.0
+    assert quality["unit_completeness"] == 0.5
+    assert quality["condition_coverage"] == 0.25

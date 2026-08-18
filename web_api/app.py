@@ -783,6 +783,7 @@ def _comparison_payload(ref_no: str, collection_id: str = "") -> dict[str, Any]:
         status: sum(1 for item in alignment if item["status"] == status)
         for status in ("matched", "value_diff", "polyinfo_only", "extraction_only")
     }
+    completeness = _candidate_completeness(candidate)
     return {
         "ref_no": ref_no,
         "polyinfo": polyinfo,
@@ -793,6 +794,7 @@ def _comparison_payload(ref_no: str, collection_id: str = "") -> dict[str, Any]:
             "file_name": record.get("file_name"),
             "paper": candidate.get("paper") or {},
             "stats": extraction_stats,
+            "quality": _completeness_quality(completeness),
             "polymer_entities": candidate.get("polymer_entities") or [],
             "samples": candidate.get("samples") or [],
         },
@@ -811,6 +813,11 @@ def _count_stage_properties(path: Path) -> int:
 def _candidate_completeness(candidate: dict[str, Any]) -> dict[str, int]:
     samples = candidate.get("samples") or []
     properties = candidate.get("property_observations") or []
+    conditions = {
+        str(item.get("condition_id")): item
+        for item in candidate.get("measurement_conditions") or []
+        if item.get("condition_id")
+    }
     sample_ids = {str(item.get("sample_id")) for item in samples if item.get("sample_id")}
     evidence_ids = {
         str(item.get("evidence_id"))
@@ -830,8 +837,11 @@ def _candidate_completeness(candidate: dict[str, Any]) -> dict[str, int]:
             evidence_bound += 1
         if item.get("unit_normalized") or item.get("unit_raw"):
             unit_complete += 1
-        context = item.get("measurement_context") or {}
-        if item.get("measurement_condition_id") or context.get("condition_status") == "reported" or context.get("other_conditions"):
+        context = item.get("measurement_context") or conditions.get(str(item.get("measurement_condition_id"))) or {}
+        has_explicit_condition = any(context.get(key) not in (None, "", [], {}) for key in (
+            "temperature", "frequency", "humidity", "pressure", "wavelength", "other_conditions",
+        ))
+        if context.get("condition_status") == "reported" or has_explicit_condition:
             condition_bound += 1
     return {
         "properties": len(properties),
@@ -844,6 +854,17 @@ def _candidate_completeness(candidate: dict[str, Any]) -> dict[str, int]:
 
 def _ratio(numerator: int, denominator: int) -> float:
     return round(numerator / denominator, 4) if denominator else 0.0
+
+
+def _completeness_quality(completeness: dict[str, int]) -> dict[str, float | int]:
+    properties = completeness["properties"]
+    return {
+        **completeness,
+        "sample_binding_coverage": _ratio(completeness["sample_bound"], properties),
+        "evidence_coverage": _ratio(completeness["evidence_bound"], properties),
+        "unit_completeness": _ratio(completeness["unit_complete"], properties),
+        "condition_coverage": _ratio(completeness["condition_bound"], properties),
+    }
 
 
 def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, Any]:
@@ -942,12 +963,8 @@ def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, An
         stage["stage6_warnings"] = int(validation_stage6.get("warnings") or stage["stage6_warnings"])
         stage["stage6_errors"] = int(validation_stage6.get("errors") or stage["stage6_errors"])
 
-    properties = completeness["properties"]
     quality = {
-        "sample_binding_coverage": _ratio(completeness["sample_bound"], properties),
-        "evidence_coverage": _ratio(completeness["evidence_bound"], properties),
-        "unit_completeness": _ratio(completeness["unit_complete"], properties),
-        "condition_coverage": _ratio(completeness["condition_bound"], properties),
+        **_completeness_quality(completeness),
         "final_document_rate": _ratio(stage["final_documents"], document_count),
     }
     return {
