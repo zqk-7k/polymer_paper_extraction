@@ -137,6 +137,54 @@ type BatchResultSummary = {
   validation_status?: string | null;
 };
 
+type BatchCollectionSummary = {
+  collection_id: string;
+  result_date: string;
+  generated_at: string;
+  result_mode: string;
+  is_active: boolean;
+  document_count: number;
+  paired_documents: number;
+  strict_compliance_claimed: boolean;
+  validation_status: string;
+  totals: {
+    polymer_entities: number;
+    samples: number;
+    process_steps: number;
+    property_observations: number;
+    evidence: number;
+  };
+  quality: {
+    sample_binding_coverage: number;
+    evidence_coverage: number;
+    unit_completeness: number;
+    condition_coverage: number;
+    final_document_rate: number;
+  };
+  anchor: {
+    matched: number;
+    value_diff: number;
+    polyinfo_only: number;
+    extraction_only: number;
+    precision: number;
+    recall: number;
+    f1: number;
+  };
+  stage: {
+    stage4_pre_properties: number;
+    stage4_post_properties: number;
+    candidate_properties: number;
+    final_properties: number;
+    stage4r_recovered: number;
+    stage4r_migrated: number;
+    stage4r_skipped: number;
+    stage6_warnings: number;
+    stage6_errors: number;
+    rejected_objects: number;
+    final_documents: number;
+  };
+};
+
 type PolyInfoStats = ResultStats & {
   property_type_count: number;
   measurement_condition_count: number;
@@ -400,6 +448,7 @@ export default function Home() {
   const [selectedBatch, setSelectedBatch] = useState<BatchResultSummary | null>(null);
   const [historyTasks, setHistoryTasks] = useState<ExtractionJob[]>([]);
   const [batchResults, setBatchResults] = useState<BatchResultSummary[]>([]);
+  const [batchCollections, setBatchCollections] = useState<BatchCollectionSummary[]>([]);
   const [polyInfoResults, setPolyInfoResults] = useState<PolyInfoSummary[]>([]);
   const [polyInfoComparison, setPolyInfoComparison] = useState<PolyInfoComparison | null>(null);
   const [polyInfoComparisonLoading, setPolyInfoComparisonLoading] = useState(false);
@@ -477,6 +526,19 @@ export default function Home() {
     }
   }, [messageApi]);
 
+  const refreshBatchCollections = useCallback(async () => {
+    setArchiveLoading(true);
+    try {
+      const response = await fetch(`${API_BASE}/api/batch-collections`);
+      if (!response.ok) throw new Error("批次质量摘要读取失败");
+      setBatchCollections(await response.json() as BatchCollectionSummary[]);
+    } catch (error) {
+      messageApi.error(error instanceof Error ? error.message : "批次质量摘要读取失败");
+    } finally {
+      setArchiveLoading(false);
+    }
+  }, [messageApi]);
+
   const refreshPolyInfoResults = useCallback(async () => {
     setArchiveLoading(true);
     try {
@@ -490,11 +552,12 @@ export default function Home() {
     }
   }, [messageApi]);
 
-  const openPolyInfoComparison = useCallback(async (refNo: string) => {
+  const openPolyInfoComparison = useCallback(async (refNo: string, collectionId?: string) => {
     setPolyInfoComparisonLoading(true);
     setPolyInfoComparison(null);
     try {
-      const response = await fetch(`${API_BASE}/api/polyinfo-results/${refNo}/comparison`);
+      const query = collectionId ? `?collection=${encodeURIComponent(collectionId)}` : "";
+      const response = await fetch(`${API_BASE}/api/polyinfo-results/${refNo}/comparison${query}`);
       if (!response.ok) throw new Error("PoLyInfo 对照结果读取失败");
       setPolyInfoComparison(await response.json() as PolyInfoComparison);
     } catch (error) {
@@ -587,7 +650,11 @@ export default function Home() {
     setView(nextView);
     if (nextView === "history") void refreshHistory();
     if (nextView === "batch") void refreshBatchResults();
-    if (nextView === "polyinfo") void refreshPolyInfoResults();
+    if (nextView === "polyinfo") {
+      void refreshPolyInfoResults();
+      void refreshBatchResults();
+      void refreshBatchCollections();
+    }
   };
 
   const openHistoryTask = async (task: ExtractionJob) => {
@@ -814,7 +881,12 @@ export default function Home() {
               loading={archiveLoading}
               rows={polyInfoResults}
               batchResults={batchResults}
-              onRefresh={refreshPolyInfoResults}
+              batchCollections={batchCollections}
+              onRefresh={() => {
+                void refreshPolyInfoResults();
+                void refreshBatchResults();
+                void refreshBatchCollections();
+              }}
               onCompare={openPolyInfoComparison}
             />
           )}
@@ -1107,17 +1179,27 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
   </div>;
 }
 
-function PolyInfoResultsPage({ loading, rows, batchResults, onRefresh, onCompare }: {
+function ScoreBar({ value, label, color = "#0066cc" }: { value: number; label: string; color?: string }) {
+  const percent = Math.round(value * 1000) / 10;
+  return <div className="quality-score"><div><span>{label}</span><strong>{percent.toFixed(1)}%</strong></div><Progress percent={percent} showInfo={false} strokeColor={color} trailColor="#e6ebf0" size="small" /></div>;
+}
+
+function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, onRefresh, onCompare }: {
   loading: boolean;
   rows: PolyInfoSummary[];
   batchResults: BatchResultSummary[];
+  batchCollections: BatchCollectionSummary[];
   onRefresh: () => void;
-  onCompare: (refNo: string) => void;
+  onCompare: (refNo: string, collectionId?: string) => void;
 }) {
   const [search, setSearch] = useState("");
+  const [selectedCollectionId, setSelectedCollectionId] = useState("");
   const activeBatch = batchResults[0];
-  const batchCollection = activeBatch?.collection_id || "当前批次";
-  const batchResultDate = activeBatch?.result_date || "日期未标注";
+  const activeCollection = batchCollections.find((item) => item.collection_id === selectedCollectionId)
+    || batchCollections.find((item) => item.is_active)
+    || batchCollections[0];
+  const batchCollection = activeCollection?.collection_id || activeBatch?.collection_id || "当前批次";
+  const batchResultDate = activeCollection?.result_date || activeBatch?.result_date || "日期未标注";
   const query = search.trim().toLowerCase();
   const filtered = rows.filter((item) => !query || [
     item.ref_no,
@@ -1127,12 +1209,18 @@ function PolyInfoResultsPage({ loading, rows, batchResults, onRefresh, onCompare
   ].filter(Boolean).join(" ").toLowerCase().includes(query)).sort((left, right) =>
     Number(right.has_batch_result) - Number(left.has_batch_result) || left.ref_no.localeCompare(right.ref_no),
   );
-  const totals = rows.reduce((sum, item) => ({
+  const polyInfoTotals = rows.reduce((sum, item) => ({
     polymers: sum.polymers + item.stats.polymer_count,
     samples: sum.samples + item.stats.sample_count,
     properties: sum.properties + item.stats.property_count,
     matched: sum.matched + (item.has_batch_result ? 1 : 0),
   }), { polymers: 0, samples: 0, properties: 0, matched: 0 });
+
+  const chronological = [...batchCollections].sort((left, right) => left.result_date.localeCompare(right.result_date));
+  const previousByCollection = new Map<string, BatchCollectionSummary>();
+  chronological.forEach((item, index) => {
+    if (index > 0) previousByCollection.set(item.collection_id, chronological[index - 1]);
+  });
 
   const columns: ColumnsType<PolyInfoSummary> = [
     {
@@ -1150,29 +1238,105 @@ function PolyInfoResultsPage({ loading, rows, batchResults, onRefresh, onCompare
     { title: "性质值", key: "properties", width: 96, align: "right", render: (_, item) => <b className="numeric-cell">{item.stats.property_count}</b> },
     { title: "工艺字段", key: "processes", width: 96, align: "right", render: (_, item) => <b className="numeric-cell">{item.stats.process_count}</b> },
     { title: "来源组", dataIndex: "group", key: "group", width: 88, render: (value) => <Tag color={value === "有doi" ? "blue" : "default"}>{value}</Tag> },
-    { title: "最新批处理", key: "matched", width: 118, render: (_, item) => item.has_batch_result ? <Tag color="success">可直接对照</Tag> : <Tag>本批次无结果</Tag> },
+    { title: "批处理", key: "matched", width: 118, render: (_, item) => item.has_batch_result ? <Tag color="success">可直接对照</Tag> : <Tag>无配对结果</Tag> },
     {
       title: "操作",
       key: "action",
       width: 210,
-      render: (_, item) => <Space size={7}><Button type={item.has_batch_result ? "primary" : "default"} icon={<GitBranch size={15} />} onClick={() => onCompare(item.ref_no)}>{item.has_batch_result ? "查看批次差异" : "查看原始记录"}</Button>{item.has_pdf && <Tooltip title="打开该目录中的论文 PDF"><Button aria-label="打开 PoLyInfo 对应论文" href={`${API_BASE}/api/polyinfo-results/${item.ref_no}/pdf`} target="_blank" icon={<FileSearch size={15} />} /></Tooltip>}</Space>,
+      render: (_, item) => <Space size={7}><Button type={item.has_batch_result ? "primary" : "default"} icon={<GitBranch size={15} />} onClick={() => onCompare(item.ref_no, activeCollection?.collection_id)}>{item.has_batch_result ? "查看逐项差异" : "查看原始记录"}</Button>{item.has_pdf && <Tooltip title="打开该目录中的论文 PDF"><Button aria-label="打开 PoLyInfo 对应论文" href={`${API_BASE}/api/polyinfo-results/${item.ref_no}/pdf`} target="_blank" icon={<FileSearch size={15} />} /></Tooltip>}</Space>,
     },
   ];
 
-  return <div className="page-stack polyinfo-results-page">
-    <PageTitle title="最新批处理与 PoLyInfo 对照" description={`按 reference_no 连接 ${batchCollection} 与本地真实 PoLyInfo 样品 JSON，比较聚合物、样品、性质、工艺和证据覆盖。`} meta={`PREVIEW EXTRACTION · ${batchResultDate} · POLYINFO REFERENCE`} actions={<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新目录</Button>} />
-    <Alert className="polyinfo-source-alert" type="info" showIcon message={`对照源：${batchCollection} ↔ 本地 PoLyInfo 数据`} description={`${batchResults.length} 篇批处理文献中有 ${totals.matched} 篇找到同 reference_no 的 PoLyInfo 记录。PoLyInfo 本地 JSON 没有页码、BBox 与原文片段，因此证据链数量按 0 统计。`} />
+  const evolutionColumns: ColumnsType<BatchCollectionSummary> = [
+    {
+      title: "批次",
+      key: "collection",
+      width: 265,
+      fixed: "left",
+      render: (_, item) => <div className="batch-version-cell"><strong>{item.collection_id}</strong><span>{item.result_date} · {item.result_mode}</span><small>{item.is_active ? "当前生产批次" : item.validation_status}</small></div>,
+    },
+    { title: "文献", key: "papers", width: 90, align: "right", render: (_, item) => <b>{item.paired_documents}/{item.document_count}</b> },
+    {
+      title: "锚点 F1",
+      key: "f1",
+      width: 145,
+      render: (_, item) => {
+        const previous = previousByCollection.get(item.collection_id);
+        const delta = previous ? item.anchor.f1 - previous.anchor.f1 : null;
+        return <div className="batch-score-cell"><strong>{(item.anchor.f1 * 100).toFixed(1)}%</strong>{delta !== null && <Tag color={delta > 0 ? "success" : delta < 0 ? "error" : "default"}>{delta > 0 ? "+" : ""}{(delta * 100).toFixed(1)} pp</Tag>}</div>;
+      },
+    },
+    { title: "P / R", key: "pr", width: 140, render: (_, item) => <span className="compact-ratio">{(item.anchor.precision * 100).toFixed(1)} / {(item.anchor.recall * 100).toFixed(1)}%</span> },
+    { title: "样品绑定", key: "sample", width: 120, render: (_, item) => <Progress percent={Math.round(item.quality.sample_binding_coverage * 100)} size="small" strokeColor="#0f8a72" /> },
+    { title: "证据绑定", key: "evidence", width: 120, render: (_, item) => <Progress percent={Math.round(item.quality.evidence_coverage * 100)} size="small" strokeColor="#1177bb" /> },
+    { title: "单位完整", key: "unit", width: 120, render: (_, item) => <Progress percent={Math.round(item.quality.unit_completeness * 100)} size="small" strokeColor="#7b5aa6" /> },
+    { title: "性质候选", key: "properties", width: 105, align: "right", render: (_, item) => <b>{item.totals.property_observations}</b> },
+    { title: "Stage 4R", key: "stage4r", width: 128, render: (_, item) => <div className="stage-compact"><b>+{item.stage.stage4r_migrated}</b><span>{item.stage.stage4r_recovered} 候选恢复</span></div> },
+    { title: "Stage 6", key: "stage6", width: 150, render: (_, item) => <div className="stage-compact"><b>{item.stage.final_documents}/{item.document_count} final</b><span>{item.stage.rejected_objects} 拒绝 · {item.stage.stage6_warnings} 警告</span></div> },
+  ];
+
+  const qualityOverview = activeCollection ? <div className="batch-quality-stack">
+    <Alert
+      className="polyinfo-source-alert"
+      type="info"
+      showIcon
+      message={`当前对照：${activeCollection.collection_id} ↔ PoLyInfo`}
+      description="锚点 Precision、Recall 和 F1 只衡量与 PoLyInfo 已有记录的一致性，不是全文 gold 准确率。抽取独有记录可能是有效补充，也可能需要回到 PDF 证据裁决。"
+    />
     <section className="metric-strip polyinfo-metrics">
-      <Metric icon={<FileSearch size={19} />} label="PoLyInfo 文献" value={rows.length} tone="blue" />
-      <Metric icon={<Boxes size={19} />} label="聚合物 PID" value={totals.polymers} tone="violet" />
-      <Metric icon={<Beaker size={19} />} label="样品记录" value={totals.samples} tone="cyan" />
-      <Metric icon={<Gauge size={19} />} label="性质观测" value={totals.properties} tone="orange" />
-      <Metric icon={<GitBranch size={19} />} label="可配对批次" value={totals.matched} tone="green" />
+      <Metric icon={<ShieldCheck size={19} />} label="锚点 F1" value={`${(activeCollection.anchor.f1 * 100).toFixed(1)}%`} tone="blue" />
+      <Metric icon={<Check size={19} />} label="数值一致" value={activeCollection.anchor.matched} tone="green" />
+      <Metric icon={<Beaker size={19} />} label="样品绑定" value={`${(activeCollection.quality.sample_binding_coverage * 100).toFixed(1)}%`} tone="cyan" />
+      <Metric icon={<FileSearch size={19} />} label="证据绑定" value={`${(activeCollection.quality.evidence_coverage * 100).toFixed(1)}%`} tone="violet" />
+      <Metric icon={<Database size={19} />} label="配对文献" value={`${activeCollection.paired_documents}/${activeCollection.document_count}`} tone="orange" />
     </section>
-    <section className="work-panel polyinfo-table-panel">
-      <div className="polyinfo-table-toolbar"><div><strong>真实 PoLyInfo 文献记录</strong><span>当前显示 {filtered.length} / {rows.length} 篇；每篇文献可包含多个样品 JSON。</span></div><Input value={search} onChange={(event) => setSearch(event.target.value)} prefix={<Search size={15} />} placeholder="搜索 reference_no、DOI、期刊或聚合物" allowClear /></div>
-      <Table rowKey="ref_no" loading={loading} columns={columns} dataSource={filtered} pagination={{ pageSize: 12, showSizeChanger: false }} scroll={{ x: 1280 }} rowClassName={(item) => item.has_batch_result ? "polyinfo-linked-row" : ""} locale={{ emptyText: <Empty description="没有读取到 PoLyInfo 原始记录" /> }} />
+    <div className="quality-analysis-grid">
+      <section className="work-panel quality-analysis-panel">
+        <div className="analysis-panel-heading"><div><strong>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
+        <ScoreBar label="Precision" value={activeCollection.anchor.precision} />
+        <ScoreBar label="Recall" value={activeCollection.anchor.recall} color="#0f8a72" />
+        <ScoreBar label="F1" value={activeCollection.anchor.f1} color="#7b5aa6" />
+        <div className="alignment-summary compact"><span className="matched"><b>{activeCollection.anchor.matched}</b>数值一致</span><span className="different"><b>{activeCollection.anchor.value_diff}</b>同名值不同</span><span className="pi-only"><b>{activeCollection.anchor.polyinfo_only}</b>仅 PoLyInfo</span><span className="web-only"><b>{activeCollection.anchor.extraction_only}</b>仅本批次</span></div>
+      </section>
+      <section className="work-panel quality-analysis-panel">
+        <div className="analysis-panel-heading"><div><strong>候选记录完整度</strong><span>检查关系和证据是否存在，不等同于人工确认其语义正确</span></div><Tag color="green">PIPELINE QUALITY</Tag></div>
+        <ScoreBar label="性质绑定合法样品" value={activeCollection.quality.sample_binding_coverage} color="#0f8a72" />
+        <ScoreBar label="性质绑定原文证据" value={activeCollection.quality.evidence_coverage} color="#1177bb" />
+        <ScoreBar label="单位字段完整" value={activeCollection.quality.unit_completeness} color="#7b5aa6" />
+        <ScoreBar label="测量条件关联" value={activeCollection.quality.condition_coverage} color="#d27a16" />
+      </section>
+    </div>
+    <section className="work-panel stage-evolution-panel">
+      <div className="analysis-panel-heading"><div><strong>当前批次的阶段变化</strong><span>同一批次从 Stage 4 原始抽取到 Stage 4R 恢复、候选汇总和 Stage 6 发布</span></div><Tag>{activeCollection.strict_compliance_claimed ? "STRICT" : "PREVIEW"}</Tag></div>
+      <div className="stage-evolution-track">
+        <div><span>Stage 4 初始性质</span><strong>{activeCollection.stage.stage4_pre_properties}</strong><small>LLM / 规则初始结果</small></div><ArrowRight size={18} />
+        <div><span>Stage 4R 后</span><strong>{activeCollection.stage.stage4_post_properties}</strong><small>迁移 {activeCollection.stage.stage4r_migrated} · 跳过 {activeCollection.stage.stage4r_skipped}</small></div><ArrowRight size={18} />
+        <div><span>候选记录</span><strong>{activeCollection.stage.candidate_properties}</strong><small>含跨阶段汇总结果</small></div><ArrowRight size={18} />
+        <div><span>Stage 6 发布</span><strong>{activeCollection.stage.final_properties}</strong><small>拒绝对象 {activeCollection.stage.rejected_objects}</small></div>
+      </div>
     </section>
+  </div> : <Empty description="没有可比较的批次质量摘要" />;
+
+  const batchEvolution = <div className="batch-evolution-stack">
+    <Alert type="warning" showIcon message="批次演进不是 gold 准确率曲线" description="同一批次抽取条数增加不一定代表质量提高。应同时观察锚点 F1、样品绑定、证据绑定、Stage 6 拒绝对象和人工 gold 评价。" />
+    <section className="work-panel batch-evolution-panel">
+      <div className="polyinfo-table-toolbar"><div><strong>四个历史批次的质量演进</strong><span>同一组 20 篇论文在不同流程版本下的记录级差异；F1 旁显示相对上一批次的百分点变化。</span></div><Tag color="blue">{batchCollections.length} 批次</Tag></div>
+      <Table rowKey="collection_id" columns={evolutionColumns} dataSource={batchCollections} pagination={false} scroll={{ x: 1500 }} />
+    </section>
+  </div>;
+
+  const paperDetails = <section className="work-panel polyinfo-table-panel">
+    <div className="polyinfo-table-toolbar"><div><strong>真实 PoLyInfo 文献记录</strong><span>当前显示 {filtered.length} / {rows.length} 篇；逐篇查看聚合物、样品、性质和原始字段差异。</span></div><Input value={search} onChange={(event) => setSearch(event.target.value)} prefix={<Search size={15} />} placeholder="搜索 reference_no、DOI、期刊或聚合物" allowClear /></div>
+    <Table rowKey="ref_no" loading={loading} columns={columns} dataSource={filtered} pagination={{ pageSize: 12, showSizeChanger: false }} scroll={{ x: 1280 }} rowClassName={(item) => item.has_batch_result ? "polyinfo-linked-row" : ""} locale={{ emptyText: <Empty description="没有读取到 PoLyInfo 原始记录" /> }} />
+  </section>;
+
+  return <div className="page-stack polyinfo-results-page">
+    <PageTitle title="批处理质量与 PoLyInfo 对照" description={`按 reference_no 连接 ${batchCollection} 与 PoLyInfo，并追踪不同 batch_results 版本的质量和阶段变化。`} meta={`BATCH QUALITY · ${batchResultDate} · POLYINFO ANCHOR`} actions={<Space><Select className="batch-collection-select" value={activeCollection?.collection_id} onChange={setSelectedCollectionId} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" /><Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新</Button></Space>} />
+    <Tabs className="batch-comparison-tabs" defaultActiveKey="overview" items={[
+      { key: "overview", label: "质量总览", children: qualityOverview },
+      { key: "evolution", label: `批次演进 (${batchCollections.length})`, children: batchEvolution },
+      { key: "papers", label: `文献逐篇 (${polyInfoTotals.matched})`, children: paperDetails },
+    ]} />
   </div>;
 }
 
@@ -1537,7 +1701,7 @@ function SamplePage({ candidate, selectedId, onEvidence, onSample, onBack }: {
   );
 }
 
-function Metric({ icon, label, value, tone }: { icon: React.ReactNode; label: string; value: number; tone: string }) {
+function Metric({ icon, label, value, tone }: { icon: React.ReactNode; label: string; value: React.ReactNode; tone: string }) {
   return <div className="metric-item"><div className={`metric-icon ${tone}`}>{icon}</div><div><span>{label}</span><strong>{value}</strong></div></div>;
 }
 
@@ -1666,7 +1830,7 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
   const identity = comparison && <div className="comparison-tab">
     <div className="source-identity-grid">
       <section><div className="comparison-section-title"><strong>PoLyInfo 聚合物</strong><span>{comparison.polyinfo.polymers.length} PID</span></div>{comparison.polyinfo.polymers.map((polymer) => <article className="polyinfo-identity-card" key={polymer.polymer_id}>{polymer.structure_image ? <img src={polymer.structure_image} alt={`${polymer.polymer_id} 重复单元结构`} /> : <div className="polyinfo-structure-empty"><FlaskConical size={22} />无结构图</div>}<div><b>{polymer.polymer_id}</b><strong>{polymer.polymer_names.join("；") || "名称未记录"}</strong><span>{polymer.cu_formula || "CU formula 未记录"} · {polymer.polymer_type || "类型未记录"}</span><small>{polymer.sample_ids.length} samples</small></div></article>)}</section>
-      <section><div className="comparison-section-title"><strong>最新批处理聚合物实体</strong><span>{comparison.extraction?.polymer_entities.length || 0} entities</span></div>{comparison.extraction?.polymer_entities.map((entity) => <article className="extraction-identity-card" key={entity.entity_id}><div className="entity-mark"><Boxes size={20} /></div><div><b>{entity.entity_id}</b><strong>{entity.polymer_name}</strong><span>{entity.source_names?.slice(0, 3).join("；") || "无原文别名"}</span><small>{Math.round((entity.confidence?.score || 0) * 100)}% confidence</small></div></article>) || <Empty description="本批次无抽取实体" />}</section>
+      <section><div className="comparison-section-title"><strong>所选批处理聚合物实体</strong><span>{comparison.extraction?.polymer_entities.length || 0} entities</span></div>{comparison.extraction?.polymer_entities.map((entity) => <article className="extraction-identity-card" key={entity.entity_id}><div className="entity-mark"><Boxes size={20} /></div><div><b>{entity.entity_id}</b><strong>{entity.polymer_name}</strong><span>{entity.source_names?.slice(0, 3).join("；") || "无原文别名"}</span><small>{Math.round((entity.confidence?.score || 0) * 100)}% confidence</small></div></article>) || <Empty description="本批次无抽取实体" />}</section>
     </div>
     <div className="comparison-section-title table-title"><strong>PoLyInfo 样品记录</strong><span>每个 JSON 对应一个样品记录</span></div><Table rowKey="sample_id" columns={polyInfoSampleColumns} dataSource={comparison.polyinfo.samples} pagination={{ pageSize: 8, hideOnSinglePage: true }} scroll={{ x: 900 }} />
     <div className="comparison-section-title table-title"><strong>最新批处理样品状态</strong><span>样品可表示合成批次、加工态和状态变化</span></div><Table rowKey="sample_id" columns={extractionSampleColumns} dataSource={comparison.extraction?.samples || []} pagination={{ pageSize: 8, hideOnSinglePage: true }} scroll={{ x: 880 }} />
@@ -1676,7 +1840,7 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
 
   const rawRecords = comparison && <div className="comparison-tab"><div className="comparison-section-title"><strong>PoLyInfo 工艺与制样字段</strong><span>这些是原始字段值，不代表已恢复为有顺序的过程事件图</span></div><Table rowKey={(item, index) => `${item.sample_id}:${item.kind}:${index}`} columns={processColumns} dataSource={comparison.polyinfo.processes} pagination={{ pageSize: 10, hideOnSinglePage: true }} /><div className="comparison-section-title table-title"><strong>PoLyInfo 全部性质记录</strong><span>{comparison.polyinfo.properties.length} 条数值观测</span></div><Table rowKey="id" columns={[{ title: "SAMPLE ID", dataIndex: "sample_id", key: "sample", width: 190 }, { title: "性质", dataIndex: "name", key: "name", width: 240, render: displayApiText }, { title: "值", key: "value", width: 140, render: (_, item: PolyInfoProperty) => `${displayApiText(item.value)} ${displayApiText(item.unit, "")}`.trim() }, { title: "方法", dataIndex: "method", key: "method", width: 160, render: displayApiText }, { title: "条件", dataIndex: "condition", key: "condition", render: displayApiText }]} dataSource={comparison.polyinfo.properties} pagination={{ pageSize: 12, showSizeChanger: false }} scroll={{ x: 1050 }} /></div>;
 
-  return <Drawer className="polyinfo-comparison-drawer" title="最新批处理与 PoLyInfo 对照" width={1180} open={loading || Boolean(comparison)} onClose={onClose}>{loading && !comparison ? <div className="comparison-loading"><LoaderCircle size={30} className="spin" /><strong>正在解析真实 PoLyInfo 样品记录并计算差异</strong></div> : comparison && <Tabs defaultActiveKey="overview" items={[{ key: "overview", label: "对照总览", children: overview }, { key: "identity", label: "聚合物与样品", children: identity }, { key: "properties", label: `性质逐项 (${comparison.property_alignment.length})`, children: properties }, { key: "raw", label: "PoLyInfo 原始记录", children: rawRecords }]} />}</Drawer>;
+  return <Drawer className="polyinfo-comparison-drawer" title="批处理与 PoLyInfo 对照" width={1180} open={loading || Boolean(comparison)} onClose={onClose}>{loading && !comparison ? <div className="comparison-loading"><LoaderCircle size={30} className="spin" /><strong>正在解析真实 PoLyInfo 样品记录并计算差异</strong></div> : comparison && <Tabs defaultActiveKey="overview" items={[{ key: "overview", label: "对照总览", children: overview }, { key: "identity", label: "聚合物与样品", children: identity }, { key: "properties", label: `性质逐项 (${comparison.property_alignment.length})`, children: properties }, { key: "raw", label: "PoLyInfo 原始记录", children: rawRecords }]} />}</Drawer>;
 }
 
 function EvidenceDrawer({ evidence, pdfUrl, onClose }: { evidence: Evidence | null; pdfUrl: string; onClose: () => void }) {

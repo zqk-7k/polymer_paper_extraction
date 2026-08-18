@@ -1,7 +1,13 @@
 import json
 from pathlib import Path
 
-from web_api.app import _display_text, _polyinfo_properties, _select_batch_root
+from web_api.app import (
+    _alignment_metrics,
+    _candidate_completeness,
+    _display_text,
+    _polyinfo_properties,
+    _select_batch_root,
+)
 
 
 def _write_index(root: Path, result_date: str, generated_at: str = "") -> None:
@@ -79,3 +85,43 @@ def test_polyinfo_property_api_never_returns_structured_method_or_condition() ->
 
     assert property_record["method"] == "Ubbelohde viscometer"
     assert property_record["condition"] == "Temp.: 25 C"
+
+
+def test_alignment_metrics_treat_value_conflicts_as_both_precision_and_recall_errors() -> None:
+    metrics = _alignment_metrics({
+        "matched": 8,
+        "value_diff": 2,
+        "polyinfo_only": 2,
+        "extraction_only": 0,
+    })
+
+    assert metrics["precision"] == 0.8
+    assert metrics["recall"] == round(8 / 12, 4)
+    assert metrics["f1"] == round(2 * 0.8 * (8 / 12) / (0.8 + 8 / 12), 4)
+
+
+def test_candidate_completeness_requires_valid_sample_and_evidence_links() -> None:
+    candidate = {
+        "samples": [{"sample_id": "s001"}],
+        "evidence": [{"evidence_id": "ev001"}],
+        "property_observations": [
+            {
+                "sample_id": "s001",
+                "evidence_ids": ["ev001"],
+                "unit_raw": "MPa",
+                "measurement_condition_id": "mc001",
+            },
+            {
+                "sample_id": "missing",
+                "evidence_ids": ["missing"],
+            },
+        ],
+    }
+
+    assert _candidate_completeness(candidate) == {
+        "properties": 2,
+        "sample_bound": 1,
+        "evidence_bound": 1,
+        "unit_complete": 1,
+        "condition_bound": 1,
+    }

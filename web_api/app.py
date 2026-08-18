@@ -31,6 +31,14 @@ def _read_batch_index_file(root: Path) -> dict[str, Any]:
     return payload if isinstance(payload, dict) else {}
 
 
+def _read_optional_json(path: Path) -> dict[str, Any]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
 def _select_batch_root(parent: Path, requested: str = "") -> tuple[Path, dict[str, Any]]:
     """Select an explicit collection or the newest indexed batch result."""
     requested = requested.strip()
@@ -286,17 +294,30 @@ def _load_candidate(root: Path, record: dict[str, Any]) -> dict[str, Any]:
     return _read_json(result_path, "Extraction result is invalid")
 
 
-def _batch_result_dir(ref_no: str) -> Path:
+def _batch_collection_root(collection_id: str = "") -> tuple[Path, dict[str, Any]]:
+    collection_id = collection_id.strip()
+    if not collection_id:
+        return BATCH_ROOT, BATCH_INDEX
+    if Path(collection_id).name != collection_id:
+        raise HTTPException(status_code=404, detail="Batch collection not found")
+    root = BATCH_PARENT / collection_id
+    index = _read_batch_index_file(root)
+    if not root.is_dir() or not index:
+        raise HTTPException(status_code=404, detail="Batch collection not found")
+    return root, index
+
+
+def _batch_result_dir(ref_no: str, root: Path | None = None) -> Path:
     if not REF_NO_RE.fullmatch(ref_no):
         raise HTTPException(status_code=404, detail="Batch result not found")
-    result_dir = BATCH_ROOT / ref_no
+    result_dir = (root or BATCH_ROOT) / ref_no
     if not result_dir.is_dir():
         raise HTTPException(status_code=404, detail="Batch result not found")
     return result_dir
 
 
-def _load_batch_candidate(ref_no: str) -> dict[str, Any]:
-    candidate_path = _batch_result_dir(ref_no) / "candidate.json"
+def _load_batch_candidate(ref_no: str, root: Path | None = None) -> dict[str, Any]:
+    candidate_path = _batch_result_dir(ref_no, root) / "candidate.json"
     if not candidate_path.is_file():
         raise HTTPException(status_code=404, detail="Batch candidate not found")
     return _read_json(candidate_path, "Batch candidate is invalid")
@@ -653,8 +674,71 @@ def _values_match(left: dict[str, Any], right: dict[str, Any]) -> bool:
     return not (left_max + tolerance < right_min or right_max + tolerance < left_min)
 
 
-def _matching_batch_candidate(ref_no: str) -> tuple[dict[str, Any], dict[str, Any]] | None:
-    candidate_path = BATCH_ROOT / ref_no / "candidate.json"
+def _align_property_records(
+    polyinfo_properties: list[dict[str, Any]],
+    extraction_properties: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    remaining = set(range(len(extraction_properties)))
+    alignment: list[dict[str, Any]] = []
+    for prop in polyinfo_properties:
+        canonical = _canonical_property_name(prop, "polyinfo")
+        candidates = [
+            index
+            for index in remaining
+            if _canonical_property_name(extraction_properties[index], "extraction") == canonical
+        ]
+        exact = next((index for index in candidates if _values_match(prop, extraction_properties[index])), None)
+        selected = exact if exact is not None else (candidates[0] if candidates else None)
+        if selected is None:
+            alignment.append({"status": "polyinfo_only", "canonical_name": canonical, "polyinfo": prop, "extraction": None})
+            continue
+        remaining.discard(selected)
+        alignment.append({
+            "status": "matched" if exact is not None else "value_diff",
+            "canonical_name": canonical,
+            "polyinfo": prop,
+            "extraction": extraction_properties[selected],
+        })
+    for index in sorted(remaining):
+        item = extraction_properties[index]
+        alignment.append({
+            "status": "extraction_only",
+            "canonical_name": _canonical_property_name(item, "extraction"),
+            "polyinfo": None,
+            "extraction": item,
+        })
+    return alignment
+
+
+def _alignment_metrics(status_counts: dict[str, int]) -> dict[str, float | int]:
+    matched = int(status_counts.get("matched", 0))
+    value_diff = int(status_counts.get("value_diff", 0))
+    polyinfo_only = int(status_counts.get("polyinfo_only", 0))
+    extraction_only = int(status_counts.get("extraction_only", 0))
+    predicted = matched + value_diff + extraction_only
+    anchored = matched + value_diff + polyinfo_only
+    precision = matched / predicted if predicted else 0.0
+    recall = matched / anchored if anchored else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+    return {
+        "matched": matched,
+        "value_diff": value_diff,
+        "polyinfo_only": polyinfo_only,
+        "extraction_only": extraction_only,
+        "precision": round(precision, 4),
+        "recall": round(recall, 4),
+        "f1": round(f1, 4),
+    }
+
+
+def _matching_batch_candidate(
+    ref_no: str,
+    batch_root: Path | None = None,
+    batch_index: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]] | None:
+    root = batch_root or BATCH_ROOT
+    index = batch_index if batch_index is not None else BATCH_INDEX
+    candidate_path = root / ref_no / "candidate.json"
     if not candidate_path.is_file():
         return None
     try:
@@ -663,41 +747,29 @@ def _matching_batch_candidate(ref_no: str) -> tuple[dict[str, Any], dict[str, An
         return None
     record = {
         "source_kind": "batch",
-        "collection_id": BATCH_ROOT.name,
-        "created_at": "2026-08-09",
+        "collection_id": root.name,
+        "created_at": str(index.get("generated_at") or index.get("result_date") or ""),
         "file_name": f"{ref_no}.pdf",
     }
     return record, candidate
 
 
-def _comparison_payload(ref_no: str) -> dict[str, Any]:
+def _comparison_payload(ref_no: str, collection_id: str = "") -> dict[str, Any]:
+    batch_root, batch_index = _batch_collection_root(collection_id)
     polyinfo = _polyinfo_detail(ref_no)
-    match = _matching_batch_candidate(ref_no)
+    match = _matching_batch_candidate(ref_no, batch_root, batch_index)
     if not match:
-        return {"ref_no": ref_no, "polyinfo": polyinfo, "extraction": None, "metrics": [], "property_alignment": [], "message": "最新批处理没有该 reference_no 的抽取结果"}
+        return {"ref_no": ref_no, "polyinfo": polyinfo, "extraction": None, "metrics": [], "property_alignment": [], "message": f"批次 {batch_root.name} 没有该 reference_no 的抽取结果"}
     record, candidate = match
     extraction_stats = _candidate_overview(candidate)["stats"]
     extraction_stats["property_type_count"] = len({_canonical_property_name(item, "extraction") for item in candidate.get("property_observations") or []})
     extraction_stats["measurement_condition_count"] = sum(1 for item in candidate.get("measurement_conditions") or [] if item.get("condition_status") == "reported" or item.get("other_conditions"))
     extraction_stats["structure_count"] = sum(1 for item in candidate.get("polymer_entities") or [] if item.get("structure") or item.get("psmiles"))
 
-    pi_props = polyinfo["properties"]
-    web_props = list(candidate.get("property_observations") or [])
-    remaining = set(range(len(web_props)))
-    alignment: list[dict[str, Any]] = []
-    for prop in pi_props:
-        canonical = _canonical_property_name(prop, "polyinfo")
-        candidates = [index for index in remaining if _canonical_property_name(web_props[index], "extraction") == canonical]
-        exact = next((index for index in candidates if _values_match(prop, web_props[index])), None)
-        selected = exact if exact is not None else (candidates[0] if candidates else None)
-        if selected is None:
-            alignment.append({"status": "polyinfo_only", "canonical_name": canonical, "polyinfo": prop, "extraction": None})
-            continue
-        remaining.discard(selected)
-        alignment.append({"status": "matched" if exact is not None else "value_diff", "canonical_name": canonical, "polyinfo": prop, "extraction": web_props[selected]})
-    for index in sorted(remaining):
-        item = web_props[index]
-        alignment.append({"status": "extraction_only", "canonical_name": _canonical_property_name(item, "extraction"), "polyinfo": None, "extraction": item})
+    alignment = _align_property_records(
+        polyinfo["properties"],
+        list(candidate.get("property_observations") or []),
+    )
 
     metrics = [
         {"key": "polymer_count", "label": "聚合物实体", "polyinfo": polyinfo["stats"]["polymer_count"], "extraction": extraction_stats["polymer_count"], "interpretation": "身份层级定义可能不同"},
@@ -707,7 +779,10 @@ def _comparison_payload(ref_no: str) -> dict[str, Any]:
         {"key": "measurement_condition_count", "label": "测量条件", "polyinfo": polyinfo["stats"]["measurement_condition_count"], "extraction": extraction_stats["measurement_condition_count"], "interpretation": "统计有明确条件的记录"},
         {"key": "evidence_count", "label": "可定位原文证据", "polyinfo": 0, "extraction": extraction_stats["evidence_count"], "interpretation": "本地 PoLyInfo JSON 未提供页码、BBox 或原文片段"},
     ]
-    status_counts = {status: sum(1 for item in alignment if item["status"] == status) for status in ("matched", "value_diff", "polyinfo_only", "extraction_only")}
+    status_counts = {
+        status: sum(1 for item in alignment if item["status"] == status)
+        for status in ("matched", "value_diff", "polyinfo_only", "extraction_only")
+    }
     return {
         "ref_no": ref_no,
         "polyinfo": polyinfo,
@@ -723,9 +798,188 @@ def _comparison_payload(ref_no: str) -> dict[str, Any]:
         },
         "metrics": metrics,
         "property_alignment": alignment,
-        "alignment_stats": status_counts,
+        "alignment_stats": _alignment_metrics(status_counts),
         "message": "数量差异只用于定位问题，性质一致性按名称、单位换算和数值逐条判定",
     }
+
+
+def _count_stage_properties(path: Path) -> int:
+    payload = _read_optional_json(path)
+    return len(payload.get("properties") or payload.get("property_observations") or [])
+
+
+def _candidate_completeness(candidate: dict[str, Any]) -> dict[str, int]:
+    samples = candidate.get("samples") or []
+    properties = candidate.get("property_observations") or []
+    sample_ids = {str(item.get("sample_id")) for item in samples if item.get("sample_id")}
+    evidence_ids = {
+        str(item.get("evidence_id"))
+        for item in candidate.get("evidence") or []
+        if item.get("evidence_id")
+    }
+    sample_bound = 0
+    evidence_bound = 0
+    unit_complete = 0
+    condition_bound = 0
+    for item in properties:
+        if item.get("sample_id") and str(item.get("sample_id")) in sample_ids:
+            sample_bound += 1
+        referenced_evidence = [str(value) for value in item.get("evidence_ids") or [] if value]
+        inline_evidence = item.get("evidence") or []
+        if inline_evidence or (referenced_evidence and any(value in evidence_ids for value in referenced_evidence)):
+            evidence_bound += 1
+        if item.get("unit_normalized") or item.get("unit_raw"):
+            unit_complete += 1
+        context = item.get("measurement_context") or {}
+        if item.get("measurement_condition_id") or context.get("condition_status") == "reported" or context.get("other_conditions"):
+            condition_bound += 1
+    return {
+        "properties": len(properties),
+        "sample_bound": sample_bound,
+        "evidence_bound": evidence_bound,
+        "unit_complete": unit_complete,
+        "condition_bound": condition_bound,
+    }
+
+
+def _ratio(numerator: int, denominator: int) -> float:
+    return round(numerator / denominator, 4) if denominator else 0.0
+
+
+def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, Any]:
+    validation = _read_optional_json(root / "validation_summary.json")
+    totals = {
+        "polymer_entities": 0,
+        "samples": 0,
+        "process_steps": 0,
+        "property_observations": 0,
+        "evidence": 0,
+    }
+    completeness = {"properties": 0, "sample_bound": 0, "evidence_bound": 0, "unit_complete": 0, "condition_bound": 0}
+    stage = {
+        "stage4_pre_properties": 0,
+        "stage4_post_properties": 0,
+        "candidate_properties": 0,
+        "final_properties": 0,
+        "stage4r_recovered": 0,
+        "stage4r_migrated": 0,
+        "stage4r_skipped": 0,
+        "stage6_warnings": 0,
+        "stage6_errors": 0,
+        "rejected_objects": 0,
+        "final_documents": 0,
+    }
+    status_counts = {status: 0 for status in ("matched", "value_diff", "polyinfo_only", "extraction_only")}
+    document_count = 0
+    paired_documents = 0
+
+    indexed_documents = {
+        str(item.get("reference_no")): item
+        for item in index.get("documents") or []
+        if isinstance(item, dict) and item.get("reference_no")
+    }
+    result_dirs = sorted(root.iterdir()) if root.is_dir() else []
+    for result_dir in result_dirs:
+        if not result_dir.is_dir() or not REF_NO_RE.fullmatch(result_dir.name):
+            continue
+        candidate_path = result_dir / "candidate.json"
+        if not candidate_path.is_file():
+            continue
+        candidate = _read_optional_json(candidate_path)
+        if not candidate:
+            continue
+        document_count += 1
+        for key in totals:
+            totals[key] += len(candidate.get(key) or [])
+        item_completeness = _candidate_completeness(candidate)
+        for key in completeness:
+            completeness[key] += item_completeness[key]
+
+        stage["stage4_pre_properties"] += _count_stage_properties(result_dir / "stage4_properties.pre_recovery.json")
+        stage["stage4_post_properties"] += _count_stage_properties(result_dir / "stage4_properties.json")
+        stage["candidate_properties"] += len(candidate.get("property_observations") or [])
+        final_payload = _read_optional_json(result_dir / "final.json")
+        if final_payload:
+            stage["final_documents"] += 1
+            stage["final_properties"] += len(final_payload.get("property_observations") or [])
+        recovery = _read_optional_json(result_dir / "stage4r_recovery.json")
+        stage["stage4r_recovered"] += int(recovery.get("recovered_count") or 0)
+        stage["stage4r_migrated"] += len(recovery.get("property_id_migrations") or [])
+        stage["stage4r_skipped"] += int(recovery.get("skipped_ambiguous_count") or 0)
+        stage6 = _read_optional_json(result_dir / "stage6_validation.json")
+        stage["stage6_warnings"] += int(stage6.get("warning_count") or 0)
+        stage["stage6_errors"] += int(stage6.get("error_count") or 0)
+        stage["rejected_objects"] += len((final_payload or {}).get("rejected_objects") or [])
+
+        indexed = indexed_documents.get(result_dir.name) or {}
+        indexed_stage6 = indexed.get("stage6") or {}
+        if not stage6:
+            stage["stage6_warnings"] += int(indexed_stage6.get("warning_count") or 0)
+            stage["stage6_errors"] += int(indexed_stage6.get("error_count") or 0)
+        if not final_payload:
+            stage["rejected_objects"] += int(indexed_stage6.get("rejected_objects") or 0)
+
+        try:
+            polyinfo_dir, _ = _polyinfo_result_dir(result_dir.name)
+        except HTTPException:
+            continue
+        polyinfo_samples = _read_polyinfo_samples(polyinfo_dir, include_structures=False)
+        alignment = _align_property_records(
+            _polyinfo_properties(polyinfo_samples),
+            list(candidate.get("property_observations") or []),
+        )
+        paired_documents += 1
+        for status in status_counts:
+            status_counts[status] += sum(1 for item in alignment if item["status"] == status)
+
+    validation_stage4r = validation.get("stage4r_totals") or {}
+    if validation_stage4r:
+        stage["stage4r_recovered"] = int(validation_stage4r.get("recovered_candidates") or stage["stage4r_recovered"])
+        stage["stage4r_migrated"] = int(validation_stage4r.get("migrated_to_properties") or stage["stage4r_migrated"])
+        stage["stage4r_skipped"] = int(validation_stage4r.get("skipped_ambiguous") or stage["stage4r_skipped"])
+    validation_stage6 = validation.get("stage6_totals") or {}
+    if validation_stage6:
+        stage["stage6_warnings"] = int(validation_stage6.get("warnings") or stage["stage6_warnings"])
+        stage["stage6_errors"] = int(validation_stage6.get("errors") or stage["stage6_errors"])
+
+    properties = completeness["properties"]
+    quality = {
+        "sample_binding_coverage": _ratio(completeness["sample_bound"], properties),
+        "evidence_coverage": _ratio(completeness["evidence_bound"], properties),
+        "unit_completeness": _ratio(completeness["unit_complete"], properties),
+        "condition_coverage": _ratio(completeness["condition_bound"], properties),
+        "final_document_rate": _ratio(stage["final_documents"], document_count),
+    }
+    return {
+        "collection_id": root.name,
+        "result_date": str(index.get("result_date") or index.get("generated_at") or ""),
+        "generated_at": str(index.get("generated_at") or ""),
+        "result_mode": str(index.get("result_mode") or root.name),
+        "is_active": root.resolve() == BATCH_ROOT.resolve(),
+        "document_count": document_count,
+        "paired_documents": paired_documents,
+        "totals": totals,
+        "quality": quality,
+        "anchor": _alignment_metrics(status_counts),
+        "stage": stage,
+        "strict_compliance_claimed": bool(validation.get("strict_compliance_claimed", False)),
+        "validation_status": validation.get("validation_status") or "not_recorded",
+    }
+
+
+@lru_cache(maxsize=1)
+def _batch_collection_summaries() -> tuple[dict[str, Any], ...]:
+    summaries: list[dict[str, Any]] = []
+    if not BATCH_PARENT.is_dir():
+        return tuple()
+    for root in BATCH_PARENT.iterdir():
+        if not root.is_dir():
+            continue
+        index = _read_batch_index_file(root)
+        if index:
+            summaries.append(_batch_collection_summary(root, index))
+    summaries.sort(key=lambda item: (item["result_date"], item["generated_at"], item["collection_id"]), reverse=True)
+    return tuple(summaries)
 
 
 def _candidate_hierarchy(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -1069,6 +1323,11 @@ def list_batch_results() -> list[dict[str, Any]]:
     return results
 
 
+@app.get("/api/batch-collections")
+def list_batch_collections() -> list[dict[str, Any]]:
+    return list(_batch_collection_summaries())
+
+
 @app.get("/api/batch-results/{ref_no}/result")
 def get_batch_result(ref_no: str) -> JSONResponse:
     return JSONResponse(_load_batch_candidate(ref_no))
@@ -1116,8 +1375,8 @@ def get_polyinfo_result(ref_no: str) -> JSONResponse:
 
 
 @app.get("/api/polyinfo-results/{ref_no}/comparison")
-def get_polyinfo_comparison(ref_no: str) -> JSONResponse:
-    return JSONResponse(_comparison_payload(ref_no))
+def get_polyinfo_comparison(ref_no: str, collection: str = "") -> JSONResponse:
+    return JSONResponse(_comparison_payload(ref_no, collection))
 
 
 @app.get("/api/polyinfo-results/{ref_no}/pdf")
