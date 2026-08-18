@@ -63,7 +63,8 @@ import "./globals.css";
 
 const { Title, Text, Paragraph } = Typography;
 const { Dragger } = Upload;
-const API_BASE = process.env.NEXT_PUBLIC_EXTRACTION_API_BASE_URL || "";
+const API_BASE = process.env.NEXT_PUBLIC_EXTRACTION_API_BASE_URL
+  || (process.env.NODE_ENV === "development" ? "http://localhost:8000" : "");
 
 type ViewKey = "upload" | "history" | "batch" | "polyinfo" | "results" | "polymer" | "sample";
 type CandidateData = typeof sampleCandidate;
@@ -1587,6 +1588,24 @@ function extractionPropertyValue(item?: PropertyObservation | null) {
   return `${item.value_raw ?? "-"} ${item.unit_normalized || item.unit_raw || ""}`.trim();
 }
 
+function displayApiText(value: unknown, fallback = "-"): string {
+  if (value === null || value === undefined || value === "") return fallback;
+  if (Array.isArray(value)) {
+    const parts = value.map((item) => displayApiText(item, "")).filter(Boolean);
+    return parts.join("；") || fallback;
+  }
+  if (typeof value === "object") {
+    const parts = Object.entries(value as Record<string, unknown>)
+      .map(([key, child]) => {
+        const text = displayApiText(child, "");
+        return text ? `${key.replaceAll("_", " ")}: ${text}` : "";
+      })
+      .filter(Boolean);
+    return parts.join("；") || fallback;
+  }
+  return String(value);
+}
+
 function alignmentStatusTag(status: PolyInfoComparison["property_alignment"][number]["status"]) {
   const config = {
     matched: { color: "success", label: "数值一致" },
@@ -1609,10 +1628,10 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
     { title: "判定", dataIndex: "status", key: "status", width: 126, render: alignmentStatusTag },
     { title: "统一性质名", dataIndex: "canonical_name", key: "name", width: 210, render: (value) => <strong>{value}</strong> },
     { title: "PoLyInfo 样品", key: "piSample", width: 150, render: (_, item) => item.polyinfo?.sample_id || "-" },
-    { title: "PoLyInfo 值", key: "piValue", width: 150, render: (_, item) => item.polyinfo ? <span className="comparison-value polyinfo-number">{item.polyinfo.value} {item.polyinfo.unit || ""}</span> : "-" },
+    { title: "PoLyInfo 值", key: "piValue", width: 150, render: (_, item) => item.polyinfo ? <span className="comparison-value polyinfo-number">{displayApiText(item.polyinfo.value)} {displayApiText(item.polyinfo.unit, "")}</span> : "-" },
     { title: "批处理样品", key: "webSample", width: 110, render: (_, item) => item.extraction?.sample_id || "-" },
     { title: "批处理值", key: "webValue", width: 150, render: (_, item) => item.extraction ? <span className="comparison-value extraction-number">{extractionPropertyValue(item.extraction)}</span> : "-" },
-    { title: "方法与条件", key: "context", render: (_, item) => <div className="comparison-context"><span>{item.polyinfo?.method || ((item.extraction as unknown as Record<string, unknown> | null)?.determination_method_raw as string) || "方法未记录"}</span><small>{item.polyinfo?.condition || "条件见批处理证据记录或未报告"}</small></div> },
+    { title: "方法与条件", key: "context", render: (_, item) => <div className="comparison-context"><span>{displayApiText(item.polyinfo?.method || (item.extraction as unknown as Record<string, unknown> | null)?.determination_method_raw, "方法未记录")}</span><small>{displayApiText(item.polyinfo?.condition, "条件见批处理证据记录或未报告")}</small></div> },
   ];
   const polyInfoSampleColumns: ColumnsType<PolyInfoComparison["polyinfo"]["samples"][number]> = [
     { title: "SAMPLE ID", dataIndex: "sample_id", key: "sample", width: 190 },
@@ -1632,7 +1651,7 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
   const processColumns: ColumnsType<PolyInfoComparison["polyinfo"]["processes"][number]> = [
     { title: "SAMPLE ID", dataIndex: "sample_id", key: "sample", width: 190 },
     { title: "字段", dataIndex: "kind", key: "kind", width: 170 },
-    { title: "PoLyInfo 内容", dataIndex: "value", key: "value" },
+    { title: "PoLyInfo 内容", dataIndex: "value", key: "value", render: displayApiText },
   ];
 
   const overview = comparison && <div className="comparison-tab">
@@ -1655,7 +1674,7 @@ function PolyInfoComparisonDrawer({ comparison, loading, onClose }: { comparison
 
   const properties = comparison && <div className="comparison-tab"><Alert type="warning" showIcon message="一致表示名称、单位换算和数值相符，不代表样品绑定已自动验证" description="同一篇论文可能同时包含多个聚合物和状态；样品归属仍需结合原文证据检查。" /><Table rowKey={(item) => `${item.status}:${item.polyinfo?.id || item.extraction?.property_id}`} className="property-alignment-table" columns={alignmentColumns} dataSource={comparison.property_alignment} pagination={{ pageSize: 12, showSizeChanger: false }} scroll={{ x: 1260 }} /></div>;
 
-  const rawRecords = comparison && <div className="comparison-tab"><div className="comparison-section-title"><strong>PoLyInfo 工艺与制样字段</strong><span>这些是原始字段值，不代表已恢复为有顺序的过程事件图</span></div><Table rowKey={(item, index) => `${item.sample_id}:${item.kind}:${index}`} columns={processColumns} dataSource={comparison.polyinfo.processes} pagination={{ pageSize: 10, hideOnSinglePage: true }} /><div className="comparison-section-title table-title"><strong>PoLyInfo 全部性质记录</strong><span>{comparison.polyinfo.properties.length} 条数值观测</span></div><Table rowKey="id" columns={[{ title: "SAMPLE ID", dataIndex: "sample_id", key: "sample", width: 190 }, { title: "性质", dataIndex: "name", key: "name", width: 240 }, { title: "值", key: "value", width: 140, render: (_, item: PolyInfoProperty) => `${item.value} ${item.unit || ""}` }, { title: "方法", dataIndex: "method", key: "method", width: 160, render: (value) => value || "-" }, { title: "条件", dataIndex: "condition", key: "condition", render: (value) => value || "-" }]} dataSource={comparison.polyinfo.properties} pagination={{ pageSize: 12, showSizeChanger: false }} scroll={{ x: 1050 }} /></div>;
+  const rawRecords = comparison && <div className="comparison-tab"><div className="comparison-section-title"><strong>PoLyInfo 工艺与制样字段</strong><span>这些是原始字段值，不代表已恢复为有顺序的过程事件图</span></div><Table rowKey={(item, index) => `${item.sample_id}:${item.kind}:${index}`} columns={processColumns} dataSource={comparison.polyinfo.processes} pagination={{ pageSize: 10, hideOnSinglePage: true }} /><div className="comparison-section-title table-title"><strong>PoLyInfo 全部性质记录</strong><span>{comparison.polyinfo.properties.length} 条数值观测</span></div><Table rowKey="id" columns={[{ title: "SAMPLE ID", dataIndex: "sample_id", key: "sample", width: 190 }, { title: "性质", dataIndex: "name", key: "name", width: 240, render: displayApiText }, { title: "值", key: "value", width: 140, render: (_, item: PolyInfoProperty) => `${displayApiText(item.value)} ${displayApiText(item.unit, "")}`.trim() }, { title: "方法", dataIndex: "method", key: "method", width: 160, render: displayApiText }, { title: "条件", dataIndex: "condition", key: "condition", render: displayApiText }]} dataSource={comparison.polyinfo.properties} pagination={{ pageSize: 12, showSizeChanger: false }} scroll={{ x: 1050 }} /></div>;
 
   return <Drawer className="polyinfo-comparison-drawer" title="最新批处理与 PoLyInfo 对照" width={1180} open={loading || Boolean(comparison)} onClose={onClose}>{loading && !comparison ? <div className="comparison-loading"><LoaderCircle size={30} className="spin" /><strong>正在解析真实 PoLyInfo 样品记录并计算差异</strong></div> : comparison && <Tabs defaultActiveKey="overview" items={[{ key: "overview", label: "对照总览", children: overview }, { key: "identity", label: "聚合物与样品", children: identity }, { key: "properties", label: `性质逐项 (${comparison.property_alignment.length})`, children: properties }, { key: "raw", label: "PoLyInfo 原始记录", children: rawRecords }]} />}</Drawer>;
 }

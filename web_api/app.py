@@ -357,6 +357,36 @@ def _value_display(value: dict[str, Any]) -> str:
     return f"{prefix}{minimum if minimum is not None else maximum}"
 
 
+def _display_text(value: Any) -> str | None:
+    """Convert heterogeneous PoLyInfo fields into stable, readable API text."""
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, (str, int, float)):
+        text = str(value).strip()
+        return text or None
+    if isinstance(value, list):
+        parts = [_display_text(item) for item in value]
+        return "; ".join(part for part in parts if part) or None
+    if isinstance(value, dict):
+        condition_name = value.get("solution_viscosity_measurement_condition")
+        condition_value = value.get("solution_viscosity_measurement_condition_information")
+        if condition_name is not None or condition_value is not None:
+            name_text = _display_text(condition_name)
+            value_text = _display_text(condition_value)
+            if name_text and value_text:
+                return f"{name_text}: {value_text}"
+            return name_text or value_text
+        parts: list[str] = []
+        for key, child in value.items():
+            child_text = _display_text(child)
+            if child_text:
+                parts.append(f"{str(key).replace('_', ' ')}: {child_text}")
+        return "; ".join(parts) or None
+    return str(value)
+
+
 def _polyinfo_properties(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
     properties: list[dict[str, Any]] = []
     for sample in samples:
@@ -365,8 +395,8 @@ def _polyinfo_properties(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
         for group_index, group in enumerate(sample.get("property") or []):
             title = str(group.get("property_title") or "Property")
             for item_index, item in enumerate(group.get("property_item") or []):
-                method = item.get("measurement_method")
-                condition = item.get("measurement_condition")
+                method = _display_text(item.get("measurement_method"))
+                condition = _display_text(item.get("measurement_condition"))
                 for value_index, value in enumerate(item.get("property_values") or []):
                     properties.append({
                         "id": f"{sample_id}:p:{group_index}:{item_index}:{value_index}",
@@ -398,8 +428,8 @@ def _polyinfo_properties(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "value_min": minimum,
                 "value_max": maximum,
                 "unit": item.get("average_molecular_weight_unit"),
-                "method": "; ".join(item.get("average_molecular_weight_measurement_method") or []),
-                "condition": item.get("average_molecular_weight_measurement_condition"),
+                "method": _display_text(item.get("average_molecular_weight_measurement_method")),
+                "condition": _display_text(item.get("average_molecular_weight_measurement_condition")),
                 "source": "PoLyInfo molecular weight",
             })
 
@@ -416,8 +446,8 @@ def _polyinfo_properties(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "value_min": viscosity.get("solution_viscosity_min"),
                 "value_max": viscosity.get("solution_viscosity_max") or viscosity.get("solution_viscosity_min"),
                 "unit": viscosity.get("solution_viscosity_unit"),
-                "method": "; ".join(viscosity.get("solution_viscosity_measurement_method") or []),
-                "condition": viscosity.get("solution_viscosity_measurement_conditions"),
+                "method": _display_text(viscosity.get("solution_viscosity_measurement_method")),
+                "condition": _display_text(viscosity.get("solution_viscosity_measurement_conditions")),
                 "source": "PoLyInfo solution viscosity",
             })
     return properties
@@ -431,22 +461,22 @@ def _polyinfo_processes(samples: list[dict[str, Any]]) -> list[dict[str, str]]:
         if isinstance(polymerization, dict):
             for kind, values in (("Polymerization type", polymerization.get("type")), ("Polymerization style", polymerization.get("style"))):
                 for value in values or []:
-                    processes.append({"sample_id": sample_id, "kind": kind, "value": str(value)})
+                    processes.append({"sample_id": sample_id, "kind": kind, "value": _display_text(value) or "-"})
             condition = polymerization.get("polymer_reaction_condition")
             if condition:
-                processes.append({"sample_id": sample_id, "kind": "Reaction condition", "value": str(condition)})
+                processes.append({"sample_id": sample_id, "kind": "Reaction condition", "value": _display_text(condition) or "-"})
         processing = sample.get("processing_information")
         if isinstance(processing, dict):
             for value in processing.get("molding_method") or []:
-                processes.append({"sample_id": sample_id, "kind": "Molding method", "value": str(value)})
+                processes.append({"sample_id": sample_id, "kind": "Molding method", "value": _display_text(value) or "-"})
             for value in processing.get("molding_sample_shape") or []:
-                processes.append({"sample_id": sample_id, "kind": "Sample shape", "value": str(value)})
+                processes.append({"sample_id": sample_id, "kind": "Sample shape", "value": _display_text(value) or "-"})
         blending = sample.get("mixing_blending_method")
         if isinstance(blending, list):
             for value in blending:
-                processes.append({"sample_id": sample_id, "kind": "Mixing/blending", "value": str(value)})
+                processes.append({"sample_id": sample_id, "kind": "Mixing/blending", "value": _display_text(value) or "-"})
         elif blending:
-            processes.append({"sample_id": sample_id, "kind": "Mixing/blending", "value": str(blending)})
+            processes.append({"sample_id": sample_id, "kind": "Mixing/blending", "value": _display_text(blending) or "-"})
     return processes
 
 
