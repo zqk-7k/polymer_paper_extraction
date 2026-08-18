@@ -1,0 +1,20 @@
+{
+  "experiment_id": "polyinfo_recall_evolution_v1",
+  "baseline_collection": "demo20_types_preview_20260814",
+  "primary_metric": "polyinfo_anchor_recall",
+  "guardrails": {
+    "maximum_precision_drop": 0.05,
+    "minimum_evidence_location_rate": 0.95,
+    "minimum_sample_binding_rate": 0.95
+  },
+  "development_refs": [
+    "reference_no_0037921",
+    "reference_no_0038527"
+  ],
+  "frozen_test_refs": [
+    "reference_no_0037886",
+    "reference_no_0037268",
+    "reference_no_0043955"
+  ]
+}
+
