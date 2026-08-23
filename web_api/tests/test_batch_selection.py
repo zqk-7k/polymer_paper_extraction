@@ -47,6 +47,20 @@ def test_ignores_invalid_and_unsafe_collection_names(tmp_path: Path) -> None:
     assert root.name == "valid"
 
 
+def test_ignores_non_production_review_collection(tmp_path: Path) -> None:
+    _write_index(tmp_path / "published", "2026-08-22")
+    review = tmp_path / "review"
+    review.mkdir()
+    (review / "REVIEW_INDEX.json").write_text(
+        json.dumps({"result_date": "2026-08-23", "production_eligible": False}),
+        encoding="utf-8",
+    )
+
+    root, _ = _select_batch_root(tmp_path)
+
+    assert root.name == "published"
+
+
 def test_formats_nested_polyinfo_measurement_conditions_as_text() -> None:
     conditions = [
         {

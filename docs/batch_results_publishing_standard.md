@@ -94,6 +94,16 @@ batch_results/
 - 没有再分发许可的出版商 PDF。非开放获取全文应保存在受控服务器，只在公开仓库保存 DOI、文件校验值和权限状态；
 - 为减小仓库而覆盖或删除历史批次。
 
+### 5.1 非生产审阅集合
+
+需要在 `batch_results/` 提交 `partial` 结果供人工审阅时，必须使用
+`polymerlit-review/1.0` 的 `REVIEW_INDEX.json`，并明确设置
+`result_mode=review`、`production_eligible=false`。审阅集合不得包含
+`RESULT_INDEX.json`，不得把 `partial` 改写为 `complete`。
+
+校验器会检查审阅集合的日期、代码 SHA、文献目录、Candidate 状态、Stage 4T/4R/5/6
+关键产物和敏感文件。生产 API 只扫描 `RESULT_INDEX.json`，因此不会选择审阅集合。
+
 ## 6. 发布前命令
 
 在仓库根目录执行：

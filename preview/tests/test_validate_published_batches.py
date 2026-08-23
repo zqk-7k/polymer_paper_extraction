@@ -2,7 +2,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from preview.validate_published_batches import validate_collection
+from preview.validate_published_batches import validate_collection, validate_root
 
 
 def _write_valid_collection(root: Path) -> Path:
@@ -130,3 +130,54 @@ def test_dangling_entity_reference_fails(tmp_path: Path) -> None:
     errors, _ = validate_collection(collection)
 
     assert any("dangling references" in error for error in errors)
+
+
+def test_partial_review_collection_is_valid_but_non_production(tmp_path: Path) -> None:
+    collection = tmp_path / "demo5_review_20260823"
+    result_dir = collection / "reference_no_0000001"
+    result_dir.mkdir(parents=True)
+    candidate = {
+        "document_id": "reference_no_0000001",
+        "publication": {"status": "partial"},
+    }
+    (result_dir / "candidate.json").write_text(json.dumps(candidate), encoding="utf-8")
+    for name in (
+        "report_candidate.html",
+        "stage4t_shadow.json",
+        "stage4r_unified_audit.json",
+        "stage5_characterizations.json",
+        "stage5_shards.json",
+        "stage6_validation.json",
+    ):
+        content = "<html></html>" if name.endswith(".html") else "{}"
+        (result_dir / name).write_text(content, encoding="utf-8")
+    review_index = {
+        "schema_version": "polymerlit-review/1.0",
+        "generated_at": "2026-08-23T14:00:00+08:00",
+        "result_date": "2026-08-23",
+        "result_mode": "review",
+        "production_eligible": False,
+        "pipeline": {"mode": "preview", "git_commit": "a" * 40},
+        "documents": [{
+            "reference_no": "reference_no_0000001",
+            "result_dir": "reference_no_0000001",
+            "publication_status": "partial",
+        }],
+    }
+    (collection / "REVIEW_INDEX.json").write_text(
+        json.dumps(review_index), encoding="utf-8"
+    )
+
+    errors, warnings = validate_root(tmp_path)
+
+    assert errors == []
+    assert any("non-production review collection" in warning for warning in warnings)
+
+
+def test_review_collection_rejects_result_index(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    (collection / "REVIEW_INDEX.json").write_text("{}", encoding="utf-8")
+
+    errors, _ = validate_root(tmp_path)
+
+    assert any("must not contain RESULT_INDEX.json" in error for error in errors)
