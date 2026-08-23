@@ -21,7 +21,7 @@
 >
 > **2026-08-12 Preview 完整发布更新：** Stage 6 新增逐对象隔离和引用清扫。坏对象进入 `rejected_objects`，合法对象继续进入 `final.json`；悬空 `derived_property_ids` 只剪枝、不猜 ID。Characterization 允许表级 locator，Property 和 Series Point 仍要求单元格级定位。Stage 4R 的 evidence 直接保存稳定 `cell_id` 对应的 Stage 0 单元格文本，不再重新拼接管道行。Stage 3 同时新增 `polymer_type` 和 `material_type`。Strict 的校验规则和失败语义保持不变。最新规范化 20 篇结果位于 `batch_results/demo20_preview_final_20260812/`。
 
-代码和正式数据提交请遵守 [CONTRIBUTING.md](CONTRIBUTING.md)、[上游开发者代码与批处理结果交付规范](docs/upstream_code_and_batch_results_standard.md) 与 [`batch_results` 发布规范](docs/batch_results_publishing_standard.md)。生产 CI 会校验批次索引、候选结果和文件 SHA-256。
+代码和正式数据提交请先阅读 [main 分支安全写入与网页发布说明](docs/main_branch_safe_write_guide.md)，并遵守 [CONTRIBUTING.md](CONTRIBUTING.md)、[上游开发者代码与批处理结果交付规范](docs/upstream_code_and_batch_results_standard.md) 与 [`batch_results` 发布规范](docs/batch_results_publishing_standard.md)。生产 CI 会校验批次索引、候选结果和文件 SHA-256。
 
 > **2026-08-14 Preview 类型更新：** Stage 2/3 类型策略升级为可审计的确定性补全。材料配方中的 `composite` 不再被误当成 homopolymer 结构证据；Composite 必须有填料或增强体证据；无填料的多组分共混判为 Compound；成分保持加工会继承 `polymer_type` 和 `material_type`。JSON 与 HTML 始终显式展示 `polymer_type`、`copolymer_type`、`material_type`，未知值保留 `null` / `not specified`。新增固定 GT 评测、离线回填和正式批次发布校验工具。最新 20 篇结果位于 `batch_results/demo20_types_preview_20260814/`：实体类型弃权 10.65%，Sample 材料类型弃权 13.93%，Blend 文档检测在实体或 Sample 口径下 P/R 为 1.00/1.00，Preview 对象守恒 20/20。
 

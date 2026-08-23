@@ -1,5 +1,7 @@
 # 代码与数据提交规范
 
+> 所有准备合并到生产 `main` 的改动，先阅读 [main 分支安全写入与网页发布说明](docs/main_branch_safe_write_guide.md)。该文档给出了完整命令、网页接口契约、PR 门禁和合并后验收步骤。
+
 ## 1. 仓库职责
 
 `leexh2333-jpg/polymer_paper_extraction` 是开发上游，负责抽取代码、Prompt、Schema、测试和正式批处理结果。`zqk-7k/polymer_paper_extraction` 是生产集成仓库，负责自动同步、前后端发布和服务器部署。
