@@ -12,6 +12,8 @@ from batch_runner import (
     PREVIEW_STAGE,
     PREVIEW_STAGES,
     STAGE4R_PREVIEW_STAGE,
+    STAGE4R_UNIFIED_PREVIEW_STAGE,
+    STAGE4T_PREVIEW_SIDECAR_STAGE,
     STAGES,
     START_STAGE_CHOICES,
     VALIDATE_EXISTING_INPUTS,
@@ -21,6 +23,7 @@ from batch_runner import (
     build_batch_acceptance,
     build_run_summary,
     build_stage_command,
+    preview_stage_specs,
     run_document,
     run_stage_process,
     select_document_paths,
@@ -243,18 +246,87 @@ class StageCommandTests(unittest.TestCase):
         self.assertIn("--input-root", command)
         self.assertNotIn("--force", command)
 
-    def test_stage4r_is_preview_only_and_runs_between_stage4_and_stage5(self) -> None:
+    def test_unified_stage4r_is_preview_only_and_runs_between_stage4_and_stage5(self) -> None:
         preview_ids = [spec.stage_id for spec in PREVIEW_STAGES]
         strict_ids = [spec.stage_id for spec in STAGES]
 
         self.assertNotIn(STAGE4R_PREVIEW_STAGE.stage_id, strict_ids)
+        self.assertNotIn(STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id, strict_ids)
         self.assertEqual(
             preview_ids[preview_ids.index("stage4_property") + 1],
-            STAGE4R_PREVIEW_STAGE.stage_id,
+            STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id,
         )
         self.assertEqual(
-            preview_ids[preview_ids.index(STAGE4R_PREVIEW_STAGE.stage_id) + 1],
+            preview_ids[
+                preview_ids.index(STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id) + 1
+            ],
             "stage5_characterization",
+        )
+
+    def test_stage4t_sidecar_is_preview_only_and_runs_after_stage0(self) -> None:
+        preview_ids = [spec.stage_id for spec in PREVIEW_STAGES]
+        strict_ids = [spec.stage_id for spec in STAGES]
+
+        self.assertNotIn(STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id, strict_ids)
+        self.assertEqual(
+            preview_ids[preview_ids.index("stage0_load_document") + 1],
+            STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id,
+        )
+        self.assertEqual(
+            preview_ids[preview_ids.index(STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id) + 1],
+            "stage1_material_mention",
+        )
+
+    def test_stage4t_sidecar_uses_standard_preview_roots(self) -> None:
+        command = build_stage_command(
+            STAGE4T_PREVIEW_SIDECAR_STAGE,
+            ref_no="reference_no_0000001",
+            settings=self.settings,
+        )
+
+        self.assertIn("--input-root", command)
+        self.assertIn("--output-root", command)
+        self.assertIn("--config", command)
+        self.assertIn("--force", command)
+
+    def test_stage4t_llm_interpretation_requires_explicit_setting(self) -> None:
+        default_command = build_stage_command(
+            STAGE4T_PREVIEW_SIDECAR_STAGE,
+            ref_no="reference_no_0000001",
+            settings=self.settings,
+        )
+        enabled_settings = RunnerSettings(
+            config_path=self.settings.config_path,
+            input_dir=self.settings.input_dir,
+            output_dir=self.settings.output_dir,
+            logs_dir=self.settings.logs_dir,
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+            stage4t_llm_interpretation=True,
+        )
+        enabled_command = build_stage_command(
+            STAGE4T_PREVIEW_SIDECAR_STAGE,
+            ref_no="reference_no_0000001",
+            settings=enabled_settings,
+        )
+
+        self.assertNotIn("--stage4t-llm-interpretation", default_command)
+        self.assertIn("--stage4t-llm-interpretation", enabled_command)
+
+    def test_stage4t_sidecar_can_be_disabled_without_changing_other_preview_stages(self) -> None:
+        stages = preview_stage_specs(include_stage4t_sidecar=False)
+        stage_ids = [spec.stage_id for spec in stages]
+
+        self.assertNotIn(STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id, stage_ids)
+        self.assertEqual(
+            stage_ids,
+            [
+                spec.stage_id
+                for spec in PREVIEW_STAGES
+                if spec.stage_id != STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id
+            ],
         )
 
     def test_stage4r_command_applies_recovery_in_preview_output(self) -> None:
@@ -270,6 +342,20 @@ class StageCommandTests(unittest.TestCase):
         self.assertIn("--force", command)
         self.assertIn("--apply", command)
         self.assertIn("--allow-filled-up-sample-binding", command)
+
+    def test_unified_stage4r_command_applies_preview_output(self) -> None:
+        command = build_stage_command(
+            STAGE4R_UNIFIED_PREVIEW_STAGE,
+            ref_no="reference_no_0000001",
+            settings=self.settings,
+        )
+
+        self.assertIn("--input-root", command)
+        self.assertIn("--output-root", command)
+        self.assertIn("--config", command)
+        self.assertIn("--force", command)
+        self.assertIn("--apply", command)
+        self.assertNotIn("--allow-filled-up-sample-binding", command)
 
     def test_preview_stage_uses_external_candidate_publisher(self) -> None:
         command = build_stage_command(
@@ -553,6 +639,136 @@ class StageCommandTests(unittest.TestCase):
                 ("reference_no_0000001",),
             ).fetchone()[0]
         self.assertEqual(status, "candidate_partial")
+
+    def test_stage4t_sidecar_failure_does_not_change_candidate_status(self) -> None:
+        root = Path(self.temporary_directory.name)
+        store = BatchStateStore(root / "sidecar.sqlite3")
+        document_path = root / "reference_no_0000003_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-sidecar", ["reference_no_0000003"])
+        store.claim_next(
+            run_id="run-sidecar",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=self.settings.config_path,
+            input_dir=self.settings.input_dir,
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+
+        with patch(
+            "batch_runner.run_stage_process",
+            side_effect=[(False, "shadow parse failed"), (True, None)],
+        ) as process_call:
+            succeeded = run_document(
+                store=store,
+                run_id="run-sidecar",
+                worker_id="worker-1",
+                ref_no="reference_no_0000003",
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=(STAGE4T_PREVIEW_SIDECAR_STAGE, PREVIEW_STAGE),
+            )
+
+        self.assertTrue(succeeded)
+        self.assertEqual(process_call.call_count, 2)
+        with closing(sqlite3.connect(store.path)) as connection:
+            status = connection.execute(
+                "SELECT status FROM documents WHERE ref_no = ?",
+                ("reference_no_0000003",),
+            ).fetchone()[0]
+        self.assertEqual(status, "candidate_complete")
+
+    def test_preview_blocking_warning_marks_partial_after_later_stages(self) -> None:
+        for blocking, expected_status in ((False, "candidate_complete"), (True, "candidate_partial")):
+            with self.subTest(blocking=blocking):
+                root = Path(self.temporary_directory.name) / (
+                    "blocking" if blocking else "ordinary"
+                )
+                root.mkdir()
+                store = BatchStateStore(root / "batch.sqlite3")
+                document_path = root / "reference_no_0000001_document.json"
+                document_path.write_text("{}", encoding="utf-8")
+                store.register_documents([document_path])
+                store.prepare_run("run-preview", ["reference_no_0000001"])
+                store.claim_next(
+                    run_id="run-preview",
+                    worker_id="worker-1",
+                    allowed_statuses=["pending"],
+                    lease_seconds=60,
+                )
+                settings = RunnerSettings(
+                    config_path=self.settings.config_path,
+                    input_dir=self.settings.input_dir,
+                    output_dir=root / "output",
+                    logs_dir=root / "logs",
+                    force=True,
+                    heartbeat_seconds=10,
+                    lease_seconds=90,
+                    preview=True,
+                )
+                stage4 = StageSpec(
+                    "stage4_property",
+                    "stage4_property.py",
+                    ("stage4_properties.json",),
+                    True,
+                )
+                stage5 = StageSpec(
+                    "stage5_characterization",
+                    "stage5_characterization.py",
+                    ("stage5_characterizations.json",),
+                    True,
+                )
+
+                def run_stage(**kwargs):
+                    if kwargs["spec"].stage_id == "stage4_property":
+                        output_path = (
+                            settings.output_dir
+                            / "reference_no_0000001"
+                            / "stage4_properties.json"
+                        )
+                        output_path.parent.mkdir(parents=True, exist_ok=True)
+                        output_path.write_text(
+                            json.dumps({
+                                "warnings": [{
+                                    "stage": "stage4_property",
+                                    "code": "preview_incomplete_response",
+                                    "blocking": blocking,
+                                }],
+                            }),
+                            encoding="utf-8",
+                        )
+                    return True, None
+
+                with patch("batch_runner.run_stage_process", side_effect=run_stage) as process_call:
+                    succeeded = run_document(
+                        store=store,
+                        run_id="run-preview",
+                        worker_id="worker-1",
+                        ref_no="reference_no_0000001",
+                        settings=settings,
+                        llm_semaphore=threading.Semaphore(1),
+                        stop_event=threading.Event(),
+                        stage_specs=(stage4, stage5, PREVIEW_STAGE),
+                    )
+
+                self.assertTrue(succeeded)
+                self.assertEqual(process_call.call_count, 3)
+                with closing(sqlite3.connect(store.path)) as connection:
+                    status = connection.execute(
+                        "SELECT status FROM documents WHERE ref_no = ?",
+                        ("reference_no_0000001",),
+                    ).fetchone()[0]
+                self.assertEqual(status, expected_status)
 
     def test_stage_process_heartbeats_and_persists_success(self) -> None:
         store = BatchStateStore(Path(self.temporary_directory.name) / "batch.sqlite3")

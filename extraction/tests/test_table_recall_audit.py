@@ -190,6 +190,31 @@ def test_parameters_text_does_not_match_eta_alias() -> None:
     assert report["tables"][0]["cells"][0]["role"] == ROLE_UNKNOWN
 
 
+def test_viscosity_variants_are_retained_for_preview_audit() -> None:
+    stage0 = _stage0((
+        "T_1_7",
+        "Viscosity",
+        "<table><tr><th>Sample</th><th>Inherent viscosity</th>"
+        "<th>Intrinsic viscosity [eta]</th><th>Reduced viscosity</th>"
+        "<th>Specific viscosity</th></tr>"
+        "<tr><td>A</td><td>1.2</td><td>1.5</td><td>0.8</td><td>0.4</td></tr></table>",
+    ))
+
+    report = audit_documents(stage0, _stage4())
+    cells = {item["cell_id"]: item for item in report["tables"][0]["cells"]}
+    variants = [
+        cells["T_1_7:r0001:c0001"]["property_variant"],
+        cells["T_1_7:r0001:c0002"]["property_variant"],
+        cells["T_1_7:r0001:c0003"]["property_variant"],
+        cells["T_1_7:r0001:c0004"]["property_variant"],
+    ]
+    assert variants == ["inherent", "intrinsic", "reduced", "specific"]
+    assert all(
+        cells[f"T_1_7:r0001:c000{i}"]["property_name_normalized"] == "intrinsic_viscosity"
+        for i in range(1, 5)
+    )
+
+
 def test_td_only_header_rows_are_not_replaced_by_previous_data_values() -> None:
     stage0 = _stage0((
         "T_2_1",

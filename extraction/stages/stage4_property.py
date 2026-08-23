@@ -31,6 +31,7 @@ from llm_client import (
     LLMRequestError,
     LLMTokenUsage,
     extract_json_object,
+    parse_json_response,
     llm_failure_artifact,
     llm_config_cache_payload,
     load_pipeline_config,
@@ -90,6 +91,10 @@ COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS: tuple[str, ...] = ()
 DEFAULT_INPUT_SECTIONS = ("Methods", "Results")
 DEFAULT_VOCABULARY_PATH = EXTRACTION_ROOT / "config" / "polymer_schema.yaml"
 SENTENCE_BOUNDARY_RE = re.compile(r"[.!?。！？]\s+|\n+")
+INCOMPLETE_RESPONSE_RE = re.compile(
+    r"仅保留(?:示例|首个)|需补全|完整输出(?:需|应)|只保留示例",
+    flags=re.IGNORECASE,
+)
 HTML_CHARACTER_REFERENCE_RE = re.compile(
     r"&(?:#[0-9]+|#x[0-9a-f]+|[a-z][a-z0-9]+);",
     flags=re.IGNORECASE,
@@ -98,6 +103,33 @@ HTML_CHARACTER_REFERENCE_RE = re.compile(
 
 class Stage4Error(RuntimeError):
     """Stage 4 输入、词表、LLM 响应或输出验证失败。"""
+
+
+def _preview_publication_status(
+    *,
+    preview_degraded_reason: str | None,
+    incomplete_response_reason: str | None,
+    preview_semantic_bypass_reason: str | None,
+    property_series: list[Any],
+) -> tuple[str, list[str]]:
+    """返回 Preview 发布状态及缺少顶层主体的 series。"""
+
+    unbound_series = [
+        item.series_id
+        for item in property_series
+        if item.sample_id is None and item.entity_id is None
+    ]
+    status = (
+        "candidate_partial"
+        if (
+            preview_degraded_reason is not None
+            or incomplete_response_reason is not None
+            or preview_semantic_bypass_reason is not None
+            or unbound_series
+        )
+        else "success"
+    )
+    return status, unbound_series
 
 
 class _FailureReplayClient:
@@ -148,7 +180,8 @@ def _failure_replay_client(
     if not isinstance(raw, dict) or not isinstance(raw.get("content"), str):
         raise Stage4Error("Stage 4 failure 未保存可回放的 raw response")
     try:
-        data = extract_json_object(raw["content"])
+        parsed_json = parse_json_response(raw["content"])
+        data = parsed_json.data
     except LLMRequestError as exc:
         raise Stage4Error(
             f"Stage 4 failure raw response 无法解析为 JSON 对象：{exc}"
@@ -190,6 +223,7 @@ def _failure_replay_client(
         model=model,
         usage=usage,
         cost=cost,
+        parsed_json=parsed_json,
     )
     record = LLMCallRecord(
         provider=provider,
@@ -6310,6 +6344,7 @@ def extract_properties(
     coordinate_only_table_columns: list[dict[str, Any]] = []
     preview_semantic_bypass_reason: str | None = None
     preview_degraded_reason: str | None = None
+    incomplete_response_reason: str | None = None
 
     if entities.polymer_entities:
         feedback = None
@@ -6330,6 +6365,14 @@ def extract_properties(
                     ),
                     max_tokens=max_tokens,
                 )
+                parsed_json = response.parsed_json
+                if preview_relaxed and parsed_json is not None:
+                    outside_json = (
+                        parsed_json.prefix_text + "\n" + parsed_json.trailing_text
+                    )
+                    match = INCOMPLETE_RESPONSE_RE.search(outside_json)
+                    if match is not None:
+                        incomplete_response_reason = match.group(0)
                 compacted_data, dropped_confidence_fields = (
                     compact_confidence_payload(response.data)
                 )
@@ -6348,6 +6391,7 @@ def extract_properties(
                     model=response.model,
                     usage=response.usage,
                     cost=response.cost,
+                    parsed_json=parsed_json,
                 )
                 try:
                     (
@@ -6476,7 +6520,36 @@ def extract_properties(
                 "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果"
             ),
             "degraded": True,
+            "blocking": True,
             "reason": preview_degraded_reason,
+        })
+    if incomplete_response_reason is not None:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_incomplete_response",
+            "message": (
+                "Preview 解析出结构化 JSON，但模型在 JSON 外声明仅输出示例或需要补全；"
+                "结果不得视为完整候选"
+            ),
+            "blocking": True,
+            "reason": incomplete_response_reason,
+        })
+    publication_status, unbound_series = _preview_publication_status(
+        preview_degraded_reason=preview_degraded_reason,
+        incomplete_response_reason=incomplete_response_reason,
+        preview_semantic_bypass_reason=preview_semantic_bypass_reason,
+        property_series=property_series,
+    )
+    if unbound_series:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "series_subject_unresolved",
+            "message": (
+                "PropertySeries 缺少 Sample/PolymerEntity 主体，"
+                "不得作为完整成功候选发布"
+            ),
+            "blocking": True,
+            "series_ids": unbound_series,
         })
     if dropped_confidence_fields:
         warnings.append({
@@ -6733,6 +6806,7 @@ def extract_properties(
         call_count=len(actual_models),
         usage=usage,
         cost=cost,
+        status=publication_status,
     )
     return Stage4Document(
         document_id=document.document_id,
@@ -6919,6 +6993,19 @@ def _stage_config(config: dict[str, Any]) -> dict[str, Any]:
     return stage
 
 
+def _validation_retry_count(
+    stage_config: dict[str, Any],
+    *,
+    preview_relaxed: bool,
+    replay_failure: bool,
+) -> int:
+    if replay_failure:
+        return 0
+    if preview_relaxed:
+        return 1
+    return int(stage_config.get("max_validation_retries", 1))
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="执行 Stage 4 性质与条件抽取")
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -6998,10 +7085,10 @@ def main() -> int:
         or stage_config.get("max_input_chars")
         or 90000
     )
-    max_validation_retries = (
-        0
-        if args.replay_failure
-        else int(stage_config.get("max_validation_retries", 1))
+    max_validation_retries = _validation_retry_count(
+        stage_config,
+        preview_relaxed=args.preview_relaxed,
+        replay_failure=args.replay_failure,
     )
     max_tokens = int(stage_config.get("max_tokens") or 32768)
 

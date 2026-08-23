@@ -27,6 +27,8 @@
 
 > **2026-08-17 Preview 类型与归属更新：** Stage 2 v1.6.1 不再把“未发现共聚或共混反证”作为 `homopolymer` 证据；Stage 3 v1.7.1 不再把“未发现第二组分”作为 `neat_resin` 证据。缺少直接证据时统一保留 `null` / `not specified`。Stage 4R 仅在 Sample 标签唯一匹配时把性质迁移到正式对象，无法唯一归属时继续保留 unresolved。最新20篇结果已覆盖到 `batch_results/demo20_types_preview_20260814/`，20/20 Candidate 完整、Stage failures 为 0、Stage 6 errors 为 0；最终展示文件为每篇目录下的 `report.html`。
 
+> **2026-08-23 Preview 表格与表征更新：** Preview 默认生成非权威 `stage4t_shadow.json`，以稳定 `cell_id` 保存表格宽松候选；Stage 4R unified 再结合 Stage 4N、实体和样品结果执行有限绑定、去重与发布门控，并把未发布候选及理由写入审计文件。Stage 5 默认按表征方法分片调用模型，逐片保存诊断并确定性合并，单片失败不会静默清空其他分片。Stage 4T 的复杂表 LLM 解释是显式可选项；启用后会增加模型调用和费用。分片也可能增加请求次数，但限制单次上下文并支持逐片缓存/回放。Stage 4 请求失败最多自动重试两次，也可能增加调用与费用。`candidate_partial` 和 `failed` 均表示结果不完整，不能作为正式完整批次发布。Strict 的 Stage 顺序和校验语义不变。
+
 ## 1. 交付包目录总览
 
 ```text
@@ -130,7 +132,8 @@ polymer_extraction_delivery_20260807/
 ```text
 标准化 document.json
   ↓
-Preview：Stage 0 → 1 → 2 → 3 → 4 → 4R → 5 → 6（--preview-relaxed）
+Preview：Stage 0 → 4T sidecar → 1 → 2 → 3 → 4N
+         → Stage 4R unified → Stage 5 分片/合并 → Stage 6（--preview-relaxed）
   ↓
 preview/publish_candidate.py
   ├─ candidate.json
@@ -145,7 +148,7 @@ preview/verify_demo20.py
 
 Preview 下 Stage 6 会隔离可定位到单个对象的错误，清扫悬空引用后产出 `final.json` 和 `report.html`（带降级标记，见 8.5）。只有文档级错误或无法安全隔离的错误仍会阻止 final；此时仍发布 `candidate.json`，状态记为 `candidate_partial`，不阻断整批推进。
 
-Strict 仍按 `Stage 0 → 1 → 2 → 3 → 4 → 5 → 6` 执行，不经过 Stage 4R。Preview 中 Stage 4R 会生成 `stage4r_recovery.json` 和 `stage4_properties.recovery_preview.json`，应用前的 Stage 4 保存在 `stage4_properties.pre_recovery.json`；补抽后的 `stage4_properties.json` 再交给 Stage 5 和候选发布器。
+Strict 仍按 `Stage 0 → 1 → 2 → 3 → 4 → 5 → 6` 执行，不经过 Stage 4T 或 Stage 4R。Preview 中 Stage 4T 只生成非权威 sidecar；Stage 4R unified 生成 `stage4r_unified_audit.json` 和 `stage4_properties.unified_preview.json`，应用前的 Stage 4N 保存在 `stage4_properties.pre_unified.json`，门控合并后的 `stage4_properties.json` 再交给 Stage 5 和候选发布器。
 
 ## 3. 环境准备
 
@@ -226,7 +229,7 @@ sample_data/processed_documents/
 output_preview/
 ```
 
-每篇文献会得到 Stage 0–5 的原始 JSON、Stage 4R 的恢复报告、`candidate.json` 和
+每篇文献会得到 Stage 0–5 的原始 JSON、Stage 4T sidecar、Stage 4R unified 审计、Stage 5 分片诊断、`candidate.json` 和
 `report_candidate.html`；Stage 6 校验通过的文献另外得到 `final.json` 和 `report.html`。
 
 #### 直接调用 batch_runner（需要自定义参数时）
@@ -238,12 +241,12 @@ python extraction/batch_runner.py --preview `
   --workers 8 --llm-workers 4
 ```
 
-`--preview` 一个开关就同时做了四件事，不需要再逐个 Stage 指定：
+`--preview` 一个开关会执行以下 Preview 行为，不需要再逐个 Stage 指定：
 
-1. 在 Stage 4 和 Stage 5 之间插入 Stage 4R 表格恢复（自动带 `--apply`）；
-2. 给 Stage 1–5 加 `--preview-relaxed`，失败时先尝试离线重放恢复；
-3. 给 Stage 6 加 `--preview-relaxed`（本次新增）；
-4. 最后发布 `candidate.json` 和 `report_candidate.html`，某个 Stage 失败时也照常发布。
+1. Stage 0 后生成 Stage 4T 非权威表格候选 sidecar；复杂表仅在显式使用 `--stage4t-llm-interpretation` 时调用模型解释表头结构；
+2. 在 Stage 4N 和 Stage 5 之间运行 Stage 4R unified，按实体、样品、条件和证据门控合并 4N/4T；
+3. Stage 5 按表征方法分片抽取，逐片保存状态、原始响应诊断和可回放缓存后确定性合并；
+4. 给模型 Stage 和 Stage 6 加 `--preview-relaxed`，失败时优先离线回放，并发布明确标记为 complete 或 partial 的候选结果。
 
 #### 只补 Stage 6 和最终产物（不调模型，不花钱）
 
@@ -550,9 +553,12 @@ output_preview/
 │  ├─ stage2_entities.json
 │  ├─ stage3_process.json
 │  ├─ stage4_properties.json
-│  ├─ stage4r_recovery.json                  Preview-only 表格召回审计/恢复记录
-│  ├─ stage4_properties.recovery_preview.json Preview-only Stage 4R 合并结果
+│  ├─ stage4t_shadow.json                    Preview-only 非权威表格候选
+│  ├─ stage4_properties.pre_unified.json     Preview-only Stage 4N 合并前快照
+│  ├─ stage4r_unified_audit.json             Preview-only 4N/4T 门控与修复审计
+│  ├─ stage4_properties.unified_preview.json Preview-only Stage 4R 合并结果
 │  ├─ stage5_characterizations.json
+│  ├─ stage5_shards.json                     Preview-only 分片状态与解析诊断
 │  ├─ final.json                             Stage 6 通过时才有；Preview 下带降级标记
 │  ├─ report.html                            同上
 │  ├─ candidate.json

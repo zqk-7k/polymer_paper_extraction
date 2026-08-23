@@ -23,7 +23,7 @@ llm:
     stage4_property:
       model: doubao-seed-2-0-pro-260215
       timeout_seconds: 900
-      max_retries: 0
+      max_retries: 2
       stream: true
     stage5_characterization:
       model: doubao-seed-2-0-pro-260215
@@ -83,6 +83,19 @@ stages:
     max_input_chars: 90000
     max_validation_retries: 0
     max_tokens: 16384
+    sharded_preview: true
+    shard_target_chars: 18000
+    shard_max_chars: 30000
+    shard_max_tokens: 12000
+  stage4t_table_interpretation:
+    prompt_id: polymer.stage4t.table_interpretation
+    max_tokens: 4096
+    approved_tables:
+      - {doc_id: reference_no_0021296, table_id: T_8_91}
+      - {doc_id: reference_no_0038527, table_id: T_5_69}
+      - {doc_id: reference_no_0039705, table_id: T_6_84}
+      - {doc_id: reference_no_0043541, table_id: T_4_49}
+      - {doc_id: reference_no_0043590, table_id: T_1_19}
 
 concurrency:
   max_doc_workers: 1

@@ -1,0 +1,118 @@
+{
+  "schema_version": "stage4t_shadow_binding_fixture.v0.1",
+  "created_at": "2026-08-21",
+  "scope": "annotated_numeric_cells",
+  "purpose": "Stage 4T Shadow 方向、数值格、性质映射与样品绑定人工复核基线",
+  "cases": [
+    {
+      "doc_id": "reference_no_0042480",
+      "table_id": "T_8_84",
+      "eligible": true,
+      "table_role": "row_samples_multilevel_header",
+      "expected_direction": "row_samples",
+      "sample_labels_by_row": {"2": "I", "3": "II", "4": "III", "5": "IV"},
+      "expected_columns": [
+        {"column_index": 1, "rows": [2, 3, 4, 5], "expected_property_name": "tensile_stress_at_break"},
+        {"column_index": 2, "rows": [2, 3, 4, 5], "expected_property_name": "tensile_modulus"},
+        {"column_index": 3, "rows": [2, 3, 4, 5], "expected_property_name": "elongation_at_break"},
+        {"column_index": 4, "rows": [2, 3, 4, 5], "expected_property_name": "thermal_decomposition_temperature"}
+      ]
+    },
+    {
+      "doc_id": "reference_no_0021296",
+      "table_id": "T_7_77",
+      "eligible": true,
+      "table_role": "column_samples",
+      "expected_direction": "column_samples",
+      "sample_labels_by_column": {"1": "HS", "2": "HI", "3": "HT", "4": "OT(2)"},
+      "expected_rows": [
+        {"row_index": 1, "columns": [1, 4], "expected_property_name": "melting_temperature"},
+        {"row_index": 2, "columns": [1, 4], "expected_property_name": "heat_of_fusion"},
+        {"row_index": 3, "columns": [1, 2, 3, 4], "expected_property_name": null},
+        {"row_index": 4, "columns": [1, 2], "expected_property_name": null}
+      ]
+    },
+    {
+      "doc_id": "reference_no_0038813",
+      "table_id": "T_7_97",
+      "eligible": true,
+      "table_role": "mixed_repeated_groups",
+      "expected_direction": "mixed",
+      "expected_columns": [
+        {
+          "column_index": 1,
+          "rows": [1, 2, 3, 4],
+          "expected_property_name": null,
+          "sample_labels_by_row": {
+            "1": "1AQA-PPDI", "2": "1AQA-NDI", "3": "1AQA-MDI", "4": "1AQA-H $_{12}$ MDI"
+          }
+        },
+        {
+          "column_index": 3,
+          "rows": [1, 2, 3, 4],
+          "expected_property_name": null,
+          "sample_labels_by_row": {
+            "1": "2AQA-PPDI", "2": "2AQA-NDI", "3": "2AQA-MDI", "4": "2AQA-H $_{12}$ MDI"
+          }
+        }
+      ]
+    },
+    {
+      "doc_id": "reference_no_0038813",
+      "table_id": "T_6_86",
+      "eligible": true,
+      "table_role": "thermal_mass_sentinel",
+      "expected_direction": "row_samples",
+      "sample_labels_by_row": {
+        "1": "1AQA-PPDI", "2": "1AQA-NDI", "3": "1AQA-MDI", "4": "1AQA-H $_{12}$ MDI",
+        "5": "2AQA-PPDI", "6": "2AQA-NDI", "7": "2AQA-MDI", "8": "2AQA-H $_{12}$ MDI"
+      },
+      "expected_columns": [
+        {"column_index": 1, "rows": [1, 2, 3, 4, 5, 6, 7, 8], "expected_property_name": "glass_transition_temperature"},
+        {"column_index": 2, "rows": [1, 2, 3, 4, 5, 6, 7, 8], "expected_property_name": "thermal_decomposition_temperature", "expected_property_variant": "initial_decomposition"},
+        {"column_index": 3, "rows": [1, 2, 3, 4, 5, 6, 7, 8], "expected_property_name": "thermal_decomposition_temperature", "expected_property_variant": "mass_loss_threshold", "expected_conditions": {"mass_loss_percent": 10.0}},
+        {"column_index": 4, "rows": [1, 2, 3, 4, 5, 6, 7, 8], "expected_property_name": "thermal_decomposition_temperature", "expected_property_variant": "maximum_decomposition_rate"},
+        {"column_index": 5, "rows": [1, 2, 3, 4, 5, 6, 7, 8], "expected_property_name": null, "expected_semantic_label": "char_yield", "expected_conditions": {"temperature_celsius": 700.0}}
+      ]
+    },
+    {
+      "doc_id": "reference_no_0038527",
+      "table_id": "T_3_44",
+      "eligible": true,
+      "table_role": "blank_sample_cross_row_event",
+      "expected_direction": "row_samples",
+      "sample_labels_by_row": {
+        "1": "Rg(Th-5,4/4)", "2": "Rg(Th-5,4/8)", "3": "Rg(Th-5,4/9)",
+        "4": "$Rg(Th-5,4/9)^{i}$", "5": "Rg(Th-5,4/12)", "6": "$Rg(Th-5,4/12)^{i}$",
+        "7": "Rg(Th-8,4/8)", "8": "Rg(Th-11,4/8)", "9": "Rn(Th-5,4/8)",
+        "12": "Rg(Th-3,6/9) (hexane-soluble)", "13": "Rg(Th-3,6/9) (CHCl3-soluble)",
+        "14": null, "15": "Rn(Th-9,0)", "16": "Rg(Th-9,0)"
+      },
+      "expected_columns": [
+        {"column_index": 6, "rows": [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16], "expected_property_name": "melting_temperature"},
+        {"column_index": 7, "rows": [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16], "expected_property_name": "crystallization_temperature"}
+      ],
+      "sample_evaluation_excluded_cells": ["T_3_44:r0014:c0006", "T_3_44:r0014:c0007"]
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "table_id": "T_5_83",
+      "eligible": true,
+      "table_role": "condition_axis_not_sample",
+      "expected_direction": "row_samples",
+      "sample_labels_by_row": {"2": null, "3": null, "4": null, "5": "SMIA"},
+      "expected_columns": [
+        {"column_index": 1, "rows": [2, 3, 4], "expected_property_name": "glass_transition_temperature"},
+        {"column_index": 2, "rows": [3, 4, 5], "expected_property_name": "glass_transition_temperature"}
+      ]
+    },
+    {
+      "doc_id": "reference_no_0038813",
+      "table_id": "T_7_98",
+      "eligible": false,
+      "table_role": "categorical_unknown_safe_hold",
+      "expected_direction": "unknown",
+      "expected_columns": []
+    }
+  ]
+}
