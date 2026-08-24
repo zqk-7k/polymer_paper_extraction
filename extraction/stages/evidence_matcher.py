@@ -59,7 +59,7 @@ RELAXED_ACCEPTABLE = frozenset({
 
 # 词覆盖率阈值：达到 HIGH 视为纯字符层打散；达到 LOW 仍算命中但要提醒人看
 COVERAGE_HIGH = 0.98
-COVERAGE_LOW = 0.90
+COVERAGE_LOW = 0.85
 
 # PDF 抽取残留的控制字符（保留 \t \n \r）
 _CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")

@@ -269,6 +269,50 @@ def _api_key(provider: str) -> str:
 _JSON_ESCAPE_CHARACTERS = frozenset('"\\/bfnrtu')
 
 
+_CONTROL_CHAR_RE = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f]')
+
+
+def _escape_control_chars_in_json_strings(text: str) -> tuple[str, bool]:
+    """把 JSON 字符串值内的非法控制字符（\x00-\x1f 但保留 \t \n \r）转成 \\uXXXX。
+
+    模型偶尔会把原文里的 SOH / STX 等字节原样写进字符串值，导致 json.loads 拒绝。
+    JSON 规范允许 \\uXXXX 转义所有码点，所以替换后语义不变。
+    只在 JSON 字符串内部操作（双引号内），结构字符保持原样。
+    """
+    output: list[str] = []
+    in_string = False
+    changed = False
+    index = 0
+    while index < len(text):
+        char = text[index]
+        if not in_string:
+            output.append(char)
+            if char == '"':
+                in_string = True
+            index += 1
+            continue
+        if char == '\\':
+            output.append(char)
+            index += 1
+            if index < len(text):
+                output.append(text[index])
+                index += 1
+            continue
+        if char == '"':
+            output.append(char)
+            in_string = False
+            index += 1
+            continue
+        cp = ord(char)
+        if cp <= 0x1f and char not in '\t\n\r':
+            output.append(f'\\u{cp:04x}')
+            changed = True
+        else:
+            output.append(char)
+        index += 1
+    return ''.join(output), changed
+
+
 def _escape_invalid_json_string_backslashes(text: str) -> tuple[str, bool]:
     """转义 JSON 字符串中的非法单反斜杠，不改动合法 JSON escape。"""
     output: list[str] = []
@@ -322,9 +366,26 @@ def _extract_json_object_legacy(text: str) -> dict[str, Any]:
     )
     if fenced:
         stripped = fenced.group(1).strip()
+    data: Any = None
+    parsed = False
     try:
         data = json.loads(stripped)
+        parsed = True
     except json.JSONDecodeError:
+        # 原文遗留的控制字符（如 MinerU 给 cm⁻¹ 上标留下的 SOH）会让
+        # json.loads 直接拒绝。先做等价的 \uXXXX 转义再重试，
+        # 避免把"控制字符"误判成"截断"，污染失败归因。
+        cleaned, control_chars_escaped = _escape_control_chars_in_json_strings(
+            stripped
+        )
+        if control_chars_escaped:
+            stripped = cleaned
+            try:
+                data = json.loads(stripped)
+                parsed = True
+            except json.JSONDecodeError:
+                pass
+    if not parsed:
         start = stripped.find("{")
         end = stripped.rfind("}")
         if start < 0 or end <= start:

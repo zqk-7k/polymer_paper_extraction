@@ -2785,7 +2785,7 @@ def extract_shard(
     max_validation_retries: int,
     max_tokens: int,
 ) -> Stage5ShardResult:
-    shard_methods = {shard.method_normalized: methods[shard.method_normalized]}
+    shard_methods = {shard.method_normalized: methods.get(shard.method_normalized, ())}
     shard_vocabulary = {
         name: entry
         for name, entry in vocabulary.items()
