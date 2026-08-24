@@ -1,0 +1,3208 @@
+{
+  "sidecar_schema_version": "stage4t_preview_sidecar.v0.4",
+  "shadow_version": "0.5.0",
+  "authoritative": false,
+  "candidate_layer": "broad",
+  "llm_interpretation_enabled": true,
+  "llm_interpreter_version": "0.4.0",
+  "interpretation_application_version": "0.1.2",
+  "document_id": "reference_no_0043541",
+  "table_count": 1,
+  "summary": {
+    "observation_count": 24,
+    "binding_status_counts": {
+      "bound": 24
+    },
+    "candidate_class_counts": {
+      "official_property": 24
+    },
+    "semantic_status_counts": {
+      "normalized": 24
+    },
+    "publication_status_counts": {
+      "candidate_only": 24
+    },
+    "unresolved_count": 0,
+    "tables_with_observations": 1,
+    "warning_counts": {
+      "numeric_table_without_property_columns": 1,
+      "shadow_unresolved_bindings": 1,
+      "variable_row_width_or_spans": 1
+    }
+  },
+  "tables": [
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_4_49",
+      "caption": "Table 1. Table 1. Contact angles and surface free energy of hydrophilic polymer brushes.",
+      "direction": "column_samples",
+      "sample_axis": "row",
+      "axis_role": "named_sample",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_4_49",
+          "column_index": 2,
+          "header_context": [
+            "poly(MPC)"
+          ],
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_4_49",
+          "column_index": 3,
+          "header_context": [
+            "poly(DMAEMA)"
+          ],
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_4_49",
+          "column_index": 4,
+          "header_context": [
+            "poly(METAI)"
+          ],
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_4_49:T_4_49:r0001:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$1 \\sim 3^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0001:c0002",
+          "row_index": 1,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0001:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0001:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0002:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(advancing)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(advancing)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$13^{°b)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0002:c0002",
+          "row_index": 2,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0002:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0002:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0003:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(receding)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(receding)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{°b)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0003:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0003:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0004:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(sliding)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(sliding)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$15^{°b)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0004:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0004:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0005:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "Air (in water) $^{d)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$170^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0005:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0005:c0000",
+              "T_4_49:r0005:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0006:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Diiodomethane^{e)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$45^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0006:c0002",
+          "row_index": 6,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0006:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0006:c0000",
+              "T_4_49:r0006:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0007:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$n-Hexadecane^{e)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0007:c0002",
+          "row_index": 7,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0007:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0007:c0000",
+              "T_4_49:r0007:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0008:c0002",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(MPC)",
+          "property_name_raw": "$\\gamma_{SV}^{f)}$",
+          "property_name_normalized": "surface_tension",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "73",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": "mN/m",
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0008:c0002",
+          "row_index": 8,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0008:c0000"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "condition_assignment_cell_ids": [],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0001:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$56^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0001:c0003",
+          "row_index": 1,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0001:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0001:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0002:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(advancing)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(advancing)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$78^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0002:c0003",
+          "row_index": 2,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0002:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0002:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0003:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(receding)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(receding)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$27^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0003:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0003:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0004:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(sliding)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(sliding)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$62^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0004:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0004:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0005:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "Air (in water) $^{d)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$138^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0005:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0005:c0000",
+              "T_4_49:r0005:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0006:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Diiodomethane^{e)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$38^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0006:c0003",
+          "row_index": 6,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0006:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0006:c0000",
+              "T_4_49:r0006:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0007:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$n-Hexadecane^{e)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0007:c0003",
+          "row_index": 7,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0003",
+            "row_index": 7,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0007:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0007:c0000",
+              "T_4_49:r0007:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0008:c0003",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(DMAEMA)",
+          "property_name_raw": "$\\gamma_{SV}^{f)}$",
+          "property_name_normalized": "surface_tension",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": "mN/m",
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0008:c0003",
+          "row_index": 8,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0008:c0003",
+            "row_index": 8,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0008:c0000"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "condition_assignment_cell_ids": [],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0001:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$36^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0001:c0004",
+          "row_index": 1,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0004",
+            "row_index": 1,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0001:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0001:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0002:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(advancing)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(advancing)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$69^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0002:c0004",
+          "row_index": 2,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0004",
+            "row_index": 2,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0002:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0002:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0003:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(receding)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(receding)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$18^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0003:c0004",
+          "row_index": 3,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0004",
+            "row_index": 3,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0003:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0003:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0004:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(sliding)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Water^{a)}$",
+            "contact_angle_mode": "(sliding)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$41^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0004:c0004",
+          "row_index": 4,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0004",
+            "row_index": 4,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0004:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0001:c0000",
+              "T_4_49:r0004:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0005:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "Air (in water) $^{d)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$145^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0005:c0004",
+          "row_index": 5,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0004",
+            "row_index": 5,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0005:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0005:c0000",
+              "T_4_49:r0005:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0006:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$Diiodomethane^{e)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$47^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0006:c0004",
+          "row_index": 6,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0006:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0006:c0000",
+              "T_4_49:r0006:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0007:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "(static)",
+          "property_name_normalized": "contact_angle",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {
+            "probe_phase": "$n-Hexadecane^{e)}$",
+            "contact_angle_mode": "(static)"
+          },
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°",
+          "unit_normalized": "deg",
+          "unit_location": "value",
+          "cell_id": "T_4_49:r0007:c0004",
+          "row_index": 7,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0004",
+            "row_index": 7,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "condition_binding_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0007:c0001"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [
+              "T_4_49:r0007:c0000",
+              "T_4_49:r0007:c0001"
+            ],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0008:c0004",
+          "table_id": "T_4_49",
+          "direction": "column_samples",
+          "sample_label_raw": "poly(METAI)",
+          "property_name_raw": "$\\gamma_{SV}^{f)}$",
+          "property_name_normalized": "surface_tension",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "60",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": "mN/m",
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0008:c0004",
+          "row_index": 8,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0008:c0004",
+            "row_index": 8,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          },
+          "extraction_source": "llm_structure_interpretation",
+          "interpretation_application": {
+            "status": "applied",
+            "application_version": "0.1.2",
+            "property_assignment_cell_ids": [
+              "T_4_49:r0008:c0000"
+            ],
+            "sample_assignment_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "condition_assignment_cell_ids": [],
+            "measurement_role_assignment_cell_ids": [],
+            "warnings": []
+          }
+        }
+      ],
+      "unresolved": [],
+      "warnings": [
+        "numeric_table_without_property_columns",
+        "shadow_unresolved_bindings",
+        "variable_row_width_or_spans"
+      ],
+      "rule_observations": [
+        {
+          "observation_id": "T_4_49:T_4_49:r0001:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$1 \\sim 3^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0001:c0002",
+          "row_index": 1,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0002:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(advancing)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$13^{°b)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0002:c0002",
+          "row_index": 2,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0003:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(receding)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{°b)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0004:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(sliding)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$15^{°b)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0005:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$170^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0006:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$45^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0006:c0002",
+          "row_index": 6,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0007:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0007:c0002",
+          "row_index": 7,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0008:c0002",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(mN/m)",
+          "property_name_raw": "poly(MPC)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "73",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0008:c0002",
+          "row_index": 8,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0001:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$56^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0001:c0003",
+          "row_index": 1,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0002:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "$13^{°b)}$",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$78^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0002:c0003",
+          "row_index": 2,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0003:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "$<5^{°b)}$",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$27^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0004:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "$15^{°b)}$",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$62^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0005:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$138^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0006:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$38^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0006:c0003",
+          "row_index": 6,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0007:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0007:c0003",
+          "row_index": 7,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0003",
+            "row_index": 7,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0008:c0003",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(mN/m)",
+          "property_name_raw": "poly(DMAEMA)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0008:c0003",
+          "row_index": 8,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0008:c0003",
+            "row_index": 8,
+            "column_index": 3
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0001:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$36^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0001:c0004",
+          "row_index": 1,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0004",
+            "row_index": 1,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0002:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "$13^{°b)}$",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$69^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0002:c0004",
+          "row_index": 2,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0004",
+            "row_index": 2,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0003:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "$<5^{°b)}$",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$18^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0003:c0004",
+          "row_index": 3,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0004",
+            "row_index": 3,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0004:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "$15^{°b)}$",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$41^{°c)}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0004:c0004",
+          "row_index": 4,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0004",
+            "row_index": 4,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0005:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$145^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0005:c0004",
+          "row_index": 5,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0004",
+            "row_index": 5,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0006:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$47^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0006:c0004",
+          "row_index": 6,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0007:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(static)",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$<5^{\\circ}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0007:c0004",
+          "row_index": 7,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0004",
+            "row_index": 7,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_49:T_4_49:r0008:c0004",
+          "table_id": "T_4_49",
+          "direction": "row_samples",
+          "sample_label_raw": "(mN/m)",
+          "property_name_raw": "poly(METAI)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "60",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_4_49:r0008:c0004",
+          "row_index": 8,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0008:c0004",
+            "row_index": 8,
+            "column_index": 4
+          },
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "interpretation_application": {
+        "status": "applied",
+        "application_version": "0.1.2",
+        "input_observation_count": 24,
+        "output_observation_count": 24,
+        "applied_observation_count": 24,
+        "excluded_header_observation_ids": [],
+        "semantic_conflict_observation_ids": [],
+        "authoritative": false,
+        "publication_status": "candidate_only"
+      }
+    }
+  ],
+  "interpretations": [
+    {
+      "table_id": "T_4_49",
+      "route_reasons": [
+        "only_unmapped_candidates"
+      ],
+      "status": "succeeded",
+      "authoritative": false,
+      "publication_status": "candidate_only",
+      "llm_call_attempted": true,
+      "interpretation": {
+        "schema_version": "stage4t_table_interpretation_schema.v1",
+        "table_id": "T_4_49",
+        "direction": "column_samples",
+        "axis_role": "named_sample",
+        "sample_binding_strategy": "direct_column",
+        "header_assignments": [
+          {
+            "source_cell_ids": [
+              "T_4_49:r0000:c0002"
+            ],
+            "role": "sample_axis",
+            "normalized_name": "polymer_brush_sample",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Column header identifies a polymer brush sample."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0000:c0003"
+            ],
+            "role": "sample_axis",
+            "normalized_name": "polymer_brush_sample",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Column header identifies a polymer brush sample."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0000:c0004"
+            ],
+            "role": "sample_axis",
+            "normalized_name": "polymer_brush_sample",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Column header identifies a polymer brush sample."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0001:c0000"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "probe_phase",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.98,
+            "reason": "The merged row label identifies the probe phase for the following contact-angle modes."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0001:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Static is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0001:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Static mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0002:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Advancing is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0002:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Advancing mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0003:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Receding is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0003:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Receding mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0004:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Sliding is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0004:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Sliding mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0005:c0000"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "probe_phase",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.98,
+            "reason": "The row label identifies the probe phase."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0005:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Static is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0005:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Static mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0006:c0000"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "probe_phase",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.98,
+            "reason": "The row label identifies the probe phase."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0006:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Static is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0006:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Static mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0007:c0000"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "probe_phase",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.98,
+            "reason": "The row label identifies the probe phase."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0007:c0001"
+            ],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Static is a contact-angle measurement mode."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0007:c0001"
+            ],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.99,
+            "reason": "Static mode produces contact-angle measurements for each sample column."
+          },
+          {
+            "source_cell_ids": [
+              "T_4_49:r0008:c0000"
+            ],
+            "role": "official_property",
+            "normalized_name": "surface_tension",
+            "semantic_label": null,
+            "measurement_role": "experimental",
+            "confidence": 0.98,
+            "reason": "gamma_SV is the solid surface free energy property described by the caption."
+          }
+        ],
+        "requires_human_review": false,
+        "warnings": [
+          "Sample names are column headers; probe phases and contact-angle modes are row labels."
+        ]
+      },
+      "cost": {
+        "provider": "dmx",
+        "model": "gpt-5.6-terra-2026-07-09",
+        "usage": {
+          "input_tokens": 3,
+          "output_tokens": 1571,
+          "cache_creation_input_tokens": 4384,
+          "cache_read_input_tokens": 0
+        },
+        "cost": {
+          "currency": "CNY",
+          "input_per_million": "17",
+          "output_per_million": "101",
+          "input_cost": "0.074579",
+          "output_cost": "0.158671",
+          "total_cost": "0.233250"
+        }
+      },
+      "raw_response": {
+        "finish_reason": "end_turn",
+        "provider": "dmx",
+        "model": "gpt-5.6-terra-2026-07-09"
+      },
+      "application": {
+        "status": "applied",
+        "application_version": "0.1.2",
+        "input_observation_count": 24,
+        "output_observation_count": 24,
+        "applied_observation_count": 24,
+        "excluded_header_observation_ids": [],
+        "semantic_conflict_observation_ids": [],
+        "authoritative": false,
+        "publication_status": "candidate_only"
+      }
+    }
+  ],
+  "provenance": {
+    "source": "stage0_blocks.json",
+    "stage0_sha256": "a366c61e293e8bcfcdbeebe5ff119339e7a464eed664dfa5063e5ba5c823b2f3",
+    "config_sha256": "676019dce338856e481ac0eb2943f3548ce2205eca498e570137bc90b913a8a1",
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1571,
+      "cache_creation_input_tokens": 4384,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 4387,
+      "total_tokens": 5958
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.074579",
+      "output_cost": "0.158671",
+      "total_cost": "0.233250"
+    },
+    "raw_response": null
+  }
+}

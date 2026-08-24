@@ -7,9 +7,10 @@ import copy
 import json
 import re
 import sys
+from dataclasses import dataclass
 from decimal import Decimal
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import yaml
 from pydantic import ValidationError
@@ -25,12 +26,14 @@ from llm_client import (
     LLMCallRecord,
     LLMClient,
     LLMJSONResponse,
+    LLMRawResponse,
     LLMRequestError,
     LLMTokenUsage,
     extract_json_object,
     llm_failure_artifact,
     llm_config_cache_payload,
     load_pipeline_config,
+    parse_json_response,
     resolve_llm_config,
     resolve_pricing_config,
     summarize_client_calls,
@@ -67,7 +70,10 @@ from stages.stage4_property import (
 
 STAGE_ID = "stage5_characterization"
 OUTPUT_SCHEMA_VERSION = "characterization_schema.v4"
-IMPLEMENTATION_VERSION = "1.7.1"
+IMPLEMENTATION_VERSION = "1.8.1"
+# 1.8.1 语义校验绕过按 candidate_partial 处理；分片审计支持增量落盘和旧 raw 回放。
+# 1.8.0 Preview 默认按表征方法分片；逐对象校验内聚在 extract_shard，
+# 每个 shard 保存原始响应和解析诊断，局部失败不再清空整篇。
 # 1.7.1 Preview 对 Schema 合法但 evidence 语义失败的响应保留候选；
 # 无法安全结构化时生成 degraded 空壳，Strict 行为不变。
 # 1.7.0 仅增加 Preview 确定性收敛与表级方法证据支持；
@@ -87,6 +93,26 @@ STAGE5_EXACT_METHOD_ALIASES = {
     "TGA": ("thermogravimetric analyses",),
     "viscometry": ("inherent viscosities",),
 }
+
+
+@dataclass(frozen=True)
+class Stage5Shard:
+    shard_id: str
+    method_normalized: str
+    blocks: tuple[Stage0Element, ...]
+    context_chars: int
+    oversize: bool = False
+
+
+@dataclass
+class Stage5ShardResult:
+    shard: Stage5Shard
+    status: str
+    characterizations: list[Characterization]
+    properties: list[Stage5PropertyObservation]
+    warnings: list[dict[str, Any]]
+    audit: dict[str, Any]
+    model: str | None = None
 
 
 class Stage5Error(RuntimeError):
@@ -124,6 +150,34 @@ class _FailureReplayClient:
             raise Stage5Error("failure 响应只允许离线回放一次")
         self.calls += 1
         self.call_history.append(self.record)
+        return self.response
+
+
+class _ShardReplayClient:
+    """从已验证 cache key 的 shard raw response 离线回放。"""
+
+    def __init__(
+        self,
+        resolved: Any,
+        response: LLMJSONResponse,
+        raw_response: LLMRawResponse,
+    ) -> None:
+        self.resolved = resolved
+        self.response = response
+        self.last_raw_response = raw_response
+        self.call_history: list[LLMCallRecord] = []
+        self.calls = 0
+
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        if self.calls:
+            raise Stage5Error("shard cache 响应只允许离线回放一次")
+        self.calls += 1
         return self.response
 
 
@@ -313,6 +367,7 @@ def select_context_blocks(
     *,
     input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
     max_input_chars: int = 90000,
+    allow_oversize: bool = False,
 ) -> tuple[list[Stage0Element], list[dict[str, Any]], int]:
     if max_input_chars < 2000:
         raise ValueError("max_input_chars 不得小于 2000")
@@ -350,12 +405,21 @@ def select_context_blocks(
     context_chars = sum(
         len(_element_source_text(element)) + 220 for element in blocks
     )
-    if context_chars > max_input_chars:
+    if context_chars > max_input_chars and not allow_oversize:
         raise Stage5Error(
             f"{document.document_id} Stage 5 上下文 {context_chars} 字符，"
             f"超过 max_input_chars={max_input_chars}"
         )
     warnings: list[dict[str, Any]] = []
+    if context_chars > max_input_chars:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "stage5_context_will_be_sharded",
+            "message": (
+                f"Stage 5 上下文 {context_chars} 字符超过整篇上限 "
+                f"{max_input_chars}，将按表征方法分片"
+            ),
+        })
     if not section_ids and (entities.polymer_entities or process.samples):
         warnings.append({
             "stage": STAGE_ID,
@@ -365,6 +429,89 @@ def select_context_blocks(
             ),
         })
     return blocks, warnings, context_chars
+
+
+def _block_chars(block: Stage0Element) -> int:
+    return len(_element_source_text(block)) + 220
+
+
+def _method_slug(method: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", method.casefold()).strip("_")
+    return slug or "method"
+
+
+def plan_shards(
+    blocks: list[Stage0Element],
+    methods: MethodVocabulary,
+    *,
+    target_chars: int = 18000,
+    max_chars: int = 30000,
+) -> tuple[list[Stage5Shard], list[str]]:
+    """按表征方法生成可复现分片；无方法证据的 block 显式返回。"""
+    if target_chars < 2000:
+        raise ValueError("shard_target_chars 不得小于 2000")
+    if max_chars < target_chars:
+        raise ValueError("shard_max_chars 不得小于 shard_target_chars")
+
+    method_indices: dict[str, set[int]] = {name: set() for name in methods}
+    explicitly_routed: set[int] = set()
+    for index, block in enumerate(blocks):
+        matched = _method_names_for_raw(_element_source_text(block), methods)
+        for method in matched:
+            method_indices[method].add(index)
+            explicitly_routed.add(index)
+
+    # 同一方法标题/仪器描述附近的结果段通常不重复写方法名。只扩一格，
+    # 并要求 section 相同，避免把整篇 Results 都复制到每个 shard。
+    for indices in method_indices.values():
+        explicit = sorted(indices)
+        for index in explicit:
+            for neighbor in (index - 1, index + 1):
+                if (
+                    0 <= neighbor < len(blocks)
+                    and blocks[neighbor].section == blocks[index].section
+                    and neighbor not in explicitly_routed
+                ):
+                    indices.add(neighbor)
+
+    shards: list[Stage5Shard] = []
+    for method in methods:
+        routed = [blocks[index] for index in sorted(method_indices[method])]
+        if not routed:
+            continue
+        chunks: list[list[Stage0Element]] = []
+        current: list[Stage0Element] = []
+        current_chars = 0
+        for block in routed:
+            size = _block_chars(block)
+            if current and current_chars + size > max_chars:
+                chunks.append(current)
+                current = []
+                current_chars = 0
+            current.append(block)
+            current_chars += size
+            if current_chars >= target_chars:
+                chunks.append(current)
+                current = []
+                current_chars = 0
+        if current:
+            chunks.append(current)
+        for index, chunk in enumerate(chunks, start=1):
+            context_chars = sum(_block_chars(block) for block in chunk)
+            shards.append(Stage5Shard(
+                shard_id=f"{_method_slug(method)}_{index:03d}",
+                method_normalized=method,
+                blocks=tuple(chunk),
+                context_chars=context_chars,
+                oversize=context_chars > max_chars,
+            ))
+
+    unrouted = [
+        block.block_id
+        for index, block in enumerate(blocks)
+        if index not in explicitly_routed
+    ]
+    return shards, unrouted
 
 
 def _user_message(
@@ -1013,6 +1160,149 @@ def _validate_response(
     })
 
 
+def _apply_stage5_compatibility_repairs(
+    payload: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    repaired = copy.deepcopy(payload)
+    warnings: list[dict[str, Any]] = []
+
+    alias_paths: list[str] = []
+
+    def normalize_evidence_alias(value: Any, path: str) -> None:
+        if isinstance(value, dict):
+            if (
+                isinstance(value.get("block_id"), str)
+                and "source_text" in value
+                and "source_sentence" not in value
+            ):
+                value["source_sentence"] = value.pop("source_text")
+                alias_paths.append(path or "$")
+            for key, child in list(value.items()):
+                normalize_evidence_alias(child, f"{path}.{key}" if path else key)
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                normalize_evidence_alias(child, f"{path}[{index}]")
+
+    normalize_evidence_alias(repaired, "")
+    if alias_paths:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "source_text_alias_normalized",
+            "message": "evidence.source_text 已确定性改名为 source_sentence",
+            "field_paths": alias_paths,
+        })
+
+    singleton_paths: list[str] = []
+    characterizations = repaired.get("characterizations")
+    if isinstance(characterizations, list):
+        for index, item in enumerate(characterizations):
+            if not isinstance(item, dict):
+                continue
+            series_ids = item.get("series_ids")
+            if (
+                isinstance(series_ids, list)
+                and len(series_ids) == 1
+                and not item.get("series_id")
+            ):
+                item["series_id"] = series_ids[0]
+                item.pop("series_ids", None)
+                singleton_paths.append(f"characterizations[{index}]")
+    if singleton_paths:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "singleton_series_ids_normalized",
+            "message": "单元素 series_ids 已确定性迁移为 series_id",
+            "field_paths": singleton_paths,
+        })
+    return repaired, warnings
+
+
+def _salvage_candidate_response_payload(
+    payload: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """逐对象保留 Schema 合法候选，并重建 Stage 5 反向引用。"""
+    rejected: list[dict[str, Any]] = []
+    kept_characterizations: list[dict[str, Any]] = []
+    seen_characterization_ids: set[str] = set()
+    for index, raw in enumerate(payload.get("characterizations") or []):
+        try:
+            item = CharacterizationCandidate.model_validate(raw)
+        except (ValidationError, ValueError) as exc:
+            rejected.append({
+                "collection": "characterizations",
+                "index": index,
+                "object_id": raw.get("characterization_id") if isinstance(raw, dict) else None,
+                "reason": _validation_feedback(exc),
+            })
+            continue
+        if item.characterization_id in seen_characterization_ids:
+            rejected.append({
+                "collection": "characterizations",
+                "index": index,
+                "object_id": item.characterization_id,
+                "reason": "duplicate characterization_id",
+            })
+            continue
+        seen_characterization_ids.add(item.characterization_id)
+        kept_characterizations.append(item.model_dump(mode="json", exclude_none=True))
+
+    kept_properties: list[dict[str, Any]] = []
+    seen_property_ids: set[str] = set()
+    for index, raw in enumerate(payload.get("properties") or []):
+        try:
+            item = Stage5PropertyCandidate.model_validate(raw)
+        except (ValidationError, ValueError) as exc:
+            rejected.append({
+                "collection": "properties",
+                "index": index,
+                "object_id": raw.get("property_id") if isinstance(raw, dict) else None,
+                "reason": _validation_feedback(exc),
+            })
+            continue
+        if item.characterization_id not in seen_characterization_ids:
+            rejected.append({
+                "collection": "properties",
+                "index": index,
+                "object_id": item.property_id,
+                "reason": "unknown or rejected characterization_id",
+            })
+            continue
+        if item.property_id in seen_property_ids:
+            rejected.append({
+                "collection": "properties",
+                "index": index,
+                "object_id": item.property_id,
+                "reason": "duplicate property_id",
+            })
+            continue
+        seen_property_ids.add(item.property_id)
+        kept_properties.append(item.model_dump(mode="json", exclude_none=True))
+
+    property_owners = {
+        item["property_id"]: item["characterization_id"]
+        for item in kept_properties
+    }
+    for item in kept_characterizations:
+        existing = [
+            ref
+            for ref in item.get("derived_property_ids") or []
+            if not str(ref).startswith("prop_s5_")
+        ]
+        existing.extend(
+            property_id
+            for property_id, owner_id in property_owners.items()
+            if owner_id == item["characterization_id"]
+        )
+        item["derived_property_ids"] = list(dict.fromkeys(existing))
+
+    salvaged = {
+        "characterizations": kept_characterizations,
+        "properties": kept_properties,
+    }
+    CharacterizationStageResponse.model_validate(salvaged)
+    return salvaged, rejected
+
+
 def _repair_candidate_response_payload(
     payload: dict[str, Any],
     stage4: Stage4Document | None = None,
@@ -1023,8 +1313,11 @@ def _repair_candidate_response_payload(
     preview_relaxed: bool = False,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """将已知 Series 从性质引用字段迁移到专用关系字段。"""
-    repaired, dropped_confidence_fields = compact_confidence_payload(payload)
-    warnings: list[dict[str, Any]] = []
+    compatible, compatibility_warnings = _apply_stage5_compatibility_repairs(
+        payload
+    )
+    repaired, dropped_confidence_fields = compact_confidence_payload(compatible)
+    warnings: list[dict[str, Any]] = list(compatibility_warnings)
     if dropped_confidence_fields:
         warnings.append({
             "stage": STAGE_ID,
@@ -2191,6 +2484,551 @@ def _materialize(
     return characterizations, properties
 
 
+def _json_safe(value: Any) -> Any:
+    if isinstance(value, Decimal):
+        return str(value)
+    if isinstance(value, dict):
+        return {str(key): _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe(item) for item in value]
+    return value
+
+
+def _response_audit_payload(
+    client: Any,
+    response: LLMJSONResponse | None,
+) -> dict[str, Any] | None:
+    raw = getattr(client, "last_raw_response", None)
+    if raw is not None:
+        return _json_safe({
+            "provider": raw.provider,
+            "model": raw.model,
+            "finish_reason": raw.finish_reason,
+            "content": raw.content,
+            "usage": vars(raw.usage),
+            "cost": vars(raw.cost) if raw.cost is not None else None,
+        })
+    if response is None:
+        return None
+    parsed = response.parsed_json
+    return _json_safe({
+        "provider": response.provider,
+        "model": response.model,
+        "finish_reason": None,
+        "content": json.dumps(response.data, ensure_ascii=False),
+        "usage": vars(response.usage),
+        "cost": vars(response.cost) if response.cost is not None else None,
+        "parse_source": parsed.parse_source if parsed is not None else None,
+        "parse_warnings": list(parsed.warnings) if parsed is not None else [],
+        "prefix_text": parsed.prefix_text if parsed is not None else "",
+        "trailing_text": parsed.trailing_text if parsed is not None else "",
+    })
+
+
+def _materialize_shard_with_salvage(
+    parsed: CharacterizationStageResponse,
+    blocks: list[Stage0Element],
+) -> tuple[
+    list[Characterization],
+    list[Stage5PropertyObservation],
+    list[dict[str, Any]],
+]:
+    materialized_characterizations: list[Characterization] = []
+    materialized_properties: list[Stage5PropertyObservation] = []
+    rejected: list[dict[str, Any]] = []
+
+    for candidate in parsed.characterizations:
+        owned = [
+            item
+            for item in parsed.properties
+            if item.characterization_id == candidate.characterization_id
+        ]
+        try:
+            group = CharacterizationStageResponse(
+                characterizations=[candidate],
+                properties=owned,
+            )
+            group_characterizations, group_properties = _materialize(
+                group, blocks
+            )
+        except (KeyError, ValidationError, ValueError) as group_error:
+            non_stage5_refs = [
+                item
+                for item in candidate.derived_property_ids
+                if not item.startswith("prop_s5_")
+            ]
+            base_candidate = candidate.model_copy(update={
+                "derived_property_ids": non_stage5_refs,
+            })
+            try:
+                base_group = CharacterizationStageResponse(
+                    characterizations=[base_candidate],
+                    properties=[],
+                )
+                group_characterizations, _ = _materialize(base_group, blocks)
+            except (KeyError, ValidationError, ValueError) as exc:
+                rejected.append({
+                    "collection": "characterizations",
+                    "object_id": candidate.characterization_id,
+                    "reason": _validation_feedback(exc),
+                    "group_reason": _validation_feedback(group_error),
+                })
+                continue
+            group_properties = []
+            for property_candidate in owned:
+                single_candidate = base_candidate.model_copy(update={
+                    "derived_property_ids": [
+                        *non_stage5_refs,
+                        property_candidate.property_id,
+                    ],
+                })
+                try:
+                    single_group = CharacterizationStageResponse(
+                        characterizations=[single_candidate],
+                        properties=[property_candidate],
+                    )
+                    _, single_properties = _materialize(single_group, blocks)
+                    group_properties.extend(single_properties)
+                except (KeyError, ValidationError, ValueError) as exc:
+                    rejected.append({
+                        "collection": "properties",
+                        "object_id": property_candidate.property_id,
+                        "reason": _validation_feedback(exc),
+                    })
+
+        new_characterization_id = (
+            f"char{len(materialized_characterizations) + 1:03d}"
+        )
+        property_id_map: dict[str, str] = {}
+        for item in group_properties:
+            new_property_id = f"prop_s5_{len(materialized_properties) + 1:03d}"
+            property_id_map[item.property_id] = new_property_id
+            materialized_properties.append(item.model_copy(update={
+                "property_id": new_property_id,
+                "characterization_id": new_characterization_id,
+            }))
+        materialized_characterizations.append(
+            group_characterizations[0].model_copy(update={
+                "characterization_id": new_characterization_id,
+                "derived_property_ids": [
+                    property_id_map.get(item, item)
+                    for item in group_characterizations[0].derived_property_ids
+                    if not item.startswith("prop_s5_") or item in property_id_map
+                ],
+            })
+        )
+    return materialized_characterizations, materialized_properties, rejected
+
+
+def _stage5_shard_cache_key(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    client: Any,
+    prompt: RenderedPrompt,
+    vocabulary_sha256: str,
+    shard: Stage5Shard,
+    *,
+    implementation_version: str = IMPLEMENTATION_VERSION,
+) -> str:
+    return _sha256_json({
+        "document_id": document.document_id,
+        "entities": entities.model_dump(mode="json"),
+        "process": process.model_dump(mode="json"),
+        "stage4": stage4.model_dump(mode="json"),
+        "shard_id": shard.shard_id,
+        "method_normalized": shard.method_normalized,
+        "blocks": [block.model_dump(mode="json") for block in shard.blocks],
+        "prompt_id": prompt.prompt_id,
+        "prompt_version": prompt.version,
+        "prompt_sha256": prompt.sha256,
+        "vocabulary_sha256": vocabulary_sha256,
+        "model_config": llm_config_cache_payload(client.resolved),
+        "implementation_version": implementation_version,
+    })
+
+
+def _cached_shard_result(
+    shard: Stage5Shard,
+    cached: dict[str, Any] | None,
+    cache_keys: set[str],
+) -> Stage5ShardResult | None:
+    if not isinstance(cached, dict) or cached.get("cache_key") not in cache_keys:
+        return None
+    if cached.get("status") not in {"complete", "candidate_partial"}:
+        return None
+    output = cached.get("result")
+    if not isinstance(output, dict):
+        return None
+    try:
+        characterizations = [
+            Characterization.model_validate(item)
+            for item in output.get("characterizations") or []
+        ]
+        properties = [
+            Stage5PropertyObservation.model_validate(item)
+            for item in output.get("properties") or []
+        ]
+    except (ValidationError, ValueError, TypeError):
+        return None
+    warnings = list(cached.get("warnings") or [])
+    status = str(cached["status"])
+    if any(
+        isinstance(item, dict)
+        and item.get("code") == "preview_shard_semantic_validation_bypassed"
+        for item in warnings
+    ):
+        status = "candidate_partial"
+    audit = copy.deepcopy(cached)
+    audit["status"] = status
+    if audit.get("attempts"):
+        audit["attempts"][-1]["status"] = status
+    audit["cache_hit"] = True
+    return Stage5ShardResult(
+        shard=shard,
+        status=status,
+        characterizations=characterizations,
+        properties=properties,
+        warnings=warnings,
+        audit=audit,
+        model=str(cached.get("model") or "") or None,
+    )
+
+
+def _cached_shard_replay_client(
+    client: Any,
+    cached: dict[str, Any] | None,
+    cache_keys: set[str],
+    *,
+    allow_legacy_without_cache_key: bool = False,
+) -> _ShardReplayClient | None:
+    if not isinstance(cached, dict):
+        return None
+    cache_key_matches = cached.get("cache_key") in cache_keys
+    if not cache_key_matches and not (
+        allow_legacy_without_cache_key and "cache_key" not in cached
+    ):
+        return None
+    attempts = cached.get("attempts")
+    if not isinstance(attempts, list) or not attempts:
+        return None
+    raw = attempts[-1].get("raw_response")
+    if not isinstance(raw, dict) or not isinstance(raw.get("content"), str):
+        return None
+    try:
+        parsed = parse_json_response(raw["content"])
+    except LLMRequestError:
+        return None
+    usage_data = raw.get("usage") if isinstance(raw.get("usage"), dict) else {}
+    usage = LLMTokenUsage(
+        input_tokens=int(usage_data.get("input_tokens") or 0),
+        output_tokens=int(usage_data.get("output_tokens") or 0),
+        cache_creation_input_tokens=int(
+            usage_data.get("cache_creation_input_tokens") or 0
+        ),
+        cache_read_input_tokens=int(
+            usage_data.get("cache_read_input_tokens") or 0
+        ),
+    )
+    provider = str(raw.get("provider") or client.resolved.provider)
+    model = str(raw.get("model") or client.resolved.model)
+    response = LLMJSONResponse(
+        data=parsed.data,
+        provider=provider,
+        model=model,
+        usage=usage,
+        parsed_json=parsed,
+    )
+    raw_response = LLMRawResponse(
+        provider=provider,
+        model=model,
+        finish_reason=(
+            str(raw["finish_reason"])
+            if raw.get("finish_reason") is not None
+            else None
+        ),
+        content=raw["content"],
+        usage=usage,
+        cost=None,
+    )
+    return _ShardReplayClient(client.resolved, response, raw_response)
+
+
+def _legacy_shard_entry_matches(
+    shard: Stage5Shard,
+    cached: dict[str, Any] | None,
+) -> bool:
+    if not isinstance(cached, dict) or "cache_key" in cached:
+        return False
+    return (
+        cached.get("shard_id") == shard.shard_id
+        and cached.get("method_normalized") == shard.method_normalized
+        and cached.get("block_ids")
+        == [block.block_id for block in shard.blocks]
+        and cached.get("context_chars") == shard.context_chars
+        and bool(cached.get("oversize")) == shard.oversize
+    )
+
+
+def extract_shard(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    client: Any,
+    prompt: RenderedPrompt,
+    methods: MethodVocabulary,
+    vocabulary: Stage5PropertyVocabulary,
+    shard: Stage5Shard,
+    *,
+    max_validation_retries: int,
+    max_tokens: int,
+) -> Stage5ShardResult:
+    shard_methods = {shard.method_normalized: methods[shard.method_normalized]}
+    shard_vocabulary = {
+        name: entry
+        for name, entry in vocabulary.items()
+        if shard.method_normalized in entry[1]
+    }
+    audit: dict[str, Any] = {
+        "shard_id": shard.shard_id,
+        "method_normalized": shard.method_normalized,
+        "block_ids": [block.block_id for block in shard.blocks],
+        "context_chars": shard.context_chars,
+        "oversize": shard.oversize,
+        "attempts": [],
+    }
+    feedback: str | None = None
+    warnings: list[dict[str, Any]] = []
+    last_error: Exception | None = None
+
+    for attempt in range(max_validation_retries + 1):
+        response: LLMJSONResponse | None = None
+        previous_raw = getattr(client, "last_raw_response", None)
+        attempt_audit: dict[str, Any] = {"attempt": attempt + 1}
+        try:
+            response = client.call_json(
+                prompt.text,
+                _user_message(
+                    document.document_id,
+                    entities,
+                    process,
+                    stage4,
+                    list(shard.blocks),
+                    shard_methods,
+                    shard_vocabulary,
+                    feedback,
+                ),
+                max_tokens=max_tokens,
+            )
+            repaired, repair_warnings = _repair_candidate_response_payload(
+                response.data,
+                stage4,
+                process,
+                list(shard.blocks),
+                shard_methods,
+                preview_relaxed=True,
+            )
+            warnings.extend(repair_warnings)
+            rejected: list[dict[str, Any]] = []
+            semantic_bypass_reason: str | None = None
+            try:
+                parsed = _validate_response(
+                    LLMJSONResponse(
+                        data=repaired,
+                        provider=response.provider,
+                        model=response.model,
+                        usage=response.usage,
+                        cost=response.cost,
+                    ),
+                    entities,
+                    process,
+                    stage4,
+                    list(shard.blocks),
+                    shard_methods,
+                    shard_vocabulary,
+                    preview_scope_warnings=[],
+                )
+            except ValidationError:
+                salvaged, rejected = _salvage_candidate_response_payload(repaired)
+                try:
+                    parsed = _validate_response(
+                        LLMJSONResponse(
+                            data=salvaged,
+                            provider=response.provider,
+                            model=response.model,
+                            usage=response.usage,
+                            cost=response.cost,
+                        ),
+                        entities,
+                        process,
+                        stage4,
+                        list(shard.blocks),
+                        shard_methods,
+                        shard_vocabulary,
+                        preview_scope_warnings=[],
+                    )
+                except ValueError as exc:
+                    parsed = CharacterizationStageResponse.model_validate(salvaged)
+                    semantic_bypass_reason = _validation_feedback(exc)
+            except ValueError as exc:
+                parsed = CharacterizationStageResponse.model_validate(repaired)
+                semantic_bypass_reason = _validation_feedback(exc)
+
+            characterizations, properties, materialize_rejected = (
+                _materialize_shard_with_salvage(parsed, list(shard.blocks))
+            )
+            rejected.extend(materialize_rejected)
+            if semantic_bypass_reason is not None:
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_shard_semantic_validation_bypassed",
+                    "message": "分片候选通过 Schema，但语义校验需人工复核",
+                    "shard_id": shard.shard_id,
+                    "reason": semantic_bypass_reason,
+                })
+            if rejected:
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_shard_objects_rejected",
+                    "message": "分片内非法对象已隔离，合法对象继续保留",
+                    "shard_id": shard.shard_id,
+                    "items": rejected,
+                })
+            is_partial = bool(rejected or semantic_bypass_reason)
+            attempt_audit.update({
+                "status": "candidate_partial" if is_partial else "complete",
+                "raw_response": _response_audit_payload(client, response),
+                "rejected_objects": rejected,
+                "characterization_count": len(characterizations),
+                "property_count": len(properties),
+                "rejected_count": len(rejected),
+            })
+            audit["attempts"].append(attempt_audit)
+            status = "candidate_partial" if is_partial else "complete"
+            audit["status"] = status
+            return Stage5ShardResult(
+                shard=shard,
+                status=status,
+                characterizations=characterizations,
+                properties=properties,
+                warnings=warnings,
+                audit=audit,
+                model=response.model,
+            )
+        except (LLMRequestError, ValidationError, ValueError) as exc:
+            last_error = exc
+            feedback = _validation_feedback(exc)
+            current_raw = getattr(client, "last_raw_response", None)
+            attempt_audit.update({
+                "status": "failed",
+                "error_type": type(exc).__name__,
+                "error": feedback,
+                "raw_response": (
+                    _response_audit_payload(client, response)
+                    if current_raw is not previous_raw or response is not None
+                    else None
+                ),
+            })
+            audit["attempts"].append(attempt_audit)
+            if attempt >= max_validation_retries:
+                break
+
+    audit["status"] = "failed"
+    audit["error"] = _validation_feedback(last_error or ValueError("empty"))
+    return Stage5ShardResult(
+        shard=shard,
+        status="failed",
+        characterizations=[],
+        properties=[],
+        warnings=warnings,
+        audit=audit,
+        model=(
+            getattr(getattr(client, "last_raw_response", None), "model", None)
+        ),
+    )
+
+
+def _characterization_merge_key(item: Characterization) -> tuple[Any, ...]:
+    return (
+        item.method_normalized,
+        item.sample_id,
+        item.entity_id,
+        tuple(item.sample_ids or []),
+        tuple(item.entity_ids or []),
+        item.series_id,
+        tuple(item.series_ids or []),
+        tuple((ev.block_id, ev.source_sentence) for ev in item.evidence),
+    )
+
+
+def _property_merge_key(item: Stage5PropertyObservation) -> tuple[Any, ...]:
+    return (
+        item.sample_id,
+        item.entity_id,
+        tuple(item.sample_ids or []),
+        tuple(item.entity_ids or []),
+        item.property_name_normalized,
+        item.value_raw,
+        item.unit_normalized or item.unit_raw,
+        tuple((ev.block_id, ev.source_sentence) for ev in item.evidence),
+    )
+
+
+def merge_shards(
+    results: list[Stage5ShardResult],
+) -> tuple[list[Characterization], list[Stage5PropertyObservation]]:
+    characterizations: list[Characterization] = []
+    properties: list[Stage5PropertyObservation] = []
+    characterization_index: dict[tuple[Any, ...], int] = {}
+    property_keys: set[tuple[Any, ...]] = set()
+
+    for result in results:
+        properties_by_owner: dict[str, list[Stage5PropertyObservation]] = {}
+        for item in result.properties:
+            properties_by_owner.setdefault(item.characterization_id, []).append(item)
+        for item in result.characterizations:
+            key = _characterization_merge_key(item)
+            existing_index = characterization_index.get(key)
+            if existing_index is None:
+                new_id = f"char{len(characterizations) + 1:03d}"
+                non_stage5_refs = [
+                    ref
+                    for ref in item.derived_property_ids
+                    if not ref.startswith("prop_s5_")
+                ]
+                characterizations.append(item.model_copy(update={
+                    "characterization_id": new_id,
+                    "derived_property_ids": non_stage5_refs,
+                }))
+                existing_index = len(characterizations) - 1
+                characterization_index[key] = existing_index
+            owner = characterizations[existing_index]
+            new_property_ids: list[str] = []
+            for property_item in properties_by_owner.get(
+                item.characterization_id, []
+            ):
+                property_key = _property_merge_key(property_item)
+                if property_key in property_keys:
+                    continue
+                property_keys.add(property_key)
+                new_property_id = f"prop_s5_{len(properties) + 1:03d}"
+                properties.append(property_item.model_copy(update={
+                    "property_id": new_property_id,
+                    "characterization_id": owner.characterization_id,
+                }))
+                new_property_ids.append(new_property_id)
+            if new_property_ids:
+                characterizations[existing_index] = owner.model_copy(update={
+                    "derived_property_ids": list(dict.fromkeys([
+                        *owner.derived_property_ids,
+                        *new_property_ids,
+                    ])),
+                })
+    return characterizations, properties
+
+
 def _cache_components(
     document: Stage0Document,
     entities: Stage2Document,
@@ -2202,6 +3040,9 @@ def _cache_components(
     *,
     implementation_version: str = IMPLEMENTATION_VERSION,
     preview_relaxed: bool = False,
+    sharded: bool = False,
+    shard_target_chars: int = 18000,
+    shard_max_chars: int = 30000,
 ) -> tuple[str, str, str]:
     input_hash = _sha256_json({
         "stage0": document.model_dump(mode="json"),
@@ -2222,6 +3063,9 @@ def _cache_components(
         "output_schema_version": OUTPUT_SCHEMA_VERSION,
         "implementation_version": implementation_version,
         "preview_relaxed": preview_relaxed,
+        "sharded": sharded,
+        "shard_target_chars": shard_target_chars if sharded else None,
+        "shard_max_chars": shard_max_chars if sharded else None,
     })
     return input_hash, model_config_hash, cache_key
 
@@ -2242,6 +3086,13 @@ def extract_characterizations(
     max_validation_retries: int = 1,
     max_tokens: int = 16384,
     preview_relaxed: bool = False,
+    sharded: bool = False,
+    shard_target_chars: int = 18000,
+    shard_max_chars: int = 30000,
+    diagnostic_sink: dict[str, Any] | None = None,
+    shard_cache: dict[str, dict[str, Any]] | None = None,
+    diagnostic_writer: Callable[[dict[str, Any]], None] | None = None,
+    allow_legacy_shard_replay: bool = False,
 ) -> Stage5Document:
     history_start = len(getattr(client, "call_history", []))
     if not (
@@ -2260,7 +3111,198 @@ def extract_characterizations(
         stage4,
         input_sections=input_sections,
         max_input_chars=max_input_chars,
+        allow_oversize=sharded,
     )
+    if sharded:
+        shards, unrouted_block_ids = plan_shards(
+            blocks,
+            methods,
+            target_chars=shard_target_chars,
+            max_chars=shard_max_chars,
+        )
+        if diagnostic_sink is not None:
+            diagnostic_sink.update({
+                "schema_version": "stage5_shards.v0.2",
+                "document_id": document.document_id,
+                "status": "running",
+                "shard_count": len(shards),
+                "unrouted_block_ids": unrouted_block_ids,
+                "shards": [],
+            })
+            if diagnostic_writer is not None:
+                diagnostic_writer(diagnostic_sink)
+        results: list[Stage5ShardResult] = []
+        if entities.polymer_entities:
+            for shard in shards:
+                shard_key = _stage5_shard_cache_key(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    client,
+                    prompt,
+                    vocabulary_sha256,
+                    shard,
+                )
+                compatible_shard_key = _stage5_shard_cache_key(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    client,
+                    prompt,
+                    vocabulary_sha256,
+                    shard,
+                    implementation_version="1.8.0",
+                )
+                cache_keys = {shard_key, compatible_shard_key}
+                cached_entry = (shard_cache or {}).get(shard.shard_id)
+                result = _cached_shard_result(
+                    shard,
+                    cached_entry,
+                    cache_keys,
+                )
+                if result is None:
+                    replay_client = _cached_shard_replay_client(
+                        client,
+                        cached_entry,
+                        cache_keys,
+                        allow_legacy_without_cache_key=(
+                            allow_legacy_shard_replay
+                            and _legacy_shard_entry_matches(shard, cached_entry)
+                        ),
+                    )
+                    result = extract_shard(
+                        document,
+                        entities,
+                        process,
+                        stage4,
+                        replay_client or client,
+                        prompt,
+                        methods,
+                        vocabulary,
+                        shard,
+                        max_validation_retries=(
+                            0
+                            if replay_client is not None
+                            else max_validation_retries
+                        ),
+                        max_tokens=max_tokens,
+                    )
+                    if replay_client is not None:
+                        result.warnings.append({
+                            "stage": STAGE_ID,
+                            "code": "stage5_shard_response_replayed",
+                            "message": "已使用旧分片 raw response 离线重放当前校验",
+                            "shard_id": shard.shard_id,
+                        })
+                    result.audit.update({
+                        "cache_key": shard_key,
+                        "cache_hit": replay_client is not None,
+                        "raw_replayed": replay_client is not None,
+                        "model": result.model,
+                        "warnings": result.warnings,
+                        "result": {
+                            "characterizations": [
+                                item.model_dump(mode="json", exclude_none=True)
+                                for item in result.characterizations
+                            ],
+                            "properties": [
+                                item.model_dump(mode="json", exclude_none=True)
+                                for item in result.properties
+                            ],
+                        },
+                    })
+                else:
+                    result.audit["cache_key"] = shard_key
+                results.append(result)
+                if diagnostic_sink is not None:
+                    diagnostic_sink["shards"].append(result.audit)
+                    if diagnostic_writer is not None:
+                        diagnostic_writer(diagnostic_sink)
+        characterizations, properties = merge_shards(results)
+        for result in results:
+            warnings.extend(result.warnings)
+        partial_shards = [
+            result.shard.shard_id
+            for result in results
+            if result.status != "complete"
+        ]
+        if not shards:
+            status = "complete_no_evidence"
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_no_eligible_evidence",
+                "message": "未识别到受控表征方法证据，未调用模型",
+            })
+        elif partial_shards:
+            status = "candidate_partial"
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_shards_partial",
+                "message": "部分 Stage 5 分片失败或含被隔离对象",
+                "blocking": True,
+                "shard_ids": partial_shards,
+            })
+        else:
+            status = "success"
+        actual_models = list(dict.fromkeys(
+            result.model for result in results if result.model
+        ))
+        if not actual_models:
+            actual_models = [client.resolved.model]
+        call_count = max(
+            0,
+            len(getattr(client, "call_history", [])) - history_start,
+        )
+        usage, cost = summarize_client_calls(
+            client,
+            history_start,
+            call_count=call_count,
+        )
+        input_hash, model_config_hash, cache_key = _cache_components(
+            document,
+            entities,
+            process,
+            stage4,
+            prompt,
+            vocabulary_sha256,
+            client,
+            preview_relaxed=preview_relaxed,
+            sharded=True,
+            shard_target_chars=shard_target_chars,
+            shard_max_chars=shard_max_chars,
+        )
+        if diagnostic_sink is not None:
+            diagnostic_sink["status"] = status
+            if diagnostic_writer is not None:
+                diagnostic_writer(diagnostic_sink)
+        return Stage5Document(
+            document_id=document.document_id,
+            characterizations=characterizations,
+            properties=properties,
+            provenance=Stage5Provenance(
+                provider=client.resolved.provider,
+                model=actual_models[-1],
+                models=actual_models,
+                prompt_id=prompt.prompt_id,
+                prompt_version=prompt.version,
+                prompt_sha256=prompt.sha256,
+                vocabulary_sha256=vocabulary_sha256,
+                input_hash=input_hash,
+                model_config_hash=model_config_hash,
+                cache_key=cache_key,
+                output_schema_version=OUTPUT_SCHEMA_VERSION,
+                implementation_version=IMPLEMENTATION_VERSION,
+                context_block_count=len(blocks),
+                context_chars=context_chars,
+                call_count=call_count,
+                usage=usage,
+                cost=cost,
+                status=status,
+            ),
+            warnings=warnings,
+        )
     actual_models: list[str] = []
     successful_repair_warnings: list[dict[str, Any]] = []
     preview_scope_warnings: list[dict[str, Any]] = []
@@ -2438,6 +3480,7 @@ def extract_characterizations(
         vocabulary_sha256,
         client,
         preview_relaxed=preview_relaxed,
+        sharded=False,
     )
     unique_models = list(dict.fromkeys(actual_models))
     if not unique_models:
@@ -2493,6 +3536,10 @@ def run_stage5(
     max_validation_retries: int = 1,
     max_tokens: int = 16384,
     preview_relaxed: bool = False,
+    sharded: bool = False,
+    shard_target_chars: int = 18000,
+    shard_max_chars: int = 30000,
+    diagnostics_path: Path | None = None,
 ) -> tuple[Path, bool]:
     document = load_stage0_document(stage0_path)
     entities = load_stage2_document(stage2_path)
@@ -2507,13 +3554,24 @@ def run_stage5(
         vocabulary_sha256,
         client,
         preview_relaxed=preview_relaxed,
+        sharded=sharded,
+        shard_target_chars=shard_target_chars,
+        shard_max_chars=shard_max_chars,
     )
+    resolved_diagnostics_path = diagnostics_path or output_path.with_name(
+        "stage5_shards.json"
+    )
+    legacy_shard_output_validated = False
     if output_path.is_file() and not force:
         try:
             cached = Stage5Document.model_validate_json(
                 output_path.read_text(encoding="utf-8-sig")
             )
-            if cached.provenance.cache_key == expected_cache_key:
+            if (
+                cached.provenance.cache_key == expected_cache_key
+                and cached.provenance.status != "candidate_partial"
+                and (not sharded or resolved_diagnostics_path.is_file())
+            ):
                 return output_path, True
             for compatible_version in COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS:
                 _, _, compatible_cache_key = _cache_components(
@@ -2526,15 +3584,68 @@ def run_stage5(
                     client,
                     implementation_version=compatible_version,
                     preview_relaxed=preview_relaxed,
+                    sharded=sharded,
+                    shard_target_chars=shard_target_chars,
+                    shard_max_chars=shard_max_chars,
                 )
                 if (
                     cached.provenance.implementation_version
                     == compatible_version
                     and cached.provenance.cache_key == compatible_cache_key
+                    and cached.provenance.status != "candidate_partial"
+                    and (not sharded or resolved_diagnostics_path.is_file())
                 ):
                     return output_path, True
+            if sharded and cached.provenance.implementation_version == "1.8.0":
+                _, _, legacy_cache_key = _cache_components(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    prompt,
+                    vocabulary_sha256,
+                    client,
+                    implementation_version="1.8.0",
+                    preview_relaxed=preview_relaxed,
+                    sharded=True,
+                    shard_target_chars=shard_target_chars,
+                    shard_max_chars=shard_max_chars,
+                )
+                legacy_shard_output_validated = (
+                    cached.provenance.cache_key == legacy_cache_key
+                    and cached.provenance.status
+                    in {"success", "candidate_partial"}
+                )
         except (OSError, ValidationError):
             pass
+
+    diagnostics: dict[str, Any] = {}
+    existing_shard_cache: dict[str, dict[str, Any]] = {}
+    allow_legacy_shard_replay = False
+    if sharded and resolved_diagnostics_path.is_file() and not force:
+        try:
+            existing_diagnostics = json.loads(
+                resolved_diagnostics_path.read_text(encoding="utf-8-sig")
+            )
+            if isinstance(existing_diagnostics, dict):
+                allow_legacy_shard_replay = (
+                    legacy_shard_output_validated
+                    and existing_diagnostics.get("schema_version")
+                    == "stage5_shards.v0.1"
+                    and existing_diagnostics.get("document_id")
+                    == document.document_id
+                )
+                existing_shard_cache = {
+                    str(item["shard_id"]): item
+                    for item in existing_diagnostics.get("shards") or []
+                    if isinstance(item, dict)
+                    and isinstance(item.get("shard_id"), str)
+                }
+        except (OSError, json.JSONDecodeError, TypeError):
+            existing_shard_cache = {}
+
+    def write_diagnostics(payload: dict[str, Any]) -> None:
+        write_json_atomic(resolved_diagnostics_path, payload)
 
     result = extract_characterizations(
         document,
@@ -2551,6 +3662,13 @@ def run_stage5(
         max_validation_retries=max_validation_retries,
         max_tokens=max_tokens,
         preview_relaxed=preview_relaxed,
+        sharded=sharded,
+        shard_target_chars=shard_target_chars,
+        shard_max_chars=shard_max_chars,
+        diagnostic_sink=diagnostics,
+        shard_cache=existing_shard_cache,
+        diagnostic_writer=write_diagnostics if sharded else None,
+        allow_legacy_shard_replay=allow_legacy_shard_replay,
     )
     write_json_atomic(
         output_path,
@@ -2577,6 +3695,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-root", type=Path)
     parser.add_argument("--vocabulary", type=Path)
     parser.add_argument("--max-input-chars", type=int)
+    parser.add_argument(
+        "--sharded",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="按表征方法分片；默认仅 Preview 按配置启用",
+    )
     parser.add_argument("--force", action="store_true")
     parser.add_argument(
         "--preview-relaxed",
@@ -2654,6 +3778,21 @@ def main() -> int:
         else int(stage_config.get("max_validation_retries", 1))
     )
     max_tokens = int(stage_config.get("max_tokens") or 16384)
+    sharded = (
+        bool(args.sharded)
+        if args.sharded is not None
+        else bool(
+            args.preview_relaxed
+            and stage_config.get("sharded_preview", False)
+        )
+    )
+    if args.replay_failure:
+        sharded = False
+    shard_target_chars = int(
+        stage_config.get("shard_target_chars") or 18000
+    )
+    shard_max_chars = int(stage_config.get("shard_max_chars") or 30000)
+    shard_max_tokens = int(stage_config.get("shard_max_tokens") or 12000)
 
     if args.ref_no:
         ref_nos = [args.ref_no]
@@ -2684,8 +3823,14 @@ def main() -> int:
                 input_sections=input_sections,
                 max_input_chars=max_input_chars,
                 max_validation_retries=max_validation_retries,
-                max_tokens=max_tokens,
+                max_tokens=shard_max_tokens if sharded else max_tokens,
                 preview_relaxed=args.preview_relaxed,
+                sharded=sharded,
+                shard_target_chars=shard_target_chars,
+                shard_max_chars=shard_max_chars,
+                diagnostics_path=(
+                    output_root / ref_no / "stage5_shards.json"
+                ),
             )
             state = "cached" if cached else "done"
             print(f"[{state}] {ref_no} -> {output_path}")

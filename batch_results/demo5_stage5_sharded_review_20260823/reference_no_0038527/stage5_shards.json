@@ -1,0 +1,1022 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0038527",
+  "status": "success",
+  "shard_count": 6,
+  "unrouted_block_ids": [
+    "P_1_21",
+    "P_1_22",
+    "P_1_23",
+    "P_1_25",
+    "P_2_29",
+    "P_2_31",
+    "I_2_32",
+    "P_2_33",
+    "P_2_36",
+    "P_2_38",
+    "T_3_44",
+    "P_3_50",
+    "P_4_60",
+    "P_4_61",
+    "P_4_62",
+    "I_5_68",
+    "T_5_69",
+    "I_5_70",
+    "P_5_71",
+    "P_5_72",
+    "P_5_73",
+    "P_5_75",
+    "P_5_76",
+    "P_5_77",
+    "E_5_78",
+    "P_5_79",
+    "I_6_83",
+    "I_6_84"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_2_36",
+        "P_2_37",
+        "P_2_38"
+      ],
+      "context_chars": 2433,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.8\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_2_37\",\n                    \"source_sentence\": \"These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD).\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\"\n            },\n            \"method_normalized\": \"FTIR\",\n            \"method_raw\": \"FT-IR spectroscopies\",\n            \"parameters\": {},\n            \"result_summary\": null,\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 12460,
+              "output_tokens": 2430,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": null
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "6ca8a8381da75c720382646e75bb5fb50eadd5cd448b45cc21ef0126c11516b9",
+      "cache_hit": true,
+      "raw_replayed": true,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unscoped_stage5_items_removed",
+          "message": "Preview 模式已移除无法唯一关联任何单/多主体的 Stage 5 表征及其派生性质；未猜测 entity_id",
+          "characterization_ids": [
+            "char001"
+          ],
+          "property_ids": []
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "stage5_shard_response_replayed",
+          "message": "已使用旧分片 raw response 离线重放当前校验",
+          "shard_id": "ftir_001"
+        }
+      ],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_1_23",
+        "P_1_24",
+        "P_1_25",
+        "P_2_33",
+        "P_2_34",
+        "P_2_36",
+        "P_2_37",
+        "P_2_38",
+        "P_2_40",
+        "T_3_44",
+        "I_3_45",
+        "P_3_47",
+        "I_3_48",
+        "P_3_50"
+      ],
+      "context_chars": 15941,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\",\n        \"prop_s5_005\",\n        \"prop_s5_006\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe004\",\n        \"pe005\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD).\"\n        },\n        {\n          \"block_id\": \"P_2_40\",\n          \"source_sentence\": \"As with homopolymers prepared from 3-alkylthiophenes, the regioselectivity of the polymerization process can be determined by <sup>1</sup>H NMR spectroscopy.\"\n        },\n        {\n          \"block_id\": \"P_3_47\",\n          \"source_sentence\": \"The difference in structure between regioregular Rg(Th-5,4/ 8) and regiorandom Rn(Th-5,4/8) is also evident in their $^{13}\\\\mathrm { C }$ NMR spectra (Figure 5).\"\n        },\n        {\n          \"block_id\": \"I_3_45\",\n          \"source_sentence\": \"Figure 4. <sup>1</sup>H NMR spectra of Rn(Th-5,4/8) and Rg(Th-5,4/8) in CDCl<sub>3</sub>.\"\n        },\n        {\n          \"block_id\": \"I_3_48\",\n          \"source_sentence\": \"Figure 5, $^{13}\\\\mathrm { C }$ NMR spectra of Rn(Th-5,4/8) and Rg(Th-5,4/8) in CDCl<sub>3</sub>.\"\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"NMR\",\n      \"parameters\": {},\n      \"result_summary\": \"用于测定聚合物的区域规整度，表征聚合物结构特征峰\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe005\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_40\",\n          \"source_sentence\": \"The signals at 2.79 and 2.55 ppm are assigned to the protons of the R-methylene units of the side chains in ht and hh diads, respectively.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"sample_id\": \"s003\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"protons of the R-methylene units of the side chains in ht diads\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 2.79,\n      \"value_min\": 2.79,\n      \"value_raw\": \"2.79\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe004\",\n        \"pe005\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_40\",\n          \"source_sentence\": \"The signals at 2.79 and 2.55 ppm are assigned to the protons of the R-methylene units of the side chains in ht and hh diads, respectively.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"protons of the R-methylene units of the side chains in hh diads\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 2.55,\n      \"value_min\": 2.55,\n      \"value_raw\": \"2.55\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe005\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_40\",\n          \"source_sentence\": \"In the aromatic region, Rg(Th-5,4/8) displays two sharp singlets with the same intensity at 6.94 and 6.96 ppm, corresponding to the protons on the two $\\\\beta \\\\mathrm { . }$substituted thiophene rings of the repeat unit.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"sample_id\": \"s003\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"protons on the two β-substituted thiophene rings of the repeat unit\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 6.94,\n      \"value_min\": 6.94,\n      \"value_raw\": \"6.94\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe005\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_40\",\n          \"source_sentence\": \"In the aromatic region, Rg(Th-5,4/8) displays two sharp singlets with the same intensity at 6.94 and 6.96 ppm, corresponding to the protons on the two $\\\\beta \\\\mathrm { . }$substituted thiophene rings of the repeat unit.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_004\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"sample_id\": \"s003\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"protons on the two β-substituted thiophene rings of the repeat unit\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 6.96,\n      \"value_min\": 6.96,\n      \"value_raw\": \"6.96\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe005\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_47\",\n          \"source_sentence\": \"In the region of 125-145 ppm, the regioregular analogue Rg(Th-5,4/8) reveals four pairs of sharp, closely spaced peaks which are assigned to the eight carbon atoms of the two dissimilarly substituted thiophene rings of the repeat unit.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_005\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"13C NMR chemical shift\",\n      \"sample_id\": \"s003\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"eight carbon atoms of the two dissimilarly substituted thiophene rings of the repeat unit\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 145,\n      \"value_min\": 125,\n      \"value_raw\": \"125-145\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe004\",\n        \"pe005\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_50\",\n          \"source_sentence\": \"The $^ { 1 3 } \\\\mathrm { C }$signals for the difluoromethylene units in the fluoroalkyl segment of the side chains appear at 110-125 ppm as an overlapping set of complex multiplets arising from strong $1 \\\\mathrm { - } , 2 \\\\mathrm { - }$, and 3-bond couplings between $\\\\mathrm { \\\\hat { 1 3 } C$and $\\\\^{ 1 9 } \\\\mathrm { \\\\overline { { F } } }$nuclei.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_006\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"13C NMR chemical shift\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"difluoromethylene units in the fluoroalkyl segment of the side chains\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 125,\n      \"value_min\": 110,\n      \"value_raw\": \"110-125\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 17095,
+              "output_tokens": 7547,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": null
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 6,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "2305b552e761e681cc0da05f960773abd67c6008e04329d23282367b9a461fe9",
+      "cache_hit": true,
+      "raw_replayed": true,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[4]",
+          "property_id": "prop_s5_005",
+          "fields": [
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[5]",
+          "property_id": "prop_s5_006",
+          "fields": [
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "stage5_shard_response_replayed",
+          "message": "已使用旧分片 raw response 离线重放当前校验",
+          "shard_id": "nmr_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "NMR",
+            "method_normalized": "NMR",
+            "sample_ids": [
+              "s002",
+              "s003"
+            ],
+            "entity_ids": [
+              "pe004",
+              "pe005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "用于测定聚合物的区域规整度，表征聚合物结构特征峰",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_37",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  242.0,
+                  933.0,
+                  404.0
+                ],
+                "source_type": "text",
+                "source_sentence": "These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD)."
+              },
+              {
+                "block_id": "P_2_40",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  879.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "As with homopolymers prepared from 3-alkylthiophenes, the regioselectivity of the polymerization process can be determined by <sup>1</sup>H NMR spectroscopy."
+              },
+              {
+                "block_id": "P_3_47",
+                "page": 3,
+                "bbox": [
+                  66.0,
+                  853.0,
+                  483.0,
+                  964.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The difference in structure between regioregular Rg(Th-5,4/ 8) and regiorandom Rn(Th-5,4/8) is also evident in their $^ { 1 3 } \\mathrm { C }$NMR spectra (Figure 5)."
+              },
+              {
+                "block_id": "I_3_45",
+                "page": 3,
+                "bbox": [
+                  88.0,
+                  340.0,
+                  463.0,
+                  514.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 4. <sup>1</sup>H NMR spectra of Rn(Th-5,4/8) and Rg(Th-5,4/8) in CDCl<sub>3</sub>."
+              },
+              {
+                "block_id": "I_3_48",
+                "page": 3,
+                "bbox": [
+                  526.0,
+                  342.0,
+                  921.0,
+                  514.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure $5 , ~ ^ { 1 3 } \\mathrm { C }$ NMR spectra of Rn(Th-5,4/8) and Rg(Th-5,4/8) in CDCl<sub>3</sub>."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2.79",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "2.79",
+            "value_min": 2.79,
+            "value_max": 2.79,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_40",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  879.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The signals at 2.79 and 2.55 ppm are assigned to the protons of the R-methylene units of the side chains in ht and hh diads, respectively."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s002",
+              "s003"
+            ],
+            "entity_ids": [
+              "pe004",
+              "pe005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "2.55",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "2.55",
+            "value_min": 2.55,
+            "value_max": 2.55,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_40",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  879.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The signals at 2.79 and 2.55 ppm are assigned to the protons of the R-methylene units of the side chains in ht and hh diads, respectively."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "6.94",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "6.94",
+            "value_min": 6.94,
+            "value_max": 6.94,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_40",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  879.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "In the aromatic region, Rg(Th-5,4/8) displays two sharp singlets with the same intensity at 6.94 and 6.96 ppm, corresponding to the protons on the two $\\beta \\mathrm { . }$substituted thiophene rings of the repeat unit."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "6.96",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "6.96",
+            "value_min": 6.96,
+            "value_max": 6.96,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_40",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  879.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "In the aromatic region, Rg(Th-5,4/8) displays two sharp singlets with the same intensity at 6.94 and 6.96 ppm, corresponding to the protons on the two $\\beta \\mathrm { . }$substituted thiophene rings of the repeat unit."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "125-145",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "125-145",
+            "value_min": 125.0,
+            "value_max": 145.0,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "spectral_assignment": "eight carbon atoms of the two dissimilarly substituted thiophene rings of the repeat unit",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_47",
+                "page": 3,
+                "bbox": [
+                  66.0,
+                  853.0,
+                  483.0,
+                  964.0
+                ],
+                "source_type": "text",
+                "source_sentence": "In the region of 125-145 ppm, the regioregular analogue Rg(Th-5,4/8) reveals four pairs of sharp, closely spaced peaks which are assigned to the eight carbon atoms of the two dissimilarly substituted thiophene rings of the repeat unit."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s002",
+              "s003"
+            ],
+            "entity_ids": [
+              "pe004",
+              "pe005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "110-125",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "110-125",
+            "value_min": 110.0,
+            "value_max": 125.0,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "spectral_assignment": "difluoromethylene units in the fluoroalkyl segment of the side chains",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_50",
+                "page": 3,
+                "bbox": [
+                  514.0,
+                  581.0,
+                  932.0,
+                  637.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The $^ { 1 3 } \\mathrm { C }$signals for the difluoromethylene units in the fluoroalkyl segment of the side chains appear at 110-125 ppm as an overlapping set of complex multiplets arising from strong $1 \\mathrm { - } , 2 \\mathrm { - }$, and 3-bond couplings between $\\mathrm { \\hat { 1 3 } C }$and $^ { 1 9 } \\mathrm { \\overline { { F } } }$nuclei."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_2_36",
+        "P_2_37",
+        "P_2_38",
+        "P_2_39"
+      ],
+      "context_chars": 4192,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"uprop001\",\n        \"uprop002\"\n      ],\n      \"entity_id\": \"pe003\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_2_39\",\n          \"source_sentence\": \"Gel permeation chromatography (GPC) showed the chloroformsoluble regioregular polymers have number-average molecular weights $( M _ { \\\\mathrm { n } } )$ranging from 19 800 to 47 900 (relative to polystyrene calibration standards), corresponding to degrees of polymerization (x) of 39-74 bithiophene repeating units $( \\\\mathrm { i . e . , }$$7 8 - 1 4 8$thiophene units) (Table 1).\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"GPC\",\n      \"method_raw\": \"gel permeation chromatography (GPC)\",\n      \"parameters\": {\n        \"calibration\": \"relative to polystyrene calibration standards\"\n      },\n      \"result_summary\": \"Chloroform-soluble regioregular polymers have Mₙ ranging from 19 800 to 47 900, corresponding to degrees of polymerization of 39-74 bithiophene repeating units.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 12856,
+              "output_tokens": 1637,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 2872
+            },
+            "cost": null
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "dbbc4eaaf7c3b75c458d48c3ee7eec2925b9ee0f95c44638bc56316eca797588",
+      "cache_hit": true,
+      "raw_replayed": true,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "stage5_shard_response_replayed",
+          "message": "已使用旧分片 raw response 离线重放当前校验",
+          "shard_id": "gpc_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "gel permeation chromatography (GPC)",
+            "method_normalized": "GPC",
+            "entity_id": "pe003",
+            "sample_resolution_status": "unresolved",
+            "parameters": {
+              "calibration": "relative to polystyrene calibration standards"
+            },
+            "result_summary": "Chloroform-soluble regioregular polymers have Mₙ ranging from 19 800 to 47 900, corresponding to degrees of polymerization of 39-74 bithiophene repeating units.",
+            "derived_property_ids": [
+              "uprop001",
+              "uprop002"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_37",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  242.0,
+                  933.0,
+                  404.0
+                ],
+                "source_type": "text",
+                "source_sentence": "These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD)."
+              },
+              {
+                "block_id": "P_2_39",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  554.0,
+                  933.0,
+                  879.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Gel permeation chromatography (GPC) showed the chloroformsoluble regioregular polymers have number-average molecular weights $( M _ { \\mathrm { n } } )$ranging from 19 800 to 47 900 (relative to polystyrene calibration standards), corresponding to degrees of polymerization (x) of 39-74 bithiophene repeating units $( \\mathrm { i . e . , }$$7 8 - 1 4 8$thiophene units) (Table 1)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_36",
+        "P_2_37",
+        "P_2_38",
+        "I_4_57",
+        "P_4_59",
+        "P_4_60"
+      ],
+      "context_chars": 4823,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop003\",\n        \"prop004\",\n        \"prop005\",\n        \"prop006\",\n        \"prop007\",\n        \"prop008\",\n        \"prop009\",\n        \"prop010\",\n        \"prop011\",\n        \"prop012\",\n        \"prop013\",\n        \"prop014\",\n        \"prop015\",\n        \"prop016\",\n        \"prop017\",\n        \"prop018\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_4_57\",\n          \"source_sentence\": \"Figure 7. DSC thermograms of Rn(Th-5,4/8) and Rg(Th-m,n/p).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_59\",\n          \"source_sentence\": \"Thermal Transitions. Thermal transitions of regiorandom and regioregular alternating alkyl:semifluoroalkyl polymers were determined by differential scanning calorimetry (DSC) (Table 1). Representative thermograms for the series Rg(Th-5,4/p) are shown in Figure 7. A single endothermic peak on heating and a single exothermic peak on cooling were observed, which can be assigned to melting and crystallization temperatures, respectively. Thermal cycling up to $2 5 0 { - } 2 7 0 ^ { \\\\circ } \\\\mathrm { C }$led to no noticeable decomposition.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"differential scanning calorimetry (DSC)\",\n      \"parameters\": {},\n      \"result_summary\": \"测定了regiorandom和regioregular交替烷基:半氟烷基聚合物的熔融温度和结晶温度，加热时观察到单一吸热峰，冷却时观察到单一放热峰，热循环至250-270°C无明显分解。\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\",\n        \"s016\",\n        \"s017\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 13033,
+              "output_tokens": 3380,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": null
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "c078d10a72766b7f8b9cc09aa90ae69e11bd002186c18969a20dce1ca69c265d",
+      "cache_hit": true,
+      "raw_replayed": true,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "stage5_shard_response_replayed",
+          "message": "已使用旧分片 raw response 离线重放当前校验",
+          "shard_id": "dsc_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s008",
+              "s009",
+              "s010",
+              "s011",
+              "s016",
+              "s017"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "测定了regiorandom和regioregular交替烷基:半氟烷基聚合物的熔融温度和结晶温度，加热时观察到单一吸热峰，冷却时观察到单一放热峰，热循环至250-270°C无明显分解。",
+            "derived_property_ids": [
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008",
+              "prop009",
+              "prop010",
+              "prop011",
+              "prop012",
+              "prop013",
+              "prop014",
+              "prop015",
+              "prop016",
+              "prop017",
+              "prop018"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_37",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  242.0,
+                  933.0,
+                  404.0
+                ],
+                "source_type": "text",
+                "source_sentence": "These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD)."
+              },
+              {
+                "block_id": "I_4_57",
+                "page": 4,
+                "bbox": [
+                  106.0,
+                  518.0,
+                  441.0,
+                  758.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 7. DSC thermograms of Rn(Th-5,4/8) and Rg(Th-m,n/p)."
+              },
+              {
+                "block_id": "P_4_59",
+                "page": 4,
+                "bbox": [
+                  67.0,
+                  841.0,
+                  483.0,
+                  964.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Thermal Transitions. Thermal transitions of regiorandom and regioregular alternating alkyl:semifluoroalkyl polymers were determined by differential scanning calorimetry (DSC) (Table 1). Representative thermograms for the series Rg(Th-5,4/p) are shown in Figure 7. A single endothermic peak on heating and a single exothermic peak on cooling were observed, which can be assigned to melting and crystallization temperatures, respectively. Thermal cycling up to $2 5 0 { - } 2 7 0 ^ { \\circ } \\mathrm { C }$led to no noticeable decomposition."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_2_36",
+        "P_2_37",
+        "P_2_38",
+        "P_4_62",
+        "P_4_63",
+        "P_4_64",
+        "I_5_68"
+      ],
+      "context_chars": 6098,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"The solid-state structure of Rg(Th-m,n/p) was characterized by X-ray diffraction.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_64\",\n          \"source_sentence\": \"The X-ray diffraction patterns exhibit several sharp low-angle reflections corresponding to a well-ordered lamellar structure with interlayer distances ranging from 40.1 Å for the shortest homologue Rg(Th-5,4/4) up to 57.8 Å for the longest homologue Rg(Th-11,4/8).\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"XRD\",\n      \"method_raw\": \"X-ray diffraction (XRD)\",\n      \"parameters\": {},\n      \"result_summary\": \"XRD patterns of Rg(Th-m,n/p) homologues show sharp low-angle reflections corresponding to a well-ordered lamellar structure with interlayer distances ranging from 40.1 Å to 57.8 Å, supporting a bilayer lamellar assembly structure.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s003\", \"s008\", \"s009\", \"s010\", \"s011\", \"s018\", \"s019\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 13509,
+              "output_tokens": 4002,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": null
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "e7483a443bfff8a25c247bc71d3117748eef2d1bad67ab316a57b24077da8d1e",
+      "cache_hit": true,
+      "raw_replayed": true,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "stage5_shard_response_replayed",
+          "message": "已使用旧分片 raw response 离线重放当前校验",
+          "shard_id": "xrd_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "X-ray diffraction (XRD)",
+            "method_normalized": "XRD",
+            "sample_ids": [
+              "s003",
+              "s008",
+              "s009",
+              "s010",
+              "s011",
+              "s018",
+              "s019"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "XRD patterns of Rg(Th-m,n/p) homologues show sharp low-angle reflections corresponding to a well-ordered lamellar structure with interlayer distances ranging from 40.1 Å to 57.8 Å, supporting a bilayer lamellar assembly structure.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_37",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  242.0,
+                  933.0,
+                  404.0
+                ],
+                "source_type": "text",
+                "source_sentence": "These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD)."
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  514.0,
+                  651.0,
+                  933.0,
+                  759.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The solid-state structure of Rg(Th-m,n/p) was characterized by X-ray diffraction."
+              },
+              {
+                "block_id": "P_4_64",
+                "page": 4,
+                "bbox": [
+                  514.0,
+                  761.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The X-ray diffraction patterns exhibit several sharp low-angle reflections corresponding to a well-ordered lamellar structure with interlayer distances ranging from 40.1 Å for the shortest homologue Rg(Th-5,4/4) up to 57.8 Å for the longest homologue Rg(Th-11,4/8)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "uv_vis_001",
+      "method_normalized": "UV-Vis",
+      "block_ids": [
+        "P_2_36",
+        "P_2_37",
+        "P_2_38",
+        "P_3_50",
+        "P_3_51",
+        "I_4_56"
+      ],
+      "context_chars": 5323,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe003\",\n        \"pe004\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_3_51\",\n          \"source_sentence\": \"The UV-vis spectra of Rg(Th-m,n/p) and Rn(Th-5,4/8) were recorded in chloroform solution and as thin films (Table 1, Figure 6).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_4_56\",\n          \"source_sentence\": \"Figure 6. UV-vis spectra of $\\\\mathbf { R g } ( \\\\mathbf { T h } . 5 , 4 / 8 )$ and Rn(Th-5,4/8): (a) chloroform solution and (b) thin film.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"method_normalized\": \"UV-Vis\",\n      \"method_raw\": \"UV-vis\",\n      \"parameters\": {},\n      \"result_summary\": \"UV-vis spectra of Rg(Th-m,n/p) and Rn(Th-5,4/8) were recorded in chloroform solution and as thin films; regioregular Rg(Th-5,4/8) shows red-shifted absorption compared to regiorandom Rn(Th-5,4/8) in both solution and solid state, with a 602 nm shoulder in solid state attributed to π-stacked structure.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 13177,
+              "output_tokens": 2882,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": null
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "25683f523376d66b0bd8fdeedba839749c2a67831d1437ee267bce285e4fa5fd",
+      "cache_hit": true,
+      "raw_replayed": true,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "stage5_shard_response_replayed",
+          "message": "已使用旧分片 raw response 离线重放当前校验",
+          "shard_id": "uv_vis_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "UV-vis",
+            "method_normalized": "UV-Vis",
+            "entity_ids": [
+              "pe003",
+              "pe004"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "UV-vis spectra of Rg(Th-m,n/p) and Rn(Th-5,4/8) were recorded in chloroform solution and as thin films; regioregular Rg(Th-5,4/8) shows red-shifted absorption compared to regiorandom Rn(Th-5,4/8) in both solution and solid state, with a 602 nm shoulder in solid state attributed to π-stacked structure.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_37",
+                "page": 2,
+                "bbox": [
+                  514.0,
+                  242.0,
+                  933.0,
+                  404.0
+                ],
+                "source_type": "text",
+                "source_sentence": "These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD)."
+              },
+              {
+                "block_id": "P_3_51",
+                "page": 3,
+                "bbox": [
+                  514.0,
+                  639.0,
+                  933.0,
+                  965.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The UV-vis spectra of Rg(Th-m,n/p) and Rn(Th-5,4/8) were recorded in chloroform solution and as thin films (Table 1, Figure 6)."
+              },
+              {
+                "block_id": "I_4_56",
+                "page": 4,
+                "bbox": [
+                  113.0,
+                  268.0,
+                  436.0,
+                  473.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 6. UV-vis spectra of $\\mathbf { R g } ( \\mathbf { T h } . 5 , 4 / 8 )$ and Rn(Th-5,4/8): (a) chloroform solution and (b) thin film."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

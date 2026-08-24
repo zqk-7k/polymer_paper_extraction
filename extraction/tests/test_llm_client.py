@@ -12,6 +12,7 @@ from llm_client import (
     LLMOutputTruncatedError,
     LLMRequestError,
     LLMPricing,
+    parse_json_response,
     ResolvedLLMConfig,
     _api_key,
     extract_json_object,
@@ -24,6 +25,46 @@ from llm_client import (
 
 
 class LLMClientTests(unittest.TestCase):
+    def test_0043955_saved_response_is_parsed_as_partial_fixture(self) -> None:
+        fixture_path = (
+            Path(__file__).resolve().parent
+            / "fixtures"
+            / "stage4t_snapshots"
+            / "reference_no_0043955"
+            / "stage4_llm_response.json"
+        )
+        payload = json.loads(fixture_path.read_text(encoding="utf-8-sig"))
+        parsed = parse_json_response(payload["raw_response"]["content"])
+
+        self.assertEqual(
+            len(parsed.data["measurement_conditions"]),
+            4,
+        )
+        self.assertEqual(len(parsed.data["properties"]), 10)
+        self.assertIn("仅保留示例", parsed.trailing_text)
+        self.assertIn("完整输出需补全", parsed.trailing_text)
+        self.assertEqual(parsed.parse_source, "raw_decode")
+
+    def test_parse_json_response_records_trailing_text(self) -> None:
+        parsed = parse_json_response(
+            '{"properties": []}\n仅保留示例序列，完整输出需补全。'
+        )
+
+        self.assertEqual(parsed.data, {"properties": []})
+        self.assertIn("完整输出需补全", parsed.trailing_text)
+        self.assertIn("has_trailing_text", parsed.warnings)
+        self.assertEqual(parsed.parse_source, "raw_decode")
+
+    def test_parse_json_response_uses_fence_after_raw_decode(self) -> None:
+        parsed = parse_json_response(
+            '说明\n```json\n{"value": 1}\n```\n尾注'
+        )
+
+        self.assertEqual(parsed.data["value"], 1)
+        self.assertEqual(parsed.parse_source, "raw_decode")
+        self.assertIn("has_prefix_text", parsed.warnings)
+        self.assertIn("has_trailing_text", parsed.warnings)
+
     def test_extract_json_repairs_extra_quote_before_object_close(self) -> None:
         result = extract_json_object(
             '{"evidence":{"source_sentence":"text","},'
@@ -100,7 +141,7 @@ class LLMClientTests(unittest.TestCase):
 
         self.assertIn(resolved.model, config["pricing"]["models"])
         self.assertEqual(resolved.timeout_seconds, 900)
-        self.assertEqual(resolved.max_retries, 0)
+        self.assertEqual(resolved.max_retries, 2)
         self.assertTrue(resolved.stream)
         self.assertEqual(
             config["stages"]["stage4_property"]["max_tokens"],

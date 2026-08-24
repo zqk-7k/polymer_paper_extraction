@@ -385,13 +385,27 @@ def build_candidate_payload(
         for stage_name in STAGE_FILES
         if stage_states.get(stage_name) != "completed"
     ]
-    publication_status = "complete" if not failed_stages else "partial"
+    blocking_warnings = [
+        warning
+        for warning in warnings
+        if warning.get("blocking") is True
+    ]
+    publication_status = (
+        "complete"
+        if not failed_stages and not blocking_warnings
+        else "partial"
+    )
     publication_message = (
         "Stage 0-5 已完成；未经完整科学语义校验，仅用于预览模型抽取结果。"
         if publication_status == "complete"
         else (
             "部分抽取结果；未经完整科学语义校验。"
-            f"未完成阶段：{', '.join(failed_stages)}。"
+            + (
+                f"未完成阶段：{', '.join(failed_stages)}。"
+                if failed_stages
+                else ""
+            )
+            + ("存在阻断性 warning。" if blocking_warnings else "")
         )
     )
 
@@ -425,6 +439,7 @@ def build_candidate_payload(
         "evidence": registry.items,
         "provenance": provenance,
         "warnings": warnings,
+        "blocking_warnings": blocking_warnings,
         "stage_failures": copy.deepcopy(failures),
         "raw_stage_candidates": {
             stage_name: copy.deepcopy(stages[stage_name])

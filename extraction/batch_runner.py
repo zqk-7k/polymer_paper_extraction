@@ -30,6 +30,7 @@ LLM_STAGE_OUTPUTS = {
     "stage3_sample_process": "stage3_process.json",
     "stage4_property": "stage4_properties.json",
     "stage5_characterization": "stage5_characterizations.json",
+    "stage4t_preview_sidecar": "stage4t_shadow.json",
 }
 LLM_STAGE_FAILURES = {
     "stage1_material_mention": "stage1_failure.json",
@@ -99,6 +100,18 @@ STAGE4R_PREVIEW_STAGE = StageSpec(
     ("stage4r_recovery.json", "stage4_properties.recovery_preview.json"),
     False,
 )
+STAGE4R_UNIFIED_PREVIEW_STAGE = StageSpec(
+    "stage4r_unified_preview",
+    "stage4r_unified_preview.py",
+    ("stage4r_unified_audit.json", "stage4_properties.unified_preview.json"),
+    False,
+)
+STAGE4T_PREVIEW_SIDECAR_STAGE = StageSpec(
+    "stage4t_preview_sidecar",
+    "stage4t_preview_sidecar.py",
+    ("stage4t_shadow.json",),
+    False,
+)
 PREVIEW_STAGE = StageSpec(
     "candidate_publish",
     str(PREVIEW_SCRIPT),
@@ -106,8 +119,10 @@ PREVIEW_STAGE = StageSpec(
     False,
 )
 PREVIEW_STAGES = (
-    *STAGES[:5],
-    STAGE4R_PREVIEW_STAGE,
+    STAGES[0],
+    STAGE4T_PREVIEW_SIDECAR_STAGE,
+    *STAGES[1:5],
+    STAGE4R_UNIFIED_PREVIEW_STAGE,
     STAGES[5],
     # Stage 6 在 preview 下带 --preview-relaxed 跑：证据的表示层差异降级为
     # warning，仍产出 final.json / report.html。跑不过的篇目会走下面的
@@ -115,6 +130,21 @@ PREVIEW_STAGES = (
     STAGES[6],
     PREVIEW_STAGE,
 )
+PREVIEW_NON_BLOCKING_STAGES = {
+    STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id,
+}
+
+
+def preview_stage_specs(
+    *, include_stage4t_sidecar: bool = True
+) -> tuple[StageSpec, ...]:
+    if include_stage4t_sidecar:
+        return PREVIEW_STAGES
+    return tuple(
+        spec
+        for spec in PREVIEW_STAGES
+        if spec.stage_id != STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id
+    )
 PREVIEW_RECOVERABLE_FAILURES = {
     "stage1_material_mention": "stage1_failure.json",
     "stage2_polymer_entity": "stage2_failure.json",
@@ -523,6 +553,7 @@ class RunnerSettings:
     heartbeat_seconds: float
     lease_seconds: float
     preview: bool = False
+    stage4t_llm_interpretation: bool = False
 
 
 def build_stage_command(
@@ -555,6 +586,13 @@ def build_stage_command(
         command.append("--force")
     if spec.stage_id == STAGE4R_PREVIEW_STAGE.stage_id:
         command.extend(["--apply", "--allow-filled-up-sample-binding"])
+    if spec.stage_id == STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id:
+        command.append("--apply")
+    if (
+        spec.stage_id == STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id
+        and settings.stage4t_llm_interpretation
+    ):
+        command.append("--stage4t-llm-interpretation")
     if settings.preview and (
         spec.stage_id in PREVIEW_RECOVERABLE_FAILURES
         or spec.stage_id == "stage6_validate_merge"
@@ -723,6 +761,7 @@ def run_document(
     preview_run = any(
         item.stage_id == PREVIEW_STAGE.stage_id for item in selected_stages
     )
+    preview_partial = False
     for spec in selected_stages:
         if stop_event.is_set():
             message = "batch supervisor interrupted before next stage"
@@ -763,6 +802,12 @@ def run_document(
                 extra_args=tuple(replay_args),
             )
             if recovered:
+                if preview_run and _has_blocking_preview_warning(
+                    ref_no,
+                    settings.output_dir,
+                    spec.stage_id,
+                ):
+                    preview_partial = True
                 print(f"[replayed] {ref_no}: {spec.stage_id} 已在模型调用前离线恢复")
                 continue
             print(
@@ -771,7 +816,11 @@ def run_document(
                 file=sys.stderr,
             )
 
-        if spec.uses_llm:
+        uses_llm = spec.uses_llm or (
+            spec.stage_id == STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id
+            and settings.stage4t_llm_interpretation
+        )
+        if uses_llm:
             acquired = False
             store.heartbeat_document(
                 ref_no=ref_no,
@@ -826,6 +875,16 @@ def run_document(
             status = "interrupted_uncertain" if stop_event.is_set() else "failed"
             if error and "remote request state may be unknown" in error:
                 status = "interrupted_uncertain"
+            if (
+                preview_run
+                and status == "failed"
+                and spec.stage_id in PREVIEW_NON_BLOCKING_STAGES
+            ):
+                print(
+                    f"[sidecar-warning] {ref_no} {spec.stage_id}: {error}",
+                    file=sys.stderr,
+                )
+                continue
             failure_name = PREVIEW_RECOVERABLE_FAILURES.get(spec.stage_id)
             failure_path = (
                 settings.output_dir / ref_no / failure_name
@@ -854,6 +913,12 @@ def run_document(
                     extra_args=tuple(recovery_args),
                 )
                 if recovered:
+                    if preview_run and _has_blocking_preview_warning(
+                        ref_no,
+                        settings.output_dir,
+                        spec.stage_id,
+                    ):
+                        preview_partial = True
                     print(f"[recovered] {ref_no}: {spec.stage_id} 已离线恢复")
                     continue
                 error = f"{error}; preview recovery failed: {recovery_error}"
@@ -892,7 +957,17 @@ def run_document(
             print(f"[failed] {ref_no} {spec.stage_id}: {error}", file=sys.stderr)
             return False
 
-    final_status = "candidate_complete" if preview_run else "succeeded"
+        if preview_run and _has_blocking_preview_warning(
+            ref_no,
+            settings.output_dir,
+            spec.stage_id,
+        ):
+            preview_partial = True
+
+    if preview_run:
+        final_status = "candidate_partial" if preview_partial else "candidate_complete"
+    else:
+        final_status = "succeeded"
     store.finish_document(ref_no, worker_id=worker_id, status=final_status)
     print(f"[done] {ref_no}")
     return True
@@ -997,6 +1072,25 @@ def _read_json_object(path: Path) -> dict[str, Any] | None:
     except (OSError, json.JSONDecodeError):
         return None
     return value if isinstance(value, dict) else None
+
+
+def _has_blocking_preview_warning(
+    ref_no: str,
+    output_dir: Path,
+    stage_id: str,
+) -> bool:
+    output_name = LLM_STAGE_OUTPUTS.get(stage_id)
+    if output_name is None:
+        return False
+    payload = _read_json_object(output_dir / ref_no / output_name)
+    if payload is None or not isinstance(payload.get("warnings"), list):
+        return False
+    return any(
+        isinstance(item, dict)
+        and item.get("stage") == stage_id
+        and item.get("blocking") is True
+        for item in payload["warnings"]
+    )
 
 
 def _decimal_value(value: Any) -> Decimal | None:
@@ -1352,9 +1446,23 @@ def build_parser() -> argparse.ArgumentParser:
         "--preview",
         action="store_true",
         help=(
-            "预览模式：Stage 4 后插入 4R 表格恢复，各 Stage 带 --preview-relaxed，"
+            "预览模式：Stage 0 后运行非权威 4T Shadow sidecar，Stage 4 后插入 4R 表格恢复，"
+            "各 Stage 带 --preview-relaxed，"
             "Stage 6 以降级校验产出 final.json/report.html，"
             "并始终发布 candidate.json 和 report_candidate.html"
+        ),
+    )
+    parser.add_argument(
+        "--no-stage4t-sidecar",
+        action="store_true",
+        help="Preview 中关闭非权威 Stage 4T Shadow sidecar",
+    )
+    parser.add_argument(
+        "--stage4t-llm-interpretation",
+        action="store_true",
+        help=(
+            "Preview 中显式启用 Stage 4T 复杂表 LLM 结构解释；"
+            "结果仍为非权威 candidate_only"
         ),
     )
     parser.add_argument(
@@ -1397,6 +1505,16 @@ def main() -> int:
     if args.start_stage and (args.validate_existing or args.preview):
         raise BatchRunnerError(
             "--start-stage 不能与 --validate-existing 或 --preview 同时使用"
+        )
+    if args.no_stage4t_sidecar and not args.preview:
+        raise BatchRunnerError("--no-stage4t-sidecar 只能与 --preview 同时使用")
+    if args.stage4t_llm_interpretation and not args.preview:
+        raise BatchRunnerError(
+            "--stage4t-llm-interpretation 只能与 --preview 同时使用"
+        )
+    if args.stage4t_llm_interpretation and args.no_stage4t_sidecar:
+        raise BatchRunnerError(
+            "--stage4t-llm-interpretation 不能与 --no-stage4t-sidecar 同时使用"
         )
     if args.start_stage and not (args.ref_no or args.ref_list):
         raise BatchRunnerError(
@@ -1467,7 +1585,9 @@ def main() -> int:
         stage_specs = (STAGES[-1],)
         required_existing_outputs = VALIDATE_EXISTING_INPUTS
     elif args.preview:
-        stage_specs = PREVIEW_STAGES
+        stage_specs = preview_stage_specs(
+            include_stage4t_sidecar=not args.no_stage4t_sidecar
+        )
         required_existing_outputs = ()
     else:
         stage_specs, required_existing_outputs = strict_stage_window(args.start_stage)
@@ -1481,6 +1601,9 @@ def main() -> int:
         heartbeat_seconds=args.heartbeat_seconds,
         lease_seconds=args.lease_seconds,
         preview=bool(args.preview),
+        stage4t_llm_interpretation=bool(
+            args.stage4t_llm_interpretation
+        ),
     )
     llm_semaphore = threading.Semaphore(llm_workers)
     stop_event = threading.Event()
@@ -1500,6 +1623,10 @@ def main() -> int:
         "recheck_completed": bool(args.recheck_completed),
         "validate_existing": bool(args.validate_existing),
         "preview": bool(args.preview),
+        "stage4t_sidecar": bool(args.preview and not args.no_stage4t_sidecar),
+        "stage4t_llm_interpretation": bool(
+            args.preview and args.stage4t_llm_interpretation
+        ),
         "start_stage": args.start_stage,
         "selected_ref_nos": ref_nos,
     }

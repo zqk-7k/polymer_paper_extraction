@@ -13,6 +13,12 @@ property_vocabulary:
   heat_of_crystallization: [P3140, thermal_property]
   heat_of_fusion: [P3130, thermal_property]
   thermal_decomposition_temperature: [P3170, thermal_property]
+  # TGA 成对编码的失重档位：PolyInfo 把 "10% 失重温度" 记成两个点：
+  # 温度本身 + 失重百分比。原 98 项清单只有前者，后者无处可填。
+  thermal_decomposition_weight_loss: [P3170, thermal_property]
+  # PolyInfo 公开条目含 Contact angle（与表面张力同属 P5150 表面性质组），
+  # 原 97 项清单遗漏；缺该槽位会导致接触角列判对也无处可填。
+  contact_angle: [P5150, physicochemical_property]
   lc_phase_transition_temperature: [P3160, thermal_property]
   linear_expansion_coefficient: [P3180, thermal_property]
   melting_temperature: [P3120, thermal_property]

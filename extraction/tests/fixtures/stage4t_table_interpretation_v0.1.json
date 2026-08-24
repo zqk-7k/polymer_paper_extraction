@@ -1,0 +1,316 @@
+{
+  "schema_version": "stage4t_table_interpretation_fixture.v0.1",
+  "created_at": "2026-08-22",
+  "scope": "demo20_stage4t_semantic_zero_complex_tables",
+  "cases": [
+    {
+      "doc_id": "reference_no_0021296",
+      "table_id": "T_8_91",
+      "interpretation": {
+        "schema_version": "stage4t_table_interpretation_schema.v1",
+        "table_id": "T_8_91",
+        "direction": "column_samples",
+        "axis_role": "grouped_sample",
+        "sample_binding_strategy": "grouped_columns",
+        "header_assignments": [
+          {
+            "source_cell_ids": ["T_8_91:r0000:c0001", "T_8_91:r0000:c0004"],
+            "role": "sample_axis",
+            "normalized_name": "polymer_sample_group",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "HT 与 OT(2) 是跨列样品组。"
+          },
+          {
+            "source_cell_ids": ["T_8_91:r0001:c0001", "T_8_91:r0001:c0002", "T_8_91:r0001:c0003", "T_8_91:r0001:c0004", "T_8_91:r0001:c0005", "T_8_91:r0001:c0006"],
+            "role": "condition_axis",
+            "normalized_name": "processing_history",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "子列表示铸态、加工态及热处理历史。"
+          },
+          {
+            "source_cell_ids": ["T_8_91:r0002:c0000"],
+            "role": "official_property",
+            "normalized_name": "glass_transition_temperature",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "Tg 行为玻璃化转变温度。"
+          },
+          {
+            "source_cell_ids": ["T_8_91:r0003:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "loss_tangent_peak",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "Tan delta 行为 DMA 损耗因子峰值。"
+          },
+          {
+            "source_cell_ids": ["T_8_91:r0004:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "storage_modulus",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "E' 行为 25 摄氏度下的储能模量。"
+          }
+        ],
+        "requires_human_review": false,
+        "warnings": []
+      }
+    },
+    {
+      "doc_id": "reference_no_0038527",
+      "table_id": "T_5_69",
+      "interpretation": {
+        "schema_version": "stage4t_table_interpretation_schema.v1",
+        "table_id": "T_5_69",
+        "direction": "row_samples",
+        "axis_role": "named_sample",
+        "sample_binding_strategy": "direct_row",
+        "header_assignments": [
+          {
+            "source_cell_ids": ["T_5_69:r0000:c0000"],
+            "role": "sample_axis",
+            "normalized_name": "polymer_sample",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "首列为聚合物样品。"
+          },
+          {
+            "source_cell_ids": ["T_5_69:r0000:c0001"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "xray_diffraction_peak",
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "2 theta 多列为 XRD 峰位。"
+          },
+          {
+            "source_cell_ids": ["T_5_69:r0001:c0001", "T_5_69:r0001:c0002", "T_5_69:r0001:c0003", "T_5_69:r0001:c0004", "T_5_69:r0001:c0005"],
+            "role": "condition_axis",
+            "normalized_name": "reflection_index",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.98,
+            "reason": "第二级表头为衍射级次索引。"
+          },
+          {
+            "source_cell_ids": ["T_5_69:r0000:c0006"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "interlayer_spacing",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "d 列为层间距。"
+          }
+        ],
+        "requires_human_review": false,
+        "warnings": []
+      }
+    },
+    {
+      "doc_id": "reference_no_0039705",
+      "table_id": "T_6_84",
+      "interpretation": {
+        "schema_version": "stage4t_table_interpretation_schema.v1",
+        "table_id": "T_6_84",
+        "direction": "row_samples",
+        "axis_role": "named_sample",
+        "sample_binding_strategy": "direct_row",
+        "header_assignments": [
+          {
+            "source_cell_ids": ["T_6_84:r0000:c0000"],
+            "role": "sample_axis",
+            "normalized_name": "polymer_sample",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "首列为聚合物样品。"
+          },
+          {
+            "source_cell_ids": ["T_6_84:r0000:c0001", "T_6_84:r0000:c0002"],
+            "role": "official_property",
+            "normalized_name": "thermal_decomposition_temperature",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "5% 与 50% 是失重阈值，不是独立失重率值。"
+          },
+          {
+            "source_cell_ids": ["T_6_84:r0000:c0003"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "residual_mass_fraction",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该列为 800 摄氏度条件下的残余质量分数。"
+          }
+        ],
+        "requires_human_review": false,
+        "warnings": ["原表 Carbine 疑为 Carbon 的排印错误，不影响残余质量语义。"]
+      }
+    },
+    {
+      "doc_id": "reference_no_0043541",
+      "table_id": "T_4_49",
+      "interpretation": {
+        "schema_version": "stage4t_table_interpretation_schema.v1",
+        "table_id": "T_4_49",
+        "direction": "column_samples",
+        "axis_role": "named_sample",
+        "sample_binding_strategy": "direct_column",
+        "header_assignments": [
+          {
+            "source_cell_ids": ["T_4_49:r0000:c0002", "T_4_49:r0000:c0003", "T_4_49:r0000:c0004"],
+            "role": "sample_axis",
+            "normalized_name": "polymer_brush_sample",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "三列为聚合物刷层样品。"
+          },
+          {
+            "source_cell_ids": ["T_4_49:r0001:c0000", "T_4_49:r0005:c0000", "T_4_49:r0006:c0000", "T_4_49:r0007:c0000"],
+            "role": "condition_axis",
+            "normalized_name": "probe_phase",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "行组表示水、空气或探针液体条件。"
+          },
+          {
+            "source_cell_ids": ["T_4_49:r0001:c0001", "T_4_49:r0002:c0001", "T_4_49:r0003:c0001", "T_4_49:r0004:c0001", "T_4_49:r0005:c0001", "T_4_49:r0006:c0001", "T_4_49:r0007:c0001"],
+            "role": "official_property",
+            "normalized_name": "contact_angle",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "static、advancing、receding、sliding 是接触角测量模式。"
+          },
+          {
+            "source_cell_ids": ["T_4_49:r0001:c0001", "T_4_49:r0002:c0001", "T_4_49:r0003:c0001", "T_4_49:r0004:c0001", "T_4_49:r0005:c0001", "T_4_49:r0006:c0001", "T_4_49:r0007:c0001"],
+            "role": "condition_axis",
+            "normalized_name": "contact_angle_mode",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "括号内标签定义接触角的测量模式。"
+          },
+          {
+            "source_cell_ids": ["T_4_49:r0008:c0000"],
+            "role": "official_property",
+            "normalized_name": "surface_tension",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 0.98,
+            "reason": "gamma SV 行为固体表面自由能，单位为 mN/m。"
+          }
+        ],
+        "requires_human_review": false,
+        "warnings": []
+      }
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "table_id": "T_1_19",
+      "interpretation": {
+        "schema_version": "stage4t_table_interpretation_schema.v1",
+        "table_id": "T_1_19",
+        "direction": "column_samples",
+        "axis_role": "named_sample",
+        "sample_binding_strategy": "direct_column",
+        "header_assignments": [
+          {
+            "source_cell_ids": ["T_1_19:r0000:c0001", "T_1_19:r0000:c0002", "T_1_19:r0000:c0003"],
+            "role": "sample_axis",
+            "normalized_name": "material_subject",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "COC、CB 与 cCF 是被表征材料。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0001:c0000"],
+            "role": "official_property",
+            "normalized_name": "electric_conductivity",
+            "semantic_label": null,
+            "measurement_role": null,
+            "confidence": 1.0,
+            "reason": "该行为电导率。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0002:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "specific_gravity",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为比重。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0003:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "bulk_density",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为堆积密度。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0004:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "aggregate_size",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为填料聚集体尺寸。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0005:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "pore_volume",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为 DBP 孔容。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0006:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "specific_surface_area",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为比表面积。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0007:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "fiber_diameter",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为纤维直径。"
+          },
+          {
+            "source_cell_ids": ["T_1_19:r0008:c0000"],
+            "role": "material_characteristic",
+            "normalized_name": null,
+            "semantic_label": "fiber_length",
+            "measurement_role": null,
+            "confidence": 0.99,
+            "reason": "该行为纤维长度。"
+          }
+        ],
+        "requires_human_review": false,
+        "warnings": []
+      }
+    }
+  ]
+}

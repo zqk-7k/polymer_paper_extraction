@@ -11,6 +11,7 @@ from llm_client import (
     LLMJSONResponse,
     LLMRawResponse,
     LLMTokenUsage,
+    ParsedJSON,
     ResolvedLLMConfig,
     load_pipeline_config,
 )
@@ -37,11 +38,13 @@ from stages.stage4_property import (
     _looks_like_series_property_header,
     _materialize,
     _preview_salvage_materialization,
+    _preview_publication_status,
     _recover_grouped_table_methods,
     _repair_candidate_response_payload,
     _resolve_surface_text,
     _resolve_vocabulary_path,
     _stage4_raw_response_artifact,
+    _validation_retry_count,
     _validate_required_table_series,
     extract_properties,
     load_property_vocabulary,
@@ -68,6 +71,34 @@ class VocabularyPathResolutionTests(unittest.TestCase):
                 config_path=config_path,
             ),
             expected,
+        )
+
+    def test_preview_validation_retry_is_one_without_changing_strict(self) -> None:
+        stage_config = {"max_validation_retries": 0}
+
+        self.assertEqual(
+            _validation_retry_count(
+                stage_config,
+                preview_relaxed=False,
+                replay_failure=False,
+            ),
+            0,
+        )
+        self.assertEqual(
+            _validation_retry_count(
+                stage_config,
+                preview_relaxed=True,
+                replay_failure=False,
+            ),
+            1,
+        )
+        self.assertEqual(
+            _validation_retry_count(
+                stage_config,
+                preview_relaxed=True,
+                replay_failure=True,
+            ),
+            0,
         )
 
 
@@ -630,6 +661,49 @@ class MissingRequiredFieldClient(FakeClient):
             max_tokens=max_tokens,
         )
         del response.data["properties"][0]["property_name_raw"]
+        return response
+
+
+class IncompleteResponseClient(FakeClient):
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        response = super().call_json(
+            system_prompt,
+            user_message,
+            max_tokens=max_tokens,
+        )
+        return LLMJSONResponse(
+            data=response.data,
+            provider=response.provider,
+            model=response.model,
+            usage=response.usage,
+            cost=response.cost,
+            parsed_json=ParsedJSON(
+                data=response.data,
+                trailing_text="仅保留示例序列，完整输出需补全",
+            ),
+        )
+
+
+class DataOnlyIncompleteResponseClient(FakeClient):
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        response = super().call_json(
+            system_prompt,
+            user_message,
+            max_tokens=max_tokens,
+        )
+        response.data["model_note"] = "仅保留示例序列，完整输出需补全"
         return response
 
 
@@ -3904,8 +3978,10 @@ class Stage4Tests(unittest.TestCase):
             DEFAULT_VOCABULARY_PATH
         )
 
-    def test_vocabulary_has_97_authoritative_entries(self) -> None:
-        self.assertEqual(len(self.vocabulary), 97)
+    def test_vocabulary_has_99_authoritative_entries(self) -> None:
+        self.assertEqual(len(self.vocabulary), 99)
+        self.assertIn("thermal_decomposition_weight_loss", self.vocabulary)
+        self.assertIn("contact_angle", self.vocabulary)
 
     def test_surface_text_resolves_latex_formatting_to_source(self) -> None:
         source = (
@@ -4824,6 +4900,82 @@ class Stage4Tests(unittest.TestCase):
             if item["code"] == "preview_degraded_empty_shell"
         )
         self.assertTrue(warning["degraded"])
+        self.assertTrue(warning["blocking"])
+        self.assertEqual(result.provenance.status, "candidate_partial")
+
+    def test_preview_marks_json_outside_incomplete_response_as_blocking(self) -> None:
+        result = extract_properties(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            IncompleteResponseClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+
+        warning = next(
+            item
+            for item in result.warnings
+            if item["code"] == "preview_incomplete_response"
+        )
+        self.assertTrue(warning["blocking"])
+        self.assertEqual(warning["reason"], "仅保留示例")
+        self.assertEqual(result.provenance.status, "candidate_partial")
+
+    def test_preview_marks_unbound_series_as_partial(self) -> None:
+        status, unbound = _preview_publication_status(
+            preview_degraded_reason=None,
+            incomplete_response_reason=None,
+            preview_semantic_bypass_reason=None,
+            property_series=[
+                type("Series", (), {
+                    "series_id": "series003",
+                    "sample_id": None,
+                    "entity_id": None,
+                })(),
+            ],
+        )
+        self.assertEqual(status, "candidate_partial")
+        self.assertEqual(unbound, ["series003"])
+
+    def test_strict_does_not_add_preview_incomplete_warning(self) -> None:
+        result = extract_properties(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            IncompleteResponseClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            max_validation_retries=0,
+            preview_relaxed=False,
+        )
+
+        self.assertNotIn(
+            "preview_incomplete_response",
+            [item["code"] for item in result.warnings],
+        )
+
+    def test_json_data_text_does_not_trigger_incomplete_warning(self) -> None:
+        result = extract_properties(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            DataOnlyIncompleteResponseClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+
+        self.assertNotIn(
+            "preview_incomplete_response",
+            [item["code"] for item in result.warnings],
+        )
 
     def test_strict_rejects_invalid_schema(self) -> None:
         with self.assertRaises(Stage4Error):

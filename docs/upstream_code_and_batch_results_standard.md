@@ -206,6 +206,13 @@ batch_results/
 
 网页应明确显示候选或待校验状态，未经科学语义校验的数据不得宣称可直接入库。
 
+### 4.6 非生产审阅结果
+
+未满足 `candidate.publication.status=complete`、但需要提交供人工复核的结果，使用
+`REVIEW_INDEX.json` 标记为 `polymerlit-review/1.0` 审阅集合。它必须声明
+`production_eligible=false`，不得同时存在 `RESULT_INDEX.json`。校验器仍检查关键产物、
+本机路径、敏感信息和禁止文件，Web API 不会把它作为生产批次。
+
 ## 5. 推荐发布步骤
 
 ### 5.1 代码 PR

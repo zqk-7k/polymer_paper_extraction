@@ -105,6 +105,18 @@ class LLMJSONResponse:
     model: str
     usage: LLMTokenUsage = field(default_factory=LLMTokenUsage)
     cost: LLMCallCost | None = None
+    parsed_json: "ParsedJSON | None" = None
+
+
+@dataclass(frozen=True)
+class ParsedJSON:
+    """JSON 数据及其在模型原文中的位置和解析诊断。"""
+
+    data: dict[str, Any]
+    prefix_text: str = ""
+    trailing_text: str = ""
+    parse_source: str = "direct"
+    warnings: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -295,7 +307,7 @@ def _escape_invalid_json_string_backslashes(text: str) -> tuple[str, bool]:
     return ''.join(output), changed
 
 
-def extract_json_object(text: str) -> dict[str, Any]:
+def _extract_json_object_legacy(text: str) -> dict[str, Any]:
     """从模型响应文本解析 JSON 对象：先剥离 markdown 围栏，再回退到大括号切片。
 
     离线回放通道必须复用本函数。若回放直接 json.loads(raw content)，
@@ -367,6 +379,93 @@ def extract_json_object(text: str) -> dict[str, Any]:
     if not isinstance(data, dict):
         raise LLMRequestError("LLM JSON 响应必须是对象")
     return data
+
+
+def _raw_decode_json(text: str, *, source: str) -> ParsedJSON:
+    stripped = text.strip()
+    start = stripped.find("{")
+    if start < 0:
+        raise LLMRequestError("LLM 响应中没有 JSON 对象")
+    try:
+        data, end = json.JSONDecoder().raw_decode(stripped, start)
+        if not isinstance(data, dict):
+            raise LLMRequestError("LLM JSON 响应必须是对象")
+        repaired = False
+    except json.JSONDecodeError:
+        closing = stripped.rfind("}")
+        if closing <= start:
+            raise LLMRequestError("LLM 响应不是完整 JSON")
+        data = _extract_json_object_legacy(stripped[start:closing + 1])
+        end = closing + 1
+        repaired = True
+    prefix_text = stripped[:start]
+    trailing_text = stripped[end:]
+    warnings: list[str] = []
+    if prefix_text:
+        warnings.append("has_prefix_text")
+    if trailing_text:
+        warnings.append("has_trailing_text")
+    if repaired:
+        warnings.append("repaired_json")
+    return ParsedJSON(
+        data=data,
+        prefix_text=prefix_text,
+        trailing_text=trailing_text,
+        parse_source=source,
+        warnings=tuple(warnings),
+    )
+
+
+def parse_json_response(text: str) -> ParsedJSON:
+    """按整体 JSON、raw_decode、多围栏的顺序解析并保留诊断。"""
+    stripped = text.strip()
+    try:
+        direct = json.loads(stripped)
+    except json.JSONDecodeError:
+        direct = None
+    if direct is not None:
+        if not isinstance(direct, dict):
+            raise LLMRequestError("LLM JSON 响应必须是对象")
+        return ParsedJSON(data=direct)
+
+    try:
+        return _raw_decode_json(stripped, source="raw_decode")
+    except LLMRequestError as raw_error:
+        fences = list(re.finditer(
+            r"```(?:json)?\s*(.*?)\s*```",
+            stripped,
+            flags=re.IGNORECASE | re.DOTALL,
+        ))
+        for index, fence in enumerate(fences):
+            try:
+                parsed = _raw_decode_json(
+                    fence.group(1),
+                    source=f"fence[{index}]",
+                )
+            except LLMRequestError:
+                continue
+            prefix_text = stripped[:fence.start()] + parsed.prefix_text
+            trailing_text = parsed.trailing_text + stripped[fence.end():]
+            warnings = list(parsed.warnings)
+            if prefix_text and "has_prefix_text" not in warnings:
+                warnings.append("has_prefix_text")
+            if trailing_text and "has_trailing_text" not in warnings:
+                warnings.append("has_trailing_text")
+            if len(fences) > 1:
+                warnings.append("multiple_fences")
+            return ParsedJSON(
+                data=parsed.data,
+                prefix_text=prefix_text,
+                trailing_text=trailing_text,
+                parse_source=parsed.parse_source,
+                warnings=tuple(dict.fromkeys(warnings)),
+            )
+        raise raw_error
+
+
+def extract_json_object(text: str) -> dict[str, Any]:
+    """兼容旧调用方，仅返回结构化数据。"""
+    return parse_json_response(text).data
 
 
 def _nonnegative_int(value: Any) -> int:
@@ -665,12 +764,14 @@ class LLMClient:
                         f"（api_format={self.resolved.api_format}, "
                         f"finish_reason={finish_reason!r}）"
                     )
+                parsed_json = parse_json_response(content)
                 result = LLMJSONResponse(
-                    data=extract_json_object(content),
+                    data=parsed_json.data,
                     provider=self.resolved.provider,
                     model=actual_model,
                     usage=usage,
                     cost=cost,
+                    parsed_json=parsed_json,
                 )
                 self.last_response = result
                 return result

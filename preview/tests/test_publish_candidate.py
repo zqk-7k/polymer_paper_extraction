@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -80,6 +81,35 @@ def test_build_candidate_flattens_stages_and_registers_evidence() -> None:
     assert candidate["material_mentions"][0]["evidence_ids"] == ["ev00001"]
     assert candidate["polymer_entities"][0]["evidence_ids"] == ["ev00001"]
     assert len(candidate["evidence"]) == 1
+
+
+def test_build_candidate_marks_blocking_warning_as_partial() -> None:
+    stages = _stages()
+    stages["stage4"]["warnings"] = [{
+        "stage": "stage4_property",
+        "code": "preview_incomplete_response",
+        "blocking": True,
+    }]
+
+    candidate = build_candidate_payload("reference_no_0000001", stages)
+
+    assert candidate["publication"]["status"] == "partial"
+    assert candidate["blocking_warnings"][0]["code"] == (
+        "preview_incomplete_response"
+    )
+
+
+def test_build_candidate_keeps_ordinary_warning_complete() -> None:
+    stages = _stages()
+    stages["stage4"]["warnings"] = [{
+        "stage": "stage4_property",
+        "code": "preview_objects_salvaged",
+    }]
+
+    candidate = build_candidate_payload("reference_no_0000001", stages)
+
+    assert candidate["publication"]["status"] == "complete"
+    assert candidate["blocking_warnings"] == []
 
 
 def test_publish_candidate_writes_json_and_html(tmp_path: Path) -> None:
@@ -351,6 +381,7 @@ def test_publish_candidate_cli_returns_nonzero_on_missing_ref(
             "--output-root", str(output_root),
         ],
         capture_output=True, text=True, encoding="utf-8",
+        env={**os.environ, "PYTHONIOENCODING": "utf-8"},
     )
 
     assert result.returncode != 0

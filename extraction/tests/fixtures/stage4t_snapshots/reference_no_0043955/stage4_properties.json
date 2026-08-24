@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043955",
+  "measurement_conditions": [],
+  "properties": [],
+  "unresolved_properties": [],
+  "property_series": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2-0-pro-260215",
+    "models": [
+      "doubao-seed-2-0-pro-260215"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.2",
+    "prompt_sha256": "ec79fe3bf47539cab4ba239c611d1ab17d75dc0038cda85020caca580f7987a5",
+    "vocabulary_sha256": "3e9d85e4915a729edf0f0a53821f3ee6edf32874e1da6972457417e4f13a1510",
+    "input_hash": "919b1ccb4be88939614ad4fcaa0b916f16cc63b544606b583a13abf8c8c391ea",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "2471119d68768f09279eb970c983e4bd58fcc1f68c6688cb83af2d3f7a64c271",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 109,
+    "context_chars": 99035,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 50161,
+      "output_tokens": 13630,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 50161,
+      "total_tokens": 63791
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.21669552",
+      "output_cost": "0.3973145",
+      "total_cost": "0.61401002"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，已回落使用全部非 References 正文与全部表格；结果需人工复核",
+      "fallback_block_count": 109
+    },
+    {
+      "stage": "stage4_property",
+      "code": "all_tables_included",
+      "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入",
+      "table_block_ids": [
+        "T_2_37",
+        "T_4_62",
+        "T_6_85"
+      ]
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_degraded_empty_shell",
+      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果",
+      "degraded": true,
+      "reason": "LLM 响应中没有 JSON 对象"
+    }
+  ]
+}
