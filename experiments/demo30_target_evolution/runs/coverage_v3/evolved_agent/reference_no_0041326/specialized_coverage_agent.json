@@ -1,0 +1,183 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0041326",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0041326",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No molecular-weight value or molecular-weight-distribution evidence is present in the retrieved blocks."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No intrinsic, inherent, reduced, specific, or other solution-viscosity evidence is present in the retrieved blocks."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No crystallinity, crystalline fraction, or degree-of-crystallinity result is present in the retrieved blocks."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No degree of polymerization, polymerization degree, DP, DPn, or DPw evidence is present in the retrieved blocks."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No d-spacing, interlayer distance, interplanar distance, 2 theta, or Bragg-angle result is present in the retrieved blocks."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.97,
+        "reason": "The retrieved blocks do not provide a primary structure, chemical structure, repeat unit, backbone structure, or sequence structure."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No morphology, fiber length, particle size, domain size, pore size, or cell size evidence is present in the retrieved blocks."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic evidence is present in the retrieved blocks."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "The melamine amide polymer exhibits the highest thermal stability",
+        "evidence_block_ids": [
+          "P_3_52"
+        ],
+        "sample_id": "s004",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.93,
+        "reason": "The text explicitly reports the melamine amide polymer as having the highest thermal stability."
+      }
+    ],
+    "requires_human_review": false,
+    "warnings": []
+  },
+  "retrieval": {
+    "evidence_blocks": 21,
+    "field_block_counts": {
+      "average_molecular_weight": 0,
+      "solution_viscosity": 0,
+      "crystallinity": 0,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 0,
+      "morphology": 0,
+      "stereoregularity": 0,
+      "characteristics_of_material": 1
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": "013379aa2763722e17f25c06fbedc3614bf0729df3a213484dfcb2735f3cd304",
+  "coverage_strategy": "global_context_review",
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1068,
+      "cache_creation_input_tokens": 29954,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 31433,
+      "total_tokens": 32501
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.534361",
+      "output_cost": "0.107868",
+      "total_cost": "0.642229"
+    }
+  }
+}

@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from web_api.app import (
+    EXPERIMENT_REPORT_ROOT,
     _alignment_metrics,
     _candidate_completeness,
     _completeness_quality,
@@ -176,3 +177,10 @@ def test_completeness_quality_exposes_single_paper_coverage_rates() -> None:
     assert quality["evidence_coverage"] == 1.0
     assert quality["unit_completeness"] == 0.5
     assert quality["condition_coverage"] == 0.25
+
+
+def test_demo30_research_reports_are_packaged_with_api() -> None:
+    assert (EXPERIMENT_REPORT_ROOT / "baseline" / "baseline_report.html").is_file()
+    assert (EXPERIMENT_REPORT_ROOT / "baseline" / "baseline_audit.json").is_file()
+    assert (EXPERIMENT_REPORT_ROOT / "coverage_v3" / "agent_evolution_report.html").is_file()
+    assert (EXPERIMENT_REPORT_ROOT / "coverage_v3" / "evaluation.json").is_file()

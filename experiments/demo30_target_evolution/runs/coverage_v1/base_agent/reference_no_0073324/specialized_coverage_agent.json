@@ -1,0 +1,188 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0073324",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0073324",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "supported",
+        "semantic_label": "molecular_weight",
+        "variant": null,
+        "observed_text": "High molecular weight polyhydrazides",
+        "evidence_block_ids": [
+          "P_0_3"
+        ],
+        "sample_id": "s001",
+        "entity_id": "pe001",
+        "subject_resolution": "sample",
+        "confidence": 0.84,
+        "reason": "A qualitative molecular-weight claim is explicitly stated for the catalogued sample, but no numeric average molecular-weight value or averaging basis is reported."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "observed_text": "1.43",
+        "evidence_block_ids": [
+          "T_4_37"
+        ],
+        "sample_id": "s004",
+        "entity_id": "pe004",
+        "subject_resolution": "sample",
+        "confidence": 0.98,
+        "reason": "The row for 0-2-0-I reports 1.43 under the η_inh (DMSO) column."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No retrieved evidence reports crystallinity, crystalline fraction, crystallinity index, or an equivalent crystalline-state result."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No retrieved evidence reports degree of polymerization, DP, DPn, or DPw. The occurrence of DP is defined as dipicolinic acid."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No retrieved evidence reports d-spacing, interplanar distance, 2 theta, or Bragg angle."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "ordered alternating polyhydrazide derived from oxalic acid and isophthalic acid",
+        "evidence_block_ids": [
+          "P_1_13"
+        ],
+        "sample_id": "s004",
+        "entity_id": "pe004",
+        "subject_resolution": "sample",
+        "confidence": 0.94,
+        "reason": "The code 0-2-0-I is explicitly defined as an ordered alternating polyhydrazide with the stated acid-derived portions."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.96,
+        "reason": "Films and fibers are mentioned, but no morphology, fiber length, particle size, domain size, pore size, or cell size is reported."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No retrieved evidence reports stereoregularity, tacticity, isotacticity, syndiotacticity, atacticity, or heterotacticity."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.95,
+        "reason": "No retrieved evidence explicitly classifies a material as thermoplastic, thermosetting, elastomer, crystalline, amorphous, transparent, electroconductive, or electrolyte."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "The molecular-weight evidence is qualitative only and does not provide a numeric value or identify Mn, Mw, Mz, or dispersity."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 14,
+    "field_block_counts": {
+      "average_molecular_weight": 9,
+      "solution_viscosity": 3,
+      "crystallinity": 0,
+      "degree_of_polymerization": 2,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 0,
+      "morphology": 0,
+      "stereoregularity": 0,
+      "characteristics_of_material": 0
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1690,
+      "cache_creation_input_tokens": 15281,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 16760,
+      "total_tokens": 18450
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.28492",
+      "output_cost": "0.17069",
+      "total_cost": "0.45561"
+    }
+  }
+}

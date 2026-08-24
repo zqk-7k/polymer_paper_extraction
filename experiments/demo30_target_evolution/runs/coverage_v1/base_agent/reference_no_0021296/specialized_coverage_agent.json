@@ -1,0 +1,195 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0021296",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0021296",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "supported",
+        "semantic_label": "molecular_weight",
+        "variant": null,
+        "observed_text": "molar molecular weight of HT",
+        "evidence_block_ids": [
+          "P_3_39"
+        ],
+        "sample_id": null,
+        "entity_id": "pe005",
+        "subject_resolution": "entity_only",
+        "confidence": 0.78,
+        "reason": "A qualitative molar molecular weight comparison is explicitly reported for HT, but no numeric average molecular-weight value is given."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "intrinsic",
+        "observed_text": "0.089",
+        "evidence_block_ids": [
+          "T_3_36"
+        ],
+        "sample_id": null,
+        "entity_id": "pe002",
+        "subject_resolution": "entity_only",
+        "confidence": 0.98,
+        "reason": "Table III explicitly reports an intrinsic viscosity value for HS."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "supported",
+        "semantic_label": "crystallinity",
+        "variant": "reported",
+        "observed_text": "all the DA-polyesters are semicrystalline",
+        "evidence_block_ids": [
+          "P_5_59"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.96,
+        "reason": "The text explicitly identifies all DA-polyesters as semicrystalline based on diffraction features."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No degree of polymerization, polymerization degree, DP, DPn, or DPw value is reported in the retrieved evidence."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "supported",
+        "semantic_label": "two_theta",
+        "variant": "peak_series",
+        "observed_text": "22.1",
+        "evidence_block_ids": [
+          "T_5_61"
+        ],
+        "sample_id": null,
+        "entity_id": "pe002",
+        "subject_resolution": "entity_only",
+        "confidence": 0.99,
+        "reason": "Table IV explicitly reports 2θ and d values for HS diffraction peaks."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "methyl groups on the backbone",
+        "evidence_block_ids": [
+          "P_8_90"
+        ],
+        "sample_id": null,
+        "entity_id": "pe006",
+        "subject_resolution": "entity_only",
+        "confidence": 0.86,
+        "reason": "The conclusion explicitly describes methyl groups on the OT(2) backbone."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.8,
+        "reason": "Retrieved text states that morphology was characterized, but provides no explicit morphology, size, domain, pore, cell, or fiber-length result."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic information is reported in the retrieved evidence."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "semicrystalline",
+        "evidence_block_ids": [
+          "P_5_59"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.95,
+        "reason": "The text explicitly classifies all DA-polyesters as semicrystalline."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "Multiple catalog sample IDs share identical labels and states; supported table results are retained at entity level rather than uniquely assigned to a sample.",
+      "The average_molecular_weight evidence is qualitative and does not provide a numeric average molecular-weight value."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 16,
+    "field_block_counts": {
+      "average_molecular_weight": 3,
+      "solution_viscosity": 1,
+      "crystallinity": 1,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 4,
+      "primary_structure_informations": 2,
+      "morphology": 3,
+      "stereoregularity": 0,
+      "characteristics_of_material": 7
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 2066,
+      "cache_creation_input_tokens": 22368,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 22371,
+      "total_tokens": 24437
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.380307",
+      "output_cost": "0.208666",
+      "total_cost": "0.588973"
+    }
+  }
+}

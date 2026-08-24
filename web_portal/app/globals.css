@@ -1181,3 +1181,26 @@ button, input, select { font: inherit; }
   .polyinfo-identity-card > img,
   .polyinfo-structure-empty { width: 100%; }
 }
+.audit-report-links {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 20px 22px;
+}
+
+.audit-report-links > div {
+  display: grid;
+  gap: 4px;
+}
+
+.audit-report-links > div > span {
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .audit-report-links {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

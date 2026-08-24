@@ -1,0 +1,188 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0041387",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0041387",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.93,
+        "reason": "Only qualitative statements of high molecular weight are present; no numeric molecular weight or molecular weight distribution is reported."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "observed_text": "1.3",
+        "evidence_block_ids": [
+          "T_6_93"
+        ],
+        "sample_id": "s001",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.99,
+        "reason": "The inherent-viscosity table reports a value for 4BI-MPD under ηinh (dL/g)."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No degree of crystallinity, crystallinity index, crystalline fraction, or equivalent crystallinity result is reported."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No degree of polymerization, DP, DPn, or DPw value is reported."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No d-spacing, interplanar distance, 2 theta, two theta, or Bragg-angle result is reported."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "aromatic amide and benzimidazole groups along the polymer backbone",
+        "evidence_block_ids": [
+          "P_10_127"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.94,
+        "reason": "The conclusion explicitly identifies aromatic amide and benzimidazole groups along the polymer backbone for the current polymers."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.97,
+        "reason": "No morphology, fiber length, particle size, domain size, pore size, or cell size result is reported."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "Meta- and para-oriented structures are discussed, but no stereoregularity, tacticity, isotacticity, syndiotacticity, or atacticity is reported."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "amorphous polymers",
+        "evidence_block_ids": [
+          "P_8_108"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.9,
+        "reason": "The reported polymer set is explicitly described as amorphous polymers."
+      }
+    ],
+    "requires_human_review": false,
+    "warnings": [
+      "Qualitative phrases such as \"high molecular weight\" do not provide a numeric average molecular weight or molecular weight distribution."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 16,
+    "field_block_counts": {
+      "average_molecular_weight": 7,
+      "solution_viscosity": 1,
+      "crystallinity": 0,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 3,
+      "morphology": 0,
+      "stereoregularity": 0,
+      "characteristics_of_material": 5
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1584,
+      "cache_creation_input_tokens": 8371,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 9850,
+      "total_tokens": 11434
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.16745",
+      "output_cost": "0.159984",
+      "total_cost": "0.327434"
+    }
+  }
+}

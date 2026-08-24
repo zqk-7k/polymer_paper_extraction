@@ -1,0 +1,3411 @@
+{
+  "schema_version": "specialized-coverage-evolution-evaluation/1.0",
+  "experiment_id": "demo30-specialized-coverage-evolution-v3",
+  "scope": "five frozen papers; document-level nine-field anchor coverage",
+  "workflow": {
+    "anchor_document_fields": 15,
+    "predicted_document_fields": 6,
+    "matched_document_fields": 6,
+    "anchor_precision": 1.0,
+    "recall": 0.4,
+    "f1": 0.5714,
+    "evidence_validation_rate": null,
+    "subject_resolution_rate": null,
+    "release_gate_enabled": false,
+    "rows": [
+      {
+        "ref_no": "reference_no_0041326",
+        "anchors": [
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0027435",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "average_molecular_weight",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "agent_added": [],
+        "combined": [
+          "average_molecular_weight",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.6
+      },
+      {
+        "ref_no": "reference_no_0042480",
+        "anchors": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0033940",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "average_molecular_weight",
+          "solution_viscosity"
+        ],
+        "agent_added": [],
+        "combined": [
+          "average_molecular_weight",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "solution_viscosity"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.5
+      },
+      {
+        "ref_no": "reference_no_0024941",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [
+          "average_molecular_weight"
+        ],
+        "agent_added": [],
+        "combined": [
+          "average_molecular_weight"
+        ],
+        "matched": [
+          "average_molecular_weight"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.3333
+      }
+    ]
+  },
+  "base_agent": {
+    "anchor_document_fields": 15,
+    "predicted_document_fields": 14,
+    "matched_document_fields": 12,
+    "anchor_precision": 0.8571,
+    "recall": 0.8,
+    "f1": 0.8276,
+    "evidence_validation_rate": 1.0,
+    "subject_resolution_rate": 1.0,
+    "release_gate_enabled": false,
+    "rows": [
+      {
+        "ref_no": "reference_no_0041326",
+        "anchors": [
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "characteristics_of_material"
+        ],
+        "combined": [
+          "characteristics_of_material"
+        ],
+        "matched": [
+          "characteristics_of_material"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0027435",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "average_molecular_weight",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0042480",
+        "anchors": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "combined": [
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "solution_viscosity"
+        ],
+        "missing": [
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [
+          "primary_structure_informations"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 0.5
+      },
+      {
+        "ref_no": "reference_no_0033940",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "average_molecular_weight",
+          "solution_viscosity"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [
+          "crystallinity"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0024941",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [
+          "average_molecular_weight"
+        ],
+        "agent_added": [],
+        "combined": [
+          "average_molecular_weight"
+        ],
+        "matched": [
+          "average_molecular_weight"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.3333
+      }
+    ]
+  },
+  "evolved_agent": {
+    "anchor_document_fields": 15,
+    "predicted_document_fields": 15,
+    "matched_document_fields": 13,
+    "anchor_precision": 0.8667,
+    "recall": 0.8667,
+    "f1": 0.8667,
+    "evidence_validation_rate": 1.0,
+    "subject_resolution_rate": 1.0,
+    "release_gate_enabled": true,
+    "rows": [
+      {
+        "ref_no": "reference_no_0041326",
+        "anchors": [
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "characteristics_of_material"
+        ],
+        "combined": [
+          "characteristics_of_material"
+        ],
+        "matched": [
+          "characteristics_of_material"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0027435",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "average_molecular_weight",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0042480",
+        "anchors": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "combined": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [
+          "primary_structure_informations"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0033940",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "average_molecular_weight",
+          "solution_viscosity"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [
+          "crystallinity"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0024941",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [
+          "average_molecular_weight"
+        ],
+        "agent_added": [],
+        "combined": [
+          "average_molecular_weight"
+        ],
+        "matched": [
+          "average_molecular_weight"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.3333
+      }
+    ]
+  },
+  "calibration": [
+    {
+      "run": "coverage_v1",
+      "base_agent": {
+        "anchor_document_fields": 16,
+        "predicted_document_fields": 19,
+        "matched_document_fields": 13,
+        "anchor_precision": 0.6842,
+        "recall": 0.8125,
+        "f1": 0.7429,
+        "evidence_validation_rate": 1.0,
+        "subject_resolution_rate": 1.0,
+        "release_gate_enabled": false,
+        "rows": [
+          {
+            "ref_no": "reference_no_0021296",
+            "anchors": [
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "combined": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [
+              "average_molecular_weight",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          },
+          {
+            "ref_no": "reference_no_0022895",
+            "anchors": [
+              "characteristics_of_material",
+              "degree_of_polymerization",
+              "solution_viscosity"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material",
+              "crystallinity",
+              "solution_viscosity"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "crystallinity",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "solution_viscosity"
+            ],
+            "missing": [
+              "degree_of_polymerization"
+            ],
+            "anchor_only_predictions": [
+              "crystallinity"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.6667
+          },
+          {
+            "ref_no": "reference_no_0037268",
+            "anchors": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "morphology"
+            ],
+            "workflow": [
+              "average_molecular_weight",
+              "crystallinity"
+            ],
+            "agent_added": [
+              "characteristics_of_material",
+              "morphology"
+            ],
+            "combined": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "morphology"
+            ],
+            "matched": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "morphology"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          },
+          {
+            "ref_no": "reference_no_0042246",
+            "anchors": [
+              "characteristics_of_material",
+              "crystallinity",
+              "primary_structure_informations"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material",
+              "morphology",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "morphology",
+              "primary_structure_informations"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "missing": [
+              "crystallinity"
+            ],
+            "anchor_only_predictions": [
+              "morphology"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.6667
+          },
+          {
+            "ref_no": "reference_no_0073324",
+            "anchors": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "average_molecular_weight",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "combined": [
+              "average_molecular_weight",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "missing": [
+              "characteristics_of_material"
+            ],
+            "anchor_only_predictions": [
+              "average_molecular_weight"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.6667
+          }
+        ]
+      },
+      "evolved_agent": {
+        "anchor_document_fields": 16,
+        "predicted_document_fields": 17,
+        "matched_document_fields": 13,
+        "anchor_precision": 0.7647,
+        "recall": 0.8125,
+        "f1": 0.7879,
+        "evidence_validation_rate": 1.0,
+        "subject_resolution_rate": 1.0,
+        "release_gate_enabled": true,
+        "rows": [
+          {
+            "ref_no": "reference_no_0021296",
+            "anchors": [
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "crystallinity",
+              "crystallographic_data"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "blocked_by_release_gate": [
+              "average_molecular_weight"
+            ],
+            "recall": 1.0
+          },
+          {
+            "ref_no": "reference_no_0022895",
+            "anchors": [
+              "characteristics_of_material",
+              "degree_of_polymerization",
+              "solution_viscosity"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material",
+              "crystallinity",
+              "solution_viscosity"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "crystallinity",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "solution_viscosity"
+            ],
+            "missing": [
+              "degree_of_polymerization"
+            ],
+            "anchor_only_predictions": [
+              "crystallinity"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.6667
+          },
+          {
+            "ref_no": "reference_no_0037268",
+            "anchors": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "morphology"
+            ],
+            "workflow": [
+              "average_molecular_weight",
+              "crystallinity"
+            ],
+            "agent_added": [
+              "characteristics_of_material",
+              "morphology"
+            ],
+            "combined": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "morphology"
+            ],
+            "matched": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "morphology"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          },
+          {
+            "ref_no": "reference_no_0042246",
+            "anchors": [
+              "characteristics_of_material",
+              "crystallinity",
+              "primary_structure_informations"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material",
+              "morphology",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "morphology",
+              "primary_structure_informations"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "missing": [
+              "crystallinity"
+            ],
+            "anchor_only_predictions": [
+              "morphology"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.6667
+          },
+          {
+            "ref_no": "reference_no_0073324",
+            "anchors": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "combined": [
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "missing": [
+              "characteristics_of_material"
+            ],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [
+              "average_molecular_weight"
+            ],
+            "recall": 0.6667
+          }
+        ]
+      }
+    },
+    {
+      "run": "coverage_v2",
+      "base_agent": {
+        "anchor_document_fields": 11,
+        "predicted_document_fields": 9,
+        "matched_document_fields": 8,
+        "anchor_precision": 0.8889,
+        "recall": 0.7273,
+        "f1": 0.8,
+        "evidence_validation_rate": 1.0,
+        "subject_resolution_rate": 1.0,
+        "release_gate_enabled": false,
+        "rows": [
+          {
+            "ref_no": "reference_no_0033617",
+            "anchors": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material"
+            ],
+            "combined": [
+              "characteristics_of_material"
+            ],
+            "matched": [
+              "characteristics_of_material"
+            ],
+            "missing": [
+              "primary_structure_informations"
+            ],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 0.5
+          },
+          {
+            "ref_no": "reference_no_0043955",
+            "anchors": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "workflow": [
+              "average_molecular_weight"
+            ],
+            "agent_added": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "matched": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          },
+          {
+            "ref_no": "reference_no_0026548",
+            "anchors": [
+              "characteristics_of_material"
+            ],
+            "workflow": [],
+            "agent_added": [],
+            "combined": [],
+            "matched": [],
+            "missing": [
+              "characteristics_of_material"
+            ],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 0.0
+          },
+          {
+            "ref_no": "reference_no_0033493",
+            "anchors": [
+              "average_molecular_weight",
+              "characteristics_of_material"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "matched": [
+              "characteristics_of_material"
+            ],
+            "missing": [
+              "average_molecular_weight"
+            ],
+            "anchor_only_predictions": [
+              "primary_structure_informations"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.5
+          },
+          {
+            "ref_no": "reference_no_0041387",
+            "anchors": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "workflow": [
+              "solution_viscosity"
+            ],
+            "agent_added": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          }
+        ]
+      },
+      "evolved_agent": {
+        "anchor_document_fields": 11,
+        "predicted_document_fields": 9,
+        "matched_document_fields": 7,
+        "anchor_precision": 0.7778,
+        "recall": 0.6364,
+        "f1": 0.7,
+        "evidence_validation_rate": 1.0,
+        "subject_resolution_rate": 1.0,
+        "release_gate_enabled": true,
+        "rows": [
+          {
+            "ref_no": "reference_no_0033617",
+            "anchors": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "characteristics_of_material"
+            ],
+            "combined": [
+              "characteristics_of_material"
+            ],
+            "matched": [
+              "characteristics_of_material"
+            ],
+            "missing": [
+              "primary_structure_informations"
+            ],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 0.5
+          },
+          {
+            "ref_no": "reference_no_0043955",
+            "anchors": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "workflow": [
+              "average_molecular_weight"
+            ],
+            "agent_added": [
+              "characteristics_of_material",
+              "crystallinity",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "crystallinity",
+              "primary_structure_informations"
+            ],
+            "matched": [
+              "average_molecular_weight",
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [
+              "crystallinity"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          },
+          {
+            "ref_no": "reference_no_0026548",
+            "anchors": [
+              "characteristics_of_material"
+            ],
+            "workflow": [],
+            "agent_added": [],
+            "combined": [],
+            "matched": [],
+            "missing": [
+              "characteristics_of_material"
+            ],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 0.0
+          },
+          {
+            "ref_no": "reference_no_0033493",
+            "anchors": [
+              "average_molecular_weight",
+              "characteristics_of_material"
+            ],
+            "workflow": [],
+            "agent_added": [
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "primary_structure_informations"
+            ],
+            "matched": [],
+            "missing": [
+              "average_molecular_weight",
+              "characteristics_of_material"
+            ],
+            "anchor_only_predictions": [
+              "primary_structure_informations"
+            ],
+            "blocked_by_release_gate": [],
+            "recall": 0.0
+          },
+          {
+            "ref_no": "reference_no_0041387",
+            "anchors": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "workflow": [
+              "solution_viscosity"
+            ],
+            "agent_added": [
+              "characteristics_of_material",
+              "primary_structure_informations"
+            ],
+            "combined": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "matched": [
+              "characteristics_of_material",
+              "primary_structure_informations",
+              "solution_viscosity"
+            ],
+            "missing": [],
+            "anchor_only_predictions": [],
+            "blocked_by_release_gate": [],
+            "recall": 1.0
+          }
+        ]
+      }
+    }
+  ],
+  "full_demo30_baseline": {
+    "schema_version": "demo30-polyinfo-audit/1.0",
+    "collection_id": "demo30_preview_20260824",
+    "metric_scope": {
+      "reference": "PoLyInfo anchor; not full-text gold",
+      "exact_property_recall": "one-to-one property name, compatible unit, value within 1% tolerance",
+      "semantic_property_recall": "property name recovered; value may differ",
+      "process_recall": "document-level broad process-family coverage",
+      "specialized_recall": "document-level coverage of nine PoLyInfo source fields"
+    },
+    "document_count": 32,
+    "paired_documents": 32,
+    "exact_property_alignment": {
+      "matched": 201,
+      "value_diff": 134,
+      "polyinfo_only": 1215,
+      "extraction_only": 299,
+      "precision": 0.317,
+      "recall": 0.1297,
+      "f1": 0.1841
+    },
+    "semantic_property_alignment": {
+      "recovered_name_records": 335,
+      "anchored_records": 1550,
+      "predicted_records": 634,
+      "precision": 0.5284,
+      "recall": 0.2161,
+      "f1": 0.3068
+    },
+    "candidate_quality": {
+      "properties": 634,
+      "sample_bound": 593,
+      "evidence_bound": 634,
+      "unit_complete": 468,
+      "condition_bound": 120,
+      "sample_binding_coverage": 0.9353,
+      "evidence_coverage": 1.0,
+      "unit_completeness": 0.7382,
+      "condition_coverage": 0.1893
+    },
+    "process_alignment": {
+      "anchor_document_fields": 67,
+      "predicted_document_fields": 54,
+      "matched_document_fields": 41,
+      "recall": 0.6119,
+      "precision": 0.7593
+    },
+    "specialized_alignment": {
+      "anchor_document_fields": 91,
+      "predicted_document_fields": 29,
+      "matched_document_fields": 23,
+      "recall": 0.2527,
+      "precision": 0.7931
+    },
+    "property_breakdown": [
+      {
+        "property": "thermal decomposition weight loss",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 189,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "thermal decomposition temperature",
+        "matched": 63,
+        "value_diff": 33,
+        "polyinfo_only": 117,
+        "extraction_only": 8,
+        "precision": 0.6058,
+        "recall": 0.2958,
+        "f1": 0.3975,
+        "semantic_recall": 0.4507
+      },
+      {
+        "property": "intrinsic viscosity",
+        "matched": 2,
+        "value_diff": 3,
+        "polyinfo_only": 107,
+        "extraction_only": 0,
+        "precision": 0.4,
+        "recall": 0.0179,
+        "f1": 0.0342,
+        "semantic_recall": 0.0446
+      },
+      {
+        "property": "volume resistivity",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 102,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "glass transition temperature",
+        "matched": 49,
+        "value_diff": 24,
+        "polyinfo_only": 101,
+        "extraction_only": 2,
+        "precision": 0.6533,
+        "recall": 0.2816,
+        "f1": 0.3936,
+        "semantic_recall": 0.4195
+      },
+      {
+        "property": "melting temperature",
+        "matched": 28,
+        "value_diff": 9,
+        "polyinfo_only": 89,
+        "extraction_only": 7,
+        "precision": 0.6364,
+        "recall": 0.2222,
+        "f1": 0.3294,
+        "semantic_recall": 0.2937
+      },
+      {
+        "property": "mn",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 80,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "mw",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 79,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "electric conductivity",
+        "matched": 0,
+        "value_diff": 34,
+        "polyinfo_only": 68,
+        "extraction_only": 14,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.3333
+      },
+      {
+        "property": "tensile stress strength at break",
+        "matched": 16,
+        "value_diff": 5,
+        "polyinfo_only": 37,
+        "extraction_only": 1,
+        "precision": 0.7273,
+        "recall": 0.2759,
+        "f1": 0.4,
+        "semantic_recall": 0.3621
+      },
+      {
+        "property": "elongation at break",
+        "matched": 11,
+        "value_diff": 1,
+        "polyinfo_only": 34,
+        "extraction_only": 1,
+        "precision": 0.8462,
+        "recall": 0.2391,
+        "f1": 0.3729,
+        "semantic_recall": 0.2609
+      },
+      {
+        "property": "contact angle",
+        "matched": 7,
+        "value_diff": 2,
+        "polyinfo_only": 32,
+        "extraction_only": 0,
+        "precision": 0.7778,
+        "recall": 0.1707,
+        "f1": 0.28,
+        "semantic_recall": 0.2195
+      },
+      {
+        "property": "surface tension",
+        "matched": 0,
+        "value_diff": 8,
+        "polyinfo_only": 26,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.2353
+      },
+      {
+        "property": "linear expansion coefficient",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 24,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "tensile modulus",
+        "matched": 10,
+        "value_diff": 3,
+        "polyinfo_only": 24,
+        "extraction_only": 0,
+        "precision": 0.7692,
+        "recall": 0.2703,
+        "f1": 0.4,
+        "semantic_recall": 0.3514
+      },
+      {
+        "property": "crystallization temperature",
+        "matched": 9,
+        "value_diff": 2,
+        "polyinfo_only": 15,
+        "extraction_only": 0,
+        "precision": 0.8182,
+        "recall": 0.3462,
+        "f1": 0.4865,
+        "semantic_recall": 0.4231
+      },
+      {
+        "property": "dielectric constant ac",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 14,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dynamic mechanical properties storage modulus",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 12,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "water absorption",
+        "matched": 0,
+        "value_diff": 10,
+        "polyinfo_only": 12,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.4545
+      },
+      {
+        "property": "heat of fusion",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 9,
+        "extraction_only": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "izod impact",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 9,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "softening temperature",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 7,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "lc phase transition temperature",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 6,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "unknown",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 6,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "vicat softening temperature",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 6,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "heat of fusion mol conversion",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 4,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dynamic mechanical properties loss tangent",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 2,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dielectric loss factor",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 1,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dynamic flexural properties loss tanget",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 1,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dynamic flexural properties storage modulus",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 1,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dynamic mechanical properties loss modulus",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 1,
+        "extraction_only": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "activation energy of relaxation",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "average number of triphenylamine repeating units",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "band gap",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "c si surface atomic ratio",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "complete decomposition temperature",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "completely oxidized si atomic percentage",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "decomposition onset temperature",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "degree of functionalization",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dehydration",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "density",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dielectric constant dc",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "dynamic tensile properties",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "electroactivity retention after 500 cycles",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "elemental si atomic percentage",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "elongation at yield",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "field effect mobility annealed",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "fl spectrum fwhm",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "friction coefficient",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "ftir peak wavenumber",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 136,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "graft density",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "impact strength increase ratio",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "induction period t mathrm s",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "inherent viscosities",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "kuhn dissymmetry factor g 376",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "max",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "mfr",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "morphology domain size",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "morphology particle size",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "nmr chemical shift",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 7,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "o si ox atomic ratio",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "o si surface atomic ratio",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "open cell content",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "optical contrast",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "order parameter op",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "oxidized si atomic percentage",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "oxygen index",
+        "matched": 6,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "semantic_recall": 1.0
+      },
+      {
+        "property": "partially oxidized si atomic percentage",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "pbs uptake",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "percentage crystallinity",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "quantum efficiency",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "relative free volume at tg",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "solubility in dimethyl sulfoxide",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "solubility in hfip",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "switching time",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "thermal conductivity",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "uv absorption fwhm",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "uv absorption maximum",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "uv absorption maximum phenyl s p transition",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "uv absorption maximum transition",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "v v0",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "vfth constant c",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "vicat softening temperature increase",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "weight average degree of polymerization of spp",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "weight loss",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "weight loss at 320 c",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "xrd crystallinity",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 7,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "xrd diffraction peak 2theta",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      },
+      {
+        "property": "yield stress",
+        "matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 0,
+        "extraction_only": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "semantic_recall": 0.0
+      }
+    ],
+    "process_breakdown": [
+      {
+        "family": "forming",
+        "anchor_documents": 13,
+        "predicted_documents": 12,
+        "matched_documents": 10,
+        "recall": 0.7692,
+        "precision": 0.8333
+      },
+      {
+        "family": "mixing_blending",
+        "anchor_documents": 6,
+        "predicted_documents": 8,
+        "matched_documents": 6,
+        "recall": 1.0,
+        "precision": 0.75
+      },
+      {
+        "family": "polymerization",
+        "anchor_documents": 28,
+        "predicted_documents": 25,
+        "matched_documents": 25,
+        "recall": 0.8929,
+        "precision": 1.0
+      },
+      {
+        "family": "post_treatment",
+        "anchor_documents": 0,
+        "predicted_documents": 9,
+        "matched_documents": 0,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      {
+        "family": "sample_shape",
+        "anchor_documents": 20,
+        "predicted_documents": 0,
+        "matched_documents": 0,
+        "recall": 0.0,
+        "precision": 0.0
+      }
+    ],
+    "specialized_breakdown": [
+      {
+        "source_field": "average_molecular_weight",
+        "anchor_documents": 14,
+        "predicted_documents": 10,
+        "matched_documents": 10,
+        "recall": 0.7143,
+        "precision": 1.0
+      },
+      {
+        "source_field": "solution_viscosity",
+        "anchor_documents": 10,
+        "predicted_documents": 5,
+        "matched_documents": 5,
+        "recall": 0.5,
+        "precision": 1.0
+      },
+      {
+        "source_field": "crystallinity",
+        "anchor_documents": 10,
+        "predicted_documents": 4,
+        "matched_documents": 3,
+        "recall": 0.3,
+        "precision": 0.75
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "anchor_documents": 3,
+        "predicted_documents": 1,
+        "matched_documents": 1,
+        "recall": 0.3333,
+        "precision": 1.0
+      },
+      {
+        "source_field": "crystallographic_data",
+        "anchor_documents": 3,
+        "predicted_documents": 1,
+        "matched_documents": 1,
+        "recall": 0.3333,
+        "precision": 1.0
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "anchor_documents": 14,
+        "predicted_documents": 1,
+        "matched_documents": 1,
+        "recall": 0.0714,
+        "precision": 1.0
+      },
+      {
+        "source_field": "morphology",
+        "anchor_documents": 4,
+        "predicted_documents": 7,
+        "matched_documents": 2,
+        "recall": 0.5,
+        "precision": 0.2857
+      },
+      {
+        "source_field": "stereoregularity",
+        "anchor_documents": 1,
+        "predicted_documents": 0,
+        "matched_documents": 0,
+        "recall": 0.0,
+        "precision": 0.0
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "anchor_documents": 32,
+        "predicted_documents": 0,
+        "matched_documents": 0,
+        "recall": 0.0,
+        "precision": 0.0
+      }
+    ],
+    "documents": [
+      {
+        "ref_no": "reference_no_0020284",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 84,
+        "polyinfo_properties": 94,
+        "exact_matched": 24,
+        "value_diff": 21,
+        "polyinfo_only": 49,
+        "extraction_only": 39,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "crystallographic_data",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [
+          "crystallinity",
+          "crystallographic_data",
+          "morphology",
+          "solution_viscosity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": []
+      },
+      {
+        "ref_no": "reference_no_0021296",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 0,
+        "polyinfo_properties": 38,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 38,
+        "extraction_only": 0,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "crystallographic_data"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "crystallographic_data"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0022895",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 0,
+        "polyinfo_properties": 17,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 17,
+        "extraction_only": 0,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "degree_of_polymerization",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "degree_of_polymerization",
+          "solution_viscosity"
+        ],
+        "failure_stages": [
+          "stage2",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0024941",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 11,
+        "polyinfo_properties": 27,
+        "exact_matched": 0,
+        "value_diff": 9,
+        "polyinfo_only": 18,
+        "extraction_only": 2,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0025452",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 13,
+        "polyinfo_properties": 135,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 135,
+        "extraction_only": 13,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [],
+        "missing_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0026548",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 0,
+        "polyinfo_properties": 22,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 22,
+        "extraction_only": 0,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0026714",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 4,
+        "polyinfo_properties": 6,
+        "exact_matched": 2,
+        "value_diff": 0,
+        "polyinfo_only": 4,
+        "extraction_only": 2,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity"
+        ],
+        "failure_stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0027435",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 32,
+        "polyinfo_properties": 101,
+        "exact_matched": 22,
+        "value_diff": 8,
+        "polyinfo_only": 71,
+        "extraction_only": 2,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight",
+          "crystallinity",
+          "solution_viscosity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage2"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0028883",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 8,
+        "polyinfo_properties": 34,
+        "exact_matched": 0,
+        "value_diff": 3,
+        "polyinfo_only": 31,
+        "extraction_only": 5,
+        "polyinfo_process_families": [
+          "mixing_blending"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "mixing_blending"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "stereoregularity"
+        ],
+        "extraction_specialized_fields": [
+          "morphology"
+        ],
+        "missing_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "stereoregularity"
+        ],
+        "failure_stages": [
+          "stage1",
+          "stage3"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0028993",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 4,
+        "polyinfo_properties": 32,
+        "exact_matched": 1,
+        "value_diff": 0,
+        "polyinfo_only": 31,
+        "extraction_only": 3,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "mixing_blending",
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0033493",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 15,
+        "polyinfo_properties": 21,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 21,
+        "extraction_only": 15,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage1"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0033617",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 7,
+        "polyinfo_properties": 2,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 2,
+        "extraction_only": 7,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0033940",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 10,
+        "polyinfo_properties": 133,
+        "exact_matched": 7,
+        "value_diff": 1,
+        "polyinfo_only": 125,
+        "extraction_only": 2,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight",
+          "solution_viscosity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage3",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0036922",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 12,
+        "polyinfo_properties": 46,
+        "exact_matched": 6,
+        "value_diff": 1,
+        "polyinfo_only": 39,
+        "extraction_only": 5,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity"
+        ],
+        "extraction_specialized_fields": [
+          "morphology"
+        ],
+        "missing_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity"
+        ],
+        "failure_stages": [
+          "stage1",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0037268",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 26,
+        "polyinfo_properties": 46,
+        "exact_matched": 16,
+        "value_diff": 10,
+        "polyinfo_only": 20,
+        "extraction_only": 0,
+        "polyinfo_process_families": [
+          "mixing_blending"
+        ],
+        "extraction_process_families": [
+          "mixing_blending",
+          "post_treatment"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "morphology"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight",
+          "crystallinity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "morphology"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0037607",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 70,
+        "polyinfo_properties": 28,
+        "exact_matched": 0,
+        "value_diff": 5,
+        "polyinfo_only": 23,
+        "extraction_only": 65,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": []
+      },
+      {
+        "ref_no": "reference_no_0037645",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 16,
+        "polyinfo_properties": 42,
+        "exact_matched": 6,
+        "value_diff": 6,
+        "polyinfo_only": 30,
+        "extraction_only": 4,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "degree_of_polymerization",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight",
+          "degree_of_polymerization"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": []
+      },
+      {
+        "ref_no": "reference_no_0037886",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 4,
+        "polyinfo_properties": 3,
+        "exact_matched": 0,
+        "value_diff": 1,
+        "polyinfo_only": 2,
+        "extraction_only": 3,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0037921",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 6,
+        "polyinfo_properties": 10,
+        "exact_matched": 3,
+        "value_diff": 0,
+        "polyinfo_only": 7,
+        "extraction_only": 3,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0038527",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 23,
+        "polyinfo_properties": 54,
+        "exact_matched": 18,
+        "value_diff": 4,
+        "polyinfo_only": 32,
+        "extraction_only": 1,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "crystallographic_data",
+          "degree_of_polymerization",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight",
+          "morphology"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "crystallographic_data",
+          "degree_of_polymerization",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0038813",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 67,
+        "polyinfo_properties": 72,
+        "exact_matched": 32,
+        "value_diff": 0,
+        "polyinfo_only": 40,
+        "extraction_only": 35,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight",
+          "morphology",
+          "solution_viscosity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": []
+      },
+      {
+        "ref_no": "reference_no_0039705",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 18,
+        "polyinfo_properties": 48,
+        "exact_matched": 12,
+        "value_diff": 0,
+        "polyinfo_only": 36,
+        "extraction_only": 6,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "morphology",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "morphology",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0041326",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 52,
+        "polyinfo_properties": 80,
+        "exact_matched": 0,
+        "value_diff": 32,
+        "polyinfo_only": 48,
+        "extraction_only": 20,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "mixing_blending"
+        ],
+        "missing_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage4"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0041387",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 35,
+        "polyinfo_properties": 71,
+        "exact_matched": 26,
+        "value_diff": 9,
+        "polyinfo_only": 36,
+        "extraction_only": 0,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [
+          "solution_viscosity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage3",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0042246",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 21,
+        "polyinfo_properties": 144,
+        "exact_matched": 2,
+        "value_diff": 9,
+        "polyinfo_only": 133,
+        "extraction_only": 10,
+        "polyinfo_process_families": [
+          "forming",
+          "mixing_blending",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "mixing_blending",
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0042367",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 14,
+        "polyinfo_properties": 43,
+        "exact_matched": 1,
+        "value_diff": 9,
+        "polyinfo_only": 33,
+        "extraction_only": 4,
+        "polyinfo_process_families": [
+          "forming",
+          "mixing_blending",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "mixing_blending"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "extraction_specialized_fields": [
+          "crystallinity"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0042480",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 40,
+        "polyinfo_properties": 28,
+        "exact_matched": 17,
+        "value_diff": 3,
+        "polyinfo_only": 8,
+        "extraction_only": 20,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "polymerization",
+          "post_treatment"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "solution_viscosity"
+        ],
+        "failure_stages": []
+      },
+      {
+        "ref_no": "reference_no_0043541",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 4,
+        "polyinfo_properties": 16,
+        "exact_matched": 0,
+        "value_diff": 0,
+        "polyinfo_only": 16,
+        "extraction_only": 4,
+        "polyinfo_process_families": [
+          "polymerization"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "primary_structure_informations"
+        ],
+        "missing_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage3",
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0043590",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 21,
+        "polyinfo_properties": 32,
+        "exact_matched": 0,
+        "value_diff": 1,
+        "polyinfo_only": 31,
+        "extraction_only": 20,
+        "polyinfo_process_families": [
+          "forming",
+          "mixing_blending",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "forming",
+          "mixing_blending"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "morphology"
+        ],
+        "extraction_specialized_fields": [
+          "morphology"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0043955",
+        "paired": true,
+        "publication_status": "complete",
+        "extraction_properties": 2,
+        "polyinfo_properties": 24,
+        "exact_matched": 1,
+        "value_diff": 0,
+        "polyinfo_only": 23,
+        "extraction_only": 1,
+        "polyinfo_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "forming",
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "average_molecular_weight"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0073324",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 5,
+        "polyinfo_properties": 54,
+        "exact_matched": 2,
+        "value_diff": 0,
+        "polyinfo_only": 52,
+        "extraction_only": 3,
+        "polyinfo_process_families": [
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "polymerization"
+        ],
+        "missing_process_families": [
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "extraction_specialized_fields": [],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "failure_stages": [
+          "stage3"
+        ]
+      },
+      {
+        "ref_no": "reference_no_0101911",
+        "paired": true,
+        "publication_status": "partial",
+        "extraction_properties": 10,
+        "polyinfo_properties": 47,
+        "exact_matched": 3,
+        "value_diff": 2,
+        "polyinfo_only": 42,
+        "extraction_only": 5,
+        "polyinfo_process_families": [
+          "forming",
+          "mixing_blending",
+          "polymerization",
+          "sample_shape"
+        ],
+        "extraction_process_families": [
+          "mixing_blending"
+        ],
+        "missing_process_families": [
+          "forming",
+          "polymerization",
+          "sample_shape"
+        ],
+        "polyinfo_specialized_fields": [
+          "characteristics_of_material",
+          "morphology",
+          "primary_structure_informations"
+        ],
+        "extraction_specialized_fields": [
+          "morphology"
+        ],
+        "missing_specialized_fields": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "failure_stages": [
+          "stage5"
+        ]
+      }
+    ]
+  },
+  "delta_vs_workflow": 0.4667,
+  "guardrails": {
+    "Recall ≥ 80%": [
+      0.8667,
+      true
+    ],
+    "锚点 Precision ≥ 75%": [
+      0.8667,
+      true
+    ],
+    "证据验证率 = 100%": [
+      1.0,
+      true
+    ],
+    "主体解析率 ≥ 90%": [
+      1.0,
+      true
+    ],
+    "相对 workflow 有提升": [
+      0.4667,
+      true
+    ]
+  },
+  "eligible_for_expert_review": true,
+  "eligible_for_automatic_production_promotion": false
+}

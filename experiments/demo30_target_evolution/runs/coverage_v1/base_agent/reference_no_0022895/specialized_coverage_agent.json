@@ -1,0 +1,188 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0022895",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0022895",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.94,
+        "reason": "The retrieved text mentions molecular weight only as an influence or as relatively low; no molecular-weight value or distribution is reported."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "observed_text": "$\\mu_{\\text{inh}}$",
+        "evidence_block_ids": [
+          "T_3_46"
+        ],
+        "sample_id": "s003",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.9,
+        "reason": "Table 1 reports an inherent-viscosity notation for sample 1a."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "supported",
+        "semantic_label": "crystallinity",
+        "variant": "reported",
+        "observed_text": "polyformamidine 1a is highly crystalline",
+        "evidence_block_ids": [
+          "P_5_74"
+        ],
+        "sample_id": "s003",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.98,
+        "reason": "The text explicitly characterizes polyformamidine 1a as highly crystalline."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "ambiguous",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.65,
+        "reason": "Table 1 reports Pn values for sample 1a, but the retrieved evidence does not define Pn as degree of polymerization or provide the referenced footnote."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No d-spacing, 2 theta, interlayer distance, interplanar distance, or Bragg-angle result is present in the retrieved evidence."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.87,
+        "reason": "The retrieved structural discussion concerns E-syn/E-anti configuration and cyclic dimers, but does not explicitly report a primary structure, repeat unit, backbone structure, or sequence structure."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No morphology, fiber length, particle size, domain size, pore size, or cell size result is present in the retrieved evidence."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.9,
+        "reason": "E-syn and E-anti configurations are reported, but no stereoregularity, tacticity, isotacticity, syndiotacticity, atacticity, or heterotacticity is explicitly reported."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "highly crystalline",
+        "evidence_block_ids": [
+          "P_5_74"
+        ],
+        "sample_id": "s003",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.98,
+        "reason": "The text explicitly reports the material characteristic crystalline for polyformamidine 1a."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "Pn requires human review because its meaning is not defined in the retrieved evidence."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 6,
+    "field_block_counts": {
+      "average_molecular_weight": 2,
+      "solution_viscosity": 0,
+      "crystallinity": 1,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 0,
+      "morphology": 0,
+      "stereoregularity": 0,
+      "characteristics_of_material": 1
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "usage": {
+      "input_tokens": 10197,
+      "output_tokens": 2445,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 10194,
+      "billable_input_tokens": 20391,
+      "total_tokens": 22836
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.346647",
+      "output_cost": "0.246945",
+      "total_cost": "0.593592"
+    }
+  }
+}

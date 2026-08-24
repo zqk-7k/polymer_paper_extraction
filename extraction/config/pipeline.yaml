@@ -37,6 +37,13 @@ llm:
       timeout_seconds: 600
       max_retries: 0
       stream: false
+    specialized_coverage_agent:
+      model: gpt-5.6-terra
+      api_format: anthropic-messages
+      thinking_effort: low
+      timeout_seconds: 600
+      max_retries: 0
+      stream: false
 
 pricing:
   currency: CNY
@@ -109,6 +116,10 @@ stages:
     max_tokens: 4096
     max_repair_attempts: 1
     nearby_evidence_chars: 5000
+  specialized_coverage_agent:
+    prompt_id: polymer.specialized.coverage
+    vocabulary_path: config/polymer_schema.yaml
+    max_tokens: 8192
 
 concurrency:
   max_doc_workers: 1

@@ -1,0 +1,58 @@
+{
+  "experiment_id": "demo30-specialized-coverage-evolution-v3",
+  "collection": "demo30_preview_20260824",
+  "primary_metric": "nine_field_document_recall",
+  "target_recall": 0.8,
+  "guardrails": {
+    "minimum_anchor_precision": 0.75,
+    "minimum_evidence_validation_rate": 1.0,
+    "minimum_subject_resolution_rate": 0.9
+  },
+  "development_refs": [
+    "reference_no_0020284",
+    "reference_no_0038527",
+    "reference_no_0043541"
+  ],
+  "calibration_refs": [
+    "reference_no_0021296",
+    "reference_no_0022895",
+    "reference_no_0037268",
+    "reference_no_0042246",
+    "reference_no_0073324",
+    "reference_no_0033617",
+    "reference_no_0043955",
+    "reference_no_0026548",
+    "reference_no_0033493",
+    "reference_no_0041387"
+  ],
+  "calibration_rounds": [
+    {
+      "run": "coverage_v1",
+      "refs": [
+        "reference_no_0021296",
+        "reference_no_0022895",
+        "reference_no_0037268",
+        "reference_no_0042246",
+        "reference_no_0073324"
+      ]
+    },
+    {
+      "run": "coverage_v2",
+      "refs": [
+        "reference_no_0033617",
+        "reference_no_0043955",
+        "reference_no_0026548",
+        "reference_no_0033493",
+        "reference_no_0041387"
+      ]
+    }
+  ],
+  "frozen_test_selection": "Five smallest SHA-256(ref_no) values after excluding development, two calibration rounds, and previously inspected reference_no_0037921.",
+  "frozen_test_refs": [
+    "reference_no_0041326",
+    "reference_no_0027435",
+    "reference_no_0042480",
+    "reference_no_0033940",
+    "reference_no_0024941"
+  ]
+}

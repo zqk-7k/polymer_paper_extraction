@@ -1,0 +1,195 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0021296",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0021296",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "supported",
+        "semantic_label": "molecular_weight",
+        "variant": null,
+        "observed_text": "molar molecular weight of HT",
+        "evidence_block_ids": [
+          "P_3_39"
+        ],
+        "sample_id": "s004",
+        "entity_id": "pe005",
+        "subject_resolution": "sample",
+        "confidence": 0.68,
+        "reason": "A qualitative molar molecular weight comparison is reported for HT, without a direct average molecular-weight value."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "intrinsic",
+        "observed_text": "0.422",
+        "evidence_block_ids": [
+          "T_3_36"
+        ],
+        "sample_id": "s004",
+        "entity_id": "pe005",
+        "subject_resolution": "sample",
+        "confidence": 0.98,
+        "reason": "Table III reports an Intrinsic viscosity value for HT."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "supported",
+        "semantic_label": "crystallinity",
+        "variant": "reported",
+        "observed_text": "all the DA-polyesters are semicrystalline",
+        "evidence_block_ids": [
+          "P_5_59"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.96,
+        "reason": "The WAXD results explicitly classify all DA-polyesters as semicrystalline."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No degree of polymerization, DP, DPn, or DPw value or statement is present in the retrieved evidence."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "supported",
+        "semantic_label": "two_theta",
+        "variant": "peak_series",
+        "observed_text": "22.1",
+        "evidence_block_ids": [
+          "T_5_61"
+        ],
+        "sample_id": "s001",
+        "entity_id": "pe002",
+        "subject_resolution": "sample",
+        "confidence": 0.99,
+        "reason": "Table IV reports 2θ and d values for the HS WAXD peaks."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "polyesters containing conjugated diacetylene (DA-polyesters)",
+        "evidence_block_ids": [
+          "P_8_90"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.89,
+        "reason": "The conclusion identifies the polyester series as containing conjugated diacetylene."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.86,
+        "reason": "Retrieved text states that morphology was characterized, but provides no explicit morphology result or morphology measurement."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic information is present in the retrieved evidence."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "transparent",
+        "evidence_block_ids": [
+          "P_7_76"
+        ],
+        "sample_id": "s007",
+        "entity_id": "pe006",
+        "subject_resolution": "sample",
+        "confidence": 0.96,
+        "reason": "Melt-processed OT(2) sheets are explicitly described as transparent."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "average_molecular_weight is supported only by a qualitative comparison inferred from intrinsic-viscosity results, not by a directly reported Mn, Mw, Mz, or dispersity value.",
+      "primary_structure_informations is supported at the DA-polyesters entity level rather than by a complete repeat-unit structure."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 16,
+    "field_block_counts": {
+      "average_molecular_weight": 4,
+      "solution_viscosity": 1,
+      "crystallinity": 1,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 4,
+      "primary_structure_informations": 2,
+      "morphology": 3,
+      "stereoregularity": 0,
+      "characteristics_of_material": 8
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": "013379aa2763722e17f25c06fbedc3614bf0729df3a213484dfcb2735f3cd304",
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 2067,
+      "cache_creation_input_tokens": 20914,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 22393,
+      "total_tokens": 24460
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.380681",
+      "output_cost": "0.208767",
+      "total_cost": "0.589448"
+    }
+  }
+}

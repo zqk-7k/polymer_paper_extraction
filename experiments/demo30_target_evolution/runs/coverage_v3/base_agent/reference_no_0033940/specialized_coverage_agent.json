@@ -1,0 +1,194 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0033940",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0033940",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "supported",
+        "semantic_label": "molecular_weight",
+        "variant": "weight_average",
+        "observed_text": "42,000",
+        "evidence_block_ids": [
+          "T_3_42"
+        ],
+        "sample_id": "s004",
+        "entity_id": null,
+        "subject_resolution": "sample",
+        "confidence": 0.98,
+        "reason": "Table 1 row 3b provides a weight-average molecular-weight value; row label matches sample s004."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "observed_text": "0.47",
+        "evidence_block_ids": [
+          "T_3_42"
+        ],
+        "sample_id": "s004",
+        "entity_id": null,
+        "subject_resolution": "sample",
+        "confidence": 0.98,
+        "reason": "Table 1 row 3b provides an inherent-viscosity value; row label matches sample s004."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "supported",
+        "semantic_label": "crystallinity",
+        "variant": "reported",
+        "observed_text": "predominantly amorphous samples",
+        "evidence_block_ids": [
+          "P_6_69"
+        ],
+        "sample_id": "s012",
+        "entity_id": "pe001",
+        "subject_resolution": "sample",
+        "confidence": 0.82,
+        "reason": "The text explicitly describes samples produced by rapid cooling as amorphous in the PEIs thermal-property discussion."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.94,
+        "reason": "No degree of polymerization, polymerization degree, DP, DPn, or DPw value is present in the retrieved evidence."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.93,
+        "reason": "WAXD measurement is described, but no d-spacing, interlayer distance, interplanar distance, 2 theta, or Bragg-angle result is reported."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "aromatic poly(ether imide)s (PEI) containing ortho-catenated phenylene rings and pendant trifluoromethyl group",
+        "evidence_block_ids": [
+          "P_0_6"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.9,
+        "reason": "The abstract explicitly states a structural description for the PEIs, but does not uniquely bind it to an individual sample."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.9,
+        "reason": "Retrieved text discusses chain conformation and mechanical behavior, but provides no morphology, fiber length, particle size, domain size, pore size, or cell size result."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.96,
+        "reason": "No stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic result is present in the retrieved evidence."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "transparent",
+        "evidence_block_ids": [
+          "P_0_6"
+        ],
+        "sample_id": "s012",
+        "entity_id": "pe001",
+        "subject_resolution": "sample",
+        "confidence": 0.92,
+        "reason": "The abstract explicitly characterizes all PEIs as transparent; s012 represents PEIs 3a–g."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "Sample-to-entity catalog links are inconsistent with several sample labels; for example, s003 is labeled 3a while pe002 is named 3b. Supported table-row decisions use matching sample labels and omit conflicting entity assignments.",
+      "Crystallinity evidence is categorical and applies to samples after rapid cooling, not to an individually identified polymer code."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 18,
+    "field_block_counts": {
+      "average_molecular_weight": 5,
+      "solution_viscosity": 2,
+      "crystallinity": 0,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 0,
+      "morphology": 1,
+      "stereoregularity": 0,
+      "characteristics_of_material": 9
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "coverage_strategy": "cue_retrieval",
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 2107,
+      "cache_creation_input_tokens": 31919,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 33398,
+      "total_tokens": 35505
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.567766",
+      "output_cost": "0.212807",
+      "total_cost": "0.780573"
+    }
+  }
+}

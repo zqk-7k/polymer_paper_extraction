@@ -1,0 +1,189 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0042246",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0042246",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "未检索到 molecular weight、Mn、Mw、Mz、Mw/Mn 或 dispersity 的原文数值或表述。"
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "未检索到 intrinsic viscosity、inherent viscosity、reduced viscosity、specific viscosity 或相关数值。"
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "未检索到 crystallinity、degree of crystallinity、crystalline fraction 或明确晶态比例结果。"
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "未检索到 degree of polymerization、polymerization degree、DP、DPn 或 DPw 的原文结果。"
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "未检索到 d-spacing、interlayer distance、interplanar distance、2 theta 或 Bragg angle 的结果。"
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "Chemical structures of poly（ethylene oxide）（PEO）",
+        "evidence_block_ids": [
+          "I_1_30"
+        ],
+        "sample_id": "s004",
+        "entity_id": "pe005",
+        "subject_resolution": "sample",
+        "confidence": 0.94,
+        "reason": "图注明确将 PEO 标示为 chemical structures。"
+      },
+      {
+        "source_field": "morphology",
+        "decision": "supported",
+        "semantic_label": "morphology",
+        "variant": "reported",
+        "observed_text": "微細相分離構造",
+        "evidence_block_ids": [
+          "P_6_95"
+        ],
+        "sample_id": "s012",
+        "entity_id": "pe020",
+        "subject_resolution": "sample",
+        "confidence": 0.9,
+        "reason": "TEM观察结果明确指出 NBR43 系ブレンド具有微细相分離構造，可对应 NBR43/PM (EO/PO)mono 样品。"
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "未检索到 stereoregularity、tacticity、isotactic、syndiotactic、atactic 或 heterotactic 的表述。"
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "Elastomer Blends",
+        "evidence_block_ids": [
+          "P_0_7"
+        ],
+        "sample_id": null,
+        "entity_id": "pe014",
+        "subject_resolution": "entity_only",
+        "confidence": 0.77,
+        "reason": "关键词明确给出 Elastomer Blends，包含明确的 elastomer 材料类别，但未唯一对应目录中的具体样品。"
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "characteristics_of_material 仅由关键词中的材料类别支持，未能唯一绑定具体样品。",
+      "morphology 的样品对应基于 NBR43系ブレンド 与样品目录中 NBR43/PM (EO/PO)mono 的匹配，建议人工复核。"
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 4,
+    "field_block_counts": {
+      "average_molecular_weight": 0,
+      "solution_viscosity": 0,
+      "crystallinity": 0,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 1,
+      "morphology": 1,
+      "stereoregularity": 0,
+      "characteristics_of_material": 0
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "usage": {
+      "input_tokens": 6307,
+      "output_tokens": 1416,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6304,
+      "billable_input_tokens": 12611,
+      "total_tokens": 14027
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.214387",
+      "output_cost": "0.143016",
+      "total_cost": "0.357403"
+    }
+  }
+}

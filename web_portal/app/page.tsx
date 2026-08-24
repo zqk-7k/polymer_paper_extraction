@@ -1340,6 +1340,16 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       message={`当前对照：${activeCollection.collection_id} ↔ PoLyInfo`}
       description="锚点 Precision、Recall 和 F1 只衡量与 PoLyInfo 已有记录的一致性，不是全文 gold 准确率。抽取独有记录可能是有效补充，也可能需要回到 PDF 证据裁决。"
     />
+    {activeCollection.collection_id === "demo30_preview_20260824" && <section className="work-panel audit-report-links">
+      <div>
+        <strong>demo30 科学审计与目标实验</strong>
+        <span>查看 32 篇全量差异，以及九类性质归属 Agent 在独立冻结集上的受控自进化结果。</span>
+      </div>
+      <Space wrap>
+        <Button href={`${API_BASE}/api/reports/demo30-polyinfo`} target="_blank" icon={<TableProperties size={15} />}>打开全量差异报告</Button>
+        <Button type="primary" href={`${API_BASE}/api/reports/agent-evolution`} target="_blank" icon={<Workflow size={15} />}>打开 Agent 与自进化报告</Button>
+      </Space>
+    </section>}
     <section className="metric-strip polyinfo-metrics">
       <Metric icon={<ShieldCheck size={19} />} label="锚点 F1" value={`${(activeCollection.anchor.f1 * 100).toFixed(1)}%`} tone="blue" />
       <Metric icon={<Check size={19} />} label="数值一致" value={activeCollection.anchor.matched} tone="green" />

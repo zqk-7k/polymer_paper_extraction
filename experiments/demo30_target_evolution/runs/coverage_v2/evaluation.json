@@ -1,0 +1,773 @@
+{
+  "schema_version": "specialized-coverage-evolution-evaluation/1.0",
+  "experiment_id": "demo30-specialized-coverage-evolution-v2",
+  "scope": "five frozen papers; document-level nine-field anchor coverage",
+  "workflow": {
+    "anchor_document_fields": 11,
+    "predicted_document_fields": 2,
+    "matched_document_fields": 2,
+    "anchor_precision": 1.0,
+    "recall": 0.1818,
+    "f1": 0.3077,
+    "evidence_validation_rate": null,
+    "subject_resolution_rate": null,
+    "release_gate_enabled": false,
+    "rows": [
+      {
+        "ref_no": "reference_no_0033617",
+        "anchors": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0043955",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [
+          "average_molecular_weight"
+        ],
+        "agent_added": [],
+        "combined": [
+          "average_molecular_weight"
+        ],
+        "matched": [
+          "average_molecular_weight"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.3333
+      },
+      {
+        "ref_no": "reference_no_0026548",
+        "anchors": [
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0033493",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0041387",
+        "anchors": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "solution_viscosity"
+        ],
+        "agent_added": [],
+        "combined": [
+          "solution_viscosity"
+        ],
+        "matched": [
+          "solution_viscosity"
+        ],
+        "missing": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.3333
+      }
+    ]
+  },
+  "base_agent": {
+    "anchor_document_fields": 11,
+    "predicted_document_fields": 9,
+    "matched_document_fields": 8,
+    "anchor_precision": 0.8889,
+    "recall": 0.7273,
+    "f1": 0.8,
+    "evidence_validation_rate": 1.0,
+    "subject_resolution_rate": 1.0,
+    "release_gate_enabled": false,
+    "rows": [
+      {
+        "ref_no": "reference_no_0033617",
+        "anchors": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "characteristics_of_material"
+        ],
+        "combined": [
+          "characteristics_of_material"
+        ],
+        "matched": [
+          "characteristics_of_material"
+        ],
+        "missing": [
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.5
+      },
+      {
+        "ref_no": "reference_no_0043955",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [
+          "average_molecular_weight"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0026548",
+        "anchors": [
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0033493",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "matched": [
+          "characteristics_of_material"
+        ],
+        "missing": [
+          "average_molecular_weight"
+        ],
+        "anchor_only_predictions": [
+          "primary_structure_informations"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 0.5
+      },
+      {
+        "ref_no": "reference_no_0041387",
+        "anchors": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "solution_viscosity"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      }
+    ]
+  },
+  "evolved_agent": {
+    "anchor_document_fields": 11,
+    "predicted_document_fields": 9,
+    "matched_document_fields": 7,
+    "anchor_precision": 0.7778,
+    "recall": 0.6364,
+    "f1": 0.7,
+    "evidence_validation_rate": 1.0,
+    "subject_resolution_rate": 1.0,
+    "release_gate_enabled": true,
+    "rows": [
+      {
+        "ref_no": "reference_no_0033617",
+        "anchors": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "characteristics_of_material"
+        ],
+        "combined": [
+          "characteristics_of_material"
+        ],
+        "matched": [
+          "characteristics_of_material"
+        ],
+        "missing": [
+          "primary_structure_informations"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.5
+      },
+      {
+        "ref_no": "reference_no_0043955",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "workflow": [
+          "average_molecular_weight"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "crystallinity",
+          "primary_structure_informations"
+        ],
+        "matched": [
+          "average_molecular_weight",
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [
+          "crystallinity"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      },
+      {
+        "ref_no": "reference_no_0026548",
+        "anchors": [
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [],
+        "combined": [],
+        "matched": [],
+        "missing": [
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0033493",
+        "anchors": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "workflow": [],
+        "agent_added": [
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "primary_structure_informations"
+        ],
+        "matched": [],
+        "missing": [
+          "average_molecular_weight",
+          "characteristics_of_material"
+        ],
+        "anchor_only_predictions": [
+          "primary_structure_informations"
+        ],
+        "blocked_by_release_gate": [],
+        "recall": 0.0
+      },
+      {
+        "ref_no": "reference_no_0041387",
+        "anchors": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "workflow": [
+          "solution_viscosity"
+        ],
+        "agent_added": [
+          "characteristics_of_material",
+          "primary_structure_informations"
+        ],
+        "combined": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "matched": [
+          "characteristics_of_material",
+          "primary_structure_informations",
+          "solution_viscosity"
+        ],
+        "missing": [],
+        "anchor_only_predictions": [],
+        "blocked_by_release_gate": [],
+        "recall": 1.0
+      }
+    ]
+  },
+  "calibration": {
+    "base_agent": {
+      "anchor_document_fields": 16,
+      "predicted_document_fields": 19,
+      "matched_document_fields": 13,
+      "anchor_precision": 0.6842,
+      "recall": 0.8125,
+      "f1": 0.7429,
+      "evidence_validation_rate": 1.0,
+      "subject_resolution_rate": 1.0,
+      "release_gate_enabled": false,
+      "rows": [
+        {
+          "ref_no": "reference_no_0021296",
+          "anchors": [
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "combined": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "matched": [
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data"
+          ],
+          "missing": [],
+          "anchor_only_predictions": [
+            "average_molecular_weight",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "blocked_by_release_gate": [],
+          "recall": 1.0
+        },
+        {
+          "ref_no": "reference_no_0022895",
+          "anchors": [
+            "characteristics_of_material",
+            "degree_of_polymerization",
+            "solution_viscosity"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "characteristics_of_material",
+            "crystallinity",
+            "solution_viscosity"
+          ],
+          "combined": [
+            "characteristics_of_material",
+            "crystallinity",
+            "solution_viscosity"
+          ],
+          "matched": [
+            "characteristics_of_material",
+            "solution_viscosity"
+          ],
+          "missing": [
+            "degree_of_polymerization"
+          ],
+          "anchor_only_predictions": [
+            "crystallinity"
+          ],
+          "blocked_by_release_gate": [],
+          "recall": 0.6667
+        },
+        {
+          "ref_no": "reference_no_0037268",
+          "anchors": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "morphology"
+          ],
+          "workflow": [
+            "average_molecular_weight",
+            "crystallinity"
+          ],
+          "agent_added": [
+            "characteristics_of_material",
+            "morphology"
+          ],
+          "combined": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "morphology"
+          ],
+          "matched": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "morphology"
+          ],
+          "missing": [],
+          "anchor_only_predictions": [],
+          "blocked_by_release_gate": [],
+          "recall": 1.0
+        },
+        {
+          "ref_no": "reference_no_0042246",
+          "anchors": [
+            "characteristics_of_material",
+            "crystallinity",
+            "primary_structure_informations"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "characteristics_of_material",
+            "morphology",
+            "primary_structure_informations"
+          ],
+          "combined": [
+            "characteristics_of_material",
+            "morphology",
+            "primary_structure_informations"
+          ],
+          "matched": [
+            "characteristics_of_material",
+            "primary_structure_informations"
+          ],
+          "missing": [
+            "crystallinity"
+          ],
+          "anchor_only_predictions": [
+            "morphology"
+          ],
+          "blocked_by_release_gate": [],
+          "recall": 0.6667
+        },
+        {
+          "ref_no": "reference_no_0073324",
+          "anchors": [
+            "characteristics_of_material",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "average_molecular_weight",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "combined": [
+            "average_molecular_weight",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "matched": [
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "missing": [
+            "characteristics_of_material"
+          ],
+          "anchor_only_predictions": [
+            "average_molecular_weight"
+          ],
+          "blocked_by_release_gate": [],
+          "recall": 0.6667
+        }
+      ]
+    },
+    "evolved_agent": {
+      "anchor_document_fields": 16,
+      "predicted_document_fields": 17,
+      "matched_document_fields": 13,
+      "anchor_precision": 0.7647,
+      "recall": 0.8125,
+      "f1": 0.7879,
+      "evidence_validation_rate": 1.0,
+      "subject_resolution_rate": 1.0,
+      "release_gate_enabled": true,
+      "rows": [
+        {
+          "ref_no": "reference_no_0021296",
+          "anchors": [
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "combined": [
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "matched": [
+            "characteristics_of_material",
+            "crystallinity",
+            "crystallographic_data"
+          ],
+          "missing": [],
+          "anchor_only_predictions": [
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "blocked_by_release_gate": [
+            "average_molecular_weight"
+          ],
+          "recall": 1.0
+        },
+        {
+          "ref_no": "reference_no_0022895",
+          "anchors": [
+            "characteristics_of_material",
+            "degree_of_polymerization",
+            "solution_viscosity"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "characteristics_of_material",
+            "crystallinity",
+            "solution_viscosity"
+          ],
+          "combined": [
+            "characteristics_of_material",
+            "crystallinity",
+            "solution_viscosity"
+          ],
+          "matched": [
+            "characteristics_of_material",
+            "solution_viscosity"
+          ],
+          "missing": [
+            "degree_of_polymerization"
+          ],
+          "anchor_only_predictions": [
+            "crystallinity"
+          ],
+          "blocked_by_release_gate": [],
+          "recall": 0.6667
+        },
+        {
+          "ref_no": "reference_no_0037268",
+          "anchors": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "morphology"
+          ],
+          "workflow": [
+            "average_molecular_weight",
+            "crystallinity"
+          ],
+          "agent_added": [
+            "characteristics_of_material",
+            "morphology"
+          ],
+          "combined": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "morphology"
+          ],
+          "matched": [
+            "average_molecular_weight",
+            "characteristics_of_material",
+            "crystallinity",
+            "morphology"
+          ],
+          "missing": [],
+          "anchor_only_predictions": [],
+          "blocked_by_release_gate": [],
+          "recall": 1.0
+        },
+        {
+          "ref_no": "reference_no_0042246",
+          "anchors": [
+            "characteristics_of_material",
+            "crystallinity",
+            "primary_structure_informations"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "characteristics_of_material",
+            "morphology",
+            "primary_structure_informations"
+          ],
+          "combined": [
+            "characteristics_of_material",
+            "morphology",
+            "primary_structure_informations"
+          ],
+          "matched": [
+            "characteristics_of_material",
+            "primary_structure_informations"
+          ],
+          "missing": [
+            "crystallinity"
+          ],
+          "anchor_only_predictions": [
+            "morphology"
+          ],
+          "blocked_by_release_gate": [],
+          "recall": 0.6667
+        },
+        {
+          "ref_no": "reference_no_0073324",
+          "anchors": [
+            "characteristics_of_material",
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "workflow": [],
+          "agent_added": [
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "combined": [
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "matched": [
+            "primary_structure_informations",
+            "solution_viscosity"
+          ],
+          "missing": [
+            "characteristics_of_material"
+          ],
+          "anchor_only_predictions": [],
+          "blocked_by_release_gate": [
+            "average_molecular_weight"
+          ],
+          "recall": 0.6667
+        }
+      ]
+    }
+  },
+  "delta_vs_workflow": 0.4546,
+  "guardrails": {
+    "Recall ≥ 80%": [
+      0.6364,
+      false
+    ],
+    "锚点 Precision ≥ 75%": [
+      0.7778,
+      true
+    ],
+    "证据验证率 = 100%": [
+      1.0,
+      true
+    ],
+    "主体解析率 ≥ 90%": [
+      1.0,
+      true
+    ],
+    "相对 workflow 有提升": [
+      0.4546,
+      true
+    ]
+  },
+  "eligible_for_expert_review": false,
+  "eligible_for_automatic_production_promotion": false
+}

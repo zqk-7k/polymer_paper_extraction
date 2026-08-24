@@ -21,6 +21,7 @@ from fastapi.responses import FileResponse, JSONResponse
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME_ROOT = ROOT / "web_runtime" / "tasks"
 BATCH_PARENT = ROOT / "batch_results"
+EXPERIMENT_REPORT_ROOT = ROOT / "experiments" / "demo30_target_evolution" / "runs"
 
 
 def _read_batch_index_file(root: Path) -> dict[str, Any]:
@@ -1473,6 +1474,34 @@ def get_polyinfo_pdf_page(ref_no: str, page: int) -> FileResponse:
     if not pdf_path:
         raise HTTPException(status_code=404, detail="PoLyInfo source PDF not found")
     return _page_response(_render_pdf_page(pdf_path, EVIDENCE_PREVIEW_ROOT / "polyinfo" / ref_no, page))
+
+
+@app.get("/api/reports/demo30-polyinfo")
+def get_demo30_polyinfo_report() -> FileResponse:
+    report = EXPERIMENT_REPORT_ROOT / "baseline" / "baseline_report.html"
+    if not report.is_file():
+        raise HTTPException(status_code=404, detail="demo30 audit report not found")
+    return FileResponse(report, media_type="text/html; charset=utf-8")
+
+
+@app.get("/api/reports/demo30-polyinfo/data")
+def get_demo30_polyinfo_report_data() -> JSONResponse:
+    report = EXPERIMENT_REPORT_ROOT / "baseline" / "baseline_audit.json"
+    return JSONResponse(_read_json(report, "demo30 audit data not found"))
+
+
+@app.get("/api/reports/agent-evolution")
+def get_agent_evolution_report() -> FileResponse:
+    report = EXPERIMENT_REPORT_ROOT / "coverage_v3" / "agent_evolution_report.html"
+    if not report.is_file():
+        raise HTTPException(status_code=404, detail="Agent evolution report not found")
+    return FileResponse(report, media_type="text/html; charset=utf-8")
+
+
+@app.get("/api/reports/agent-evolution/data")
+def get_agent_evolution_report_data() -> JSONResponse:
+    report = EXPERIMENT_REPORT_ROOT / "coverage_v3" / "evaluation.json"
+    return JSONResponse(_read_json(report, "Agent evolution data not found"))
 
 
 @app.get("/api/source-pdfs/{ref_no}/pdf")

@@ -1,0 +1,193 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0027435",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0027435",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "supported",
+        "semantic_label": "molecular_weight",
+        "variant": "number_average",
+        "observed_text": "16 000–63 000",
+        "evidence_block_ids": [
+          "P_3_62"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.96,
+        "reason": "Number-average molecular-weight range is explicitly reported for the polymer series."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "observed_text": "0.50 dL $\\cdot \\mathbf { g } ^ { - 1 }$",
+        "evidence_block_ids": [
+          "P_2_47"
+        ],
+        "sample_id": "s001",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.99,
+        "reason": "PI-1 inherent viscosity is explicitly reported."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "supported",
+        "semantic_label": "crystallinity",
+        "variant": "reported",
+        "observed_text": "amorphous patterns",
+        "evidence_block_ids": [
+          "P_4_74"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.98,
+        "reason": "The polyimides are explicitly described as presenting amorphous patterns."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.97,
+        "reason": "No degree of polymerization, DP, DPn, or DPw value is reported in the retrieved evidence."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.97,
+        "reason": "X-ray diffractograms are mentioned, but no d-spacing, interlayer distance, two theta, or Bragg angle is reported."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "poly(ether imide)s having tertbutyl substituents, together with noncoplanar and pendent cardo groups",
+        "evidence_block_ids": [
+          "P_0_0"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.89,
+        "reason": "The polymer series is explicitly described with tertbutyl substituents and pendent cardo groups."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No morphology, particle size, fiber length, domain size, pore size, or cell size is reported in the retrieved evidence."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic description is reported."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "amorphous patterns",
+        "evidence_block_ids": [
+          "P_4_74"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.98,
+        "reason": "An explicit permitted material-characteristic category is reported for the polyimides."
+      }
+    ],
+    "requires_human_review": false,
+    "warnings": [
+      "Crystallinity is supported categorically as amorphous patterns; no numeric degree of crystallinity is reported in the retrieved evidence."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 19,
+    "field_block_counts": {
+      "average_molecular_weight": 4,
+      "solution_viscosity": 2,
+      "crystallinity": 0,
+      "degree_of_polymerization": 10,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 1,
+      "morphology": 0,
+      "stereoregularity": 0,
+      "characteristics_of_material": 6
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "coverage_strategy": "cue_retrieval",
+  "runtime": {
+    "usage": {
+      "input_tokens": 35824,
+      "output_tokens": 1657,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 35821,
+      "billable_input_tokens": 71645,
+      "total_tokens": 73302
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "1.217965",
+      "output_cost": "0.167357",
+      "total_cost": "1.385322"
+    }
+  }
+}

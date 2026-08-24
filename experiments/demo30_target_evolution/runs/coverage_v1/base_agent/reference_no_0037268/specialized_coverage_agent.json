@@ -1,0 +1,188 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0037268",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0037268",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "supported",
+        "semantic_label": "molecular_weight",
+        "variant": null,
+        "observed_text": "$80.0 \\times 10^{3}$",
+        "evidence_block_ids": [
+          "T_11_95"
+        ],
+        "sample_id": null,
+        "entity_id": "pe002",
+        "subject_resolution": "entity_only",
+        "confidence": 0.98,
+        "reason": "Table I reports Av. Molar Mass, g/mol for 100% Poly(ε-caprolactone) (PCL)."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No retrieved block reports intrinsic, inherent, reduced, specific, or other solution-viscosity value."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "supported",
+        "semantic_label": "crystallinity",
+        "variant": "reported",
+        "observed_text": "93",
+        "evidence_block_ids": [
+          "T_17_134"
+        ],
+        "sample_id": null,
+        "entity_id": "pe004",
+        "subject_resolution": "entity_only",
+        "confidence": 0.98,
+        "reason": "Table II reports Degree of Crystal-linity at 110 °C for 100% Poly (3-hydroxy butyric acid) (PHBA)."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No retrieved block reports degree of polymerization, polymerization degree, DP, DPn, or DPw."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "XRD is mentioned, but no d-spacing, interlayer distance, interplanar distance, 2 theta, or Bragg angle is reported."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No retrieved block provides primary structure, chemical structure, repeat unit, backbone structure, or sequence structure information."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "supported",
+        "semantic_label": "morphology",
+        "variant": "reported",
+        "observed_text": "AP and its blends are mostly crystalline",
+        "evidence_block_ids": [
+          "P_15_120"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.8,
+        "reason": "The text explicitly describes AP and its blends as mostly crystalline, providing categorical morphology information for AP."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No retrieved block reports stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic information."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "supported",
+        "semantic_label": "material_characteristic",
+        "variant": "reported",
+        "observed_text": "AP and its blends are mostly crystalline",
+        "evidence_block_ids": [
+          "P_15_120"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.91,
+        "reason": "The text explicitly classifies AP and its blends as mostly crystalline."
+      }
+    ],
+    "requires_human_review": false,
+    "warnings": []
+  },
+  "retrieval": {
+    "evidence_blocks": 34,
+    "field_block_counts": {
+      "average_molecular_weight": 22,
+      "solution_viscosity": 0,
+      "crystallinity": 6,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 0,
+      "morphology": 6,
+      "stereoregularity": 0,
+      "characteristics_of_material": 12
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1614,
+      "cache_creation_input_tokens": 21654,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 23133,
+      "total_tokens": 24747
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.393261",
+      "output_cost": "0.163014",
+      "total_cost": "0.556275"
+    }
+  }
+}

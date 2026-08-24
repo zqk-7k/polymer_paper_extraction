@@ -1,0 +1,187 @@
+{
+  "schema_version": "specialized_coverage_agent_artifact.v1",
+  "status": "succeeded",
+  "authoritative": false,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0042480",
+  "response": {
+    "schema_version": "specialized_coverage_agent_schema.v1",
+    "document_id": "reference_no_0042480",
+    "decisions": [
+      {
+        "source_field": "average_molecular_weight",
+        "decision": "ambiguous",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.82,
+        "reason": "The text qualitatively states high molecular weight polymers but provides no numeric molecular-weight value or average type."
+      },
+      {
+        "source_field": "solution_viscosity",
+        "decision": "supported",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "observed_text": "0.75",
+        "evidence_block_ids": [
+          "T_7_73"
+        ],
+        "sample_id": "s002",
+        "entity_id": "pe003",
+        "subject_resolution": "sample",
+        "confidence": 0.99,
+        "reason": "Table 1 explicitly reports ηinh for polymer I."
+      },
+      {
+        "source_field": "crystallinity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No crystallinity, crystalline fraction, crystallinity index, or XRD/DSC crystallinity result is present in the retrieved evidence."
+      },
+      {
+        "source_field": "degree_of_polymerization",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No degree of polymerization, DP, DPn, or DPw value is present in the retrieved evidence."
+      },
+      {
+        "source_field": "crystallographic_data",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No d-spacing, interplanar distance, 2 theta, or Bragg angle result is present in the retrieved evidence."
+      },
+      {
+        "source_field": "primary_structure_informations",
+        "decision": "supported",
+        "semantic_label": "primary_structure",
+        "variant": "reported",
+        "observed_text": "acylamide linkage",
+        "evidence_block_ids": [
+          "P_7_75"
+        ],
+        "sample_id": null,
+        "entity_id": "pe001",
+        "subject_resolution": "entity_only",
+        "confidence": 0.84,
+        "reason": "FT-IR discussion explicitly identifies an acylamide linkage for the prepared polyamides."
+      },
+      {
+        "source_field": "morphology",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.98,
+        "reason": "No morphology, particle size, fiber length, domain size, pore size, or cell size result is present in the retrieved evidence."
+      },
+      {
+        "source_field": "stereoregularity",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.99,
+        "reason": "No stereoregularity, tacticity, isotactic, syndiotactic, atactic, or heterotactic information is present in the retrieved evidence."
+      },
+      {
+        "source_field": "characteristics_of_material",
+        "decision": "not_found",
+        "semantic_label": null,
+        "variant": null,
+        "observed_text": null,
+        "evidence_block_ids": [],
+        "sample_id": null,
+        "entity_id": null,
+        "subject_resolution": "unresolved",
+        "confidence": 0.87,
+        "reason": "The evidence reports solubility and mechanical properties but does not explicitly classify the material using a required material-characteristic category."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "Qualitative \"high molecular weight polymers\" is not a numeric average molecular-weight measurement and does not identify Mn, Mw, Mz, or dispersity."
+    ]
+  },
+  "retrieval": {
+    "evidence_blocks": 11,
+    "field_block_counts": {
+      "average_molecular_weight": 3,
+      "solution_viscosity": 0,
+      "crystallinity": 0,
+      "degree_of_polymerization": 0,
+      "crystallographic_data": 0,
+      "primary_structure_informations": 2,
+      "morphology": 0,
+      "stereoregularity": 0,
+      "characteristics_of_material": 2
+    }
+  },
+  "tool_trace": [
+    "retrieve_stage0_evidence",
+    "query_polymer_entities",
+    "query_sample_catalog",
+    "lookup_controlled_vocabulary",
+    "validate_evidence_quote",
+    "validate_subject_foreign_keys"
+  ],
+  "prompt": {
+    "id": "polymer.specialized.coverage",
+    "version": "0.1.0",
+    "sha256": "7973569d613e07eca118ecf2693244f70bd93da6fa760e4c54f4ba87da44644d"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "coverage_strategy": "cue_retrieval",
+  "runtime": {
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1664,
+      "cache_creation_input_tokens": 9280,
+      "cache_read_input_tokens": 1476,
+      "billable_input_tokens": 10759,
+      "total_tokens": 12423
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.182903",
+      "output_cost": "0.168064",
+      "total_cost": "0.350967"
+    }
+  }
+}
