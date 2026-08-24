@@ -31,6 +31,27 @@ def _read_batch_index_file(root: Path) -> dict[str, Any]:
     return payload if isinstance(payload, dict) else {}
 
 
+def _read_review_index_file(root: Path) -> dict[str, Any]:
+    try:
+        payload = json.loads((root / "REVIEW_INDEX.json").read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(payload, dict) or payload.get("production_eligible") is not False:
+        return {}
+    return payload
+
+
+def _read_collection_index(root: Path, *, include_review: bool = False) -> tuple[dict[str, Any], str]:
+    index = _read_batch_index_file(root)
+    if index:
+        return index, "production"
+    if include_review:
+        review = _read_review_index_file(root)
+        if review:
+            return review, "review"
+    return {}, ""
+
+
 def _read_optional_json(path: Path) -> dict[str, Any]:
     try:
         payload = json.loads(path.read_text(encoding="utf-8-sig"))
@@ -237,6 +258,7 @@ def _candidate_overview(candidate: dict[str, Any]) -> dict[str, Any]:
             "characterization_count": len(candidate.get("characterizations") or []),
             "evidence_count": len(candidate.get("evidence") or []),
         },
+        "publication_status": publication.get("status"),
         "validation_status": publication.get("validation_status"),
     }
 
@@ -301,7 +323,7 @@ def _batch_collection_root(collection_id: str = "") -> tuple[Path, dict[str, Any
     if Path(collection_id).name != collection_id:
         raise HTTPException(status_code=404, detail="Batch collection not found")
     root = BATCH_PARENT / collection_id
-    index = _read_batch_index_file(root)
+    index, _ = _read_collection_index(root, include_review=True)
     if not root.is_dir() or not index:
         raise HTTPException(status_code=404, detail="Batch collection not found")
     return root, index
@@ -323,8 +345,12 @@ def _load_batch_candidate(ref_no: str, root: Path | None = None) -> dict[str, An
     return _read_json(candidate_path, "Batch candidate is invalid")
 
 
-def _batch_source_map() -> dict[str, str]:
-    index = BATCH_INDEX or _read_batch_index_file(BATCH_ROOT)
+def _batch_source_map(
+    root: Path | None = None,
+    index: dict[str, Any] | None = None,
+) -> dict[str, str]:
+    selected_root = root or BATCH_ROOT
+    index = index if index is not None else (BATCH_INDEX or _read_batch_index_file(selected_root))
     if not index:
         return {}
     mapping: dict[str, str] = {}
@@ -332,20 +358,42 @@ def _batch_source_map() -> dict[str, str]:
         for ref_no in refs or []:
             mapping[str(ref_no)] = str(source_batch)
     if not mapping:
-        source_label = str(index.get("result_mode") or BATCH_ROOT.name)
+        source_label = str(index.get("result_mode") or selected_root.name)
         for document in index.get("documents") or []:
             if isinstance(document, dict) and document.get("reference_no"):
                 mapping[str(document["reference_no"])] = source_label
     return mapping
 
 
+@lru_cache(maxsize=1)
+def _polyinfo_result_directories() -> dict[str, tuple[Path, str]]:
+    """Discover PoLyInfo exports recursively, including later audit collections."""
+    discovered: dict[str, tuple[Path, str]] = {}
+    if not POLYINFO_DATA_ROOT.is_dir():
+        return discovered
+
+    preferred: list[Path] = []
+    remaining: list[Path] = []
+    for path in POLYINFO_DATA_ROOT.rglob("reference_no_*"):
+        if not path.is_dir() or not REF_NO_RE.fullmatch(path.name) or not any(path.glob("*.json")):
+            continue
+        (preferred if path.parent.name in POLYINFO_GROUPS else remaining).append(path)
+
+    for path in sorted(preferred) + sorted(remaining):
+        try:
+            group = str(path.parent.relative_to(POLYINFO_DATA_ROOT))
+        except ValueError:
+            group = path.parent.name
+        discovered.setdefault(path.name, (path, group))
+    return discovered
+
+
 def _polyinfo_result_dir(ref_no: str) -> tuple[Path, str]:
     if not REF_NO_RE.fullmatch(ref_no):
         raise HTTPException(status_code=404, detail="PoLyInfo result not found")
-    for group in POLYINFO_GROUPS:
-        result_dir = POLYINFO_DATA_ROOT / group / ref_no
-        if result_dir.is_dir():
-            return result_dir, group
+    located = _polyinfo_result_directories().get(ref_no)
+    if located:
+        return located
     raise HTTPException(status_code=404, detail="PoLyInfo result not found")
 
 
@@ -545,16 +593,11 @@ def _polyinfo_summary(result_dir: Path, group: str) -> dict[str, Any] | None:
 @lru_cache(maxsize=1)
 def _polyinfo_summaries() -> tuple[dict[str, Any], ...]:
     results: list[dict[str, Any]] = []
-    for group in POLYINFO_GROUPS:
-        group_root = POLYINFO_DATA_ROOT / group
-        if not group_root.is_dir():
-            continue
-        for result_dir in sorted(group_root.iterdir()):
-            if not result_dir.is_dir() or not REF_NO_RE.fullmatch(result_dir.name):
-                continue
-            summary = _polyinfo_summary(result_dir, group)
-            if summary:
-                results.append(summary)
+    for result_dir, group in _polyinfo_result_directories().values():
+        summary = _polyinfo_summary(result_dir, group)
+        if summary:
+            results.append(summary)
+    results.sort(key=lambda item: item["ref_no"])
     return tuple(results)
 
 
@@ -893,6 +936,7 @@ def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, An
     status_counts = {status: 0 for status in ("matched", "value_diff", "polyinfo_only", "extraction_only")}
     document_count = 0
     paired_documents = 0
+    publication_status = {"complete": 0, "partial": 0, "other": 0}
 
     indexed_documents = {
         str(item.get("reference_no")): item
@@ -910,6 +954,10 @@ def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, An
         if not candidate:
             continue
         document_count += 1
+        indexed = indexed_documents.get(result_dir.name) or {}
+        candidate_publication = candidate.get("publication") or {}
+        status = str(candidate_publication.get("status") or indexed.get("publication_status") or "other")
+        publication_status[status if status in publication_status else "other"] += 1
         for key in totals:
             totals[key] += len(candidate.get(key) or [])
         item_completeness = _candidate_completeness(candidate)
@@ -932,7 +980,6 @@ def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, An
         stage["stage6_errors"] += int(stage6.get("error_count") or 0)
         stage["rejected_objects"] += len((final_payload or {}).get("rejected_objects") or [])
 
-        indexed = indexed_documents.get(result_dir.name) or {}
         indexed_stage6 = indexed.get("stage6") or {}
         if not stage6:
             stage["stage6_warnings"] += int(indexed_stage6.get("warning_count") or 0)
@@ -967,14 +1014,18 @@ def _batch_collection_summary(root: Path, index: dict[str, Any]) -> dict[str, An
         **_completeness_quality(completeness),
         "final_document_rate": _ratio(stage["final_documents"], document_count),
     }
+    collection_kind = "review" if (root / "REVIEW_INDEX.json").is_file() else "production"
     return {
         "collection_id": root.name,
+        "collection_kind": collection_kind,
+        "production_eligible": collection_kind == "production" and bool(index.get("production_eligible", True)),
         "result_date": str(index.get("result_date") or index.get("generated_at") or ""),
         "generated_at": str(index.get("generated_at") or ""),
         "result_mode": str(index.get("result_mode") or root.name),
         "is_active": root.resolve() == BATCH_ROOT.resolve(),
         "document_count": document_count,
         "paired_documents": paired_documents,
+        "publication_status": publication_status,
         "totals": totals,
         "quality": quality,
         "anchor": _alignment_metrics(status_counts),
@@ -992,7 +1043,7 @@ def _batch_collection_summaries() -> tuple[dict[str, Any], ...]:
     for root in BATCH_PARENT.iterdir():
         if not root.is_dir():
             continue
-        index = _read_batch_index_file(root)
+        index, _ = _read_collection_index(root, include_review=True)
         if index:
             summaries.append(_batch_collection_summary(root, index))
     summaries.sort(key=lambda item: (item["result_date"], item["generated_at"], item["collection_id"]), reverse=True)
@@ -1307,14 +1358,16 @@ def get_pdf_page(task_id: str, page: int) -> FileResponse:
 
 
 @app.get("/api/batch-results")
-def list_batch_results() -> list[dict[str, Any]]:
-    if not BATCH_ROOT.is_dir():
+def list_batch_results(collection: str = "") -> list[dict[str, Any]]:
+    selected_root, selected_index = _batch_collection_root(collection)
+    if not selected_root.is_dir():
         return []
-    source_map = _batch_source_map()
-    result_date = str(BATCH_INDEX.get("result_date") or BATCH_INDEX.get("generated_at") or "")
-    result_mode = str(BATCH_INDEX.get("result_mode") or BATCH_ROOT.name)
+    source_map = _batch_source_map(selected_root, selected_index)
+    result_date = str(selected_index.get("result_date") or selected_index.get("generated_at") or "")
+    result_mode = str(selected_index.get("result_mode") or selected_root.name)
+    collection_kind = "review" if (selected_root / "REVIEW_INDEX.json").is_file() else "production"
     results: list[dict[str, Any]] = []
-    for result_dir in sorted(BATCH_ROOT.iterdir()):
+    for result_dir in sorted(selected_root.iterdir()):
         if not result_dir.is_dir() or not REF_NO_RE.fullmatch(result_dir.name):
             continue
         candidate_path = result_dir / "candidate.json"
@@ -1327,14 +1380,16 @@ def list_batch_results() -> list[dict[str, Any]]:
         ref_no = result_dir.name
         results.append({
             "source_kind": "batch",
-            "collection_id": BATCH_ROOT.name,
+            "collection_id": selected_root.name,
+            "collection_kind": collection_kind,
+            "production_eligible": collection_kind == "production" and bool(selected_index.get("production_eligible", True)),
             "result_date": result_date,
             "result_mode": result_mode,
             "ref_no": ref_no,
             "source_batch": source_map.get(ref_no),
-            "result_url": f"/api/batch-results/{ref_no}/result",
-            "graph_url": f"/api/batch-results/{ref_no}/graph",
-            "pdf_url": f"/api/batch-results/{ref_no}/pdf" if (SOURCE_PDF_ROOT / f"{ref_no}.pdf").is_file() else None,
+            "result_url": f"/api/batch-results/{ref_no}/result?collection={selected_root.name}",
+            "graph_url": f"/api/batch-results/{ref_no}/graph?collection={selected_root.name}",
+            "pdf_url": f"/api/batch-results/{ref_no}/pdf?collection={selected_root.name}" if (SOURCE_PDF_ROOT / f"{ref_no}.pdf").is_file() else None,
             **_candidate_overview(candidate),
         })
     return results
@@ -1346,23 +1401,27 @@ def list_batch_collections() -> list[dict[str, Any]]:
 
 
 @app.get("/api/batch-results/{ref_no}/result")
-def get_batch_result(ref_no: str) -> JSONResponse:
-    return JSONResponse(_load_batch_candidate(ref_no))
+def get_batch_result(ref_no: str, collection: str = "") -> JSONResponse:
+    root, _ = _batch_collection_root(collection)
+    return JSONResponse(_load_batch_candidate(ref_no, root))
 
 
 @app.get("/api/batch-results/{ref_no}/hierarchy")
-def get_batch_hierarchy(ref_no: str) -> JSONResponse:
-    return JSONResponse(_candidate_hierarchy(_load_batch_candidate(ref_no)))
+def get_batch_hierarchy(ref_no: str, collection: str = "") -> JSONResponse:
+    root, _ = _batch_collection_root(collection)
+    return JSONResponse(_candidate_hierarchy(_load_batch_candidate(ref_no, root)))
 
 
 @app.get("/api/batch-results/{ref_no}/graph")
-def get_batch_graph(ref_no: str) -> JSONResponse:
-    return JSONResponse(_candidate_graph(_load_batch_candidate(ref_no)))
+def get_batch_graph(ref_no: str, collection: str = "") -> JSONResponse:
+    root, _ = _batch_collection_root(collection)
+    return JSONResponse(_candidate_graph(_load_batch_candidate(ref_no, root)))
 
 
 @app.get("/api/batch-results/{ref_no}/pdf")
-def get_batch_pdf(ref_no: str) -> FileResponse:
-    _batch_result_dir(ref_no)
+def get_batch_pdf(ref_no: str, collection: str = "") -> FileResponse:
+    root, _ = _batch_collection_root(collection)
+    _batch_result_dir(ref_no, root)
     pdf_path = SOURCE_PDF_ROOT / f"{ref_no}.pdf"
     if not pdf_path.is_file():
         raise HTTPException(status_code=404, detail="Source PDF not found")
@@ -1370,19 +1429,21 @@ def get_batch_pdf(ref_no: str) -> FileResponse:
 
 
 @app.get("/api/batch-results/{ref_no}/pdf/pages/{page}")
-def get_batch_pdf_page(ref_no: str, page: int) -> FileResponse:
-    _batch_result_dir(ref_no)
+def get_batch_pdf_page(ref_no: str, page: int, collection: str = "") -> FileResponse:
+    root, _ = _batch_collection_root(collection)
+    _batch_result_dir(ref_no, root)
     pdf_path = SOURCE_PDF_ROOT / f"{ref_no}.pdf"
     return _page_response(_render_pdf_page(pdf_path, EVIDENCE_PREVIEW_ROOT / "batch" / ref_no, page))
 
 
 @app.get("/api/polyinfo-results")
-def list_polyinfo_results() -> list[dict[str, Any]]:
+def list_polyinfo_results(collection: str = "") -> list[dict[str, Any]]:
+    selected_root, _ = _batch_collection_root(collection)
     batch_refs = {
         root.name.lower()
-        for root in BATCH_ROOT.iterdir()
+        for root in selected_root.iterdir()
         if root.is_dir() and REF_NO_RE.fullmatch(root.name) and (root / "candidate.json").is_file()
-    } if BATCH_ROOT.is_dir() else set()
+    } if selected_root.is_dir() else set()
     return [{**item, "has_batch_result": item["ref_no"].lower() in batch_refs} for item in _polyinfo_summaries()]
 
 

@@ -129,6 +129,9 @@ type BatchResultSummary = {
   result_mode?: string | null;
   ref_no: string;
   source_batch?: string | null;
+  collection_kind?: "production" | "review";
+  production_eligible?: boolean;
+  publication_status?: string | null;
   result_url: string;
   graph_url: string;
   pdf_url?: string | null;
@@ -139,12 +142,15 @@ type BatchResultSummary = {
 
 type BatchCollectionSummary = {
   collection_id: string;
+  collection_kind: "production" | "review";
+  production_eligible: boolean;
   result_date: string;
   generated_at: string;
   result_mode: string;
   is_active: boolean;
   document_count: number;
   paired_documents: number;
+  publication_status: { complete: number; partial: number; other: number };
   strict_compliance_claimed: boolean;
   validation_status: string;
   totals: {
@@ -468,6 +474,7 @@ export default function Home() {
   const [historyTasks, setHistoryTasks] = useState<ExtractionJob[]>([]);
   const [batchResults, setBatchResults] = useState<BatchResultSummary[]>([]);
   const [batchCollections, setBatchCollections] = useState<BatchCollectionSummary[]>([]);
+  const [selectedBatchCollectionId, setSelectedBatchCollectionId] = useState("");
   const [polyInfoResults, setPolyInfoResults] = useState<PolyInfoSummary[]>([]);
   const [polyInfoComparison, setPolyInfoComparison] = useState<PolyInfoComparison | null>(null);
   const [polyInfoComparisonLoading, setPolyInfoComparisonLoading] = useState(false);
@@ -532,10 +539,11 @@ export default function Home() {
     }
   }, [messageApi]);
 
-  const refreshBatchResults = useCallback(async () => {
+  const refreshBatchResults = useCallback(async (collectionId = "") => {
     setArchiveLoading(true);
     try {
-      const response = await fetch(`${API_BASE}/api/batch-results`);
+      const query = collectionId ? `?collection=${encodeURIComponent(collectionId)}` : "";
+      const response = await fetch(`${API_BASE}/api/batch-results${query}`);
       if (!response.ok) throw new Error("批处理结果读取失败");
       setBatchResults(await response.json() as BatchResultSummary[]);
     } catch (error) {
@@ -550,18 +558,22 @@ export default function Home() {
     try {
       const response = await fetch(`${API_BASE}/api/batch-collections`);
       if (!response.ok) throw new Error("批次质量摘要读取失败");
-      setBatchCollections(await response.json() as BatchCollectionSummary[]);
+      const collections = await response.json() as BatchCollectionSummary[];
+      setBatchCollections(collections);
+      return collections;
     } catch (error) {
       messageApi.error(error instanceof Error ? error.message : "批次质量摘要读取失败");
     } finally {
       setArchiveLoading(false);
     }
+    return [] as BatchCollectionSummary[];
   }, [messageApi]);
 
-  const refreshPolyInfoResults = useCallback(async () => {
+  const refreshPolyInfoResults = useCallback(async (collectionId = "") => {
     setArchiveLoading(true);
     try {
-      const response = await fetch(`${API_BASE}/api/polyinfo-results`);
+      const query = collectionId ? `?collection=${encodeURIComponent(collectionId)}` : "";
+      const response = await fetch(`${API_BASE}/api/polyinfo-results${query}`);
       if (!response.ok) throw new Error("PoLyInfo 原始数据读取失败");
       setPolyInfoResults(await response.json() as PolyInfoSummary[]);
     } catch (error) {
@@ -665,14 +677,29 @@ export default function Home() {
     void refreshHistory();
   };
 
+  const selectBatchCollection = useCallback((collectionId: string) => {
+    setSelectedBatchCollectionId(collectionId);
+    void refreshBatchResults(collectionId);
+    void refreshPolyInfoResults(collectionId);
+  }, [refreshBatchResults, refreshPolyInfoResults]);
+
   const navigate = (nextView: ViewKey) => {
     setView(nextView);
     if (nextView === "history") void refreshHistory();
-    if (nextView === "batch") void refreshBatchResults();
-    if (nextView === "polyinfo") {
-      void refreshPolyInfoResults();
-      void refreshBatchResults();
-      void refreshBatchCollections();
+    if (nextView === "batch" || nextView === "polyinfo") {
+      void (async () => {
+        const collections = await refreshBatchCollections();
+        const preferred = collections.find((item) => item.collection_id === selectedBatchCollectionId)
+          || collections.find((item) => item.collection_kind === "review")
+          || collections.find((item) => item.is_active)
+          || collections[0];
+        const collectionId = preferred?.collection_id || "";
+        setSelectedBatchCollectionId(collectionId);
+        await Promise.all([
+          refreshBatchResults(collectionId),
+          nextView === "polyinfo" ? refreshPolyInfoResults(collectionId) : Promise.resolve(),
+        ]);
+      })();
     }
   };
 
@@ -890,7 +917,10 @@ export default function Home() {
               loading={archiveLoading}
               historyTasks={[]}
               batchResults={batchResults}
-              onRefresh={refreshBatchResults}
+              batchCollections={batchCollections}
+              selectedCollectionId={selectedBatchCollectionId}
+              onCollection={selectBatchCollection}
+              onRefresh={() => refreshBatchResults(selectedBatchCollectionId)}
               onOpenHistory={openHistoryTask}
               onOpenBatch={openBatchResult}
             />
@@ -901,9 +931,11 @@ export default function Home() {
               rows={polyInfoResults}
               batchResults={batchResults}
               batchCollections={batchCollections}
+              selectedCollectionId={selectedBatchCollectionId}
+              onCollection={selectBatchCollection}
               onRefresh={() => {
-                void refreshPolyInfoResults();
-                void refreshBatchResults();
+                void refreshPolyInfoResults(selectedBatchCollectionId);
+                void refreshBatchResults(selectedBatchCollectionId);
                 void refreshBatchCollections();
               }}
               onCompare={openPolyInfoComparison}
@@ -1086,17 +1118,21 @@ type ArchiveRow = {
   batch?: BatchResultSummary;
 };
 
-function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefresh, onOpenHistory, onOpenBatch }: {
+function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, batchCollections = [], selectedCollectionId = "", onCollection, onRefresh, onOpenHistory, onOpenBatch }: {
   kind: "history" | "batch";
   loading: boolean;
   historyTasks: ExtractionJob[];
   batchResults: BatchResultSummary[];
+  batchCollections?: BatchCollectionSummary[];
+  selectedCollectionId?: string;
+  onCollection?: (collectionId: string) => void;
   onRefresh: () => void;
   onOpenHistory: (task: ExtractionJob) => void;
   onOpenBatch: (item: BatchResultSummary) => void;
 }) {
   const emptyStats: ResultStats = { polymer_count: 0, sample_count: 0, property_count: 0, process_count: 0, characterization_count: 0, evidence_count: 0 };
   const activeBatch = batchResults[0];
+  const activeCollection = batchCollections.find((item) => item.collection_id === selectedCollectionId);
   const batchCollection = activeBatch?.collection_id || "未发布批次";
   const batchResultDate = activeBatch?.result_date || "未标注日期";
   const batchMode = activeBatch?.result_mode || "preview";
@@ -1122,7 +1158,7 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
         meta: displayPaperMeta(item.paper),
         time: item.result_date || "未标注日期",
         source: item.source_batch || item.collection_id,
-        status: "complete",
+        status: item.publication_status || "complete",
         validation: item.validation_status,
         stats: item.stats,
         batch: item,
@@ -1160,14 +1196,14 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
       title: "状态",
       key: "status",
       width: 120,
-      render: (_, row) => <Space size={4} direction="vertical"><Tag color={row.status === "complete" ? "success" : row.status === "failed" ? "error" : "processing"}>{row.status === "complete" ? "已完成" : row.status === "failed" ? "失败" : "运行中"}</Tag>{row.validation === "not_validated" && <Tag color="warning">待校验</Tag>}</Space>,
+      render: (_, row) => <Space size={4} direction="vertical"><Tag color={row.status === "complete" ? "success" : row.status === "failed" ? "error" : row.status === "partial" ? "warning" : "processing"}>{row.status === "complete" ? "完整候选" : row.status === "failed" ? "失败" : row.status === "partial" ? "部分候选" : "运行中"}</Tag>{row.validation === "not_validated" && <Tag color="warning">待校验</Tag>}</Space>,
     },
     {
       title: "操作",
       key: "action",
       width: 120,
       fixed: "right",
-      render: (_, row) => <Button type="primary" disabled={row.status !== "complete"} onClick={() => row.task ? onOpenHistory(row.task) : row.batch && onOpenBatch(row.batch)}>打开关系</Button>,
+      render: (_, row) => <Button type="primary" disabled={row.status === "failed" || row.status === "running"} onClick={() => row.task ? onOpenHistory(row.task) : row.batch && onOpenBatch(row.batch)}>打开关系</Button>,
     },
   ];
 
@@ -1176,14 +1212,14 @@ function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, onRefre
       title={kind === "history" ? "抽取结果" : "离线批处理结果"}
       description={kind === "history" ? "按上传时间从新到旧展示网页任务。打开任一文献后，可按文献 → 聚合物 → 样品 → 性质逐层查看。" : `独立展示 ${batchResultDate} 发布的 ${rows.length} 篇离线候选结果；这些记录不是在网页端生成，不会混入网页历史。`}
       meta={kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}
-      actions={<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新列表</Button>}
+      actions={<Space>{kind === "batch" && <Select className="batch-collection-select" value={activeCollection?.collection_id || selectedCollectionId} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" />}<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新列表</Button></Space>}
     />
     <Alert
       className="archive-source-alert"
       type={kind === "history" ? "info" : "warning"}
       showIcon
-      message={kind === "history" ? "数据源：web_runtime/tasks" : `数据源：batch_results/${batchCollection}`}
-      description={kind === "history" ? "这里不会展示离线批处理记录。运行中和失败任务仍保留，便于追踪抽取历史。" : `当前模式：${batchMode}。批处理结果属于候选数据，仅供审核和对比；是否可入库以科学校验状态为准。`}
+      message={kind === "history" ? "数据源：web_runtime/tasks" : `数据源：batch_results/${batchCollection}${activeCollection?.collection_kind === "review" ? "（审阅批次，非生产）" : ""}`}
+      description={kind === "history" ? "这里不会展示离线批处理记录。运行中和失败任务仍保留，便于追踪抽取历史。" : `当前模式：${batchMode}。${activeCollection?.collection_kind === "review" ? `完整展示 ${activeCollection.document_count} 篇候选，其中 ${activeCollection.publication_status.partial} 篇仍为 partial；` : ""}批处理结果仅供审核和对比，是否可入库以科学校验状态为准。`}
     />
     <section className="archive-metrics">
       <Metric icon={<FileSearch size={19} />} label="文献" value={rows.length} tone="blue" />
@@ -1203,16 +1239,17 @@ function ScoreBar({ value, label, color = "#0066cc" }: { value: number; label: s
   return <div className="quality-score"><div><span>{label}</span><strong>{percent.toFixed(1)}%</strong></div><Progress percent={percent} showInfo={false} strokeColor={color} trailColor="#e6ebf0" size="small" /></div>;
 }
 
-function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, onRefresh, onCompare }: {
+function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, selectedCollectionId, onCollection, onRefresh, onCompare }: {
   loading: boolean;
   rows: PolyInfoSummary[];
   batchResults: BatchResultSummary[];
   batchCollections: BatchCollectionSummary[];
+  selectedCollectionId: string;
+  onCollection: (collectionId: string) => void;
   onRefresh: () => void;
   onCompare: (refNo: string, collectionId?: string) => void;
 }) {
   const [search, setSearch] = useState("");
-  const [selectedCollectionId, setSelectedCollectionId] = useState("");
   const activeBatch = batchResults[0];
   const activeCollection = batchCollections.find((item) => item.collection_id === selectedCollectionId)
     || batchCollections.find((item) => item.is_active)
@@ -1272,7 +1309,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, on
       key: "collection",
       width: 265,
       fixed: "left",
-      render: (_, item) => <div className="batch-version-cell"><strong>{item.collection_id}</strong><span>{item.result_date} · {item.result_mode}</span><small>{item.is_active ? "当前生产批次" : item.validation_status}</small></div>,
+      render: (_, item) => <div className="batch-version-cell"><strong>{item.collection_id}</strong><span>{item.result_date} · {item.result_mode}</span><small>{item.collection_kind === "review" ? `审阅批次 · ${item.publication_status.partial} 篇 partial` : item.is_active ? "当前生产批次" : item.validation_status}</small></div>,
     },
     { title: "文献", key: "papers", width: 90, align: "right", render: (_, item) => <b>{item.paired_documents}/{item.document_count}</b> },
     {
@@ -1295,6 +1332,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, on
   ];
 
   const qualityOverview = activeCollection ? <div className="batch-quality-stack">
+    {activeCollection.collection_kind === "review" && <Alert type="warning" showIcon message="当前展示 demo30 审阅批次，不是可发布生产数据" description={`32 篇结果完整可浏览，其中 ${activeCollection.publication_status.partial} 篇为 partial。下列指标用于定位缺口和推动人工审核，不代表已达到入库标准。`} />}
     <Alert
       className="polyinfo-source-alert"
       type="info"
@@ -1339,7 +1377,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, on
   const batchEvolution = <div className="batch-evolution-stack">
     <Alert type="warning" showIcon message="批次演进不是 gold 准确率曲线" description="同一批次抽取条数增加不一定代表质量提高。应同时观察锚点 F1、样品绑定、证据绑定、Stage 6 拒绝对象和人工 gold 评价。" />
     <section className="work-panel batch-evolution-panel">
-      <div className="polyinfo-table-toolbar"><div><strong>四个历史批次的质量演进</strong><span>同一组 20 篇论文在不同流程版本下的记录级差异；F1 旁显示相对上一批次的百分点变化。</span></div><Tag color="blue">{batchCollections.length} 批次</Tag></div>
+      <div className="polyinfo-table-toolbar"><div><strong>生产与审阅批次的质量演进</strong><span>不同文献集合的记录级指标不可直接当作同一测试集的提升；审阅批次单独标记，逐篇差异可在下一页核查。</span></div><Tag color="blue">{batchCollections.length} 批次</Tag></div>
       <Table rowKey="collection_id" columns={evolutionColumns} dataSource={batchCollections} pagination={false} scroll={{ x: 1500 }} />
     </section>
   </div>;
@@ -1350,7 +1388,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, on
   </section>;
 
   return <div className="page-stack polyinfo-results-page">
-    <PageTitle title="批处理质量与 PoLyInfo 对照" description={`按 reference_no 连接 ${batchCollection} 与 PoLyInfo，并追踪不同 batch_results 版本的质量和阶段变化。`} meta={`BATCH QUALITY · ${batchResultDate} · POLYINFO ANCHOR`} actions={<Space><Select className="batch-collection-select" value={activeCollection?.collection_id} onChange={setSelectedCollectionId} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" /><Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新</Button></Space>} />
+    <PageTitle title="批处理质量与 PoLyInfo 对照" description={`按 reference_no 连接 ${batchCollection} 与 PoLyInfo，并追踪不同 batch_results 版本的质量和阶段变化。`} meta={`BATCH QUALITY · ${batchResultDate} · POLYINFO ANCHOR`} actions={<Space><Select className="batch-collection-select" value={activeCollection?.collection_id} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" /><Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新</Button></Space>} />
     <Tabs className="batch-comparison-tabs" defaultActiveKey="overview" items={[
       { key: "overview", label: "质量总览", children: qualityOverview },
       { key: "evolution", label: `批次演进 (${batchCollections.length})`, children: batchEvolution },

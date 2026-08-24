@@ -7,6 +7,7 @@ from web_api.app import (
     _completeness_quality,
     _display_text,
     _polyinfo_properties,
+    _read_collection_index,
     _select_batch_root,
 )
 
@@ -59,6 +60,23 @@ def test_ignores_non_production_review_collection(tmp_path: Path) -> None:
     root, _ = _select_batch_root(tmp_path)
 
     assert root.name == "published"
+
+
+def test_explicit_review_index_is_read_without_promoting_it_to_production(tmp_path: Path) -> None:
+    review = tmp_path / "demo30"
+    review.mkdir()
+    (review / "REVIEW_INDEX.json").write_text(
+        json.dumps({"result_date": "2026-08-24", "production_eligible": False}),
+        encoding="utf-8",
+    )
+
+    hidden, hidden_kind = _read_collection_index(review)
+    visible, visible_kind = _read_collection_index(review, include_review=True)
+
+    assert hidden == {}
+    assert hidden_kind == ""
+    assert visible["result_date"] == "2026-08-24"
+    assert visible_kind == "review"
 
 
 def test_formats_nested_polyinfo_measurement_conditions_as_text() -> None:
