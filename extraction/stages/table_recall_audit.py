@@ -72,7 +72,8 @@ _PROPERTY_ALIAS_PATTERNS: tuple[tuple[str, str], ...] = (
     (r"\bthermal\s+conductivit(?:y|ies)\b|导热率|热导率", "thermal_conductivity"),
     (r"\bthermal\s+diffusivit(?:y|ies)\b|热扩散率", "thermal_diffusivity"),
     (r"\brefractive\s+index\b|折射率", "refractive_index"),
-    (r"\bintrinsic\s+viscosity\b|\binherent\s+viscosity\b|特性黏度|特性粘度|(?:^|\W)(?:\\eta|eta|η)\s*(?:_?\s*\{?\s*(?:inh|int|sp|red)\b)?", "intrinsic_viscosity"),
+    (r"\b(?:intrinsic|inherent|reduced|specific)\s+viscosity\b|特性黏度|特性粘度|"
+     r"(?:^|\W)(?:\\eta|eta|η)\s*(?:_?\s*\{?\s*(?:inh|int|sp|red)\b)?", "intrinsic_viscosity"),
     (r"\bdensit(?:y|ies)\b|密度", "density"),
     (r"\bspecific\s+volume\b|比容", "specific_volume"),
     (r"\boxygen\s+index\b|\bloi\b|氧指数", "oxygen_index"),
@@ -102,8 +103,28 @@ _PROPERTY_ALIAS_PATTERNS: tuple[tuple[str, str], ...] = (
     (r"\bheat\s+of\s+fusion\b|\benthalpy\s+of\s+fusion\b|熔融焓|"
      r"(?:^|\W)(?:\\delta|Δ)\s*h\s*[_-]?\s*(?:m|f|fus\w*)(?:\W|$)|"
      r"(?:^|\W)(?:\\delta|Δ)\s*h\s*(?=\s*[/(,]?\s*(?:k?j|k?cal)\b)", "heat_of_fusion"),
-    (r"\b(?:residual\s+mass|residue|char\s+yield)\b|残炭率|残余质量", "thermal_decomposition_temperature"),
+    # 接触角：PolyInfo 公开条目里确有 Contact angle（本批 53 条），但 97 项词表
+    # 遗漏了它，导致 θ_w 这类列即使判对也无处可填（见覆盖率报告 §9.4）。
+    (r"\bcontact\s+angles?\b|(?:^|\W)(?:\\theta|θ)\s*_?\s*\{?\s*w\b|接触角", "contact_angle"),
 )
+
+# Audit-only refinement for the four dilute-solution viscosity quantities.  The
+# normalized property name remains ``intrinsic_viscosity`` for Stage 4R/schema
+# compatibility; this field prevents coverage reports from collapsing distinct
+# physical quantities into one bucket.
+_VISCOSITY_VARIANT_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = tuple(
+    (re.compile(pattern, re.IGNORECASE), variant)
+    for pattern, variant in (
+        (r"\binherent\s+viscosity\b|(?:\\eta|η)\s*_?\s*\{?\s*inh\b", "inherent"),
+        (r"\bintrinsic\s+viscosity\b|\[\s*(?:eta|η)\s*\]|(?:\\eta|η)\s*_?\s*\{?\s*int\b", "intrinsic"),
+        (r"\breduced\s+viscosity\b|(?:\\eta|η)\s*_?\s*\{?\s*red\b", "reduced"),
+        (r"\bspecific\s+viscosity\b|(?:\\eta|η)\s*_?\s*\{?\s*sp\b", "specific"),
+    )
+)
+# 曾经把 residual mass / char yield / 残炭率 映射到 thermal_decomposition_temperature。
+# 那是确凿的错误映射：残炭率是质量百分比，不是温度。0038813 的
+# "Char yield at 700°C (%) = 49" 因此被写成分解温度 49℃。97 项词表里没有
+# 残炭率对应的槽位，正确做法是不认，让它停在 unknown，而不是塞进错误的桶。
 
 _COORDINATE_RE = re.compile(
     r"(?:^|\b)(?:time|temperature|temp\.?|frequency|freq\.?|pressure|strain|"
@@ -283,6 +304,14 @@ def _property_match(
     return None
 
 
+def _property_variant(context: str) -> str | None:
+    """Return the audit-only viscosity variant, if the header names one."""
+    for pattern, variant in _VISCOSITY_VARIANT_PATTERNS:
+        if pattern.search(context):
+            return variant
+    return None
+
+
 def _classify_cell(
     cell: Stage0TableCell,
     *,
@@ -446,6 +475,9 @@ def audit_documents(
                 caption=table.caption or "",
                 property_patterns=property_patterns,
             )
+            property_variant = _property_variant(
+                _normalized_text(" | ".join((*column_headers, *row_headers)))
+            )
             covered_as = [
                 name
                 for name in ("property_value", "coordinate", "condition", "any")
@@ -465,6 +497,7 @@ def audit_documents(
                 "role": role,
                 "role_reason": reason,
                 "property_name_normalized": property_name,
+                "property_variant": property_variant,
                 "covered_as": covered_as,
             })
 

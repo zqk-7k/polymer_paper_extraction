@@ -37,7 +37,9 @@ from stages.stage5_characterization import (
     _stage5_property_dedupe_key,
     extract_characterizations,
     load_characterization_vocabulary,
+    plan_shards,
     run_stage5,
+    select_context_blocks,
 )
 import stages.stage5_characterization as stage5_module
 
@@ -737,6 +739,102 @@ class UnresolvedClient(FakeClient):
             }),
             provider="test",
             model="fake-actual",
+        )
+
+
+class MethodShardClient(FakeClient):
+    def __init__(self, *, inject_invalid: bool = False) -> None:
+        super().__init__()
+        self.inject_invalid = inject_invalid
+        self.messages: list[str] = []
+
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        self.calls += 1
+        self.messages.append(user_message)
+        method_section = user_message.split(
+            "--- BEGIN CONTROLLED CHARACTERIZATION METHODS ---", 1
+        )[1].split(
+            "--- END CONTROLLED CHARACTERIZATION METHODS ---", 1
+        )[0]
+        if '"FTIR"' in method_section:
+            payload = {
+                "characterizations": [{
+                    "characterization_id": "char010",
+                    "method_raw": "FTIR",
+                    "method_normalized": "FTIR",
+                    "sample_id": "s001",
+                    "entity_id": "pe001",
+                    "sample_resolution_status": "resolved",
+                    "parameters": {},
+                    "derived_property_ids": ["prop_s5_010"],
+                    "evidence": [{
+                        "block_id": "P_2_0",
+                        "source_text": FTIR_SENTENCE,
+                    }],
+                }],
+                "properties": [{
+                    "property_id": "prop_s5_010",
+                    "characterization_id": "char010",
+                    "sample_id": "s001",
+                    "entity_id": "pe001",
+                    "sample_resolution_status": "resolved",
+                    "property_name_raw": "absorption band",
+                    "property_name_normalized": "ftir_peak_wavenumber",
+                    "property_category": "composition_structure",
+                    "value_raw": "1650",
+                    "value_min": 1650,
+                    "value_max": 1650,
+                    "unit_raw": "cm-1",
+                    "unit_normalized": "cm⁻¹",
+                    "source_stage": "stage5",
+                    "evidence": [{
+                        "block_id": "P_2_0",
+                        "source_text": FTIR_SENTENCE,
+                    }],
+                }],
+            }
+        else:
+            payload = {
+                "characterizations": [{
+                    "characterization_id": "char020",
+                    "method_raw": "DSC",
+                    "method_normalized": "DSC",
+                    "sample_id": "s001",
+                    "entity_id": "pe001",
+                    "sample_resolution_status": "resolved",
+                    "parameters": {},
+                    "derived_property_ids": ["prop001"],
+                    "evidence": [{
+                        "block_id": "P_2_1",
+                        "source_sentence": DSC_SENTENCE,
+                    }],
+                }],
+                "properties": [],
+            }
+        if self.inject_invalid:
+            payload["characterizations"].append({
+                "characterization_id": "char099",
+                "method_normalized": "FTIR",
+                "sample_id": "s001",
+                "entity_id": "pe001",
+                "sample_resolution_status": "resolved",
+                "parameters": {},
+                "derived_property_ids": [],
+                "evidence": [{
+                    "block_id": "P_2_0",
+                    "source_sentence": FTIR_SENTENCE,
+                }],
+            })
+        return LLMJSONResponse(
+            data=add_model_confidence(payload),
+            provider="test",
+            model="fake-sharded",
         )
 
 
@@ -1722,6 +1820,305 @@ class Stage5Tests(unittest.TestCase):
             cls.vocabulary,
             cls.vocabulary_hash,
         ) = load_characterization_vocabulary(DEFAULT_VOCABULARY_PATH)
+
+    def test_plan_shards_keeps_explicit_results_in_their_method(self) -> None:
+        blocks, _, _ = select_context_blocks(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            stage4_document(),
+        )
+
+        shards, _ = plan_shards(blocks, self.methods)
+        by_method = {item.method_normalized: item for item in shards}
+
+        self.assertIn("FTIR", by_method)
+        self.assertIn("DSC", by_method)
+        ftir_blocks = {block.block_id for block in by_method["FTIR"].blocks}
+        dsc_blocks = {block.block_id for block in by_method["DSC"].blocks}
+        self.assertIn("P_2_0", ftir_blocks)
+        self.assertNotIn("P_2_1", ftir_blocks)
+        self.assertIn("P_2_1", dsc_blocks)
+
+    def test_known_field_aliases_are_repaired_before_validation(self) -> None:
+        response = MethodShardClient().call_json(
+            "",
+            "--- BEGIN CONTROLLED CHARACTERIZATION METHODS ---\n"
+            '{"FTIR": {}}\n'
+            "--- END CONTROLLED CHARACTERIZATION METHODS ---",
+        )
+        response.data["characterizations"][0]["series_ids"] = ["series001"]
+
+        repaired, warnings = _repair_candidate_response_payload(response.data)
+
+        characterization = repaired["characterizations"][0]
+        self.assertEqual(characterization["series_id"], "series001")
+        self.assertNotIn("series_ids", characterization)
+        self.assertEqual(
+            characterization["evidence"][0]["source_sentence"],
+            FTIR_SENTENCE,
+        )
+        codes = {item["code"] for item in warnings}
+        self.assertIn("source_text_alias_normalized", codes)
+        self.assertIn("singleton_series_ids_normalized", codes)
+
+    def test_sharded_preview_extracts_one_method_per_request(self) -> None:
+        client = MethodShardClient()
+        diagnostics: dict[str, object] = {}
+
+        result = extract_characterizations(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            stage4_document(),
+            client,
+            rendered_prompt(),
+            self.methods,
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+            sharded=True,
+            max_validation_retries=0,
+            diagnostic_sink=diagnostics,
+        )
+
+        self.assertEqual(client.calls, 2)
+        self.assertEqual(result.provenance.status, "success")
+        self.assertEqual(
+            [item.method_normalized for item in result.characterizations],
+            ["FTIR", "DSC"],
+        )
+        self.assertEqual(
+            [item.characterization_id for item in result.characterizations],
+            ["char001", "char002"],
+        )
+        self.assertEqual(result.properties[0].property_id, "prop_s5_001")
+        self.assertEqual(diagnostics["shard_count"], 2)
+        for message in client.messages:
+            method_section = message.split(
+                "--- BEGIN CONTROLLED CHARACTERIZATION METHODS ---", 1
+            )[1].split(
+                "--- END CONTROLLED CHARACTERIZATION METHODS ---", 1
+            )[0]
+            self.assertEqual(method_section.count('"aliases"'), 1)
+
+    def test_sharded_preview_keeps_valid_objects_when_one_is_invalid(
+        self,
+    ) -> None:
+        result = extract_characterizations(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            stage4_document(),
+            MethodShardClient(inject_invalid=True),
+            rendered_prompt(),
+            self.methods,
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+            sharded=True,
+            max_validation_retries=0,
+        )
+
+        self.assertEqual(result.provenance.status, "candidate_partial")
+        self.assertEqual(len(result.characterizations), 2)
+        self.assertEqual(len(result.properties), 1)
+        self.assertTrue(any(
+            item.get("code") == "stage5_shards_partial"
+            and item.get("blocking") is True
+            for item in result.warnings
+        ))
+
+    def test_run_stage5_writes_shard_raw_response_audit(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            paths = {
+                "stage0": root / "stage0.json",
+                "stage2": root / "stage2.json",
+                "stage3": root / "stage3.json",
+                "stage4": root / "stage4.json",
+            }
+            for name, model in (
+                ("stage0", stage0_document()),
+                ("stage2", stage2_document()),
+                ("stage3", stage3_document()),
+                ("stage4", stage4_document()),
+            ):
+                paths[name].write_text(
+                    json.dumps(model.model_dump(mode="json")),
+                    encoding="utf-8",
+                )
+            output_path = root / "stage5_characterizations.json"
+            diagnostics_path = root / "stage5_shards.json"
+
+            run_stage5(
+                paths["stage0"],
+                paths["stage2"],
+                paths["stage3"],
+                paths["stage4"],
+                output_path,
+                MethodShardClient(),
+                rendered_prompt(),
+                self.methods,
+                self.vocabulary,
+                self.vocabulary_hash,
+                force=True,
+                preview_relaxed=True,
+                sharded=True,
+                max_validation_retries=0,
+                diagnostics_path=diagnostics_path,
+            )
+
+            audit = json.loads(diagnostics_path.read_text(encoding="utf-8"))
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+
+            output_path.unlink()
+            cached_client = MethodShardClient()
+            run_stage5(
+                paths["stage0"],
+                paths["stage2"],
+                paths["stage3"],
+                paths["stage4"],
+                output_path,
+                cached_client,
+                rendered_prompt(),
+                self.methods,
+                self.vocabulary,
+                self.vocabulary_hash,
+                preview_relaxed=True,
+                sharded=True,
+                max_validation_retries=0,
+                diagnostics_path=diagnostics_path,
+            )
+            cached_audit = json.loads(
+                diagnostics_path.read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(audit["status"], "success")
+        self.assertEqual(audit["shard_count"], 2)
+        self.assertTrue(all(
+            item["attempts"][0]["raw_response"]["content"]
+            for item in audit["shards"]
+        ))
+        self.assertEqual(
+            sum(
+                item["attempts"][0]["characterization_count"]
+                for item in audit["shards"]
+            ),
+            2,
+        )
+        self.assertEqual(result["provenance"]["status"], "success")
+        self.assertEqual(cached_client.calls, 0)
+        self.assertTrue(all(
+            item["cache_hit"] for item in cached_audit["shards"]
+        ))
+
+    def test_old_shard_raw_response_is_revalidated_without_model_call(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            documents = {
+                "stage0": stage0_document(),
+                "stage2": stage2_document(),
+                "stage3": stage3_document(),
+                "stage4": stage4_document(),
+            }
+            paths = {name: root / f"{name}.json" for name in documents}
+            for name, model in documents.items():
+                paths[name].write_text(
+                    json.dumps(model.model_dump(mode="json")),
+                    encoding="utf-8",
+                )
+            output_path = root / "stage5_characterizations.json"
+            diagnostics_path = root / "stage5_shards.json"
+            prompt = rendered_prompt()
+            initial_client = MethodShardClient()
+
+            run_stage5(
+                paths["stage0"],
+                paths["stage2"],
+                paths["stage3"],
+                paths["stage4"],
+                output_path,
+                initial_client,
+                prompt,
+                self.methods,
+                self.vocabulary,
+                self.vocabulary_hash,
+                force=True,
+                preview_relaxed=True,
+                sharded=True,
+                max_validation_retries=0,
+                diagnostics_path=diagnostics_path,
+            )
+
+            audit = json.loads(diagnostics_path.read_text(encoding="utf-8"))
+            audit["schema_version"] = "stage5_shards.v0.1"
+            for cached in audit["shards"]:
+                cached.pop("result", None)
+                cached.pop("cache_key", None)
+                if cached["method_normalized"] == "FTIR":
+                    raw = cached["attempts"][-1]["raw_response"]
+                    payload = json.loads(raw["content"])
+                    payload["characterizations"][0][
+                        "derived_property_ids"
+                    ].append("uprop999")
+                    raw["content"] = json.dumps(payload)
+            diagnostics_path.write_text(json.dumps(audit), encoding="utf-8")
+
+            output = json.loads(output_path.read_text(encoding="utf-8"))
+            _, _, legacy_cache_key = stage5_module._cache_components(
+                documents["stage0"],
+                documents["stage2"],
+                documents["stage3"],
+                documents["stage4"],
+                prompt,
+                self.vocabulary_hash,
+                initial_client,
+                implementation_version="1.8.0",
+                preview_relaxed=True,
+                sharded=True,
+            )
+            output["provenance"]["implementation_version"] = "1.8.0"
+            output["provenance"]["cache_key"] = legacy_cache_key
+            output_path.write_text(json.dumps(output), encoding="utf-8")
+
+            replay_guard = MethodShardClient()
+            run_stage5(
+                paths["stage0"],
+                paths["stage2"],
+                paths["stage3"],
+                paths["stage4"],
+                output_path,
+                replay_guard,
+                prompt,
+                self.methods,
+                self.vocabulary,
+                self.vocabulary_hash,
+                preview_relaxed=True,
+                sharded=True,
+                max_validation_retries=0,
+                diagnostics_path=diagnostics_path,
+            )
+            replayed = json.loads(output_path.read_text(encoding="utf-8"))
+            replay_audit = json.loads(
+                diagnostics_path.read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(replay_guard.calls, 0)
+        self.assertEqual(replayed["provenance"]["call_count"], 0)
+        self.assertEqual(replayed["provenance"]["status"], "candidate_partial")
+        self.assertTrue(all(
+            item["cache_hit"] and item["raw_replayed"]
+            for item in replay_audit["shards"]
+        ))
+        warning_codes = {item["code"] for item in replayed["warnings"]}
+        self.assertIn("stage5_shard_response_replayed", warning_codes)
+        self.assertIn(
+            "preview_shard_semantic_validation_bypassed",
+            warning_codes,
+        )
 
     def test_vocabulary_separates_stage4_measurements(self) -> None:
         self.assertIn("FTIR", self.methods)

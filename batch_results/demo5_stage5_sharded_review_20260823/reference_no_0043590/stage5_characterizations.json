@@ -1,0 +1,366 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043590",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "thermogravimetric analysis",
+      "method_normalized": "TGA",
+      "entity_id": "pe002",
+      "sample_resolution_status": "unresolved",
+      "parameters": {},
+      "result_summary": "Onset of decomposition of the CBA is 225-C, majority of gas evolved at 240-C",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_1_20",
+          "page": 1,
+          "bbox": [
+            96.0,
+            300.0,
+            488.0,
+            480.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The onset of decomposition for the CBA was determined by thermogravimetric analysis to be 225-C with the majority of gas evolved at 240-C."
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "SEM",
+      "method_normalized": "SEM",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005",
+        "s006"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "Used to observe foam cell morphology, cell size, CB aggregate dispersion and size, carbon fiber position, and filler distribution in COC-based composite samples.",
+      "derived_property_ids": [
+        "prop_s5_001",
+        "prop_s5_002",
+        "prop_s5_003",
+        "prop_s5_004",
+        "prop_s5_005"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_2_39",
+          "page": 2,
+          "bbox": [
+            506.0,
+            358.0,
+            900.0,
+            643.0
+          ],
+          "source_type": "text",
+          "source_sentence": "SEM micrographs giving a cross-sectional view of the molded part for the foamed COC as well as COC/CB3 and COC/cCF10 are shown in Figure 3."
+        },
+        {
+          "block_id": "I_3_48",
+          "page": 3,
+          "bbox": [
+            106.0,
+            630.0,
+            480.0,
+            876.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Figure 3 SEM image showing the cell morphology for (a) COC, (b) COC/CB3, and (c) COC/cCF10 composite in the LT plane. L, horizontal direction and T, vertical direction. Filler particles are not detectable at given resolution."
+        },
+        {
+          "block_id": "I_3_52",
+          "page": 3,
+          "bbox": [
+            512.0,
+            651.0,
+            893.0,
+            887.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Figure 4 Close-up examination of fractured surface of COC/CB3 composite, (a) nonfoamed specimen and (b) foamed specimen, by SEM. CB appears as small clusters of spherical particles in the fractured surface of the matrix."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop_s5_001",
+      "characterization_id": "char002",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005",
+        "s006"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "property_name_raw": "largest aggregates of CB",
+      "property_name_normalized": "morphology_particle_size",
+      "property_category": "morphology",
+      "value_raw": "0.5",
+      "value_min": 0.5,
+      "value_max": 0.5,
+      "unit_raw": "lm",
+      "unit_normalized": "μm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_2_41",
+          "page": 2,
+          "bbox": [
+            506.0,
+            686.0,
+            900.0,
+            793.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The largest aggregates of CB found were 0.5 lm in both micrographs in comparison with the nominal cell diameter of 60 lm found in COC/CB3."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop_s5_002",
+      "characterization_id": "char002",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005",
+        "s006"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "property_name_raw": "nominal cell diameter",
+      "property_name_normalized": "morphology_domain_size",
+      "property_category": "morphology",
+      "value_raw": "60",
+      "value_min": 60.0,
+      "value_max": 60.0,
+      "unit_raw": "lm",
+      "unit_normalized": "μm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_2_41",
+          "page": 2,
+          "bbox": [
+            506.0,
+            686.0,
+            900.0,
+            793.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The largest aggregates of CB found were 0.5 lm in both micrographs in comparison with the nominal cell diameter of 60 lm found in COC/CB3."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop_s5_003",
+      "characterization_id": "char002",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005",
+        "s006"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "property_name_raw": "30-70",
+      "property_name_normalized": "morphology_domain_size",
+      "property_category": "morphology",
+      "value_raw": "30-70",
+      "value_min": 30.0,
+      "value_max": 70.0,
+      "unit_raw": "lm",
+      "unit_normalized": "μm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_61",
+          "page": 4,
+          "bbox": [
+            506.0,
+            183.0,
+            900.0,
+            555.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The majority of cells were in the range of 30-70 lm, which was similar in magnitude to the average fiber length in the composite."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop_s5_004",
+      "characterization_id": "char002",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005",
+        "s006"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "property_name_raw": "<50",
+      "property_name_normalized": "morphology_domain_size",
+      "property_category": "morphology",
+      "value_raw": "<50",
+      "value_max": 50.0,
+      "unit_raw": "lm",
+      "unit_normalized": "μm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_2_39",
+          "page": 2,
+          "bbox": [
+            506.0,
+            358.0,
+            900.0,
+            643.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The foam structure produced by injection molding of the unmodified COC demonstrated a broad range of cell sizes, with finer (<50 lm) bubbles located near the skin of the molded part and very large (>500 lm) bubbles along the centerline."
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop_s5_005",
+      "characterization_id": "char002",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s005",
+        "s006"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "property_name_raw": ">500",
+      "property_name_normalized": "morphology_domain_size",
+      "property_category": "morphology",
+      "value_raw": ">500",
+      "value_min": 500.0,
+      "unit_raw": "lm",
+      "unit_normalized": "μm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_2_39",
+          "page": 2,
+          "bbox": [
+            506.0,
+            358.0,
+            900.0,
+            643.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The foam structure produced by injection molding of the unmodified COC demonstrated a broad range of cell sizes, with finer (<50 lm) bubbles located near the skin of the molded part and very large (>500 lm) bubbles along the centerline."
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.6.2",
+    "prompt_sha256": "5f918eb9d0dcbe0a4dc60a70d83c4e9f144f9a87bf68905d0a38ad22c000ee5c",
+    "vocabulary_sha256": "6398fe61489abdd3a7d42b75772771fe728cbc9bd4e046c8d6cab57241c315a0",
+    "input_hash": "d650ea71f32f2f034e1251262f268aa25de90d0d12fcb3400e2d95da62d576b5",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "0d3c87a73e3a155ca0d9c2486dad736a020f7e4c20b2b59e4ffb8458a8d206e9",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 48,
+    "context_chars": 39885,
+    "call_count": 3,
+    "usage": {
+      "input_tokens": 27403,
+      "output_tokens": 8232,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6968,
+      "billable_input_tokens": 34371,
+      "total_tokens": 42603
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.14848272",
+      "output_cost": "0.23996280",
+      "total_cost": "0.38844552"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_property_subject_scope_aligned",
+      "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+      "field_path": "properties[0]",
+      "characterization_id": "char001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_property_subject_scope_aligned",
+      "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+      "field_path": "properties[1]",
+      "characterization_id": "char001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_property_subject_scope_aligned",
+      "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+      "field_path": "properties[2]",
+      "characterization_id": "char001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_property_subject_scope_aligned",
+      "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+      "field_path": "properties[3]",
+      "characterization_id": "char001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_property_subject_scope_aligned",
+      "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+      "field_path": "properties[4]",
+      "characterization_id": "char001"
+    }
+  ]
+}

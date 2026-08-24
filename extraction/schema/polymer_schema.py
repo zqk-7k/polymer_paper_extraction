@@ -1735,7 +1735,7 @@ class Stage4Provenance(BaseModel):
     call_count: NonNegativeInt
     usage: TokenUsageSummary | None = None
     cost: StageCost | None = None
-    status: Literal["success"] = "success"
+    status: Literal["success", "candidate_partial"] = "success"
 
 
 class Stage4Document(BaseModel):
@@ -2053,13 +2053,17 @@ class Stage5Provenance(BaseModel):
         "1.6.6",
         "1.7.0",
         "1.7.1",
+        "1.8.0",
+        "1.8.1",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt
     call_count: NonNegativeInt
     usage: TokenUsageSummary | None = None
     cost: StageCost | None = None
-    status: Literal["success"] = "success"
+    status: Literal[
+        "success", "candidate_partial", "complete_no_evidence"
+    ] = "success"
 
 
 class Stage5Document(BaseModel):

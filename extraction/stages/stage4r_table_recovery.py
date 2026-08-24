@@ -624,6 +624,39 @@ def infer_unit_from_headers(column_headers: Sequence[str]) -> str | None:
     return None
 
 
+# TGA 的失重档位就印在表头记号里（`$T_d^{10\%}$` 的 10%），PolyInfo 把它记成
+# 与温度配对的第二个点。这一步是纯确定性推导，不是第二次测量，所以只认
+# **表头明写百分号**的写法。`T_d^{i}`（initial）、`T_max` 一律不推：PolyInfo
+# 给 `T_i` 记的 2% 是录入约定，表头本身没说，猜它等于伪造测量条件。
+_WEIGHT_LOSS_LEVEL_RE = re.compile(
+    r"t\s*_?\s*\{?\s*d?\s*\}?\s*[\^_]\s*\{?\s*(\d{1,2}(?:\.\d)?)\s*\\?%",
+    re.IGNORECASE,
+)
+WEIGHT_LOSS_PROPERTY = "thermal_decomposition_weight_loss"
+THERMAL_DECOMPOSITION_PROPERTY = "thermal_decomposition_temperature"
+
+
+# 次选写法：`T_{10}` 这种把档位直接写成下标、不带百分号的列头。
+# 只在该列已被判为分解温度时才启用 —— 单看记号，`T_1`/`T_2` 也可能是弛豫
+# 时间、`T_90` 可能是结晶半峰，所以这条规则不能脱离 td 判定单独生效。
+_WEIGHT_LOSS_SUBSCRIPT_RE = re.compile(
+    r"t\s*_?\s*\{?\s*(\d{1,2})\s*\}?(?!\s*[\^\d])",
+    re.IGNORECASE,
+)
+
+
+def weight_loss_level_from_headers(column_headers: Sequence[str]) -> str | None:
+    """从列头记号里取失重百分比。取不到就返回 None —— 不猜。"""
+    headers = [str(item) for item in column_headers if str(item).strip()]
+    for header in reversed(headers):
+        if match := _WEIGHT_LOSS_LEVEL_RE.search(header):
+            return match.group(1)
+    for header in reversed(headers):
+        if match := _WEIGHT_LOSS_SUBSCRIPT_RE.search(header):
+            return match.group(1)
+    return None
+
+
 def build_unresolved_property(
     *,
     unresolved_id: str,
@@ -854,6 +887,86 @@ def recover_document(
             additions.append(item)
             item["_entity_resolution_basis"] = basis
             existing_cells.add(cell_id)
+
+            # TGA 成对编码：PolyInfo 把 "10% 失重温度" 拆成温度 + 失重百分比两个点。
+            # 百分比不是另一次测量，它就写在列头记号里，所以在温度落库的同时按
+            # 表头推出配对点，entity_resolution_basis 记来源，便于下游区分与回滚。
+            if str(cell.get("property_name_normalized") or "") == THERMAL_DECOMPOSITION_PROPERTY:
+                level = weight_loss_level_from_headers(cell.get("column_headers") or [])
+                if level is not None:
+                    paired = build_unresolved_property(
+                        unresolved_id=f"uprop{next_number:03d}",
+                        entity_id=entity_id,
+                        cell_report={**cell, "property_name_normalized": WEIGHT_LOSS_PROPERTY},
+                        table=table,
+                        cells=cells,
+                    )
+                    paired["value_raw"] = level
+                    paired["unit_raw"] = "%"
+                    locator = paired["evidence"][0]["table_locator"]
+                    locator["cell_value"] = level
+                    next_number += 1
+                    additions.append(paired)
+                    paired["_entity_resolution_basis"] = "table_header_weight_loss_level"
+
+    # 第二遍：主循环只看 audit 报出的 "缺失格"。已经落库的 td 点（无论来自
+    # Stage-4 主链路还是上一轮 4R）不在其中，但它们同样需要配对的 td_wl 点。
+    # 这里按 column_label 里的失重档位补齐，已配对过的源格不重复发。
+    paired_sources: set[str] = set()
+    for item in additions:
+        evidence = item.get("evidence") or []
+        locator = (evidence[0].get("table_locator") or {}) if evidence else {}
+        if str(item.get("property_name_raw") or "") == WEIGHT_LOSS_PROPERTY:
+            paired_sources.add(str(locator.get("cell_id") or ""))
+
+    for bucket in ("properties", "unresolved_properties"):
+        for record in list(stage4.get(bucket) or []):
+            if not isinstance(record, Mapping):
+                continue
+            name = str(
+                record.get("property_name_normalized")
+                or record.get("property_name_raw")
+                or ""
+            )
+            if name != THERMAL_DECOMPOSITION_PROPERTY:
+                continue
+            evidence = record.get("evidence") or []
+            locator = (evidence[0].get("table_locator") or {}) if evidence else {}
+            source_cell_id = str(locator.get("cell_id") or "")
+            if not source_cell_id or source_cell_id in paired_sources:
+                continue
+            column_label = str(locator.get("column_label") or "")
+            level = weight_loss_level_from_headers([column_label])
+            if level is None:
+                continue
+            table = tables.get(str(locator.get("table_id") or ""))
+            if table is None:
+                continue
+            entity_id = str(record.get("entity_id") or "")
+            if not entity_id:
+                entity_id = str(sample_entities.get(str(record.get("sample_id") or "")) or "")
+            if entity_id not in valid_entities:
+                continue
+            paired_sources.add(source_cell_id)
+            paired = build_unresolved_property(
+                unresolved_id=f"uprop{next_number:03d}",
+                entity_id=entity_id,
+                cell_report={
+                    "cell_id": source_cell_id,
+                    "row_index": locator.get("row_index"),
+                    "column_index": locator.get("column_index"),
+                    "text": level,
+                    "property_name_normalized": WEIGHT_LOSS_PROPERTY,
+                    "column_headers": [column_label] if column_label else [],
+                    "row_headers": [str(locator.get("row_label") or "")],
+                },
+                table=table,
+                cells=table_cells_for(table),
+            )
+            paired["unit_raw"] = "%"
+            paired["_entity_resolution_basis"] = "table_header_weight_loss_level"
+            next_number += 1
+            additions.append(paired)
 
     payload = original.model_dump(mode="json")
     payload["unresolved_properties"].extend(

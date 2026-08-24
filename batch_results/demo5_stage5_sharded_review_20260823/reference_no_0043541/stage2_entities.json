@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043541",
+  "polymer_entities": [
+    {
+      "entity_id": "pe001",
+      "polymer_name": "poly(MPC)",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(MPC)",
+        "PMPC"
+      ],
+      "resolved_from_mentions": [
+        "m001",
+        "m003",
+        "m008",
+        "m011",
+        "m014",
+        "m015",
+        "m016",
+        "m018",
+        "m020"
+      ],
+      "evidence": {
+        "block_id": "P_5_69",
+        "page": 5,
+        "bbox": [
+          89.0,
+          466.0,
+          486.0,
+          675.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Poly(MPC) can be regard as a quite unique zwitter-type polyelectrolyte having the independence of intra- and intermolecular interaction of PMPC from the concentration of $\\mathrm { N a C l } . ^ { [ 2 6 ] }$"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.96
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe002",
+      "polymer_name": "poly(DMAEMA)",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(DMAEMA)"
+      ],
+      "resolved_from_mentions": [
+        "m002",
+        "m004",
+        "m009"
+      ],
+      "evidence": {
+        "block_id": "P_3_42",
+        "page": 3,
+        "bbox": [
+          500.0,
+          259.0,
+          900.0,
+          743.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The contact angle of the poly(DMAEMA) brush was reduced from $5 6 ^ { \\circ }$to $3 6 ^ { \\circ }$by immersion in methyl iodide solution, indicating the formation of a hydrophilic poly(METAI) brush."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.94
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe003",
+      "polymer_name": "poly(METAI)",
+      "variant_of": "pe002",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(METAI)",
+        "Poly(ME-TAI)",
+        "poly (METAI)"
+      ],
+      "resolved_from_mentions": [
+        "m005",
+        "m006",
+        "m007",
+        "m010",
+        "m012",
+        "m013",
+        "m017",
+        "m019"
+      ],
+      "evidence": {
+        "block_id": "P_3_42",
+        "page": 3,
+        "bbox": [
+          500.0,
+          259.0,
+          900.0,
+          743.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The contact angle of the poly(DMAEMA) brush was reduced from $5 6 ^ { \\circ }$to $3 6 ^ { \\circ }$by immersion in methyl iodide solution, indicating the formation of a hydrophilic poly(METAI) brush."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.91
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    }
+  ],
+  "unresolved_mention_ids": [],
+  "provenance": {
+    "stage": "stage2_polymer_entity",
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "models": [
+      "gpt-5.6-terra-2026-07-09"
+    ],
+    "prompt_id": "polymer.stage2.polymer_entity",
+    "prompt_version": "1.5.1",
+    "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
+    "input_hash": "8eabbd6aab36056dad266e1c005872475b3e2cc8c20dc74d45eaab0e0d68a99e",
+    "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
+    "cache_key": "62b42c847da75a61618ce70016eccd06f3c8fa7441e9afa543569ee7b829b1f4",
+    "output_schema_version": "polymer_entity_schema.v3",
+    "implementation_version": "1.6.1",
+    "context_block_count": 24,
+    "context_chars": 16028,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 934,
+      "cache_creation_input_tokens": 7004,
+      "cache_read_input_tokens": 2222,
+      "billable_input_tokens": 9229,
+      "total_tokens": 10163
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.156893",
+      "output_cost": "0.094334",
+      "total_cost": "0.251227"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "evidence_surface_whitespace_recovered",
+      "message": "仅按空白等价在同一 block 内恢复了原文 evidence 表面文本",
+      "items": [
+        {
+          "entity_id": "pe001",
+          "block_id": "P_5_69",
+          "field": "evidence.source_sentence"
+        }
+      ]
+    }
+  ]
+}

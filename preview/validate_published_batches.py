@@ -46,6 +46,17 @@ V2_REQUIRED_STAGES = {
     "candidate_publish",
 }
 CANONICAL_TEXT_SUFFIXES = {".html", ".json", ".md", ".txt"}
+REVIEW_INDEX_NAME = "REVIEW_INDEX.json"
+REVIEW_SCHEMA_VERSION = "polymerlit-review/1.0"
+REVIEW_REQUIRED_ARTIFACTS = {
+    "candidate.json",
+    "report_candidate.html",
+    "stage4t_shadow.json",
+    "stage4r_unified_audit.json",
+    "stage5_characterizations.json",
+    "stage5_shards.json",
+    "stage6_validation.json",
+}
 
 
 def _canonical_artifact_bytes(path: Path) -> bytes:
@@ -310,6 +321,122 @@ def validate_collection(root: Path, *, verify_hashes: bool = True) -> tuple[list
     return errors, warnings
 
 
+def validate_review_collection(root: Path) -> tuple[list[str], list[str]]:
+    """Validate a non-production collection intended only for human review."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    label = root.name
+
+    name_match = COLLECTION_RE.fullmatch(label)
+    if not name_match:
+        errors.append(f"{label}: collection name must end in _YYYYMMDD")
+    if (root / "RESULT_INDEX.json").exists():
+        errors.append(f"{label}: review collection must not contain RESULT_INDEX.json")
+
+    index = _read_object(root / REVIEW_INDEX_NAME, errors)
+    if not index:
+        return errors, warnings
+    if index.get("schema_version") != REVIEW_SCHEMA_VERSION:
+        errors.append(f"{label}: unsupported review schema_version")
+    if index.get("result_mode") != "review":
+        errors.append(f"{label}: review result_mode must be review")
+    if index.get("production_eligible") is not False:
+        errors.append(f"{label}: production_eligible must be false")
+    if not str(index.get("generated_at") or "").strip():
+        errors.append(f"{label}: generated_at cannot be empty")
+
+    result_date = str(index.get("result_date") or "")
+    try:
+        parsed_date = date.fromisoformat(result_date)
+    except ValueError:
+        errors.append(f"{label}: result_date must use YYYY-MM-DD")
+        parsed_date = None
+    if name_match and parsed_date and name_match.group(1) != parsed_date.strftime("%Y%m%d"):
+        errors.append(f"{label}: directory date and result_date do not match")
+
+    pipeline = index.get("pipeline")
+    if not isinstance(pipeline, dict):
+        errors.append(f"{label}: review index requires pipeline metadata")
+    else:
+        if pipeline.get("mode") != "preview":
+            errors.append(f"{label}: pipeline.mode must be preview")
+        if not GIT_SHA_RE.fullmatch(str(pipeline.get("git_commit") or "")):
+            errors.append(f"{label}: pipeline.git_commit must be a full 40-character Git SHA")
+
+    documents = index.get("documents")
+    if not isinstance(documents, list) or not documents:
+        errors.append(f"{label}: documents must be a non-empty list")
+        documents = []
+
+    indexed_refs: list[str] = []
+    for position, document in enumerate(documents):
+        if not isinstance(document, dict):
+            errors.append(f"{label}: documents[{position}] must be an object")
+            continue
+        ref_no = str(document.get("reference_no") or "")
+        if not REF_RE.fullmatch(ref_no):
+            errors.append(f"{label}: invalid reference_no at documents[{position}]: {ref_no}")
+            continue
+        indexed_refs.append(ref_no)
+        if document.get("result_dir") not in (None, ref_no):
+            errors.append(f"{label}/{ref_no}: result_dir must equal reference_no")
+
+        result_dir = root / ref_no
+        if not result_dir.is_dir():
+            errors.append(f"{label}/{ref_no}: result directory is missing")
+            continue
+        missing_artifacts = sorted(
+            name for name in REVIEW_REQUIRED_ARTIFACTS
+            if not (result_dir / name).is_file()
+        )
+        if missing_artifacts:
+            errors.append(
+                f"{label}/{ref_no}: review artifacts are missing: "
+                f"{', '.join(missing_artifacts)}"
+            )
+
+        candidate = _read_object(result_dir / "candidate.json", errors)
+        if candidate:
+            if candidate.get("document_id") != ref_no:
+                errors.append(f"{label}/{ref_no}: candidate.document_id does not match directory")
+            publication = candidate.get("publication")
+            status = publication.get("status") if isinstance(publication, dict) else None
+            if status not in {"complete", "partial"}:
+                errors.append(f"{label}/{ref_no}: review candidate status must be complete or partial")
+            if document.get("publication_status") != status:
+                errors.append(f"{label}/{ref_no}: review index publication_status mismatch")
+
+    if len(indexed_refs) != len(set(indexed_refs)):
+        errors.append(f"{label}: duplicate reference_no values in documents")
+    actual_refs = {
+        item.name
+        for item in root.iterdir()
+        if item.is_dir() and REF_RE.fullmatch(item.name)
+    }
+    if actual_refs != set(indexed_refs):
+        errors.append(
+            f"{label}: index/directory mismatch; only in index={sorted(set(indexed_refs) - actual_refs)}, "
+            f"only on disk={sorted(actual_refs - set(indexed_refs))}"
+        )
+
+    for path in root.rglob("*"):
+        if not path.is_file():
+            continue
+        if path.name in PROHIBITED_NAMES or path.suffix.lower() in PROHIBITED_SUFFIXES:
+            errors.append(f"{label}: prohibited file in review data: {path.relative_to(root)}")
+        if path.stat().st_size >= MAX_FILE_BYTES:
+            errors.append(f"{label}: file is too large for normal GitHub review: {path.relative_to(root)}")
+        if path.suffix.lower() in CANONICAL_TEXT_SUFFIXES:
+            content = path.read_text(encoding="utf-8-sig", errors="replace")
+            if ABSOLUTE_PATH_RE.search(content):
+                errors.append(f"{label}: local absolute path found in review data: {path.relative_to(root)}")
+            if SECRET_RE.search(content):
+                errors.append(f"{label}: possible secret found in review data: {path.relative_to(root)}")
+
+    warnings.append(f"{label}: non-production review collection; ignored by the batch API")
+    return errors, warnings
+
+
 def validate_root(root: Path, *, verify_hashes: bool = True) -> tuple[list[str], list[str]]:
     if not root.is_dir():
         return [f"batch root does not exist: {root}"], []
@@ -319,10 +446,13 @@ def validate_root(root: Path, *, verify_hashes: bool = True) -> tuple[list[str],
     errors: list[str] = []
     warnings: list[str] = []
     for collection in collections:
-        collection_errors, collection_warnings = validate_collection(
-            collection,
-            verify_hashes=verify_hashes,
-        )
+        if (collection / REVIEW_INDEX_NAME).is_file():
+            collection_errors, collection_warnings = validate_review_collection(collection)
+        else:
+            collection_errors, collection_warnings = validate_collection(
+                collection,
+                verify_hashes=verify_hashes,
+            )
         errors.extend(collection_errors)
         warnings.extend(collection_warnings)
     return errors, warnings

@@ -1,0 +1,3233 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0038813",
+  "status": "candidate_partial",
+  "shard_count": 10,
+  "unrouted_block_ids": [
+    "P_1_17",
+    "P_1_18",
+    "P_1_19",
+    "P_1_20",
+    "P_1_22",
+    "P_1_23",
+    "P_1_24",
+    "P_1_27",
+    "P_1_28",
+    "P_1_31",
+    "P_1_32",
+    "P_2_37",
+    "P_2_39",
+    "P_2_40",
+    "P_2_42",
+    "P_2_43",
+    "P_2_44",
+    "P_2_45",
+    "P_2_48",
+    "I_3_54",
+    "P_4_63",
+    "P_4_64",
+    "P_4_65",
+    "P_4_66",
+    "P_4_68",
+    "I_4_69",
+    "I_4_70",
+    "I_4_71",
+    "T_5_78",
+    "T_6_86",
+    "I_6_87",
+    "T_7_98",
+    "P_7_100"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_1_24",
+        "I_1_26",
+        "P_1_27",
+        "P_1_28",
+        "P_1_30",
+        "P_1_31",
+        "P_2_37",
+        "I_2_38",
+        "P_2_39",
+        "P_2_40",
+        "I_2_41",
+        "P_2_42",
+        "P_2_45",
+        "P_2_46",
+        "I_3_54",
+        "I_3_56",
+        "P_4_63",
+        "P_4_66",
+        "P_4_67",
+        "P_4_68",
+        "I_4_71",
+        "T_5_77"
+      ],
+      "context_chars": 18657,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\"score\": 0.9},\n            \"derived_property_ids\": [\"prop_s5_001\",\"prop_s5_002\",\"prop_s5_003\",\"prop_s5_004\",\"prop_s5_005\",\"prop_s5_006\",\"prop_s5_007\",\"prop_s5_008\",\"prop_s5_009\",\"prop_s5_010\",\"prop_s5_011\",\"prop_s5_012\",\"prop_s5_013\",\"prop_s5_014\",\"prop_s5_015\",\"prop_s5_016\",\"prop_s5_017\",\"prop_s5_018\",\"prop_s5_019\",\"prop_s5_020\",\"prop_s5_021\",\"prop_s5_022\",\"prop_s5_023\",\"prop_s5_024\",\"prop_s5_025\",\"prop_s5_026\",\"prop_s5_027\",\"prop_s5_028\",\"prop_s5_029\",\"prop_s5_030\",\"prop_s5_031\",\"prop_s5_032\"],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_21\",\n                    \"source_sentence\": \"Infrared measurements were performed on a Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer (Ettlingen, Germany).\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_4_67\",\n                    \"source_sentence\": \"The chemical structure of the resulting polymers was ascertained by FTIR and <sup>1</sup>H-NMR spectroscopies (Table 1).\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"T_5_77\",\n                    \"source_sentence\": \"Table 1. Characterization of polymers\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\"\n            },\n            \"method_normalized\": \"FTIR\",\n            \"method_raw\": \"Fourier Transform Infrared (FTIR)\",\n            \"parameters\": {\"sample_preparation\": \"KBr\"},\n            \"result_summary\": \"FTIR absorption peaks of 8 synthesized poly(amide-urea) samples were measured, with peak wavenumbers listed in Table 1.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s002\",\"s003\",\"s004\",\"s005\",\"s006\",\"s007\",\"s008\",\"s009\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [\n        {\"property_id\":\"prop_s5_001\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3338\",\"value_min\":3338,\"value_max\":3338,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3338\"}}]},\n        {\"property_id\":\"prop_s5_002\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1670\",\"value_min\":1670,\"value_max\":1670,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1670\"}}]},\n        {\"property_id\":\"prop_s5_003\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1634\",\"value_min\":1634,\"value_max\":1634,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1634\"}}]},\n        {\"property_id\":\"prop_s5_004\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1598\",\"value_min\":1598,\"value_max\":1598,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1598\"}}]},\n        {\"property_id\":\"prop_s5_005\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3329\",\"value_min\":3329,\"value_max\":3329,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3329\"}}]},\n        {\"property_id\":\"prop_s5_006\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1664\",\"value_min\":1664,\"value_max\":1664,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1664\"}}]},\n        {\"property_id\":\"prop_s5_007\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1635\",\"value_min\":1635,\"value_max\":1635,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1635\"}}]},\n        {\"property_id\":\"prop_s5_008\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1594\",\"value_min\":1594,\"value_max\":1594,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1594\"}}]},\n        {\"property_id\":\"prop_s5_009\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3334\",\"value_min\":3334,\"value_max\":3334,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3334\"}}]},\n        {\"property_id\":\"prop_s5_010\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1672\",\"value_min\":1672,\"value_max\":1672,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1672\"}}]},\n        {\"property_id\":\"prop_s5_011\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1640\",\"value_min\":1640,\"value_max\":1640,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1640\"}}]},\n        {\"property_id\":\"prop_s5_012\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"161\",\"value_min\":161,\"value_max\":161,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"161\"}}]},\n        {\"property_id\":\"prop_s5_013\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3317\",\"value_min\":3317,\"value_max\":3317,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3317\"}}]},\n        {\"property_id\":\"prop_s5_014\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1665\",\"value_min\":1665,\"value_max\":1665,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1665\"}}]},\n        {\"property_id\":\"prop_s5_015\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1638\",\"value_min\":1638,\"value_max\":1638,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1638\"}}]},\n        {\"property_id\":\"prop_s5_016\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1603\",\"value_min\":1603,\"value_max\":1603,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1603\"}}]},\n        {\"property_id\":\"prop_s5_017\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3302\",\"value_min\":3302,\"value_max\":3302,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3302\"}}]},\n        {\"property_id\":\"prop_s5_018\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1668\",\"value_min\":1668,\"value_max\":1668,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1668\"}}]},\n        {\"property_id\":\"prop_s5_019\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1630\",\"value_min\":1630,\"value_max\":1630,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1630\"}}]},\n        {\"property_id\":\"prop_s5_020\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1590\",\"value_min\":1590,\"value_max\":1590,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1590\"}}]},\n        {\"property_id\":\"prop_s5_021\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3343\",\"value_min\":3343,\"value_max\":3343,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3343\"}}]},\n        {\"property_id\":\"prop_s5_022\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1659\",\"value_min\":1659,\"value_max\":1659,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1659\"}}]},\n        {\"property_id\":\"prop_s5_023\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1642\",\"value_min\":1642,\"value_max\":1642,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1642\"}}]},\n        {\"property_id\":\"prop_s5_024\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1589\",\"value_min\":1589,\"value_max\":1589,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1589\"}}]},\n        {\"property_id\":\"prop_s5_025\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3339\",\"value_min\":3339,\"value_max\":3339,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3339\"}}]},\n        {\"property_id\":\"prop_s5_026\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1672\",\"value_min\":1672,\"value_max\":1672,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1672\"}}]},\n        {\"property_id\":\"prop_s5_027\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1650\",\"value_min\":1650,\"value_max\":1650,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1650\"}}]},\n        {\"property_id\":\"prop_s5_028\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1589\",\"value_min\":1589,\"value_max\":1589,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1589\"}}]},\n        {\"property_id\":\"prop_s5_029\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3324\",\"value_min\":3324,\"value_max\":3324,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"3324\"}}]},\n        {\"property_id\":\"prop_s5_030\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1674\",\"value_min\":1674,\"value_max\":1674,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1674\"}}]},\n        {\"property_id\":\"prop_s5_031\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1635\",\"value_min\":1635,\"value_max\":1635,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1635\"}}]},\n        {\"property_id\":\"prop_s5_032\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.9},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"property_name_raw\":\"IR (KBr)\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1597\",\"value_min\":1597,\"value_max\":1597,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"Table 1. Characterization of polymers\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr) (cm⁻¹)\",\"cell_value\":\"1597\"}}]}\n    ]\n}",
+            "usage": {
+              "input_tokens": 20580,
+              "output_tokens": 9376,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0889056",
+              "output_cost": "0.2733104",
+              "total_cost": "0.3622160"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 32,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "86ed61abe9363f6fdebf2da00e344f604e23a2bd1d330ec3a41cd8552f75099e",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_77"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[4]",
+          "property_id": "prop_s5_005",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[5]",
+          "property_id": "prop_s5_006",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[6]",
+          "property_id": "prop_s5_007",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[7]",
+          "property_id": "prop_s5_008",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[8]",
+          "property_id": "prop_s5_009",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[9]",
+          "property_id": "prop_s5_010",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[10]",
+          "property_id": "prop_s5_011",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[11]",
+          "property_id": "prop_s5_012",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[12]",
+          "property_id": "prop_s5_013",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[13]",
+          "property_id": "prop_s5_014",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[14]",
+          "property_id": "prop_s5_015",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[15]",
+          "property_id": "prop_s5_016",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[16]",
+          "property_id": "prop_s5_017",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[17]",
+          "property_id": "prop_s5_018",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[18]",
+          "property_id": "prop_s5_019",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[19]",
+          "property_id": "prop_s5_020",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[20]",
+          "property_id": "prop_s5_021",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[21]",
+          "property_id": "prop_s5_022",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[22]",
+          "property_id": "prop_s5_023",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[23]",
+          "property_id": "prop_s5_024",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[24]",
+          "property_id": "prop_s5_025",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[25]",
+          "property_id": "prop_s5_026",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[26]",
+          "property_id": "prop_s5_027",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[27]",
+          "property_id": "prop_s5_028",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[28]",
+          "property_id": "prop_s5_029",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[29]",
+          "property_id": "prop_s5_030",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[30]",
+          "property_id": "prop_s5_031",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[31]",
+          "property_id": "prop_s5_032",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "ftir_001",
+          "reason": "T_5_77.table_locator.column_label 不是表格原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Fourier Transform Infrared (FTIR)",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer",
+            "parameters": {},
+            "result_summary": "FTIR absorption peaks of 8 synthesized poly(amide-urea) samples were measured, with peak wavenumbers listed in Table 1.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010",
+              "prop_s5_011",
+              "prop_s5_012",
+              "prop_s5_013",
+              "prop_s5_014",
+              "prop_s5_015",
+              "prop_s5_016",
+              "prop_s5_017",
+              "prop_s5_018",
+              "prop_s5_019",
+              "prop_s5_020",
+              "prop_s5_021",
+              "prop_s5_022",
+              "prop_s5_023",
+              "prop_s5_024",
+              "prop_s5_025",
+              "prop_s5_026",
+              "prop_s5_027",
+              "prop_s5_028",
+              "prop_s5_029",
+              "prop_s5_030",
+              "prop_s5_031",
+              "prop_s5_032"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Infrared measurements were performed on a Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer (Ettlingen, Germany)."
+              },
+              {
+                "block_id": "P_4_67",
+                "page": 4,
+                "bbox": [
+                  89.0,
+                  501.0,
+                  500.0,
+                  559.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The chemical structure of the resulting polymers was ascertained by FTIR and <sup>1</sup>H-NMR spectroscopies (Table 1)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3338",
+            "value_min": 3338.0,
+            "value_max": 3338.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3338",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1670",
+            "value_min": 1670.0,
+            "value_max": 1670.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1670",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1634",
+            "value_min": 1634.0,
+            "value_max": 1634.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1634",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1598",
+            "value_min": 1598.0,
+            "value_max": 1598.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1598",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3329",
+            "value_min": 3329.0,
+            "value_max": 3329.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3329",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1664",
+            "value_min": 1664.0,
+            "value_max": 1664.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1664",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1635",
+            "value_min": 1635.0,
+            "value_max": 1635.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1635",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1594",
+            "value_min": 1594.0,
+            "value_max": 1594.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1594",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3334",
+            "value_min": 3334.0,
+            "value_max": 3334.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3334",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1672",
+            "value_min": 1672.0,
+            "value_max": 1672.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1672",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_011",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1640",
+            "value_min": 1640.0,
+            "value_max": 1640.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1640",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_012",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "161",
+            "value_min": 161.0,
+            "value_max": 161.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "161",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_013",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3317",
+            "value_min": 3317.0,
+            "value_max": 3317.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3317",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_014",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1665",
+            "value_min": 1665.0,
+            "value_max": 1665.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1665",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_015",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1638",
+            "value_min": 1638.0,
+            "value_max": 1638.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1638",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_016",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1603",
+            "value_min": 1603.0,
+            "value_max": 1603.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1603",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_017",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3302",
+            "value_min": 3302.0,
+            "value_max": 3302.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3302",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_018",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1668",
+            "value_min": 1668.0,
+            "value_max": 1668.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1668",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_019",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1630",
+            "value_min": 1630.0,
+            "value_max": 1630.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1630",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_020",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1590",
+            "value_min": 1590.0,
+            "value_max": 1590.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1590",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_021",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3343",
+            "value_min": 3343.0,
+            "value_max": 3343.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3343",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_022",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1659",
+            "value_min": 1659.0,
+            "value_max": 1659.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1659",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_023",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1642",
+            "value_min": 1642.0,
+            "value_max": 1642.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1642",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_024",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1589",
+            "value_min": 1589.0,
+            "value_max": 1589.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1589",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_025",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3339",
+            "value_min": 3339.0,
+            "value_max": 3339.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3339",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_026",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1672",
+            "value_min": 1672.0,
+            "value_max": 1672.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1672",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_027",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1650",
+            "value_min": 1650.0,
+            "value_max": 1650.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1650",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_028",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1589",
+            "value_min": 1589.0,
+            "value_max": 1589.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1589",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_029",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3324",
+            "value_min": 3324.0,
+            "value_max": 3324.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "3324",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_030",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1674",
+            "value_min": 1674.0,
+            "value_max": 1674.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1674",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_031",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1635",
+            "value_min": 1635.0,
+            "value_max": 1635.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1635",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_032",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1597",
+            "value_min": 1597.0,
+            "value_max": 1597.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Characterization of polymers",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr) (cm⁻¹)",
+                  "cell_value": "1597",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "ftir_002",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "T_5_78"
+      ],
+      "context_chars": 2657,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": []}",
+            "usage": {
+              "input_tokens": 15034,
+              "output_tokens": 287,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06494688",
+              "output_cost": "0.00836605",
+              "total_cost": "0.07331293"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "d18ffd57d2474c88ede6825b34711fea11a4cc69dac5ef1b54fc03fa61579502",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_1_24",
+        "I_1_26",
+        "P_1_27",
+        "P_1_28",
+        "P_1_30",
+        "P_1_31",
+        "P_2_37",
+        "I_2_38",
+        "P_2_39",
+        "P_2_40",
+        "I_2_41",
+        "P_2_42",
+        "P_2_45",
+        "P_2_46",
+        "P_2_47",
+        "P_2_48",
+        "P_4_66",
+        "P_4_67",
+        "P_4_68",
+        "I_4_71",
+        "T_5_77"
+      ],
+      "context_chars": 19136,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.95\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_21\",\n                    \"source_sentence\": \"The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany).\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"T_5_77\",\n                    \"source_sentence\": \"Table 1. Characterization of polymers\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Bruker Avance DPX 250 MHz\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"other_conditions\": {\n                    \"solvent\": \"DMSO-D6\"\n                },\n                \"other_condition_evidence\": {\n                    \"solvent\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany).\",\n                            \"table_locator\": null\n                        }\n                    ]\n                }\n            },\n            \"method_normalized\": \"NMR\",\n            \"method_raw\": \"H-nuclear magnetic resonance (NMR)\",\n            \"parameters\": {},\n            \"result_summary\": \"1H-NMR spectra of all 8 poly(amide-urea) samples were recorded, confirming polymer structure via appearance of urea linkage peaks and disappearance of amine peaks.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [\n        {\n            \"property_id\": \"prop_s5_001\",\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"T_5_77\",\n                    \"source_sentence\": \"1AQA-PPDI NMR (DMSO-D$_6$) (δ) 12.76 (s, 1H, NH)\",\n                    \"table_locator\": {\n                        \"table_id\": \"T_5_77\",\n                        \"row_label\": \"1AQA-PPDI\",\n                        \"column_label\": \"NMR (DMSO-$D_6$) (δ)\",\n                        \"cell_value\": \"12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.48 (m, 1H, AQ)\"\n                    }\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_name_normalized\": \"nmr_chemical_shift\",\n            \"property_name_raw\": \"NMR (DMSO-D$_6$) (δ)\",\n            \"sample_id\": \"s002\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": \"DMSO-D6\",\n            \"spectral_assignment\": \"s, 1H, NH\",\n            \"unit_normalized\": \"ppm\",\n            \"unit_raw\": \"ppm\",\n            \"value_max\": 12.76,\n            \"value_min\": 12.76,\n            \"value_raw\": \"12.76\"\n        },\n        {\n            \"property_id\": \"prop_s5_002\",\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"T_5_77\",\n                    \"source_sentence\": \"1AQA-PPDI NMR (DMSO-D$_6$) (δ) 9.07 (s, 2H, ph)\",\n                    \"table_locator\": {\n                        \"table_id\": \"T_5_77\",\n                        \"row_label\": \"1AQA-PPDI\",\n                        \"column_label\": \"NMR (DMSO-$D_6$) (δ)\",\n                        \"cell_value\": \"12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.48 (m, 1H, AQ)\"\n                    }\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_name_normalized\": \"nmr_chemical_shift\",\n            \"property_name_raw\": \"NMR (DMSO-D$_6$) (δ)\",\n            \"sample_id\": \"s002\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": \"DMSO-D6\",\n            \"spectral_assignment\": \"s, 2H, ph\",\n            \"unit_normalized\": \"ppm\",\n            \"unit_raw\": \"ppm\",\n            \"value_max\": 9.07,\n            \"value_min\": 9.07,\n            \"value_raw\": \"9.07\"\n        },\n        {\n            \"property_id\": \"prop_s5_003\",\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"T_5_77\",\n                    \"source_sentence\": \"1AQA-NDI NMR (DMSO-D$_6$) (δ) 12.75 (s, 1H, NH)\",\n                    \"table_locator\": {\n                        \"table_id\": \"T_5_77\",\n                        \"row_label\": \"1AQA-NDI\",\n                        \"column_label\": \"NMR (DMSO-$D_6$) (δ)\",\n                        \"cell_value\": \"12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)\"\n                    }\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_name_normalized\": \"nmr_chemical_shift\",\n            \"property_name_raw\": \"NMR (DMSO-D$_6$) (δ)\",\n            \"sample_id\": \"s003\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": \"DMSO-D6\",\n            \"spectral_assignment\": \"s, 1H, NH\",\n            \"unit_normalized\": \"ppm\",\n            \"unit_raw\": \"ppm\",\n            \"value_max\": 12.75,\n            \"value_min\": 12.75,\n            \"value_raw\": \"12.75\"\n        }\n    ]\n}\n(Note: Only 3 representative NMR chemical shift properties are shown above; the full output would include all explicitly reported NMR peaks for all 8 polymer samples following the same structure.)",
+            "usage": {
+              "input_tokens": 20709,
+              "output_tokens": 6199,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08946288",
+              "output_cost": "0.18070085",
+              "total_cost": "0.27016373"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 3,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "7f0976b9b4ff1b2db6a3a114e8a7e610a7d34b6074e03171dfb6bf2f795589d6",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_77"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[1].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_002"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[2].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_003"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "nmr_001",
+          "reason": "T_5_77.table_locator.cell_value 不是表格原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "H-nuclear magnetic resonance (NMR)",
+            "method_normalized": "NMR",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Bruker Avance DPX 250 MHz",
+            "parameters": {},
+            "result_summary": "1H-NMR spectra of all 8 poly(amide-urea) samples were recorded, confirming polymer structure via appearance of urea linkage peaks and disappearance of amine peaks.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany)."
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "NMR (DMSO-D$_6$) (δ)",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "12.76",
+            "value_min": 12.76,
+            "value_max": 12.76,
+            "spectral_assignment": "s, 1H, NH",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "1AQA-PPDI NMR (DMSO-D$_6$) (δ) 12.76 (s, 1H, NH)",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "NMR (DMSO-$D_6$) (δ)",
+                  "cell_value": "12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.48 (m, 1H, AQ)",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "NMR (DMSO-D$_6$) (δ)",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "9.07",
+            "value_min": 9.07,
+            "value_max": 9.07,
+            "spectral_assignment": "s, 2H, ph",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "1AQA-PPDI NMR (DMSO-D$_6$) (δ) 9.07 (s, 2H, ph)",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "NMR (DMSO-$D_6$) (δ)",
+                  "cell_value": "12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.48 (m, 1H, AQ)",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "NMR (DMSO-D$_6$) (δ)",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "12.75",
+            "value_min": 12.75,
+            "value_max": 12.75,
+            "spectral_assignment": "s, 1H, NH",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "1AQA-NDI NMR (DMSO-D$_6$) (δ) 12.75 (s, 1H, NH)",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "NMR (DMSO-$D_6$) (δ)",
+                  "cell_value": "12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "nmr_002",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "T_5_78"
+      ],
+      "context_chars": 2657,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": []}",
+            "usage": {
+              "input_tokens": 15024,
+              "output_tokens": 312,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12154752",
+              "output_cost": "0.0090948",
+              "total_cost": "0.13064232"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "3f48950e74e107d208d0dc4ab276316b713a39e4758f3386bf855d5ed384dce3",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "T_5_78",
+        "P_6_83"
+      ],
+      "context_chars": 6095,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\"uprop001\", \"uprop002\", \"uprop003\"],\n      \"entity_id\": \"pe002\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Gel permeation chromatography (GPC) was performed on a Waters 150-C instrument using Styragel columns and a differential refractometer detector. The molecular weight calibration was carried out using polystyrene standards. Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_83\",\n          \"source_sentence\": \"The molecular weights and dispersity of the polymers were investigated using the GPC method with DMF as a solvent calibrated with polystyrene standards. The results are compiled in Table 2. The numerous molecular weights $\\\\left( M _ { \\\\mathrm { n } } \\\\right)$ ranged from 14,200 to 22,000 corresponding to a degree of polymerization between 25 and 42. The $M _ { \\\\mathrm { w } }$ values were about 35,700–48,500 which means that the ratio of $M _ { \\\\mathrm { w } } / M _ { \\\\mathrm { n } }$ was between 2.20 and 2.51.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Waters 150-C instrument using Styragel columns and a differential refractometer detector\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"method_normalized\": \"GPC\",\n      \"method_raw\": \"Gel permeation chromatography (GPC)\",\n      \"parameters\": {\n        \"flow rate\": \"1 ml/min\",\n        \"solvent\": \"dimethylformamide (DMF)\",\n        \"calibration\": \"polystyrene standards\"\n      },\n      \"result_summary\": \"Mn of poly(amide-urea)s ranged from 14200 to 22000, Mw ranged from 35700 to 48500, Mw/Mn ranged from 2.20 to 2.51\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": [\"series003\", \"series004\", \"series005\"]\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 15887,
+              "output_tokens": 4102,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12527568",
+              "output_cost": "0.1195733",
+              "total_cost": "0.24484898"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "72dc8a44e2ed4960ed9abe1ec268ce0fe803d5b5ca30ecdc26cd406e1826926d",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "gpc_001",
+          "reason": "char001 与 Series 的归属不一致：['series003', 'series004', 'series005']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Gel permeation chromatography (GPC)",
+            "method_normalized": "GPC",
+            "entity_id": "pe002",
+            "sample_resolution_status": "unresolved",
+            "series_ids": [
+              "series003",
+              "series004",
+              "series005"
+            ],
+            "instrument": "Waters 150-C instrument using Styragel columns and a differential refractometer detector",
+            "parameters": {
+              "flow rate": "1 ml/min",
+              "solvent": "dimethylformamide (DMF)",
+              "calibration": "polystyrene standards"
+            },
+            "result_summary": "Mn of poly(amide-urea)s ranged from 14200 to 22000, Mw ranged from 35700 to 48500, Mw/Mn ranged from 2.20 to 2.51",
+            "derived_property_ids": [
+              "uprop001",
+              "uprop002",
+              "uprop003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Gel permeation chromatography (GPC) was performed on a Waters 150-C instrument using Styragel columns and a differential refractometer detector. The molecular weight calibration was carried out using polystyrene standards. Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent."
+              },
+              {
+                "block_id": "P_6_83",
+                "page": 6,
+                "bbox": [
+                  87.0,
+                  93.0,
+                  500.0,
+                  249.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The molecular weights and dispersity of the polymers were investigated using the GPC method with DMF as a solvent calibrated with polystyrene standards. The results are compiled in Table 2. The numerous molecular weights $\\left( M _ { \\mathrm { n } } \\right)$ ranged from 14,200 to 22,000 corresponding to a degree of polymerization between 25 and 42. The $M _ { \\mathrm { w } }$ values were about 35,700–48,500 which means that the ratio of $M _ { \\mathrm { w } } / M _ { \\mathrm { n } }$ was between 2.20 and 2.51."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_6_84",
+        "I_6_90"
+      ],
+      "context_chars": 4140,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\"prop009\", \"prop010\", \"prop011\", \"prop012\", \"prop013\", \"prop014\", \"prop015\", \"prop016\"],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_21\",\n                    \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. In DSC thermograms, the samples were heated from 30 to $2 0 0 ^ { \\\\circ } \\\\mathrm { C } ,$they were cooled, and then re-heated to eliminate the thermal history. The temperature and mass uncertainty of the instruments were 0.706 and 0.159, respectively.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_6_84\",\n                    \"source_sentence\": \"Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\\\mathrm { g } } )$was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"I_6_90\",\n                    \"source_sentence\": \"Figure 5. DSC curve of polymer 1AQA-MDI. This figure is available in colour online at www.interscience.wiley.com/ journal/pat\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Stanton Redcraft STA-780\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {\n                    \"atmosphere\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"heating_rate\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"thermal_cycle\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"In DSC thermograms, the samples were heated from 30 to $2 0 0 ^ { \\\\circ } \\\\mathrm { C } ,$they were cooled, and then re-heated to eliminate the thermal history.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"temperature_uncertainty\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"The temperature and mass uncertainty of the instruments were 0.706 and 0.159, respectively.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"mass_uncertainty\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"The temperature and mass uncertainty of the instruments were 0.706 and 0.159, respectively.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                },\n                \"other_conditions\": {\n                    \"atmosphere\": \"air\",\n                    \"heating_rate\": \"108C/min\",\n                    \"thermal_cycle\": \"heated from 30 to 200°C, cooled, then re-heated to eliminate thermal history\",\n                    \"temperature_uncertainty\": \"0.706\",\n                    \"mass_uncertainty\": \"0.159\"\n                },\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"DSC\",\n            \"method_raw\": \"Differential scanning calorimetry (DSC)\",\n            \"parameters\": {},\n            \"result_summary\": \"Measured glass transition temperatures (Tg) of all synthesized polyurea samples; no melting endotherm observed, confirming the amorphous nature of the polymers.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 14634,
+              "output_tokens": 3539,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06321888",
+              "output_cost": "0.10316185",
+              "total_cost": "0.16638073"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "9019feae19a73e0f5f2d346b47d08a3b3b1046d8e0308a1a8dbc19db16173c24",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Stanton Redcraft STA-780",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "air",
+                "heating_rate": "108C/min",
+                "temperature_uncertainty": "0.706",
+                "mass_uncertainty": "0.159"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ],
+                "heating_rate": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ],
+                "temperature_uncertainty": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The temperature and mass uncertainty of the instruments were 0.706 and 0.159, respectively."
+                  }
+                ],
+                "mass_uncertainty": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The temperature and mass uncertainty of the instruments were 0.706 and 0.159, respectively."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Measured glass transition temperatures (Tg) of all synthesized polyurea samples; no melting endotherm observed, confirming the amorphous nature of the polymers.",
+            "derived_property_ids": [
+              "prop009",
+              "prop010",
+              "prop011",
+              "prop012",
+              "prop013",
+              "prop014",
+              "prop015",
+              "prop016"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. In DSC thermograms, the samples were heated from 30 to $2 0 0 ^ { \\circ } \\mathrm { C } ,$they were cooled, and then re-heated to eliminate the thermal history. The temperature and mass uncertainty of the instruments were 0.706 and 0.159, respectively."
+              },
+              {
+                "block_id": "P_6_84",
+                "page": 6,
+                "bbox": [
+                  87.0,
+                  249.0,
+                  500.0,
+                  476.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\mathrm { g } } )$was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers."
+              },
+              {
+                "block_id": "I_6_90",
+                "page": 6,
+                "bbox": [
+                  536.0,
+                  508.0,
+                  937.0,
+                  638.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 5. DSC curve of polymer 1AQA-MDI. This figure is available in colour online at www.interscience.wiley.com/ journal/pat"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_6_85",
+        "T_6_86",
+        "I_6_91"
+      ],
+      "context_chars": 5523,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [\"prop017\",\"prop018\",\"prop019\",\"prop020\",\"prop021\",\"prop022\",\"prop023\",\"prop024\",\"prop025\",\"prop026\",\"prop027\",\"prop028\",\"prop029\",\"prop030\",\"prop031\",\"prop032\",\"prop033\",\"prop034\",\"prop035\",\"prop036\",\"prop037\",\"prop038\",\"prop039\",\"prop040\"],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_85\",\n          \"source_sentence\": \"TGA provides the information about polymer stability upon heating and thermal behaviors of polymers. The temperatures for 2% gravimetric loss (T ) of the polyureas were about 192–2298C, and the temperatures for 10% gravimetric loss $( T _ { 1 0 } )$that are important criteria for the evaluation of thermal stability were in the range of $2 8 5 { - } 3 2 7 ^ { \\\\circ } \\\\mathrm { C } ,$and also the char yields of polymers at 7008C were about 36–49%. The results are collected in Table 3.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_6_86\",\n          \"source_sentence\": \"Table 3. Thermal analysis of the polymers\",\n          \"table_locator\": {\n            \"table_id\": \"T_6_86\",\n            \"row_label\": \"1AQA-PPDI, 1AQA-NDI, 1AQA-MDI, 1AQA-H$_{12}$MDI, 2AQA-PPDI, 2AQA-NDI, 2AQA-MDI, 2AQA-H$_{12}$MDI\",\n            \"column_label\": \"$T_{i}$ (°C), $T_{10}$ (°C), $T_{max}$ (°C), Char yield at 700°C (%)\"\n          }\n        }\n      ],\n      \"instrument\": \"Stanton Redcraft STA-780\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [{\"block_id\": \"P_1_21\", \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\"}],\n          \"heating rate\": [{\"block_id\": \"P_1_21\", \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\"}]\n        },\n        \"other_conditions\": {\"atmosphere\": \"air\", \"heating rate\": \"108C/min\"},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"thermogravimetric analysis (TGA)\",\n      \"parameters\": {\"recording replicate\": \"duplicate\"},\n      \"result_summary\": \"The polyureas exhibit T_i of 192-229°C, T_10 of 285-327°C, T_max of 443-475°C, and char yield at 700°C of 36-49%, with PPDI-derived polyureas showing highest thermal stability and H12MDI-derived polyureas lowest.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\",\"s003\",\"s004\",\"s005\",\"s006\",\"s007\",\"s008\",\"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": [\"series007\",\"series008\",\"series009\",\"series010\"]\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 15279,
+              "output_tokens": 3845,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06600528",
+              "output_cost": "0.11208175",
+              "total_cost": "0.17808703"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "bd3d9f0c280f1e2e927d830e4e8afcabbcb86d83b3977e46637a2865cbe3047a",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "tga_001",
+          "reason": "T_6_86.table_locator.row_label 不是表格原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series007",
+              "series008",
+              "series009",
+              "series010"
+            ],
+            "instrument": "Stanton Redcraft STA-780",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "air",
+                "heating rate": "108C/min"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ],
+                "heating rate": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "recording replicate": "duplicate"
+            },
+            "result_summary": "The polyureas exhibit T_i of 192-229°C, T_10 of 285-327°C, T_max of 443-475°C, and char yield at 700°C of 36-49%, with PPDI-derived polyureas showing highest thermal stability and H12MDI-derived polyureas lowest.",
+            "derived_property_ids": [
+              "prop017",
+              "prop018",
+              "prop019",
+              "prop020",
+              "prop021",
+              "prop022",
+              "prop023",
+              "prop024",
+              "prop025",
+              "prop026",
+              "prop027",
+              "prop028",
+              "prop029",
+              "prop030",
+              "prop031",
+              "prop032",
+              "prop033",
+              "prop034",
+              "prop035",
+              "prop036",
+              "prop037",
+              "prop038",
+              "prop039",
+              "prop040"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+              },
+              {
+                "block_id": "P_6_85",
+                "page": 6,
+                "bbox": [
+                  87.0,
+                  476.0,
+                  500.0,
+                  691.0
+                ],
+                "source_type": "text",
+                "source_sentence": "TGA provides the information about polymer stability upon heating and thermal behaviors of polymers. The temperatures for 2% gravimetric loss (T ) of the polyureas were about 192–2298C, and the temperatures for 10% gravimetric loss $( T _ { 1 0 } )$that are important criteria for the evaluation of thermal stability were in the range of $2 8 5 { - } 3 2 7 ^ { \\circ } \\mathrm { C } ,$and also the char yields of polymers at 7008C were about 36–49%. The results are collected in Table 3."
+              },
+              {
+                "block_id": "T_6_86",
+                "page": 6,
+                "bbox": [
+                  90.0,
+                  742.0,
+                  510.0,
+                  863.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 3. Thermal analysis of the polymers",
+                "table_locator": {
+                  "table_id": "T_6_86",
+                  "row_label": "1AQA-PPDI, 1AQA-NDI, 1AQA-MDI, 1AQA-H$_{12}$MDI, 2AQA-PPDI, 2AQA-NDI, 2AQA-MDI, 2AQA-H$_{12}$MDI",
+                  "column_label": "$T_{i}$ (°C), $T_{10}$ (°C), $T_{max}$ (°C), Char yield at 700°C (%)",
+                  "cell_value": null,
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_7_100",
+        "P_7_101"
+      ],
+      "context_chars": 4172,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe005\", \"pe006\", \"pe007\", \"pe008\", \"pe009\", \"pe010\", \"pe011\", \"pe012\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_101\",\n          \"source_sentence\": \"The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"X-ray diffractometer (Siemens model D 5000)\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"temperature\": {\n          \"raw\": \"room temperature\",\n          \"value\": null,\n          \"unit\": null,\n          \"evidence\": [\n            {\n              \"block_id\": \"P_1_21\",\n              \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min.\",\n              \"table_locator\": null\n            },\n            {\n              \"block_id\": \"P_7_101\",\n              \"source_sentence\": \"The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"frequency\": null,\n        \"humidity\": null,\n        \"pressure\": null,\n        \"wavelength\": null,\n        \"other_conditions\": {},\n        \"other_condition_evidence\": {}\n      },\n      \"method_normalized\": \"XRD\",\n      \"method_raw\": \"Wide-angle X-ray diffraction (WAXD)\",\n      \"parameters\": {\n        \"radiation\": \"Ni-filtered Cu Ka radiation\",\n        \"voltage\": \"40 kV\",\n        \"current\": \"25 mA\",\n        \"scanning_rate\": \"38/min\",\n        \"2theta_range\": \"5–708\"\n      },\n      \"result_summary\": \"All tested polyureas were amorphous, no crystalline structure was detected.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"property_id\": \"prop_s5_001\",\n      \"confidence\": {\"score\": 0.9},\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"property_name_raw\": \"crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"amorphous\",\n      \"value_min\": null,\n      \"value_max\": null,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"solvent\": null,\n      \"spectral_assignment\": null,\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe005\", \"pe006\", \"pe007\", \"pe008\", \"pe009\", \"pe010\", \"pe011\", \"pe012\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_101\",\n          \"source_sentence\": \"The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous.\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"source_stage\": \"stage5\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 14648,
+              "output_tokens": 4622,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.1199232",
+              "output_cost": "0.1347313",
+              "total_cost": "0.2546545"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 1,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "b7a42ab87f57eb994dc760d5b288d6c59930959d3f9f53ebf0f9312cf42f4810",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Wide-angle X-ray diffraction (WAXD)",
+            "method_normalized": "XRD",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011",
+              "pe012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "X-ray diffractometer (Siemens model D 5000)",
+            "measurement_context": {
+              "temperature": {
+                "raw": "room temperature",
+                "evidence": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min."
+                  },
+                  {
+                    "block_id": "P_7_101",
+                    "page": 7,
+                    "bbox": [
+                      53.0,
+                      604.0,
+                      467.0,
+                      776.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {},
+              "other_condition_evidence": {},
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "radiation": "Ni-filtered Cu Ka radiation",
+              "voltage": "40 kV",
+              "current": "25 mA",
+              "scanning_rate": "38/min",
+              "2theta_range": "5–708"
+            },
+            "result_summary": "All tested polyureas were amorphous, no crystalline structure was detected.",
+            "derived_property_ids": [
+              "prop_s5_001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min."
+              },
+              {
+                "block_id": "P_7_101",
+                "page": 7,
+                "bbox": [
+                  53.0,
+                  604.0,
+                  467.0,
+                  776.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011",
+              "pe012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "amorphous",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_7_101",
+                "page": 7,
+                "bbox": [
+                  53.0,
+                  604.0,
+                  467.0,
+                  776.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "uv_vis_001",
+      "method_normalized": "UV-Vis",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "I_6_87",
+        "P_6_89",
+        "T_7_97",
+        "T_7_98"
+      ],
+      "context_chars": 5517,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"UV spectra were obtained by a Cecil CE 1021 UV–Vis spectrometer (Cambridge, UK).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_89\",\n          \"source_sentence\": \"The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution. The UV–Vis absorption data of the polymers are summarized in Table 4.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_7_97\",\n          \"source_sentence\": \"Table 4. UV–Vis absorption of poly(amide-urea)s<sup>a</sup>\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Cecil CE 1021 UV–Vis spectrometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"solvent\": [\n            {\n              \"block_id\": \"P_6_89\",\n              \"source_sentence\": \"The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution.\"\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"solvent\": \"NMP\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"UV-Vis\",\n      \"method_raw\": \"ultraviolet–visible (UV–Vis) absorption\",\n      \"parameters\": {},\n      \"result_summary\": \"The poly(amide-urea)s show absorption maxima in the range of 303–429 nm, assigned to the Q Q<sup>-</sup> transition resulting from conjugation between aromatic rings and nitrogen atoms.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series011\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 15304,
+              "output_tokens": 2955,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12275712",
+              "output_cost": "0.08613825",
+              "total_cost": "0.20889537"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "7d4481d29ce6d44ad9e812fa319cf4170340549ee733a7d4749ba3fd53d8c6f9",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_7_97"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "ultraviolet–visible (UV–Vis) absorption",
+            "method_normalized": "UV-Vis",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series011",
+            "instrument": "Cecil CE 1021 UV–Vis spectrometer",
+            "measurement_context": {
+              "other_conditions": {
+                "solvent": "NMP"
+              },
+              "other_condition_evidence": {
+                "solvent": [
+                  {
+                    "block_id": "P_6_89",
+                    "page": 6,
+                    "bbox": [
+                      529.0,
+                      391.0,
+                      942.0,
+                      477.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "The poly(amide-urea)s show absorption maxima in the range of 303–429 nm, assigned to the Q Q<sup>-</sup> transition resulting from conjugation between aromatic rings and nitrogen atoms.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "UV spectra were obtained by a Cecil CE 1021 UV–Vis spectrometer (Cambridge, UK)."
+              },
+              {
+                "block_id": "P_6_89",
+                "page": 6,
+                "bbox": [
+                  529.0,
+                  391.0,
+                  942.0,
+                  477.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution. The UV–Vis absorption data of the polymers are summarized in Table 4."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22"
+      ],
+      "context_chars": 2547,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\"prop001\", \"prop002\", \"prop003\", \"prop004\", \"prop005\", \"prop006\", \"prop007\", \"prop008\"],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\\\circ } \\\\mathrm { C }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Ubbelohde viscometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": {\n          \"evidence\": [\n            {\n              \"block_id\": \"P_1_21\",\n              \"source_sentence\": \"Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\\\circ } \\\\mathrm { C }$.\",\n              \"table_locator\": null\n            }\n          ],\n          \"raw\": \"30 ^ { \\\\circ } \\\\mathrm { C }\",\n          \"unit\": \"°C\",\n          \"value\": 30\n        },\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"viscometry\",\n      \"method_raw\": \"Ubbelohde viscometer\",\n      \"parameters\": {\n        \"concentration\": \"0.5 g/dl\",\n        \"solvent\": \"NMP\"\n      },\n      \"result_summary\": \"Inherent viscosities of the 8 synthesized polyurea samples were measured, with values ranging from 0.54 dl/g to 0.73 dl/g\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": []\n}",
+            "usage": {
+              "input_tokens": 14286,
+              "output_tokens": 2576,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11835936",
+              "output_cost": "0.0750904",
+              "total_cost": "0.19344976"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "b1953d45df49da2d9265d99d6652e5e5fe95b3492461ee72c2f03cdb57242a03",
+      "cache_hit": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.temperature",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Ubbelohde viscometer",
+            "method_normalized": "viscometry",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Ubbelohde viscometer",
+            "parameters": {
+              "concentration": "0.5 g/dl",
+              "solvent": "NMP"
+            },
+            "result_summary": "Inherent viscosities of the 8 synthesized polyurea samples were measured, with values ranging from 0.54 dl/g to 0.73 dl/g",
+            "derived_property_ids": [
+              "prop001",
+              "prop002",
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}
