@@ -19,7 +19,12 @@ GIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 PROHIBITED_NAMES = {".env", ".env.local", "progress_state.json", "run_manifest.json"}
 PROHIBITED_SUFFIXES = {".db", ".key", ".log", ".pem", ".sqlite", ".sqlite3"}
 MAX_FILE_BYTES = 95 * 1024 * 1024
-ABSOLUTE_PATH_RE = re.compile(r"(?:[A-Za-z]:\\|/Users/|/home/[^/]+/)")
+# 盘符前加负向后顾：真实 Windows 路径的盘符不会紧跟在字母/数字后面。
+# 抽取出来的正文里 `...was used:\"` / `...equations:\n` 这类 JSON 转义序列
+# 会让裸的 `[A-Za-z]:\\` 误命中（`d:\` / `s:\`），把合法证据文本判成本地路径。
+ABSOLUTE_PATH_RE = re.compile(
+    r"(?:(?<![A-Za-z0-9])[A-Za-z]:\\|/Users/|/home/[^/]+/)"
+)
 SECRET_RE = re.compile(
     r"(?:github_pat_[A-Za-z0-9_]+|ghp_[A-Za-z0-9]+|sk-[A-Za-z0-9]{16,}|"
     r"-----BEGIN [A-Z ]*PRIVATE KEY-----)",

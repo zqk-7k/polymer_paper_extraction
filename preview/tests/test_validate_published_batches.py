@@ -2,7 +2,11 @@ import hashlib
 import json
 from pathlib import Path
 
-from preview.validate_published_batches import validate_collection, validate_root
+from preview.validate_published_batches import (
+    ABSOLUTE_PATH_RE,
+    validate_collection,
+    validate_root,
+)
 
 
 def _write_valid_collection(root: Path) -> Path:
@@ -181,3 +185,29 @@ def test_review_collection_rejects_result_index(tmp_path: Path) -> None:
     errors, _ = validate_root(tmp_path)
 
     assert any("must not contain RESULT_INDEX.json" in error for error in errors)
+
+
+def test_absolute_path_regex_matches_real_local_paths() -> None:
+    """真实本地绝对路径必须被拦下，否则发布数据会泄露作者机器布局。"""
+    for text in (
+        r"saved to C:\Users\alice\out.json",
+        r'"source": "D:\1work\polymer"',
+        r"C:\Windows\system32",
+        "/Users/alice/repo/candidate.json",
+        "/home/bob/repo/candidate.json",
+    ):
+        assert ABSOLUTE_PATH_RE.search(text), text
+
+
+def test_absolute_path_regex_ignores_json_escapes_in_evidence_text() -> None:
+    r"""抽取正文里的 JSON 转义序列不是本地路径。
+
+    证据文本以冒号结尾时，raw JSON 会写成 `used:\"`，裸的 `[A-Za-z]:\\`
+    会把 `d:\` 当成盘符。这些是合法数据，不能因此拒绝发布。
+    """
+    for text in (
+        r'mobilities - was used:\",\n        \"table_locator\": null',
+        r'satisfy the following equations:\",\n   \"table_locator\": null',
+        r"the following equations:\n",
+    ):
+        assert not ABSOLUTE_PATH_RE.search(text), text
