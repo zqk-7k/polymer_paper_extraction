@@ -1,0 +1,200 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0043541",
+  "table_id": "T_4_49",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0043541",
+    "table_id": "T_4_49",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_4_49:r0001:c0000",
+          "T_4_49:r0001:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; Water with (static) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0001:c0000",
+          "T_4_49:r0002:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; Water with (advancing) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0001:c0000",
+          "T_4_49:r0003:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; Water with (receding) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0001:c0000",
+          "T_4_49:r0004:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; Water with (sliding) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0005:c0000",
+          "T_4_49:r0005:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; Air (in water) with (static) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0006:c0000",
+          "T_4_49:r0006:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; Diiodomethane with (static) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0007:c0000",
+          "T_4_49:r0007:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact_angle",
+        "confidence": 0.99,
+        "reason": "The caption identifies contact angles; n-Hexadecane with (static) is a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0008:c0000",
+          "T_4_49:r0008:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "surface_free_energy",
+        "confidence": 0.99,
+        "reason": "The caption explicitly identifies surface free energy, which is not among the supplied nine specialized property categories."
+      }
+    ],
+    "sample_assignments": [
+      {
+        "sample_label_raw": "poly(MPC)",
+        "source_cell_ids": [
+          "T_4_49:r0000:c0002"
+        ],
+        "status": "matched",
+        "sample_id": "s001",
+        "entity_id": "pe001",
+        "candidate_sample_ids": [],
+        "confidence": 0.98,
+        "reason": "The table caption specifies hydrophilic polymer brushes, and the column label matches the polymer_name of the Stage 3 poly(MPC) brush sample."
+      },
+      {
+        "sample_label_raw": "poly(DMAEMA)",
+        "source_cell_ids": [
+          "T_4_49:r0000:c0003"
+        ],
+        "status": "matched",
+        "sample_id": "s003",
+        "entity_id": "pe002",
+        "candidate_sample_ids": [],
+        "confidence": 0.99,
+        "reason": "The table caption specifies hydrophilic polymer brushes, and the column label matches the polymer_name of the Stage 3 poly(DMAEMA) brush sample."
+      },
+      {
+        "sample_label_raw": "poly(METAI)",
+        "source_cell_ids": [
+          "T_4_49:r0000:c0004"
+        ],
+        "status": "matched",
+        "sample_id": "s004",
+        "entity_id": "pe003",
+        "candidate_sample_ids": [],
+        "confidence": 0.99,
+        "reason": "The table caption specifies hydrophilic polymer brushes, and the column label matches the polymer_name of the Stage 3 poly(METAI) brush sample."
+      }
+    ],
+    "requires_human_review": false,
+    "warnings": [
+      "All identified measurement categories are outside the supplied specialized-property vocabulary."
+    ]
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 1,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": "2eb8d7f1efadf0a90d6b8253b1b43cca80c77ee394b17f91c7bbd1ae3ca99ab2",
+  "runtime": {
+    "call_count": 2,
+    "usage": {
+      "input_tokens": 6,
+      "output_tokens": 2757,
+      "cache_creation_input_tokens": 10822,
+      "cache_read_input_tokens": 3818,
+      "billable_input_tokens": 14646,
+      "total_tokens": 17403
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.248982",
+      "output_cost": "0.278457",
+      "total_cost": "0.527439"
+    }
+  },
+  "split": "frozen_test"
+}

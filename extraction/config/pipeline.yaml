@@ -30,6 +30,13 @@ llm:
       timeout_seconds: 900
       max_retries: 0
       stream: true
+    specialized_attribution_agent:
+      model: gpt-5.6-terra
+      api_format: anthropic-messages
+      thinking_effort: low
+      timeout_seconds: 600
+      max_retries: 0
+      stream: false
 
 pricing:
   currency: CNY
@@ -96,6 +103,12 @@ stages:
       - {doc_id: reference_no_0039705, table_id: T_6_84}
       - {doc_id: reference_no_0043541, table_id: T_4_49}
       - {doc_id: reference_no_0043590, table_id: T_1_19}
+  specialized_attribution_agent:
+    prompt_id: polymer.specialized.attribution
+    vocabulary_path: config/polymer_schema.yaml
+    max_tokens: 4096
+    max_repair_attempts: 1
+    nearby_evidence_chars: 5000
 
 concurrency:
   max_doc_workers: 1

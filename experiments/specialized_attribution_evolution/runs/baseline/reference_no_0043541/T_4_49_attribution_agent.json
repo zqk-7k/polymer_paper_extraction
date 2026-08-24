@@ -1,0 +1,201 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0043541",
+  "table_id": "T_4_49",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0043541",
+    "table_id": "T_4_49",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_4_49:r0001:c0000",
+          "T_4_49:r0001:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.96,
+        "reason": "Water with the static qualifier denotes a contact-angle measurement, which is not in the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0002:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.96,
+        "reason": "The advancing qualifier identifies a contact-angle measurement variant, outside the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0003:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.96,
+        "reason": "The receding qualifier identifies a contact-angle measurement variant, outside the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0004:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.96,
+        "reason": "The sliding qualifier identifies a contact-angle measurement variant, outside the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0005:c0000",
+          "T_4_49:r0005:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.94,
+        "reason": "Air (in water) with the static qualifier is a contact-angle measurement condition, outside the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0006:c0000",
+          "T_4_49:r0006:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.94,
+        "reason": "Diiodomethane with the static qualifier is a contact-angle measurement condition, outside the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0007:c0000",
+          "T_4_49:r0007:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "contact angle",
+        "confidence": 0.94,
+        "reason": "n-Hexadecane with the static qualifier is a contact-angle measurement condition, outside the supplied specialized vocabulary."
+      },
+      {
+        "source_cell_ids": [
+          "T_4_49:r0008:c0000",
+          "T_4_49:r0008:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": "surface free energy",
+        "confidence": 0.97,
+        "reason": "γSV in mN/m is identified by the table caption as surface free energy, which is not among the supplied specialized properties."
+      }
+    ],
+    "sample_assignments": [
+      {
+        "sample_label_raw": "poly(MPC)",
+        "source_cell_ids": [
+          "T_4_49:r0000:c0002"
+        ],
+        "status": "ambiguous",
+        "sample_id": null,
+        "entity_id": null,
+        "candidate_sample_ids": [
+          "s001",
+          "s002"
+        ],
+        "confidence": 0.62,
+        "reason": "The header matches the polymer name for both poly(MPC) brush and hydrated poly(MPC) brush. The header does not specify hydration state."
+      },
+      {
+        "sample_label_raw": "poly(DMAEMA)",
+        "source_cell_ids": [
+          "T_4_49:r0000:c0003"
+        ],
+        "status": "matched",
+        "sample_id": "s003",
+        "entity_id": "pe002",
+        "candidate_sample_ids": [],
+        "confidence": 0.94,
+        "reason": "The header polymer name matches the Stage 3 sample poly(DMAEMA) brush."
+      },
+      {
+        "sample_label_raw": "poly(METAI)",
+        "source_cell_ids": [
+          "T_4_49:r0000:c0004"
+        ],
+        "status": "matched",
+        "sample_id": "s004",
+        "entity_id": "pe003",
+        "candidate_sample_ids": [],
+        "confidence": 0.94,
+        "reason": "The header polymer name matches the Stage 3 sample poly(METAI) brush."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "The poly(MPC) header cannot uniquely distinguish s001 from s002 because hydration state is not stated in the header.",
+      "All reported table properties are contact-angle or surface-free-energy data and are outside the supplied nine specialized-property vocabulary."
+    ]
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 1,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "call_count": 2,
+    "usage": {
+      "input_tokens": 6,
+      "output_tokens": 2600,
+      "cache_creation_input_tokens": 9690,
+      "cache_read_input_tokens": 3818,
+      "billable_input_tokens": 13514,
+      "total_tokens": 16114
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.229738",
+      "output_cost": "0.262600",
+      "total_cost": "0.492338"
+    }
+  },
+  "split": "frozen_test"
+}

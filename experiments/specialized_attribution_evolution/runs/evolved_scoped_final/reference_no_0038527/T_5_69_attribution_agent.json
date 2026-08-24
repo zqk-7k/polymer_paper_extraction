@@ -1,0 +1,230 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0038527",
+  "table_id": "T_5_69",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0038527",
+    "table_id": "T_5_69",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_5_69:r0000:c0000"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "This header identifies the row sample axis rather than a specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0000:c0001"
+        ],
+        "decision": "specialized",
+        "source_field": "crystallographic_data",
+        "semantic_label": "two_theta",
+        "variant": "peak_series",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The grouped header explicitly denotes 2 theta, an X-ray diffraction crystallographic measurement."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0001:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "This Miller-index subheader is a measurement-condition axis under the 2 theta grouped header, not an independent specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0001:c0002"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "This Miller-index subheader is a measurement-condition axis under the 2 theta grouped header, not an independent specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0001:c0003"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "This Miller-index subheader is a measurement-condition axis under the 2 theta grouped header, not an independent specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0001:c0004"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "This Miller-index subheader is a measurement-condition axis under the 2 theta grouped header, not an independent specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0001:c0005"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "This Miller-index subheader is a measurement-condition axis under the 2 theta grouped header, not an independent specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_69:r0000:c0006"
+        ],
+        "decision": "specialized",
+        "source_field": "crystallographic_data",
+        "semantic_label": "d_spacing",
+        "variant": "reported",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The d header with angstrom unit denotes interlayer d-spacing, supported by the table caption and nearby X-ray diffraction discussion."
+      }
+    ],
+    "sample_assignments": [
+      {
+        "sample_label_raw": "Rg(Th-5,4/4)",
+        "source_cell_ids": [
+          "T_5_69:r0002:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s008",
+        "entity_id": "pe011",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact match to the Stage 3 sample label."
+      },
+      {
+        "sample_label_raw": "Rg(Th-5,4/8)",
+        "source_cell_ids": [
+          "T_5_69:r0003:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s003",
+        "entity_id": "pe005",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact match to the Stage 3 sample label."
+      },
+      {
+        "sample_label_raw": "Rg(Th-5,4/12)",
+        "source_cell_ids": [
+          "T_5_69:r0004:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s007",
+        "entity_id": "pe010",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact match to the Stage 3 sample label."
+      },
+      {
+        "sample_label_raw": "Rg(Th-8,4/8)",
+        "source_cell_ids": [
+          "T_5_69:r0005:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s010",
+        "entity_id": "pe013",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact match to the Stage 3 sample label."
+      },
+      {
+        "sample_label_raw": "Rg(Th-11,4/8)",
+        "source_cell_ids": [
+          "T_5_69:r0006:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s011",
+        "entity_id": "pe014",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact match to the Stage 3 sample label."
+      },
+      {
+        "sample_label_raw": "Rn(Th-5,4/8)",
+        "source_cell_ids": [
+          "T_5_69:r0007:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s002",
+        "entity_id": "pe004",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact match to the Stage 3 sample label."
+      }
+    ],
+    "requires_human_review": false,
+    "warnings": []
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 1,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": "153c7bc9060b97e8a07f0cb9b9f909c4bc9a86e09b6b6648663bce8420b3270c",
+  "selected_memory_pattern_ids": [
+    "xrd_multilevel_headers_v1",
+    "xrd_d_spacing_v1"
+  ],
+  "runtime": {
+    "call_count": 2,
+    "usage": {
+      "input_tokens": 6,
+      "output_tokens": 2949,
+      "cache_creation_input_tokens": 16688,
+      "cache_read_input_tokens": 1909,
+      "billable_input_tokens": 18603,
+      "total_tokens": 21552
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.316251",
+      "output_cost": "0.297849",
+      "total_cost": "0.614100"
+    }
+  },
+  "split": "frozen_test"
+}

@@ -1,0 +1,17 @@
+{
+  "experiment_id": "specialized-attribution-pilot-20260824",
+  "batch_root": "batch_results/demo5_stage5_sharded_review_20260823",
+  "targets": [
+    {"ref_no": "reference_no_0020284", "table_id": "T_5_70", "split": "development"},
+    {"ref_no": "reference_no_0038813", "table_id": "T_5_78", "split": "development"},
+    {"ref_no": "reference_no_0038527", "table_id": "T_5_69", "split": "frozen_test"},
+    {"ref_no": "reference_no_0043590", "table_id": "T_4_63", "split": "frozen_test"},
+    {"ref_no": "reference_no_0043541", "table_id": "T_4_49", "split": "frozen_test"}
+  ],
+  "guardrails": {
+    "maximum_specialized_false_positives_on_negative_control": 0,
+    "minimum_evidence_reference_validity": 1.0,
+    "maximum_failed_agent_runs": 0,
+    "production_files_may_be_modified": false
+  }
+}

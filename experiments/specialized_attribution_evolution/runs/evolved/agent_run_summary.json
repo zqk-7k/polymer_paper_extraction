@@ -1,0 +1,49 @@
+{
+  "schema_version": "specialized_attribution_agent_run.v1",
+  "manifest": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\experiments\\specialized_attribution_evolution\\pilot_test_manifest.json",
+  "batch_root": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\batch_results\\demo5_stage5_sharded_review_20260823",
+  "memory": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\experiments\\specialized_attribution_evolution\\runs\\evolution\\approved_memory_v1.yaml",
+  "memory_sha256": "2eb8d7f1efadf0a90d6b8253b1b43cca80c77ee394b17f91c7bbd1ae3ca99ab2",
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "workers": 1,
+  "documents": [
+    {
+      "ref_no": "reference_no_0038527",
+      "table_id": "T_5_69",
+      "split": "frozen_test",
+      "status": "succeeded",
+      "requires_human_review": false,
+      "semantic_assignments": 8,
+      "sample_assignments": 6,
+      "call_count": 2,
+      "reported_cost_cny": "0.586161",
+      "output": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\experiments\\specialized_attribution_evolution\\runs\\evolved\\reference_no_0038527\\T_5_69_attribution_agent.json"
+    },
+    {
+      "ref_no": "reference_no_0043541",
+      "table_id": "T_4_49",
+      "split": "frozen_test",
+      "status": "succeeded",
+      "requires_human_review": false,
+      "semantic_assignments": 8,
+      "sample_assignments": 3,
+      "call_count": 2,
+      "reported_cost_cny": "0.527439",
+      "output": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\experiments\\specialized_attribution_evolution\\runs\\evolved\\reference_no_0043541\\T_4_49_attribution_agent.json"
+    },
+    {
+      "ref_no": "reference_no_0043590",
+      "table_id": "T_4_63",
+      "split": "frozen_test",
+      "status": "succeeded",
+      "requires_human_review": true,
+      "semantic_assignments": 1,
+      "sample_assignments": 4,
+      "call_count": 2,
+      "reported_cost_cny": "0.399826",
+      "output": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\experiments\\specialized_attribution_evolution\\runs\\evolved\\reference_no_0043590\\T_4_63_attribution_agent.json"
+    }
+  ],
+  "total_calls": 6,
+  "reported_cost_cny": "1.513426"
+}

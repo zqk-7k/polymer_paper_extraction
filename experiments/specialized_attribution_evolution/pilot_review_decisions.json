@@ -1,0 +1,11 @@
+{
+  "schema_version": "specialized_evolution_review.v1",
+  "review_scope": "pilot technical evidence review; domain-expert confirmation still required for publication",
+  "decisions": [
+    {"pattern_id": "xrd_multilevel_headers_v1", "decision": "approved", "note": "Explicitly supported by the development table header."},
+    {"pattern_id": "xrd_d_spacing_v1", "decision": "approved", "note": "Explicit header and unit support the mapping."},
+    {"pattern_id": "molecular_weight_variants_v1", "decision": "approved", "note": "Standard header notation is explicit in the development table."},
+    {"pattern_id": "solution_viscosity_variants_v1", "decision": "approved", "note": "The table explicitly reports eta_inh and its unit."},
+    {"pattern_id": "grouped_sample_calcd_found_v1", "decision": "pending", "note": "Promising fix for the observed sample-binding miss, but no independent cross-paper validation table is available in this five-paper pilot."}
+  ]
+}

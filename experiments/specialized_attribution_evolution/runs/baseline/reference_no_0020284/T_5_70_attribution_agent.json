@@ -1,0 +1,180 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0020284",
+  "table_id": "T_5_70",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0020284",
+    "table_id": "T_5_70",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_5_70:r0000:c0000"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "Polymer is the named-sample axis header, not a specialized property."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_70:r0000:c0001"
+        ],
+        "decision": "specialized",
+        "source_field": "crystallographic_data",
+        "semantic_label": "two_theta",
+        "variant": "reported",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "2θ Value (deg) is a Bragg-angle/two-theta measurement header; nearby evidence identifies θ as the angle of diffraction (Bragg angle)."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_70:r0000:c0002"
+        ],
+        "decision": "specialized",
+        "source_field": "crystallographic_data",
+        "semantic_label": "d_spacing",
+        "variant": "reported",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "d-Spacing (Å) directly matches the crystallographic_data d_spacing controlled label."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_70:r0000:c0003"
+        ],
+        "decision": "specialized",
+        "source_field": "crystallinity",
+        "semantic_label": "crystallinity",
+        "variant": "xrd",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "Degree of Crystallinity (%) directly matches crystallinity, and nearby evidence states the relative crystallinities were estimated by x-ray diffraction patterns."
+      }
+    ],
+    "sample_assignments": [
+      {
+        "sample_label_raw": "PC-1",
+        "source_cell_ids": [
+          "T_5_70:r0001:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s001",
+        "entity_id": "pe001",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact sample-label match to the Stage 3 catalog."
+      },
+      {
+        "sample_label_raw": "PC-2",
+        "source_cell_ids": [
+          "T_5_70:r0002:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s002",
+        "entity_id": "pe002",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact sample-label match to the Stage 3 catalog."
+      },
+      {
+        "sample_label_raw": "PC-3",
+        "source_cell_ids": [
+          "T_5_70:r0003:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s003",
+        "entity_id": "pe003",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact sample-label match to the Stage 3 catalog."
+      },
+      {
+        "sample_label_raw": "PC-4",
+        "source_cell_ids": [
+          "T_5_70:r0004:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s004",
+        "entity_id": "pe004",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact sample-label match to the Stage 3 catalog."
+      },
+      {
+        "sample_label_raw": "PC-5",
+        "source_cell_ids": [
+          "T_5_70:r0005:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s005",
+        "entity_id": "pe005",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact sample-label match to the Stage 3 catalog."
+      },
+      {
+        "sample_label_raw": "PC-6",
+        "source_cell_ids": [
+          "T_5_70:r0006:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s006",
+        "entity_id": "pe006",
+        "candidate_sample_ids": [],
+        "confidence": 1.0,
+        "reason": "Exact sample-label match to the Stage 3 catalog."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "Attribution is non-authoritative and requires human review before publication."
+    ]
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 1,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "call_count": 2,
+    "usage": {
+      "input_tokens": 6,
+      "output_tokens": 1643,
+      "cache_creation_input_tokens": 10689,
+      "cache_read_input_tokens": 1909,
+      "billable_input_tokens": 12604,
+      "total_tokens": 14247
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.214268",
+      "output_cost": "0.165943",
+      "total_cost": "0.380211"
+    }
+  },
+  "split": "development"
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0043590",
+  "table_id": "T_4_63",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0043590",
+    "table_id": "T_4_63",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_4_63:r0000:c0002"
+        ],
+        "decision": "specialized",
+        "source_field": "morphology",
+        "semantic_label": "fiber_length",
+        "variant": "weight_average",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "“Wt. Average Length ( $\\mu m$ ) $^{a}$”明确表示纤维长度的重量平均表征，属于 morphology 词表范围。"
+      }
+    ],
+    "sample_assignments": [
+      {
+        "sample_label_raw": "cCF10",
+        "source_cell_ids": [
+          "T_4_63:r0001:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s005",
+        "entity_id": "pe001",
+        "candidate_sample_ids": [],
+        "confidence": 0.96,
+        "reason": "表格标签“cCF10”可由邻近原文中明确出现的“COC/cCF10 composite”及其 foamed 和 nonfoamed samples 唯一对应至 Stage 3 样品。"
+      },
+      {
+        "sample_label_raw": "cCF10",
+        "source_cell_ids": [
+          "T_4_63:r0002:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s005",
+        "entity_id": "pe001",
+        "candidate_sample_ids": [],
+        "confidence": 0.96,
+        "reason": "表格标签“cCF10”可由邻近原文中明确出现的“COC/cCF10 composite”及其 foamed 和 nonfoamed samples 唯一对应至 Stage 3 样品。"
+      },
+      {
+        "sample_label_raw": "cCF10-CB3",
+        "source_cell_ids": [
+          "T_4_63:r0003:c0000"
+        ],
+        "status": "unmatched",
+        "sample_id": null,
+        "entity_id": null,
+        "candidate_sample_ids": [],
+        "confidence": 0.63,
+        "reason": "Stage 3 未提供“cCF10-CB3”的明确样品标签。s008 的描述同时涵盖两种 hybrid composites，不能唯一核验此表格标签对应的独立 Stage 3 样品。"
+      },
+      {
+        "sample_label_raw": "cCF10-CB3",
+        "source_cell_ids": [
+          "T_4_63:r0004:c0000"
+        ],
+        "status": "unmatched",
+        "sample_id": null,
+        "entity_id": null,
+        "candidate_sample_ids": [],
+        "confidence": 0.63,
+        "reason": "Stage 3 未提供“cCF10-CB3”的明确样品标签。s008 的描述同时涵盖两种 hybrid composites，不能唯一核验此表格标签对应的独立 Stage 3 样品。"
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "cCF10-CB3 无法唯一绑定到 Stage 3 样品；s008 仅提供涵盖多种 hybrid composites 的描述。",
+      "Foamed 和 Nonfoamed 是 Description 中的状态；Stage 3 未提供可分别建立独立样品映射的对应状态记录。"
+    ]
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 1,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": "2eb8d7f1efadf0a90d6b8253b1b43cca80c77ee394b17f91c7bbd1ae3ca99ab2",
+  "runtime": {
+    "call_count": 2,
+    "usage": {
+      "input_tokens": 6,
+      "output_tokens": 1833,
+      "cache_creation_input_tokens": 8805,
+      "cache_read_input_tokens": 3818,
+      "billable_input_tokens": 12629,
+      "total_tokens": 14462
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.214693",
+      "output_cost": "0.185133",
+      "total_cost": "0.399826"
+    }
+  },
+  "split": "frozen_test"
+}

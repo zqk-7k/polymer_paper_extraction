@@ -1,0 +1,120 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0043590",
+  "table_id": "T_4_63",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0043590",
+    "table_id": "T_4_63",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_4_63:r0000:c0002"
+        ],
+        "decision": "specialized",
+        "source_field": "morphology",
+        "semantic_label": "fiber_length",
+        "variant": "weight_average",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The header explicitly identifies weight average fiber length, matching the morphology vocabulary."
+      }
+    ],
+    "sample_assignments": [
+      {
+        "sample_label_raw": "cCF10",
+        "source_cell_ids": [
+          "T_4_63:r0001:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s005",
+        "entity_id": "pe001",
+        "candidate_sample_ids": [],
+        "confidence": 0.94,
+        "reason": "Nearby evidence explicitly refers to the COC/cCF10 composite, which matches the Stage 3 label for s005."
+      },
+      {
+        "sample_label_raw": "cCF10",
+        "source_cell_ids": [
+          "T_4_63:r0002:c0000"
+        ],
+        "status": "matched",
+        "sample_id": "s005",
+        "entity_id": "pe001",
+        "candidate_sample_ids": [],
+        "confidence": 0.94,
+        "reason": "Nearby evidence explicitly refers to the COC/cCF10 composite, which matches the Stage 3 label for s005."
+      },
+      {
+        "sample_label_raw": "cCF10-CB3",
+        "source_cell_ids": [
+          "T_4_63:r0003:c0000"
+        ],
+        "status": "unmatched",
+        "sample_id": null,
+        "entity_id": null,
+        "candidate_sample_ids": [],
+        "confidence": 0.55,
+        "reason": "No uniquely corresponding Stage 3 sample record has this table label. s008 describes two hybrid composites but does not provide an individual sample label for this row."
+      },
+      {
+        "sample_label_raw": "cCF10-CB3",
+        "source_cell_ids": [
+          "T_4_63:r0004:c0000"
+        ],
+        "status": "unmatched",
+        "sample_id": null,
+        "entity_id": null,
+        "candidate_sample_ids": [],
+        "confidence": 0.55,
+        "reason": "No uniquely corresponding Stage 3 sample record has this table label. s008 describes two hybrid composites but does not provide an individual sample label for this row."
+      }
+    ],
+    "requires_human_review": true,
+    "warnings": [
+      "The cCF10-CB3 rows cannot be uniquely bound to an individual Stage 3 sample. Foamed and Nonfoamed are descriptions, not Stage 3 sample identifiers."
+    ]
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 1,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "call_count": 2,
+    "usage": {
+      "input_tokens": 6,
+      "output_tokens": 1709,
+      "cache_creation_input_tokens": 7671,
+      "cache_read_input_tokens": 3818,
+      "billable_input_tokens": 11495,
+      "total_tokens": 13204
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.195415",
+      "output_cost": "0.172609",
+      "total_cost": "0.368024"
+    }
+  },
+  "split": "frozen_test"
+}

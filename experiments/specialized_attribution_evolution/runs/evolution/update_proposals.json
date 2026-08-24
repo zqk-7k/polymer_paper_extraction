@@ -1,0 +1,150 @@
+{
+  "schema_version": "specialized_evolution_proposals.v1",
+  "gold_source": "D:\\polymer\\paper_capture\\_worktrees\\specialized_attribution_evolution\\experiments\\specialized_attribution_evolution\\pilot_gold.jsonl",
+  "development_metrics": {
+    "cases": 2,
+    "failed_agent_runs": 0,
+    "semantic_tp": 7,
+    "semantic_fp": 0,
+    "semantic_fn": 0,
+    "semantic_precision": 1.0,
+    "semantic_recall": 1.0,
+    "semantic_f1": 1.0,
+    "sample_binding_accuracy": 0.4286,
+    "out_of_scope_cases_passed": 2,
+    "out_of_scope_cases": 2
+  },
+  "development_case_ids": [
+    "dev_xrd_polycarbonate",
+    "dev_polymer_analytics"
+  ],
+  "proposals": [
+    {
+      "proposal_id": "proposal_001",
+      "pattern_id": "xrd_multilevel_headers_v1",
+      "source_case_ids": [
+        "dev_xrd_polycarbonate"
+      ],
+      "selection_reason": "verified_generalizable_pattern",
+      "target": "agent_retrieval_memory",
+      "pattern": {
+        "pattern_id": "xrd_multilevel_headers_v1",
+        "source_field": "crystallographic_data",
+        "semantic_label": "two_theta",
+        "guidance": "在 XRD/WAXD 表中，2 theta 或 Bragg angle 是 crystallographic_data/two_theta；其下的 (100)、(200) 等晶面指数是条件轴，不是性质值或样品。",
+        "positive_cues": [
+          "XRD",
+          "WAXD",
+          "Bragg",
+          "2 theta",
+          "2θ"
+        ],
+        "negative_constraints": [
+          "Miller indices are conditions, not observations"
+        ]
+      },
+      "automatic_application_allowed": false
+    },
+    {
+      "proposal_id": "proposal_002",
+      "pattern_id": "xrd_d_spacing_v1",
+      "source_case_ids": [
+        "dev_xrd_polycarbonate"
+      ],
+      "selection_reason": "verified_generalizable_pattern",
+      "target": "agent_retrieval_memory",
+      "pattern": {
+        "pattern_id": "xrd_d_spacing_v1",
+        "source_field": "crystallographic_data",
+        "semantic_label": "d_spacing",
+        "guidance": "d-spacing、d spacing、interlayer distance 或 interplanar distance 与 Å/angstrom 单位共同出现时，映射为 crystallographic_data/d_spacing。",
+        "positive_cues": [
+          "d-spacing",
+          "interlayer distance",
+          "interplanar distance",
+          "angstrom"
+        ],
+        "negative_constraints": [
+          "do not infer values"
+        ]
+      },
+      "automatic_application_allowed": false
+    },
+    {
+      "proposal_id": "proposal_003",
+      "pattern_id": "molecular_weight_variants_v1",
+      "source_case_ids": [
+        "dev_polymer_analytics"
+      ],
+      "selection_reason": "baseline_error",
+      "target": "agent_retrieval_memory",
+      "pattern": {
+        "pattern_id": "molecular_weight_variants_v1",
+        "source_field": "average_molecular_weight",
+        "semantic_label": "molecular_weight",
+        "guidance": "Mn、Mw、Mv 和 Mz 是 average_molecular_weight/molecular_weight 的不同 variant；Mw/Mn 或 Đ 是 molecular_weight_distribution/dispersity。",
+        "positive_cues": [
+          "Mn",
+          "Mw",
+          "Mv",
+          "Mz",
+          "Mw/Mn",
+          "dispersity"
+        ],
+        "negative_constraints": [
+          "elemental analysis is not molecular weight"
+        ]
+      },
+      "automatic_application_allowed": false
+    },
+    {
+      "proposal_id": "proposal_004",
+      "pattern_id": "solution_viscosity_variants_v1",
+      "source_case_ids": [
+        "dev_polymer_analytics"
+      ],
+      "selection_reason": "baseline_error",
+      "target": "agent_retrieval_memory",
+      "pattern": {
+        "pattern_id": "solution_viscosity_variants_v1",
+        "source_field": "solution_viscosity",
+        "semantic_label": "solution_viscosity",
+        "guidance": "eta_inh 或 inherent viscosity 映射为 solution_viscosity，variant=inherent；intrinsic、reduced 和 specific viscosity 必须保留各自 variant。",
+        "positive_cues": [
+          "eta_inh",
+          "inherent viscosity",
+          "intrinsic viscosity",
+          "reduced viscosity"
+        ],
+        "negative_constraints": [
+          "melt viscosity and dynamic viscosity remain official properties"
+        ]
+      },
+      "automatic_application_allowed": false
+    },
+    {
+      "proposal_id": "proposal_005",
+      "pattern_id": "grouped_sample_calcd_found_v1",
+      "source_case_ids": [
+        "dev_polymer_analytics"
+      ],
+      "selection_reason": "baseline_error",
+      "target": "agent_retrieval_memory",
+      "pattern": {
+        "pattern_id": "grouped_sample_calcd_found_v1",
+        "source_field": null,
+        "semantic_label": null,
+        "guidance": "在先出现跨列聚合物名称、随后出现 Calcd/Found 行的分组表中，跨列名称是样品标签，Calcd/Found 是测量角色；只有名称能唯一匹配 Stage 3 时才绑定。",
+        "positive_cues": [
+          "Calcd",
+          "Found"
+        ],
+        "negative_constraints": [
+          "Calcd and Found are not samples",
+          "do not infer missing sample states"
+        ]
+      },
+      "automatic_application_allowed": false
+    }
+  ]
+}

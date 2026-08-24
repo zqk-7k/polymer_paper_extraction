@@ -1,5 +1,63 @@
 schema_version: "1.0"
 
+# PolyInfo specialized 九类性质。这里是业务控制面；Agent 只能从本目录选择
+# source_field / semantic_label，不能在运行时创造新标签。
+specialized_property_vocabulary:
+  average_molecular_weight:
+    semantic_labels: [molecular_weight, molecular_weight_distribution]
+    aliases: [molecular weight, number-average molecular weight, weight-average molecular weight, Mn, Mw, Mz, Mw/Mn, dispersity]
+    variants: [number_average, weight_average, viscosity_average, z_average, dispersity]
+    value_kinds: [numeric_scalar, numeric_multiple, numeric_range]
+    stages: [stage4, stage4t]
+  solution_viscosity:
+    semantic_labels: [solution_viscosity]
+    aliases: [intrinsic viscosity, inherent viscosity, reduced viscosity, specific viscosity, eta_inh, eta_intrinsic]
+    variants: [intrinsic, inherent, reduced, specific]
+    value_kinds: [numeric_scalar, numeric_range]
+    stages: [stage4, stage4t]
+  crystallinity:
+    semantic_labels: [crystallinity]
+    aliases: [degree of crystallinity, crystallinity index, crystalline fraction]
+    variants: [reported, xrd, dsc]
+    value_kinds: [numeric_scalar, categorical, numeric_range]
+    stages: [stage4, stage4t, stage5]
+  degree_of_polymerization:
+    semantic_labels: [degree_of_polymerization]
+    aliases: [degree of polymerization, polymerization degree, DP, DPn, DPw]
+    variants: [number_average, weight_average, reported]
+    value_kinds: [numeric_scalar, numeric_range]
+    stages: [stage4, stage4t]
+  crystallographic_data:
+    semantic_labels: [d_spacing, two_theta]
+    aliases: [d-spacing, d spacing, interlayer distance, interplanar distance, 2 theta, two theta, Bragg angle]
+    variants: [reported, peak_series]
+    value_kinds: [numeric_scalar, numeric_multiple, numeric_range]
+    stages: [stage4t, stage5]
+  primary_structure_informations:
+    semantic_labels: [primary_structure]
+    aliases: [primary structure, chemical structure, repeat unit, backbone structure, sequence structure]
+    variants: [reported]
+    value_kinds: [text]
+    stages: [stage4, stage5]
+  morphology:
+    semantic_labels: [morphology, fiber_length, particle_size, domain_size, pore_size, cell_size]
+    aliases: [morphology, fiber length, particle size, domain size, pore size, cell size, phase morphology]
+    variants: [reported, number_average, weight_average]
+    value_kinds: [text, numeric_scalar, numeric_multiple, numeric_range]
+    stages: [stage4, stage4t, stage5]
+  stereoregularity:
+    semantic_labels: [stereoregularity]
+    aliases: [stereoregularity, tacticity, isotactic, syndiotactic, atactic, heterotactic]
+    variants: [reported]
+    value_kinds: [text, categorical]
+    stages: [stage4, stage5]
+  characteristics_of_material:
+    semantic_labels: [material_characteristic]
+    aliases: [thermoplastic, thermoset, crystalline, amorphous, transparent, flexible, thermally stable]
+    variants: [reported]
+    value_kinds: [categorical, text]
+    stages: [stage4]
+
 # 来源：docs/17类性质完整对照.md 的 17 类、97 个公开条目。
 # 格式：normalized_name: [PoLyInfo代码, property_category]
 property_vocabulary:

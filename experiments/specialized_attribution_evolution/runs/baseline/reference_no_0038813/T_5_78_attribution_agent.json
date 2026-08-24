@@ -1,0 +1,148 @@
+{
+  "schema_version": "specialized_attribution_agent_artifact.v1",
+  "agent_version": "0.1.0",
+  "status": "succeeded",
+  "authoritative": false,
+  "shadow_mode": true,
+  "publication_status": "candidate_only",
+  "document_id": "reference_no_0038813",
+  "table_id": "T_5_78",
+  "response": {
+    "schema_version": "specialized_attribution_agent_schema.v1",
+    "document_id": "reference_no_0038813",
+    "table_id": "T_5_78",
+    "semantic_assignments": [
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0001",
+          "T_5_78:r0001:c0001"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "Elemental analysis (%) with C is composition data, not one of the specialized property categories."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0001",
+          "T_5_78:r0001:c0002"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "Elemental analysis (%) with H is composition data, not one of the specialized property categories."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0001",
+          "T_5_78:r0001:c0003"
+        ],
+        "decision": "not_in_specialized_scope",
+        "source_field": null,
+        "semantic_label": null,
+        "variant": null,
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "Elemental analysis (%) with N is composition data, not one of the specialized property categories."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0004"
+        ],
+        "decision": "specialized",
+        "source_field": "solution_viscosity",
+        "semantic_label": "solution_viscosity",
+        "variant": "inherent",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The header is η_inh, and nearby evidence explicitly identifies inherent viscosity as tabulated in Table 2."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0005"
+        ],
+        "decision": "specialized",
+        "source_field": "average_molecular_weight",
+        "semantic_label": "molecular_weight",
+        "variant": "number_average",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The M_n header is explicitly discussed in nearby evidence as molecular weight."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0006"
+        ],
+        "decision": "specialized",
+        "source_field": "average_molecular_weight",
+        "semantic_label": "molecular_weight",
+        "variant": "weight_average",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The M_w header is explicitly discussed in nearby evidence as molecular weight."
+      },
+      {
+        "source_cell_ids": [
+          "T_5_78:r0000:c0007"
+        ],
+        "decision": "specialized",
+        "source_field": "average_molecular_weight",
+        "semantic_label": "molecular_weight_distribution",
+        "variant": "dispersity",
+        "external_semantic_label": null,
+        "confidence": 0.99,
+        "reason": "The M_w/M_n header is identified in nearby evidence as the molecular-weight ratio and dispersity."
+      }
+    ],
+    "sample_assignments": [],
+    "requires_human_review": true,
+    "warnings": [
+      "The table's polymer-label rows are represented only as <NUMERIC>, so no table sample label can be verified against the Stage 3 sample catalog.",
+      "Calcd and Found are measurement roles rather than sample labels and were not assigned to samples.",
+      "Human review is required to resolve the hidden polymer row labels and bind observations to Stage 3 samples."
+    ]
+  },
+  "tool_trace": [
+    "load_stage0_table_grid",
+    "retrieve_neighbor_evidence",
+    "query_stage3_sample_catalog",
+    "lookup_specialized_vocabulary",
+    "summarize_shadow_candidates",
+    "validate_agent_response"
+  ],
+  "repair_attempts_used": 0,
+  "prompt": {
+    "prompt_id": "polymer.specialized.attribution",
+    "version": "0.1.0",
+    "sha256": "23238244c7bfe985c9fcf98a72c2e4550d9a1f769090a0a3bf08893de10b20e4"
+  },
+  "vocabulary_sha256": "e7d35380d4fb80ba70be3849531f6b77ebe0a3f6e306ec803538485cd94563d2",
+  "memory_sha256": null,
+  "runtime": {
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 911,
+      "cache_creation_input_tokens": 9449,
+      "cache_read_input_tokens": 1909,
+      "billable_input_tokens": 11361,
+      "total_tokens": 12272
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.193137",
+      "output_cost": "0.092011",
+      "total_cost": "0.285148"
+    }
+  },
+  "split": "development"
+}
