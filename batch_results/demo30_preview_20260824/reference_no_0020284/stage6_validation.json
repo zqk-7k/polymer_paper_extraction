@@ -1,0 +1,1019 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0020284",
+  "status": "passed_with_warnings",
+  "error_count": 0,
+  "warning_count": 164,
+  "errors": [],
+  "warnings": [
+    {
+      "stage": "stage0",
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "code": "mention_surface_recovered",
+      "message": "mention 表面文本已恢复为 evidence 中的原文形式（唯一匹配，多候选时不修复）"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "code": "preview_invalid_mentions_removed",
+      "message": "Preview 模式已丢弃无法恢复为原文子串的 mention 候选"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "preview_nested_mentions_split_retained",
+      "message": "Preview 模式已保留无法确定合并关系的嵌套 mention 拆分；需在正式数据中复核"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "46 个 mention 未解析为实体，已原样保留引用"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "parameters_not_in_source",
+      "message": "无法定位到 evidence 原文的参数已舍弃"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "all_tables_included",
+      "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_context_evidence_supplemented",
+      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_incomplete_response",
+      "message": "Preview 解析出结构化 JSON，但模型在 JSON 外声明仅输出示例或需要补全；结果不得视为完整候选"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_optional_fields_cleared",
+      "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段"
+    },
+    {
+      "stage": "meta_extract",
+      "code": "paper_metadata_incomplete",
+      "message": "Paper metadata_status=failed，需人工复核"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unused_measurement_condition",
+      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002', 'mc003', 'mc004', 'mc005', 'mc006']"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "mc002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp007"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp008"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp009"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp010"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp011"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp012"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp013"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp014"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp015"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp016"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp017"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | C (%) | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp018"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp019"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp020"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp021"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp022"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp023"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | Found' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp024"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp025"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp026"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp027"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp028"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp029"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Elemental Analysis | H % | (Calcd.)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp030"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C=O' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp031"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C=O' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp032"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C=O' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp033"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C=O' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp034"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C=O' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp035"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C=O' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp036"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C-O-C' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp037"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C-O-C' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp038"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C-O-C' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp039"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C-O-C' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp040"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | C-O-C' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp041"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | CH3' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp042"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | CH3' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp043"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | SO2' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp044"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | SO2' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp045"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | Br' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp046"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | Br' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp047"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='IR (cm-1, in KBr) | IR (cm-1, in KBr) | Br' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp048"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp049"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp050"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp051"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp052"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp053"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp054"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp055"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp056"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp057"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp058"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp059"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp060"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Polymer | $η_{inh}^c/dL/g$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp061"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp080"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp081"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp082"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp083"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp084"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp085"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMSO' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp086"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMSO' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp087"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMSO' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp088"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMSO' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp089"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMSO' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp090"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / DMSO' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp091"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / THF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp092"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / THF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp093"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / THF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp094"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / THF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp095"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / THF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp096"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / THF' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp097"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / m-Cresol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp098"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / m-Cresol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp099"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / m-Cresol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp100"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / m-Cresol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp101"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / m-Cresol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp102"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / m-Cresol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp103"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Chloroform' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp104"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Chloroform' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp105"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Chloroform' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp106"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Chloroform' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp107"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Chloroform' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp108"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Chloroform' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp109"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Pyridine' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp110"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Pyridine' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp111"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Pyridine' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp112"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Pyridine' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp113"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Pyridine' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp114"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Pyridine' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp115"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Nitrobenzene' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp116"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Nitrobenzene' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp117"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Nitrobenzene' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp118"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Nitrobenzene' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp119"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Nitrobenzene' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp120"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Nitrobenzene' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp121"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / 1,1,2,2-Tetrachloroethane' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp122"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / 1,1,2,2-Tetrachloroethane' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp123"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / 1,1,2,2-Tetrachloroethane' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp124"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / 1,1,2,2-Tetrachloroethane' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp125"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / 1,1,2,2-Tetrachloroethane' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp126"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / 1,1,2,2-Tetrachloroethane' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp127"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Acetone' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp128"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Acetone' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp129"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Acetone' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp130"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Acetone' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp131"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Acetone' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp132"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Acetone' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp133"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / NMPb' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp134"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / NMPb' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp135"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / NMPb' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp136"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / NMPb' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp137"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / NMPb' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp138"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / NMPb' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp139"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Phenol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp140"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Phenol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp141"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Phenol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp142"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Phenol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp143"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Phenol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp144"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility / Phenol' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp145"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp158"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp159"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='60 : 40 | 58 : 42' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp160"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp160"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='50 : 50 | 47 : 53' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp161"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp161"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='40 : 60 | 39 : 61' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp162"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp162"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='20 : 80 | 18 : 82' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp163"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp163"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | $η_{inh}$ (dL/g) $^d$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp164"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp165"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp166"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='60 : 40 | 58 : 42' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp167"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp167"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='50 : 50 | 47 : 53' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp168"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp168"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='40 : 60 | 39 : 61' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp169"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp169"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='20 : 80 | 18 : 82' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp170"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp170"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Surface and Thermal Properties | RM(%) $^h$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp171"
+    }
+  ],
+  "checked_counts": {
+    "stage0_blocks": 93,
+    "material_mentions": 117,
+    "polymer_entities": 7,
+    "samples": 7,
+    "process_steps": 2,
+    "measurement_conditions": 53,
+    "stage4_properties": 47,
+    "unresolved_properties": 0,
+    "property_series": 5,
+    "property_series_points": 10,
+    "characterizations": 5,
+    "stage5_properties": 37,
+    "evidence": 371,
+    "preview_published_objects": 290,
+    "preview_rejected_objects": 0,
+    "preview_reference_cleanup_count": 0
+  },
+  "quality_metrics": {
+    "properties_with_units": {
+      "complete": 54,
+      "total": 93,
+      "ratio": 0.5806451612903226
+    },
+    "standard_process_steps": {
+      "complete": 2,
+      "total": 2,
+      "ratio": 1.0
+    },
+    "stage4_methods_with_characterization": {
+      "complete": 0,
+      "total": 0,
+      "ratio": 1.0
+    },
+    "objects_with_confidence": {
+      "complete": 196,
+      "total": 290,
+      "ratio": 0.6758620689655173
+    },
+    "series_points_covered": {
+      "complete": 9,
+      "total": 9,
+      "ratio": 1.0
+    }
+  }
+}

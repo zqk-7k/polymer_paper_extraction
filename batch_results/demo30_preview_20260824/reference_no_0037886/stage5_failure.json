@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0037886",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 1,
+  "usage": {
+    "input_tokens": 9624,
+    "output_tokens": 2026,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "billable_input_tokens": 9624,
+    "total_tokens": 11650
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.04157568",
+    "output_cost": "0.0590579",
+    "total_cost": "0.10063358"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop001\"\n            ],\n            \"entity_id\": \"pe001\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"I_10_130\",\n                    \"source_sentence\": \"Arrows show the calorimetric glass transition temperature $( T _ { \\\\mathrm { g } } ) _ { \\\\mathrm { : } }$ measured by DSC.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": null,\n            \"method_normalized\": \"DSC\",\n            \"method_raw\": \"DSC\",\n            \"parameters\": {},\n            \"result_summary\": \"Calorimetric glass transition temperature of P4THPMA sample s003 was measured by DSC.\",\n            \"sample_id\": \"s003\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+    "usage": {
+      "input_tokens": 9624,
+      "output_tokens": 2026,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.04157568",
+      "output_cost": "0.0590579",
+      "total_cost": "0.10063358"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043955",
+  "characterizations": [],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "08551a18cfa49a678c7db4855a4c0cdd809ee6a6681f01022e1046420c856bd1",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "96bdd5e42cff5040299c1f5ca9f473575a7ef12150f029b4cee248af3e0dddff",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 17,
+    "context_chars": 22702,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 13474,
+      "output_tokens": 2973,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12088,
+      "billable_input_tokens": 25562,
+      "total_tokens": 28535
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11042784",
+      "output_cost": "0.08666295",
+      "total_cost": "0.19709079"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，仅使用上游 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unscoped_stage5_items_removed",
+      "message": "Preview 模式已移除无法唯一关联任何单/多主体的 Stage 5 表征及其派生性质；未猜测 entity_id",
+      "characterization_ids": [
+        "char001"
+      ],
+      "property_ids": []
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

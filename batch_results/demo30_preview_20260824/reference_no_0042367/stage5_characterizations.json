@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0042367",
+  "characterizations": [],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2-0-pro-260215",
+    "models": [
+      "doubao-seed-2-0-pro-260215"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "133d46283fd83f31de4cd35981b589bc887bbce28b82e26c2b61be8920412482",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "1427b8300a840cddc01e897289c2405db936b66a0a8688a902e003b9717751b0",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 69,
+    "context_chars": 46072,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 14584,
+      "output_tokens": 4358,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064,
+      "billable_input_tokens": 25648,
+      "total_tokens": 30006
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11079936",
+      "output_cost": "0.1270357",
+      "total_cost": "0.23783506"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_degraded_empty_shell",
+      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果",
+      "degraded": true,
+      "reason": "specialized_property_observations.0: Value error, specialized 至少关联 Sample 或 PolymerEntity"
+    }
+  ]
+}

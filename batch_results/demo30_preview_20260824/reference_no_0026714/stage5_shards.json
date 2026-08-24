@@ -1,0 +1,772 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0026714",
+  "status": "running",
+  "shard_count": 8,
+  "unrouted_block_ids": [
+    "P_0_13",
+    "P_0_14",
+    "P_0_15",
+    "F_0_16",
+    "I_1_18",
+    "P_1_20",
+    "E_1_25",
+    "E_1_29",
+    "P_1_30",
+    "P_1_32",
+    "P_1_33",
+    "I_2_37",
+    "P_2_39",
+    "P_2_41",
+    "T_2_43",
+    "T_3_46",
+    "P_3_49",
+    "P_3_51",
+    "P_3_52",
+    "P_3_53",
+    "P_3_54",
+    "P_3_55",
+    "E_3_56",
+    "P_3_57",
+    "I_3_58",
+    "I_4_61",
+    "P_4_62",
+    "P_4_64",
+    "P_4_67",
+    "P_4_70",
+    "I_4_72",
+    "P_5_77",
+    "P_5_78",
+    "P_5_80",
+    "P_5_81",
+    "T_6_85",
+    "P_6_87",
+    "E_6_88",
+    "P_6_89",
+    "I_6_90",
+    "P_6_92",
+    "I_6_93"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_1_30",
+        "P_1_31",
+        "I_6_93",
+        "I_7_96",
+        "P_7_98",
+        "P_7_99"
+      ],
+      "context_chars": 2923,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_31\",\n                    \"source_sentence\": \"FTIR spectra<sup>14</sup> <sup>–17</sup> of dried gels in the form of KBr discs containing 1%–2% polymer were obtained using a Bio-Rad model FTS-60 spectrometer.\"\n                },\n                {\n                    \"block_id\": \"I_7_96\",\n                    \"source_sentence\": \"Figure 10 FTIR spectra of (1-a) polyAMPS synthesized using free-radical initiation; (1-b) polyAMPS gel synthesized by gamma irradiation (8.5 kGy); (2) polyAAM synthesized by gamma irradiation (8.1 kGy); (3) and (4) poly(AAM–co–AMPS) gel synthesized by gamma irradiation at 2.3 and 50.8 kGy, respectively. Spectra have been offset for clarity.\"\n                },\n                {\n                    \"block_id\": \"P_7_99\",\n                    \"source_sentence\": \"The IR spectra of the dried poly(AAM–co–AMPS) gels were very similar to those of the AAM–AMPS copolymers prepared by free-radical-initiated polymerization<sup>9,31</sup> and by initiation with a high-frequency discharge.<sup>12</sup> The FTIR spectrum of the gamma-initiated polyAMPS gel is shown in Figure 10, together with the spectra of free-radical-initiated polyAMPS, gammainitiated polyAAM gel, and poly(AAM–co–AMPS) gels at low- and high-radiation doses. Comparison of the spectrum of polyAMPS in this work with reported spectra<sup>26,32–34</sup> of polyAMPS synthesized using various types of chain initiation indicates that the homopolymer structure is independent of the mode of initiation.\"\n                }\n            ],\n            \"instrument\": \"Bio-Rad model FTS-60 spectrometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\"\n            },\n            \"method_normalized\": \"FTIR\",\n            \"method_raw\": \"FTIR spectra\",\n            \"parameters\": {\n                \"sample_preparation\": \"KBr discs containing 1%–2% polymer\"\n            },\n            \"result_summary\": \"FTIR spectra of dried polyAMPS, polyAAM, and poly(AAM–co–AMPS) gels were obtained, and the polyAMPS homopolymer structure was found to be independent of initiation mode.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 9642,
+              "output_tokens": 2704,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.04165344",
+              "output_cost": "0.0788216",
+              "total_cost": "0.12047504"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "49716ca5dd9ee774aa2c74144b7a1b36765b7a08834e4c62b1ebdd45faace1cd",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "FTIR spectra",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Bio-Rad model FTS-60 spectrometer",
+            "parameters": {
+              "sample_preparation": "KBr discs containing 1%–2% polymer"
+            },
+            "result_summary": "FTIR spectra of dried polyAMPS, polyAAM, and poly(AAM–co–AMPS) gels were obtained, and the polyAMPS homopolymer structure was found to be independent of initiation mode.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_31",
+                "page": 1,
+                "bbox": [
+                  507.0,
+                  816.0,
+                  900.0,
+                  862.0
+                ],
+                "source_type": "text",
+                "source_sentence": "FTIR spectra<sup>14</sup> <sup>–17</sup> of dried gels in the form of KBr discs containing 1%–2% polymer were obtained using a Bio-Rad model FTS-60 spectrometer."
+              },
+              {
+                "block_id": "I_7_96",
+                "page": 7,
+                "bbox": [
+                  106.0,
+                  103.0,
+                  476.0,
+                  397.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 10 FTIR spectra of (1-a) polyAMPS synthesized using free-radical initiation; (1-b) polyAMPS gel synthesized by gamma irradiation (8.5 kGy); (2) polyAAM synthesized by gamma irradiation (8.1 kGy); (3) and (4) poly(AAM–co–AMPS) gel synthesized by gamma irradiation at 2.3 and 50.8 kGy, respectively. Spectra have been offset for clarity."
+              },
+              {
+                "block_id": "P_7_99",
+                "page": 7,
+                "bbox": [
+                  98.0,
+                  604.0,
+                  490.0,
+                  814.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The IR spectra of the dried poly(AAM–co–AMPS) gels were very similar to those of the AAM–AMPS copolymers prepared by free-radical-initiated polymerization<sup>9,31</sup> and by initiation with a high-frequency discharge.<sup>12</sup> The FTIR spectrum of the gamma-initiated polyAMPS gel is shown in Figure 10, together with the spectra of free-radical-initiated polyAMPS, gammainitiated polyAAM gel, and poly(AAM–co–AMPS) gels at low- and high-radiation doses. Comparison of the spectrum of polyAMPS in this work with reported spectra<sup>26,32–34</sup> of polyAMPS synthesized using various types of chain initiation indicates that the homopolymer structure is independent of the mode of initiation."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_23",
+        "P_3_49",
+        "P_3_50",
+        "P_3_51",
+        "P_5_78",
+        "P_5_79",
+        "P_5_80",
+        "P_5_81",
+        "I_5_82",
+        "T_6_85"
+      ],
+      "context_chars": 7575,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop003\",\n        \"prop004\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe006\",\n        \"pe004\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"For thermal analysis by differential scanning calorimetry, gel samples (\\u000110 –15 mg) contained in aluminium crucibles were cooled to -30°C, then heated at 10°C/min to 300°C, using a Polymer Laboratories Model 12000 instrument, a differential scanning calorimeter (DSC).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_1_23\",\n          \"source_sentence\": \"Powdered samples of vacuum-dried gels were heated in the DSC at 80°C for 20 min to vaporize residual water in the samples, cooled to -100°C at 20°C/min, held at -100°C for 2 min, and then heated to 400°C at 10°C/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_6_85\",\n          \"source_sentence\": \"TABLE III Thermal Properties of AAM and AMPS Monomers and Dried Homopolymer Gels and Dried Poly(AAM-co-AMPS) Gels\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Polymer Laboratories Model 12000 differential scanning calorimeter\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"differential scanning calorimetry\",\n      \"parameters\": {\n        \"sample mass\": \"10–15 mg\",\n        \"crucible material\": \"aluminium\",\n        \"heating rate\": \"10°C/min\",\n        \"cooling rate\": \"20°C/min\"\n      },\n      \"result_summary\": \"Thermal properties including glass transition temperature, melting temperature, heat of fusion and decomposition temperature were measured for dried polyAAM, polyAMPS and poly(AAM-co-AMPS) gels.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": [\n        \"series002\",\n        \"series003\"\n      ]\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"monomer sequence distribution\",\n      \"value_raw\": \"random copolymerization\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_79\",\n          \"source_sentence\": \"The thermal stability of dried poly(AAM–co–AMPS) gels was intermediate between the stabilities of dried polyAAM and polyAMPS gels, as expected for random copolymerization.\",\n          \"table_locator\": null\n        }\n      ],\n      \"sample_id\": \"s001\",\n      \"entity_id\": \"pe006\",\n      \"method_raw\": null,\n      \"unit_raw\": null\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 10892,
+              "output_tokens": 4370,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 7992
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08157888",
+              "output_cost": "0.1273855",
+              "total_cost": "0.20896438"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "52f3885085a48717c1760601a3f43ced9a411f5038b441181bb442a52aee571e",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_6_85"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_1_23"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "char001 与 Series 的归属不一致：['series002', 'series003']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "differential scanning calorimetry",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003"
+            ],
+            "entity_ids": [
+              "pe006",
+              "pe004",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series002",
+              "series003"
+            ],
+            "parameters": {
+              "crucible material": "aluminium",
+              "heating rate": "10°C/min"
+            },
+            "result_summary": "Thermal properties including glass transition temperature, melting temperature, heat of fusion and decomposition temperature were measured for dried polyAAM, polyAMPS and poly(AAM-co-AMPS) gels.",
+            "derived_property_ids": [
+              "prop003",
+              "prop004"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  100.0,
+                  872.0,
+                  490.0,
+                  948.0
+                ],
+                "source_type": "text",
+                "source_sentence": "For thermal analysis by differential scanning calorimetry, gel samples (\u000110 –15 mg) contained in aluminium crucibles were cooled to -30°C, then heated at 10°C/min to 300°C, using a Polymer Laboratories Model 12000 instrument, a differential scanning calorimeter (DSC)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_4_70",
+        "P_4_71",
+        "I_4_72"
+      ],
+      "context_chars": 1481,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 9179,
+              "output_tokens": 1732,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.03965328",
+              "output_cost": "0.0504878",
+              "total_cost": "0.09014108"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "08d1ed5007ef769d43664f9a4a260297699130e69d81816283490e47c5357267",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_4_69",
+        "P_4_70"
+      ],
+      "context_chars": 708,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": \"pe006\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_69\",\n                    \"source_sentence\": \"Wide-angle X-ray diffraction patterns of dried poly(AAM–co–AMPS) gels formed at doses of 9.0 and 50.8 kGy showed no reflections, implying absence of crystalline domains, which is consistent with random copolymerization and crosslinking.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": null,\n            \"method_normalized\": \"XRD\",\n            \"method_raw\": \"Wide-angle X-ray diffraction\",\n            \"parameters\": {},\n            \"result_summary\": \"No reflections observed in XRD patterns of dried poly(AAM–co–AMPS) gels, indicating no crystalline domains, consistent with random copolymerization and crosslinking.\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": [\n        {\n            \"specialized_id\": \"sp_cand001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"sample_resolution_status\": \"unresolved\",\n            \"entity_id\": \"pe006\",\n            \"sample_id\": null,\n            \"property_name_raw\": \"morphology\",\n            \"value_raw\": \"absence of crystalline domains\",\n            \"method_raw\": \"Wide-angle X-ray diffraction\",\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_69\",\n                    \"source_sentence\": \"Wide-angle X-ray diffraction patterns of dried poly(AAM–co–AMPS) gels formed at doses of 9.0 and 50.8 kGy showed no reflections, implying absence of crystalline domains, which is consistent with random copolymerization and crosslinking.\",\n                    \"table_locator\": null\n                }\n            ]\n        },\n        {\n            \"specialized_id\": \"sp_cand002\",\n            \"confidence\": {\n                \"score\": 0.85\n            },\n            \"sample_resolution_status\": \"unresolved\",\n            \"entity_id\": \"pe006\",\n            \"sample_id\": null,\n            \"property_name_raw\": \"microstructure\",\n            \"value_raw\": \"random copolymerization\",\n            \"method_raw\": \"Wide-angle X-ray diffraction\",\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_69\",\n                    \"source_sentence\": \"Wide-angle X-ray diffraction patterns of dried poly(AAM–co–AMPS) gels formed at doses of 9.0 and 50.8 kGy showed no reflections, implying absence of crystalline domains, which is consistent with random copolymerization and crosslinking.\",\n                    \"table_locator\": null\n                }\n            ]\n        }\n    ]\n}",
+            "usage": {
+              "input_tokens": 9055,
+              "output_tokens": 4197,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0391176",
+              "output_cost": "0.12234255",
+              "total_cost": "0.16146015"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "6e5afa23f83cb4947e73b40a6e5a6bc3ad426ed995e7b0c060788c387f16a364",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Wide-angle X-ray diffraction",
+            "method_normalized": "XRD",
+            "entity_id": "pe006",
+            "sample_resolution_status": "unresolved",
+            "parameters": {},
+            "result_summary": "No reflections observed in XRD patterns of dried poly(AAM–co–AMPS) gels, indicating no crystalline domains, consistent with random copolymerization and crosslinking.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_4_69",
+                "page": 4,
+                "bbox": [
+                  507.0,
+                  398.0,
+                  900.0,
+                  475.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Wide-angle X-ray diffraction patterns of dried poly(AAM–co–AMPS) gels formed at doses of 9.0 and 50.8 kGy showed no reflections, implying absence of crystalline domains, which is consistent with random copolymerization and crosslinking."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "sem_001",
+      "method_normalized": "SEM",
+      "block_ids": [
+        "P_1_27",
+        "P_4_67",
+        "P_4_68"
+      ],
+      "context_chars": 1314,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe006\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_27\",\n          \"source_sentence\": \"A Philips XL30 scanning electron microscope was used to investigate the surface morphology of the dried gels.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_68\",\n          \"source_sentence\": \"SEM micrographs of the surfaces of dried poly(AAM– co–AMPS) gels with doses in the range of 2.2–50.8 kGy showed a homogeneous surface morphology at all doses, which can be attributed to the low concentration of the comonomers in the pregel solution and to short-range X-shaped crosslinks with zero-bridge chain length.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Philips XL30 scanning electron microscope\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"SEM\",\n      \"method_raw\": \"SEM\",\n      \"parameters\": {},\n      \"result_summary\": \"Dried poly(AAM–co–AMPS) gels exhibited homogeneous surface morphology across 2.2–50.8 kGy doses\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\"score\": 0.95},\n      \"entity_id\": \"pe006\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_68\",\n          \"source_sentence\": \"SEM micrographs of the surfaces of dried poly(AAM– co–AMPS) gels with doses in the range of 2.2–50.8 kGy showed a homogeneous surface morphology at all doses, which can be attributed to the low concentration of the comonomers in the pregel solution and to short-range X-shaped crosslinks with zero-bridge chain length.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"SEM\",\n      \"property_name_raw\": \"surface morphology\",\n      \"sample_id\": \"s001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"homogeneous surface morphology\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 9211,
+              "output_tokens": 2644,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 7992
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07431696",
+              "output_cost": "0.0770726",
+              "total_cost": "0.15138956"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "108a05d12ef947718e6b24c977f868187496085a039ff55033311878cbb40751",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "SEM",
+            "method_normalized": "SEM",
+            "sample_id": "s001",
+            "entity_id": "pe006",
+            "sample_resolution_status": "resolved",
+            "instrument": "Philips XL30 scanning electron microscope",
+            "parameters": {},
+            "result_summary": "Dried poly(AAM–co–AMPS) gels exhibited homogeneous surface morphology across 2.2–50.8 kGy doses",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_27",
+                "page": 1,
+                "bbox": [
+                  509.0,
+                  474.0,
+                  900.0,
+                  579.0
+                ],
+                "source_type": "text",
+                "source_sentence": "A Philips XL30 scanning electron microscope was used to investigate the surface morphology of the dried gels."
+              },
+              {
+                "block_id": "P_4_68",
+                "page": 4,
+                "bbox": [
+                  507.0,
+                  293.0,
+                  900.0,
+                  400.0
+                ],
+                "source_type": "text",
+                "source_sentence": "SEM micrographs of the surfaces of dried poly(AAM– co–AMPS) gels with doses in the range of 2.2–50.8 kGy showed a homogeneous surface morphology at all doses, which can be attributed to the low concentration of the comonomers in the pregel solution and to short-range X-shaped crosslinks with zero-bridge chain length."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "raman_001",
+      "method_normalized": "Raman",
+      "block_ids": [
+        "P_3_49",
+        "P_3_50",
+        "P_3_51"
+      ],
+      "context_chars": 1710,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.8\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": \"pe006\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_50\",\n                    \"source_sentence\": \"A previous study<sup>26</sup> using Raman spectroscopy and DSC showed two different water structures existing within poly(AAM–co–AMPS) gels made by free-radical-initiated polymerization: bound (hydration, destructured) water and free (bulk, structured) water.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": null,\n            \"method_normalized\": \"Raman\",\n            \"method_raw\": \"Raman spectroscopy\",\n            \"parameters\": {},\n            \"result_summary\": \"Two different water structures exist within poly(AAM–co–AMPS) gels: bound (hydration, destructured) water and free (bulk, structured) water.\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 9227,
+              "output_tokens": 1907,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.03986064",
+              "output_cost": "0.05558905",
+              "total_cost": "0.09544969"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "aaebae4ba899a13858c472b987f426cc24920c619e8cd680b6ce08af4a2f15cf",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Raman spectroscopy",
+            "method_normalized": "Raman",
+            "entity_id": "pe006",
+            "sample_resolution_status": "unresolved",
+            "parameters": {},
+            "result_summary": "Two different water structures exist within poly(AAM–co–AMPS) gels: bound (hydration, destructured) water and free (bulk, structured) water.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_50",
+                "page": 3,
+                "bbox": [
+                  98.0,
+                  664.0,
+                  488.0,
+                  872.0
+                ],
+                "source_type": "text",
+                "source_sentence": "A previous study<sup>26</sup> using Raman spectroscopy and DSC showed two different water structures existing within poly(AAM–co–AMPS) gels made by free-radical-initiated polymerization: bound (hydration, destructured) water and free (bulk, structured) water."
+              }
+            ],
+            "confidence": {
+              "score": 0.8
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_1_24",
+        "E_1_25",
+        "P_1_26",
+        "P_1_28",
+        "E_1_29",
+        "P_4_62",
+        "P_4_63",
+        "P_4_64",
+        "P_4_65",
+        "P_4_67",
+        "I_4_72",
+        "I_5_75",
+        "P_5_77"
+      ],
+      "context_chars": 7644,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop001\"\n            ],\n            \"entity_id\": \"pe006\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_24\",\n                    \"source_sentence\": \"Swelling/deswelling experiments were carried out on gel samples made in glass tubes 4.6 –5 mm in diameter; the gel samples were sliced into cylinders about 10 mm in length. Equilibrium swelling ratios were determined by measuring the diameter of the gel cylinders (to ±0.01 mm) using a digital micrometer.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"E_1_25\",\n                    \"source_sentence\": \"(V / V _ {0}) = (d / d _ {0}) ^ {3}\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_4_65\",\n                    \"source_sentence\": \"For poly(AAM–co–AMPS) gel produced by 8.19 kGy of gamma irradiation, after swelling for 6 days in water, the average value of $V / V _ { 0 }$was 35.4 (see Fig. 6).\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"digital micrometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {\n                    \"swelling_time\": [\n                        {\n                            \"block_id\": \"P_1_24\",\n                            \"source_sentence\": \"The gel cylinders were immersed in distilled water for 6 days, then in water– acetone mixtures of varying compositions for 6 days.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                },\n                \"other_conditions\": {\n                    \"swelling_time\": \"6 days\"\n                },\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"swelling\",\n            \"method_raw\": \"Swelling/deswelling experiments\",\n            \"parameters\": {},\n            \"result_summary\": \"The average swelling ratio V/V0 of poly(AAM–co–AMPS) gel produced by 8.19 kGy of gamma irradiation after 6 days swelling in water is 35.4.\",\n            \"sample_id\": \"s001\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10752,
+              "output_tokens": 2928,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 7992
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08097408",
+              "output_cost": "0.0853512",
+              "total_cost": "0.16632528"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "d2e1afc004d2e24b1c437a08b944d5b9a80652079ecfd44e998d49a02354d7b7",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_1_24"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "swelling"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "swelling",
+            "method_normalized": "swelling",
+            "sample_id": "s001",
+            "entity_id": "pe006",
+            "sample_resolution_status": "resolved",
+            "measurement_context": {
+              "other_conditions": {
+                "swelling_time": "6 days"
+              },
+              "other_condition_evidence": {
+                "swelling_time": [
+                  {
+                    "block_id": "P_1_24",
+                    "page": 1,
+                    "bbox": [
+                      507.0,
+                      235.0,
+                      900.0,
+                      401.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The gel cylinders were immersed in distilled water for 6 days, then in water– acetone mixtures of varying compositions for 6 days."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "The average swelling ratio V/V0 of poly(AAM–co–AMPS) gel produced by 8.19 kGy of gamma irradiation after 6 days swelling in water is 35.4.",
+            "derived_property_ids": [
+              "prop001"
+            ],
+            "evidence": [
+              {
+                "block_id": "E_1_25",
+                "page": 1,
+                "bbox": [
+                  634.0,
+                  406.0,
+                  774.0,
+                  423.0
+                ],
+                "source_type": "equation",
+                "source_sentence": "(V / V _ {0}) = (d / d _ {0}) ^ {3}"
+              },
+              {
+                "block_id": "P_4_65",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  917.0,
+                  490.0,
+                  948.0
+                ],
+                "source_type": "text",
+                "source_sentence": "For poly(AAM–co–AMPS) gel produced by 8.19 kGy of gamma irradiation, after swelling for 6 days in water, the average value of $V / V _ { 0 }$was 35.4 (see Fig. 6)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

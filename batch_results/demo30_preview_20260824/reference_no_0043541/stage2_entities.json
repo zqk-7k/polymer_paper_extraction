@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043541",
+  "polymer_entities": [
+    {
+      "entity_id": "pe001",
+      "polymer_name": "poly(MPC)",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(MPC)",
+        "PMPC"
+      ],
+      "resolved_from_mentions": [
+        "m001",
+        "m003",
+        "m008",
+        "m011",
+        "m014",
+        "m015",
+        "m016",
+        "m018",
+        "m020"
+      ],
+      "evidence": {
+        "block_id": "P_5_69",
+        "page": 5,
+        "bbox": [
+          89.0,
+          466.0,
+          486.0,
+          675.0
+        ],
+        "source_type": "text",
+        "source_sentence": "We found that the dimension of free poly(MPC) in water is independent of the ionic strength of the salt solution.<sup>[25,26]</sup> Poly(MPC) can be regard as a quite unique zwitter-type polyelectrolyte having the independence of intra- and intermolecular interaction of PMPC from the concentration of $\\mathrm { N a C l } . ^ { [ 2 6 ] }$As a result, the thickness of the high-density polyelectrolyte brushes in solution was observed to change very little in salt solution."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe002",
+      "polymer_name": "poly(DMAEMA)",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(DMAEMA)"
+      ],
+      "resolved_from_mentions": [
+        "m002",
+        "m004",
+        "m009"
+      ],
+      "evidence": {
+        "block_id": "P_3_40",
+        "page": 3,
+        "bbox": [
+          89.0,
+          569.0,
+          486.0,
+          915.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Similarly, the graft density of the poly(DMAEMA) brush was determined to be 0.40 chains/nm<sup>2</sup>."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.97
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe003",
+      "polymer_name": "poly(METAI)",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "poly(METAI)",
+        "Poly(ME-TAI)",
+        "poly (METAI)"
+      ],
+      "resolved_from_mentions": [
+        "m005",
+        "m006",
+        "m007",
+        "m010",
+        "m012",
+        "m013",
+        "m017",
+        "m019"
+      ],
+      "evidence": {
+        "block_id": "P_3_44",
+        "page": 3,
+        "bbox": [
+          500.0,
+          792.0,
+          898.0,
+          915.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Figure 1(a) and (b) shows the NR profile and corresponding scattering density of a poly(METAI) brush at the D<sub>2</sub>O/Poly(ME-TAI) and 1.0 M NaCl/poly(METAI) interface."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.95
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    }
+  ],
+  "unresolved_mention_ids": [],
+  "provenance": {
+    "stage": "stage2_polymer_entity",
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "models": [
+      "gpt-5.6-terra-2026-07-09"
+    ],
+    "prompt_id": "polymer.stage2.polymer_entity",
+    "prompt_version": "1.5.1",
+    "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
+    "input_hash": "a79c58a86fb29eb5c84d5aeda36b8f49460a80ba422acb9651896a9447b73aa8",
+    "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
+    "cache_key": "2b8e3f311b977280e1e6ac8dfa7e8d3e9cc39e4e8ce3d315dc71be47780e359d",
+    "output_schema_version": "polymer_entity_schema.v3",
+    "implementation_version": "1.6.1",
+    "context_block_count": 24,
+    "context_chars": 16028,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 731,
+      "cache_creation_input_tokens": 7004,
+      "cache_read_input_tokens": 2222,
+      "billable_input_tokens": 9229,
+      "total_tokens": 9960
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.156893",
+      "output_cost": "0.073831",
+      "total_cost": "0.230724"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "evidence_surface_whitespace_recovered",
+      "message": "仅按空白等价在同一 block 内恢复了原文 evidence 表面文本",
+      "items": [
+        {
+          "entity_id": "pe001",
+          "block_id": "P_5_69",
+          "field": "evidence.source_sentence"
+        }
+      ]
+    }
+  ]
+}

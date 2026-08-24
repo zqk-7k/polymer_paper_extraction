@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0037921",
+  "polymer_entities": [
+    {
+      "entity_id": "pe001",
+      "polymer_name": "polyamic acid",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "polyamic acid",
+        "poly(amic acid)",
+        "PAA"
+      ],
+      "resolved_from_mentions": [
+        "m002",
+        "m005",
+        "m007",
+        "m009",
+        "m011",
+        "m017",
+        "m019"
+      ],
+      "evidence": {
+        "block_id": "P_5_56",
+        "page": 5,
+        "bbox": [
+          157.0,
+          124.0,
+          834.0,
+          277.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Polyimides were synthesized from diamine BAPP and dianhydrides ODPA by a conventional two-step procedure: ring-opening polyaddition at room temperature to polyamic acid, followed by sequential heating of the polyamic acid films to $3 0 0 ^ { \\circ } \\mathrm { C }$to obtain the corresponding polymers, as shown in Scheme 2."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.91
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe002",
+      "polymer_name": "flexible polyimide film",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "Polyimides",
+        "flexible polyimide film",
+        "polyimide",
+        "polyimides",
+        "PI"
+      ],
+      "resolved_from_mentions": [
+        "m001",
+        "m003",
+        "m004",
+        "m006",
+        "m008",
+        "m010",
+        "m012",
+        "m013",
+        "m014",
+        "m016",
+        "m018"
+      ],
+      "evidence": {
+        "block_id": "I_4_50",
+        "page": 4,
+        "bbox": [
+          294.0,
+          124.0,
+          701.0,
+          347.0
+        ],
+        "source_type": "image",
+        "source_sentence": "Figure 1. FTIR spectra of BNPP, BAPP, and polyimide (PI)."
+      },
+      "source_image_refs": [
+        {
+          "block_id": "I_4_50",
+          "page": 4,
+          "bbox": [
+            294.0,
+            124.0,
+            701.0,
+            347.0
+          ],
+          "image_path": "organized/reference_no_0037921/images/f081ea72c6cbdb1f970a6e19f2afb26ed91b86ebfaff643b0b4b7235c1c7d327.jpg",
+          "caption": "Figure 1. FTIR spectra of BNPP, BAPP, and polyimide (PI)."
+        },
+        {
+          "block_id": "I_5_59",
+          "page": 5,
+          "bbox": [
+            168.0,
+            578.0,
+            825.0,
+            845.0
+          ],
+          "image_path": "organized/reference_no_0037921/images/40ae6adc887c011c643b14783203b1807613fa5308ff6e262b835687ec7915d8.jpg",
+          "caption": "Scheme 2. The synthetic routine of polyimides."
+        }
+      ],
+      "confidence": {
+        "score": 0.88
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    }
+  ],
+  "unresolved_mention_ids": [
+    "m015",
+    "m020"
+  ],
+  "provenance": {
+    "stage": "stage2_polymer_entity",
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "models": [
+      "gpt-5.6-terra-2026-07-09"
+    ],
+    "prompt_id": "polymer.stage2.polymer_entity",
+    "prompt_version": "1.5.1",
+    "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
+    "input_hash": "035f840421600d47ac2d525ce0f746e933c187e4eaf2c046d5359b4c161f1e5e",
+    "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
+    "cache_key": "afbadb21f09c9931bf7da77d44dd4d65839c75a6688e42810b7cd7063d9c43b1",
+    "output_schema_version": "polymer_entity_schema.v3",
+    "implementation_version": "1.6.1",
+    "context_block_count": 39,
+    "context_chars": 18999,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1294,
+      "cache_creation_input_tokens": 8119,
+      "cache_read_input_tokens": 2222,
+      "billable_input_tokens": 10344,
+      "total_tokens": 11638
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.175848",
+      "output_cost": "0.130694",
+      "total_cost": "0.306542"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "2 个 mention 未解析为实体，已原样保留引用",
+      "mention_ids": [
+        "m015",
+        "m020"
+      ]
+    }
+  ]
+}

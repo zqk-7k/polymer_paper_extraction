@@ -1,0 +1,398 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043955",
+  "status": "passed_with_warnings",
+  "error_count": 0,
+  "warning_count": 61,
+  "errors": [],
+  "warnings": [
+    {
+      "stage": "stage0",
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "code": "unsectioned_blocks_fallback",
+      "message": "未识别到受支持的章节标签，改用全部有内容的 text/title/table；结果需人工复核"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "code": "mention_surface_recovered",
+      "message": "mention 表面文本已恢复为 evidence 中的原文形式（唯一匹配，多候选时不修复）"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "code": "preview_invalid_mentions_removed",
+      "message": "Preview 模式已丢弃无法恢复为原文子串的 mention 候选"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，仅使用 Stage 1 mention 的 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "missing_mentions_marked_unresolved",
+      "message": "模型漏覆盖的 mention 已保守标记为 unresolved"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "preview_duplicate_mention_recovered",
+      "message": "Preview 模式仅在名称与 evidence block 唯一匹配时保留归属；无法唯一归属的重复 mention 已标记为 unresolved"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "46 个 mention 未解析为实体，已原样保留引用"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "section_fallback",
+      "message": "Methods 为空，仅使用 Stage 2 entity 的 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities",
+      "message": "6 个 entity 未解析到实际样品"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities_completed",
+      "message": "模型遗漏了 entity 覆盖清单；已将没有任何 Sample 引用的已知 entity 确定性补入 unresolved_entity_ids"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，已回落使用全部非 References 正文与全部表格；结果需人工复核"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "all_tables_included",
+      "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_point_locator_recovered_from_unique_table_row",
+      "message": "Preview 模式已用唯一完整表格行、唯一列头及一致 value_raw 补全 Series point 的稳定坐标"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，仅使用上游 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unscoped_stage5_items_removed",
+      "message": "Preview 模式已移除无法唯一关联任何单/多主体的 Stage 5 表征及其派生性质；未猜测 entity_id"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型"
+    },
+    {
+      "stage": "meta_extract",
+      "code": "paper_metadata_incomplete",
+      "message": "Paper metadata_status=failed，需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "orphan_sample",
+      "message": "Sample 未被工艺、性质或表征引用",
+      "object_id": "s005"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps002"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps003"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps004"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps005"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps006"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps007"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps008"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps009"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps010"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps011"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "mc002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='1 | P1-C*Ph(L)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp037"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='2 | P1-C*Ph(D)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp038"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='3 | P1-PEG $_{350}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp039"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='4 | P1-PEG $_{750}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp040"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='5 | P1-C $_{14}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp041"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='6 | P1-C $_{4}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp042"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='7 | P2-C*Ph (L)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp043"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='8 | P2-PEG $_{350}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp044"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='9 | P2-PEG $_{750}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp045"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='10 | P3-C*Ph (L)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp046"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='11 | P3-PEG $_{350}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp047"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='12 | P3-PEG $_{750}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp048"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='1 | P1-C*Ph(L)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp049"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='2 | P1-C*Ph(D)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp050"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='3 | P1-PEG $_{350}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp051"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='4 | P1-PEG $_{750}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp052"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='5 | P1-C $_{14}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp053"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='6 | P1-C $_{4}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp054"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='7 | P2-C*Ph (L)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp055"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='8 | P2-PEG $_{350}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp056"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='9 | P2-PEG $_{750}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp057"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='10 | P3-C*Ph (L)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp058"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='11 | P3-PEG $_{350}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp059"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='12 | P3-PEG $_{750}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp060"
+    }
+  ],
+  "checked_counts": {
+    "stage0_blocks": 125,
+    "material_mentions": 247,
+    "polymer_entities": 28,
+    "samples": 22,
+    "process_steps": 11,
+    "measurement_conditions": 2,
+    "stage4_properties": 2,
+    "unresolved_properties": 0,
+    "property_series": 1,
+    "property_series_points": 1,
+    "characterizations": 0,
+    "stage5_properties": 0,
+    "evidence": 270,
+    "preview_published_objects": 314,
+    "preview_rejected_objects": 0,
+    "preview_reference_cleanup_count": 0
+  },
+  "quality_metrics": {
+    "properties_with_units": {
+      "complete": 2,
+      "total": 3,
+      "ratio": 0.6666666666666666
+    },
+    "standard_process_steps": {
+      "complete": 1,
+      "total": 11,
+      "ratio": 0.09090909090909091
+    },
+    "stage4_methods_with_characterization": {
+      "complete": 0,
+      "total": 2,
+      "ratio": 0.0
+    },
+    "objects_with_confidence": {
+      "complete": 314,
+      "total": 314,
+      "ratio": 1.0
+    },
+    "series_points_covered": {
+      "complete": 1,
+      "total": 1,
+      "ratio": 1.0
+    }
+  }
+}

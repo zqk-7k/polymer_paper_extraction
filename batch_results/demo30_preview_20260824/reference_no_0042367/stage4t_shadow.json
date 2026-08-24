@@ -1,0 +1,1892 @@
+{
+  "sidecar_schema_version": "stage4t_preview_sidecar.v0.4",
+  "shadow_version": "0.5.0",
+  "authoritative": false,
+  "candidate_layer": "broad",
+  "llm_interpretation_enabled": false,
+  "llm_interpreter_version": "0.4.0",
+  "interpretation_application_version": "0.1.2",
+  "document_id": "reference_no_0042367",
+  "table_count": 2,
+  "summary": {
+    "observation_count": 24,
+    "binding_status_counts": {
+      "bound": 6,
+      "unresolved": 18
+    },
+    "candidate_class_counts": {
+      "official_property": 6,
+      "unknown_observation": 18
+    },
+    "semantic_status_counts": {
+      "normalized": 6,
+      "unmapped": 18
+    },
+    "publication_status_counts": {
+      "candidate_only": 24
+    },
+    "unresolved_count": 18,
+    "tables_with_observations": 2,
+    "warning_counts": {
+      "numeric_table_without_property_columns": 1,
+      "shadow_unresolved_bindings": 1
+    }
+  },
+  "tables": [
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_2_31",
+      "caption": "TABLE 1 Mixing ratio of thin film polymer blends based on PDLLA, PLGA and PCL",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "named_sample",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_2_31",
+          "column_index": 0,
+          "header_context": [
+            "Polymer blend(Percentage polymer)"
+          ],
+          "property_name_raw": "Polymer blend(Percentage polymer)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_2_31",
+          "column_index": 1,
+          "header_context": [
+            "PDLLA(%)"
+          ],
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_2_31",
+          "column_index": 2,
+          "header_context": [
+            "PLGA(%)"
+          ],
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_2_31",
+          "column_index": 3,
+          "header_context": [
+            "PCL(%)"
+          ],
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_2_31:T_2_31:r0001:c0001",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA20/PCL80",
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "header_path": [
+              "PDLLA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0002:c0001",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA50/PCL50",
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "header_path": [
+              "PDLLA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0003:c0001",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA80/PCL20",
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "PDLLA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0007:c0001",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA80/PLGA20",
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0007:c0001",
+          "row_index": 7,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0007:c0001",
+            "row_index": 7,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0007:c0001",
+            "row_index": 7,
+            "column_index": 1,
+            "header_path": [
+              "PDLLA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0008:c0001",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA50/PLGA50",
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0008:c0001",
+          "row_index": 8,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0008:c0001",
+            "row_index": 8,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0008:c0001",
+            "row_index": 8,
+            "column_index": 1,
+            "header_path": [
+              "PDLLA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0009:c0001",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA20/PLGA20",
+          "property_name_raw": "PDLLA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0009:c0001",
+          "row_index": 9,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0009:c0001",
+            "row_index": 9,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0009:c0001",
+            "row_index": 9,
+            "column_index": 1,
+            "header_path": [
+              "PDLLA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0004:c0002",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA20/PCL80",
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2,
+            "header_path": [
+              "PLGA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0005:c0002",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA50/PCL50",
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2,
+            "header_path": [
+              "PLGA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0006:c0002",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA80/PCL20",
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0006:c0002",
+          "row_index": 6,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2,
+            "header_path": [
+              "PLGA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0007:c0002",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA80/PLGA20",
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0007:c0002",
+          "row_index": 7,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2,
+            "header_path": [
+              "PLGA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0008:c0002",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA50/PLGA50",
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0008:c0002",
+          "row_index": 8,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2,
+            "header_path": [
+              "PLGA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0009:c0002",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA20/PLGA20",
+          "property_name_raw": "PLGA(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0009:c0002",
+          "row_index": 9,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0009:c0002",
+            "row_index": 9,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0009:c0002",
+            "row_index": 9,
+            "column_index": 2,
+            "header_path": [
+              "PLGA(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0001:c0003",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA20/PCL80",
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0001:c0003",
+          "row_index": 1,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3,
+            "header_path": [
+              "PCL(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0002:c0003",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA50/PCL50",
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0002:c0003",
+          "row_index": 2,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3,
+            "header_path": [
+              "PCL(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0003:c0003",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLLA80/PCL20",
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "header_path": [
+              "PCL(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0004:c0003",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA20/PCL80",
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "header_path": [
+              "PCL(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0005:c0003",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA50/PCL50",
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3,
+            "header_path": [
+              "PCL(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_31:T_2_31:r0006:c0003",
+          "table_id": "T_2_31",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA80/PCL20",
+          "property_name_raw": "PCL(%)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_2_31:r0006:c0003",
+          "row_index": 6,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_31",
+            "cell_id": "T_2_31:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3,
+            "header_path": [
+              "PCL(%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "property_name_raw": "PDLLA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "property_name_raw": "PDLLA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "property_name_raw": "PDLLA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0007:c0001",
+          "row_index": 7,
+          "column_index": 1,
+          "property_name_raw": "PDLLA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0008:c0001",
+          "row_index": 8,
+          "column_index": 1,
+          "property_name_raw": "PDLLA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0009:c0001",
+          "row_index": 9,
+          "column_index": 1,
+          "property_name_raw": "PDLLA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "property_name_raw": "PLGA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "property_name_raw": "PLGA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0006:c0002",
+          "row_index": 6,
+          "column_index": 2,
+          "property_name_raw": "PLGA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0007:c0002",
+          "row_index": 7,
+          "column_index": 2,
+          "property_name_raw": "PLGA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0008:c0002",
+          "row_index": 8,
+          "column_index": 2,
+          "property_name_raw": "PLGA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0009:c0002",
+          "row_index": 9,
+          "column_index": 2,
+          "property_name_raw": "PLGA(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0001:c0003",
+          "row_index": 1,
+          "column_index": 3,
+          "property_name_raw": "PCL(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0002:c0003",
+          "row_index": 2,
+          "column_index": 3,
+          "property_name_raw": "PCL(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "property_name_raw": "PCL(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "property_name_raw": "PCL(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "property_name_raw": "PCL(%)",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_2_31:r0006:c0003",
+          "row_index": 6,
+          "column_index": 3,
+          "property_name_raw": "PCL(%)",
+          "semantic_label": null
+        }
+      ],
+      "warnings": [
+        "numeric_table_without_property_columns",
+        "shadow_unresolved_bindings"
+      ]
+    },
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_7_98",
+      "caption": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "named_sample",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_7_98",
+          "column_index": 0,
+          "header_context": [
+            "Sample"
+          ],
+          "property_name_raw": "Sample",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_7_98",
+          "column_index": 1,
+          "header_context": [
+            "Tensile strength (Mpa)"
+          ],
+          "property_name_raw": "Tensile strength (Mpa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "Mpa",
+          "unit_normalized": "MPa",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_7_98",
+          "column_index": 2,
+          "header_context": [
+            "Young's Modulus (Gpa)"
+          ],
+          "property_name_raw": "Young's Modulus (Gpa)",
+          "property_name_normalized": "tensile_modulus",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "Gpa",
+          "unit_normalized": "GPa",
+          "unit_location": "header"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_7_98:T_7_98:r0001:c0001",
+          "table_id": "T_7_98",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLA",
+          "property_name_raw": "Tensile strength (Mpa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "2.85",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "Mpa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_7_98:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "header_path": [
+              "Tensile strength (Mpa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_7_98:T_7_98:r0002:c0001",
+          "table_id": "T_7_98",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA",
+          "property_name_raw": "Tensile strength (Mpa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "5.82",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "Mpa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_7_98:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "header_path": [
+              "Tensile strength (Mpa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_7_98:T_7_98:r0003:c0001",
+          "table_id": "T_7_98",
+          "direction": "row_samples",
+          "sample_label_raw": "PCL",
+          "property_name_raw": "Tensile strength (Mpa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "10.22",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "Mpa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_7_98:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "Tensile strength (Mpa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_7_98:T_7_98:r0001:c0002",
+          "table_id": "T_7_98",
+          "direction": "row_samples",
+          "sample_label_raw": "PDLA",
+          "property_name_raw": "Young's Modulus (Gpa)",
+          "property_name_normalized": "tensile_modulus",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "0.163",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "Gpa",
+          "unit_normalized": "GPa",
+          "unit_location": "header",
+          "cell_id": "T_7_98:r0001:c0002",
+          "row_index": 1,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+            "header_path": [
+              "Young's Modulus (Gpa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_7_98:T_7_98:r0002:c0002",
+          "table_id": "T_7_98",
+          "direction": "row_samples",
+          "sample_label_raw": "PLGA",
+          "property_name_raw": "Young's Modulus (Gpa)",
+          "property_name_normalized": "tensile_modulus",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "0.193",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "Gpa",
+          "unit_normalized": "GPa",
+          "unit_location": "header",
+          "cell_id": "T_7_98:r0002:c0002",
+          "row_index": 2,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2,
+            "header_path": [
+              "Young's Modulus (Gpa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_7_98:T_7_98:r0003:c0002",
+          "table_id": "T_7_98",
+          "direction": "row_samples",
+          "sample_label_raw": "PCL",
+          "property_name_raw": "Young's Modulus (Gpa)",
+          "property_name_normalized": "tensile_modulus",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "0.277",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "Gpa",
+          "unit_normalized": "GPa",
+          "unit_location": "header",
+          "cell_id": "T_7_98:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_7_98",
+            "cell_id": "T_7_98:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2,
+            "header_path": [
+              "Young's Modulus (Gpa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [],
+      "warnings": []
+    }
+  ],
+  "interpretations": [
+    {
+      "table_id": "T_2_31",
+      "route_reasons": [
+        "only_unmapped_candidates"
+      ],
+      "status": "disabled",
+      "authoritative": false,
+      "publication_status": "candidate_only",
+      "llm_call_attempted": false,
+      "reason": "feature_disabled"
+    }
+  ],
+  "provenance": {
+    "source": "stage0_blocks.json",
+    "stage0_sha256": "bd93dbb05dd6f5b18a6fde58a59361036d43fe5cf49a6bc1710db35e27ac0626",
+    "config_sha256": null,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_tokens": 0
+    },
+    "cost": {
+      "status": "not_applicable",
+      "currency": null,
+      "input_per_million": null,
+      "output_per_million": null,
+      "input_cost": "0",
+      "output_cost": "0",
+      "total_cost": "0"
+    },
+    "raw_response": null
+  }
+}

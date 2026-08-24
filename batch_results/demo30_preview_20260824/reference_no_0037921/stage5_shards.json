@@ -1,0 +1,906 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0037921",
+  "status": "running",
+  "shard_count": 8,
+  "unrouted_block_ids": [
+    "P_2_26",
+    "P_2_27",
+    "P_2_28",
+    "P_2_29",
+    "P_2_30",
+    "P_2_32",
+    "P_2_34",
+    "P_2_35",
+    "P_2_38",
+    "P_3_42",
+    "P_3_43",
+    "I_3_46",
+    "P_3_47",
+    "I_4_51",
+    "P_4_53",
+    "I_5_59",
+    "P_5_60",
+    "P_6_66",
+    "I_7_71",
+    "I_7_72",
+    "P_7_73",
+    "I_8_76",
+    "P_8_77"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_2_37",
+        "P_2_38",
+        "P_3_43",
+        "P_3_44",
+        "P_3_47",
+        "I_4_50",
+        "I_4_51",
+        "P_4_53",
+        "P_5_56"
+      ],
+      "context_chars": 4927,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\",\n        \"prop_s5_005\",\n        \"prop_s5_006\",\n        \"prop_s5_007\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"The IR spectra were recorded on a NEXUS-670 Fourier Transform Infrared (FTIR) spectrometer.\"\n        },\n        {\n          \"block_id\": \"I_4_50\",\n          \"source_sentence\": \"Figure 1. FTIR spectra of BNPP, BAPP, and polyimide (PI).\"\n        },\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"The bottom curve of Figure 1 gives the typical FTIR spectrum of polyimide. The characteristic absorption bands of the imide ring are observed near 1778 cm⁻¹, 1710 cm⁻¹ (asymmetrical and symmetrical C=O stretching vibration) and 1379 cm⁻¹ (C=N stretching vibration). Those of the amide and carboxyl groups in the regions of 2900-3200 cm⁻¹ (COOH and NH₂), 1713 cm⁻¹ (C=O(COOH)), 1658 cm⁻¹ (C=O (CONH)) and 1546 cm⁻¹ (C–NH–) disappear, indicating a virtually complete conversion of the precursor into polyimide.\"\n        }\n      ],\n      \"instrument\": \"NEXUS-670 Fourier Transform Infrared (FTIR) spectrometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"method_normalized\": \"FTIR\",\n      \"method_raw\": \"FTIR\",\n      \"parameters\": {},\n      \"result_summary\": \"FTIR spectra confirmed complete conversion of polyamic acid to polyimide, with characteristic imide ring absorption bands observed and characteristic polyamic acid absorption bands absent.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe002\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"The characteristic absorption bands of the imide ring are observed near 1778 cm⁻¹, 1710 cm⁻¹ (asymmetrical and symmetrical C=O stretching vibration) and 1379 cm⁻¹ (C=N stretching vibration).\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"asymmetrical C=O stretching vibration of imide ring\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1778,\n      \"value_min\": 1778,\n      \"value_raw\": \"1778\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe002\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"The characteristic absorption bands of the imide ring are observed near 1778 cm⁻¹, 1710 cm⁻¹ (asymmetrical and symmetrical C=O stretching vibration) and 1379 cm⁻¹ (C=N stretching vibration).\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"symmetrical C=O stretching vibration of imide ring\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1710,\n      \"value_min\": 1710,\n      \"value_raw\": \"1710\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe002\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"The characteristic absorption bands of the imide ring are observed near 1778 cm⁻¹, 1710 cm⁻¹ (asymmetrical and symmetrical C=O stretching vibration) and 1379 cm⁻¹ (C=N stretching vibration).\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C=N stretching vibration of imide ring\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1379,\n      \"value_min\": 1379,\n      \"value_raw\": \"1379\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"Those of the amide and carboxyl groups in the regions of 2900-3200 cm⁻¹ (COOH and NH₂), 1713 cm⁻¹ (C=O(COOH)), 1658 cm⁻¹ (C=O (CONH)) and 1546 cm⁻¹ (C–NH–) disappear\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_004\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"COOH and NH₂ stretching of amide and carboxyl groups\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 3200,\n      \"value_min\": 2900,\n      \"value_raw\": \"2900-3200\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"Those of the amide and carboxyl groups in the regions of 2900-3200 cm⁻¹ (COOH and NH₂), 1713 cm⁻¹ (C=O(COOH)), 1658 cm⁻¹ (C=O (CONH)) and 1546 cm⁻¹ (C–NH–) disappear\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_005\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C=O(COOH) stretching of amide and carboxyl groups\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1713,\n      \"value_min\": 1713,\n      \"value_raw\": \"1713\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"Those of the amide and carboxyl groups in the regions of 2900-3200 cm⁻¹ (COOH and NH₂), 1713 cm⁻¹ (C=O(COOH)), 1658 cm⁻¹ (C=O (CONH)) and 1546 cm⁻¹ (C–NH–) disappear\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_006\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C=O (CONH) stretching of amide and carboxyl groups\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1658,\n      \"value_min\": 1658,\n      \"value_raw\": \"1658\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_56\",\n          \"source_sentence\": \"Those of the amide and carboxyl groups in the regions of 2900-3200 cm⁻¹ (COOH and NH₂), 1713 cm⁻¹ (C=O(COOH)), 1658 cm⁻¹ (C=O (CONH)) and 1546 cm⁻¹ (C–NH–) disappear\"\n        }\n      ],\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_007\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"characteristic absorption band\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C–NH– stretching of amide and carboxyl groups\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1546,\n      \"value_min\": 1546,\n      \"value_raw\": \"1546\"\n    }\n  ],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 9848,
+              "output_tokens": 7665,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07264512",
+              "output_cost": "0.22343475",
+              "total_cost": "0.29607987"
+            }
+          },
+          "rejected_objects": [
+            {
+              "collection": "properties",
+              "index": 0,
+              "object_id": "prop_s5_007",
+              "reason": ": Value error, resolved Stage 5 property 必须关联 sample_id"
+            }
+          ],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 1
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "c69ff3c562262e207d1b9404ec206344955e8693f35f199f4cd97e3c3d1fa409",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_5_56"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[0]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[1]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[2]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[3]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[4]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[5]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_singleton_subject_scope_normalized",
+          "message": "Preview 模式已将单元素主体列表归一为单值字段",
+          "field_path": "properties[6]",
+          "fields": {
+            "entity_ids": "entity_id"
+          }
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[0].value_raw",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[1].value_raw",
+          "property_id": "prop_s5_002"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[2].value_raw",
+          "property_id": "prop_s5_003"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[3].value_raw",
+          "property_id": "prop_s5_004"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[4].value_raw",
+          "property_id": "prop_s5_005"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[5].value_raw",
+          "property_id": "prop_s5_006"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[6]",
+          "property_id": "prop_s5_007",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_objects_rejected",
+          "message": "分片内非法对象已隔离，合法对象继续保留",
+          "shard_id": "ftir_001",
+          "items": [
+            {
+              "collection": "properties",
+              "index": 0,
+              "object_id": "prop_s5_007",
+              "reason": ": Value error, resolved Stage 5 property 必须关联 sample_id"
+            }
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "FTIR",
+            "method_normalized": "FTIR",
+            "entity_ids": [
+              "pe001",
+              "pe002"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "NEXUS-670 Fourier Transform Infrared (FTIR) spectrometer",
+            "parameters": {},
+            "result_summary": "FTIR spectra confirmed complete conversion of polyamic acid to polyimide, with characteristic imide ring absorption bands observed and characteristic polyamic acid absorption bands absent.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_37",
+                "page": 2,
+                "bbox": [
+                  161.0,
+                  840.0,
+                  836.0,
+                  872.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The IR spectra were recorded on a NEXUS-670 Fourier Transform Infrared (FTIR) spectrometer."
+              },
+              {
+                "block_id": "I_4_50",
+                "page": 4,
+                "bbox": [
+                  294.0,
+                  124.0,
+                  701.0,
+                  347.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 1. FTIR spectra of BNPP, BAPP, and polyimide (PI)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_2_37",
+        "P_2_38",
+        "P_3_45",
+        "I_3_46",
+        "I_4_51",
+        "I_4_52",
+        "P_4_53"
+      ],
+      "context_chars": 2438,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 9105,
+              "output_tokens": 1351,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06943536",
+              "output_cost": "0.03938165",
+              "total_cost": "0.10881701"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "1e2a4594da49bee7f382de447be00e35733fe5937eab03780c1ed08c3ae805db",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_30",
+        "P_2_31",
+        "P_2_32",
+        "P_2_33",
+        "P_2_34",
+        "P_2_38",
+        "P_3_41",
+        "P_5_58",
+        "I_5_59",
+        "I_6_65",
+        "P_6_66",
+        "P_7_70",
+        "I_7_71"
+      ],
+      "context_chars": 8421,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_41\",\n          \"source_sentence\": \"The DSC analysis was performed on a TA Instruments DSC $8 2 2 ^ { \\\\mathrm { e } }$in flowing nitrogen at a heating rate of $1 0 ^ { \\\\circ } \\\\mathrm { C } / \\\\mathrm { m i n }$.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_5_58\",\n          \"source_sentence\": \"The thermal properties of the polymer were evaluated by DSC and DMA. Figure 4 shows the DSC spectra of a typical poly(amic acid) and polyimide. The appearance of an endothermic peak in the range of $1 2 0 { - } 2 0 0 ^ { \\\\circ } \\\\mathrm { C }$on the PAA curve is attributed not only to water produced in the process of cyclization, but also to the degradation of PAA occurring in this temperature region. However, polyimide does not show this phenomenon, as shown in Figure 4. None of the polyimides exhibit a crystallization or melt transition in the DSC measurements.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_70\",\n          \"source_sentence\": \"Furthermore, the DSC thermogram of polyimide in Figure 4 shows a glass transition temperature $\\\\mathrm { ( T _ { g } ) }$of $2 3 0 ^ { \\\\circ } \\\\mathrm { C }$.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_6_65\",\n          \"source_sentence\": \"Figure 4. DSC of polyamic acid and polyimide.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"TA Instruments DSC 822^e\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_3_41\",\n              \"source_sentence\": \"The DSC analysis was performed on a TA Instruments DSC $8 2 2 ^ { \\\\mathrm { e } }$in flowing nitrogen at a heating rate of $1 0 ^ { \\\\circ } \\\\mathrm { C } / \\\\mathrm { m i n }$.\"\n            }\n          ],\n          \"heating rate\": [\n            {\n              \"block_id\": \"P_3_41\",\n              \"source_sentence\": \"The DSC analysis was performed on a TA Instruments DSC $8 2 2 ^ { \\\\mathrm { e } }$in flowing nitrogen at a heating rate of $1 0 ^ { \\\\circ } \\\\mathrm { C } / \\\\mathrm { m i n }$.\"\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"flowing nitrogen\",\n          \"heating rate\": \"10 °C/min\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"DSC\",\n      \"parameters\": {\n        \"atmosphere\": \"flowing nitrogen\",\n        \"heating rate\": \"10 °C/min\"\n      },\n      \"result_summary\": \"Poly(amic acid) shows an endothermic peak at 120-200 °C attributed to cyclization water and PAA degradation; polyimide shows no crystallization or melt transition, with a glass transition temperature of 230 °C.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"sample_resolution_status\": \"unresolved\",\n      \"property_name_raw\": \"crystallization or melt transition\",\n      \"value_raw\": \"None of the polyimides exhibit a crystallization or melt transition\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_58\",\n          \"source_sentence\": \"None of the polyimides exhibit a crystallization or melt transition in the DSC measurements.\",\n          \"table_locator\": null\n        }\n      ],\n      \"entity_id\": \"pe002\",\n      \"sample_id\": null,\n      \"method_raw\": \"DSC\",\n      \"unit_raw\": null\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 10591,
+              "output_tokens": 5009,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 7992
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08027856",
+              "output_cost": "0.14601235",
+              "total_cost": "0.22629091"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "90b896c1b1ccb2ebdf8b694650ede1f9bb48e1e719e32d990b5213436e66a103",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters",
+            "measurement_context.other_conditions"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DSC",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "flowing nitrogen"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_3_41",
+                    "page": 3,
+                    "bbox": [
+                      157.0,
+                      124.0,
+                      834.0,
+                      233.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The DSC analysis was performed on a TA Instruments DSC $8 2 2 ^ { \\mathrm { e } }$in flowing nitrogen at a heating rate of $1 0 ^ { \\circ } \\mathrm { C } / \\mathrm { m i n }$."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "atmosphere": "flowing nitrogen"
+            },
+            "result_summary": "Poly(amic acid) shows an endothermic peak at 120-200 °C attributed to cyclization water and PAA degradation; polyimide shows no crystallization or melt transition, with a glass transition temperature of 230 °C.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_41",
+                "page": 3,
+                "bbox": [
+                  157.0,
+                  124.0,
+                  834.0,
+                  233.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The DSC analysis was performed on a TA Instruments DSC $8 2 2 ^ { \\mathrm { e } }$in flowing nitrogen at a heating rate of $1 0 ^ { \\circ } \\mathrm { C } / \\mathrm { m i n }$."
+              },
+              {
+                "block_id": "P_5_58",
+                "page": 5,
+                "bbox": [
+                  157.0,
+                  415.0,
+                  834.0,
+                  554.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The thermal properties of the polymer were evaluated by DSC and DMA. Figure 4 shows the DSC spectra of a typical poly(amic acid) and polyimide. The appearance of an endothermic peak in the range of $1 2 0 { - } 2 0 0 ^ { \\circ } \\mathrm { C }$on the PAA curve is attributed not only to water produced in the process of cyclization, but also to the degradation of PAA occurring in this temperature region. However, polyimide does not show this phenomenon, as shown in Figure 4. None of the polyimides exhibit a crystallization or melt transition in the DSC measurements."
+              },
+              {
+                "block_id": "P_7_70",
+                "page": 7,
+                "bbox": [
+                  157.0,
+                  155.0,
+                  834.0,
+                  264.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Furthermore, the DSC thermogram of polyimide in Figure 4 shows a glass transition temperature $\\mathrm { ( T _ { g } ) }$of $2 3 0 ^ { \\circ } \\mathrm { C }$."
+              },
+              {
+                "block_id": "I_6_65",
+                "page": 6,
+                "bbox": [
+                  315.0,
+                  638.0,
+                  684.0,
+                  845.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 4. DSC of polyamic acid and polyimide."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dma_001",
+      "method_normalized": "DMA",
+      "block_ids": [
+        "P_5_58",
+        "I_5_59",
+        "P_6_66",
+        "P_7_70",
+        "I_7_71"
+      ],
+      "context_chars": 4289,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": [\n                \"pe001\",\n                \"pe002\"\n            ],\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_58\",\n                    \"source_sentence\": \"The thermal properties of the polymer were evaluated by DSC and DMA.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_5_58\",\n                    \"source_sentence\": \"DMA data support the result of the temperature region of PAA degradation. As shown in Figure 5a, the DMA spectrum of PAA exhibits a sharp decrease of the storage modulus at $1 2 0 ^ { \\\\circ } \\\\mathrm { C }$, and then it increases when the temperature rises to $1 5 0 ^ { \\\\circ } \\\\mathrm { C }$ until $2 0 0 ^ { \\\\circ } \\\\mathrm { C } .$.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_7_70\",\n                    \"source_sentence\": \"The DMA spectra of polyimide in Figure 5b show a loss tangent (tan d) peak at $2 2 5 ^ { \\\\circ } \\\\mathrm { C }$, which means $\\\\mathrm { T _ { g } }$ at this temperature.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {},\n                \"other_conditions\": {},\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"DMA\",\n            \"method_raw\": \"DMA\",\n            \"parameters\": {},\n            \"result_summary\": \"DMA analysis shows PAA storage modulus decreases sharply at 120°C then increases between 150°C and 200°C; polyimide shows no severe storage modulus decrease in that range and has a tan δ peak at 225°C corresponding to Tg.\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 9437,
+              "output_tokens": 2672,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0708696",
+              "output_cost": "0.0778888",
+              "total_cost": "0.1487584"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "cb2e10e403fe5fb801bbf0bb66db4589ac491907fe1c9ceb94493e9e78fc73dd",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DMA",
+            "method_normalized": "DMA",
+            "entity_ids": [
+              "pe001",
+              "pe002"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "DMA analysis shows PAA storage modulus decreases sharply at 120°C then increases between 150°C and 200°C; polyimide shows no severe storage modulus decrease in that range and has a tan δ peak at 225°C corresponding to Tg.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_5_58",
+                "page": 5,
+                "bbox": [
+                  157.0,
+                  415.0,
+                  834.0,
+                  554.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The thermal properties of the polymer were evaluated by DSC and DMA."
+              },
+              {
+                "block_id": "P_5_58",
+                "page": 5,
+                "bbox": [
+                  157.0,
+                  415.0,
+                  834.0,
+                  554.0
+                ],
+                "source_type": "text",
+                "source_sentence": "DMA data support the result of the temperature region of PAA degradation. As shown in Figure 5a, the DMA spectrum of PAA exhibits a sharp decrease of the storage modulus at $1 2 0 ^ { \\circ } \\mathrm { C }$, and then it increases when the temperature rises to $1 5 0 ^ { \\circ } \\mathrm { C }$until $2 0 0 ^ { \\circ } \\mathrm { C } .$."
+              },
+              {
+                "block_id": "P_7_70",
+                "page": 7,
+                "bbox": [
+                  157.0,
+                  155.0,
+                  834.0,
+                  264.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The DMA spectra of polyimide in Figure 5b show a loss tangent (tan d) peak at $2 2 5 ^ { \\circ } \\mathrm { C }$, which means $\\mathrm { T _ { g } }$at this temperature."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_2_38",
+        "P_3_41",
+        "P_5_57",
+        "P_5_60",
+        "I_6_63"
+      ],
+      "context_chars": 2888,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": [\"pe001\", \"pe002\"],\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_41\",\n                    \"source_sentence\": \"Thermogravimetric analysis (TGA) was performed on a Perkin-Elmer TGA 7 analyzer and the thermal stability of samples was determined in $\\\\Nu _ { 2 }$at a heating rate of $1 0 ^ { \\\\circ } \\\\mathrm { C } / \\\\mathrm { m i n } .$.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_5_57\",\n                    \"source_sentence\": \"Thermal stabilities of the polymers were determined by thermogravimetric analysis (TGA) in nitrogen atmosphere. Thermograms of polyamic acid and polyimide are given in Figure 3. The thermal decomposition takes place at ${ \\\\sim } 5 0 0 ^ { \\\\circ } \\\\mathrm { C }$and the temperature for 10% wt loss for polyimide is at $5 2 5 ^ { \\\\circ } \\\\mathrm { C }$. When the temperature is up to $8 0 0 ^ { \\\\circ } \\\\mathrm { C } .$, the weight loss of polyimide is ${ \\\\sim } 4 0 \\\\%$. However, for the TGA curve of polyamic acid, the weight loss is divided into two stages: The weight loss in the range of $1 2 0 { - } 2 1 0 ^ { \\\\circ } \\\\mathrm { C }$is caused by water produced from the conversion of the precursor into polyimide, whereas the weight loss in the second stage $( > 3 0 0 ^ { \\\\circ } \\\\mathrm { C } )$exhibits a similar decomposition behavior as polyimide. In general, the polyimide possesses good thermal stability.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"I_6_63\",\n                    \"source_sentence\": \"Figure 3. TGA of polyamic acid and polyimide.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Perkin-Elmer TGA 7 analyzer\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {},\n                \"other_conditions\": {},\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"TGA\",\n            \"method_raw\": \"Thermogravimetric analysis (TGA)\",\n            \"parameters\": {\n                \"heating rate\": \"10 °C/min\",\n                \"atmosphere\": \"nitrogen\"\n            },\n            \"result_summary\": \"Polyamic acid thermal decomposition shows two stages: 120-210°C weight loss from imidization water, >300°C decomposition similar to polyimide; polyimide has 10% wt loss at 525°C, ~40% weight loss at 800°C, with good thermal stability.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 9165,
+              "output_tokens": 2577,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06969456",
+              "output_cost": "0.07511955",
+              "total_cost": "0.14481411"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "bfe44657cfb4c4d92378f5ae700984c1feddf892e011fc0045656cf18af1b25c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004"
+            ],
+            "entity_ids": [
+              "pe001",
+              "pe002"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Perkin-Elmer TGA 7 analyzer",
+            "parameters": {
+              "atmosphere": "nitrogen"
+            },
+            "result_summary": "Polyamic acid thermal decomposition shows two stages: 120-210°C weight loss from imidization water, >300°C decomposition similar to polyimide; polyimide has 10% wt loss at 525°C, ~40% weight loss at 800°C, with good thermal stability.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_41",
+                "page": 3,
+                "bbox": [
+                  157.0,
+                  124.0,
+                  834.0,
+                  233.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Thermogravimetric analysis (TGA) was performed on a Perkin-Elmer TGA 7 analyzer and the thermal stability of samples was determined in $\\Nu _ { 2 }$at a heating rate of $1 0 ^ { \\circ } \\mathrm { C } / \\mathrm { m i n } .$."
+              },
+              {
+                "block_id": "P_5_57",
+                "page": 5,
+                "bbox": [
+                  157.0,
+                  277.0,
+                  833.0,
+                  414.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Thermal stabilities of the polymers were determined by thermogravimetric analysis (TGA) in nitrogen atmosphere. Thermograms of polyamic acid and polyimide are given in Figure 3. The thermal decomposition takes place at ${ \\sim } 5 0 0 ^ { \\circ } \\mathrm { C }$and the temperature for 10% wt loss for polyimide is at $5 2 5 ^ { \\circ } \\mathrm { C }$. When the temperature is up to $8 0 0 ^ { \\circ } \\mathrm { C } .$, the weight loss of polyimide is ${ \\sim } 4 0 \\%$. However, for the TGA curve of polyamic acid, the weight loss is divided into two stages: The weight loss in the range of $1 2 0 { - } 2 1 0 ^ { \\circ } \\mathrm { C }$is caused by water produced from the conversion of the precursor into polyimide, whereas the weight loss in the second stage $( > 3 0 0 ^ { \\circ } \\mathrm { C } )$exhibits a similar decomposition behavior as polyimide. In general, the polyimide possesses good thermal stability."
+              },
+              {
+                "block_id": "I_6_63",
+                "page": 6,
+                "bbox": [
+                  304.0,
+                  124.0,
+                  695.0,
+                  333.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 3. TGA of polyamic acid and polyimide."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_2_35",
+        "P_2_36"
+      ],
+      "context_chars": 1235,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop001\"\n            ],\n            \"entity_id\": \"pe002\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_2_35\",\n                    \"source_sentence\": \"The $\\\\eta _ { \\\\mathrm { i n h } }$ of the flexible polyimide film was 1.3 dL/g.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {},\n                \"other_conditions\": {},\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"viscometry\",\n            \"method_raw\": \"$\\\\eta _ { \\\\mathrm { i n h } }$\",\n            \"parameters\": {},\n            \"result_summary\": \"The $\\\\eta_{\\\\mathrm{inh}}$ of the flexible polyimide film was 1.3 dL/g\",\n            \"sample_id\": \"s003\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 8818,
+              "output_tokens": 2027,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.03809376",
+              "output_cost": "0.05908705",
+              "total_cost": "0.09718081"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "7fcda4b93ec811ca32c928054df89236904680c6e53ab624d06dfb6170018b1d",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "viscometry_001",
+          "reason": "char001.method_raw 与 method_normalized 不匹配"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "$\\eta _ { \\mathrm { i n h } }$",
+            "method_normalized": "viscometry",
+            "sample_id": "s003",
+            "entity_id": "pe002",
+            "sample_resolution_status": "resolved",
+            "parameters": {},
+            "result_summary": "The $\\eta_{\\mathrm{inh}}$ of the flexible polyimide film was 1.3 dL/g",
+            "derived_property_ids": [
+              "prop001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_35",
+                "page": 2,
+                "bbox": [
+                  161.0,
+                  710.0,
+                  836.0,
+                  802.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The $\\eta _ { \\mathrm { i n h } }$ of the flexible polyimide film was 1.3 dL/g."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_2_35",
+        "P_2_36"
+      ],
+      "context_chars": 1235,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 8786,
+              "output_tokens": 357,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.03795552",
+              "output_cost": "0.01040655",
+              "total_cost": "0.04836207"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "1a2e5b7cfbb5cfb9feeee5c5d5a3d4fe09de516c4d547d6fe0b7e721a640bbd7",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

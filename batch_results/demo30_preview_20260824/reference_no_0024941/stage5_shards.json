@@ -1,0 +1,1088 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0024941",
+  "status": "running",
+  "shard_count": 5,
+  "unrouted_block_ids": [
+    "P_1_21",
+    "P_1_22",
+    "P_1_23",
+    "P_1_24",
+    "P_1_25",
+    "P_1_26",
+    "P_1_27",
+    "P_1_28",
+    "I_2_31",
+    "P_2_32",
+    "P_2_33",
+    "P_3_38",
+    "P_3_40",
+    "P_3_41",
+    "P_3_42",
+    "P_3_43",
+    "P_3_44",
+    "P_3_46",
+    "P_3_47",
+    "P_3_48",
+    "P_3_49",
+    "P_3_50",
+    "P_3_51",
+    "P_4_54",
+    "P_4_55",
+    "P_4_56",
+    "P_4_57",
+    "P_4_62",
+    "P_4_63",
+    "P_4_64",
+    "P_4_65",
+    "T_4_66",
+    "P_4_69",
+    "T_5_75",
+    "P_5_79",
+    "P_5_80",
+    "I_6_86",
+    "I_6_87",
+    "P_6_88",
+    "P_6_89",
+    "P_6_90",
+    "P_6_91",
+    "E_6_92",
+    "P_6_93",
+    "E_7_97",
+    "P_7_98"
+  ],
+  "shards": [
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_3_38",
+        "P_3_39",
+        "P_3_40",
+        "P_4_57",
+        "P_4_58"
+      ],
+      "context_chars": 2738,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"<sup>1</sup>H NMR (DMSO-d , TMS): 1.85, s, 3H (–(CH )C@C); 2.28, s, 3H (CH – in dimethylpyrimidine ring at C6 position); 2.36, s, 3H $\\\\mathrm { ( C H } _ { 3 ^ { - } }$– in dimethylpyrimidine ring at C2 position); 3.07, s, 3H (CH<sub>3</sub>N–); 3.66, s, 6H (–N–CH<sub>2</sub>–;–CH<sub>2</sub>O–); 4.21, t, 2H (–CH OC@O); 5.65, s, 1H (CH@C); 6.00, s, 1H (CH@C); 6.86, d, 3H (H in dimethylpyrimidine ring; protons in benzene ring, ortho position to amine group); 7.79, d, 2H (protons in benzene ring, meta position to amine group); 7.86, d, 2H (protons in benzene ring, meta position to N@N group); 8.01, d, 2H (protons in benzene ring, ortho position to N@N group); 13.4, br. s, 1H $( - \\\\mathrm { N H } \\\\mathrm { - } \\\\mathrm { S O } _ { 2 } \\\\mathrm { - } )$\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_58\",\n          \"source_sentence\": \"<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"300 MHz BRU-KER Advance DRX-300 apparatus\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": {\n          \"raw\": \"300 MHz\",\n          \"value\": 300,\n          \"unit\": \"MHz\",\n          \"evidence\": [\n            {\n              \"block_id\": \"P_4_58\",\n              \"source_sentence\": \"<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"humidity\": null,\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null,\n        \"other_conditions\": {\n          \"internal standard\": \"TMS\",\n          \"solvents\": \"CDCl<sub>3</sub>, DMSO-d6\"\n        },\n        \"other_condition_evidence\": {\n          \"internal standard\": [\n            {\n              \"block_id\": \"P_4_58\",\n              \"source_sentence\": \"<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard.\",\n              \"table_locator\": null\n            }\n          ],\n          \"solvents\": [\n            {\n              \"block_id\": \"P_4_58\",\n              \"source_sentence\": \"<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard.\",\n              \"table_locator\": null\n            }\n          ]\n        }\n      },\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"<sup>1</sup>H NMR\",\n      \"parameters\": {\n        \"internal standard\": \"TMS\",\n        \"solvents\": \"CDCl<sub>3</sub>, DMSO-d6\"\n      },\n      \"result_summary\": \"1H NMR spectrum of IZO-3 recorded in DMSO-d with TMS as internal standard shows multiple peaks corresponding to different proton environments.\",\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"property_id\": \"prop_s5_001\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1.85\",\n      \"value_min\": 1.85,\n      \"value_max\": 1.85,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"–(CH )C@C\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"1.85, s, 3H (–(CH )C@C)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_002\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"2.28\",\n      \"value_min\": 2.28,\n      \"value_max\": 2.28,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"CH – in dimethylpyrimidine ring at C6 position\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"2.28, s, 3H (CH – in dimethylpyrimidine ring at C6 position)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_003\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"2.36\",\n      \"value_min\": 2.36,\n      \"value_max\": 2.36,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"CH<sub>3</sub>– in dimethylpyrimidine ring at C2 position\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"2.36, s, 3H $\\\\mathrm { ( C H } _ { 3 ^ { - } }$– in dimethylpyrimidine ring at C2 position)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_004\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"3.07\",\n      \"value_min\": 3.07,\n      \"value_max\": 3.07,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"CH<sub>3</sub>N–\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"3.07, s, 3H (CH<sub>3</sub>N–)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_005\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"3.66\",\n      \"value_min\": 3.66,\n      \"value_max\": 3.66,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"–N–CH<sub>2</sub>–;–CH<sub>2</sub>O–\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"3.66, s, 6H (–N–CH<sub>2</sub>–;–CH<sub>2</sub>O–)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_006\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"4.21\",\n      \"value_min\": 4.21,\n      \"value_max\": 4.21,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"–CH OC@O\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"4.21, t, 2H (–CH OC@O)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_007\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"5.65\",\n      \"value_min\": 5.65,\n      \"value_max\": 5.65,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"CH@C\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"5.65, s, 1H (CH@C)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_008\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"6.00\",\n      \"value_min\": 6.00,\n      \"value_max\": 6.00,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"CH@C\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"6.00, s, 1H (CH@C)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_009\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"6.86\",\n      \"value_min\": 6.86,\n      \"value_max\": 6.86,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"H in dimethylpyrimidine ring; protons in benzene ring, ortho position to amine group\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"6.86, d, 3H (H in dimethylpyrimidine ring; protons in benzene ring, ortho position to amine group)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_010\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"7.79\",\n      \"value_min\": 7.79,\n      \"value_max\": 7.79,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"protons in benzene ring, meta position to amine group\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"7.79, d, 2H (protons in benzene ring, meta position to amine group)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_011\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"7.86\",\n      \"value_min\": 7.86,\n      \"value_max\": 7.86,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"protons in benzene ring, meta position to N@N group\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"7.86, d, 2H (protons in benzene ring, meta position to N@N group)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_012\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"8.01\",\n      \"value_min\": 8.01,\n      \"value_max\": 8.01,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"protons in benzene ring, ortho position to N@N group\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"8.01, d, 2H (protons in benzene ring, ortho position to N@N group)\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    },\n    {\n      \"property_id\": \"prop_s5_013\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"entity_id\": \"pe004\",\n      \"entity_ids\": null,\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"13.4\",\n      \"value_min\": 13.4,\n      \"value_max\": 13.4,\n      \"unit_raw\": null,\n      \"unit_normalized\": null,\n      \"spectral_assignment\": \"-NH-SO<sub>2</sub>-\",\n      \"solvent\": \"DMSO-d\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_39\",\n          \"source_sentence\": \"13.4, br. s, 1H $( - \\\\mathrm { N H } \\\\mathrm { - } \\\\mathrm { S O } _ { 2 } \\\\mathrm { - } )$\",\n          \"table_locator\": null\n        }\n      ],\n      \"source_stage\": \"stage5\",\n      \"measurement_context\": null\n    }\n  ],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 11370,
+              "output_tokens": 7605,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0491184",
+              "output_cost": "0.22168575",
+              "total_cost": "0.27080415"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 13,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "142fb78ccadd586434c02300ac096bace90d582d1ef28bc7b91fba0db51b851f",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context.other_conditions"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[12]",
+          "property_id": "prop_s5_013",
+          "fields": [
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[1].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_002"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[2].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_003"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[3].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_004"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[4].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_005"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[5].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_006"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[6].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_007"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[7].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_008"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[8].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_009"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[9].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_010"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[10].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_011"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[11].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_012"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[12].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_013"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "<sup>1</sup>H NMR",
+            "method_normalized": "NMR",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "instrument": "300 MHz BRU-KER Advance DRX-300 apparatus",
+            "measurement_context": {
+              "frequency": {
+                "raw": "300 MHz",
+                "value": 300.0,
+                "unit": "MHz",
+                "evidence": [
+                  {
+                    "block_id": "P_4_58",
+                    "page": 4,
+                    "bbox": [
+                      71.0,
+                      384.0,
+                      476.0,
+                      430.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {
+                "internal standard": "TMS"
+              },
+              "other_condition_evidence": {
+                "internal standard": [
+                  {
+                    "block_id": "P_4_58",
+                    "page": 4,
+                    "bbox": [
+                      71.0,
+                      384.0,
+                      476.0,
+                      430.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "internal standard": "TMS"
+            },
+            "result_summary": "1H NMR spectrum of IZO-3 recorded in DMSO-d with TMS as internal standard shows multiple peaks corresponding to different proton environments.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010",
+              "prop_s5_011",
+              "prop_s5_012",
+              "prop_s5_013"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "<sup>1</sup>H NMR (DMSO-d , TMS): 1.85, s, 3H (–(CH )C@C); 2.28, s, 3H (CH – in dimethylpyrimidine ring at C6 position); 2.36, s, 3H $\\mathrm { ( C H } _ { 3 ^ { - } }$– in dimethylpyrimidine ring at C2 position); 3.07, s, 3H (CH<sub>3</sub>N–); 3.66, s, 6H (–N–CH<sub>2</sub>–;–CH<sub>2</sub>O–); 4.21, t, 2H (–CH OC@O); 5.65, s, 1H (CH@C); 6.00, s, 1H (CH@C); 6.86, d, 3H (H in dimethylpyrimidine ring; protons in benzene ring, ortho position to amine group); 7.79, d, 2H (protons in benzene ring, meta position to amine group); 7.86, d, 2H (protons in benzene ring, meta position to N@N group); 8.01, d, 2H (protons in benzene ring, ortho position to N@N group); 13.4, br. s, 1H $( - \\mathrm { N H } \\mathrm { - } \\mathrm { S O } _ { 2 } \\mathrm { - } )$"
+              },
+              {
+                "block_id": "P_4_58",
+                "page": 4,
+                "bbox": [
+                  71.0,
+                  384.0,
+                  476.0,
+                  430.0
+                ],
+                "source_type": "text",
+                "source_sentence": "<sup>1</sup>H NMR spectra were made with 300 MHz BRU-KER Advance DRX-300 apparatus using CDCl<sub>3</sub> or DMSO-d6 solvent and TMS as an internal standard."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1.85",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "1.85",
+            "value_min": 1.85,
+            "value_max": 1.85,
+            "spectral_assignment": "–(CH )C@C",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1.85, s, 3H (–(CH )C@C)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2.28",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "2.28",
+            "value_min": 2.28,
+            "value_max": 2.28,
+            "spectral_assignment": "CH – in dimethylpyrimidine ring at C6 position",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "2.28, s, 3H (CH – in dimethylpyrimidine ring at C6 position)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2.36",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "2.36",
+            "value_min": 2.36,
+            "value_max": 2.36,
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "2.36, s, 3H $\\mathrm { ( C H } _ { 3 ^ { - } }$– in dimethylpyrimidine ring at C2 position)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "3.07",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "3.07",
+            "value_min": 3.07,
+            "value_max": 3.07,
+            "spectral_assignment": "CH<sub>3</sub>N–",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "3.07, s, 3H (CH<sub>3</sub>N–)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "3.66",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "3.66",
+            "value_min": 3.66,
+            "value_max": 3.66,
+            "spectral_assignment": "–N–CH<sub>2</sub>–;–CH<sub>2</sub>O–",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "3.66, s, 6H (–N–CH<sub>2</sub>–;–CH<sub>2</sub>O–)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "4.21",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "4.21",
+            "value_min": 4.21,
+            "value_max": 4.21,
+            "spectral_assignment": "–CH OC@O",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "4.21, t, 2H (–CH OC@O)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "5.65",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "5.65",
+            "value_min": 5.65,
+            "value_max": 5.65,
+            "spectral_assignment": "CH@C",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "5.65, s, 1H (CH@C)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "6.00",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "6.00",
+            "value_min": 6.0,
+            "value_max": 6.0,
+            "spectral_assignment": "CH@C",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "6.00, s, 1H (CH@C)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "6.86",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "6.86",
+            "value_min": 6.86,
+            "value_max": 6.86,
+            "spectral_assignment": "H in dimethylpyrimidine ring; protons in benzene ring, ortho position to amine group",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "6.86, d, 3H (H in dimethylpyrimidine ring; protons in benzene ring, ortho position to amine group)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "7.79",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "7.79",
+            "value_min": 7.79,
+            "value_max": 7.79,
+            "spectral_assignment": "protons in benzene ring, meta position to amine group",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "7.79, d, 2H (protons in benzene ring, meta position to amine group)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_011",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "7.86",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "7.86",
+            "value_min": 7.86,
+            "value_max": 7.86,
+            "spectral_assignment": "protons in benzene ring, meta position to N@N group",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "7.86, d, 2H (protons in benzene ring, meta position to N@N group)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_012",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "8.01",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "8.01",
+            "value_min": 8.01,
+            "value_max": 8.01,
+            "spectral_assignment": "protons in benzene ring, ortho position to N@N group",
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "8.01, d, 2H (protons in benzene ring, ortho position to N@N group)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_013",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "13.4",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "13.4",
+            "value_min": 13.4,
+            "value_max": 13.4,
+            "solvent": "DMSO-d",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  80.0,
+                  261.0,
+                  485.0,
+                  469.0
+                ],
+                "source_type": "text",
+                "source_sentence": "13.4, br. s, 1H $( - \\mathrm { N H } \\mathrm { - } \\mathrm { S O } _ { 2 } \\mathrm { - } )$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_4_60",
+        "T_4_66",
+        "P_4_68",
+        "P_4_69"
+      ],
+      "context_chars": 2897,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "failed",
+          "error_type": "LLMRequestError",
+          "error": "LLM 响应不是有效 JSON",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe001\", \"pe002\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_60\",\n          \"source_sentence\": \"Mean molecular weight of polymers was determined by GPC using Waters 917 columns, RIDK-102 detector and APEX ver.3.1 recorder. A mobile phase was c-butyrolactone and the molecular weight referred to polystyrene standards.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_68\",\n          \"source_sentence\": \"The molecular mass of the polymers determined by GPC was between \u000314 000 and 18 500, and it was rather low indicating that they were oligomers, what is in agreement with literature data [11,15].\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Waters 917 columns, RIDK-102 detector, APEX ver.3.1 recorder\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"GPC\",\n      \"method_raw\": \"GPC\",\n      \"parameters\": {\n        \"mobile phase\": \"c-butyrolactone\",\n        \"calibration standard\": \"polystyrene standards\"\n      },\n      \"result_summary\": \"Molecular mass of the polymers was between 14000 and 18500, indicating they were oligomers.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 11268,
+              "output_tokens": 3011,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.04867776",
+              "output_cost": "0.08777065",
+              "total_cost": "0.13644841"
+            }
+          }
+        }
+      ],
+      "status": "failed",
+      "error": "LLM 响应不是有效 JSON",
+      "cache_key": "12acbe27fc608f831f8b18b09285ed2524eb0946d38b45e301f44f81cb77f5f4",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_4_61",
+        "P_4_62"
+      ],
+      "context_chars": 896,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\"prop001\", \"prop002\", \"prop003\", \"prop004\", \"prop005\", \"prop006\", \"prop007\", \"prop008\", \"prop009\", \"prop010\", \"prop011\"],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_61\",\n                    \"source_sentence\": \"Glass transition temperature of the polymers was determined with a Mettler Toledo DSC. The temperature was programmed at 20 K/min.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Mettler Toledo DSC\",\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\"\n            },\n            \"method_normalized\": \"DSC\",\n            \"method_raw\": \"DSC\",\n            \"parameters\": {\n                \"heating rate\": \"20 K/min\"\n            },\n            \"result_summary\": \"Glass transition temperatures of the target polymer samples were determined\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\", \"s010\", \"s011\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10553,
+              "output_tokens": 1772,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07569072",
+              "output_cost": "0.0516538",
+              "total_cost": "0.12734452"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "80fe76875ed1c5068f9b6679503f8100585537304eadb0e82e943b6e8380738b",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DSC",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010",
+              "s011"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Mettler Toledo DSC",
+            "parameters": {
+              "heating rate": "20 K/min"
+            },
+            "result_summary": "Glass transition temperatures of the target polymer samples were determined",
+            "derived_property_ids": [
+              "prop001",
+              "prop002",
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008",
+              "prop009",
+              "prop010",
+              "prop011"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_4_61",
+                "page": 4,
+                "bbox": [
+                  71.0,
+                  547.0,
+                  476.0,
+                  593.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Glass transition temperature of the polymers was determined with a Mettler Toledo DSC. The temperature was programmed at 20 K/min."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "uv_vis_001",
+      "method_normalized": "UV-Vis",
+      "block_ids": [
+        "P_4_59",
+        "P_4_70",
+        "P_4_71",
+        "P_4_72",
+        "T_5_75",
+        "P_5_76",
+        "I_5_77",
+        "P_5_79",
+        "P_5_80",
+        "I_5_81",
+        "I_6_84",
+        "I_6_86"
+      ],
+      "context_chars": 7174,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_59\",\n          \"source_sentence\": \"UV-vis spectra were made using Diode Array Hewlett Packard Spectrophotometer 8452 and quartz cuvettes of 1 cm spectral path.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_71\",\n          \"source_sentence\": \"The UV-vis spectra were made for monomers and polymers in DMSO solutions. The maximum absorption band of both classes of materials was observed within wavelength in the range 440–460 nm (Tables 1 and 2).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_5_75\",\n          \"source_sentence\": \"Table 2 Characteristics of the polymers\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Diode Array Hewlett Packard Spectrophotometer 8452\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {\n          \"measurement medium\": \"DMSO solutions, thin films deposited on glass substrate by spin-coating from THF (2–2.5 wt.%) solutions\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"UV-Vis\",\n      \"method_raw\": \"UV-vis spectra\",\n      \"parameters\": {\n        \"spectral path\": \"1 cm\",\n        \"cuvette material\": \"quartz\"\n      },\n      \"result_summary\": \"Maximum absorption bands of the polymers were observed in the range 438-452 nm, trans-cis isomerization of azobenzene groups was detected under illumination.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 12535,
+              "output_tokens": 3353,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0541512",
+              "output_cost": "0.09773995",
+              "total_cost": "0.15189115"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "7fb1061562f770ac726e65fd23e1543033c450cbec2762066e8f4e6a007a8ea7",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_75"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "UV-vis spectra",
+            "method_normalized": "UV-Vis",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010",
+              "s011"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Diode Array Hewlett Packard Spectrophotometer 8452",
+            "parameters": {
+              "spectral path": "1 cm",
+              "cuvette material": "quartz"
+            },
+            "result_summary": "Maximum absorption bands of the polymers were observed in the range 438-452 nm, trans-cis isomerization of azobenzene groups was detected under illumination.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_4_59",
+                "page": 4,
+                "bbox": [
+                  71.0,
+                  430.0,
+                  477.0,
+                  473.0
+                ],
+                "source_type": "text",
+                "source_sentence": "UV-vis spectra were made using Diode Array Hewlett Packard Spectrophotometer 8452 and quartz cuvettes of 1 cm spectral path."
+              },
+              {
+                "block_id": "P_4_71",
+                "page": 4,
+                "bbox": [
+                  509.0,
+                  679.0,
+                  917.0,
+                  843.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The UV-vis spectra were made for monomers and polymers in DMSO solutions. The maximum absorption band of both classes of materials was observed within wavelength in the range 440–460 nm (Tables 1 and 2)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

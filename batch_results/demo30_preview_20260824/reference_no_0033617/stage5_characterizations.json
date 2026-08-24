@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0033617",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "UV–Vis spectroscopy",
+      "method_normalized": "UV-Vis",
+      "sample_id": "s002",
+      "entity_id": "pe002",
+      "sample_resolution_status": "resolved",
+      "instrument": "HP8453A UV–Vis spectrophotometer",
+      "measurement_context": {
+        "temperature": {
+          "raw": "room temperature",
+          "evidence": [
+            {
+              "block_id": "P_1_25",
+              "page": 1,
+              "bbox": [
+                60.0,
+                890.0,
+                477.0,
+                925.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Measurements were carried out at room temperature under nitrogen atmosphere."
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "atmosphere": "nitrogen"
+        },
+        "other_condition_evidence": {
+          "atmosphere": [
+            {
+              "block_id": "P_1_25",
+              "page": 1,
+              "bbox": [
+                60.0,
+                890.0,
+                477.0,
+                925.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Measurements were carried out at room temperature under nitrogen atmosphere."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "parameters": {},
+      "result_summary": "Measured λ_max of 427 nm, band gap of 2.20 eV, optical contrast of 8%, switching time of 2.0 s for P(TMPMT-co-Th) film",
+      "derived_property_ids": [
+        "prop001",
+        "prop002",
+        "prop003",
+        "prop004"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_0_6",
+          "page": 0,
+          "bbox": [
+            69.0,
+            471.0,
+            935.0,
+            694.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Resulting copolymer was characterized via cyclic voltammetry (CV), Fourier transform infrared spectroscopy (FTIR), scanning electron microscopy (SEM), four probe technique conductivity measurement and UV–Vis spectroscopy."
+        },
+        {
+          "block_id": "P_1_25",
+          "page": 1,
+          "bbox": [
+            60.0,
+            890.0,
+            477.0,
+            925.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Spectroelectrochemical and kinetic studies were performed on Solartron 1285 potentiostat/galvanostat and a HP8453A UV–Vis spectrophotometer."
+        },
+        {
+          "block_id": "P_4_59",
+          "page": 4,
+          "bbox": [
+            68.0,
+            811.0,
+            485.0,
+            925.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The film deposited onto ITO coated glass electrode was placed in a UV cuvette for UV–Vis experiment after it is washed with monomer free electrolyte solution."
+        },
+        {
+          "block_id": "P_5_67",
+          "page": 5,
+          "bbox": [
+            60.0,
+            793.0,
+            477.0,
+            925.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The % optical contrast (%DT) was measured using a UV–Vis spectrophotometer."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "UV–Vis spectroscopy",
+      "method_normalized": "UV-Vis",
+      "sample_id": "s005",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "Measured switching time of 1.4 s, optical contrast of 2% for the ECD",
+      "derived_property_ids": [
+        "prop005",
+        "prop006"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_0_6",
+          "page": 0,
+          "bbox": [
+            69.0,
+            471.0,
+            935.0,
+            694.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Dual type electrochromic device (ECD) of P(TMPMT-co-Th) and poly(3,4-ethylenedioxythiophene) (PEDOT) was constructed. Spectroelectrochemistry, switching ability, open circuit memory and stability of the device were examined by UV–Vis spectroscopy and cyclic voltammetry."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "fde8840c888f39de5f6ac1c6920f527986cffe1e46a8ad4577d5e86217961aa1",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "b655c73ef68e38eccf1d292410e248df18da360e1abc0632932e2833c18f783d",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 50,
+    "context_chars": 27649,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 10492,
+      "output_tokens": 3125,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 7992,
+      "billable_input_tokens": 18484,
+      "total_tokens": 21609
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.07985088",
+      "output_cost": "0.09109375",
+      "total_cost": "0.17094463"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[1]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

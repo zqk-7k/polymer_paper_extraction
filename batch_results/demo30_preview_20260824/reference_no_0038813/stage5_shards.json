@@ -1,0 +1,3229 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0038813",
+  "status": "candidate_partial",
+  "shard_count": 10,
+  "unrouted_block_ids": [
+    "P_1_17",
+    "P_1_18",
+    "P_1_19",
+    "P_1_20",
+    "P_1_22",
+    "P_1_23",
+    "P_1_24",
+    "P_1_27",
+    "P_1_28",
+    "P_1_31",
+    "P_1_32",
+    "P_2_37",
+    "P_2_39",
+    "P_2_40",
+    "P_2_42",
+    "P_2_43",
+    "P_2_44",
+    "P_2_45",
+    "P_2_48",
+    "I_3_54",
+    "P_4_63",
+    "P_4_64",
+    "P_4_65",
+    "P_4_66",
+    "P_4_68",
+    "I_4_69",
+    "I_4_70",
+    "I_4_71",
+    "T_5_78",
+    "T_6_86",
+    "I_6_87",
+    "T_7_98",
+    "P_7_100"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_1_24",
+        "I_1_26",
+        "P_1_27",
+        "P_1_28",
+        "P_1_30",
+        "P_1_31",
+        "P_2_37",
+        "I_2_38",
+        "P_2_39",
+        "P_2_40",
+        "I_2_41",
+        "P_2_42",
+        "P_2_45",
+        "P_2_46",
+        "I_3_54",
+        "I_3_56",
+        "P_4_63",
+        "P_4_66",
+        "P_4_67",
+        "P_4_68",
+        "I_4_71",
+        "T_5_77"
+      ],
+      "context_chars": 18657,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\", \"prop_s5_002\", \"prop_s5_003\", \"prop_s5_004\",\n        \"prop_s5_005\", \"prop_s5_006\", \"prop_s5_007\", \"prop_s5_008\",\n        \"prop_s5_009\", \"prop_s5_010\", \"prop_s5_011\", \"prop_s5_012\",\n        \"prop_s5_013\", \"prop_s5_014\", \"prop_s5_015\", \"prop_s5_016\",\n        \"prop_s5_017\", \"prop_s5_018\", \"prop_s5_019\", \"prop_s5_020\",\n        \"prop_s5_021\", \"prop_s5_022\", \"prop_s5_023\", \"prop_s5_024\",\n        \"prop_s5_025\", \"prop_s5_026\", \"prop_s5_027\", \"prop_s5_028\",\n        \"prop_s5_029\", \"prop_s5_030\", \"prop_s5_031\", \"prop_s5_032\"\n      ],\n      \"entity_ids\": [\"pe005\", \"pe006\", \"pe007\", \"pe008\", \"pe009\", \"pe010\", \"pe011\", \"pe012\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Infrared measurements were performed on a Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer (Ettlingen, Germany).\"\n        },\n        {\n          \"block_id\": \"P_4_67\",\n          \"source_sentence\": \"The chemical structure of the resulting polymers was ascertained by FTIR and <sup>1</sup>H-NMR spectroscopies (Table 1).\"\n        },\n        {\n          \"block_id\": \"T_5_77\",\n          \"source_sentence\": \"Table 1. Characterization of polymers\"\n        }\n      ],\n      \"instrument\": \"Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"other_conditions\": {\n          \"sample_preparation\": \"KBr\"\n        },\n        \"other_condition_evidence\": {\n          \"sample_preparation\": [\n            {\n              \"block_id\": \"T_5_77\",\n              \"source_sentence\": \"IR (KBr)  $(cm^{-1})$\"\n            }\n          ]\n        }\n      },\n      \"method_normalized\": \"FTIR\",\n      \"method_raw\": \"Fourier Transform Infrared (FTIR)\",\n      \"parameters\": {},\n      \"result_summary\": \"FTIR spectroscopy was used to confirm the chemical structure of synthesized poly(amide-urea)s, with characteristic peaks reported in Table 1.\",\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\"property_id\":\"prop_s5_001\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe005\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3338\",\"value_min\":3338,\"value_max\":3338,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-PPDI 3338\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3338\"}}]},\n    {\"property_id\":\"prop_s5_002\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe005\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1670\",\"value_min\":1670,\"value_max\":1670,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-PPDI 1670\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1670\"}}]},\n    {\"property_id\":\"prop_s5_003\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe005\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1634\",\"value_min\":1634,\"value_max\":1634,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-PPDI 1634\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1634\"}}]},\n    {\"property_id\":\"prop_s5_004\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s002\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe005\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1598\",\"value_min\":1598,\"value_max\":1598,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-PPDI 1598\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1598\"}}]},\n    {\"property_id\":\"prop_s5_005\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe006\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3329\",\"value_min\":3329,\"value_max\":3329,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-NDI 3329\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3329\"}}]},\n    {\"property_id\":\"prop_s5_006\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe006\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1664\",\"value_min\":1664,\"value_max\":1664,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-NDI 1664\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1664\"}}]},\n    {\"property_id\":\"prop_s5_007\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe006\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1635\",\"value_min\":1635,\"value_max\":1635,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-NDI 1635\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1635\"}}]},\n    {\"property_id\":\"prop_s5_008\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s003\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe006\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1594\",\"value_min\":1594,\"value_max\":1594,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-NDI 1594\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1594\"}}]},\n    {\"property_id\":\"prop_s5_009\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe007\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3334\",\"value_min\":3334,\"value_max\":3334,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-MDI 3334\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3334\"}}]},\n    {\"property_id\":\"prop_s5_010\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe007\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1672\",\"value_min\":1672,\"value_max\":1672,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-MDI 1672\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1672\"}}]},\n    {\"property_id\":\"prop_s5_011\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe007\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1640\",\"value_min\":1640,\"value_max\":1640,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-MDI 1640\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1640\"}}]},\n    {\"property_id\":\"prop_s5_012\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s004\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe007\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"161\",\"value_min\":161,\"value_max\":161,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-MDI 161\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"161\"}}]},\n    {\"property_id\":\"prop_s5_013\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe008\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3317\",\"value_min\":3317,\"value_max\":3317,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-H $_{12}$ MDI 3317\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3317\"}}]},\n    {\"property_id\":\"prop_s5_014\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe008\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1665\",\"value_min\":1665,\"value_max\":1665,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-H $_{12}$ MDI 1665\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1665\"}}]},\n    {\"property_id\":\"prop_s5_015\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe008\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1638\",\"value_min\":1638,\"value_max\":1638,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-H $_{12}$ MDI 1638\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1638\"}}]},\n    {\"property_id\":\"prop_s5_016\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s005\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe008\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1603\",\"value_min\":1603,\"value_max\":1603,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"1AQA-H $_{12}$ MDI 1603\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"1AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1603\"}}]},\n    {\"property_id\":\"prop_s5_017\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe009\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3302\",\"value_min\":3302,\"value_max\":3302,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-PPDI 3302\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3302\"}}]},\n    {\"property_id\":\"prop_s5_018\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe009\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1668\",\"value_min\":1668,\"value_max\":1668,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-PPDI 1668\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1668\"}}]},\n    {\"property_id\":\"prop_s5_019\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe009\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1630\",\"value_min\":1630,\"value_max\":1630,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-PPDI 1630\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1630\"}}]},\n    {\"property_id\":\"prop_s5_020\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s006\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe009\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1590\",\"value_min\":1590,\"value_max\":1590,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-PPDI 1590\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-PPDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1590\"}}]},\n    {\"property_id\":\"prop_s5_021\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe010\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3343\",\"value_min\":3343,\"value_max\":3343,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-NDI 3343\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3343\"}}]},\n    {\"property_id\":\"prop_s5_022\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe010\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1659\",\"value_min\":1659,\"value_max\":1659,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-NDI 1659\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1659\"}}]},\n    {\"property_id\":\"prop_s5_023\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe010\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1642\",\"value_min\":1642,\"value_max\":1642,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-NDI 1642\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1642\"}}]},\n    {\"property_id\":\"prop_s5_024\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s007\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe010\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1589\",\"value_min\":1589,\"value_max\":1589,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-NDI 1589\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-NDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1589\"}}]},\n    {\"property_id\":\"prop_s5_025\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe011\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3339\",\"value_min\":3339,\"value_max\":3339,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-MDI 3339\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3339\"}}]},\n    {\"property_id\":\"prop_s5_026\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe011\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1672\",\"value_min\":1672,\"value_max\":1672,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-MDI 1672\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1672\"}}]},\n    {\"property_id\":\"prop_s5_027\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe011\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1650\",\"value_min\":1650,\"value_max\":1650,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-MDI 1650\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1650\"}}]},\n    {\"property_id\":\"prop_s5_028\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s008\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe011\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1589\",\"value_min\":1589,\"value_max\":1589,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-MDI 1589\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1589\"}}]},\n    {\"property_id\":\"prop_s5_029\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe012\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"3324\",\"value_min\":3324,\"value_max\":3324,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-H $_{12}$ MDI 3324\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"3324\"}}]},\n    {\"property_id\":\"prop_s5_030\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe012\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1674\",\"value_min\":1674,\"value_max\":1674,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-H $_{12}$ MDI 1674\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1674\"}}]},\n    {\"property_id\":\"prop_s5_031\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe012\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1635\",\"value_min\":1635,\"value_max\":1635,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-H $_{12}$ MDI 1635\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1635\"}}]},\n    {\"property_id\":\"prop_s5_032\",\"characterization_id\":\"char001\",\"confidence\":{\"score\":0.95},\"sample_id\":\"s009\",\"sample_resolution_status\":\"resolved\",\"entity_id\":\"pe012\",\"property_name_raw\":\"IR (KBr) $(cm^{-1})$\",\"property_name_normalized\":\"ftir_peak_wavenumber\",\"property_category\":\"composition_structure\",\"value_raw\":\"1597\",\"value_min\":1597,\"value_max\":1597,\"unit_raw\":\"cm⁻¹\",\"unit_normalized\":\"cm⁻¹\",\"spectral_assignment\":null,\"solvent\":null,\"measurement_context\":null,\"evidence\":[{\"block_id\":\"T_5_77\",\"source_sentence\":\"2AQA-H $_{12}$ MDI 1597\",\"table_locator\":{\"table_id\":\"T_5_77\",\"row_label\":\"2AQA-H $_{12}$ MDI\",\"column_label\":\"IR (KBr)  $(cm^{-1})$\",\"cell_value\":\"1597\"}}]}\n  ],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 20281,
+              "output_tokens": 10845,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11771568",
+              "output_cost": "0.31613175",
+              "total_cost": "0.43384743"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 32,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "19b15ffd46dac73048e1ff85f0d81d3b9329e95fa8c56cd98a334e8b5135914f",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_77"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[4]",
+          "property_id": "prop_s5_005",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[5]",
+          "property_id": "prop_s5_006",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[6]",
+          "property_id": "prop_s5_007",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[7]",
+          "property_id": "prop_s5_008",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[8]",
+          "property_id": "prop_s5_009",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[9]",
+          "property_id": "prop_s5_010",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[10]",
+          "property_id": "prop_s5_011",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[11]",
+          "property_id": "prop_s5_012",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[12]",
+          "property_id": "prop_s5_013",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[13]",
+          "property_id": "prop_s5_014",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[14]",
+          "property_id": "prop_s5_015",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[15]",
+          "property_id": "prop_s5_016",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[16]",
+          "property_id": "prop_s5_017",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[17]",
+          "property_id": "prop_s5_018",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[18]",
+          "property_id": "prop_s5_019",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[19]",
+          "property_id": "prop_s5_020",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[20]",
+          "property_id": "prop_s5_021",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[21]",
+          "property_id": "prop_s5_022",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[22]",
+          "property_id": "prop_s5_023",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[23]",
+          "property_id": "prop_s5_024",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[24]",
+          "property_id": "prop_s5_025",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[25]",
+          "property_id": "prop_s5_026",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[26]",
+          "property_id": "prop_s5_027",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[27]",
+          "property_id": "prop_s5_028",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[28]",
+          "property_id": "prop_s5_029",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[29]",
+          "property_id": "prop_s5_030",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[30]",
+          "property_id": "prop_s5_031",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[31]",
+          "property_id": "prop_s5_032",
+          "fields": [
+            "unit_raw"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Fourier Transform Infrared (FTIR)",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011",
+              "pe012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer",
+            "measurement_context": {
+              "other_conditions": {
+                "sample_preparation": "KBr"
+              },
+              "other_condition_evidence": {
+                "sample_preparation": [
+                  {
+                    "block_id": "T_5_77",
+                    "page": 5,
+                    "bbox": [
+                      55.0,
+                      80.0,
+                      905.0,
+                      522.0
+                    ],
+                    "source_type": "table",
+                    "source_sentence": "IR (KBr)  $(cm^{-1})$"
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "FTIR spectroscopy was used to confirm the chemical structure of synthesized poly(amide-urea)s, with characteristic peaks reported in Table 1.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010",
+              "prop_s5_011",
+              "prop_s5_012",
+              "prop_s5_013",
+              "prop_s5_014",
+              "prop_s5_015",
+              "prop_s5_016",
+              "prop_s5_017",
+              "prop_s5_018",
+              "prop_s5_019",
+              "prop_s5_020",
+              "prop_s5_021",
+              "prop_s5_022",
+              "prop_s5_023",
+              "prop_s5_024",
+              "prop_s5_025",
+              "prop_s5_026",
+              "prop_s5_027",
+              "prop_s5_028",
+              "prop_s5_029",
+              "prop_s5_030",
+              "prop_s5_031",
+              "prop_s5_032"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Infrared measurements were performed on a Bruker-IFS 48 Fourier Transform Infrared (FTIR) spectrometer (Ettlingen, Germany)."
+              },
+              {
+                "block_id": "P_4_67",
+                "page": 4,
+                "bbox": [
+                  89.0,
+                  501.0,
+                  500.0,
+                  559.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The chemical structure of the resulting polymers was ascertained by FTIR and <sup>1</sup>H-NMR spectroscopies (Table 1)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3338",
+            "value_min": 3338.0,
+            "value_max": 3338.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>IR (KBr)  $(cm^{-1})$ </td><td>NMR (DMSO- $D_6$ ) ( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3338",
+                  "cell_id": "T_5_77:r0001:c0001",
+                  "row_index": 1,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1670",
+            "value_min": 1670.0,
+            "value_max": 1670.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>IR (KBr)  $(cm^{-1})$ </td><td>NMR (DMSO- $D_6$ ) ( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1670",
+                  "cell_id": "T_5_77:r0002:c0001",
+                  "row_index": 2,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1634",
+            "value_min": 1634.0,
+            "value_max": 1634.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "tr><td>Polymer</td><td>IR (KBr)  $(cm^{-1})$ </td><td>NMR (DMSO- $D_6$ ) ( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1634",
+                  "cell_id": "T_5_77:r0003:c0001",
+                  "row_index": 3,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1598",
+            "value_min": 1598.0,
+            "value_max": 1598.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": ">IR (KBr)  $(cm^{-1})$ </td><td>NMR (DMSO- $D_6$ ) ( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1598",
+                  "cell_id": "T_5_77:r0004:c0001",
+                  "row_index": 4,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3329",
+            "value_min": 3329.0,
+            "value_max": 3329.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3329",
+                  "cell_id": "T_5_77:r0005:c0001",
+                  "row_index": 5,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1664",
+            "value_min": 1664.0,
+            "value_max": 1664.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "r><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1664",
+                  "cell_id": "T_5_77:r0006:c0001",
+                  "row_index": 6,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1635",
+            "value_min": 1635.0,
+            "value_max": 1635.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "r><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1635",
+                  "cell_id": "T_5_77:r0007:c0001",
+                  "row_index": 7,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "entity_id": "pe006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1594",
+            "value_min": 1594.0,
+            "value_max": 1594.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "r><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1594",
+                  "cell_id": "T_5_77:r0008:c0001",
+                  "row_index": 8,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "entity_id": "pe007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3334",
+            "value_min": 3334.0,
+            "value_max": 3334.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "d><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3334",
+                  "cell_id": "T_5_77:r0009:c0001",
+                  "row_index": 9,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "entity_id": "pe007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1672",
+            "value_min": 1672.0,
+            "value_max": 1672.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": ")</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)<",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1672",
+                  "cell_id": "T_5_77:r0010:c0001",
+                  "row_index": 10,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_011",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "entity_id": "pe007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1640",
+            "value_min": 1640.0,
+            "value_max": 1640.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1640",
+                  "cell_id": "T_5_77:r0011:c0001",
+                  "row_index": 11,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_012",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "entity_id": "pe007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "161",
+            "value_min": 161.0,
+            "value_max": 161.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "64</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88</td></tr><tr><td>1665",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "161",
+                  "cell_id": "T_5_77:r0012:c0001",
+                  "row_index": 12,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_013",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "entity_id": "pe008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3317",
+            "value_min": 3317.0,
+            "value_max": 3317.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88</td></tr><tr><td>1665</td></tr><tr><td>1638</td></tr><tr><td>1603</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3317",
+                  "cell_id": "T_5_77:r0013:c0001",
+                  "row_index": 13,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_014",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "entity_id": "pe008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1665",
+            "value_min": 1665.0,
+            "value_max": 1665.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88</td></tr><tr><td>1665</td></tr><tr><td>1638</td></tr><tr><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668<",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1665",
+                  "cell_id": "T_5_77:r0014:c0001",
+                  "row_index": 14,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_015",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "entity_id": "pe008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1638",
+            "value_min": 1638.0,
+            "value_max": 1638.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88</td></tr><tr><td>1665</td></tr><tr><td>1638</td></tr><tr><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630<",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1638",
+                  "cell_id": "T_5_77:r0015:c0001",
+                  "row_index": 15,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_016",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "entity_id": "pe008",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1603",
+            "value_min": 1603.0,
+            "value_max": 1603.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "$_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88</td></tr><tr><td>1665</td></tr><tr><td>1638</td></tr><tr><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590<",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1603",
+                  "cell_id": "T_5_77:r0016:c0001",
+                  "row_index": 16,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_017",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "entity_id": "pe009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3302",
+            "value_min": 3302.0,
+            "value_max": 3302.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)</td><td rowspan=\"4\">88</td></tr><tr><td>1665</td></tr><tr><td>1638</td></tr><tr><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3302",
+                  "cell_id": "T_5_77:r0017:c0001",
+                  "row_index": 17,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_018",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "entity_id": "pe009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1668",
+            "value_min": 1668.0,
+            "value_max": 1668.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "><td>1665</td></tr><tr><td>1638</td></tr><tr><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1668",
+                  "cell_id": "T_5_77:r0018:c0001",
+                  "row_index": 18,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_019",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "entity_id": "pe009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1630",
+            "value_min": 1630.0,
+            "value_max": 1630.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "><td>1638</td></tr><tr><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1630",
+                  "cell_id": "T_5_77:r0019:c0001",
+                  "row_index": 19,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_020",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "entity_id": "pe009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1590",
+            "value_min": 1590.0,
+            "value_max": 1590.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "><td>1603</td></tr><tr><td rowspan=\"4\">2AQA-PPDI</td><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-PPDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1590",
+                  "cell_id": "T_5_77:r0020:c0001",
+                  "row_index": 20,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_021",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "entity_id": "pe010",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3343",
+            "value_min": 3343.0,
+            "value_max": 3343.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "d><td>3302</td><td rowspan=\"4\">12.70 (s, 1H, NH), 9.00 (s, 2H, ph), 8.94 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.13 (s, 1H, AQ), 8.08 (d, 1H, AQ), 7.98 (d, 2H, AQ), 7.94 (d, 1H, AQ), 7.86 (m, 2H, AQ), 7.12 (d, 2H, DI), 7.09 (m, 2H, DI), 6.51 (d, 2H, DI)</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH)",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3343",
+                  "cell_id": "T_5_77:r0021:c0001",
+                  "row_index": 21,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_022",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "entity_id": "pe010",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1659",
+            "value_min": 1659.0,
+            "value_max": 1659.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": ")</td><td rowspan=\"4\">87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1659",
+                  "cell_id": "T_5_77:r0022:c0001",
+                  "row_index": 22,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_023",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "entity_id": "pe010",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1642",
+            "value_min": 1642.0,
+            "value_max": 1642.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "87</td></tr><tr><td>1668</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1642",
+                  "cell_id": "T_5_77:r0023:c0001",
+                  "row_index": 23,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_024",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "entity_id": "pe010",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1589",
+            "value_min": 1589.0,
+            "value_max": 1589.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "68</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-NDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1589",
+                  "cell_id": "T_5_77:r0024:c0001",
+                  "row_index": 24,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_025",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "entity_id": "pe011",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3339",
+            "value_min": 3339.0,
+            "value_max": 3339.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "</tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-H $_{12}$ MDI</td>",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3339",
+                  "cell_id": "T_5_77:r0025:c0001",
+                  "row_index": 25,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_026",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "entity_id": "pe011",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1672",
+            "value_min": 1672.0,
+            "value_max": 1672.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": ")</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td rowspan=\"4\">1AQA-H $_{12}$ MDI</td><td>3317</td><td rowspan=\"4\">12.68 (s, 1H, NH), 9.00 (s, 2H, ph), 8.92 (s, 1H, ph), 8.40 (s, 2H, NH), 8.29 (s, 2H, NH), 8.06 (d, 1H, AQ), 7.97 (d, 2H, AQ), 7.85 (m, 2H, AQ), 7.73 (d, 1H, AQ), 7.41 (m, 1H, AQ), 3.56 (m, 2H, DI), 1.50 (m, 8H, DI), 1.46 (m, 2H, DI), 1.22 (m, 8H, DI), 1.18 (d, 2H, DDI)<",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1672",
+                  "cell_id": "T_5_77:r0026:c0001",
+                  "row_index": 26,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_027",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "entity_id": "pe011",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1650",
+            "value_min": 1650.0,
+            "value_max": 1650.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "r><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-H $_{12}$ MDI</td><td>3324</td><td rowspan=\"4\">12.65 (s, 1H, NH), 8.96 (s, 2H, ph), 8.90 (s, 1H, ph), 8.38 (s, 2H, NH), 8.26 (s, 2H, NH), 8.05 (s, 1H, AQ), 8.02 (d, 1H, AQ), 7.92 (d, 2H, AQ), 7.90 (d, 1H, AQ), 7.80 (m, 2H, AQ), 3.55 (m, 2H, DI), 1.48 (m, 8H, DI), 1.45 (m, 2H, DI), 1.20 (m, 8H, DI), 1.17 (d, 2H, DI)</td><td rowspan=\"4\">89",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1650",
+                  "cell_id": "T_5_77:r0027:c0001",
+                  "row_index": 27,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_028",
+            "characterization_id": "char001",
+            "sample_id": "s008",
+            "entity_id": "pe011",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1589",
+            "value_min": 1589.0,
+            "value_max": 1589.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "68</td></tr><tr><td>1630</td></tr><tr><td>1590</td></tr><tr><td rowspan=\"4\">2AQA-NDI</td><td>3343</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.01 (s, 2H, ph), 8.95 (s, 1H, ph), 8.45 (s, 2H, NH), 8.32 (s, 2H, NH), 8.15 (s, 1H, AQ), 8.10 (d, 1H, AQ), 8.00 (d, 2H, AQ), 7.97 (d, 1H, AQ), 7.87 (m, 2H, AQ), 7.59 (d, 4H, DI)</td><td rowspan=\"4\">91</td></tr><tr><td>1659</td></tr><tr><td>1642</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-MDI</td><td>3339</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1589",
+                  "cell_id": "T_5_77:r0028:c0001",
+                  "row_index": 28,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_029",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "entity_id": "pe012",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "3324",
+            "value_min": 3324.0,
+            "value_max": 3324.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "</td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-H $_{12}$ MDI</td><td>3324</td><td rowspan=\"4\">12.65 (s, 1H, NH), 8.96 (s, 2H, ph), 8.90 (s, 1H, ph), 8.38 (s, 2H, NH), 8.26 (s, 2H, NH), 8.05 (s, 1H, AQ), 8.02 (d, 1H, AQ), 7.92 (d, 2H, AQ), 7.90 (d, 1H, AQ), 7.80 (m, 2H, AQ), 3.55 (m, 2H, DI), 1.48 (m, 8H, DI), 1.45 (m, 2H, DI), 1.20 (m, 8H, DI), 1.17 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1674</td></tr><tr><td>1635</td></tr><tr><td>1597</td></tr></table",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "3324",
+                  "cell_id": "T_5_77:r0029:c0001",
+                  "row_index": 29,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_030",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "entity_id": "pe012",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1674",
+            "value_min": 1674.0,
+            "value_max": 1674.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "/td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-H $_{12}$ MDI</td><td>3324</td><td rowspan=\"4\">12.65 (s, 1H, NH), 8.96 (s, 2H, ph), 8.90 (s, 1H, ph), 8.38 (s, 2H, NH), 8.26 (s, 2H, NH), 8.05 (s, 1H, AQ), 8.02 (d, 1H, AQ), 7.92 (d, 2H, AQ), 7.90 (d, 1H, AQ), 7.80 (m, 2H, AQ), 3.55 (m, 2H, DI), 1.48 (m, 8H, DI), 1.45 (m, 2H, DI), 1.20 (m, 8H, DI), 1.17 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1674</td></tr><tr><td>1635</td></tr><tr><td>1597</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1674",
+                  "cell_id": "T_5_77:r0030:c0001",
+                  "row_index": 30,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_031",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "entity_id": "pe012",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1635",
+            "value_min": 1635.0,
+            "value_max": 1635.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "r><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><td>1635</td></tr><tr><td>1594</td></tr><tr><td rowspan=\"4\">1AQA-MDI</td><td>3334</td><td rowspan=\"4\">12.72 (s, 1H, NH), 9.03 (s, 2H, ph), 8.96 (s, 1H, ph), 8.43 (s, 2H, NH), 8.31 (s, 2H, NH), 8.10 (d, 1H, AQ), 8.01 (d, 2H, AQ), 7.88 (m, 2H, AQ), 7.44 (m, 1H, AQ), 7.36 (d, 4H, DI), 3.84 (s, 2H, DI)</td><td rowspan=\"4\">93</td></tr><tr><td>1672</td></tr><tr><td>1640</td></tr><tr><td>161</td></tr><tr><td",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1635",
+                  "cell_id": "T_5_77:r0031:c0001",
+                  "row_index": 31,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_032",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "entity_id": "pe012",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "IR (KBr)  $(cm^{-1})$",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1597",
+            "value_min": 1597.0,
+            "value_max": 1597.0,
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "/td><td rowspan=\"4\">12.68 (s, 1H, NH), 8.99 (s, 2H, ph), 8.93 (s, 1H, ph), 8.41 (s, 2H, NH), 8.30 (s, 2H, NH), 8.11 (s, 1H, AQ), 8.05 (d, 1H, AQ), 7.95 (d, 2H, AQ), 7.92 (d, 1H, AQ), 7.83 (m, 2H, AQ), 7.80 (d, 4H, DI), 7.33 (d, 4H, DI), 3.81 (s, 2H, DI)</td><td rowspan=\"4\">90</td></tr><tr><td>1672</td></tr><tr><td>1650</td></tr><tr><td>1589</td></tr><tr><td rowspan=\"4\">2AQA-H $_{12}$ MDI</td><td>3324</td><td rowspan=\"4\">12.65 (s, 1H, NH), 8.96 (s, 2H, ph), 8.90 (s, 1H, ph), 8.38 (s, 2H, NH), 8.26 (s, 2H, NH), 8.05 (s, 1H, AQ), 8.02 (d, 1H, AQ), 7.92 (d, 2H, AQ), 7.90 (d, 1H, AQ), 7.80 (m, 2H, AQ), 3.55 (m, 2H, DI), 1.48 (m, 8H, DI), 1.45 (m, 2H, DI), 1.20 (m, 8H, DI), 1.17 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1674</td></tr><tr><td>1635</td></tr><tr><td>1597</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "2AQA-H $_{12}$ MDI",
+                  "column_label": "IR (KBr)  $(cm^{-1})$",
+                  "cell_value": "1597",
+                  "cell_id": "T_5_77:r0032:c0001",
+                  "row_index": 32,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "ftir_002",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "T_5_78"
+      ],
+      "context_chars": 2657,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [],\"properties\": [],\"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 14735,
+              "output_tokens": 368,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09375696",
+              "output_cost": "0.0107272",
+              "total_cost": "0.10448416"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "04664bd81b724a86164226719a31e376a266d20446f251f40c0726e30d8669b9",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_1_24",
+        "I_1_26",
+        "P_1_27",
+        "P_1_28",
+        "P_1_30",
+        "P_1_31",
+        "P_2_37",
+        "I_2_38",
+        "P_2_39",
+        "P_2_40",
+        "I_2_41",
+        "P_2_42",
+        "P_2_45",
+        "P_2_46",
+        "P_2_47",
+        "P_2_48",
+        "P_4_66",
+        "P_4_67",
+        "P_4_68",
+        "I_4_71",
+        "T_5_77"
+      ],
+      "context_chars": 19136,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe005\", \"pe006\", \"pe007\", \"pe008\", \"pe009\", \"pe010\", \"pe011\", \"pe012\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_67\",\n          \"source_sentence\": \"The chemical structure of the resulting polymers was ascertained by FTIR and ¹H-NMR spectroscopies (Table 1).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_5_77\",\n          \"source_sentence\": \"Table 1. Characterization of polymers contains NMR (DMSO-D₆) (δ) data for all synthesized poly(amide-urea)s.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Bruker Avance DPX 250 MHz\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": {\n          \"raw\": \"250 MHz\",\n          \"value\": 250,\n          \"unit\": \"MHz\",\n          \"evidence\": [\n            {\n              \"block_id\": \"P_1_21\",\n              \"source_sentence\": \"The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany).\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"¹H-NMR\",\n      \"parameters\": {\n        \"solvent\": \"DMSO-D₆\"\n      },\n      \"result_summary\": \"1H-NMR spectroscopy was used to confirm the chemical structure of the synthesized poly(amide-urea)s, with the characteristic appearance of urea linkages and disappearance of amine linkages observed in spectra.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"property_id\": \"prop_s5_001\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.95\n      },\n      \"entity_id\": \"pe005\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_77\",\n          \"source_sentence\": \"1AQA-PPDI NMR (DMSO-D₆) (δ): 12.76 (s, 1H, NH)\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_77\",\n            \"row_label\": \"1AQA-PPDI\",\n            \"column_label\": \"NMR (DMSO-$D_6$) (δ)\",\n            \"cell_value\": \"12.76 (s, 1H, NH)\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"NMR (DMSO-D₆) (δ)\",\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": \"DMSO-D₆\",\n      \"spectral_assignment\": \"s, 1H, NH\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 12.76,\n      \"value_min\": 12.76,\n      \"value_raw\": \"12.76\"\n    },\n    {\n      \"property_id\": \"prop_s5_002\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.95\n      },\n      \"entity_id\": \"pe005\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_77\",\n          \"source_sentence\": \"1AQA-PPDI NMR (DMSO-D₆) (δ): 9.07 (s, 2H, ph)\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_77\",\n            \"row_label\": \"1AQA-PPDI\",\n            \"column_label\": \"NMR (DMSO-$D_6$) (δ)\",\n            \"cell_value\": \"9.07 (s, 2H, ph)\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"NMR (DMSO-D₆) (δ)\",\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": \"DMSO-D₆\",\n      \"spectral_assignment\": \"s, 2H, ph\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 9.07,\n      \"value_min\": 9.07,\n      \"value_raw\": \"9.07\"\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe002\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_67\",\n          \"source_sentence\": \"The chemical structure of the resulting polymers was ascertained by FTIR and ¹H-NMR spectroscopies (Table 1). The main characteristic feature of the polymers spectra was the appearance of urea and disappearance of amine linkages.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"¹H-NMR spectroscopy\",\n      \"property_name_raw\": \"chemical structure\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"unit_raw\": null,\n      \"value_raw\": \"appearance of urea and disappearance of amine linkages\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 20410,
+              "output_tokens": 5485,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11827296",
+              "output_cost": "0.15988775",
+              "total_cost": "0.27816071"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 2,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "2ff9ad9a76f54dcdfa7fac74c04f47f8751c377b0de791b84ea5aa2ce5965a7f",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_77"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_4_67"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "NMR"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[1].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_002"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "nuclear magnetic resonance",
+            "method_normalized": "NMR",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011",
+              "pe012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Bruker Avance DPX 250 MHz",
+            "measurement_context": {
+              "frequency": {
+                "raw": "250 MHz",
+                "value": 250.0,
+                "unit": "MHz",
+                "evidence": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany)."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {},
+              "other_condition_evidence": {},
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "1H-NMR spectroscopy was used to confirm the chemical structure of the synthesized poly(amide-urea)s, with the characteristic appearance of urea linkages and disappearance of amine linkages observed in spectra.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The H-nuclear magnetic resonance (NMR) spectra were recorded in DMSO-D solution using a Bruker Avance DPX 250 MHz (GmbH, Germany)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "12.76",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "12.76",
+            "value_min": 12.76,
+            "value_max": 12.76,
+            "spectral_assignment": "s, 1H, NH",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>IR (KBr)  $(cm^{-1})$ </td><td>NMR (DMSO- $D_6$ ) ( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "NMR (DMSO- $D_6$ ) ( $\\delta$ )",
+                  "cell_value": "12.76 (s, 1H, NH)",
+                  "cell_id": "T_5_77:r0001:c0002",
+                  "row_index": 1,
+                  "column_index": 2
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "entity_id": "pe005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "9.07",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "9.07",
+            "value_min": 9.07,
+            "value_max": 9.07,
+            "spectral_assignment": "s, 2H, ph",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_77",
+                "page": 5,
+                "bbox": [
+                  55.0,
+                  80.0,
+                  905.0,
+                  522.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>IR (KBr)  $(cm^{-1})$ </td><td>NMR (DMSO- $D_6$ ) ( $\\delta$ )</td><td>Yield (%)</td></tr><tr><td rowspan=\"4\">1AQA-PPDI</td><td>3338</td><td rowspan=\"4\">12.76 (s, 1H, NH), 9.07 (s, 2H, ph), 8.99 (s, 1H, NH), 8.13 (d, 1H, AQ), 8.04 (d, 2H, AQ), 7.92 (m, 2H, AQ), 7.78 (d, 1H, AQ), 7.61 (d, 4H, DI), 7.48 (m, 1H, AQ)</td><td rowspan=\"4\">92</td></tr><tr><td>1670</td></tr><tr><td>1634</td></tr><tr><td>1598</td></tr><tr><td rowspan=\"4\">1AQA-NDI</td><td>3329</td><td rowspan=\"4\">12.75 (s, 1H, NH), 9.05 (s, 2H, ph), 8.98 (s, 1H, ph), 8.45 (s, 2H, NH), 8.33 (s, 2H, NH), 8.12 (d, 1H, AQ), 8.02 (d, 2H, AQ), 7.91 (m, 2H, AQ), 7.76 (d, 1H, AQ), 7.40 (m, 1H, AQ), 7.13 (d, 2H, DI), 7.11 (m, 2H, DI), 6.54 (d, 2H, DI)</td><td rowspan=\"4\">89</td></tr><tr><td>1664</td></tr><tr><t",
+                "table_locator": {
+                  "table_id": "T_5_77",
+                  "row_label": "1AQA-PPDI",
+                  "column_label": "NMR (DMSO- $D_6$ ) ( $\\delta$ )",
+                  "cell_value": "9.07 (s, 2H, ph)",
+                  "cell_id": "T_5_77:r0001:c0002",
+                  "row_index": 1,
+                  "column_index": 2
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "nmr_002",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "T_5_78"
+      ],
+      "context_chars": 2657,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 14725,
+              "output_tokens": 266,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09371376",
+              "output_cost": "0.0077539",
+              "total_cost": "0.10146766"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "b2de4164221faee8123b5eb7241839e1e2f2a752495a52808a14a01176899f32",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "T_5_78",
+        "P_6_83"
+      ],
+      "context_chars": 6095,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"uprop001\",\n        \"uprop002\",\n        \"uprop003\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Gel permeation chromatography (GPC) was performed on a Waters 150-C instrument using Styragel columns and a differential refractometer detector. The molecular weight calibration was carried out using polystyrene standards. Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_83\",\n          \"source_sentence\": \"The molecular weights and dispersity of the polymers were investigated using the GPC method with DMF as a solvent calibrated with polystyrene standards. The results are compiled in Table 2. The numerous molecular weights $(M_{n})$ ranged from 14,200 to 22,000 corresponding to a degree of polymerization between 25 and 42. The $M_{w}$ values were about 35,700–48,500 which means that the ratio of $M_{w}/M_{n}$ was between 2.20 and 2.51.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Waters 150-C instrument\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"GPC\",\n      \"method_raw\": \"Gel permeation chromatography (GPC)\",\n      \"parameters\": {\n        \"columns\": \"Styragel columns\",\n        \"detector\": \"differential refractometer detector\",\n        \"flow_rate\": \"1 ml/min\",\n        \"solvent\": \"dimethylformamide (DMF)\",\n        \"calibration_standard\": \"polystyrene standards\"\n      },\n      \"result_summary\": \"Mn of the synthesized poly(amide-urea)s ranges from 14200 to 22000, Mw ranges from 35700 to 48500, and dispersity (Mw/Mn) ranges from 2.20 to 2.51.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": [\n        \"series003\",\n        \"series004\",\n        \"series005\"\n      ]\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15588,
+              "output_tokens": 4288,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09744192",
+              "output_cost": "0.1249952",
+              "total_cost": "0.22243712"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "381537289a0f93791a41f708eeb239dd350b222cc7e8a6c9fcbd020e603be220",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_6_83"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "gpc_001",
+          "reason": "char001 跨实体引用 unresolved property：['uprop001', 'uprop002', 'uprop003']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Gel permeation chromatography (GPC)",
+            "method_normalized": "GPC",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series003",
+              "series004",
+              "series005"
+            ],
+            "instrument": "Waters 150-C instrument",
+            "parameters": {
+              "columns": "Styragel columns",
+              "detector": "differential refractometer detector",
+              "flow_rate": "1 ml/min",
+              "solvent": "dimethylformamide (DMF)",
+              "calibration_standard": "polystyrene standards"
+            },
+            "result_summary": "Mn of the synthesized poly(amide-urea)s ranges from 14200 to 22000, Mw ranges from 35700 to 48500, and dispersity (Mw/Mn) ranges from 2.20 to 2.51.",
+            "derived_property_ids": [
+              "uprop001",
+              "uprop002",
+              "uprop003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Gel permeation chromatography (GPC) was performed on a Waters 150-C instrument using Styragel columns and a differential refractometer detector. The molecular weight calibration was carried out using polystyrene standards. Calibration and measurements were made at a flow rate of 1 ml/min, and dimethylformamide (DMF) was used as a solvent."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_6_84",
+        "I_6_90"
+      ],
+      "context_chars": 4140,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\"prop001\", \"prop002\", \"prop003\", \"prop004\", \"prop005\", \"prop006\", \"prop007\", \"prop008\"],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe005\", \"pe006\", \"pe007\", \"pe008\", \"pe009\", \"pe010\", \"pe011\", \"pe012\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. In DSC thermograms, the samples were heated from 30 to $2 0 0 ^ { \\\\circ } \\\\mathrm { C } ,$they were cooled, and then re-heated to eliminate the thermal history.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_84\",\n          \"source_sentence\": \"Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\\\mathrm { g } } )$was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers. Thermal analysis of the polymers is summarized in Table 3 and the representative curves of DMTA for 1AQA-PPDI $( T _ { \\\\mathrm { g } } =$1908C) and DSC for 1AQA-MDI $( T _ { \\\\mathrm { g } } { = } 1 7 8 ^ { \\\\circ } \\\\mathrm { C } )$are shown in Figs 4 and 5, respectively.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_6_90\",\n          \"source_sentence\": \"Figure 5. DSC curve of polymer 1AQA-MDI. This figure is available in colour online at www.interscience.wiley.com/ journal/pat\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Stanton Redcraft STA-780\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_1_21\",\n              \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"air\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"Differential scanning calorimetry (DSC)\",\n      \"parameters\": {\n        \"heating rate\": \"108C/min\",\n        \"temperature range\": \"30 to 200 °C\",\n        \"thermal history elimination\": \"heated, cooled, re-heated\"\n      },\n      \"result_summary\": \"Measured glass transition temperatures of 8 poly(amide-urea) samples, confirmed DMTA Tg results, no melting endotherm observed for all tested samples.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 14335,
+              "output_tokens": 5154,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11857104",
+              "output_cost": "0.1502391",
+              "total_cost": "0.26881014"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "c902010b4ca5cf96f23716211cf86138bcd15af94c9aca2fddb248d2f79639a7",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011",
+              "pe012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Stanton Redcraft STA-780",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "air"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "heating rate": "108C/min"
+            },
+            "result_summary": "Measured glass transition temperatures of 8 poly(amide-urea) samples, confirmed DMTA Tg results, no melting endotherm observed for all tested samples.",
+            "derived_property_ids": [
+              "prop001",
+              "prop002",
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min. In DSC thermograms, the samples were heated from 30 to $2 0 0 ^ { \\circ } \\mathrm { C } ,$they were cooled, and then re-heated to eliminate the thermal history."
+              },
+              {
+                "block_id": "P_6_84",
+                "page": 6,
+                "bbox": [
+                  87.0,
+                  249.0,
+                  500.0,
+                  476.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Also DSC analysis confirmed data obtained from DMTA. The glass transition temperature $( T _ { \\mathrm { g } } )$was taken as the midpoint of the change in the slope of the baseline. Also, no polymer showed a clear melting endotherm which resulted from the amorphous nature of the polymers. Thermal analysis of the polymers is summarized in Table 3 and the representative curves of DMTA for 1AQA-PPDI $( T _ { \\mathrm { g } } =$1908C) and DSC for 1AQA-MDI $( T _ { \\mathrm { g } } { = } 1 7 8 ^ { \\circ } \\mathrm { C } )$are shown in Figs 4 and 5, respectively."
+              },
+              {
+                "block_id": "I_6_90",
+                "page": 6,
+                "bbox": [
+                  536.0,
+                  508.0,
+                  937.0,
+                  638.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 5. DSC curve of polymer 1AQA-MDI. This figure is available in colour online at www.interscience.wiley.com/ journal/pat"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_6_85",
+        "T_6_86",
+        "I_6_91"
+      ],
+      "context_chars": 5523,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop009\", \"prop010\", \"prop011\", \"prop012\", \"prop013\", \"prop014\", \"prop015\", \"prop016\",\n                \"prop017\", \"prop018\", \"prop019\", \"prop020\", \"prop021\", \"prop022\", \"prop023\", \"prop024\",\n                \"prop025\", \"prop026\", \"prop027\", \"prop028\", \"prop029\", \"prop030\", \"prop031\", \"prop032\"\n            ],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_21\",\n                    \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_6_85\",\n                    \"source_sentence\": \"TGA provides the information about polymer stability upon heating and thermal behaviors of polymers. The temperatures for 2% gravimetric loss (T ) of the polyureas were about 192–2298C, and the temperatures for 10% gravimetric loss $( T _ { 1 0 } )$that are important criteria for the evaluation of thermal stability were in the range of $2 8 5 { - } 3 2 7 ^ { \\\\circ } \\\\mathrm { C } ,$and also the char yields of polymers at 7008C were about 36–49%. The results are collected in Table 3.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"T_6_86\",\n                    \"source_sentence\": \"Table 3. Thermal analysis of the polymers\",\n                    \"table_locator\": {\n                        \"table_id\": \"T_6_86\",\n                        \"row_label\": \"all polymer rows\",\n                        \"column_label\": \"T_i (°C), T_10 (°C), T_max (°C)\"\n                    }\n                }\n            ],\n            \"instrument\": \"Stanton Redcraft STA-780\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {\n                    \"atmosphere\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"heating_rate\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"measurement_replicate\": [\n                        {\n                            \"block_id\": \"P_1_21\",\n                            \"source_sentence\": \"Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                },\n                \"other_conditions\": {\n                    \"atmosphere\": \"air\",\n                    \"heating_rate\": \"108C/min\",\n                    \"measurement_replicate\": \"duplicate\"\n                },\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"TGA\",\n            \"method_raw\": \"thermogravimetric analysis (TGA)\",\n            \"parameters\": {},\n            \"result_summary\": \"Measured initial thermal decomposition temperature (T_i), 10% weight loss temperature (T_10) and maximum decomposition temperature (T_max) for 8 polyurea samples, data listed in Table 3.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 14980,
+              "output_tokens": 4304,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0647136",
+              "output_cost": "0.1254616",
+              "total_cost": "0.1901752"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "b10639f01b842d6f24cf63e97639822e72e0c431f84570a6cef448744dbbf13c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "tga_001",
+          "reason": "T_6_86.table_locator.row_label 不是表格原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Stanton Redcraft STA-780",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "air",
+                "heating_rate": "108C/min",
+                "measurement_replicate": "duplicate"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ],
+                "heating_rate": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ],
+                "measurement_replicate": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Measured initial thermal decomposition temperature (T_i), 10% weight loss temperature (T_10) and maximum decomposition temperature (T_max) for 8 polyurea samples, data listed in Table 3.",
+            "derived_property_ids": [
+              "prop009",
+              "prop010",
+              "prop011",
+              "prop012",
+              "prop013",
+              "prop014",
+              "prop015",
+              "prop016",
+              "prop017",
+              "prop018",
+              "prop019",
+              "prop020",
+              "prop021",
+              "prop022",
+              "prop023",
+              "prop024",
+              "prop025",
+              "prop026",
+              "prop027",
+              "prop028",
+              "prop029",
+              "prop030",
+              "prop031",
+              "prop032"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) were recorded duplicate on a Stanton Redcraft STA-780 (London, UK) in air at a heating rate of 108C/min."
+              },
+              {
+                "block_id": "P_6_85",
+                "page": 6,
+                "bbox": [
+                  87.0,
+                  476.0,
+                  500.0,
+                  691.0
+                ],
+                "source_type": "text",
+                "source_sentence": "TGA provides the information about polymer stability upon heating and thermal behaviors of polymers. The temperatures for 2% gravimetric loss (T ) of the polyureas were about 192–2298C, and the temperatures for 10% gravimetric loss $( T _ { 1 0 } )$that are important criteria for the evaluation of thermal stability were in the range of $2 8 5 { - } 3 2 7 ^ { \\circ } \\mathrm { C } ,$and also the char yields of polymers at 7008C were about 36–49%. The results are collected in Table 3."
+              },
+              {
+                "block_id": "T_6_86",
+                "page": 6,
+                "bbox": [
+                  90.0,
+                  742.0,
+                  510.0,
+                  863.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 3. Thermal analysis of the polymers",
+                "table_locator": {
+                  "table_id": "T_6_86",
+                  "row_label": "all polymer rows",
+                  "column_label": "T_i (°C), T_10 (°C), T_max (°C)",
+                  "cell_value": null,
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "P_7_100",
+        "P_7_101"
+      ],
+      "context_chars": 4172,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe002\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_101\",\n          \"source_sentence\": \"The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"X-ray diffractometer (Siemens model D 5000)\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"temperature\": {\n          \"raw\": \"room temperature\",\n          \"unit\": null,\n          \"value\": null,\n          \"evidence\": [\n            {\n              \"block_id\": \"P_1_21\",\n              \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000)\"\n            },\n            {\n              \"block_id\": \"P_7_101\",\n              \"source_sentence\": \"The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature.\"\n            }\n          ]\n        },\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_conditions\": {\n          \"scanning_range\": \"2u 5–708\"\n        },\n        \"other_condition_evidence\": {\n          \"scanning_range\": [\n            {\n              \"block_id\": \"P_7_101\",\n              \"source_sentence\": \"The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature.\"\n            }\n          ]\n        },\n        \"pressure\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"XRD\",\n      \"method_raw\": \"Wide-angle X-ray diffraction (WAXD)\",\n      \"parameters\": {\n        \"radiation\": \"Ni-filtered Cu Ka\",\n        \"voltage\": \"40 kV\",\n        \"current\": \"25 mA\",\n        \"scanning_rate\": \"38/min\"\n      },\n      \"result_summary\": \"All tested polyurea polymers are amorphous\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe002\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_101\",\n          \"source_sentence\": \"The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous.\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_name_raw\": \"crystallinity\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": null,\n      \"unit_raw\": null,\n      \"value_max\": null,\n      \"value_min\": null,\n      \"value_raw\": \"amorphous\"\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe002\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_101\",\n          \"source_sentence\": \"The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"WAXD\",\n      \"property_name_raw\": \"morphology\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"amorphous\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 14349,
+              "output_tokens": 4868,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09208944",
+              "output_cost": "0.1419022",
+              "total_cost": "0.23399164"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 1,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "66193920d8f59f6769bfb7ba223cf5164cafbf4d985490d2d50e9e43c3c0e030",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_subject_scope_normalized",
+          "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+          "field_path": "characterizations[0]"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_subject_scope_normalized",
+          "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+          "field_path": "properties[0]"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Wide-angle X-ray diffraction (WAXD)",
+            "method_normalized": "XRD",
+            "entity_id": "pe002",
+            "sample_resolution_status": "unresolved",
+            "instrument": "X-ray diffractometer (Siemens model D 5000)",
+            "measurement_context": {
+              "temperature": {
+                "raw": "room temperature",
+                "evidence": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000)"
+                  },
+                  {
+                    "block_id": "P_7_101",
+                    "page": 7,
+                    "bbox": [
+                      53.0,
+                      604.0,
+                      467.0,
+                      776.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {
+                "scanning_range": "2u 5–708"
+              },
+              "other_condition_evidence": {
+                "scanning_range": [
+                  {
+                    "block_id": "P_7_101",
+                    "page": 7,
+                    "bbox": [
+                      53.0,
+                      604.0,
+                      467.0,
+                      776.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "radiation": "Ni-filtered Cu Ka",
+              "voltage": "40 kV",
+              "current": "25 mA",
+              "scanning_rate": "38/min"
+            },
+            "result_summary": "All tested polyurea polymers are amorphous",
+            "derived_property_ids": [
+              "prop_s5_001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Wide-angle X-ray diffraction (WAXD) patterns were performed at room temperature on an X-ray diffractometer (Siemens model D 5000) using a Ni-filtered Cu Ka radiation (40 kV, 25 mA) at a scanning rate of 38/min."
+              },
+              {
+                "block_id": "P_7_101",
+                "page": 7,
+                "bbox": [
+                  53.0,
+                  604.0,
+                  467.0,
+                  776.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The crystallinity of the polymers was examined by WAXD patterns obtained by the powder specimens in the region of 2u 5–708 at room temperature. The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "entity_id": "pe002",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "amorphous",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_7_101",
+                "page": 7,
+                "bbox": [
+                  53.0,
+                  604.0,
+                  467.0,
+                  776.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The X-ray diffraction studies of the polyureas revealed that all of the polymers were amorphous."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "uv_vis_001",
+      "method_normalized": "UV-Vis",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22",
+        "I_6_87",
+        "P_6_89",
+        "T_7_97",
+        "T_7_98"
+      ],
+      "context_chars": 5517,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe002\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"UV spectra were obtained by a Cecil CE 1021 UV–Vis spectrometer (Cambridge, UK).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_89\",\n          \"source_sentence\": \"The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution. The UV–Vis absorption data of the polymers are summarized in Table 4.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_7_97\",\n          \"source_sentence\": \"Table 4. UV–Vis absorption of poly(amide-urea)s<sup>a</sup>\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Cecil CE 1021 UV–Vis spectrometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"UV-Vis\",\n      \"method_raw\": \"UV–Vis\",\n      \"parameters\": {\n        \"solvent\": \"NMP\"\n      },\n      \"result_summary\": \"The tested poly(amide-urea)s had absorption maxima at 303–429 nm assignable to the Q Q<sup>-</sup> transition resulting from the conjugation between the aromatic rings and nitrogen atoms.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15005,
+              "output_tokens": 3003,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09492336",
+              "output_cost": "0.08753745",
+              "total_cost": "0.18246081"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "a0b174985829956edbc875ec547320019fba955844df134c5075417207fd9dc7",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_subject_scope_normalized",
+          "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+          "field_path": "characterizations[0]"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_7_97"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "UV–Vis",
+            "method_normalized": "UV-Vis",
+            "entity_id": "pe002",
+            "sample_resolution_status": "unresolved",
+            "instrument": "Cecil CE 1021 UV–Vis spectrometer",
+            "parameters": {
+              "solvent": "NMP"
+            },
+            "result_summary": "The tested poly(amide-urea)s had absorption maxima at 303–429 nm assignable to the Q Q<sup>-</sup> transition resulting from the conjugation between the aromatic rings and nitrogen atoms.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "UV spectra were obtained by a Cecil CE 1021 UV–Vis spectrometer (Cambridge, UK)."
+              },
+              {
+                "block_id": "P_6_89",
+                "page": 6,
+                "bbox": [
+                  529.0,
+                  391.0,
+                  942.0,
+                  477.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The optical properties of polymers were investigated by measuring ultraviolet–visible (UV–Vis) absorption in NMP solution. The UV–Vis absorption data of the polymers are summarized in Table 4."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_1_20",
+        "P_1_21",
+        "P_1_22"
+      ],
+      "context_chars": 2547,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe002\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_21\",\n          \"source_sentence\": \"Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\\\circ } \\\\mathrm { C }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Ubbelohde viscometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": {\n          \"evidence\": [\n            {\n              \"block_id\": \"P_1_21\",\n              \"source_sentence\": \"Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\\\circ } \\\\mathrm { C }$.\",\n              \"table_locator\": null\n            }\n          ],\n          \"raw\": \"$3 0 ^ { \\\\circ } \\\\mathrm { C }$\",\n          \"unit\": \"°C\",\n          \"value\": 30\n        },\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"viscometry\",\n      \"method_raw\": \"Ubbelohde viscometer\",\n      \"parameters\": {\n        \"concentration\": \"0.5 g/dl\",\n        \"solvent\": \"NMP\"\n      },\n      \"result_summary\": \"Inherent viscosities of poly(amide-urea)s were measured.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": \"series002\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 13987,
+              "output_tokens": 2053,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 13112
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11706768",
+              "output_cost": "0.05984495",
+              "total_cost": "0.17691263"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "9f61ff024746fe3d970fca441b3859708c1a4e27802467c73f9fc4c2afe52cb1",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "viscometry_001",
+          "reason": "char001 与 Series 的归属不一致：['series002']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Ubbelohde viscometer",
+            "method_normalized": "viscometry",
+            "entity_id": "pe002",
+            "sample_resolution_status": "unresolved",
+            "series_id": "series002",
+            "instrument": "Ubbelohde viscometer",
+            "measurement_context": {
+              "temperature": {
+                "raw": "$3 0 ^ { \\circ } \\mathrm { C }$",
+                "value": 30.0,
+                "unit": "°C",
+                "evidence": [
+                  {
+                    "block_id": "P_1_21",
+                    "page": 1,
+                    "bbox": [
+                      53.0,
+                      330.0,
+                      467.0,
+                      787.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {},
+              "other_condition_evidence": {},
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "concentration": "0.5 g/dl",
+              "solvent": "NMP"
+            },
+            "result_summary": "Inherent viscosities of poly(amide-urea)s were measured.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_21",
+                "page": 1,
+                "bbox": [
+                  53.0,
+                  330.0,
+                  467.0,
+                  787.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Inherent viscosities were measured using an Ubbelohde viscometer at a concentration of 0.5 g/dl in NMP at $3 0 ^ { \\circ } \\mathrm { C }$."
+              }
+            ],
+            "confidence": {
+              "score": 0.8
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

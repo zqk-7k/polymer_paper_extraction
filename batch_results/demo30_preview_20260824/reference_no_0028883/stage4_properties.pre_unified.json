@@ -1,0 +1,733 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0028883",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_1_25",
+        "page": 1,
+        "bbox": [
+          512.0,
+          808.0,
+          885.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The materials used in this study were mixtures of syndiotactic polypropylene (sPP) with a weightaverage molecular weight $\\left( M _ { \\mathrm { w } } \\right) = 1 2 7 , 0 0 0$and a number-average molecular weight $( M _ { \\mathrm { n } } ) = 5 4 , 0 0 0 ,$and random PEP with 5–15 wt % ethylene."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_2_28",
+        "page": 2,
+        "bbox": [
+          112.0,
+          97.0,
+          485.0,
+          218.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PEP is around 130 and $1 6 5 \\ ^ { \\circ } \\mathrm { C } ,$, respectively."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "other_conditions": {
+        "heating_rate": "4 °C/min"
+      },
+      "other_condition_evidence": {
+        "heating_rate": [
+          {
+            "block_id": "P_2_34",
+            "page": 2,
+            "bbox": [
+              112.0,
+              644.0,
+              485.0,
+              914.0
+            ],
+            "source_type": "text",
+            "source_sentence": "After complete crystallization, the samples were reheated to a melt with a heating rate of $4 ~ { ^ { \\circ } \\mathrm { C / m i n } }$."
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_34",
+        "page": 2,
+        "bbox": [
+          112.0,
+          644.0,
+          485.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "After complete crystallization, the samples were reheated to a melt with a heating rate of $4 ~ { ^ { \\circ } \\mathrm { C / m i n } }$."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc004",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_4_54",
+        "page": 4,
+        "bbox": [
+          512.0,
+          393.0,
+          885.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Note that because the mass densities of amorphous PEP and $\\mathrm { s P P }$are equal to 0.852 and 0.856 $\\mathrm { { g } / \\mathrm { { cm } ^ { 3 } } }$, respectively,<sup>25</sup> both values of $\\phi _ { \\mathrm { P E P } }$and $w t _ { \\mathrm { P E P } }$are almost identical."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s001",
+      "property_name_raw": "melting temperature",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "130",
+      "value_min": 130.0,
+      "value_max": 130.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_1_25",
+          "page": 1,
+          "bbox": [
+            512.0,
+            808.0,
+            885.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The melting temperature of sPP and"
+        },
+        {
+          "block_id": "P_2_28",
+          "page": 2,
+          "bbox": [
+            112.0,
+            97.0,
+            485.0,
+            218.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PEP is around 130 and $1 6 5 \\ ^ { \\circ } \\mathrm { C } ,$, respectively."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s001",
+      "property_name_raw": "equilibrium melting temperature of sPP",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "determination_method_raw": "DSC",
+      "observation_role": "single",
+      "value_raw": "150",
+      "value_min": 150.0,
+      "value_max": 150.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "4 °C/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                112.0,
+                644.0,
+                485.0,
+                914.0
+              ],
+              "source_type": "text",
+              "source_sentence": "After complete crystallization, the samples were reheated to a melt with a heating rate of $4 ~ { ^ { \\circ } \\mathrm { C / m i n } }$."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_59",
+          "page": 5,
+          "bbox": [
+            114.0,
+            556.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "we obtain the same value of the equilibrium melting temperature of sPP, $T _ { \\mathrm { m , s P P } } ^ { \\mathrm { ^ { \\circ } } } ,$which is around 150 °C."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s002",
+      "property_name_raw": "equilibrium melting temperature of PEP",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "determination_method_raw": "DSC",
+      "observation_role": "single",
+      "value_raw": "189",
+      "value_min": 189.0,
+      "value_max": 189.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "4 °C/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                112.0,
+                644.0,
+                485.0,
+                914.0
+              ],
+              "source_type": "text",
+              "source_sentence": "After complete crystallization, the samples were reheated to a melt with a heating rate of $4 ~ { ^ { \\circ } \\mathrm { C / m i n } }$."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_61",
+          "page": 5,
+          "bbox": [
+            514.0,
+            186.0,
+            884.0,
+            232.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the equilibrium melting temperature of PEP, $T _ { \\mathrm { m , P E P } } ^ { \\mathrm { ^ { \\circ } } } ,$is found to be equal to 189 $^ \\circ \\mathrm { C }$."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s002",
+      "property_name_raw": "mass density of amorphous PEP",
+      "property_name_normalized": "density",
+      "property_code": "P1110",
+      "property_category": "physical_property",
+      "observation_role": "single",
+      "value_raw": "0.852",
+      "value_min": 0.852,
+      "value_max": 0.852,
+      "unit_raw": "g/cm³",
+      "unit_normalized": "g/cm³",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_54",
+          "page": 4,
+          "bbox": [
+            512.0,
+            393.0,
+            885.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the mass densities of amorphous PEP and $\\mathrm { s P P }$are equal to 0.852 and 0.856 $\\mathrm { { g } / \\mathrm { { cm } ^ { 3 } } }$, respectively"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s001",
+      "property_name_raw": "mass density of amorphous sPP",
+      "property_name_normalized": "density",
+      "property_code": "P1110",
+      "property_category": "physical_property",
+      "observation_role": "single",
+      "value_raw": "0.856",
+      "value_min": 0.856,
+      "value_max": 0.856,
+      "unit_raw": "g/cm³",
+      "unit_normalized": "g/cm³",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_54",
+          "page": 4,
+          "bbox": [
+            512.0,
+            393.0,
+            885.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the mass densities of amorphous PEP and $\\mathrm { s P P }$are equal to 0.852 and 0.856 $\\mathrm { { g } / \\mathrm { { cm } ^ { 3 } } }$, respectively"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop006",
+      "sample_id": "s001",
+      "property_name_raw": "heat of melting of 100% crystalline sPP",
+      "property_name_normalized": "heat_of_fusion",
+      "property_code": "P3130",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "196.6",
+      "value_min": 196.6,
+      "value_max": 196.6,
+      "unit_raw": "J/g",
+      "unit_normalized": "J/g",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_6_74",
+          "page": 6,
+          "bbox": [
+            512.0,
+            718.0,
+            884.0,
+            765.0
+          ],
+          "source_type": "text",
+          "source_sentence": "$\\Delta H _ { \\mathrm { s P P } } ^ { \\mathrm { * } }$and $\\Delta H _ { \\mathrm { P E P } } ^ { \\mathrm { * } }$are the heat of melting per gram of 100% crystalline sPP and PEP, and equal to 196.6 $\\mathrm { { J } / \\mathrm { { g } ^ { 3 1 } } }$and 209 $\\mathbf { J } / \\mathbf { g } , ^ { 3 2 }$respectively."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s002",
+      "property_name_raw": "heat of melting of 100% crystalline PEP",
+      "property_name_normalized": "heat_of_fusion",
+      "property_code": "P3130",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "209",
+      "value_min": 209.0,
+      "value_max": 209.0,
+      "unit_raw": "J/g",
+      "unit_normalized": "J/g",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_6_74",
+          "page": 6,
+          "bbox": [
+            512.0,
+            718.0,
+            884.0,
+            765.0
+          ],
+          "source_type": "text",
+          "source_sentence": "$\\Delta H _ { \\mathrm { s P P } } ^ { \\mathrm { * } }$and $\\Delta H _ { \\mathrm { P E P } } ^ { \\mathrm { * } }$are the heat of melting per gram of 100% crystalline sPP and PEP, and equal to 196.6 $\\mathrm { { J } / \\mathrm { { g } ^ { 3 1 } } }$and 209 $\\mathbf { J } / \\mathbf { g } , ^ { 3 2 }$respectively."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop008",
+      "sample_id": "s001",
+      "property_name_raw": "weight-average degree of polymerization of sPP",
+      "observation_role": "single",
+      "value_raw": "3024",
+      "value_min": 3024.0,
+      "value_max": 3024.0,
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_54",
+          "page": 4,
+          "bbox": [
+            512.0,
+            393.0,
+            885.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "In our systems, $M _ { \\mathrm { s P P , w } } = 1 2 7$,000 and thus $N _ { \\mathrm { s P P , w } }$is equal to 3024."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "unresolved_properties": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe003",
+      "property_name_raw": "Flory interaction parameter $\\chi(T)$",
+      "observation_role": "single",
+      "value_raw": "0.01153 - 4.5738/T",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_4_54",
+          "page": 4,
+          "bbox": [
+            512.0,
+            393.0,
+            885.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "we obtain $\\chi ( T ) ~ = ~ 0 . 0 1 1 5 3$$- \\ 4 . 5 7 3 8 / T$."
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "entity_id": "pe003",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "$X_{C,PEP}$ (exp)",
+      "determination_method_raw": "DSC",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "4 °C/min"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "entity_id": "pe003",
+          "sample_resolution_status": "unresolved",
+          "coordinates": [
+            {
+              "name_raw": "wtPEP",
+              "value_raw": "1",
+              "evidence": {
+                "block_id": "T_7_81",
+                "page": 7,
+                "bbox": [
+                  515.0,
+                  144.0,
+                  884.0,
+                  872.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Comparison of Experimental and Calculated Crystallinities of PEP and sPP for Various Values of $w t _ { \\mathrm { P E P } }$ and $T _ { \\mathrm { c } }$",
+                "table_locator": {
+                  "table_id": "T_7_81",
+                  "row_label": "1",
+                  "column_label": "wtPEP",
+                  "cell_value": "1",
+                  "cell_id": "T_7_81:r0001:c0000",
+                  "row_index": 1,
+                  "column_index": 0
+                }
+              }
+            },
+            {
+              "name_raw": "$T_c$",
+              "value_raw": "137",
+              "unit_raw": "°C",
+              "evidence": {
+                "block_id": "T_7_81",
+                "page": 7,
+                "bbox": [
+                  515.0,
+                  144.0,
+                  884.0,
+                  872.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Comparison of Experimental and Calculated Crystallinities of PEP and sPP for Various Values of $w t _ { \\mathrm { P E P } }$ and $T _ { \\mathrm { c } }$",
+                "table_locator": {
+                  "table_id": "T_7_81",
+                  "row_label": "137",
+                  "column_label": "$T_c$ (°C)",
+                  "cell_value": "137",
+                  "cell_id": "T_7_81:r0001:c0001",
+                  "row_index": 1,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "0.2793",
+          "value_min": 0.2793,
+          "value_max": 0.2793,
+          "measurement_context": {
+            "other_conditions": {
+              "heating_rate": "4 °C/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_7_81",
+              "page": 7,
+              "bbox": [
+                515.0,
+                144.0,
+                884.0,
+                872.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Table 1. Comparison of Experimental and Calculated Crystallinities of PEP and sPP for Various Values of $w t _ { \\mathrm { P E P } }$ and $T _ { \\mathrm { c } }$",
+              "table_locator": {
+                "table_id": "T_7_81",
+                "row_label": "1",
+                "column_label": "$X_{C, PEP}$ (exp)",
+                "cell_value": "0.2793",
+                "cell_id": "T_7_81:r0001:c0002",
+                "row_index": 1,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 1,
+        "covered": 1,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_7_81",
+          "page": 7,
+          "bbox": [
+            515.0,
+            144.0,
+            884.0,
+            872.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1. Comparison of Experimental and Calculated Crystallinities of PEP and sPP for Various Values of $w t _ { \\mathrm { P E P } }$ and $T _ { \\mathrm { c } }$",
+          "table_locator": {
+            "table_id": "T_7_81",
+            "row_label": "1",
+            "column_label": "$X_{C, PEP}$ (exp)",
+            "cell_value": "0.2793",
+            "cell_id": "T_7_81:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "99128748da86c363e7573562a1d01d5477ffa423915b8f39d25ec74db4e88480",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "124b43bf71bd237d19ee4a55e3da3c62da383efdd2105ccefef7c58dfd6c3b95",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 56,
+    "context_chars": 43312,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 30727,
+      "output_tokens": 10282,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 30727,
+      "total_tokens": 41009
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.13274064",
+      "output_cost": "0.2997203",
+      "total_cost": "0.43246094"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "coordinate_table_locators_synthesized",
+      "message": "已按 coordinate 原文值与表头生成稳定单元格定位",
+      "evidence": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "coordinate_locators_aligned_to_point",
+      "message": "重复 coordinate 标签已按同一 point 的唯一性质值行绑定到对应单元格（支持 rowspan）",
+      "evidence": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop007.property_name_raw='mass density of amorphous PEP' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unresolved_properties",
+      "message": "1 条性质无法可靠关联具体 Sample",
+      "unresolved_ids": [
+        "uprop001"
+      ]
+    }
+  ]
+}

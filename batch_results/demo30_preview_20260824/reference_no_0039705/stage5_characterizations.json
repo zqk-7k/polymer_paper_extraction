@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0039705",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "TGA",
+      "method_normalized": "TGA",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006"
+      ],
+      "entity_ids": [
+        "pe004",
+        "pe005",
+        "pe006",
+        "pe007",
+        "pe008",
+        "pe009"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "series_ids": [
+        "series006",
+        "series007",
+        "series008"
+      ],
+      "parameters": {
+        "atmosphere": "nitrogen"
+      },
+      "result_summary": "Polymers Ia-IIc show two stage decomposition transitions above 250 °C, 5% weight loss temperature, 50% weight loss temperature and char yield at 800 °C are reported, methyl substituted polymers (Ia-Ic) have higher thermal stability and char yield than butyl substituted polymers (IIa-IIc), thermal stability decreases with increasing spacer length.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_6_85",
+          "page": 6,
+          "bbox": [
+            101.0,
+            277.0,
+            483.0,
+            679.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermal stability was estimated using TGA under nitrogen atmosphere at a heating rate of $10 \\mathrm { { ^ { \\circ } C / m i n } }$."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "d86a9ab92e48657f80977294868a112088f8b18c3ce5b3a6c082596075db2d2d",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "66ab3b0f7c0a00ec9dc7bffc90b49549df96a17c8581f4b41458b8f6121df576",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 82,
+    "context_chars": 50947,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 12873,
+      "output_tokens": 1812,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064,
+      "billable_input_tokens": 23937,
+      "total_tokens": 25749
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.10340784",
+      "output_cost": "0.0528198",
+      "total_cost": "0.15622764"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "T_6_84"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "uprop001 的测定方法 'GPC' 缺少同一实体 Characterization 回链"
+    }
+  ]
+}

@@ -1,0 +1,625 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0036922",
+  "status": "running",
+  "shard_count": 6,
+  "unrouted_block_ids": [
+    "P_1_17",
+    "P_1_18",
+    "P_1_19",
+    "P_1_20",
+    "P_1_21",
+    "P_2_28",
+    "P_2_29",
+    "P_2_30",
+    "E_2_32",
+    "P_3_36",
+    "P_3_39",
+    "P_3_40",
+    "P_3_42",
+    "P_3_43",
+    "P_3_44",
+    "P_3_45",
+    "P_3_46",
+    "P_3_48",
+    "F_3_52",
+    "P_4_54",
+    "P_4_57",
+    "P_4_58",
+    "P_4_59",
+    "P_5_65",
+    "P_5_66",
+    "P_5_68",
+    "P_5_69",
+    "I_5_70",
+    "I_6_76",
+    "P_6_77",
+    "P_6_79",
+    "I_6_80",
+    "I_7_84",
+    "P_7_86",
+    "P_7_87",
+    "P_7_89",
+    "I_7_90",
+    "P_7_91",
+    "I_8_94",
+    "P_8_95"
+  ],
+  "shards": [
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_2_30",
+        "T_2_31",
+        "E_2_32",
+        "P_3_38",
+        "P_3_39",
+        "P_4_54",
+        "P_4_55",
+        "P_4_57"
+      ],
+      "context_chars": 8931,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"uprop001\",\n        \"uprop002\",\n        \"uprop003\",\n        \"uprop004\"\n      ],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_38\",\n          \"source_sentence\": \"The number-average $( M _ { \\\\mathrm { n } } )$and weight-average $( M _ { \\\\mathrm { w } } )$molecular weights and molecular weight distributions $( M _ { \\\\mathrm { w } } / M _ { \\\\mathrm { n } } )$of the polymers were determined by gel permeation chromatography (GPC) on a Tosoh HPLC-8020 equipped with a Tosoh ultraviolet (254-nm) detector, a refractive-index detector, and a gel column combination (Shodex AD polystyrene 800p, 803s, 805/s, and 807/s) with 1,1,1,3,3,3-hexafluoro-2-propanol (HFIP) as an eluent at a flow rate of 0.85 mL/min and with polystyrene standards for calibration at $4 0 ~ ^ { \\\\circ } \\\\mathrm { C }$.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_2_31\",\n          \"source_sentence\": \"Table 2. Characterization of PET I and PEAs IIIa–IIIc and IV–VII<sup>a</sup> with an Amide Content of 3 mol %\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_31\",\n            \"row_label\": \"IIIa, IIIb, IIIc, IV, V, VI, VII\",\n            \"column_label\": \"M_n, M_w, M_w/M_n\",\n            \"cell_value\": \"27,000; 21,500; 15,800; 25,700; 24,000; 21,900; 26,500 (M_n), 96,400; 71,300; 55,900; 78,900; 74,000; 63,900; 84,600 (M_w), 3.6; 3.3; 3.5; 3.1; 3.1; 2.9; 3.2 (M_w/M_n)\"\n          }\n        }\n      ],\n      \"instrument\": \"Tosoh HPLC-8020\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": {\n          \"raw\": \"40 °C\",\n          \"unit\": \"°C\",\n          \"value\": 40,\n          \"evidence\": [\n            {\n              \"block_id\": \"P_3_38\",\n              \"source_sentence\": \"with polystyrene standards for calibration at $4 0 ~ ^ { \\\\circ } \\\\mathrm { C }$\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"GPC\",\n      \"method_raw\": \"gel permeation chromatography (GPC)\",\n      \"parameters\": {\n        \"detector\": \"Tosoh ultraviolet (254-nm) detector, refractive-index detector\",\n        \"column\": \"Shodex AD polystyrene 800p, 803s, 805/s, 807/s\",\n        \"eluent\": \"1,1,1,3,3,3-hexafluoro-2-propanol (HFIP)\",\n        \"flow_rate\": \"0.85 mL/min\",\n        \"calibration\": \"polystyrene standards\"\n      },\n      \"result_summary\": \"Number-average molecular weight of PEAs ranges from 15,800 to 27,000, weight-average molecular weight ranges from 56,000 to 96,000, molecular weight distribution ranges from 2.9 to 3.6.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"sample_resolution_status\": \"unresolved\",\n      \"property_name_raw\": \"sequences\",\n      \"value_raw\": \"somewhat disordered\",\n      \"unit_raw\": null,\n      \"method_raw\": null,\n      \"entity_id\": \"pe001\",\n      \"sample_id\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_55\",\n          \"source_sentence\": \"It is considered, therefore, that the different crystallization behaviors and the broadening of the molecular weight distribution of GPC for PEAs may come from the somewhat disordered sequences, which take place during the ester–amide interchange reaction in melt polycondensation in the presence of tetrabutyl titanate as a catalyst.\",\n          \"table_locator\": null\n        }\n      ]\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 14062,
+              "output_tokens": 6007,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0908496",
+              "output_cost": "0.17510405",
+              "total_cost": "0.26595365"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "805c1c5e238a52d7ae660359d12c2ef5f65c100f07d4a5cf310f5517c5f0a31f",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context.temperature",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "gpc_001",
+          "reason": "T_2_31.table_locator.row_label 不是表格原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "gel permeation chromatography (GPC)",
+            "method_normalized": "GPC",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "instrument": "Tosoh HPLC-8020",
+            "parameters": {
+              "eluent": "1,1,1,3,3,3-hexafluoro-2-propanol (HFIP)",
+              "flow_rate": "0.85 mL/min",
+              "calibration": "polystyrene standards"
+            },
+            "result_summary": "Number-average molecular weight of PEAs ranges from 15,800 to 27,000, weight-average molecular weight ranges from 56,000 to 96,000, molecular weight distribution ranges from 2.9 to 3.6.",
+            "derived_property_ids": [
+              "uprop001",
+              "uprop002",
+              "uprop003",
+              "uprop004"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_38",
+                "page": 3,
+                "bbox": [
+                  112.0,
+                  337.0,
+                  485.0,
+                  753.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The number-average $( M _ { \\mathrm { n } } )$and weight-average $( M _ { \\mathrm { w } } )$molecular weights and molecular weight distributions $( M _ { \\mathrm { w } } / M _ { \\mathrm { n } } )$of the polymers were determined by gel permeation chromatography (GPC) on a Tosoh HPLC-8020 equipped with a Tosoh ultraviolet (254-nm) detector, a refractive-index detector, and a gel column combination (Shodex AD polystyrene 800p, 803s, 805/s, and 807/s) with 1,1,1,3,3,3-hexafluoro-2-propanol (HFIP) as an eluent at a flow rate of 0.85 mL/min and with polystyrene standards for calibration at $4 0 ~ ^ { \\circ } \\mathrm { C }$."
+              },
+              {
+                "block_id": "T_2_31",
+                "page": 2,
+                "bbox": [
+                  114.0,
+                  522.0,
+                  882.0,
+                  700.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 2. Characterization of PET I and PEAs IIIa–IIIc and IV–VII<sup>a</sup> with an Amide Content of 3 mol %",
+                "table_locator": {
+                  "table_id": "T_2_31",
+                  "row_label": "IIIa, IIIb, IIIc, IV, V, VI, VII",
+                  "column_label": "M_n, M_w, M_w/M_n",
+                  "cell_value": "27,000; 21,500; 15,800; 25,700; 24,000; 21,900; 26,500 (M_n), 96,400; 71,300; 55,900; 78,900; 74,000; 63,900; 84,600 (M_w), 3.6; 3.3; 3.5; 3.1; 3.1; 2.9; 3.2 (M_w/M_n)",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_30",
+        "T_2_31",
+        "E_2_32",
+        "P_3_38",
+        "P_3_39",
+        "P_3_48",
+        "P_3_49",
+        "F_3_52",
+        "I_4_53",
+        "P_4_54",
+        "P_4_59",
+        "I_4_60"
+      ],
+      "context_chars": 10336,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop010\",\n        \"prop011\",\n        \"prop012\",\n        \"uprop005\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_38\",\n          \"source_sentence\": \"The melting temperature $( T _ { \\\\mathbf { m } } )$cold crystallization temperature $( T _ { \\\\mathrm { { c } } } )$recrystallization temperature $( T _ { \\\\mathbf { r } } )$, heat of crystallization $( \\\\Delta H _ { \\\\mathrm { m } } )$, and glass transition temperature $( T _ { \\\\mathrm { g } } )$of the polymers were measured with a PerkinElmer DSC 7 analyzer at heating/cooling rates of 10 8C/min with a holding time of 3 min at $3 0 0 ~ ^ { \\\\circ } \\\\mathrm { C }$under a nitrogen atmosphere.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_3_49\",\n          \"source_sentence\": \"$T _ { \\\\mathrm { m } } , T _ { \\\\mathrm { g } } , T _ { \\\\mathrm { c } } , T _ { \\\\mathrm { r } } ,$and $\\\\Delta H _ { \\\\mathbf { m } }$of the PEAs with amide contents as high as 10, 20, 40, and 50 mol % and of those with amide contents as low as 3 mol % were determined by DSC measurements and are summarized in Tables 1 and 2, respectively.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_2_31\",\n          \"source_sentence\": \"Table 2. Characterization of PET I and PEAs IIIa–IIIc and IV–VII<sup>a</sup> with an Amide Content of 3 mol %\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"PerkinElmer DSC 7 analyzer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_3_38\",\n              \"source_sentence\": \"under a nitrogen atmosphere\"\n            }\n          ],\n          \"heating/cooling rate\": [\n            {\n              \"block_id\": \"P_3_38\",\n              \"source_sentence\": \"at heating/cooling rates of 10 8C/min\"\n            }\n          ],\n          \"holding time at 300 °C\": [\n            {\n              \"block_id\": \"P_3_38\",\n              \"source_sentence\": \"with a holding time of 3 min at $3 0 0 ~ ^ { \\\\circ } \\\\mathrm { C }$\"\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"nitrogen\",\n          \"heating/cooling rate\": \"10 °C/min\",\n          \"holding time at 300 °C\": \"3 min\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"DSC\",\n      \"parameters\": {},\n      \"result_summary\": \"Measured Tm, Tg, Tc, Tr, ΔHm of PET and PEAs with different amide contents, results summarized in Tables 1 and 2.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\",\n        \"s012\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"E_2_32\",\n          \"source_sentence\": \"$$\\n\\\\begin{array}{l} \\\\text { PEA III,   PEA V } \\\\quad \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{COOCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{HNOC} - \\\\bigcirc - \\\\mathrm{CONHCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {3. 1} \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{COOCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {9 6. 9} \\\\\\\\ \\\\text { PEA IV } \\\\quad \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{COOCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{HNOC} - \\\\bigcirc - \\\\mathrm{CONHCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {3. 1} \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{COCOCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {9 6. 9} \\\\\\\\ \\\\text { PEA VI } \\\\quad \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{CONHCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {6} \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{COOCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {9 4} \\\\\\\\ \\\\text { PEA VII } \\\\quad \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{CONHCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {6} \\\\left\\\\{\\\\mathrm{OC} - \\\\bigcirc - \\\\mathrm{COOCH} _ {2} \\\\mathrm{CH} _ {2} \\\\mathrm{O} \\\\right\\\\} _ {9 4} \\\\end{array}\\n$$\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": null,\n      \"property_name_raw\": \"chemical structure\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"PEA III, PEA V {OC - ○ - COOCH₂CH₂HNOC - ○ - CONHCH₂CH₂O}₃.₁ {OC - ○ - COOCH₂CH₂O}₉₆.₉; PEA IV {OC - ○ - COOCH₂CH₂HNOC - ○ - CONHCH₂CH₂O}₃.₁ {OC - ○ - COCOCH₂CH₂O}₉₆.₉; PEA VI {OC - ○ - CONHCH₂CH₂O}₆ {OC - ○ - COOCH₂CH₂O}₉₄; PEA VII {OC - ○ - CONHCH₂CH₂O}₆ {OC - ○ - COOCH₂CH₂O}₉₄\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 14556,
+              "output_tokens": 6360,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06288192",
+              "output_cost": "0.185394",
+              "total_cost": "0.24827592"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "6198edc7fe45076631319d30115fa7bca881d7b01a515019b4b98596ff23831e",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_2_31"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "char001 跨实体引用 unresolved property：['uprop005']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DSC",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010",
+              "s011",
+              "s012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "PerkinElmer DSC 7 analyzer",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "nitrogen",
+                "holding time at 300 °C": "3 min"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_3_38",
+                    "page": 3,
+                    "bbox": [
+                      112.0,
+                      337.0,
+                      485.0,
+                      753.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "under a nitrogen atmosphere"
+                  }
+                ],
+                "holding time at 300 °C": [
+                  {
+                    "block_id": "P_3_38",
+                    "page": 3,
+                    "bbox": [
+                      112.0,
+                      337.0,
+                      485.0,
+                      753.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "with a holding time of 3 min at $3 0 0 ~ ^ { \\circ } \\mathrm { C }$"
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Measured Tm, Tg, Tc, Tr, ΔHm of PET and PEAs with different amide contents, results summarized in Tables 1 and 2.",
+            "derived_property_ids": [
+              "prop010",
+              "prop011",
+              "prop012",
+              "uprop005"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_38",
+                "page": 3,
+                "bbox": [
+                  112.0,
+                  337.0,
+                  485.0,
+                  753.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The melting temperature $( T _ { \\mathbf { m } } )$cold crystallization temperature $( T _ { \\mathrm { { c } } } )$recrystallization temperature $( T _ { \\mathbf { r } } )$, heat of crystallization $( \\Delta H _ { \\mathrm { m } } )$, and glass transition temperature $( T _ { \\mathrm { g } } )$of the polymers were measured with a PerkinElmer DSC 7 analyzer at heating/cooling rates of 10 8C/min with a holding time of 3 min at $3 0 0 ~ ^ { \\circ } \\mathrm { C }$under a nitrogen atmosphere."
+              },
+              {
+                "block_id": "P_3_49",
+                "page": 3,
+                "bbox": [
+                  511.0,
+                  735.0,
+                  885.0,
+                  901.0
+                ],
+                "source_type": "text",
+                "source_sentence": "$T _ { \\mathrm { m } } , T _ { \\mathrm { g } } , T _ { \\mathrm { c } } , T _ { \\mathrm { r } } ,$and $\\Delta H _ { \\mathbf { m } }$of the PEAs with amide contents as high as 10, 20, 40, and 50 mol % and of those with amide contents as low as 3 mol % were determined by DSC measurements and are summarized in Tables 1 and 2, respectively."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_1_21",
+        "T_2_25",
+        "P_2_28",
+        "P_3_38",
+        "P_3_39",
+        "I_5_64",
+        "P_5_65",
+        "P_8_95",
+        "P_8_96"
+      ],
+      "context_chars": 7000,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop002\",\n                \"prop003\",\n                \"prop004\",\n                \"prop005\",\n                \"prop006\",\n                \"prop007\",\n                \"prop008\",\n                \"prop009\",\n                \"prop010\",\n                \"prop011\",\n                \"prop012\"\n            ],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"T_2_25\",\n                    \"source_sentence\": \"Table 1. Thermal Properties ofPET I and PEAs IIa– IId<sup>a</sup> with Various Amide Contents\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_3_38\",\n                    \"source_sentence\": \"The initial decomposition temperature $( T _ { \\\\mathrm { i } } )$and onset of decomposition curves were determined with a PerkinElmer TGA 7 analyzer at a heating rate of 10 8C/min under a nitrogen atmosphere.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"I_5_64\",\n                    \"source_sentence\": \"Figure 3. TGA curves of (a) PET I, (b) PEA IIa, (c) PEA IIb, (d) PEA IIc, and (e) PEA IId at a heating rate of 10 8C/min under a nitrogen atmosphere.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"PerkinElmer TGA 7 analyzer\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {\n                    \"heating rate\": [\n                        {\n                            \"block_id\": \"P_3_38\",\n                            \"source_sentence\": \"The initial decomposition temperature $( T _ { \\\\mathrm { i } } )$and onset of decomposition curves were determined with a PerkinElmer TGA 7 analyzer at a heating rate of 10 8C/min under a nitrogen atmosphere.\"\n                        }\n                    ],\n                    \"atmosphere\": [\n                        {\n                            \"block_id\": \"P_3_38\",\n                            \"source_sentence\": \"The initial decomposition temperature $( T _ { \\\\mathrm { i } } )$and onset of decomposition curves were determined with a PerkinElmer TGA 7 analyzer at a heating rate of 10 8C/min under a nitrogen atmosphere.\"\n                        }\n                    ]\n                },\n                \"other_conditions\": {\n                    \"heating rate\": \"10 °C/min\",\n                    \"atmosphere\": \"nitrogen\"\n                },\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"TGA\",\n            \"method_raw\": \"TGA\",\n            \"parameters\": {},\n            \"result_summary\": \"Determined initial decomposition temperature Ti, decomposition temperature Td and melting temperature Tm of PET I and PEAs IIa-IId\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 12988,
+              "output_tokens": 2592,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08620992",
+              "output_cost": "0.0755568",
+              "total_cost": "0.16176672"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "748f8a17f11dcb0eb2550c55cceb51b36e971018ed5776b8c334f0f31bd1fbe9",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_2_25"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "TGA",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "PerkinElmer TGA 7 analyzer",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "nitrogen"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_3_38",
+                    "page": 3,
+                    "bbox": [
+                      112.0,
+                      337.0,
+                      485.0,
+                      753.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The initial decomposition temperature $( T _ { \\mathrm { i } } )$and onset of decomposition curves were determined with a PerkinElmer TGA 7 analyzer at a heating rate of 10 8C/min under a nitrogen atmosphere."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Determined initial decomposition temperature Ti, decomposition temperature Td and melting temperature Tm of PET I and PEAs IIa-IId",
+            "derived_property_ids": [
+              "prop002",
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008",
+              "prop009",
+              "prop010",
+              "prop011",
+              "prop012"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_38",
+                "page": 3,
+                "bbox": [
+                  112.0,
+                  337.0,
+                  485.0,
+                  753.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The initial decomposition temperature $( T _ { \\mathrm { i } } )$and onset of decomposition curves were determined with a PerkinElmer TGA 7 analyzer at a heating rate of 10 8C/min under a nitrogen atmosphere."
+              },
+              {
+                "block_id": "I_5_64",
+                "page": 5,
+                "bbox": [
+                  117.0,
+                  100.0,
+                  482.0,
+                  287.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 3. TGA curves of (a) PET I, (b) PEA IIa, (c) PEA IIb, (d) PEA IIc, and (e) PEA IId at a heating rate of 10 8C/min under a nitrogen atmosphere."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_3_36",
+        "P_3_37"
+      ],
+      "context_chars": 1040,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 11275,
+              "output_tokens": 353,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07880976",
+              "output_cost": "0.01028995",
+              "total_cost": "0.08909971"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "02978255d566a2f1e04ad6d9ff3e26d94db172b950e7e702ae41bc8601a100bf",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_3_36",
+        "P_3_37"
+      ],
+      "context_chars": 1040,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 11243,
+              "output_tokens": 395,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.04856976",
+              "output_cost": "0.01151425",
+              "total_cost": "0.06008401"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "1ffc9964ee4e917c118fed00c9eec17a364b513a803e89d2647f3d93ed544102",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

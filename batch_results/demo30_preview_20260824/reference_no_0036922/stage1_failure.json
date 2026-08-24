@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage1_material_mention",
+  "document_id": "reference_no_0036922",
+  "error_type": "Stage1Error",
+  "error": "reference_no_0036922 chunk 1 响应校验失败：mention text 'PET' 不是 T_2_25 的原文子串",
+  "call_count": 1,
+  "usage": {
+    "input_tokens": 3853,
+    "output_tokens": 1682,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "billable_input_tokens": 3853,
+    "total_tokens": 5535
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "17",
+    "output_per_million": "101",
+    "input_cost": "0.065501",
+    "output_cost": "0.169882",
+    "total_cost": "0.235383"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "finish_reason": "stop",
+    "content": "{\"mentions\":[{\"block_id\":\"T_2_25\",\"text\":\"PET\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_25\",\"text\":\"PEAs\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_25\",\"text\":\"I\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"T_2_25\",\"text\":\"IIa\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_25\",\"text\":\"IIb\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_25\",\"text\":\"IIc\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_25\",\"text\":\"IId\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_2_28\",\"text\":\"PEAs\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_2_29\",\"text\":\"PEAs\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_2_29\",\"text\":\"PET\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_2_30\",\"text\":\"PEAs\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_2_30\",\"text\":\"PET\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"T_2_31\",\"text\":\"PET\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"PEAs\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"I\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"IIIa\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"IIIb\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"IIIc\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"IV\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"V\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"VI\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_2_31\",\"text\":\"VII\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_3_36\",\"text\":\"PEAs\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_3_36\",\"text\":\"IIa–IId\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.94}},{\"block_id\":\"P_3_36\",\"text\":\"IIIa–IIIc\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.94}},{\"block_id\":\"P_3_36\",\"text\":\"IV\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_3_36\",\"text\":\"V\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_3_36\",\"text\":\"VI\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_3_36\",\"text\":\"VII\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_3_36\",\"text\":\"PET\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_3_36\",\"text\":\"I\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.96}}]}",
+    "usage": {
+      "input_tokens": 3853,
+      "output_tokens": 1682,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.065501",
+      "output_cost": "0.169882",
+      "total_cost": "0.235383"
+    }
+  }
+}

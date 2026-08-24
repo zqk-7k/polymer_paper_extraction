@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage1_material_mention",
+  "document_id": "reference_no_0033493",
+  "error_type": "Stage1Error",
+  "error": "reference_no_0033493 chunk 1 响应校验失败：未知 block_id：P_3_81",
+  "call_count": 1,
+  "usage": {
+    "input_tokens": 3580,
+    "output_tokens": 1155,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "billable_input_tokens": 3580,
+    "total_tokens": 4735
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "17",
+    "output_per_million": "101",
+    "input_cost": "0.06086",
+    "output_cost": "0.116655",
+    "total_cost": "0.177515"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "finish_reason": "stop",
+    "content": "{\"mentions\":[{\"block_id\":\"P_1_58\",\"text\":\"Polymethylphenylsilane\",\"mention_role\":\"polymer_name\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_1_58\",\"text\":\"poly[methyl(H)-co-methylphenyl]- silane\",\"mention_role\":\"polymer_name\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_1_58\",\"text\":\"poly[methyl(H)-co-diphenyl]silane\",\"mention_role\":\"polymer_name\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_2_66\",\"text\":\"PSMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.96}},{\"block_id\":\"P_2_66\",\"text\":\"PSHMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.96}},{\"block_id\":\"P_2_66\",\"text\":\"PSHDF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.96}},{\"block_id\":\"P_2_67\",\"text\":\"PSHMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_2_67\",\"text\":\"PSHDF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_2_67\",\"text\":\"polysilane\",\"mention_role\":\"polymer_name\",\"confidence\":{\"score\":0.86}},{\"block_id\":\"P_2_69\",\"text\":\"polyhydrosilanes\",\"mention_role\":\"polymer_name\",\"confidence\":{\"score\":0.94}},{\"block_id\":\"P_2_70\",\"text\":\"PSMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_2_70\",\"text\":\"PSHDF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_2_70\",\"text\":\"#1\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.79}},{\"block_id\":\"P_3_81\",\"text\":\"polysilanes\",\"mention_role\":\"polymer_name\",\"confidence\":{\"score\":0.95}},{\"block_id\":\"T_3_81\",\"text\":\"PSMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_3_81\",\"text\":\"PSHMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"T_3_81\",\"text\":\"PSHDF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.98}},{\"block_id\":\"P_3_82\",\"text\":\"sample #2\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.85}},{\"block_id\":\"P_3_82\",\"text\":\"PSMF\",\"mention_role\":\"abbreviation\",\"confidence\":{\"score\":0.97}},{\"block_id\":\"P_3_83\",\"text\":\"sample #3\",\"mention_role\":\"sample_label\",\"confidence\":{\"score\":0.85}}]}",
+    "usage": {
+      "input_tokens": 3580,
+      "output_tokens": 1155,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.06086",
+      "output_cost": "0.116655",
+      "total_cost": "0.177515"
+    }
+  }
+}

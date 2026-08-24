@@ -1,0 +1,5561 @@
+{
+  "schema_version": "candidate.v1",
+  "document_id": "reference_no_0028993",
+  "publication": {
+    "kind": "candidate",
+    "status": "complete",
+    "validation_status": "not_validated",
+    "message": "Stage 0-5 已完成；未经完整科学语义校验，仅用于预览模型抽取结果。",
+    "completed_stages": [
+      "stage0",
+      "stage1",
+      "stage2",
+      "stage3",
+      "stage4",
+      "stage5"
+    ],
+    "candidate_stages": [],
+    "failed_stages": []
+  },
+  "paper": {
+    "ref_no": "reference_no_0028993",
+    "pdf_filename": "2e584901-4196-42b5-ae89-c871a2fc518b_origin.pdf",
+    "source_pdf_path": "mineru/reference_no_0028993/2e584901-4196-42b5-ae89-c871a2fc518b_origin.pdf",
+    "organized_pdf_path": "organized/reference_no_0028993/origin.pdf",
+    "doi": null,
+    "title": null,
+    "authors": null,
+    "journal": null,
+    "year": null,
+    "metadata_status": "failed",
+    "metadata_extraction": {
+      "method": "llm",
+      "provider": null,
+      "model": null,
+      "prompt_file": "prompts/meta_extract.md",
+      "prompt_sha256": "98252486e4f9cdfd1b42ea02b7e01440d6be99c99d18720dc71c95aa1643fcd4",
+      "source_pages": [
+        0,
+        1
+      ],
+      "status": "failed",
+      "error_type": "MetaExtractorUnavailable"
+    }
+  },
+  "material_mentions": [
+    {
+      "mention_id": "m001",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00001"
+      ]
+    },
+    {
+      "mention_id": "m002",
+      "text": "Skygreen SG 2190E",
+      "mention_role": "commercial_name",
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co."
+      },
+      "confidence": {
+        "score": 0.98
+      },
+      "evidence_ids": [
+        "ev00001"
+      ]
+    },
+    {
+      "mention_id": "m003",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00001"
+      ]
+    },
+    {
+      "mention_id": "m004",
+      "text": "SKYPET BB-7755",
+      "mention_role": "commercial_name",
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co."
+      },
+      "confidence": {
+        "score": 0.98
+      },
+      "evidence_ids": [
+        "ev00001"
+      ]
+    },
+    {
+      "mention_id": "m005",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "mention_id": "m006",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "mention_id": "m007",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_24",
+        "page": 1,
+        "bbox": [
+          507.0,
+          346.0,
+          900.0,
+          423.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dissolved in a mixed solvent of phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %) at room temperature for 1 h."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00003"
+      ]
+    },
+    {
+      "mention_id": "m008",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_24",
+        "page": 1,
+        "bbox": [
+          507.0,
+          346.0,
+          900.0,
+          423.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dissolved in a mixed solvent of phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %) at room temperature for 1 h."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00003"
+      ]
+    },
+    {
+      "mention_id": "m009",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_26",
+        "page": 1,
+        "bbox": [
+          507.0,
+          469.0,
+          900.0,
+          559.0
+        ],
+        "source_type": "text",
+        "source_sentence": "As a solvent, deuterated trifluoroacetic acid was used for PET, whereas deuterated chloroform was used for PBAS and the copolyesters."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00004"
+      ]
+    },
+    {
+      "mention_id": "m010",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_1_26",
+        "page": 1,
+        "bbox": [
+          507.0,
+          469.0,
+          900.0,
+          559.0
+        ],
+        "source_type": "text",
+        "source_sentence": "As a solvent, deuterated trifluoroacetic acid was used for PET, whereas deuterated chloroform was used for PBAS and the copolyesters."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00004"
+      ]
+    },
+    {
+      "mention_id": "m011",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_1_26",
+        "page": 1,
+        "bbox": [
+          507.0,
+          469.0,
+          900.0,
+          559.0
+        ],
+        "source_type": "text",
+        "source_sentence": "As a solvent, deuterated trifluoroacetic acid was used for PET, whereas deuterated chloroform was used for PBAS and the copolyesters."
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "evidence_ids": [
+        "ev00004"
+      ]
+    },
+    {
+      "mention_id": "m012",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_1_27",
+        "page": 1,
+        "bbox": [
+          507.0,
+          559.0,
+          900.0,
+          707.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The $T _ { m }$and crystallization temperature (T ) values of the copolyesters were measured with a Seiko DSC 220C differential scanning calorimetry (DSC) instrument calibrated with pure indium as a standard (Japan)."
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "evidence_ids": [
+        "ev00005"
+      ]
+    },
+    {
+      "mention_id": "m013",
+      "text": "PET/PBAS = 10/90",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td"
+      },
+      "confidence": {
+        "score": 0.96
+      },
+      "evidence_ids": [
+        "ev00006"
+      ]
+    },
+    {
+      "mention_id": "m014",
+      "text": "M30P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M30P10"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00007"
+      ]
+    },
+    {
+      "mention_id": "m015",
+      "text": "M45P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M45P10"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00008"
+      ]
+    },
+    {
+      "mention_id": "m016",
+      "text": "M60P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P10"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00009"
+      ]
+    },
+    {
+      "mention_id": "m017",
+      "text": "M75P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M75P10"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00010"
+      ]
+    },
+    {
+      "mention_id": "m018",
+      "text": "M90P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M90P10"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00011"
+      ]
+    },
+    {
+      "mention_id": "m019",
+      "text": "PET/PBAS = 20/80",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 20/80"
+      },
+      "confidence": {
+        "score": 0.96
+      },
+      "evidence_ids": [
+        "ev00012"
+      ]
+    },
+    {
+      "mention_id": "m020",
+      "text": "M60P20",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P20"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00013"
+      ]
+    },
+    {
+      "mention_id": "m021",
+      "text": "PET/PBAS = 30/70",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 30/70"
+      },
+      "confidence": {
+        "score": 0.96
+      },
+      "evidence_ids": [
+        "ev00014"
+      ]
+    },
+    {
+      "mention_id": "m022",
+      "text": "M60P30",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P30"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00015"
+      ]
+    },
+    {
+      "mention_id": "m023",
+      "text": "PET/PBAS = 40/60",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 40/60"
+      },
+      "confidence": {
+        "score": 0.96
+      },
+      "evidence_ids": [
+        "ev00016"
+      ]
+    },
+    {
+      "mention_id": "m024",
+      "text": "M60P40",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P40"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00017"
+      ]
+    },
+    {
+      "mention_id": "m025",
+      "text": "PET/PBAS = 50/50",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 50/50"
+      },
+      "confidence": {
+        "score": 0.96
+      },
+      "evidence_ids": [
+        "ev00018"
+      ]
+    },
+    {
+      "mention_id": "m026",
+      "text": "M60P50",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P50"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00019"
+      ]
+    },
+    {
+      "mention_id": "m027",
+      "text": "SBP10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "SBP10"
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00020"
+      ]
+    },
+    {
+      "mention_id": "m028",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_2_34",
+        "page": 2,
+        "bbox": [
+          100.0,
+          917.0,
+          490.0,
+          949.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The biodegradability of the copolyesters was investigated through a comparison of the weight loss during the immersion of samples in river water."
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "evidence_ids": [
+        "ev00021"
+      ]
+    },
+    {
+      "mention_id": "m029",
+      "text": "polyethylene",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_2_34",
+        "page": 2,
+        "bbox": [
+          100.0,
+          917.0,
+          490.0,
+          949.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples were put into the river water in polyethylene bottles, and they were held at 37°C for 40 days."
+      },
+      "confidence": {
+        "score": 0.94
+      },
+      "evidence_ids": [
+        "ev00022"
+      ]
+    },
+    {
+      "mention_id": "m030",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_3_42",
+        "page": 3,
+        "bbox": [
+          98.0,
+          532.0,
+          488.0,
+          565.0
+        ],
+        "source_type": "text",
+        "source_sentence": "NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00023"
+      ]
+    },
+    {
+      "mention_id": "m031",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_3_42",
+        "page": 3,
+        "bbox": [
+          98.0,
+          532.0,
+          488.0,
+          565.0
+        ],
+        "source_type": "text",
+        "source_sentence": "NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00023"
+      ]
+    },
+    {
+      "mention_id": "m032",
+      "text": "M60P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "P_3_42",
+        "page": 3,
+        "bbox": [
+          98.0,
+          532.0,
+          488.0,
+          565.0
+        ],
+        "source_type": "text",
+        "source_sentence": "NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00023"
+      ]
+    },
+    {
+      "mention_id": "m033",
+      "text": "M60P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "P_3_44",
+        "page": 3,
+        "bbox": [
+          507.0,
+          483.0,
+          900.0,
+          530.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00024"
+      ]
+    },
+    {
+      "mention_id": "m034",
+      "text": "SBP10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "P_3_44",
+        "page": 3,
+        "bbox": [
+          507.0,
+          483.0,
+          900.0,
+          530.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00024"
+      ]
+    },
+    {
+      "mention_id": "m035",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_3_44",
+        "page": 3,
+        "bbox": [
+          507.0,
+          483.0,
+          900.0,
+          530.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00024"
+      ]
+    },
+    {
+      "mention_id": "m036",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_3_44",
+        "page": 3,
+        "bbox": [
+          507.0,
+          483.0,
+          900.0,
+          530.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00024"
+      ]
+    },
+    {
+      "mention_id": "m037",
+      "text": "copolyester",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_3_45",
+        "page": 3,
+        "bbox": [
+          509.0,
+          530.0,
+          900.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.<sup>16</sup>"
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "evidence_ids": [
+        "ev00025"
+      ]
+    },
+    {
+      "mention_id": "m038",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_4_51",
+        "page": 4,
+        "bbox": [
+          100.0,
+          427.0,
+          490.0,
+          504.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The NMR spectra of the copolyesters with respect to the reaction time are shown in Figure 3."
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "evidence_ids": [
+        "ev00026"
+      ]
+    },
+    {
+      "mention_id": "m039",
+      "text": "copolyester",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_4_51",
+        "page": 4,
+        "bbox": [
+          100.0,
+          427.0,
+          490.0,
+          504.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The area of the peak from the heterolinkage increased as the reaction time increased, and this means that the content of the aromatic units in the copolyester increased.<sup>16</sup>"
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "evidence_ids": [
+        "ev00027"
+      ]
+    },
+    {
+      "mention_id": "m040",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_4_53",
+        "page": 4,
+        "bbox": [
+          100.0,
+          545.0,
+          490.0,
+          623.0
+        ],
+        "source_type": "text",
+        "source_sentence": "DSC thermograms of PBAS and a solution blend of PBAS and PET are shown in Figures 4 and $5 ,$respectively."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00028"
+      ]
+    },
+    {
+      "mention_id": "m041",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_4_53",
+        "page": 4,
+        "bbox": [
+          100.0,
+          545.0,
+          490.0,
+          623.0
+        ],
+        "source_type": "text",
+        "source_sentence": "DSC thermograms of PBAS and a solution blend of PBAS and PET are shown in Figures 4 and $5 ,$respectively."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00028"
+      ]
+    },
+    {
+      "mention_id": "m042",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_5_61",
+        "page": 5,
+        "bbox": [
+          507.0,
+          502.0,
+          900.0,
+          550.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 6, DSC thermograms of the copolyesters with 10 wt % PET are shown with respect to the reaction time."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00029"
+      ]
+    },
+    {
+      "mention_id": "m043",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_5_61",
+        "page": 5,
+        "bbox": [
+          507.0,
+          502.0,
+          900.0,
+          550.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 6, DSC thermograms of the copolyesters with 10 wt % PET are shown with respect to the reaction time."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00029"
+      ]
+    },
+    {
+      "mention_id": "m044",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_5_61",
+        "page": 5,
+        "bbox": [
+          507.0,
+          502.0,
+          900.0,
+          550.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The $T _ { m }$peaks of PET vanished, and those of PBAS shifted a little down to a low temperature as the reaction time increased."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00030"
+      ]
+    },
+    {
+      "mention_id": "m045",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_6_67",
+        "page": 6,
+        "bbox": [
+          100.0,
+          551.0,
+          490.0,
+          629.0
+        ],
+        "source_type": "text",
+        "source_sentence": "This was thought to be due to the slower crystallization rate of the copolyesters, which resulted from the structures of the copolyesters being more random than those of PBAS."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00031"
+      ]
+    },
+    {
+      "mention_id": "m046",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_6_67",
+        "page": 6,
+        "bbox": [
+          100.0,
+          551.0,
+          490.0,
+          629.0
+        ],
+        "source_type": "text",
+        "source_sentence": "This was thought to be due to the slower crystallization rate of the copolyesters, which resulted from the structures of the copolyesters being more random than those of PBAS."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00031"
+      ]
+    },
+    {
+      "mention_id": "m047",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_6_71",
+        "page": 6,
+        "bbox": [
+          507.0,
+          535.0,
+          900.0,
+          629.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 7, DSC thermograms of the copolyesters after 60 min of reaction time are shown with respect to the different ratios of PET."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00032"
+      ]
+    },
+    {
+      "mention_id": "m048",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_6_71",
+        "page": 6,
+        "bbox": [
+          507.0,
+          535.0,
+          900.0,
+          629.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 7, DSC thermograms of the copolyesters after 60 min of reaction time are shown with respect to the different ratios of PET."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00032"
+      ]
+    },
+    {
+      "mention_id": "m049",
+      "text": "M60P20",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "P_6_71",
+        "page": 6,
+        "bbox": [
+          507.0,
+          535.0,
+          900.0,
+          629.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In the case of M60P20, in which 20 wt % PET was used, the crystallization peaks and melting peaks vanished."
+      },
+      "confidence": {
+        "score": 0.98
+      },
+      "evidence_ids": [
+        "ev00033"
+      ]
+    },
+    {
+      "mention_id": "m050",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_79",
+        "page": 7,
+        "bbox": [
+          100.0,
+          572.0,
+          490.0,
+          662.0
+        ],
+        "source_type": "text",
+        "source_sentence": "As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00034"
+      ]
+    },
+    {
+      "mention_id": "m051",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_79",
+        "page": 7,
+        "bbox": [
+          100.0,
+          572.0,
+          490.0,
+          662.0
+        ],
+        "source_type": "text",
+        "source_sentence": "It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00035"
+      ]
+    },
+    {
+      "mention_id": "m052",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_80",
+        "page": 7,
+        "bbox": [
+          100.0,
+          661.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00036"
+      ]
+    },
+    {
+      "mention_id": "m053",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_80",
+        "page": 7,
+        "bbox": [
+          100.0,
+          661.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00036"
+      ]
+    },
+    {
+      "mention_id": "m054",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_82",
+        "page": 7,
+        "bbox": [
+          100.0,
+          813.0,
+          488.0,
+          903.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The tensile strengths of the copolyesters with various PET contents at a fixed reaction time of 60 min are given in Figure 9, and the tensile strengths of the copolyesters with constant PET contents of 10 wt % with respect to various reaction times are shown in Figure 10."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00037"
+      ]
+    },
+    {
+      "mention_id": "m055",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_82",
+        "page": 7,
+        "bbox": [
+          100.0,
+          813.0,
+          488.0,
+          903.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The tensile strengths of the copolyesters with various PET contents at a fixed reaction time of 60 min are given in Figure 9, and the tensile strengths of the copolyesters with constant PET contents of 10 wt % with respect to various reaction times are shown in Figure 10."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00037"
+      ]
+    },
+    {
+      "mention_id": "m056",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_83",
+        "page": 7,
+        "bbox": [
+          100.0,
+          902.0,
+          490.0,
+          948.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In comparison with PBAS, the tensile strengths of the copolyesters decreased as the reaction time increased."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00038"
+      ]
+    },
+    {
+      "mention_id": "m057",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_83",
+        "page": 7,
+        "bbox": [
+          100.0,
+          902.0,
+          490.0,
+          948.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In comparison with PBAS, the tensile strengths of the copolyesters decreased as the reaction time increased."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00038"
+      ]
+    },
+    {
+      "mention_id": "m058",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_83",
+        "page": 7,
+        "bbox": [
+          100.0,
+          902.0,
+          490.0,
+          948.0
+        ],
+        "source_type": "text",
+        "source_sentence": "As the contents of PET increased, the tensile strengths of the copolyesters decreased, but they increased again over 30 wt % PET."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00039"
+      ]
+    },
+    {
+      "mention_id": "m059",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_85",
+        "page": 7,
+        "bbox": [
+          507.0,
+          133.0,
+          900.0,
+          225.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00040"
+      ]
+    },
+    {
+      "mention_id": "m060",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_85",
+        "page": 7,
+        "bbox": [
+          507.0,
+          133.0,
+          900.0,
+          225.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00040"
+      ]
+    },
+    {
+      "mention_id": "m061",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_86",
+        "page": 7,
+        "bbox": [
+          507.0,
+          225.0,
+          900.0,
+          303.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The elongations at break of the copolyesters with different PET contents are shown in Figure 11."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00041"
+      ]
+    },
+    {
+      "mention_id": "m062",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_86",
+        "page": 7,
+        "bbox": [
+          507.0,
+          225.0,
+          900.0,
+          303.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The elongation of PBAS was around 240%, whereas those of the copolyesters increased abruptly up to 800% with the addition of PET."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00042"
+      ]
+    },
+    {
+      "mention_id": "m063",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_7_86",
+        "page": 7,
+        "bbox": [
+          507.0,
+          225.0,
+          900.0,
+          303.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The elongations at break of the copolyesters with different PET contents are shown in Figure 11."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00041"
+      ]
+    },
+    {
+      "mention_id": "m064",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_7_88",
+        "page": 7,
+        "bbox": [
+          507.0,
+          349.0,
+          900.0,
+          475.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The increase in the elongations of the copolyesters was thought to occur because the embedded aromatic units might inhibit the chain orientation or crystallization of the copolyesters."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00043"
+      ]
+    },
+    {
+      "mention_id": "m065",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_8_96",
+        "page": 8,
+        "bbox": [
+          100.0,
+          124.0,
+          488.0,
+          228.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The weight losses of PBAS, PET, and the copolyesters after their immersion in river water is illustrated in Figure 13."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00044"
+      ]
+    },
+    {
+      "mention_id": "m066",
+      "text": "PET",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_8_96",
+        "page": 8,
+        "bbox": [
+          100.0,
+          124.0,
+          488.0,
+          228.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The weight losses of PBAS, PET, and the copolyesters after their immersion in river water is illustrated in Figure 13."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00044"
+      ]
+    },
+    {
+      "mention_id": "m067",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_8_96",
+        "page": 8,
+        "bbox": [
+          100.0,
+          124.0,
+          488.0,
+          228.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The weight losses of PBAS, PET, and the copolyesters after their immersion in river water is illustrated in Figure 13."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00044"
+      ]
+    },
+    {
+      "mention_id": "m068",
+      "text": "PBAS",
+      "mention_role": "abbreviation",
+      "evidence": {
+        "block_id": "P_8_97",
+        "page": 8,
+        "bbox": [
+          100.0,
+          228.0,
+          488.0,
+          319.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Photographs of PBAS and M60P10 films after immersion tests are shown in Figures 14 and 15, respectively."
+      },
+      "confidence": {
+        "score": 0.99
+      },
+      "evidence_ids": [
+        "ev00045"
+      ]
+    },
+    {
+      "mention_id": "m069",
+      "text": "M60P10",
+      "mention_role": "sample_label",
+      "evidence": {
+        "block_id": "P_8_97",
+        "page": 8,
+        "bbox": [
+          100.0,
+          228.0,
+          488.0,
+          319.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Photographs of PBAS and M60P10 films after immersion tests are shown in Figures 14 and 15, respectively."
+      },
+      "confidence": {
+        "score": 0.98
+      },
+      "evidence_ids": [
+        "ev00045"
+      ]
+    },
+    {
+      "mention_id": "m070",
+      "text": "copolyesters",
+      "mention_role": "polymer_name",
+      "evidence": {
+        "block_id": "P_8_97",
+        "page": 8,
+        "bbox": [
+          100.0,
+          228.0,
+          488.0,
+          319.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The copolyesters produced by transesterification showed good biodegradability."
+      },
+      "confidence": {
+        "score": 0.97
+      },
+      "evidence_ids": [
+        "ev00046"
+      ]
+    }
+  ],
+  "polymer_entities": [
+    {
+      "entity_id": "pe001",
+      "polymer_name": "PBAS",
+      "polymer_type": "homopolymer",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PBAS",
+        "Skygreen SG 2190E"
+      ],
+      "resolved_from_mentions": [
+        "m001",
+        "m002",
+        "m005",
+        "m007",
+        "m010",
+        "m030",
+        "m036",
+        "m040",
+        "m044",
+        "m046",
+        "m056",
+        "m062",
+        "m065",
+        "m068"
+      ],
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co. (Korea)."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00047"
+      ]
+    },
+    {
+      "entity_id": "pe002",
+      "polymer_name": "PET",
+      "polymer_type": "homopolymer",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PET",
+        "SKYPET BB-7755"
+      ],
+      "resolved_from_mentions": [
+        "m003",
+        "m004",
+        "m006",
+        "m008",
+        "m009",
+        "m031",
+        "m035",
+        "m041",
+        "m043",
+        "m048",
+        "m050",
+        "m053",
+        "m055",
+        "m058",
+        "m060",
+        "m063",
+        "m066"
+      ],
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co. (Korea)."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00047"
+      ]
+    },
+    {
+      "entity_id": "pe003",
+      "polymer_name": "copolyesters",
+      "polymer_type": "copolymer",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "copolyesters",
+        "copolyester"
+      ],
+      "resolved_from_mentions": [
+        "m011",
+        "m012",
+        "m028",
+        "m037",
+        "m038",
+        "m039",
+        "m042",
+        "m045",
+        "m047",
+        "m051",
+        "m052",
+        "m054",
+        "m057",
+        "m059",
+        "m061",
+        "m064",
+        "m067",
+        "m070"
+      ],
+      "evidence": {
+        "block_id": "P_3_45",
+        "page": 3,
+        "bbox": [
+          509.0,
+          530.0,
+          900.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.<sup>16</sup>"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.92
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00025"
+      ]
+    },
+    {
+      "entity_id": "pe004",
+      "polymer_name": "PET/PBAS = 10/90",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PET/PBAS = 10/90"
+      ],
+      "resolved_from_mentions": [
+        "m013"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE I. Notation of transesterification and solution-blend product\n<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00048"
+      ]
+    },
+    {
+      "entity_id": "pe005",
+      "polymer_name": "M30P10",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M30P10"
+      ],
+      "resolved_from_mentions": [
+        "m014"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE I. Notation of transesterification and solution-blend product\n<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00048"
+      ]
+    },
+    {
+      "entity_id": "pe006",
+      "polymer_name": "M45P10",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M45P10"
+      ],
+      "resolved_from_mentions": [
+        "m015"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE I. Notation of transesterification and solution-blend product\n<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00048"
+      ]
+    },
+    {
+      "entity_id": "pe007",
+      "polymer_name": "M60P10",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M60P10"
+      ],
+      "resolved_from_mentions": [
+        "m016",
+        "m032",
+        "m033",
+        "m069"
+      ],
+      "evidence": {
+        "block_id": "P_3_42",
+        "page": 3,
+        "bbox": [
+          98.0,
+          532.0,
+          488.0,
+          565.0
+        ],
+        "source_type": "text",
+        "source_sentence": "NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.93
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00023"
+      ]
+    },
+    {
+      "entity_id": "pe008",
+      "polymer_name": "M75P10",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M75P10"
+      ],
+      "resolved_from_mentions": [
+        "m017"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE I. Notation of transesterification and solution-blend product\n<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00048"
+      ]
+    },
+    {
+      "entity_id": "pe009",
+      "polymer_name": "M90P10",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M90P10"
+      ],
+      "resolved_from_mentions": [
+        "m018"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE I. Notation of transesterification and solution-blend product\n<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00048"
+      ]
+    },
+    {
+      "entity_id": "pe010",
+      "polymer_name": "PET/PBAS = 20/80",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PET/PBAS = 20/80"
+      ],
+      "resolved_from_mentions": [
+        "m019"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 20/80"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.81
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00012"
+      ]
+    },
+    {
+      "entity_id": "pe011",
+      "polymer_name": "M60P20",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M60P20"
+      ],
+      "resolved_from_mentions": [
+        "m020",
+        "m049"
+      ],
+      "evidence": {
+        "block_id": "P_6_71",
+        "page": 6,
+        "bbox": [
+          507.0,
+          535.0,
+          900.0,
+          629.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In the case of M60P20, in which 20 wt % PET was used, the crystallization peaks and melting peaks vanished."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.91
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00033"
+      ]
+    },
+    {
+      "entity_id": "pe012",
+      "polymer_name": "PET/PBAS = 30/70",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PET/PBAS = 30/70"
+      ],
+      "resolved_from_mentions": [
+        "m021"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 30/70"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.81
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00014"
+      ]
+    },
+    {
+      "entity_id": "pe013",
+      "polymer_name": "M60P30",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M60P30"
+      ],
+      "resolved_from_mentions": [
+        "m022"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P30"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.78
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00015"
+      ]
+    },
+    {
+      "entity_id": "pe014",
+      "polymer_name": "PET/PBAS = 40/60",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PET/PBAS = 40/60"
+      ],
+      "resolved_from_mentions": [
+        "m023"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 40/60"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.81
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00016"
+      ]
+    },
+    {
+      "entity_id": "pe015",
+      "polymer_name": "M60P40",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M60P40"
+      ],
+      "resolved_from_mentions": [
+        "m024"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P40"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.78
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00017"
+      ]
+    },
+    {
+      "entity_id": "pe016",
+      "polymer_name": "PET/PBAS = 50/50",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PET/PBAS = 50/50"
+      ],
+      "resolved_from_mentions": [
+        "m025"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 50/50"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.81
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00018"
+      ]
+    },
+    {
+      "entity_id": "pe017",
+      "polymer_name": "M60P50",
+      "polymer_type": "copolymer",
+      "variant_of": "pe003",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "M60P50"
+      ],
+      "resolved_from_mentions": [
+        "m026"
+      ],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "M60P50"
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.78
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00019"
+      ]
+    },
+    {
+      "entity_id": "pe018",
+      "polymer_name": "SBP10",
+      "polymer_type": "polymer_blend",
+      "variant_of": "pe004",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "SBP10"
+      ],
+      "resolved_from_mentions": [
+        "m027",
+        "m034"
+      ],
+      "evidence": {
+        "block_id": "P_3_44",
+        "page": 3,
+        "bbox": [
+          507.0,
+          483.0,
+          900.0,
+          530.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.96
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00024"
+      ]
+    },
+    {
+      "entity_id": "pe019",
+      "polymer_name": "polyethylene",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "polyethylene"
+      ],
+      "resolved_from_mentions": [
+        "m029"
+      ],
+      "evidence": {
+        "block_id": "P_2_34",
+        "page": 2,
+        "bbox": [
+          100.0,
+          917.0,
+          490.0,
+          949.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples were put into the river water in polyethylene bottles, and they were held at 37°C for 40 days."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.89
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00022"
+      ]
+    }
+  ],
+  "unresolved_mention_ids": [],
+  "samples": [
+    {
+      "sample_id": "s001",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe001",
+      "polymer_name": "PBAS",
+      "polymer_type": "homopolymer",
+      "sample_label_raw": "PBAS (Skygreen SG 2190E)",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co. (Korea)."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00047"
+      ]
+    },
+    {
+      "sample_id": "s002",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe002",
+      "polymer_name": "PET",
+      "polymer_type": "homopolymer",
+      "sample_label_raw": "PET (SKYPET BB-7755)",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_20",
+        "page": 1,
+        "bbox": [
+          98.0,
+          572.0,
+          488.0,
+          633.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co. (Korea)."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00047"
+      ]
+    },
+    {
+      "sample_id": "s003",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe004",
+      "polymer_name": "PET/PBAS = 10/90",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PET/PBAS = 10/90",
+      "state_description": "dry-mixed",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "sample_id": "s004",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe010",
+      "polymer_name": "PET/PBAS = 20/80",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PET/PBAS = 20/80",
+      "state_description": "dry-mixed",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "sample_id": "s005",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe012",
+      "polymer_name": "PET/PBAS = 30/70",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PET/PBAS = 30/70",
+      "state_description": "dry-mixed",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "sample_id": "s006",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe014",
+      "polymer_name": "PET/PBAS = 40/60",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PET/PBAS = 40/60",
+      "state_description": "dry-mixed",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "sample_id": "s007",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe016",
+      "polymer_name": "PET/PBAS = 50/50",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PET/PBAS = 50/50",
+      "state_description": "dry-mixed",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "sample_id": "s008",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe005",
+      "polymer_name": "M30P10",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M30P10",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 10/90<td>M30P10<td>M45P10<td>M60P10<td>M75P10<td>M90P10"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00049"
+      ]
+    },
+    {
+      "sample_id": "s009",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe006",
+      "polymer_name": "M45P10",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M45P10",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 10/90<td>M30P10<td>M45P10<td>M60P10<td>M75P10<td>M90P10"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00049"
+      ]
+    },
+    {
+      "sample_id": "s010",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe007",
+      "polymer_name": "M60P10",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M60P10",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 10/90<td>M30P10<td>M45P10<td>M60P10<td>M75P10<td>M90P10"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00049"
+      ]
+    },
+    {
+      "sample_id": "s011",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe008",
+      "polymer_name": "M75P10",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M75P10",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 10/90<td>M30P10<td>M45P10<td>M60P10<td>M75P10<td>M90P10"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00049"
+      ]
+    },
+    {
+      "sample_id": "s012",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe009",
+      "polymer_name": "M90P10",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M90P10",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 10/90<td>M30P10<td>M45P10<td>M60P10<td>M75P10<td>M90P10"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00049"
+      ]
+    },
+    {
+      "sample_id": "s013",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe011",
+      "polymer_name": "M60P20",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M60P20",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 20/80<td></td><td></td><td>M60P20<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00050"
+      ]
+    },
+    {
+      "sample_id": "s014",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe013",
+      "polymer_name": "M60P30",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M60P30",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 30/70<td></td><td></td><td>M60P30<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00051"
+      ]
+    },
+    {
+      "sample_id": "s015",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe015",
+      "polymer_name": "M60P40",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M60P40",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 40/60<td></td><td></td><td>M60P40<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00052"
+      ]
+    },
+    {
+      "sample_id": "s016",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe017",
+      "polymer_name": "M60P50",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "M60P50",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 50/50<td></td><td></td><td>M60P50<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00053"
+      ]
+    },
+    {
+      "sample_id": "s017",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe018",
+      "polymer_name": "SBP10",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "SBP10",
+      "state_description": "solution-blend product",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_24",
+        "page": 1,
+        "bbox": [
+          507.0,
+          346.0,
+          900.0,
+          423.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dissolved in a mixed solvent of phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %) at room temperature for 1 h. The solution was poured into methanol, and the precipitated polyesters were dried in a vacuum oven."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "evidence_ids": [
+        "ev00054"
+      ]
+    },
+    {
+      "sample_id": "s018",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe003",
+      "polymer_name": "copolyesters",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "copolyesters",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_3_45",
+        "page": 3,
+        "bbox": [
+          509.0,
+          530.0,
+          900.0,
+          562.0
+        ],
+        "source_type": "text",
+        "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction."
+      },
+      "confidence": {
+        "score": 0.7
+      },
+      "copolymer_type": null,
+      "material_type": null,
+      "evidence_ids": [
+        "ev00055"
+      ]
+    }
+  ],
+  "process_steps": [
+    {
+      "step_id": "ps001",
+      "process_type": "mixing",
+      "input_sample_ids": [
+        "s001",
+        "s002"
+      ],
+      "output_sample_ids": [
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007"
+      ],
+      "parameters": {
+        "mix_type": "dry-mixed",
+        "weight_ratios": "90:10, 80:20, 70:30, 60:40, 50:50",
+        "mass": "60 g"
+      },
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "evidence_ids": [
+        "ev00002"
+      ]
+    },
+    {
+      "step_id": "ps002",
+      "process_type": "copolymerization",
+      "input_sample_ids": [
+        "s003"
+      ],
+      "output_sample_ids": [
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012"
+      ],
+      "parameters": {
+        "reaction_temperature": "280°C",
+        "reaction_time": "30, 45, 60, 75, 90 min",
+        "stirring_speed": "60 rpm"
+      },
+      "evidence": {
+        "block_id": "P_1_21",
+        "page": 1,
+        "bbox": [
+          98.0,
+          633.0,
+          490.0,
+          767.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The reactor was put into an oil bath at 280°C, and the mixed polyesters were melted for 5 min and then stirred at 60 rpm. The transesterification reaction was performed for 30, 45, 60, 75, and 90 min."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00056"
+      ]
+    },
+    {
+      "step_id": "ps003",
+      "process_type": "copolymerization",
+      "input_sample_ids": [
+        "s004"
+      ],
+      "output_sample_ids": [
+        "s013"
+      ],
+      "parameters": {
+        "reaction_temperature": "280°C",
+        "reaction_time": "60 min"
+      },
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 20/80<td></td><td></td><td>M60P20<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00050"
+      ]
+    },
+    {
+      "step_id": "ps004",
+      "process_type": "copolymerization",
+      "input_sample_ids": [
+        "s005"
+      ],
+      "output_sample_ids": [
+        "s014"
+      ],
+      "parameters": {
+        "reaction_temperature": "280°C",
+        "reaction_time": "60 min"
+      },
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 30/70<td></td><td></td><td>M60P30<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00051"
+      ]
+    },
+    {
+      "step_id": "ps005",
+      "process_type": "copolymerization",
+      "input_sample_ids": [
+        "s006"
+      ],
+      "output_sample_ids": [
+        "s015"
+      ],
+      "parameters": {
+        "reaction_temperature": "280°C",
+        "reaction_time": "60 min"
+      },
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 40/60<td></td><td></td><td>M60P40<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00052"
+      ]
+    },
+    {
+      "step_id": "ps006",
+      "process_type": "copolymerization",
+      "input_sample_ids": [
+        "s007"
+      ],
+      "output_sample_ids": [
+        "s016"
+      ],
+      "parameters": {
+        "reaction_temperature": "280°C",
+        "reaction_time": "60 min"
+      },
+      "evidence": {
+        "block_id": "T_1_29",
+        "page": 1,
+        "bbox": [
+          101.0,
+          824.0,
+          896.0,
+          943.0
+        ],
+        "source_type": "table",
+        "source_sentence": "PET/PBAS = 50/50<td></td><td></td><td>M60P50<td></td><td></td>"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00053"
+      ]
+    },
+    {
+      "step_id": "ps007",
+      "process_type": "blending",
+      "input_sample_ids": [
+        "s001",
+        "s002"
+      ],
+      "output_sample_ids": [
+        "s017"
+      ],
+      "parameters": {
+        "solvent": "phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %)",
+        "dissolution_time": "1 h",
+        "precipitant": "methanol"
+      },
+      "evidence": {
+        "block_id": "P_1_24",
+        "page": 1,
+        "bbox": [
+          507.0,
+          346.0,
+          900.0,
+          423.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PBAS and PET were dissolved in a mixed solvent of phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %) at room temperature for 1 h. The solution was poured into methanol, and the precipitated polyesters were dried in a vacuum oven."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00054"
+      ]
+    }
+  ],
+  "unresolved_entity_ids": [
+    "pe019"
+  ],
+  "property_observations": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s001",
+      "property_name_raw": "T_m",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "molecular_weight_type": null,
+      "determination_method_raw": "differential scanning calorimetry (DSC)",
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "90 °C",
+      "value_min": 90.0,
+      "value_max": 90.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "heating_rate": "20°C/min",
+          "cooling_rate": "20°C/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_1_27",
+              "page": 1,
+              "bbox": [
+                507.0,
+                559.0,
+                900.0,
+                707.0
+              ],
+              "source_type": "text",
+              "source_sentence": "samples (2.5 ± 0.5 mg) were heated to 280°C at a heating rate of 20°C/min and held there at 280°C for 1 min. T was measured while the samples were cooled to -50°C at a rate of 20°C/min, and during the third run, $T _ { m }$was measured at a heating rate of 20°C/min.",
+              "table_locator": null
+            }
+          ],
+          "cooling_rate": [
+            {
+              "block_id": "P_1_27",
+              "page": 1,
+              "bbox": [
+                507.0,
+                559.0,
+                900.0,
+                707.0
+              ],
+              "source_type": "text",
+              "source_sentence": "cooled to -50°C at a rate of 20°C/min",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_53",
+          "page": 4,
+          "bbox": [
+            100.0,
+            545.0,
+            490.0,
+            623.0
+          ],
+          "source_type": "text",
+          "source_sentence": "$T _ { m }$of PBAS was about $9 0 ^ { \\circ } \\mathrm { C } .$",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00061"
+      ]
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s001",
+      "property_name_raw": "elongation at break",
+      "property_name_normalized": "elongation_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "molecular_weight_type": null,
+      "determination_method_raw": "Instron model 4465 universal test machine in accordance with ASTM D 638",
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "around 240%",
+      "value_min": 240.0,
+      "value_max": 240.0,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "standard": "ASTM D 638",
+          "crosshead_speed": "500 mm/min",
+          "specimen_type": "Dumbbell-type"
+        },
+        "other_condition_evidence": {
+          "standard": [
+            {
+              "block_id": "P_2_33",
+              "page": 2,
+              "bbox": [
+                98.0,
+                843.0,
+                490.0,
+                918.0
+              ],
+              "source_type": "text",
+              "source_sentence": "measured with an Instron model 4465 universal test machine (USA) in accordance with ASTM D 638",
+              "table_locator": null
+            }
+          ],
+          "crosshead_speed": [
+            {
+              "block_id": "P_2_33",
+              "page": 2,
+              "bbox": [
+                98.0,
+                843.0,
+                490.0,
+                918.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Dumbbell-type specimens were used at a crosshead speed of 500 mm/min.",
+              "table_locator": null
+            }
+          ],
+          "specimen_type": [
+            {
+              "block_id": "P_2_33",
+              "page": 2,
+              "bbox": [
+                98.0,
+                843.0,
+                490.0,
+                918.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Dumbbell-type specimens were used at a crosshead speed of 500 mm/min.",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_7_86",
+          "page": 7,
+          "bbox": [
+            507.0,
+            225.0,
+            900.0,
+            303.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The elongation of PBAS was around 240%, whereas those of the copolyesters increased abruptly up to 800% with the addition of PET.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      },
+      "evidence_ids": [
+        "ev00062"
+      ]
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s001",
+      "property_name_raw": "weight loss",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": "immersion in river water weight loss measurement",
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "19%",
+      "value_min": 19.0,
+      "value_max": 19.0,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "temperature": {
+          "raw": "37°C",
+          "value": 37.0,
+          "unit": "°C",
+          "evidence": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "they were held at 37°C for 40 days",
+              "table_locator": null
+            }
+          ],
+          "evidence_ids": [
+            "ev00060"
+          ]
+        },
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "immersion_medium": "river water",
+          "duration": "40 days",
+          "sampling_interval": "10 days"
+        },
+        "other_condition_evidence": {
+          "immersion_medium": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "immersion of samples in river water",
+              "table_locator": null
+            }
+          ],
+          "duration": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "held at 37°C for 40 days",
+              "table_locator": null
+            }
+          ],
+          "sampling_interval": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The samples were taken out every 10 days",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_8_96",
+          "page": 8,
+          "bbox": [
+            100.0,
+            124.0,
+            488.0,
+            228.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Biodegradable PBAS showed a 19% weight loss after 40 days, but PET showed no weight changes.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00063"
+      ]
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s002",
+      "property_name_raw": "weight loss",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": "immersion in river water weight loss measurement",
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "no weight changes",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "temperature": {
+          "raw": "37°C",
+          "value": 37.0,
+          "unit": "°C",
+          "evidence": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "they were held at 37°C for 40 days",
+              "table_locator": null
+            }
+          ],
+          "evidence_ids": [
+            "ev00060"
+          ]
+        },
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "immersion_medium": "river water",
+          "duration": "40 days",
+          "sampling_interval": "10 days"
+        },
+        "other_condition_evidence": {
+          "immersion_medium": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "immersion of samples in river water",
+              "table_locator": null
+            }
+          ],
+          "duration": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "held at 37°C for 40 days",
+              "table_locator": null
+            }
+          ],
+          "sampling_interval": [
+            {
+              "block_id": "P_2_34",
+              "page": 2,
+              "bbox": [
+                100.0,
+                917.0,
+                490.0,
+                949.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The samples were taken out every 10 days",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_8_96",
+          "page": 8,
+          "bbox": [
+            100.0,
+            124.0,
+            488.0,
+            228.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Biodegradable PBAS showed a 19% weight loss after 40 days, but PET showed no weight changes.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00063"
+      ]
+    }
+  ],
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {
+        "heating_rate": "20°C/min",
+        "cooling_rate": "20°C/min"
+      },
+      "other_condition_evidence": {
+        "heating_rate": [
+          {
+            "block_id": "P_1_27",
+            "page": 1,
+            "bbox": [
+              507.0,
+              559.0,
+              900.0,
+              707.0
+            ],
+            "source_type": "text",
+            "source_sentence": "samples (2.5 ± 0.5 mg) were heated to 280°C at a heating rate of 20°C/min and held there at 280°C for 1 min. T was measured while the samples were cooled to -50°C at a rate of 20°C/min, and during the third run, $T _ { m }$was measured at a heating rate of 20°C/min.",
+            "table_locator": null
+          }
+        ],
+        "cooling_rate": [
+          {
+            "block_id": "P_1_27",
+            "page": 1,
+            "bbox": [
+              507.0,
+              559.0,
+              900.0,
+              707.0
+            ],
+            "source_type": "text",
+            "source_sentence": "cooled to -50°C at a rate of 20°C/min",
+            "table_locator": null
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_1_27",
+        "page": 1,
+        "bbox": [
+          507.0,
+          559.0,
+          900.0,
+          707.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The $T _ { m }$and crystallization temperature (T ) values of the copolyesters were measured with a Seiko DSC 220C differential scanning calorimetry (DSC) instrument calibrated with pure indium as a standard (Japan). To eliminate the thermal history, samples (2.5 ± 0.5 mg) were heated to 280°C at a heating rate of 20°C/min and held there at 280°C for 1 min. T was measured while the samples were cooled to -50°C at a rate of 20°C/min, and during the third run, $T _ { m }$was measured at a heating rate of 20°C/min.",
+        "table_locator": null
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00057"
+      ]
+    },
+    {
+      "condition_id": "mc002",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {
+        "standard": "ASTM D 638",
+        "crosshead_speed": "500 mm/min",
+        "specimen_type": "Dumbbell-type"
+      },
+      "other_condition_evidence": {
+        "standard": [
+          {
+            "block_id": "P_2_33",
+            "page": 2,
+            "bbox": [
+              98.0,
+              843.0,
+              490.0,
+              918.0
+            ],
+            "source_type": "text",
+            "source_sentence": "measured with an Instron model 4465 universal test machine (USA) in accordance with ASTM D 638",
+            "table_locator": null
+          }
+        ],
+        "crosshead_speed": [
+          {
+            "block_id": "P_2_33",
+            "page": 2,
+            "bbox": [
+              98.0,
+              843.0,
+              490.0,
+              918.0
+            ],
+            "source_type": "text",
+            "source_sentence": "Dumbbell-type specimens were used at a crosshead speed of 500 mm/min.",
+            "table_locator": null
+          }
+        ],
+        "specimen_type": [
+          {
+            "block_id": "P_2_33",
+            "page": 2,
+            "bbox": [
+              98.0,
+              843.0,
+              490.0,
+              918.0
+            ],
+            "source_type": "text",
+            "source_sentence": "Dumbbell-type specimens were used at a crosshead speed of 500 mm/min.",
+            "table_locator": null
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_33",
+        "page": 2,
+        "bbox": [
+          98.0,
+          843.0,
+          490.0,
+          918.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The tensile strength, modulus, and elongation at break were measured with an Instron model 4465 universal test machine (USA) in accordance with ASTM D 638. Dumbbell-type specimens were used at a crosshead speed of 500 mm/min.",
+        "table_locator": null
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00058"
+      ]
+    },
+    {
+      "condition_id": "mc003",
+      "temperature": {
+        "raw": "37°C",
+        "value": 37.0,
+        "unit": "°C",
+        "evidence": [
+          {
+            "block_id": "P_2_34",
+            "page": 2,
+            "bbox": [
+              100.0,
+              917.0,
+              490.0,
+              949.0
+            ],
+            "source_type": "text",
+            "source_sentence": "they were held at 37°C for 40 days",
+            "table_locator": null
+          }
+        ],
+        "evidence_ids": [
+          "ev00060"
+        ]
+      },
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {
+        "immersion_medium": "river water",
+        "duration": "40 days",
+        "sampling_interval": "10 days"
+      },
+      "other_condition_evidence": {
+        "immersion_medium": [
+          {
+            "block_id": "P_2_34",
+            "page": 2,
+            "bbox": [
+              100.0,
+              917.0,
+              490.0,
+              949.0
+            ],
+            "source_type": "text",
+            "source_sentence": "immersion of samples in river water",
+            "table_locator": null
+          }
+        ],
+        "duration": [
+          {
+            "block_id": "P_2_34",
+            "page": 2,
+            "bbox": [
+              100.0,
+              917.0,
+              490.0,
+              949.0
+            ],
+            "source_type": "text",
+            "source_sentence": "held at 37°C for 40 days",
+            "table_locator": null
+          }
+        ],
+        "sampling_interval": [
+          {
+            "block_id": "P_2_34",
+            "page": 2,
+            "bbox": [
+              100.0,
+              917.0,
+              490.0,
+              949.0
+            ],
+            "source_type": "text",
+            "source_sentence": "The samples were taken out every 10 days",
+            "table_locator": null
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_34",
+        "page": 2,
+        "bbox": [
+          100.0,
+          917.0,
+          490.0,
+          949.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The biodegradability of the copolyesters was investigated through a comparison of the weight loss during the immersion of samples in river water. The samples were put into the river water in polyethylene bottles, and they were held at 37°C for 40 days. The samples were taken out every 10 days and washed with methanol; this was followed by drying in a vacuum oven.",
+        "table_locator": null
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00059"
+      ]
+    }
+  ],
+  "unresolved_property_observations": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe003",
+      "sample_id": null,
+      "property_name_raw": "elongation at break",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "up to 800%",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "measurement_condition_id": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_7_86",
+          "page": 7,
+          "bbox": [
+            507.0,
+            225.0,
+            900.0,
+            303.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The elongation of PBAS was around 240%, whereas those of the copolyesters increased abruptly up to 800% with the addition of PET.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.7
+      },
+      "evidence_ids": [
+        "ev00062"
+      ]
+    }
+  ],
+  "property_series": [],
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "thermogravimetric analysis (TGA)",
+      "method_normalized": "TGA",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012",
+        "s013",
+        "s014",
+        "s015",
+        "s016",
+        "s017",
+        "s018"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "measurement_context": {
+        "other_conditions": {
+          "atmosphere": "nitrogen gas",
+          "final_temperature": "600°C",
+          "heating_rate": "30°C/min",
+          "sample_mass": "5 ± 1 mg"
+        },
+        "other_condition_evidence": {
+          "atmosphere": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ],
+          "final_temperature": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ],
+          "heating_rate": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ],
+          "sample_mass": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "parameters": {},
+      "result_summary": "Thermal decomposition temperature rose with increasing PET unit content, higher thermal stability achieved with more embedded aromatic units.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "I_5_59",
+          "page": 5,
+          "bbox": [
+            233.0,
+            102.0,
+            765.0,
+            453.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Figure 8 TGA thermograms of PBAS, PET, and the copolyesters."
+        },
+        {
+          "block_id": "P_7_80",
+          "page": 7,
+          "bbox": [
+            100.0,
+            661.0,
+            490.0,
+            767.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents. The thermal decomposition temperature rose with the number of PET units. Higher thermal stability was achieved with an increased number of embedded aromatic units, which were thermally more stable than the aliphatic units."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      },
+      "evidence_ids": [
+        "ev00064",
+        "ev00065"
+      ]
+    }
+  ],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "text",
+      "value_raw": "film",
+      "value_min": null,
+      "value_max": null,
+      "categorical_value": null,
+      "text_value": "film",
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": null,
+      "method_raw": null,
+      "sample_id": "s001",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_8_97",
+          "page": 8,
+          "bbox": [
+            100.0,
+            228.0,
+            488.0,
+            319.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Photographs of PBAS and M60P10 films after immersion tests are shown in Figures 14 and 15, respectively.",
+          "table_locator": null
+        }
+      ],
+      "evidence_ids": [
+        "ev00066"
+      ],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "text",
+      "value_raw": "film",
+      "value_min": null,
+      "value_max": null,
+      "categorical_value": null,
+      "text_value": "film",
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": null,
+      "method_raw": null,
+      "sample_id": "s006",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_8_97",
+          "page": 8,
+          "bbox": [
+            100.0,
+            228.0,
+            488.0,
+            319.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Photographs of PBAS and M60P10 films after immersion tests are shown in Figures 14 and 15, respectively.",
+          "table_locator": null
+        }
+      ],
+      "evidence_ids": [
+        "ev00066"
+      ],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp003",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "text",
+      "value_raw": "new aromatic heterolinkages",
+      "value_min": null,
+      "value_max": null,
+      "categorical_value": null,
+      "text_value": "new aromatic heterolinkages",
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": null,
+      "method_raw": null,
+      "sample_id": "s006",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_3_45",
+          "page": 3,
+          "bbox": [
+            509.0,
+            530.0,
+            900.0,
+            562.0
+          ],
+          "source_type": "text",
+          "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.",
+          "table_locator": null
+        }
+      ],
+      "evidence_ids": [
+        "ev00067"
+      ],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp001",
+      "value_kind": "text",
+      "value_raw": "longer block exists when PET contents increased beyond 40 wt %",
+      "text_value": "longer block exists when PET contents increased beyond 40 wt %",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_7_79",
+          "page": 7,
+          "bbox": [
+            100.0,
+            572.0,
+            490.0,
+            662.0
+          ],
+          "source_type": "text",
+          "source_sentence": "As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET. It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit."
+        }
+      ],
+      "evidence_ids": [
+        "ev00068"
+      ],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "value_kind": "text",
+      "value_raw": "number increases with PET contents greater than 30 wt %",
+      "text_value": "number increases with PET contents greater than 30 wt %",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_7_85",
+          "page": 7,
+          "bbox": [
+            507.0,
+            133.0,
+            900.0,
+            225.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters."
+        }
+      ],
+      "evidence_ids": [
+        "ev00040"
+      ],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "evidence": [
+    {
+      "block_id": "P_1_20",
+      "page": 1,
+      "bbox": [
+        98.0,
+        572.0,
+        488.0,
+        633.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co.",
+      "evidence_id": "ev00001",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m001"
+    },
+    {
+      "block_id": "P_1_21",
+      "page": 1,
+      "bbox": [
+        98.0,
+        633.0,
+        490.0,
+        767.0
+      ],
+      "source_type": "text",
+      "source_sentence": "PBAS and PET were dry-mixed in weight ratios of 90:10, 80:20, 70:30, 60:40, and 50:50, and 60 g of the mixed polyesters was placed in a reactor equipped with a mechanical stirrer.",
+      "evidence_id": "ev00002",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m005"
+    },
+    {
+      "block_id": "P_1_24",
+      "page": 1,
+      "bbox": [
+        507.0,
+        346.0,
+        900.0,
+        423.0
+      ],
+      "source_type": "text",
+      "source_sentence": "PBAS and PET were dissolved in a mixed solvent of phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %) at room temperature for 1 h.",
+      "evidence_id": "ev00003",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m007"
+    },
+    {
+      "block_id": "P_1_26",
+      "page": 1,
+      "bbox": [
+        507.0,
+        469.0,
+        900.0,
+        559.0
+      ],
+      "source_type": "text",
+      "source_sentence": "As a solvent, deuterated trifluoroacetic acid was used for PET, whereas deuterated chloroform was used for PBAS and the copolyesters.",
+      "evidence_id": "ev00004",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m009"
+    },
+    {
+      "block_id": "P_1_27",
+      "page": 1,
+      "bbox": [
+        507.0,
+        559.0,
+        900.0,
+        707.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The $T _ { m }$and crystallization temperature (T ) values of the copolyesters were measured with a Seiko DSC 220C differential scanning calorimetry (DSC) instrument calibrated with pure indium as a standard (Japan).",
+      "evidence_id": "ev00005",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m012"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td",
+      "evidence_id": "ev00006",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m013"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M30P10",
+      "evidence_id": "ev00007",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m014"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M45P10",
+      "evidence_id": "ev00008",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m015"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M60P10",
+      "evidence_id": "ev00009",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m016"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M75P10",
+      "evidence_id": "ev00010",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m017"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M90P10",
+      "evidence_id": "ev00011",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m018"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 20/80",
+      "evidence_id": "ev00012",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m019"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M60P20",
+      "evidence_id": "ev00013",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m020"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 30/70",
+      "evidence_id": "ev00014",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m021"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M60P30",
+      "evidence_id": "ev00015",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m022"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 40/60",
+      "evidence_id": "ev00016",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m023"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M60P40",
+      "evidence_id": "ev00017",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m024"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 50/50",
+      "evidence_id": "ev00018",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m025"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "M60P50",
+      "evidence_id": "ev00019",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m026"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "SBP10",
+      "evidence_id": "ev00020",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m027"
+    },
+    {
+      "block_id": "P_2_34",
+      "page": 2,
+      "bbox": [
+        100.0,
+        917.0,
+        490.0,
+        949.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The biodegradability of the copolyesters was investigated through a comparison of the weight loss during the immersion of samples in river water.",
+      "evidence_id": "ev00021",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m028"
+    },
+    {
+      "block_id": "P_2_34",
+      "page": 2,
+      "bbox": [
+        100.0,
+        917.0,
+        490.0,
+        949.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The samples were put into the river water in polyethylene bottles, and they were held at 37°C for 40 days.",
+      "evidence_id": "ev00022",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m029"
+    },
+    {
+      "block_id": "P_3_42",
+      "page": 3,
+      "bbox": [
+        98.0,
+        532.0,
+        488.0,
+        565.0
+      ],
+      "source_type": "text",
+      "source_sentence": "NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1.",
+      "evidence_id": "ev00023",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m030"
+    },
+    {
+      "block_id": "P_3_44",
+      "page": 3,
+      "bbox": [
+        507.0,
+        483.0,
+        900.0,
+        530.0
+      ],
+      "source_type": "text",
+      "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted.",
+      "evidence_id": "ev00024",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m033"
+    },
+    {
+      "block_id": "P_3_45",
+      "page": 3,
+      "bbox": [
+        509.0,
+        530.0,
+        900.0,
+        562.0
+      ],
+      "source_type": "text",
+      "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.<sup>16</sup>",
+      "evidence_id": "ev00025",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m037"
+    },
+    {
+      "block_id": "P_4_51",
+      "page": 4,
+      "bbox": [
+        100.0,
+        427.0,
+        490.0,
+        504.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The NMR spectra of the copolyesters with respect to the reaction time are shown in Figure 3.",
+      "evidence_id": "ev00026",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m038"
+    },
+    {
+      "block_id": "P_4_51",
+      "page": 4,
+      "bbox": [
+        100.0,
+        427.0,
+        490.0,
+        504.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The area of the peak from the heterolinkage increased as the reaction time increased, and this means that the content of the aromatic units in the copolyester increased.<sup>16</sup>",
+      "evidence_id": "ev00027",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m039"
+    },
+    {
+      "block_id": "P_4_53",
+      "page": 4,
+      "bbox": [
+        100.0,
+        545.0,
+        490.0,
+        623.0
+      ],
+      "source_type": "text",
+      "source_sentence": "DSC thermograms of PBAS and a solution blend of PBAS and PET are shown in Figures 4 and $5 ,$respectively.",
+      "evidence_id": "ev00028",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m040"
+    },
+    {
+      "block_id": "P_5_61",
+      "page": 5,
+      "bbox": [
+        507.0,
+        502.0,
+        900.0,
+        550.0
+      ],
+      "source_type": "text",
+      "source_sentence": "In Figure 6, DSC thermograms of the copolyesters with 10 wt % PET are shown with respect to the reaction time.",
+      "evidence_id": "ev00029",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m042"
+    },
+    {
+      "block_id": "P_5_61",
+      "page": 5,
+      "bbox": [
+        507.0,
+        502.0,
+        900.0,
+        550.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The $T _ { m }$peaks of PET vanished, and those of PBAS shifted a little down to a low temperature as the reaction time increased.",
+      "evidence_id": "ev00030",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m044"
+    },
+    {
+      "block_id": "P_6_67",
+      "page": 6,
+      "bbox": [
+        100.0,
+        551.0,
+        490.0,
+        629.0
+      ],
+      "source_type": "text",
+      "source_sentence": "This was thought to be due to the slower crystallization rate of the copolyesters, which resulted from the structures of the copolyesters being more random than those of PBAS.",
+      "evidence_id": "ev00031",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m045"
+    },
+    {
+      "block_id": "P_6_71",
+      "page": 6,
+      "bbox": [
+        507.0,
+        535.0,
+        900.0,
+        629.0
+      ],
+      "source_type": "text",
+      "source_sentence": "In Figure 7, DSC thermograms of the copolyesters after 60 min of reaction time are shown with respect to the different ratios of PET.",
+      "evidence_id": "ev00032",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m047"
+    },
+    {
+      "block_id": "P_6_71",
+      "page": 6,
+      "bbox": [
+        507.0,
+        535.0,
+        900.0,
+        629.0
+      ],
+      "source_type": "text",
+      "source_sentence": "In the case of M60P20, in which 20 wt % PET was used, the crystallization peaks and melting peaks vanished.",
+      "evidence_id": "ev00033",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m049"
+    },
+    {
+      "block_id": "P_7_79",
+      "page": 7,
+      "bbox": [
+        100.0,
+        572.0,
+        490.0,
+        662.0
+      ],
+      "source_type": "text",
+      "source_sentence": "As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET.",
+      "evidence_id": "ev00034",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m050"
+    },
+    {
+      "block_id": "P_7_79",
+      "page": 7,
+      "bbox": [
+        100.0,
+        572.0,
+        490.0,
+        662.0
+      ],
+      "source_type": "text",
+      "source_sentence": "It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit.",
+      "evidence_id": "ev00035",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m051"
+    },
+    {
+      "block_id": "P_7_80",
+      "page": 7,
+      "bbox": [
+        100.0,
+        661.0,
+        490.0,
+        767.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents.",
+      "evidence_id": "ev00036",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m052"
+    },
+    {
+      "block_id": "P_7_82",
+      "page": 7,
+      "bbox": [
+        100.0,
+        813.0,
+        488.0,
+        903.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The tensile strengths of the copolyesters with various PET contents at a fixed reaction time of 60 min are given in Figure 9, and the tensile strengths of the copolyesters with constant PET contents of 10 wt % with respect to various reaction times are shown in Figure 10.",
+      "evidence_id": "ev00037",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m054"
+    },
+    {
+      "block_id": "P_7_83",
+      "page": 7,
+      "bbox": [
+        100.0,
+        902.0,
+        490.0,
+        948.0
+      ],
+      "source_type": "text",
+      "source_sentence": "In comparison with PBAS, the tensile strengths of the copolyesters decreased as the reaction time increased.",
+      "evidence_id": "ev00038",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m056"
+    },
+    {
+      "block_id": "P_7_83",
+      "page": 7,
+      "bbox": [
+        100.0,
+        902.0,
+        490.0,
+        948.0
+      ],
+      "source_type": "text",
+      "source_sentence": "As the contents of PET increased, the tensile strengths of the copolyesters decreased, but they increased again over 30 wt % PET.",
+      "evidence_id": "ev00039",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m058"
+    },
+    {
+      "block_id": "P_7_85",
+      "page": 7,
+      "bbox": [
+        507.0,
+        133.0,
+        900.0,
+        225.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters.",
+      "evidence_id": "ev00040",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m059"
+    },
+    {
+      "block_id": "P_7_86",
+      "page": 7,
+      "bbox": [
+        507.0,
+        225.0,
+        900.0,
+        303.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The elongations at break of the copolyesters with different PET contents are shown in Figure 11.",
+      "evidence_id": "ev00041",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m061"
+    },
+    {
+      "block_id": "P_7_86",
+      "page": 7,
+      "bbox": [
+        507.0,
+        225.0,
+        900.0,
+        303.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The elongation of PBAS was around 240%, whereas those of the copolyesters increased abruptly up to 800% with the addition of PET.",
+      "evidence_id": "ev00042",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m062"
+    },
+    {
+      "block_id": "P_7_88",
+      "page": 7,
+      "bbox": [
+        507.0,
+        349.0,
+        900.0,
+        475.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The increase in the elongations of the copolyesters was thought to occur because the embedded aromatic units might inhibit the chain orientation or crystallization of the copolyesters.",
+      "evidence_id": "ev00043",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m064"
+    },
+    {
+      "block_id": "P_8_96",
+      "page": 8,
+      "bbox": [
+        100.0,
+        124.0,
+        488.0,
+        228.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The weight losses of PBAS, PET, and the copolyesters after their immersion in river water is illustrated in Figure 13.",
+      "evidence_id": "ev00044",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m065"
+    },
+    {
+      "block_id": "P_8_97",
+      "page": 8,
+      "bbox": [
+        100.0,
+        228.0,
+        488.0,
+        319.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Photographs of PBAS and M60P10 films after immersion tests are shown in Figures 14 and 15, respectively.",
+      "evidence_id": "ev00045",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m068"
+    },
+    {
+      "block_id": "P_8_97",
+      "page": 8,
+      "bbox": [
+        100.0,
+        228.0,
+        488.0,
+        319.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The copolyesters produced by transesterification showed good biodegradability.",
+      "evidence_id": "ev00046",
+      "source_stage": "stage1_material_mention",
+      "object_id": "m070"
+    },
+    {
+      "block_id": "P_1_20",
+      "page": 1,
+      "bbox": [
+        98.0,
+        572.0,
+        488.0,
+        633.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The polyesters used in this study were PBAS (Skygreen SG 2190E) and PET (SKYPET BB-7755) from SK Chemical Co. (Korea).",
+      "evidence_id": "ev00047",
+      "source_stage": "stage2_polymer_entity",
+      "object_id": "pe001"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "TABLE I. Notation of transesterification and solution-blend product\n<table><tr><td>Reaction time (min)</td><td>30</td><td>45</td><td>60</td><td>75</td><td>90</td></tr><tr><td>PET/PBAS = 10/90</td><td>M30P10</td><td>M45P10</td><td>M60P10</td><td>M75P10</td><td>M90P10</td></tr><tr><td>PET/PBAS = 20/80</td><td></td><td></td><td>M60P20</td><td></td><td></td></tr><tr><td>PET/PBAS = 30/70</td><td></td><td></td><td>M60P30</td><td></td><td></td></tr><tr><td>PET/PBAS = 40/60</td><td></td><td></td><td>M60P40</td><td></td><td></td></tr><tr><td>PET/PBAS = 50/50</td><td></td",
+      "evidence_id": "ev00048",
+      "source_stage": "stage2_polymer_entity",
+      "object_id": "pe004"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 10/90<td>M30P10<td>M45P10<td>M60P10<td>M75P10<td>M90P10",
+      "evidence_id": "ev00049",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s008"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 20/80<td></td><td></td><td>M60P20<td></td><td></td>",
+      "evidence_id": "ev00050",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s013"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 30/70<td></td><td></td><td>M60P30<td></td><td></td>",
+      "evidence_id": "ev00051",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s014"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 40/60<td></td><td></td><td>M60P40<td></td><td></td>",
+      "evidence_id": "ev00052",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s015"
+    },
+    {
+      "block_id": "T_1_29",
+      "page": 1,
+      "bbox": [
+        101.0,
+        824.0,
+        896.0,
+        943.0
+      ],
+      "source_type": "table",
+      "source_sentence": "PET/PBAS = 50/50<td></td><td></td><td>M60P50<td></td><td></td>",
+      "evidence_id": "ev00053",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s016"
+    },
+    {
+      "block_id": "P_1_24",
+      "page": 1,
+      "bbox": [
+        507.0,
+        346.0,
+        900.0,
+        423.0
+      ],
+      "source_type": "text",
+      "source_sentence": "PBAS and PET were dissolved in a mixed solvent of phenol (60 vol %) and 1,1,2,2-tetrachloroethane (40 vol %) at room temperature for 1 h. The solution was poured into methanol, and the precipitated polyesters were dried in a vacuum oven.",
+      "evidence_id": "ev00054",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s017"
+    },
+    {
+      "block_id": "P_3_45",
+      "page": 3,
+      "bbox": [
+        509.0,
+        530.0,
+        900.0,
+        562.0
+      ],
+      "source_type": "text",
+      "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.",
+      "evidence_id": "ev00055",
+      "source_stage": "stage3_sample_process",
+      "object_id": "s018"
+    },
+    {
+      "block_id": "P_1_21",
+      "page": 1,
+      "bbox": [
+        98.0,
+        633.0,
+        490.0,
+        767.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The reactor was put into an oil bath at 280°C, and the mixed polyesters were melted for 5 min and then stirred at 60 rpm. The transesterification reaction was performed for 30, 45, 60, 75, and 90 min.",
+      "evidence_id": "ev00056",
+      "source_stage": "stage3_sample_process",
+      "object_id": "ps002"
+    },
+    {
+      "block_id": "P_1_27",
+      "page": 1,
+      "bbox": [
+        507.0,
+        559.0,
+        900.0,
+        707.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The $T _ { m }$and crystallization temperature (T ) values of the copolyesters were measured with a Seiko DSC 220C differential scanning calorimetry (DSC) instrument calibrated with pure indium as a standard (Japan). To eliminate the thermal history, samples (2.5 ± 0.5 mg) were heated to 280°C at a heating rate of 20°C/min and held there at 280°C for 1 min. T was measured while the samples were cooled to -50°C at a rate of 20°C/min, and during the third run, $T _ { m }$was measured at a heating rate of 20°C/min.",
+      "table_locator": null,
+      "evidence_id": "ev00057",
+      "source_stage": "stage4_property",
+      "object_id": "mc001"
+    },
+    {
+      "block_id": "P_2_33",
+      "page": 2,
+      "bbox": [
+        98.0,
+        843.0,
+        490.0,
+        918.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The tensile strength, modulus, and elongation at break were measured with an Instron model 4465 universal test machine (USA) in accordance with ASTM D 638. Dumbbell-type specimens were used at a crosshead speed of 500 mm/min.",
+      "table_locator": null,
+      "evidence_id": "ev00058",
+      "source_stage": "stage4_property",
+      "object_id": "mc002"
+    },
+    {
+      "block_id": "P_2_34",
+      "page": 2,
+      "bbox": [
+        100.0,
+        917.0,
+        490.0,
+        949.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The biodegradability of the copolyesters was investigated through a comparison of the weight loss during the immersion of samples in river water. The samples were put into the river water in polyethylene bottles, and they were held at 37°C for 40 days. The samples were taken out every 10 days and washed with methanol; this was followed by drying in a vacuum oven.",
+      "table_locator": null,
+      "evidence_id": "ev00059",
+      "source_stage": "stage4_property",
+      "object_id": "mc003"
+    },
+    {
+      "block_id": "P_2_34",
+      "page": 2,
+      "bbox": [
+        100.0,
+        917.0,
+        490.0,
+        949.0
+      ],
+      "source_type": "text",
+      "source_sentence": "they were held at 37°C for 40 days",
+      "table_locator": null,
+      "evidence_id": "ev00060",
+      "source_stage": "stage4_property",
+      "object_id": "mc003"
+    },
+    {
+      "block_id": "P_4_53",
+      "page": 4,
+      "bbox": [
+        100.0,
+        545.0,
+        490.0,
+        623.0
+      ],
+      "source_type": "text",
+      "source_sentence": "$T _ { m }$of PBAS was about $9 0 ^ { \\circ } \\mathrm { C } .$",
+      "table_locator": null,
+      "evidence_id": "ev00061",
+      "source_stage": "stage4_property",
+      "object_id": "s001"
+    },
+    {
+      "block_id": "P_7_86",
+      "page": 7,
+      "bbox": [
+        507.0,
+        225.0,
+        900.0,
+        303.0
+      ],
+      "source_type": "text",
+      "source_sentence": "The elongation of PBAS was around 240%, whereas those of the copolyesters increased abruptly up to 800% with the addition of PET.",
+      "table_locator": null,
+      "evidence_id": "ev00062",
+      "source_stage": "stage4_property",
+      "object_id": "s001"
+    },
+    {
+      "block_id": "P_8_96",
+      "page": 8,
+      "bbox": [
+        100.0,
+        124.0,
+        488.0,
+        228.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Biodegradable PBAS showed a 19% weight loss after 40 days, but PET showed no weight changes.",
+      "table_locator": null,
+      "evidence_id": "ev00063",
+      "source_stage": "stage4_property",
+      "object_id": "s001"
+    },
+    {
+      "block_id": "I_5_59",
+      "page": 5,
+      "bbox": [
+        233.0,
+        102.0,
+        765.0,
+        453.0
+      ],
+      "source_type": "image",
+      "source_sentence": "Figure 8 TGA thermograms of PBAS, PET, and the copolyesters.",
+      "evidence_id": "ev00064",
+      "source_stage": "stage5_characterization",
+      "object_id": "char001"
+    },
+    {
+      "block_id": "P_7_80",
+      "page": 7,
+      "bbox": [
+        100.0,
+        661.0,
+        490.0,
+        767.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents. The thermal decomposition temperature rose with the number of PET units. Higher thermal stability was achieved with an increased number of embedded aromatic units, which were thermally more stable than the aliphatic units.",
+      "evidence_id": "ev00065",
+      "source_stage": "stage5_characterization",
+      "object_id": "char001"
+    },
+    {
+      "block_id": "P_8_97",
+      "page": 8,
+      "bbox": [
+        100.0,
+        228.0,
+        488.0,
+        319.0
+      ],
+      "source_type": "text",
+      "source_sentence": "Photographs of PBAS and M60P10 films after immersion tests are shown in Figures 14 and 15, respectively.",
+      "table_locator": null,
+      "evidence_id": "ev00066",
+      "source_stage": "stage4_property",
+      "object_id": "s001"
+    },
+    {
+      "block_id": "P_3_45",
+      "page": 3,
+      "bbox": [
+        509.0,
+        530.0,
+        900.0,
+        562.0
+      ],
+      "source_type": "text",
+      "source_sentence": "On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.",
+      "table_locator": null,
+      "evidence_id": "ev00067",
+      "source_stage": "stage4_property",
+      "object_id": "s006"
+    },
+    {
+      "block_id": "P_7_79",
+      "page": 7,
+      "bbox": [
+        100.0,
+        572.0,
+        490.0,
+        662.0
+      ],
+      "source_type": "text",
+      "source_sentence": "As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET. It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit.",
+      "evidence_id": "ev00068",
+      "source_stage": "stage5_characterization"
+    }
+  ],
+  "provenance": [
+    {
+      "stage": "ocr",
+      "engine": "mineru",
+      "batch_id": "a6e64824-914e-46ec-ac47-dde04d9734bc",
+      "model_version": "vlm",
+      "ocr_enabled": false,
+      "language": null,
+      "page_ranges": null,
+      "enable_formula": true,
+      "enable_table": true,
+      "extra_formats": [],
+      "status": "done",
+      "manifest_file": "batch_a6e64824-914e-46ec-ac47-dde04d9734bc_manifest.json",
+      "status_file": "batch_a6e64824-914e-46ec-ac47-dde04d9734bc_status.json"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "provider": "dmx",
+      "model": "gpt-5.6-terra-2026-07-09",
+      "models": [
+        "gpt-5.6-terra-2026-07-09"
+      ],
+      "prompt_id": "polymer.stage1.material_mention",
+      "prompt_version": "1.2.1",
+      "prompt_sha256": "af2a070da70b7754d6ae45eeebe3bf42cf2eb2dcd039e11acdb837a06c461fb9",
+      "input_hash": "79bee78496ccaea4cca48948043b1ca5636e6ae3ae3cf89b3bbd0ca3cf93d3be",
+      "model_config_hash": "e075727883d2926c6e33e8497fe72c20e1e5addc7dfd2a90d973701ccfece7ad",
+      "cache_key": "6455d85ee6773f0f3babadea44299675a46b226b696290118643cccf0ce7645b",
+      "output_schema_version": "material_mention_schema.v2",
+      "implementation_version": "1.2.6",
+      "chunk_count": 2,
+      "usage": {
+        "input_tokens": 6723,
+        "output_tokens": 3280,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "billable_input_tokens": 6723,
+        "total_tokens": 10003
+      },
+      "cost": {
+        "status": "calculated",
+        "currency": "CNY",
+        "input_per_million": "17",
+        "output_per_million": "101",
+        "input_cost": "0.114291",
+        "output_cost": "0.331280",
+        "total_cost": "0.445571"
+      },
+      "status": "success"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "provider": "dmx",
+      "model": "gpt-5.6-terra-2026-07-09",
+      "models": [
+        "gpt-5.6-terra-2026-07-09"
+      ],
+      "prompt_id": "polymer.stage2.polymer_entity",
+      "prompt_version": "1.5.1",
+      "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
+      "input_hash": "bf18ae725a9b53d66bc1710930c689a9786747f22ce5bd698197f38a977b5958",
+      "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
+      "cache_key": "74f4df4b5226d2480bac0789eccf7d84203012a98411d06b52f5429c62cf4bd1",
+      "output_schema_version": "polymer_entity_schema.v3",
+      "implementation_version": "1.6.1",
+      "context_block_count": 57,
+      "context_chars": 19777,
+      "call_count": 1,
+      "usage": {
+        "input_tokens": 3,
+        "output_tokens": 5008,
+        "cache_creation_input_tokens": 12989,
+        "cache_read_input_tokens": 2222,
+        "billable_input_tokens": 15214,
+        "total_tokens": 20222
+      },
+      "cost": {
+        "status": "calculated",
+        "currency": "CNY",
+        "input_per_million": "17",
+        "output_per_million": "101",
+        "input_cost": "0.258638",
+        "output_cost": "0.505808",
+        "total_cost": "0.764446"
+      },
+      "status": "success"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "provider": "dmx",
+      "model": "doubao-seed-2.0-pro",
+      "models": [
+        "doubao-seed-2.0-pro"
+      ],
+      "prompt_id": "polymer.stage3.sample_process",
+      "prompt_version": "1.6.0",
+      "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+      "input_hash": "04c497c8b42e4b98e5d0c58710607a6bcb179b2ed865c73160bba62fda99199f",
+      "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
+      "cache_key": "cd1b23b2a9f51adb3693e3fe6c0edbb6ee41e0b2be09654aec06b3c3a9bf8a68",
+      "output_schema_version": "sample_process_schema.v4",
+      "implementation_version": "1.7.1",
+      "context_block_count": 19,
+      "context_chars": 8375,
+      "call_count": 1,
+      "usage": {
+        "input_tokens": 11698,
+        "output_tokens": 9740,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "billable_input_tokens": 11698,
+        "total_tokens": 21438
+      },
+      "cost": {
+        "status": "calculated",
+        "currency": "CNY",
+        "input_per_million": "4.32",
+        "output_per_million": "29.15",
+        "input_cost": "0.05053536",
+        "output_cost": "0.283921",
+        "total_cost": "0.33445636"
+      },
+      "status": "success"
+    },
+    {
+      "stage": "stage4_property",
+      "provider": "dmx",
+      "model": "doubao-seed-2.0-pro",
+      "models": [
+        "doubao-seed-2.0-pro"
+      ],
+      "prompt_id": "polymer.stage4.property",
+      "prompt_version": "1.7.3",
+      "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+      "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+      "input_hash": "f1e61b373b7679163536485513f0ed8d8f0d399b205df92d847405418f60a200",
+      "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+      "cache_key": "8620ffb6d44ab2b186f7d0af9eb7d8a5c5ec2c2ec5ea0d3ff802fe56bd8f8834",
+      "output_schema_version": "property_observation_schema.v7",
+      "implementation_version": "1.7.10",
+      "context_block_count": 56,
+      "context_chars": 22977,
+      "call_count": 1,
+      "usage": {
+        "input_tokens": 23650,
+        "output_tokens": 7761,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 11064,
+        "billable_input_tokens": 34714,
+        "total_tokens": 42475
+      },
+      "cost": {
+        "status": "calculated",
+        "currency": "CNY",
+        "input_per_million": "4.32",
+        "output_per_million": "29.15",
+        "input_cost": "0.14996448",
+        "output_cost": "0.22623315",
+        "total_cost": "0.37619763"
+      },
+      "status": "candidate_partial"
+    },
+    {
+      "stage": "stage5_characterization",
+      "provider": "dmx",
+      "model": "doubao-seed-2.0-pro",
+      "models": [
+        "doubao-seed-2.0-pro"
+      ],
+      "prompt_id": "polymer.stage5.characterization",
+      "prompt_version": "1.7.0",
+      "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+      "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+      "input_hash": "73d78d994991e0c1059a7e71bb124d3707bcebcf724ba9181c14d59c081b73ad",
+      "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+      "cache_key": "e3e14c51c36cb6d882ccef7710fb39a36eea3ba27215495634249862190d8a64",
+      "output_schema_version": "characterization_schema.v4",
+      "implementation_version": "1.8.1",
+      "context_block_count": 56,
+      "context_chars": 22977,
+      "call_count": 1,
+      "usage": {
+        "input_tokens": 11342,
+        "output_tokens": 5539,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 9016,
+        "billable_input_tokens": 20358,
+        "total_tokens": 25897
+      },
+      "cost": {
+        "status": "calculated",
+        "currency": "CNY",
+        "input_per_million": "4.32",
+        "output_per_million": "29.15",
+        "input_cost": "0.08794656",
+        "output_cost": "0.16146185",
+        "total_cost": "0.24940841"
+      },
+      "status": "success"
+    }
+  ],
+  "warnings": [
+    {
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成",
+      "stage": "stage0"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema/Process 图合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "s017.sample_label_raw 不是 evidence 原文子串"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "material_type_evidence_inferred",
+      "message": "已根据样品中的明确配方或增强组分证据补全 material_type",
+      "items": [
+        {
+          "sample_id": "s003",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "mixing",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        },
+        {
+          "sample_id": "s004",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "mixing",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        },
+        {
+          "sample_id": "s005",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "mixing",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        },
+        {
+          "sample_id": "s006",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "mixing",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        },
+        {
+          "sample_id": "s007",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "mixing",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        },
+        {
+          "sample_id": "s017",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps007",
+          "process_type": "blending",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities",
+      "message": "1 个 entity 未解析到实际样品",
+      "entity_ids": [
+        "pe019"
+      ]
+    },
+    {
+      "stage": "stage4_property",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 4 响应，未请求模型",
+      "source": "stage4_failure.json"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop002.property_name_raw='elongation at break' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unresolved_properties",
+      "message": "1 条性质无法可靠关联具体 Sample",
+      "unresolved_ids": [
+        "uprop001"
+      ]
+    },
+    {
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json",
+      "stage": "stage4"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unlocatable_additional_evidence_removed",
+      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "P_1_28"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "instrument",
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "char001.measurement_context.other_conditions.sample_mass.raw 无法在字段专属 evidence中定位"
+    }
+  ],
+  "blocking_warnings": [],
+  "stage_failures": [],
+  "raw_stage_candidates": {},
+  "validation_summary": {
+    "status": "not_validated",
+    "error_count": 0,
+    "warning_count": 12
+  },
+  "source_stage_versions": {
+    "stage0": "1.1",
+    "stage1": "1.0",
+    "stage2": "1.0",
+    "stage3": "1.0",
+    "stage4": "1.0",
+    "stage5": "1.0"
+  }
+}

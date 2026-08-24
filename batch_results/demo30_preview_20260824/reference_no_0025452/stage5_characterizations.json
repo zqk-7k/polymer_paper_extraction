@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0025452",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "thermogravimetric analysis (TGA)",
+      "method_normalized": "TGA",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "series_id": "series005",
+      "parameters": {
+        "environment": "nitrogen"
+      },
+      "result_summary": "Fabricated polyimide aerogels presented onset of decomposition ranging from 422 to 621 °C.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_19_97",
+          "page": 19,
+          "bbox": [
+            86.0,
+            126.0,
+            910.0,
+            529.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermogravimetric analysis (TGA) was performed on all studied aerogels under nitrogen environment, starting from room temperature to $7 5 0 ~ ^ { \\circ } \\mathrm { C }$at the rate of $1 0 ~ { ^ { \\circ } C } / { \\mathrm { m i n } }$"
+        },
+        {
+          "block_id": "I_21_104",
+          "page": 21,
+          "bbox": [
+            104.0,
+            446.0,
+            905.0,
+            777.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Figure 8. The TGA results of A) PMDA and, B) BPDA backbone aerogels with varying diamine fraction."
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "48849618634c45db3bd9086c3e9c5cdbcd74f905bba10a578fb11c3513e05b1c",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "55c5bb67c53bdf2376a092fe09a23b6b55cc86399b60a9808059955d02b1c530",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 64,
+    "context_chars": 48222,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 12519,
+      "output_tokens": 3380,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 10040,
+      "billable_input_tokens": 22559,
+      "total_tokens": 25939
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.09745488",
+      "output_cost": "0.098527",
+      "total_cost": "0.19598188"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "uprop001 的测定方法 'DSC' 缺少同一实体 Characterization 回链"
+    }
+  ]
+}

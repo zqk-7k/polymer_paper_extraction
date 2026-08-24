@@ -1,0 +1,1336 @@
+{
+  "sidecar_schema_version": "stage4t_preview_sidecar.v0.4",
+  "shadow_version": "0.5.0",
+  "authoritative": false,
+  "candidate_layer": "broad",
+  "llm_interpretation_enabled": false,
+  "llm_interpreter_version": "0.4.0",
+  "interpretation_application_version": "0.1.2",
+  "document_id": "reference_no_0026714",
+  "table_count": 3,
+  "summary": {
+    "observation_count": 15,
+    "binding_status_counts": {
+      "bound": 4,
+      "unresolved": 11
+    },
+    "candidate_class_counts": {
+      "official_property": 12,
+      "unknown_observation": 3
+    },
+    "semantic_status_counts": {
+      "normalized": 12,
+      "unmapped": 3
+    },
+    "publication_status_counts": {
+      "candidate_only": 15
+    },
+    "unresolved_count": 11,
+    "tables_with_observations": 2,
+    "warning_counts": {
+      "numeric_table_without_sample_axis": 1,
+      "shadow_direction_unknown": 1,
+      "shadow_no_property_candidates": 1,
+      "shadow_unresolved_bindings": 2
+    }
+  },
+  "tables": [
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_2_43",
+      "caption": "TABLE I Dependence of Viscosity and Physical State of a 0.5 mol/ L AAM \u0001 0.05 mol/L AMPS Comonomer Solution on Absorbed Dose at Ambient Temperature",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "named_sample",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_2_43",
+          "column_index": 0,
+          "header_context": [
+            "Dose/kGy"
+          ],
+          "property_name_raw": "Dose/kGy",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "mol/ L",
+          "unit_normalized": null,
+          "unit_location": "caption"
+        },
+        {
+          "table_id": "T_2_43",
+          "column_index": 1,
+          "header_context": [
+            "$\\eta/mPa s^{-1}$"
+          ],
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple"
+        },
+        {
+          "table_id": "T_2_43",
+          "column_index": 2,
+          "header_context": [
+            "State"
+          ],
+          "property_name_raw": "State",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "mol/ L",
+          "unit_normalized": null,
+          "unit_location": "caption"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_2_43:T_2_43:r0001:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "2.6",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0002:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "4.6",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0003:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "248",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0004:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "275",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0005:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "472",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0006:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "783",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0006:c0001",
+          "row_index": 6,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0006:c0001",
+            "row_index": 6,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0006:c0001",
+            "row_index": 6,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0007:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "849",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0007:c0001",
+          "row_index": 7,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0007:c0001",
+            "row_index": 7,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0007:c0001",
+            "row_index": 7,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_2_43:T_2_43:r0008:c0001",
+          "table_id": "T_2_43",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "property_name_normalized": "intrinsic_viscosity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1033",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "mPa",
+          "unit_normalized": null,
+          "unit_location": "multiple",
+          "cell_id": "T_2_43:r0008:c0001",
+          "row_index": 8,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0008:c0001",
+            "row_index": 8,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_2_43",
+            "cell_id": "T_2_43:r0008:c0001",
+            "row_index": 8,
+            "column_index": 1,
+            "header_path": [
+              "$\\eta/mPa s^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0006:c0001",
+          "row_index": 6,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0007:c0001",
+          "row_index": 7,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_2_43:r0008:c0001",
+          "row_index": 8,
+          "column_index": 1,
+          "property_name_raw": "$\\eta/mPa s^{-1}$",
+          "semantic_label": null
+        }
+      ],
+      "warnings": [
+        "shadow_unresolved_bindings"
+      ]
+    },
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_3_46",
+      "caption": "TABLE II Dependence of Thermal Properties of Water in Poly(AMPS) Gels on Monomer Concentration in Pregel Solution",
+      "direction": "unknown",
+      "sample_axis": "unknown",
+      "axis_role": "unknown",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [],
+      "observations": [],
+      "unresolved": [],
+      "warnings": [
+        "numeric_table_without_sample_axis",
+        "shadow_direction_unknown",
+        "shadow_no_property_candidates"
+      ]
+    },
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_6_85",
+      "caption": "TABLE III Thermal Properties of AAM and AMPS Monomers and Dried Homopolymer Gels and Dried Poly(AAM-co-AMPS) Gels",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "named_sample",
+      "header_rows": [
+        0,
+        1
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_6_85",
+          "column_index": 0,
+          "header_context": [
+            "Sample",
+            "AAM"
+          ],
+          "property_name_raw": "Sample | AAM",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_6_85",
+          "column_index": 1,
+          "header_context": [
+            "dose/kGy",
+            "N/A"
+          ],
+          "property_name_raw": "dose/kGy | N/A",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_6_85",
+          "column_index": 2,
+          "header_context": [
+            "$T_m/°C$",
+            "87.4 (peak)"
+          ],
+          "property_name_raw": "$T_m/°C$ | 87.4 (peak)",
+          "property_name_normalized": "melting_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_6_85",
+          "column_index": 3,
+          "header_context": [
+            "$T_g/°C$",
+            "—"
+          ],
+          "property_name_raw": "$T_g/°C$ | —",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_6_85",
+          "column_index": 4,
+          "header_context": [
+            "$T_{pp}/°C^a$",
+            "133 (peak)"
+          ],
+          "property_name_raw": "$T_{pp}/°C^a$ | 133 (peak)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": null,
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_6_85",
+          "column_index": 5,
+          "header_context": [
+            "$T_d/°C^b$",
+            "236 (peak)"
+          ],
+          "property_name_raw": "$T_d/°C^b$ | 236 (peak)",
+          "property_name_normalized": "thermal_decomposition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": null,
+          "unit_location": "header"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_6_85:T_6_85:r0003:c0001",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "polyAAM",
+          "property_name_raw": "dose/kGy | N/A",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "8.1",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_6_85:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "dose/kGy | N/A"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_6_85:T_6_85:r0004:c0001",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "polyAMPS",
+          "property_name_raw": "dose/kGy | N/A",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "8.1",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_6_85:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1,
+            "header_path": [
+              "dose/kGy | N/A"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_6_85:T_6_85:r0005:c0001",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "copolymer",
+          "property_name_raw": "dose/kGy | N/A",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "2.2, 9.0, 50.8",
+          "value_kind": "numeric_multiple",
+          "value_has_footnote": false,
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found",
+          "cell_id": "T_6_85:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1,
+            "header_path": [
+              "dose/kGy | N/A"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped",
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_6_85:T_6_85:r0003:c0003",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "polyAAM",
+          "property_name_raw": "$T_g/°C$ | —",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "146",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_6_85:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "header_path": [
+              "$T_g/°C$ | —"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_6_85:T_6_85:r0004:c0003",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "polyAMPS",
+          "property_name_raw": "$T_g/°C$ | —",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "125",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_6_85:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "header_path": [
+              "$T_g/°C$ | —"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_6_85:T_6_85:r0005:c0003",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "copolymer",
+          "property_name_raw": "$T_g/°C$ | —",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "≈150",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_6_85:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3,
+            "header_path": [
+              "$T_g/°C$ | —"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_6_85:T_6_85:r0002:c0005",
+          "table_id": "T_6_85",
+          "direction": "row_samples",
+          "sample_label_raw": "AMPS",
+          "property_name_raw": "$T_d/°C^b$ | 236 (peak)",
+          "property_name_normalized": "thermal_decomposition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "207",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": null,
+          "unit_location": "header",
+          "cell_id": "T_6_85:r0002:c0005",
+          "row_index": 2,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0002:c0005",
+            "row_index": 2,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_6_85",
+            "cell_id": "T_6_85:r0002:c0005",
+            "row_index": 2,
+            "column_index": 5,
+            "header_path": [
+              "$T_d/°C^b$ | 236 (peak)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_6_85:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "property_name_raw": "dose/kGy | N/A",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_6_85:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "property_name_raw": "dose/kGy | N/A",
+          "semantic_label": null
+        },
+        {
+          "reason": "property_mapping_not_found",
+          "cell_id": "T_6_85:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "property_name_raw": "dose/kGy | N/A",
+          "semantic_label": null
+        }
+      ],
+      "warnings": [
+        "shadow_unresolved_bindings"
+      ]
+    }
+  ],
+  "interpretations": [
+    {
+      "table_id": "T_3_46",
+      "route_reasons": [
+        "direction_unknown"
+      ],
+      "status": "disabled",
+      "authoritative": false,
+      "publication_status": "candidate_only",
+      "llm_call_attempted": false,
+      "reason": "feature_disabled"
+    },
+    {
+      "table_id": "T_6_85",
+      "route_reasons": [
+        "structured_or_composite_values"
+      ],
+      "status": "disabled",
+      "authoritative": false,
+      "publication_status": "candidate_only",
+      "llm_call_attempted": false,
+      "reason": "feature_disabled"
+    }
+  ],
+  "provenance": {
+    "source": "stage0_blocks.json",
+    "stage0_sha256": "4a9ab1981e82de63967493a45ce326b698bf42a44dfc5bb4bb66611040c978cd",
+    "config_sha256": null,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_tokens": 0
+    },
+    "cost": {
+      "status": "not_applicable",
+      "currency": null,
+      "input_per_million": null,
+      "output_per_million": null,
+      "input_cost": "0",
+      "output_cost": "0",
+      "total_cost": "0"
+    },
+    "raw_response": null
+  }
+}

@@ -1,0 +1,623 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0043955",
+  "status": "running",
+  "shard_count": 6,
+  "unrouted_block_ids": [
+    "P_0_9",
+    "P_1_24",
+    "P_3_55",
+    "T_4_62",
+    "P_5_75",
+    "T_6_85",
+    "I_6_88",
+    "P_8_108",
+    "P_8_109",
+    "P_9_121",
+    "P_9_127",
+    "P_10_133",
+    "P_11_167"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_0_5",
+        "P_0_9",
+        "T_4_62",
+        "P_4_64",
+        "P_5_75",
+        "P_9_127",
+        "P_10_132",
+        "P_10_133"
+      ],
+      "context_chars": 10772,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_ids\": [\n        \"pe003\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_0_5\",\n          \"source_sentence\": \"The structures of the PFP-containing PPAs and the derived functional PPAs were characterized by using multiple spectroscopic techniques including GPC, FTIR, <sup>1</sup>H NMR, <sup>13</sup>C NMR, and <sup>19</sup>F NMR.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_64\",\n          \"source_sentence\": \"Spectroscopic analyses (such as NMR and FTIR) were conducted on the characterization of the polymers’ structure (see Experimental Section for details). A representative example ofthe IR spectrum ofP2-C*Ph(L) is shown in Figure 1C. As described above, P2 shows an absorption band at ~1780 cm⁻¹, which is ascribed to the stretching vibration of carbonyl group in ester moiety. This band is absent in the spectrum of P2-C*Ph(L), indicating the full consumption of PFP ester in P2 during the polymer reaction. Meanwhile, there emerges a new band at 1640 cm⁻¹, corresponding to the stretching vibrations of the carbonyl group in amide group and a broad band at ~3292 cm⁻¹, which is assignable to the stretching vibrations of NH.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_10_132\",\n          \"source_sentence\": \"FTIR spectra were measured on a Perkin-Elmer 16 PC FT-IR spectrophotometer.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Perkin-Elmer 16 PC FT-IR spectrophotometer\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"FTIR\",\n      \"method_raw\": \"FTIR\",\n      \"parameters\": {},\n      \"result_summary\": \"Confirmed complete substitution of PFP ester groups by amines in P2 to form P2-C*Ph(L), and verified no polymer degradation during the reaction.\",\n      \"sample_ids\": [\n        \"s002\",\n        \"s009\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_64\",\n          \"source_sentence\": \"As described above, P2 shows an absorption band at ~1780 cm⁻¹, which is ascribed to the stretching vibration of carbonyl group in ester moiety.\",\n          \"table_locator\": null\n        }\n      ],\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"FTIR absorption band wavenumber\",\n      \"sample_id\": \"s002\",\n      \"sample_resolution_status\": \"resolved\",\n      \"spectral_assignment\": \"stretching vibration of carbonyl group in ester moiety\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1780,\n      \"value_min\": 1780,\n      \"value_raw\": \"~1780\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe007\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_64\",\n          \"source_sentence\": \"Meanwhile, there emerges a new band at 1640 cm⁻¹, corresponding to the stretching vibrations of the carbonyl group in amide group\",\n          \"table_locator\": null\n        }\n      ],\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"FTIR absorption band wavenumber\",\n      \"sample_id\": \"s009\",\n      \"sample_resolution_status\": \"resolved\",\n      \"spectral_assignment\": \"stretching vibrations of the carbonyl group in amide group\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1640,\n      \"value_min\": 1640,\n      \"value_raw\": \"1640\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe007\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_64\",\n          \"source_sentence\": \"a broad band at ~3292 cm⁻¹, which is assignable to the stretching vibrations of NH\",\n          \"table_locator\": null\n        }\n      ],\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"FTIR absorption band wavenumber\",\n      \"sample_id\": \"s009\",\n      \"sample_resolution_status\": \"resolved\",\n      \"spectral_assignment\": \"stretching vibrations of NH\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 3292,\n      \"value_min\": 3292,\n      \"value_raw\": \"~3292\"\n    }\n  ],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15861,
+              "output_tokens": 4899,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06851952",
+              "output_cost": "0.14280585",
+              "total_cost": "0.21132537"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 1,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "930349157b1c9303eb20e6b9848c6460c122e976021f7b73767dece868866b4c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_4_64"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[0].value_raw",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[2].value_raw",
+          "property_id": "prop_s5_003"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_002"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "FTIR",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s002",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe003",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Perkin-Elmer 16 PC FT-IR spectrophotometer",
+            "parameters": {},
+            "result_summary": "Confirmed complete substitution of PFP ester groups by amines in P2 to form P2-C*Ph(L), and verified no polymer degradation during the reaction.",
+            "derived_property_ids": [
+              "prop_s5_001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_0_5",
+                "page": 0,
+                "bbox": [
+                  93.0,
+                  316.0,
+                  535.0,
+                  495.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The structures of the PFP-containing PPAs and the derived functional PPAs were characterized by using multiple spectroscopic techniques including GPC, FTIR, <sup>1</sup>H NMR, <sup>13</sup>C NMR, and <sup>19</sup>F NMR."
+              },
+              {
+                "block_id": "P_10_132",
+                "page": 10,
+                "bbox": [
+                  80.0,
+                  81.0,
+                  484.0,
+                  295.0
+                ],
+                "source_type": "text",
+                "source_sentence": "FTIR spectra were measured on a Perkin-Elmer 16 PC FT-IR spectrophotometer."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "entity_id": "pe007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1640",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1640",
+            "value_min": 1640.0,
+            "value_max": 1640.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_64",
+                "page": 4,
+                "bbox": [
+                  80.0,
+                  820.0,
+                  484.0,
+                  932.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Meanwhile, there emerges a new <sub>band</sub> <sub>at</sub> <sub>1640</sub> <sub>cm</sub>\u0001<sup>1</sup><sub>,</sub> <sub>corresponding</sub> <sub>to</sub> <sub>the</sub> <sub>stretching</sub> <sub>vibrations</sub> of the carbonyl group in amide group and a broad band at ${ \\sim } 3 2 9 2 ~ \\mathrm { c m } ^ { - 1 }$, which is assignable to the stretching vibrations of N H."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_0_5",
+        "P_0_9",
+        "T_4_62",
+        "P_4_64",
+        "P_5_75",
+        "P_9_127",
+        "P_10_132",
+        "P_10_133"
+      ],
+      "context_chars": 10772,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_0_5\",\n          \"source_sentence\": \"The structures of the PFP-containing PPAs and the derived functional PPAs were characterized by using multiple spectroscopic techniques including GPC, FTIR, <sup>1</sup>H NMR, <sup>13</sup>C NMR, and <sup>19</sup>F NMR.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_64\",\n          \"source_sentence\": \"Spectroscopic analyses (such as NMR and FTIR) were conducted on the characterization of the polymers’ structure (see Experimental Section for details).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_10_132\",\n          \"source_sentence\": \"${ } ^ { 1 } \\\\mathrm { H } , { } ^ { 1 3 } \\\\mathrm { C } ,$and $^ { 1 9 } \\\\mathrm { F }$NMR spectra were measured on a Bruker ARX 500 NMR spectrometer using tetramethylsilane (TMS; δ = 0 ppm) as internal standard.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Bruker ARX 500 NMR spectrometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"1H NMR, 13C NMR, and 19F NMR\",\n      \"parameters\": {\n        \"internal standard\": \"tetramethylsilane (TMS; δ = 0 ppm)\"\n      },\n      \"result_summary\": \"Used to characterize the structures of PFP-containing PPAs and derived functional PPAs\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s007\", \"s008\", \"s009\", \"s010\", \"s011\", \"s012\", \"s013\", \"s014\", \"s015\", \"s016\", \"s017\", \"s018\", \"s019\", \"s020\", \"s021\", \"s022\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15851,
+              "output_tokens": 2504,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 12088
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12069648",
+              "output_cost": "0.0729916",
+              "total_cost": "0.19368808"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "ab974ebd860cc388b743b750c23dd487cb9692f8717fe040d7528fd0333e483d",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "NMR"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "NMR",
+            "method_normalized": "NMR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s007",
+              "s008",
+              "s009",
+              "s010",
+              "s011",
+              "s012",
+              "s013",
+              "s014",
+              "s015",
+              "s016",
+              "s017",
+              "s018",
+              "s019",
+              "s020",
+              "s021",
+              "s022"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Bruker ARX 500 NMR spectrometer",
+            "parameters": {
+              "internal standard": "tetramethylsilane (TMS; δ = 0 ppm)"
+            },
+            "result_summary": "Used to characterize the structures of PFP-containing PPAs and derived functional PPAs",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_0_5",
+                "page": 0,
+                "bbox": [
+                  93.0,
+                  316.0,
+                  535.0,
+                  495.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The structures of the PFP-containing PPAs and the derived functional PPAs were characterized by using multiple spectroscopic techniques including GPC, FTIR, <sup>1</sup>H NMR, <sup>13</sup>C NMR, and <sup>19</sup>F NMR."
+              },
+              {
+                "block_id": "P_4_64",
+                "page": 4,
+                "bbox": [
+                  80.0,
+                  820.0,
+                  484.0,
+                  932.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Spectroscopic analyses (such as NMR and FTIR) were conducted on the characterization of the polymers’ structure (see Experimental Section for details)."
+              },
+              {
+                "block_id": "P_10_132",
+                "page": 10,
+                "bbox": [
+                  80.0,
+                  81.0,
+                  484.0,
+                  295.0
+                ],
+                "source_type": "text",
+                "source_sentence": "${ } ^ { 1 } \\mathrm { H } , { } ^ { 1 3 } \\mathrm { C } ,$and $^ { 1 9 } \\mathrm { F }$NMR spectra were measured on a Bruker ARX 500 NMR spectrometer using tetramethylsilane (TMS; δ = 0 ppm) as internal standard."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_0_5",
+        "P_0_9",
+        "P_9_127",
+        "P_10_132",
+        "P_10_133"
+      ],
+      "context_chars": 6353,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": \"pe001\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_0_5\",\n                    \"source_sentence\": \"The structures of the PFP-containing PPAs and the derived functional PPAs were characterized by using multiple spectroscopic techniques including GPC, FTIR, <sup>1</sup>H NMR, <sup>13</sup>C NMR, and <sup>19</sup>F NMR.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_10_132\",\n                    \"source_sentence\": \"Molecular weights (M and $M _ { \\\\mathrm { n } } )$and polydispersity indexes (PDI, M /M ) ofthe polymers were estimated in THF by a Waters gel permeation chromatography (GPC) system. A set of monodisperse polystyrene standards covering molecular weight range of $1 0 ^ { 3 }  – 1 0 ^ { 7 }$was used for molecular weight calibration.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Waters gel permeation chromatography (GPC) system\",\n            \"measurement_context\": null,\n            \"method_normalized\": \"GPC\",\n            \"method_raw\": \"gel permeation chromatography (GPC)\",\n            \"parameters\": {\n                \"solvent\": \"THF\",\n                \"calibration_standard\": \"monodisperse polystyrene standards covering molecular weight range of 10^3 – 10^7\"\n            },\n            \"result_summary\": \"Estimated molecular weights and polydispersity indexes of PFP-containing PPAs and derived functional PPAs\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 14030,
+              "output_tokens": 2731,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 12088
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11282976",
+              "output_cost": "0.07960865",
+              "total_cost": "0.19243841"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "bfdaee3276361720936a25483d095e71276495878bf2b28ece740a093d9266e3",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "gel permeation chromatography (GPC)",
+            "method_normalized": "GPC",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "instrument": "Waters gel permeation chromatography (GPC) system",
+            "parameters": {
+              "solvent": "th f"
+            },
+            "result_summary": "Estimated molecular weights and polydispersity indexes of PFP-containing PPAs and derived functional PPAs",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_0_5",
+                "page": 0,
+                "bbox": [
+                  93.0,
+                  316.0,
+                  535.0,
+                  495.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The structures of the PFP-containing PPAs and the derived functional PPAs were characterized by using multiple spectroscopic techniques including GPC, FTIR, <sup>1</sup>H NMR, <sup>13</sup>C NMR, and <sup>19</sup>F NMR."
+              },
+              {
+                "block_id": "P_10_132",
+                "page": 10,
+                "bbox": [
+                  80.0,
+                  81.0,
+                  484.0,
+                  295.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Molecular weights (M and $M _ { \\mathrm { n } } )$and polydispersity indexes (PDI, M /M ) ofthe polymers were estimated in THF by a Waters gel permeation chromatography (GPC) system. A set of monodisperse polystyrene standards covering molecular weight range of $1 0 ^ { 3 }  – 1 0 ^ { 7 }$was used for molecular weight calibration."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "T_4_62",
+        "P_4_64",
+        "P_5_75",
+        "P_9_127",
+        "P_10_132",
+        "P_10_133"
+      ],
+      "context_chars": 8161,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": \"pe001\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_10_132\",\n                    \"source_sentence\": \"The thermogravimetric analysis (TGA) was conducted on a Pyris 6 thermogravimetric analyzer (Perkin-Elmer), in which a sample of ~3 mg was heated to 600 °C at a rate of 20 °C/min and under a flow of nitrogen stream.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Pyris 6 thermogravimetric analyzer (Perkin-Elmer)\",\n            \"measurement_context\": null,\n            \"method_normalized\": \"TGA\",\n            \"method_raw\": \"thermogravimetric analysis (TGA)\",\n            \"parameters\": {\n                \"sample_mass\": \"~3 mg\",\n                \"heating_rate\": \"20 °C/min\",\n                \"final_temperature\": \"600 °C\",\n                \"atmosphere\": \"nitrogen stream\"\n            },\n            \"result_summary\": null,\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": [\n        {\n            \"specialized_id\": \"sp_cand001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"sample_resolution_status\": \"resolved\",\n            \"sample_id\": \"s009\",\n            \"entity_id\": \"pe007\",\n            \"property_name_raw\": \"polymer structure\",\n            \"value_raw\": \"PFP ester has been substituted completely by amines\",\n            \"method_raw\": \"IR spectrum\",\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_64\",\n                    \"source_sentence\": \"The IR spectra confirm that the PFP ester has been substituted completely by amines.\",\n                    \"table_locator\": null\n                }\n            ]\n        },\n        {\n            \"specialized_id\": \"sp_cand002\",\n            \"confidence\": {\n                \"score\": 0.8\n            },\n            \"sample_resolution_status\": \"unresolved\",\n            \"sample_id\": null,\n            \"entity_id\": \"pe001\",\n            \"property_name_raw\": \"polymer structural integrity\",\n            \"value_raw\": \"the polymers have not degraded during the polymer reaction\",\n            \"method_raw\": \"IR spectrum\",\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_64\",\n                    \"source_sentence\": \"Therefore, we can further conclude from the IR result that the polymers have not degraded during the polymer reaction.\",\n                    \"table_locator\": null\n                }\n            ]\n        },\n        {\n            \"specialized_id\": \"sp_cand003\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"sample_resolution_status\": \"resolved\",\n            \"sample_id\": \"s020\",\n            \"entity_id\": \"pe019\",\n            \"property_name_raw\": \"copolymer composition\",\n            \"value_raw\": \"P1-PEG350 75%-C14 25%\",\n            \"method_raw\": null,\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_75\",\n                    \"source_sentence\": \"the resultants were as follows: P1.pEG350 75% - C14 25%, P1-PEG350 50% - C14 50%, and P1.pEG350 25% C14 75%.\",\n                    \"table_locator\": null\n                }\n            ]\n        },\n        {\n            \"specialized_id\": \"sp_cand004\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"sample_resolution_status\": \"resolved\",\n            \"sample_id\": \"s021\",\n            \"entity_id\": \"pe020\",\n            \"property_name_raw\": \"copolymer composition\",\n            \"value_raw\": \"P1-PEG350 50%-C14 50%\",\n            \"method_raw\": null,\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_75\",\n                    \"source_sentence\": \"the resultants were as follows: P1.pEG350 75% - C14 25%, P1-PEG350 50% - C14 50%, and P1.pEG350 25% C14 75%.\",\n                    \"table_locator\": null\n                }\n            ]\n        },\n        {\n            \"specialized_id\": \"sp_cand005\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"sample_resolution_status\": \"resolved\",\n            \"sample_id\": \"s022\",\n            \"entity_id\": \"pe021\",\n            \"property_name_raw\": \"copolymer composition\",\n            \"value_raw\": \"P1-PEG350 25%-C14 75%\",\n            \"method_raw\": null,\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_75\",\n                    \"source_sentence\": \"the resultants were as follows: P1.pEG350 75% - C14 25%, P1-PEG350 50% - C14 50%, and P1.pEG350 25% C14 75%.\",\n                    \"table_locator\": null\n                }\n            ]\n        }\n    ]\n}",
+            "usage": {
+              "input_tokens": 15249,
+              "output_tokens": 4641,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06587568",
+              "output_cost": "0.13528515",
+              "total_cost": "0.20116083"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "b06f38eb37a4557df29c192bba47e6d1440f33f58a6370f31bb856609bdc9cda",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "instrument": "Pyris 6 thermogravimetric analyzer (Perkin-Elmer)",
+            "parameters": {
+              "atmosphere": "nitrogen stream"
+            },
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_10_132",
+                "page": 10,
+                "bbox": [
+                  80.0,
+                  81.0,
+                  484.0,
+                  295.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The thermogravimetric analysis (TGA) was conducted on a Pyris 6 thermogravimetric analyzer (Perkin-Elmer), in which a sample $\\mathrm { o f } \\sim 3$mg was heated to $6 0 0 ~ ^ { \\circ } \\mathrm { C }$at a rate of 20 \u0001C/min and under a flow of nitrogen stream."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "uv_vis_001",
+      "method_normalized": "UV-Vis",
+      "block_ids": [
+        "P_9_127",
+        "P_10_132",
+        "P_10_133"
+      ],
+      "context_chars": 3742,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.7\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_10_132\",\n                    \"source_sentence\": \"UV vis absorption spectra were measured on a Varian CARY 100 Bio UV vis spectrophotometer.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Varian CARY 100 Bio UV vis spectrophotometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {},\n                \"other_conditions\": {},\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"UV-Vis\",\n            \"method_raw\": \"UV vis\",\n            \"parameters\": {},\n            \"result_summary\": null,\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 13474,
+              "output_tokens": 2973,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 12088
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11042784",
+              "output_cost": "0.08666295",
+              "total_cost": "0.19709079"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "2b0d0ed78cdd582ef7ca206214dcd299d62bf8a67705aa83d0b70942439311e7",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unscoped_stage5_items_removed",
+          "message": "Preview 模式已移除无法唯一关联任何单/多主体的 Stage 5 表征及其派生性质；未猜测 entity_id",
+          "characterization_ids": [
+            "char001"
+          ],
+          "property_ids": []
+        }
+      ],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

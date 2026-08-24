@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0021296",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 7,
+  "usage": {
+    "input_tokens": 77660,
+    "output_tokens": 30497,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 38936,
+    "billable_input_tokens": 116596,
+    "total_tokens": 147093
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.50369472",
+    "output_cost": "0.88898755",
+    "total_cost": "1.39268227"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_39\",\n                    \"source_sentence\": \"The dilute solution in m-cresol was charged into a Ubbelohde-type viscometer for testing.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Ubbelohde-type viscometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"temperature\": {\n                    \"raw\": \"25 ± 0.02 °C\",\n                    \"value\": 25,\n                    \"unit\": \"°C\",\n                    \"evidence\": [\n                        {\n                            \"block_id\": \"P_3_39\",\n                            \"source_sentence\": \"The measurements of the intrinsic viscosities were made in a thermostat bath regulated to 25 $\\\\pm \\\\ : \\\\ : 0 . 0 2 ^ { \\\\circ } \\\\mathrm { C } .$.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                },\n                \"frequency\": null,\n                \"humidity\": null,\n                \"pressure\": null,\n                \"wavelength\": null,\n                \"other_conditions\": {},\n                \"other_condition_evidence\": {}\n            },\n            \"method_normalized\": \"viscometry\",\n            \"method_raw\": \"Ubbelohde-type viscometer\",\n            \"parameters\": {\n                \"solvent\": \"m-cresol\"\n            },\n            \"result_summary\": \"Intrinsic viscosities of synthesized DA-polyesters were measured, HT has [η] = 0.422, OT(2) has [η] = 0.063, HS and HI have [η] < 0.1.\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": \"series001\",\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+    "usage": {
+      "input_tokens": 10162,
+      "output_tokens": 2232,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 9016
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.08284896",
+      "output_cost": "0.0650628",
+      "total_cost": "0.14791176"
+    }
+  }
+}

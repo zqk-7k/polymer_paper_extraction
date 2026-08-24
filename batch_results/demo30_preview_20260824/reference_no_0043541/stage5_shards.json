@@ -1,0 +1,225 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0043541",
+  "status": "running",
+  "shard_count": 3,
+  "unrouted_block_ids": [
+    "P_3_38",
+    "P_3_39",
+    "P_3_42",
+    "P_3_44",
+    "T_4_49",
+    "E_4_50",
+    "E_4_51",
+    "E_4_52",
+    "E_4_53",
+    "E_4_54",
+    "P_4_55",
+    "I_5_67",
+    "P_5_71",
+    "I_5_74"
+  ],
+  "shards": [
+    {
+      "shard_id": "afm_001",
+      "method_normalized": "AFM",
+      "block_ids": [
+        "P_3_39",
+        "P_3_40",
+        "P_3_42",
+        "I_5_74",
+        "I_6_80",
+        "P_6_82",
+        "P_6_84"
+      ],
+      "context_chars": 7581,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_40\",\n          \"source_sentence\": \"The AFM observation revealed that a homogeneous polymer layer was formed on the substrate, and the surface roughness was $0 . 8 \\\\sim 1 . 5$nm in the dried state in a $5 \\\\times 5 \\\\mu \\\\mathrm { m } ^ { 2 }$scanning area.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"AFM\",\n      \"method_raw\": \"AFM\",\n      \"parameters\": {\n        \"scanning_area\": \"5 × 5 μm²\",\n        \"measurement_state\": \"dried\"\n      },\n      \"result_summary\": \"Homogeneous poly(MPC) polymer layer formed on substrate, surface roughness 0.8~1.5 nm\",\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    },\n    {\n      \"characterization_id\": \"char002\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"I_6_80\",\n          \"source_sentence\": \"Adhesion force (a) and friction (lateral) force (b) of poly(MPC) brush in a ethanol/water $( 7 0 / 3 0 , \\\\boldsymbol { \\\\mathrm v } / \\\\boldsymbol { \\\\mathrm v } )$ solution and NaCl aqueous solution measured by AFM using a colloidal probe cantilever with silica sphere $( d = 5 0 \\\\ \\\\mu \\\\mathrm { m } )$ Friction force is represented by output of the photo diode at a scan rate of 10 $\\\\mu \\\\mathrm { m } / \\\\mathsf { s }$ under normal load of 10 nN.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_84\",\n          \"source_sentence\": \"Figure 4 shows adhesion and lateral force for the high-density poly(MPC) brush surface measured by AFM using a colloidal probe in aqueous solution.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"solvent\": [\n            {\n              \"block_id\": \"I_6_80\",\n              \"source_sentence\": \"Adhesion force (a) and friction (lateral) force (b) of poly(MPC) brush in a ethanol/water $( 7 0 / 3 0 , \\\\boldsymbol { \\\\mathrm v } / \\\\boldsymbol { \\\\mathrm v } )$ solution and NaCl aqueous solution measured by AFM using a colloidal probe cantilever with silica sphere $( d = 5 0 \\\\ \\\\mu \\\\mathrm { m } )$\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"solvent\": \"ethanol/water (70/30, v/v) solution, NaCl aqueous solution\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"AFM\",\n      \"method_raw\": \"AFM\",\n      \"parameters\": {\n        \"scan_rate\": \"10 μm/s\",\n        \"normal_load\": \"10 nN\",\n        \"probe\": \"colloidal probe cantilever with silica sphere (d = 50 μm)\"\n      },\n      \"result_summary\": \"Adhesion and friction force of poly(MPC) brush measured in different solvents, showing low interaction in polar solvents and no dependence on NaCl concentration\",\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"homogeneous polymer layer\",\n      \"sample_id\": \"s002\",\n      \"entity_id\": \"pe001\",\n      \"method_raw\": \"AFM\",\n      \"unit_raw\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_40\",\n          \"source_sentence\": \"The AFM observation revealed that a homogeneous polymer layer was formed on the substrate\",\n          \"table_locator\": null\n        }\n      ]\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 10773,
+              "output_tokens": 3934,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07664112",
+              "output_cost": "0.1146761",
+              "total_cost": "0.19131722"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 2,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "30477e368464d76a61b01e1576d7b046746fb19c60aecd5eda8be6e5c6d09603",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[1]",
+          "fields": [
+            "parameters",
+            "measurement_context.other_conditions",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "AFM",
+            "method_normalized": "AFM",
+            "sample_id": "s002",
+            "entity_id": "pe001",
+            "sample_resolution_status": "resolved",
+            "parameters": {
+              "measurement_state": "dried"
+            },
+            "result_summary": "Homogeneous poly(MPC) polymer layer formed on substrate, surface roughness 0.8~1.5 nm",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_40",
+                "page": 3,
+                "bbox": [
+                  89.0,
+                  569.0,
+                  486.0,
+                  915.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The AFM observation revealed that a homogeneous polymer layer was formed on the substrate, and the surface roughness was $0 . 8 \\sim 1 . 5$nm in the dried state in a $5 \\times 5 \\mu \\mathrm { m } ^ { 2 }$scanning area."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "characterization_id": "char002",
+            "method_raw": "AFM",
+            "method_normalized": "AFM",
+            "sample_id": "s002",
+            "entity_id": "pe001",
+            "sample_resolution_status": "resolved",
+            "parameters": {
+              "normal_load": "10 nN"
+            },
+            "result_summary": "Adhesion and friction force of poly(MPC) brush measured in different solvents, showing low interaction in polar solvents and no dependence on NaCl concentration",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "I_6_80",
+                "page": 6,
+                "bbox": [
+                  500.0,
+                  33.0,
+                  813.0,
+                  208.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Adhesion force (a) and friction (lateral) force (b) of poly(MPC) brush in a ethanol/water $( 7 0 / 3 0 , \\boldsymbol { \\mathrm v } / \\boldsymbol { \\mathrm v } )$ solution and NaCl aqueous solution measured by AFM using a colloidal probe cantilever with silica sphere $( d = 5 0 \\ \\mu \\mathrm { m } )$ Friction force is represented by output of the photo diode at a scan rate of 10 $\\mu \\mathrm { m } / \\mathsf { s }$ under normal load of 10 nN."
+              },
+              {
+                "block_id": "P_6_84",
+                "page": 6,
+                "bbox": [
+                  506.0,
+                  484.0,
+                  907.0,
+                  915.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Figure 4 shows adhesion and lateral force for the high-density poly(MPC) brush surface measured by AFM using a colloidal probe in aqueous solution."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_4_55",
+        "P_4_56",
+        "I_4_61"
+      ],
+      "context_chars": 2842,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [],\n    \"properties\": [],\n    \"specialized_property_observations\": [\n        {\n            \"specialized_id\": \"sp_cand001\",\n            \"confidence\": {\n                \"score\": 0.8\n            },\n            \"sample_resolution_status\": \"resolved\",\n            \"sample_id\": \"s004\",\n            \"entity_id\": \"pe003\",\n            \"property_name_raw\": \"chain structure\",\n            \"value_raw\": \"stretched\",\n            \"method_raw\": \"reflectivity curves\",\n            \"unit_raw\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_4_56\",\n                    \"source_sentence\": \"The scattering length density profiles of the poly(MPC) brushes in $\\\\mathbf { D } _ { 2 } \\\\mathbf { O }$calculated from the reflectivity curves indicated that the poly(METAI) chains were stretched up to 60 nm in $\\\\mathbf { D } _ { 2 } \\\\mathbf { O } _ { 3 }$, forming a concentration gradient of ${ \\\\bf D } _ { 2 } { \\\\bf O } .$.\",\n                    \"table_locator\": null\n                }\n            ]\n        }\n    ]\n}",
+            "usage": {
+              "input_tokens": 9572,
+              "output_tokens": 5439,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.04135104",
+              "output_cost": "0.15854685",
+              "total_cost": "0.19989789"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "dc41f95aaf9fc8cc4e9a4cb92248b55b7b9690ffc30ea48535fe41966d089401",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

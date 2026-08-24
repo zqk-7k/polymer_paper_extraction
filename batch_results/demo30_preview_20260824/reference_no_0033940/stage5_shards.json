@@ -1,0 +1,1715 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0033940",
+  "status": "running",
+  "shard_count": 10,
+  "unrouted_block_ids": [
+    "P_1_19",
+    "P_1_20",
+    "P_1_21",
+    "P_1_22",
+    "P_1_23",
+    "F_1_26",
+    "I_3_36",
+    "P_3_37",
+    "P_3_38",
+    "P_3_39",
+    "T_3_42",
+    "F_3_45",
+    "P_4_50",
+    "P_4_51",
+    "T_5_55",
+    "T_5_58",
+    "P_5_60",
+    "P_6_68",
+    "T_7_73",
+    "I_7_76",
+    "P_8_84",
+    "P_8_85",
+    "T_8_86"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "F_1_26",
+        "P_2_28",
+        "P_2_31",
+        "I_3_36",
+        "P_4_48",
+        "P_4_49",
+        "P_4_50"
+      ],
+      "context_chars": 7955,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\",\n        \"prop_s5_005\",\n        \"prop_s5_006\",\n        \"prop_s5_007\",\n        \"prop_s5_008\",\n        \"prop_s5_009\",\n        \"prop_s5_010\",\n        \"prop_s5_011\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_31\",\n          \"source_sentence\": \"Infrared spectra were recorded on a PerkinElmer spectrum GX FTIR system.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"PerkinElmer spectrum GX FTIR system\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"FTIR\",\n      \"method_raw\": \"Infrared spectra\",\n      \"parameters\": {},\n      \"result_summary\": \"Characteristic imide group absorptions were observed, confirming complete imidization of poly(amic acid) precursors to PEIs.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"IR (film): $1 7 7 8 ~ \\\\mathrm { { c m } ^ { - 1 } }$(imide $\\\\mathrm { C } { = } \\\\mathrm { O }$asymmetric stretching)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR (film) absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"imide C=O asymmetric stretching\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1778,\n      \"value_min\": 1778,\n      \"value_raw\": \"1778\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"1724 $\\\\mathrm { c m } ^ { - 1 }$(imide C O symmetric stretching)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR (film) absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"imide C=O symmetric stretching\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1724,\n      \"value_min\": 1724,\n      \"value_raw\": \"1724\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"1594–1486 $\\\\mathrm { c m } ^ { - 1 }$(aromatic skeletal vibration)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR (film) absorption peak range\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"aromatic skeletal vibration\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1594,\n      \"value_min\": 1486,\n      \"value_raw\": \"1594–1486\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"1379 $\\\\mathrm { c m } ^ { - 1 }$(C N stretching)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_004\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR (film) absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C-N stretching\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1379,\n      \"value_min\": 1379,\n      \"value_raw\": \"1379\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"1242 $\\\\mathrm { c m } ^ { - 1 }$(C O stretching)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_005\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR (film) absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C-O stretching\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1242,\n      \"value_min\": 1242,\n      \"value_raw\": \"1242\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"The PEIs exhibited characteristic imide group absorptions around 1780 and 1725 $\\\\mathrm { c m } ^ { - 1 }$(typical of imide carbonyl asymmetrical and symmetrical stretch)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_006\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"imide carbonyl asymmetrical stretch\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1780,\n      \"value_min\": 1780,\n      \"value_raw\": \"1780\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"The PEIs exhibited characteristic imide group absorptions around 1780 and 1725 $\\\\mathrm { c m } ^ { - 1 }$(typical of imide carbonyl asymmetrical and symmetrical stretch)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_007\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"imide carbonyl symmetrical stretch\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1725,\n      \"value_min\": 1725,\n      \"value_raw\": \"1725\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"1380 (C N stretch)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_008\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C-N stretch\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1380,\n      \"value_min\": 1380,\n      \"value_raw\": \"1380\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"1100 and 750 (imide ring deformation)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_009\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"imide ring deformation\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1100,\n      \"value_min\": 1100,\n      \"value_raw\": \"1100\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"1100 and 750 (imide ring deformation)\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_010\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR absorption peak\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"imide ring deformation\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 750,\n      \"value_min\": 750,\n      \"value_raw\": \"750\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"some strong absorption bands in the region of 1100–1300 cm⁻¹ due to the C O and C F stretching\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_011\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_name_raw\": \"IR absorption peak range\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C-O and C-F stretching\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1300,\n      \"value_min\": 1100,\n      \"value_raw\": \"1100–1300\"\n    }\n  ],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 13176,
+              "output_tokens": 6881,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.05692032",
+              "output_cost": "0.20058115",
+              "total_cost": "0.25750147"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 10,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "0b92183e6d742a6eb54a4a825edb05a6d5b515ed1d9f419883ec9511c177829a",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[0].value_raw",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[4]",
+          "property_id": "prop_s5_005",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[5]",
+          "property_id": "prop_s5_006",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[6]",
+          "property_id": "prop_s5_007",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[7]",
+          "property_id": "prop_s5_008",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[8]",
+          "property_id": "prop_s5_009",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[9]",
+          "property_id": "prop_s5_010",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[10]",
+          "property_id": "prop_s5_011",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "ftir_001",
+          "reason": "char001.method_raw 与 method_normalized 不匹配"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Infrared spectra",
+            "method_normalized": "FTIR",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "PerkinElmer spectrum GX FTIR system",
+            "parameters": {},
+            "result_summary": "Characteristic imide group absorptions were observed, confirming complete imidization of poly(amic acid) precursors to PEIs.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Infrared spectra were recorded on a PerkinElmer spectrum GX FTIR system."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR (film) absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1724",
+            "value_min": 1724.0,
+            "value_max": 1724.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1724 $\\mathrm { c m } ^ { - 1 }$(imide C O symmetric stretching)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR (film) absorption peak range",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1594–1486",
+            "value_min": 1486.0,
+            "value_max": 1594.0,
+            "spectral_assignment": "aromatic skeletal vibration",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1594–1486 $\\mathrm { c m } ^ { - 1 }$(aromatic skeletal vibration)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR (film) absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1379",
+            "value_min": 1379.0,
+            "value_max": 1379.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1379 $\\mathrm { c m } ^ { - 1 }$(C N stretching)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR (film) absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1242",
+            "value_min": 1242.0,
+            "value_max": 1242.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1242 $\\mathrm { c m } ^ { - 1 }$(C O stretching)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1780",
+            "value_min": 1780.0,
+            "value_max": 1780.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The PEIs exhibited characteristic imide group absorptions around 1780 and 1725 $\\mathrm { c m } ^ { - 1 }$(typical of imide carbonyl asymmetrical and symmetrical stretch)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1725",
+            "value_min": 1725.0,
+            "value_max": 1725.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The PEIs exhibited characteristic imide group absorptions around 1780 and 1725 $\\mathrm { c m } ^ { - 1 }$(typical of imide carbonyl asymmetrical and symmetrical stretch)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1380",
+            "value_min": 1380.0,
+            "value_max": 1380.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1380 (C N stretch)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1100",
+            "value_min": 1100.0,
+            "value_max": 1100.0,
+            "spectral_assignment": "imide ring deformation",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1100 and 750 (imide ring deformation)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR absorption peak",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "750",
+            "value_min": 750.0,
+            "value_max": 750.0,
+            "spectral_assignment": "imide ring deformation",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1100 and 750 (imide ring deformation)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "IR absorption peak range",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1100–1300",
+            "value_min": 1100.0,
+            "value_max": 1300.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "some strong absorption bands in the region of 1100–1300 cm⁻¹ due to the C O and C F stretching"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "F_1_26",
+        "P_2_28",
+        "P_2_31",
+        "I_3_36",
+        "F_3_45",
+        "I_4_47",
+        "P_4_48",
+        "P_4_49",
+        "P_4_50"
+      ],
+      "context_chars": 8585,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\"\n      ],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"<sup>1</sup>H NMR (CDCl<sub>3</sub>, d, ppm): 7.84 $( \\\\mathbf { d } , \\\\ J = 8 . 3$Hz, 2H, $\\\\mathrm { H _ { e } } ) ,$, 7.75 (d, J $= 2 . 1$Hz, 2H, $\\\\mathrm { H } _ { \\\\mathrm { f } } ) _ { \\\\cdot }$, 7.52 (dd, $J = 8 . 2 ,$2.1 Hz, 2H, $\\\\mathrm { H _ { g } ) _ { : } }$, 7.42 (dd, $J = 6 . 0$, 3.6 Hz, 2H, $\\\\mathrm { H _ { a } } ) _ { \\\\mathrm { : } }$, 7.33 (dd, $J ^ { ' } = 6 . 0 ,$3.6 Hz, 2H, $\\\\operatorname { H } _ { \\\\mathrm { b } } )$, 7.27 (d, $J = 2 . 2$Hz, 2H, H ), 7.18 (dd, J 8.2, 2.1 Hz, 2H, H ), 7.15 (s, 4H, H<sub>i</sub>), 7.03 (d, J  8.9 Hz, 2H, $\\\\operatorname { H } _ { \\\\mathrm { h } } ) .$$^ { 1 3 } \\\\mathrm { C }$NMR $\\\\mathrm { ( C D C l _ { 3 } , ~ } \\\\delta ,$ppm): 166.2 $( \\\\mathbf { C } ^ { 1 0 } ) ,$166.1 $( \\\\mathbf { C } ^ { 1 1 } )$162.9 $\\\\displaystyle { ( { \\\\bf C } ^ { 4 } ) } ,$155.1 $\\\\mathrm { \\\\bar { ( C ^ { 1 5 } ) } }$, 152.3 $( \\\\mathbf { C } ^ { 1 9 } ) _ { ; }$, 145.7 (C<sup>1</sup>), 133.9 $( \\\\mathbf { C } ^ { 1 2 } ) _ { ; }$, 131.2 $\\\\mathbf { \\\\Sigma } ( \\\\mathbf { C } ^ { 1 3 } )$, 127.6 $\\\\mathrm { ( C ^ { 3 } ) } _ { : }$, 126.1 $( \\\\mathbf { C } ^ { 8 } ) ,$125.8 $( \\\\mathbf { C } ^ { 6 } ) ,$125.6 $( \\\\mathbf { C } ^ { 1 7 } ) ,$125.1 $( \\\\mathbf { C } ^ { 7 } ) ,$123.6 $\\\\begin{array} { r } { ( \\\\mathbf { C } ^ { 2 } ) , } \\\\end{array}$122.7 (quartet, $, ^ { 1 } J _ { \\\\mathrm { C - F } } = 2 7 2$Hz, $\\\\mathrm { C ^ { 1 8 } ) }$, 122.1 $( \\\\mathbf { C } ^ { 5 } ) _ { : }$121.6 $( \\\\bar { \\\\mathbf { C } } ^ { 2 0 } )$, 121.4 (quartet,<sup>2</sup>J<sub>C</sub> $_ { - \\\\mathbf { F } } = 3 1$Hz, $\\\\mathrm { C } ^ { 1 6 } )$2 118.6 $\\\\scriptstyle ( \\\\mathbf { C } ^ { 1 4 } )$, 111.1 $\\\\scriptstyle ( \\\\mathbf { C } ^ { \\\\bar { 9 } } )$\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_2_31\",\n          \"source_sentence\": \"$^ 1 \\\\mathrm { H }$ and $^ { 1 3 } \\\\mathrm { C }$ NMR spectra were measured on a JEOL EX 400 spectrometer with $\\\\mathrm { C D C l _ { 3 } }$ as the solvent and tetramethylsilane as the internal reference.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"The typical $^ 1 \\\\mathrm { H }$ NMR and $^ { 1 3 } \\\\mathrm { C }$ NMR spectra of a representative PEI 3a are illustrated in Figure 1.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"JEOL EX 400 spectrometer\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"1H and 13C NMR\",\n      \"parameters\": {\n        \"solvent\": \"CDCl3\",\n        \"internal_reference\": \"tetramethylsilane\"\n      },\n      \"result_summary\": \"1H and 13C NMR spectra of representative PEI 3a were obtained with assigned peaks, confirming the proposed polymer structure and complete imidization.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"<sup>1</sup>H NMR (CDCl<sub>3</sub>, d, ppm): 7.84 $( \\\\mathbf { d } , \\\\ J = 8 . 3$Hz, 2H, $\\\\mathrm { H _ { e } } ) ,$\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"d, J = 8.3 Hz, 2H, H_e\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 7.84,\n      \"value_min\": 7.84,\n      \"value_raw\": \"7.84\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"7.75 (d, J $= 2 . 1$Hz, 2H, $\\\\mathrm { H } _ { \\\\mathrm { f } } ) _ { \\\\cdot }$\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"1H NMR chemical shift\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"d, J = 2.1 Hz, 2H, H_f\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 7.75,\n      \"value_min\": 7.75,\n      \"value_raw\": \"7.75\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"$^ { 1 3 } \\\\mathrm { C }$ NMR $\\\\mathrm { ( C D C l _ { 3 } , ~ } \\\\delta ,$ppm): 166.2 $( \\\\mathbf { C } ^ { 1 0 } ) ,$\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"13C NMR chemical shift\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C^10\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 166.2,\n      \"value_min\": 166.2,\n      \"value_raw\": \"166.2\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"166.1 $( \\\\mathbf { C } ^ { 1 1 } )$\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_004\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"13C NMR chemical shift\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"solvent\": \"CDCl3\",\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C^11\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 166.1,\n      \"value_min\": 166.1,\n      \"value_raw\": \"166.1\"\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_48\",\n          \"source_sentence\": \"The disappearance of amide and carboxyl bands indicates a virtually complete conversion of the poly (amic acid) precursor into polyimide.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"IR and NMR\",\n      \"property_name_raw\": \"imidization conversion\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"virtually complete conversion of the poly (amic acid) precursor into polyimide\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_49\",\n          \"source_sentence\": \"NMR spectra are also given in the figures, and these spectra are in good agreement with the proposed polymer structure.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"NMR\",\n      \"property_name_raw\": \"polymer structure\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand002\",\n      \"unit_raw\": null,\n      \"value_raw\": \"in good agreement with the proposed polymer structure\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 13349,
+              "output_tokens": 8554,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08776944",
+              "output_cost": "0.2493491",
+              "total_cost": "0.33711854"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 4,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "33f89e33f29e8b61805b83023614a4e0fee0d19ff7285ae3caa3dc095320c7c9",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "NMR"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "spectral_assignment",
+            "solvent"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "NMR",
+            "method_normalized": "NMR",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "instrument": "JEOL EX 400 spectrometer",
+            "parameters": {
+              "internal_reference": "tetramethylsilane"
+            },
+            "result_summary": "1H and 13C NMR spectra of representative PEI 3a were obtained with assigned peaks, confirming the proposed polymer structure and complete imidization.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "<sup>1</sup>H NMR (CDCl<sub>3</sub>, d, ppm): 7.84 $( \\mathbf { d } , \\ J = 8 . 3$Hz, 2H, $\\mathrm { H _ { e } } ) ,$, 7.75 (d, J $= 2 . 1$Hz, 2H, $\\mathrm { H } _ { \\mathrm { f } } ) _ { \\cdot }$, 7.52 (dd, $J = 8 . 2 ,$2.1 Hz, 2H, $\\mathrm { H _ { g } ) _ { : } }$, 7.42 (dd, $J = 6 . 0$, 3.6 Hz, 2H, $\\mathrm { H _ { a } } ) _ { \\mathrm { : } }$, 7.33 (dd, $J ^ { ' } = 6 . 0 ,$3.6 Hz, 2H, $\\operatorname { H } _ { \\mathrm { b } } )$, 7.27 (d, $J = 2 . 2$Hz, 2H, H ), 7.18 (dd, J 8.2, 2.1 Hz, 2H, H ), 7.15 (s, 4H, H<sub>i</sub>), 7.03 (d, J  8.9 Hz, 2H, $\\operatorname { H } _ { \\mathrm { h } } ) .$$^ { 1 3 } \\mathrm { C }$NMR $\\mathrm { ( C D C l _ { 3 } , ~ } \\delta ,$ppm): 166.2 $( \\mathbf { C } ^ { 1 0 } ) ,$166.1 $( \\mathbf { C } ^ { 1 1 } )$162.9 $\\displaystyle { ( { \\bf C } ^ { 4 } ) } ,$155.1 $\\mathrm { \\bar { ( C ^ { 1 5 } ) } }$, 152.3 $( \\mathbf { C } ^ { 1 9 } ) _ { ; }$, 145.7 (C<sup>1</sup>), 133.9 $( \\mathbf { C } ^ { 1 2 } ) _ { ; }$, 131.2 $\\mathbf { \\Sigma } ( \\mathbf { C } ^ { 1 3 } )$, 127.6 $\\mathrm { ( C ^ { 3 } ) } _ { : }$, 126.1 $( \\mathbf { C } ^ { 8 } ) ,$125.8 $( \\mathbf { C } ^ { 6 } ) ,$125.6 $( \\mathbf { C } ^ { 1 7 } ) ,$125.1 $( \\mathbf { C } ^ { 7 } ) ,$123.6 $\\begin{array} { r } { ( \\mathbf { C } ^ { 2 } ) , } \\end{array}$122.7 (quartet, $, ^ { 1 } J _ { \\mathrm { C - F } } = 2 7 2$Hz, $\\mathrm { C ^ { 1 8 } ) }$, 122.1 $( \\mathbf { C } ^ { 5 } ) _ { : }$121.6 $( \\bar { \\mathbf { C } } ^ { 2 0 } )$, 121.4 (quartet,<sup>2</sup>J<sub>C</sub> $_ { - \\mathbf { F } } = 3 1$Hz, $\\mathrm { C } ^ { 1 6 } )$2 118.6 $\\scriptstyle ( \\mathbf { C } ^ { 1 4 } )$, 111.1 $\\scriptstyle ( \\mathbf { C } ^ { \\bar { 9 } } )$"
+              },
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1 \\mathrm { H }$and $^ { 1 3 } \\mathrm { C }$NMR spectra were measured on a JEOL EX 400 spectrometer with $\\mathrm { C D C l _ { 3 } }$as the solvent and tetramethylsilane as the internal reference."
+              },
+              {
+                "block_id": "P_4_48",
+                "page": 4,
+                "bbox": [
+                  102.0,
+                  681.0,
+                  500.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The typical $^ 1 \\mathrm { H }$NMR and $^ { 1 3 } \\mathrm { C }$NMR spectra of a representative PEI 3a are illustrated in Figure 1."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "7.84",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "7.84",
+            "value_min": 7.84,
+            "value_max": 7.84,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "<sup>1</sup>H NMR (CDCl<sub>3</sub>, d, ppm): 7.84 $( \\mathbf { d } , \\ J = 8 . 3$Hz, 2H, $\\mathrm { H _ { e } } ) ,$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "7.75",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "7.75",
+            "value_min": 7.75,
+            "value_max": 7.75,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "7.75 (d, J $= 2 . 1$Hz, 2H, $\\mathrm { H } _ { \\mathrm { f } } ) _ { \\cdot }$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "166.2",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "166.2",
+            "value_min": 166.2,
+            "value_max": 166.2,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "1 3 } \\mathrm { C }$NMR $\\mathrm { ( C D C l _ { 3 } , ~ } \\delta ,$ppm): 166.2 $( \\mathbf { C } ^ { 1 0 } ) ,"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "166.1",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "166.1",
+            "value_min": 166.1,
+            "value_max": 166.1,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  422.0,
+                  498.0,
+                  696.0
+                ],
+                "source_type": "text",
+                "source_sentence": "166.1 $( \\mathbf { C } ^ { 1 1 } )$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "gpc_001",
+      "method_normalized": "GPC",
+      "block_ids": [
+        "P_2_31",
+        "I_3_36"
+      ],
+      "context_chars": 3708,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [{\"characterization_id\": \"char001\", \"confidence\": {\"score\": 0.9}, \"derived_property_ids\": [\"uprop002\", \"uprop003\"], \"entity_id\": \"pe001\", \"entity_ids\": null, \"evidence\": [{\"block_id\": \"P_2_31\", \"source_sentence\": \"Gel-permeation chromatography (GPC) was carried out on a Waters chromatography unit interfaced with a Waters 2410 refractive index detector. Two Waters 5 lm Styragel HR-2 and HR-4 columns (7.8 mm I.D. × 300 mm) connected in series were used with tetrahydrofuran (THF) as the eluent. The data were calibrated with narrow polystyrene standards.\", \"table_locator\": null}], \"instrument\": \"Waters chromatography unit interfaced with a Waters 2410 refractive index detector\", \"measurement_context\": {\"condition_status\": \"not_reported\"}, \"method_normalized\": \"GPC\", \"method_raw\": \"Gel-permeation chromatography (GPC)\", \"parameters\": {\"columns\": \"Two Waters 5 lm Styragel HR-2 and HR-4 columns (7.8 mm I.D. × 300 mm) connected in series\", \"eluent\": \"tetrahydrofuran (THF)\", \"calibration\": \"narrow polystyrene standards\"}, \"result_summary\": \"weight-average molecular weights of 42,000–102,000 and number-average molecular weights of 27,500–67,500 for Polyimides\", \"sample_id\": null, \"sample_ids\": null, \"sample_resolution_status\": \"unresolved\", \"series_id\": null, \"series_ids\": null}], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 11498,
+              "output_tokens": 1799,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07977312",
+              "output_cost": "0.05244085",
+              "total_cost": "0.13221397"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "514e9c2def726441b86e9ca383e44d07bf465c78bd568e9603df8d31f43ba266",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Gel-permeation chromatography (GPC)",
+            "method_normalized": "GPC",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "instrument": "Waters chromatography unit interfaced with a Waters 2410 refractive index detector",
+            "parameters": {
+              "eluent": "tetrahydrofuran (THF)",
+              "calibration": "narrow polystyrene standards"
+            },
+            "result_summary": "weight-average molecular weights of 42,000–102,000 and number-average molecular weights of 27,500–67,500 for Polyimides",
+            "derived_property_ids": [
+              "uprop002",
+              "uprop003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Gel-permeation chromatography (GPC) was carried out on a Waters chromatography unit interfaced with a Waters 2410 refractive index detector."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_31",
+        "I_3_36",
+        "P_6_68",
+        "P_6_69",
+        "T_7_73",
+        "P_7_74",
+        "I_7_76"
+      ],
+      "context_chars": 8187,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [\"prop003\"],\n      \"entity_id\": \"pe002\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_31\",\n          \"source_sentence\": \"Differential scanning calorimetry (DSC) analyses were performed on a Perkin-Elmer Pyris 1 DSC at a scan rate of 20 °C/min in flowing nitrogen (20 cm³/min). Glass transition temperatures (T_g) were read at the middle of the transition in the heat capacity and were taken from the second heating scan after quick cooling from 400 °C at a cooling rate of 200 °C/min.\"\n        },\n        {\n          \"block_id\": \"P_6_69\",\n          \"source_sentence\": \"DSC, TMA, and TGA were used to evaluate the thermal properties of the PEIs. DSC experiments were conducted at a heating rate of 20 °C/min in nitrogen. Rapid cooling from 400 °C to room temperature produced predominantly amorphous samples, so the T_gs of all the polymers could be easily read in the subsequent heating traces.\"\n        }\n      ],\n      \"instrument\": \"Perkin-Elmer Pyris 1 DSC\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"Differential scanning calorimetry (DSC)\",\n      \"parameters\": {\n        \"scan_rate\": \"20 °C/min\",\n        \"atmosphere\": \"flowing nitrogen (20 cm³/min)\",\n        \"cooling_rate\": \"200 °C/min from 400 °C\",\n        \"scan_sequence\": \"second heating scan\"\n      },\n      \"result_summary\": \"Glass transition temperature (T_g) of sample 3b (s003) was measured by DSC.\",\n      \"sample_id\": \"s003\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\"score\": 0.8},\n      \"sample_resolution_status\": \"unresolved\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"predominantly amorphous\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_6_69\",\n          \"source_sentence\": \"Rapid cooling from 400 °C to room temperature produced predominantly amorphous samples, so the T_gs of all the polymers could be easily read in the subsequent heating traces.\"\n        }\n      ],\n      \"entity_id\": \"pe001\",\n      \"sample_id\": null,\n      \"method_raw\": null,\n      \"unit_raw\": null\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 13032,
+              "output_tokens": 3755,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0864",
+              "output_cost": "0.10945825",
+              "total_cost": "0.19585825"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "546c253289127b5ab4a5c16ae8d05d885df175a7364516401fa64464831b9dcb",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "P_6_69 evidence 无法定位到原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "sample_id": "s003",
+            "entity_id": "pe002",
+            "sample_resolution_status": "resolved",
+            "instrument": "Perkin-Elmer Pyris 1 DSC",
+            "parameters": {
+              "scan_sequence": "second heating scan"
+            },
+            "result_summary": "Glass transition temperature (T_g) of sample 3b (s003) was measured by DSC.",
+            "derived_property_ids": [
+              "prop003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Differential scanning calorimetry (DSC) analyses were performed on a Perkin-Elmer Pyris 1 DSC at a scan rate of 20 °C/min in flowing nitrogen (20 cm³/min). Glass transition temperatures (T_g) were read at the middle of the transition in the heat capacity and were taken from the second heating scan after quick cooling from 400 °C at a cooling rate of 200 °C/min."
+              },
+              {
+                "block_id": "P_6_69",
+                "page": 6,
+                "bbox": [
+                  526.0,
+                  727.0,
+                  922.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "DSC, TMA, and TGA were used to evaluate the thermal properties of the PEIs. DSC experiments were conducted at a heating rate of 20 °C/min in nitrogen. Rapid cooling from 400 °C to room temperature produced predominantly amorphous samples, so the T_gs of all the polymers could be easily read in the subsequent heating traces."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_2_31",
+        "I_3_36",
+        "P_6_68",
+        "P_6_69",
+        "T_7_73",
+        "I_7_76",
+        "I_8_80",
+        "P_8_82",
+        "P_8_84"
+      ],
+      "context_chars": 8532,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\"score\": 0.9},\n            \"derived_property_ids\": [\"prop004\", \"prop005\", \"prop006\", \"prop007\"],\n            \"entity_id\": \"pe002\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_2_31\",\n                    \"source_sentence\": \"Thermogravimetric analysis (TGA) was conducted with a PerkinElmer Pyris 1 TGA. Experiments were carried out on approximately 6–8 mg film samples heated in flowing nitrogen or air (flow rate 30 cm³/min) at a heating rate of 20 °C/min.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_8_82\",\n                    \"source_sentence\": \"The decomposition temperatures $( T _ { \\\\mathrm { d } } )$at 5 and 10 wt % loss in nitrogen and in air atmospheres were determined from the original TGA thermograms and are given in Table 5.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"T_7_73\",\n                    \"source_sentence\": \"Table 5. Thermal Behavior Data of the PEIs\",\n                    \"table_locator\": {\n                        \"table_id\": \"T_7_73\",\n                        \"row_label\": \"3a\",\n                        \"column_label\": \"$T_{\\\\text{d}}^{\\\\text{c}}$  at 5 wt%Loss (°C) | In Air\",\n                        \"cell_value\": \"500\",\n                        \"row_index\": 1,\n                        \"column_index\": 2,\n                        \"cell_id\": null\n                    }\n                }\n            ],\n            \"instrument\": \"PerkinElmer Pyris 1 TGA\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null,\n                \"other_conditions\": {\n                    \"atmosphere\": \"flowing nitrogen or air\",\n                    \"gas flow rate\": \"30 cm³/min\"\n                },\n                \"other_condition_evidence\": {\n                    \"atmosphere\": [\n                        {\n                            \"block_id\": \"P_2_31\",\n                            \"source_sentence\": \"Experiments were carried out on approximately 6–8 mg film samples heated in flowing nitrogen or air (flow rate 30 cm³/min) at a heating rate of 20 °C/min.\",\n                            \"table_locator\": null\n                        }\n                    ],\n                    \"gas flow rate\": [\n                        {\n                            \"block_id\": \"P_2_31\",\n                            \"source_sentence\": \"Experiments were carried out on approximately 6–8 mg film samples heated in flowing nitrogen or air (flow rate 30 cm³/min) at a heating rate of 20 °C/min.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                }\n            },\n            \"method_normalized\": \"TGA\",\n            \"method_raw\": \"Thermogravimetric analysis (TGA)\",\n            \"parameters\": {\n                \"heating rate\": \"20 °C/min\",\n                \"sample mass\": \"6–8 mg\"\n            },\n            \"result_summary\": \"Thermal decomposition temperatures of PEI 3a at 5 wt% loss are 500 °C in air and 538 °C in nitrogen, at 10 wt% loss are 526 °C in air and 559 °C in nitrogen.\",\n            \"sample_id\": \"s003\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 13107,
+              "output_tokens": 3529,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.086724",
+              "output_cost": "0.10287035",
+              "total_cost": "0.18959435"
+            }
+          },
+          "rejected_objects": [
+            {
+              "collection": "characterizations",
+              "index": 0,
+              "object_id": "char001",
+              "reason": "evidence.1.table_locator: Value error, cell_id、row_index、column_index 必须同时填写或同时为空"
+            }
+          ],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 1
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "95200052f4b79e0f7c04dac73a1d08fb5976678cf8e8144e3185362464d01749",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_2_31"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "TGA"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_objects_rejected",
+          "message": "分片内非法对象已隔离，合法对象继续保留",
+          "shard_id": "tga_001",
+          "items": [
+            {
+              "collection": "characterizations",
+              "index": 0,
+              "object_id": "char001",
+              "reason": "evidence.1.table_locator: Value error, cell_id、row_index、column_index 必须同时填写或同时为空"
+            }
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_2_31",
+        "I_3_36"
+      ],
+      "context_chars": 3708,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.85\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_31\",\n          \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) measurements were performed at room temperature (about $2 5 \\\\mathrm { ~ \\\\ } ^ { \\\\circ } \\\\mathrm { C } )$on a Shi madzu XRD 6000 X-ray diffractometer (40 kV, 20 mA), using graphite-monochromatized $\\\\mathrm { C u - K } _ { \\\\alpha }$radiation.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Shimadzu XRD 6000 X-ray diffractometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": {\n          \"evidence\": [\n            {\n              \"block_id\": \"P_2_31\",\n              \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) measurements were performed at room temperature (about $2 5 \\\\mathrm { ~ \\\\ } ^ { \\\\circ } \\\\mathrm { C } )$\",\n              \"table_locator\": null\n            }\n          ],\n          \"raw\": \"about 25 °C\",\n          \"unit\": \"°C\",\n          \"value\": 25\n        },\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"XRD\",\n      \"method_raw\": \"Wide-angle X-ray diffraction (WAXD)\",\n      \"parameters\": {\n        \"voltage\": \"40 kV\",\n        \"current\": \"20 mA\",\n        \"radiation\": \"graphite-monochromatized Cu-Kα\"\n      },\n      \"result_summary\": null,\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 11585,
+              "output_tokens": 2529,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 10040
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09342",
+              "output_cost": "0.07372035",
+              "total_cost": "0.16714035"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "89c2d05058b5582f817176c13a0edb406396452c918391c1f7e1fdf415ed7e96",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters",
+            "measurement_context.temperature",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Wide-angle X-ray diffraction (WAXD)",
+            "method_normalized": "XRD",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "parameters": {
+              "voltage": "40 kV",
+              "current": "20 mA"
+            },
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Wide-angle X-ray diffraction (WAXD) measurements were performed at room temperature (about $2 5 \\mathrm { ~ \\ } ^ { \\circ } \\mathrm { C } )$on a Shi madzu XRD 6000 X-ray diffractometer (40 kV, 20 mA), using graphite-monochromatized $\\mathrm { C u - K } _ { \\alpha }$radiation."
+              }
+            ],
+            "confidence": {
+              "score": 0.85
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "uv_vis_001",
+      "method_normalized": "UV-Vis",
+      "block_ids": [
+        "P_2_31",
+        "I_3_36",
+        "P_5_60",
+        "P_5_61",
+        "T_5_62",
+        "I_6_65",
+        "P_6_66",
+        "P_6_68"
+      ],
+      "context_chars": 7467,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_31\",\n          \"source_sentence\": \"UV– vis spectra of the polymer films were recorded on a Shimadzu UV–visible spectrophotometer UV-1601.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_5_61\",\n          \"source_sentence\": \"Moreover, thin films were measured for optical transparency using UV–vis spectroscopy.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_5_62\",\n          \"source_sentence\": \"Table 4. Color Coordinates and Cut-off Wavelength $( \\\\lambda _ { 0 } )$ from UV–Vis Spectra for the PEI Films<sup>a</sup>\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Shimadzu UV–visible spectrophotometer UV-1601\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"method_normalized\": \"UV-Vis\",\n      \"method_raw\": \"UV–vis spectroscopy\",\n      \"parameters\": {},\n      \"result_summary\": \"Fluorinated PEIs 3a-g have cutoff wavelengths (λ0) of 361-370 nm, and their films exhibit over 80-85% light transmittance in the visible region.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 12711,
+              "output_tokens": 2517,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08501328",
+              "output_cost": "0.07337055",
+              "total_cost": "0.15838383"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "660544b26d915200561b102a2dc545332821a168bdea9249332324a702ee5d76",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_62"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "UV–vis spectroscopy",
+            "method_normalized": "UV-Vis",
+            "sample_ids": [
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Shimadzu UV–visible spectrophotometer UV-1601",
+            "parameters": {},
+            "result_summary": "Fluorinated PEIs 3a-g have cutoff wavelengths (λ0) of 361-370 nm, and their films exhibit over 80-85% light transmittance in the visible region.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "UV– vis spectra of the polymer films were recorded on a Shimadzu UV–visible spectrophotometer UV-1601."
+              },
+              {
+                "block_id": "P_5_61",
+                "page": 5,
+                "bbox": [
+                  526.0,
+                  448.0,
+                  922.0,
+                  588.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Moreover, thin films were measured for optical transparency using UV–vis spectroscopy."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_2_30",
+        "P_2_31",
+        "I_3_36",
+        "P_3_39",
+        "P_3_40",
+        "T_3_42"
+      ],
+      "context_chars": 6719,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"uprop001\"\n      ],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_31\",\n          \"source_sentence\": \"The inherent viscosities of the polymers were measured with an Ubbelohde viscometer at $3 0 ~ ^ { \\\\circ } \\\\mathbf { C } .$\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_3_40\",\n          \"source_sentence\": \"their inherent viscosities were recorded in the range of 0.45–1.17 dL/ g, as measured in DMAc at $3 0 ~ ^ { \\\\circ } \\\\mathrm { C }$(Table 1).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_3_42\",\n          \"source_sentence\": \"Table 1. Inherent Viscosity and Average Molecular Weights of PEIs\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_42\",\n            \"row_label\": \"All PEI entries\",\n            \"column_label\": \"$\\\\eta_{\\\\text{inh}}^{\\\\text{a}}$ (dL/g)\",\n            \"cell_value\": \"0.45–1.17\"\n          }\n        }\n      ],\n      \"instrument\": \"Ubbelohde viscometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"temperature\": {\n          \"raw\": \"30 °C\",\n          \"value\": 30,\n          \"unit\": \"°C\",\n          \"evidence\": [\n            {\n              \"block_id\": \"P_2_31\",\n              \"source_sentence\": \"The inherent viscosities of the polymers were measured with an Ubbelohde viscometer at $3 0 ~ ^ { \\\\circ } \\\\mathbf { C } .$\",\n              \"table_locator\": null\n            },\n            {\n              \"block_id\": \"P_3_40\",\n              \"source_sentence\": \"their inherent viscosities were recorded in the range of 0.45–1.17 dL/ g, as measured in DMAc at $3 0 ~ ^ { \\\\circ } \\\\mathrm { C }$(Table 1).\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"frequency\": null,\n        \"humidity\": null,\n        \"pressure\": null,\n        \"wavelength\": null,\n        \"other_conditions\": {\n          \"solvent\": \"DMAc\"\n        },\n        \"other_condition_evidence\": {\n          \"solvent\": [\n            {\n              \"block_id\": \"P_3_40\",\n              \"source_sentence\": \"their inherent viscosities were recorded in the range of 0.45–1.17 dL/ g, as measured in DMAc at $3 0 ~ ^ { \\\\circ } \\\\mathrm { C }$(Table 1).\",\n              \"table_locator\": null\n            }\n          ]\n        }\n      },\n      \"method_normalized\": \"viscometry\",\n      \"method_raw\": \"Ubbelohde viscometer\",\n      \"parameters\": {},\n      \"result_summary\": \"Inherent viscosities of PEIs 3a-g were measured in the range of 0.45–1.17 dL/g\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": \"series001\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 12586,
+              "output_tokens": 3156,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08447328",
+              "output_cost": "0.0919974",
+              "total_cost": "0.17647068"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "c88823bd6ab13c0276ba7ddfa8b97471588c61fd7c1f2cd0cd6e415001504a28",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.temperature"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "viscometry_001",
+          "reason": "char001 与 Series 的归属不一致：['series001']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Ubbelohde viscometer",
+            "method_normalized": "viscometry",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "series_id": "series001",
+            "instrument": "Ubbelohde viscometer",
+            "measurement_context": {
+              "other_conditions": {
+                "solvent": "DMAc"
+              },
+              "other_condition_evidence": {
+                "solvent": [
+                  {
+                    "block_id": "P_3_40",
+                    "page": 3,
+                    "bbox": [
+                      104.0,
+                      681.0,
+                      498.0,
+                      911.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "their inherent viscosities were recorded in the range of 0.45–1.17 dL/ g, as measured in DMAc at $3 0 ~ ^ { \\circ } \\mathrm { C }$(Table 1)."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Inherent viscosities of PEIs 3a-g were measured in the range of 0.45–1.17 dL/g",
+            "derived_property_ids": [
+              "uprop001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_31",
+                "page": 2,
+                "bbox": [
+                  102.0,
+                  814.0,
+                  498.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The inherent viscosities of the polymers were measured with an Ubbelohde viscometer at $3 0 ~ ^ { \\circ } \\mathbf { C } .$"
+              },
+              {
+                "block_id": "P_3_40",
+                "page": 3,
+                "bbox": [
+                  104.0,
+                  681.0,
+                  498.0,
+                  911.0
+                ],
+                "source_type": "text",
+                "source_sentence": "their inherent viscosities were recorded in the range of 0.45–1.17 dL/ g, as measured in DMAc at $3 0 ~ ^ { \\circ } \\mathrm { C }$(Table 1)."
+              },
+              {
+                "block_id": "T_3_42",
+                "page": 3,
+                "bbox": [
+                  530.0,
+                  700.0,
+                  920.0,
+                  852.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table 1. Inherent Viscosity and Average Molecular Weights of PEIs",
+                "table_locator": {
+                  "table_id": "T_3_42",
+                  "row_label": "All PEI entries",
+                  "column_label": "$\\eta_{\\text{inh}}^{\\text{a}}$ (dL/g)",
+                  "cell_value": "0.45–1.17",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_2_30"
+      ],
+      "context_chars": 232,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 10524,
+              "output_tokens": 298,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 10040
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08883648",
+              "output_cost": "0.0086867",
+              "total_cost": "0.09752318"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "41c9ebd99d4b258de72172e13e11e7231317288c1456b3055bfbd67f699dcf91",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,1169 @@
+{
+  "schema_version": "stage4r_unified_audit.v0.1",
+  "candidate_contract_version": "stage4r_candidate_input.v0.1",
+  "stage": "stage4r_unified_preview",
+  "implementation_version": "0.1.0",
+  "document_id": "reference_no_0024941",
+  "authoritative": false,
+  "inputs": {
+    "stage4n": "stage4_properties.json",
+    "stage4t": "stage4t_shadow.json"
+  },
+  "summary": {
+    "candidate_count": 78,
+    "integrated_count": 0,
+    "duplicate_merged_count": 11,
+    "unmatched_sample_count": 6,
+    "ambiguous_sample_count": 0,
+    "source_conflict_count": 0,
+    "retained_candidate_count": 0,
+    "invalid_candidate_count": 0,
+    "quarantined_stage4_property_count": 0,
+    "specialized_published_count": 22,
+    "specialized_unresolved_count": 39,
+    "specialized_reason_counts": {
+      "not_in_specialized_scope": 34,
+      "semantic_unmapped": 5
+    },
+    "specialized_vocabulary_sha256": "53ab32522f9ca7f6d55bd7f9daa9b6f4d514426b16aec1cf0a6a5021877a0ecc",
+    "status_counts": {
+      "duplicate_merged": 11,
+      "integrated_specialized": 22,
+      "retained_specialized": 39,
+      "unmatched_sample": 6
+    },
+    "sample_resolution_status_counts": {
+      "matched": 59,
+      "unmatched_sample": 19
+    }
+  },
+  "candidate_outcomes": [
+    {
+      "candidate_id": "T_4_66:T_4_66:r0001:c0001",
+      "cell_id": "T_4_66:r0001:c0001",
+      "status": "unmatched_sample",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-1",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0002:c0001",
+      "cell_id": "T_4_66:r0002:c0001",
+      "status": "unmatched_sample",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-2",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0003:c0001",
+      "cell_id": "T_4_66:r0003:c0001",
+      "status": "unmatched_sample",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-3",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0005:c0001",
+      "cell_id": "T_4_66:r0005:c0001",
+      "status": "unmatched_sample",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-1",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0006:c0001",
+      "cell_id": "T_4_66:r0006:c0001",
+      "status": "unmatched_sample",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-2",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0007:c0001",
+      "cell_id": "T_4_66:r0007:c0001",
+      "status": "unmatched_sample",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-3",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0001:c0002",
+      "cell_id": "T_4_66:r0001:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp062",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-1",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0002:c0002",
+      "cell_id": "T_4_66:r0002:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp063",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-2",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0003:c0002",
+      "cell_id": "T_4_66:r0003:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp064",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-3",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0005:c0002",
+      "cell_id": "T_4_66:r0005:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp065",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-1",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0006:c0002",
+      "cell_id": "T_4_66:r0006:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp066",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-2",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0007:c0002",
+      "cell_id": "T_4_66:r0007:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp067",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-3",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0001:c0003",
+      "cell_id": "T_4_66:r0001:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp068",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-1",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0002:c0003",
+      "cell_id": "T_4_66:r0002:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp069",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-2",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0003:c0003",
+      "cell_id": "T_4_66:r0003:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp070",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "MET-3",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0005:c0003",
+      "cell_id": "T_4_66:r0005:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp071",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-1",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0006:c0003",
+      "cell_id": "T_4_66:r0006:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp072",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-2",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_4_66:T_4_66:r0007:c0003",
+      "cell_id": "T_4_66:r0007:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp073",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "IZO-3",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0001:c0002",
+      "cell_id": "T_5_75:r0001:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp074",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-1",
+      "sample_matches": [
+        "s001"
+      ],
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0002:c0002",
+      "cell_id": "T_5_75:r0002:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp075",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-3",
+      "sample_matches": [
+        "s002"
+      ],
+      "sample_id": "s002",
+      "entity_id": "pe004",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0003:c0002",
+      "cell_id": "T_5_75:r0003:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp076",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 MB",
+      "sample_matches": [
+        "s003"
+      ],
+      "sample_id": "s003",
+      "entity_id": "pe005",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0004:c0002",
+      "cell_id": "T_5_75:r0004:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp077",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/50 MB",
+      "sample_matches": [
+        "s004"
+      ],
+      "sample_id": "s004",
+      "entity_id": "pe006",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0005:c0002",
+      "cell_id": "T_5_75:r0005:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp078",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 MB",
+      "sample_matches": [
+        "s005"
+      ],
+      "sample_id": "s005",
+      "entity_id": "pe007",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0006:c0002",
+      "cell_id": "T_5_75:r0006:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp079",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "MET-2/20 MB",
+      "sample_matches": [
+        "s006"
+      ],
+      "sample_id": "s006",
+      "entity_id": "pe008",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0007:c0002",
+      "cell_id": "T_5_75:r0007:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp080",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 MB",
+      "sample_matches": [
+        "s007"
+      ],
+      "sample_id": "s007",
+      "entity_id": "pe009",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0008:c0002",
+      "cell_id": "T_5_75:r0008:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp081",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/50 MB",
+      "sample_matches": [
+        "s008"
+      ],
+      "sample_id": "s008",
+      "entity_id": "pe010",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0009:c0002",
+      "cell_id": "T_5_75:r0009:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp082",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 AI",
+      "sample_matches": [
+        "s009"
+      ],
+      "sample_id": "s009",
+      "entity_id": "pe011",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0010:c0002",
+      "cell_id": "T_5_75:r0010:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp083",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 AI",
+      "sample_matches": [
+        "s010"
+      ],
+      "sample_id": "s010",
+      "entity_id": "pe012",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0011:c0002",
+      "cell_id": "T_5_75:r0011:c0002",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp084",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 AI",
+      "sample_matches": [
+        "s011"
+      ],
+      "sample_id": "s011",
+      "entity_id": "pe013",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0001:c0003",
+      "cell_id": "T_5_75:r0001:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp085",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-1",
+      "sample_matches": [
+        "s001"
+      ],
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0002:c0003",
+      "cell_id": "T_5_75:r0002:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp086",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-3",
+      "sample_matches": [
+        "s002"
+      ],
+      "sample_id": "s002",
+      "entity_id": "pe004",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0003:c0003",
+      "cell_id": "T_5_75:r0003:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp087",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 MB",
+      "sample_matches": [
+        "s003"
+      ],
+      "sample_id": "s003",
+      "entity_id": "pe005",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0004:c0003",
+      "cell_id": "T_5_75:r0004:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp088",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/50 MB",
+      "sample_matches": [
+        "s004"
+      ],
+      "sample_id": "s004",
+      "entity_id": "pe006",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0005:c0003",
+      "cell_id": "T_5_75:r0005:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp089",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 MB",
+      "sample_matches": [
+        "s005"
+      ],
+      "sample_id": "s005",
+      "entity_id": "pe007",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0006:c0003",
+      "cell_id": "T_5_75:r0006:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp090",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "MET-2/20 MB",
+      "sample_matches": [
+        "s006"
+      ],
+      "sample_id": "s006",
+      "entity_id": "pe008",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0007:c0003",
+      "cell_id": "T_5_75:r0007:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp091",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 MB",
+      "sample_matches": [
+        "s007"
+      ],
+      "sample_id": "s007",
+      "entity_id": "pe009",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0008:c0003",
+      "cell_id": "T_5_75:r0008:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp092",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/50 MB",
+      "sample_matches": [
+        "s008"
+      ],
+      "sample_id": "s008",
+      "entity_id": "pe010",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0009:c0003",
+      "cell_id": "T_5_75:r0009:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp093",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 AI",
+      "sample_matches": [
+        "s009"
+      ],
+      "sample_id": "s009",
+      "entity_id": "pe011",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0010:c0003",
+      "cell_id": "T_5_75:r0010:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp094",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 AI",
+      "sample_matches": [
+        "s010"
+      ],
+      "sample_id": "s010",
+      "entity_id": "pe012",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0011:c0003",
+      "cell_id": "T_5_75:r0011:c0003",
+      "status": "integrated_specialized",
+      "reason": "material_characteristic",
+      "specialized_id": "sp095",
+      "specialized_publication_status": "published",
+      "vocabulary_key": "molecular_weight",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 AI",
+      "sample_matches": [
+        "s011"
+      ],
+      "sample_id": "s011",
+      "entity_id": "pe013",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0001:c0004",
+      "cell_id": "T_5_75:r0001:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop001",
+      "sample_id": "s001",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0002:c0004",
+      "cell_id": "T_5_75:r0002:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop002",
+      "sample_id": "s002",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0003:c0004",
+      "cell_id": "T_5_75:r0003:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop003",
+      "sample_id": "s003",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0004:c0004",
+      "cell_id": "T_5_75:r0004:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop004",
+      "sample_id": "s004",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0005:c0004",
+      "cell_id": "T_5_75:r0005:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop005",
+      "sample_id": "s005",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0006:c0004",
+      "cell_id": "T_5_75:r0006:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop006",
+      "sample_id": "s006",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0007:c0004",
+      "cell_id": "T_5_75:r0007:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop007",
+      "sample_id": "s007",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0008:c0004",
+      "cell_id": "T_5_75:r0008:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop008",
+      "sample_id": "s008",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0009:c0004",
+      "cell_id": "T_5_75:r0009:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop009",
+      "sample_id": "s009",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0010:c0004",
+      "cell_id": "T_5_75:r0010:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop010",
+      "sample_id": "s010",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0011:c0004",
+      "cell_id": "T_5_75:r0011:c0004",
+      "status": "duplicate_merged",
+      "relationship": "exact_same_cell",
+      "property_id": "prop011",
+      "sample_id": "s011",
+      "sample_resolution_status": "matched"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0001:c0005",
+      "cell_id": "T_5_75:r0001:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp096",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-1",
+      "sample_matches": [
+        "s001"
+      ],
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0002:c0005",
+      "cell_id": "T_5_75:r0002:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp097",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-3",
+      "sample_matches": [
+        "s002"
+      ],
+      "sample_id": "s002",
+      "entity_id": "pe004",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0003:c0005",
+      "cell_id": "T_5_75:r0003:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp098",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 MB",
+      "sample_matches": [
+        "s003"
+      ],
+      "sample_id": "s003",
+      "entity_id": "pe005",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0004:c0005",
+      "cell_id": "T_5_75:r0004:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp099",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/50 MB",
+      "sample_matches": [
+        "s004"
+      ],
+      "sample_id": "s004",
+      "entity_id": "pe006",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0005:c0005",
+      "cell_id": "T_5_75:r0005:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp100",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 MB",
+      "sample_matches": [
+        "s005"
+      ],
+      "sample_id": "s005",
+      "entity_id": "pe007",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0006:c0005",
+      "cell_id": "T_5_75:r0006:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp101",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "MET-2/20 MB",
+      "sample_matches": [
+        "s006"
+      ],
+      "sample_id": "s006",
+      "entity_id": "pe008",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0007:c0005",
+      "cell_id": "T_5_75:r0007:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp102",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 MB",
+      "sample_matches": [
+        "s007"
+      ],
+      "sample_id": "s007",
+      "entity_id": "pe009",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0008:c0005",
+      "cell_id": "T_5_75:r0008:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp103",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/50 MB",
+      "sample_matches": [
+        "s008"
+      ],
+      "sample_id": "s008",
+      "entity_id": "pe010",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0009:c0005",
+      "cell_id": "T_5_75:r0009:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp104",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 AI",
+      "sample_matches": [
+        "s009"
+      ],
+      "sample_id": "s009",
+      "entity_id": "pe011",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0010:c0005",
+      "cell_id": "T_5_75:r0010:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp105",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 AI",
+      "sample_matches": [
+        "s010"
+      ],
+      "sample_id": "s010",
+      "entity_id": "pe012",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0011:c0005",
+      "cell_id": "T_5_75:r0011:c0005",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp106",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "absorption_wavelength",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 AI",
+      "sample_matches": [
+        "s011"
+      ],
+      "sample_id": "s011",
+      "entity_id": "pe013",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0001:c0006",
+      "cell_id": "T_5_75:r0001:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp107",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-1",
+      "sample_matches": [
+        "s001"
+      ],
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0002:c0006",
+      "cell_id": "T_5_75:r0002:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp108",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-3",
+      "sample_matches": [
+        "s002"
+      ],
+      "sample_id": "s002",
+      "entity_id": "pe004",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0003:c0006",
+      "cell_id": "T_5_75:r0003:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp109",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 MB",
+      "sample_matches": [
+        "s003"
+      ],
+      "sample_id": "s003",
+      "entity_id": "pe005",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0004:c0006",
+      "cell_id": "T_5_75:r0004:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp110",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/50 MB",
+      "sample_matches": [
+        "s004"
+      ],
+      "sample_id": "s004",
+      "entity_id": "pe006",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0005:c0006",
+      "cell_id": "T_5_75:r0005:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp111",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 MB",
+      "sample_matches": [
+        "s005"
+      ],
+      "sample_id": "s005",
+      "entity_id": "pe007",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0006:c0006",
+      "cell_id": "T_5_75:r0006:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp112",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "MET-2/20 MB",
+      "sample_matches": [
+        "s006"
+      ],
+      "sample_id": "s006",
+      "entity_id": "pe008",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0007:c0006",
+      "cell_id": "T_5_75:r0007:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp113",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 MB",
+      "sample_matches": [
+        "s007"
+      ],
+      "sample_id": "s007",
+      "entity_id": "pe009",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0008:c0006",
+      "cell_id": "T_5_75:r0008:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp114",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/50 MB",
+      "sample_matches": [
+        "s008"
+      ],
+      "sample_id": "s008",
+      "entity_id": "pe010",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0009:c0006",
+      "cell_id": "T_5_75:r0009:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp115",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-1/20 AI",
+      "sample_matches": [
+        "s009"
+      ],
+      "sample_id": "s009",
+      "entity_id": "pe011",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0010:c0006",
+      "cell_id": "T_5_75:r0010:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp116",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-2/20 AI",
+      "sample_matches": [
+        "s010"
+      ],
+      "sample_id": "s010",
+      "entity_id": "pe012",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_5_75:T_5_75:r0011:c0006",
+      "cell_id": "T_5_75:r0011:c0006",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp117",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "molar_extinction_coefficient",
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20 AI",
+      "sample_matches": [
+        "s011"
+      ],
+      "sample_id": "s011",
+      "entity_id": "pe013",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_7_105:T_7_105:r0001:c0002",
+      "cell_id": "T_7_105:r0001:c0002",
+      "status": "retained_specialized",
+      "reason": "semantic_unmapped",
+      "specialized_id": "sp118",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": null,
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "P IZO-3",
+      "sample_matches": [
+        "s002"
+      ],
+      "sample_id": "s002",
+      "entity_id": "pe004",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_7_105:T_7_105:r0002:c0002",
+      "cell_id": "T_7_105:r0002:c0002",
+      "status": "retained_specialized",
+      "reason": "semantic_unmapped",
+      "specialized_id": "sp119",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": null,
+      "sample_resolution_status": "unmatched_sample",
+      "sample_label_raw": "P MET-4",
+      "sample_matches": []
+    },
+    {
+      "candidate_id": "T_7_105:T_7_105:r0003:c0002",
+      "cell_id": "T_7_105:r0003:c0002",
+      "status": "retained_specialized",
+      "reason": "semantic_unmapped",
+      "specialized_id": "sp120",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": null,
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20MB",
+      "sample_matches": [
+        "s007"
+      ],
+      "sample_id": "s007",
+      "entity_id": "pe009",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_7_105:T_7_105:r0004:c0002",
+      "cell_id": "T_7_105:r0004:c0002",
+      "status": "retained_specialized",
+      "reason": "semantic_unmapped",
+      "specialized_id": "sp121",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": null,
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "IZO-3/20AI",
+      "sample_matches": [
+        "s011"
+      ],
+      "sample_id": "s011",
+      "entity_id": "pe013",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    },
+    {
+      "candidate_id": "T_7_105:T_7_105:r0005:c0002",
+      "cell_id": "T_7_105:r0005:c0002",
+      "status": "retained_specialized",
+      "reason": "semantic_unmapped",
+      "specialized_id": "sp122",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": null,
+      "sample_resolution_status": "matched",
+      "sample_label_raw": "MET-2/20MB",
+      "sample_matches": [
+        "s006"
+      ],
+      "sample_id": "s006",
+      "entity_id": "pe008",
+      "sample_resolution_basis": "normalized_sample_or_entity_alias"
+    }
+  ],
+  "input_hashes": {
+    "stage0_blocks.json": "71ba77c4d559bedb5f01748c2f243cee8f8034b4c33b00769a485473019d84ae",
+    "stage2_entities.json": "9479aed6f7c0b5a2a882b7c5f79502a97b33a7cd7489913256c9de4661ed4645",
+    "stage3_process.json": "1e953d4173e0786750274ba10fb22df59b917c41aaace5e2f2ca03c28f553d49",
+    "stage4_properties.json": "3daafea0aa94db046ec03335d843292a0f76caa9aeb98167c22690b45dae0317",
+    "stage4t_shadow.json": "7424b81b7b5f3e836f2bcd6d99f42e3fb1c67f5ed9fbe88303e72f4caca52728"
+  },
+  "output_sha256": "a7f48673b4620f57f35a50e6f9c96404bcef051394abc294d2039e2fe4f9f10c"
+}

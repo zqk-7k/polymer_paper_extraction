@@ -1,0 +1,2687 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0020284",
+  "status": "success",
+  "shard_count": 6,
+  "unrouted_block_ids": [
+    "P_1_14",
+    "P_1_15",
+    "P_1_16",
+    "P_1_18",
+    "P_1_19",
+    "P_1_20",
+    "I_1_22",
+    "P_1_23",
+    "P_1_24",
+    "P_1_25",
+    "P_1_26",
+    "P_2_31",
+    "P_2_32",
+    "P_2_33",
+    "P_2_34",
+    "P_2_35",
+    "P_2_37",
+    "P_2_38",
+    "P_2_39",
+    "P_2_40",
+    "P_2_42",
+    "P_2_43",
+    "P_2_45",
+    "I_2_46",
+    "T_3_49",
+    "P_3_50",
+    "P_3_54",
+    "P_3_55",
+    "T_4_61",
+    "P_4_64",
+    "T_5_70",
+    "P_5_73",
+    "T_5_74",
+    "T_6_81",
+    "T_7_84",
+    "P_7_86",
+    "P_7_88",
+    "P_7_89",
+    "P_8_96"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_3_52",
+        "P_3_55",
+        "P_3_56",
+        "T_3_58",
+        "T_4_61",
+        "P_4_63",
+        "P_4_64",
+        "P_7_89",
+        "I_7_92",
+        "P_8_96",
+        "P_8_97"
+      ],
+      "context_chars": 9237,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\",\n        \"prop_s5_005\",\n        \"prop_s5_006\",\n        \"prop_s5_007\",\n        \"prop_s5_008\",\n        \"prop_s5_009\",\n        \"prop_s5_010\",\n        \"prop_s5_011\",\n        \"prop_s5_012\",\n        \"prop_s5_013\",\n        \"prop_s5_014\",\n        \"prop_s5_015\",\n        \"prop_s5_016\",\n        \"prop_s5_017\",\n        \"prop_s5_018\",\n        \"prop_s5_019\",\n        \"prop_s5_020\",\n        \"prop_s5_021\",\n        \"prop_s5_022\",\n        \"prop_s5_023\",\n        \"prop_s5_024\",\n        \"prop_s5_025\"\n      ],\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_52\",\n          \"source_sentence\": \"Infrared (IR) spectra in the range 4000–400 cm  $^{-1}$ of the synthesized monomers and polymers in solid state were obtained for samples in KBr disks (JASCO IR-700 spectrometer).\"\n        },\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\"\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"Table II presents results of elemental analysis and IR data of polycarbonates (PC-1–PC-6). The assignments of IR spectra of the corresponding products are listed in Table I. The results of elemental analysis agreed well with theoretical values. The IR spectrum of PC-1 showed absorption due to C=O at   $1769 \\\\, cm^{-1}$  and to —C—O—C— at   $1226 \\\\, cm^{-1}$ . The IR spectrum of PC-2 also shows the following characteristic valence vibrations:   $\\\\nu_{as}$  at   $1291 \\\\, cm^{-1}$ , and   $\\\\nu_{s}$  at   $1150 \\\\, cm^{-1}$ , which correspond to bending vibrations of the sulfonyl group.  $^{37}$  The lines of a brominated polycarbonate (PC-4) assigned to bromine appeared at   $798 \\\\, cm^{-1}$ .\"\n        },\n        {\n          \"block_id\": \"P_8_97\",\n          \"source_sentence\": \"The formation of polycarbonates was confirmed by means of IR spectra and/or elemental analysis. Figure 3 shows IR spectra of three typical polycarbonates (bisphenol S: bisphenol A: 100: 0, 50: 50, and 0: 100). IR spectra of homopolycarbonates based on bisphenol S and bisphenol A indicated the characteristic carbonate absorptions at 1779 and 1765 cm  $^{-1}$ , respectively, due to carbonyl group. The absorption wave number is increased by the electron withdrawing characteristic of the sulfonyl group. The —CH  $_{3}$  absorptions of homopolycarbonate and copolycarbonates based on bisphenol A were measured at 2958 cm  $^{-1}$ . The —SO  $_{2}$ —absorptions of homopolymer and copolymers based on bisphenol S were measured at 1150 and 1291 cm  $^{-1}$ .\"\n        }\n      ],\n      \"instrument\": \"JASCO IR-700 spectrometer\",\n      \"method_raw\": \"Infrared (IR) spectra\",\n      \"method_normalized\": \"FTIR\",\n      \"parameters\": {\n        \"wavenumber_range\": \"4000–400 cm⁻¹\",\n        \"sample_preparation\": \"KBr disks\"\n      },\n      \"result_summary\": \"IR spectra of PC-1 to PC-6 and sulfone-containing random copolycarbonates were collected, showing characteristic absorption peaks for C=O, C-O-C, CH3, SO2 and Br groups, confirming polycarbonate formation.\"\n    }\n  ],\n  \"properties\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_001\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s001\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1769\",\n      \"value_min\": 1769,\n      \"value_max\": 1769,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-1\",\n            \"column_label\": \"C=O\",\n            \"cell_value\": \"1769\"\n          }\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"The IR spectrum of PC-1 showed absorption due to C=O at   $1769 \\\\, cm^{-1}$\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_002\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s001\",\n      \"property_name_raw\": \"IR C-O-C absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1226\",\n      \"value_min\": 1226,\n      \"value_max\": 1226,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C-O-C\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-1\",\n            \"column_label\": \"C-O-C\",\n            \"cell_value\": \"1226\"\n          }\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"The IR spectrum of PC-1 showed absorption due to C=O at   $1769 \\\\, cm^{-1}$  and to —C—O—C— at   $1226 \\\\, cm^{-1}$\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_003\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s001\",\n      \"property_name_raw\": \"IR CH3 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"2958\",\n      \"value_min\": 2958,\n      \"value_max\": 2958,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"CH3\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-1\",\n            \"column_label\": \"CH3\",\n            \"cell_value\": \"2958\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_004\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1779\",\n      \"value_min\": 1779,\n      \"value_max\": 1779,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-2\",\n            \"column_label\": \"C=O\",\n            \"cell_value\": \"1779\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_005\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"property_name_raw\": \"IR C-O-C absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1219\",\n      \"value_min\": 1219,\n      \"value_max\": 1219,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C-O-C\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-2\",\n            \"column_label\": \"C-O-C\",\n            \"cell_value\": \"1219\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_006\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"property_name_raw\": \"IR SO2 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1150\",\n      \"value_min\": 1150,\n      \"value_max\": 1150,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"SO2\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-2\",\n            \"column_label\": \"SO2\",\n            \"cell_value\": \"1150, 1291\"\n          }\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"The IR spectrum of PC-2 also shows the following characteristic valence vibrations:   $\\\\nu_{as}$  at   $1291 \\\\, cm^{-1}$ , and   $\\\\nu_{s}$  at   $1150 \\\\, cm^{-1}$ , which correspond to bending vibrations of the sulfonyl group.\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_007\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"property_name_raw\": \"IR SO2 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1291\",\n      \"value_min\": 1291,\n      \"value_max\": 1291,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"SO2\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-2\",\n            \"column_label\": \"SO2\",\n            \"cell_value\": \"1150, 1291\"\n          }\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"The IR spectrum of PC-2 also shows the following characteristic valence vibrations:   $\\\\nu_{as}$  at   $1291 \\\\, cm^{-1}$ , and   $\\\\nu_{s}$  at   $1150 \\\\, cm^{-1}$ , which correspond to bending vibrations of the sulfonyl group.\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_008\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s003\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1774\",\n      \"value_min\": 1774,\n      \"value_max\": 1774,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-3\",\n            \"column_label\": \"C=O\",\n            \"cell_value\": \"1774\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_009\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s003\",\n      \"property_name_raw\": \"IR C-O-C absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1224\",\n      \"value_min\": 1224,\n      \"value_max\": 1224,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C-O-C\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-3\",\n            \"column_label\": \"C-O-C\",\n            \"cell_value\": \"1224\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_010\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1788\",\n      \"value_min\": 1788,\n      \"value_max\": 1788,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-4\",\n            \"column_label\": \"C=O\",\n            \"cell_value\": \"1788\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_011\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"property_name_raw\": \"IR C-O-C absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1228\",\n      \"value_min\": 1228,\n      \"value_max\": 1228,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C-O-C\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-4\",\n            \"column_label\": \"C-O-C\",\n            \"cell_value\": \"1228\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_012\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"property_name_raw\": \"IR CH3 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"2960\",\n      \"value_min\": 2960,\n      \"value_max\": 2960,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"CH3\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-4\",\n            \"column_label\": \"CH3\",\n            \"cell_value\": \"2960\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_013\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"property_name_raw\": \"IR Br absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"798\",\n      \"value_min\": 798,\n      \"value_max\": 798,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"Br\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-4\",\n            \"column_label\": \"Br\",\n            \"cell_value\": \"798\"\n          }\n        },\n        {\n          \"block_id\": \"P_4_63\",\n          \"source_sentence\": \"The lines of a brominated polycarbonate (PC-4) assigned to bromine appeared at   $798 \\\\, cm^{-1}$ .\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_014\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1788\",\n      \"value_min\": 1788,\n      \"value_max\": 1788,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"C=O\",\n            \"cell_value\": \"1788\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_015\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"IR C-O-C absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1220\",\n      \"value_min\": 1220,\n      \"value_max\": 1220,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C-O-C\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"C-O-C\",\n            \"cell_value\": \"1220\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_016\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"IR SO2 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1150\",\n      \"value_min\": 1150,\n      \"value_max\": 1150,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"SO2\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"SO2\",\n            \"cell_value\": \"1150, 1291\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_017\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"IR SO2 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1291\",\n      \"value_min\": 1291,\n      \"value_max\": 1291,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"SO2\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"SO2\",\n            \"cell_value\": \"1150, 1291\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_018\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"IR Br absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"794\",\n      \"value_min\": 794,\n      \"value_max\": 794,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"Br\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"Br\",\n            \"cell_value\": \"794\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_019\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s006\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1793\",\n      \"value_min\": 1793,\n      \"value_max\": 1793,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-6\",\n            \"column_label\": \"C=O\",\n            \"cell_value\": \"1793\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_020\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s006\",\n      \"property_name_raw\": \"IR Br absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"793\",\n      \"value_min\": 793,\n      \"value_max\": 793,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"Br\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_3_58\",\n          \"source_sentence\": \"Table II Elemental Analysis and IR Data of Various Polycarbonates\",\n          \"table_locator\": {\n            \"table_id\": \"T_3_58\",\n            \"row_label\": \"PC-6\",\n            \"column_label\": \"Br\",\n            \"cell_value\": \"793\"\n          }\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_021\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s007\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1779\",\n      \"value_min\": 1779,\n      \"value_max\": 1779,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O (bisphenol S segment)\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_8_97\",\n          \"source_sentence\": \"IR spectra of homopolycarbonates based on bisphenol S and bisphenol A indicated the characteristic carbonate absorptions at 1779 and 1765 cm  $^{-1}$ , respectively, due to carbonyl group.\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_022\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s007\",\n      \"property_name_raw\": \"IR C=O absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1765\",\n      \"value_min\": 1765,\n      \"value_max\": 1765,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"C=O (bisphenol A segment)\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_8_97\",\n          \"source_sentence\": \"IR spectra of homopolycarbonates based on bisphenol S and bisphenol A indicated the characteristic carbonate absorptions at 1779 and 1765 cm  $^{-1}$ , respectively, due to carbonyl group.\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_023\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s007\",\n      \"property_name_raw\": \"IR CH3 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"2958\",\n      \"value_min\": 2958,\n      \"value_max\": 2958,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"CH3 (bisphenol A segment)\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_8_97\",\n          \"source_sentence\": \"The —CH  $_{3}$  absorptions of homopolycarbonate and copolycarbonates based on bisphenol A were measured at 2958 cm  $^{-1}$ .\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_024\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s007\",\n      \"property_name_raw\": \"IR SO2 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1150\",\n      \"value_min\": 1150,\n      \"value_max\": 1150,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"SO2 (bisphenol S segment)\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_8_97\",\n          \"source_sentence\": \"The —SO  $_{2}$ —absorptions of homopolymer and copolymers based on bisphenol S were measured at 1150 and 1291 cm  $^{-1}$ .\"\n        }\n      ]\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"property_id\": \"prop_s5_025\",\n      \"characterization_id\": \"char001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s007\",\n      \"property_name_raw\": \"IR SO2 absorption wavenumber\",\n      \"property_name_normalized\": \"ftir_peak_wavenumber\",\n      \"property_category\": \"composition_structure\",\n      \"value_raw\": \"1291\",\n      \"value_min\": 1291,\n      \"value_max\": 1291,\n      \"unit_raw\": \"cm⁻¹\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"spectral_assignment\": \"SO2 (bisphenol S segment)\",\n      \"source_stage\": \"stage5\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_8_97\",\n          \"source_sentence\": \"The —SO  $_{2}$ —absorptions of homopolymer and copolymers based on bisphenol S were measured at 1150 and 1291 cm  $^{-1}$ .\"\n        }\n      ]\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"specialized_id\": \"sp_cand001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s007\",\n      \"entity_id\": \"pe007\",\n      \"property_name_raw\": \"copolymer sequence distribution\",\n      \"value_raw\": \"random\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_89\",\n          \"source_sentence\": \"Sulfone-containing random copolycarbonates were also synthesized by reacting the respective mixtures of bisphenol S : bisphenol A, with feed ratios 80 : 20, 60 : 40, 50 : 50, 40 : 60, 20 : 80, and 0 : 100, with TCF in the DCE-aqueous sodium hydroxide two-phase system with BTEAC as catalyst [eq. (4)].\"\n        }\n      ]\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 17874,
+              "output_tokens": 13290,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07721568",
+              "output_cost": "0.3874035",
+              "total_cost": "0.46461918"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 25,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "a7267dbc607bf4056bf2a334e7b53053535dd77cf1880f63a9b76343df605214",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_3_58"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[4]",
+          "property_id": "prop_s5_005",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[5]",
+          "property_id": "prop_s5_006",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[6]",
+          "property_id": "prop_s5_007",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[7]",
+          "property_id": "prop_s5_008",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[8]",
+          "property_id": "prop_s5_009",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[9]",
+          "property_id": "prop_s5_010",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[10]",
+          "property_id": "prop_s5_011",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[11]",
+          "property_id": "prop_s5_012",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[12]",
+          "property_id": "prop_s5_013",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[13]",
+          "property_id": "prop_s5_014",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[14]",
+          "property_id": "prop_s5_015",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[15]",
+          "property_id": "prop_s5_016",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[16]",
+          "property_id": "prop_s5_017",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[17]",
+          "property_id": "prop_s5_018",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[18]",
+          "property_id": "prop_s5_019",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[19]",
+          "property_id": "prop_s5_020",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[20]",
+          "property_id": "prop_s5_021",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[21]",
+          "property_id": "prop_s5_022",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[22]",
+          "property_id": "prop_s5_023",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[23]",
+          "property_id": "prop_s5_024",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[24]",
+          "property_id": "prop_s5_025",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Infrared (IR) spectra",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "JASCO IR-700 spectrometer",
+            "parameters": {
+              "sample_preparation": "KBr disks"
+            },
+            "result_summary": "IR spectra of PC-1 to PC-6 and sulfone-containing random copolycarbonates were collected, showing characteristic absorption peaks for C=O, C-O-C, CH3, SO2 and Br groups, confirming polycarbonate formation.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010",
+              "prop_s5_011",
+              "prop_s5_012",
+              "prop_s5_013",
+              "prop_s5_014",
+              "prop_s5_015",
+              "prop_s5_016",
+              "prop_s5_017",
+              "prop_s5_018",
+              "prop_s5_019",
+              "prop_s5_020",
+              "prop_s5_021",
+              "prop_s5_022",
+              "prop_s5_023",
+              "prop_s5_024",
+              "prop_s5_025"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_52",
+                "page": 3,
+                "bbox": [
+                  108.0,
+                  496.0,
+                  491.0,
+                  681.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Infrared (IR) spectra in the range 4000–400 cm  $^{-1}$ of the synthesized monomers and polymers in solid state were obtained for samples in KBr disks (JASCO IR-700 spectrometer)."
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  658.0,
+                  480.0,
+                  855.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Table II presents results of elemental analysis and IR data of polycarbonates (PC-1–PC-6). The assignments of IR spectra of the corresponding products are listed in Table I. The results of elemental analysis agreed well with theoretical values. The IR spectrum of PC-1 showed absorption due to C=O at   $1769 \\, cm^{-1}$  and to —C—O—C— at   $1226 \\, cm^{-1}$ . The IR spectrum of PC-2 also shows the following characteristic valence vibrations:   $\\nu_{as}$  at   $1291 \\, cm^{-1}$ , and   $\\nu_{s}$  at   $1150 \\, cm^{-1}$ , which correspond to bending vibrations of the sulfonyl group.  $^{37}$  The lines of a brominated polycarbonate (PC-4) assigned to bromine appeared at   $798 \\, cm^{-1}$ ."
+              },
+              {
+                "block_id": "P_8_97",
+                "page": 8,
+                "bbox": [
+                  96.0,
+                  336.0,
+                  478.0,
+                  552.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The formation of polycarbonates was confirmed by means of IR spectra and/or elemental analysis. Figure 3 shows IR spectra of three typical polycarbonates (bisphenol S: bisphenol A: 100: 0, 50: 50, and 0: 100). IR spectra of homopolycarbonates based on bisphenol S and bisphenol A indicated the characteristic carbonate absorptions at 1779 and 1765 cm  $^{-1}$ , respectively, due to carbonyl group. The absorption wave number is increased by the electron withdrawing characteristic of the sulfonyl group. The —CH  $_{3}$  absorptions of homopolycarbonate and copolycarbonates based on bisphenol A were measured at 2958 cm  $^{-1}$ . The —SO  $_{2}$ —absorptions of homopolymer and copolymers based on bisphenol S were measured at 1150 and 1291 cm  $^{-1}$ ."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1769",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1769",
+            "value_min": 1769.0,
+            "value_max": 1769.0,
+            "spectral_assignment": "C=O",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-1",
+                  "column_label": "C=O",
+                  "cell_value": "1769",
+                  "cell_id": "T_3_58:r0003:c0005",
+                  "row_index": 3,
+                  "column_index": 5
+                }
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  658.0,
+                  480.0,
+                  855.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The IR spectrum of PC-1 showed absorption due to C=O at   $1769 \\, cm^{-1}$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1226",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1226",
+            "value_min": 1226.0,
+            "value_max": 1226.0,
+            "spectral_assignment": "C-O-C",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-1",
+                  "column_label": "C-O-C",
+                  "cell_value": "1226",
+                  "cell_id": "T_3_58:r0003:c0006",
+                  "row_index": 3,
+                  "column_index": 6
+                }
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  658.0,
+                  480.0,
+                  855.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The IR spectrum of PC-1 showed absorption due to C=O at   $1769 \\, cm^{-1}$  and to —C—O—C— at   $1226 \\, cm^{-1}$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2958",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2958",
+            "value_min": 2958.0,
+            "value_max": 2958.0,
+            "spectral_assignment": "CH3",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-1",
+                  "column_label": "CH3",
+                  "cell_value": "2958",
+                  "cell_id": "T_3_58:r0003:c0007",
+                  "row_index": 3,
+                  "column_index": 7
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1779",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1779",
+            "value_min": 1779.0,
+            "value_max": 1779.0,
+            "spectral_assignment": "C=O",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-2",
+                  "column_label": "C=O",
+                  "cell_value": "1779",
+                  "cell_id": "T_3_58:r0004:c0005",
+                  "row_index": 4,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1219",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1219",
+            "value_min": 1219.0,
+            "value_max": 1219.0,
+            "spectral_assignment": "C-O-C",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-2",
+                  "column_label": "C-O-C",
+                  "cell_value": "1219",
+                  "cell_id": "T_3_58:r0004:c0006",
+                  "row_index": 4,
+                  "column_index": 6
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1150",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1150",
+            "value_min": 1150.0,
+            "value_max": 1150.0,
+            "spectral_assignment": "SO2",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-2",
+                  "column_label": "SO2",
+                  "cell_value": "1150, 1291",
+                  "cell_id": "T_3_58:r0004:c0008",
+                  "row_index": 4,
+                  "column_index": 8
+                }
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  658.0,
+                  480.0,
+                  855.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The IR spectrum of PC-2 also shows the following characteristic valence vibrations:   $\\nu_{as}$  at   $1291 \\, cm^{-1}$ , and   $\\nu_{s}$  at   $1150 \\, cm^{-1}$ , which correspond to bending vibrations of the sulfonyl group."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1291",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1291",
+            "value_min": 1291.0,
+            "value_max": 1291.0,
+            "spectral_assignment": "SO2",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-2",
+                  "column_label": "SO2",
+                  "cell_value": "1150, 1291",
+                  "cell_id": "T_3_58:r0004:c0008",
+                  "row_index": 4,
+                  "column_index": 8
+                }
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  658.0,
+                  480.0,
+                  855.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The IR spectrum of PC-2 also shows the following characteristic valence vibrations:   $\\nu_{as}$  at   $1291 \\, cm^{-1}$ , and   $\\nu_{s}$  at   $1150 \\, cm^{-1}$ , which correspond to bending vibrations of the sulfonyl group."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1774",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1774",
+            "value_min": 1774.0,
+            "value_max": 1774.0,
+            "spectral_assignment": "C=O",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-3",
+                  "column_label": "C=O",
+                  "cell_value": "1774",
+                  "cell_id": "T_3_58:r0005:c0005",
+                  "row_index": 5,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1224",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1224",
+            "value_min": 1224.0,
+            "value_max": 1224.0,
+            "spectral_assignment": "C-O-C",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-3",
+                  "column_label": "C-O-C",
+                  "cell_value": "1224",
+                  "cell_id": "T_3_58:r0005:c0006",
+                  "row_index": 5,
+                  "column_index": 6
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1788",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1788",
+            "value_min": 1788.0,
+            "value_max": 1788.0,
+            "spectral_assignment": "C=O",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-4",
+                  "column_label": "C=O",
+                  "cell_value": "1788",
+                  "cell_id": "T_3_58:r0006:c0005",
+                  "row_index": 6,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_011",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1228",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1228",
+            "value_min": 1228.0,
+            "value_max": 1228.0,
+            "spectral_assignment": "C-O-C",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-4",
+                  "column_label": "C-O-C",
+                  "cell_value": "1228",
+                  "cell_id": "T_3_58:r0006:c0006",
+                  "row_index": 6,
+                  "column_index": 6
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_012",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2960",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2960",
+            "value_min": 2960.0,
+            "value_max": 2960.0,
+            "spectral_assignment": "CH3",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-4",
+                  "column_label": "CH3",
+                  "cell_value": "2960",
+                  "cell_id": "T_3_58:r0006:c0007",
+                  "row_index": 6,
+                  "column_index": 7
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_013",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "798",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "798",
+            "value_min": 798.0,
+            "value_max": 798.0,
+            "spectral_assignment": "Br",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-4",
+                  "column_label": "Br",
+                  "cell_value": "798",
+                  "cell_id": "T_3_58:r0006:c0009",
+                  "row_index": 6,
+                  "column_index": 9
+                }
+              },
+              {
+                "block_id": "P_4_63",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  658.0,
+                  480.0,
+                  855.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The lines of a brominated polycarbonate (PC-4) assigned to bromine appeared at   $798 \\, cm^{-1}$ ."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_014",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1788",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1788",
+            "value_min": 1788.0,
+            "value_max": 1788.0,
+            "spectral_assignment": "C=O",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-5",
+                  "column_label": "C=O",
+                  "cell_value": "1788",
+                  "cell_id": "T_3_58:r0007:c0005",
+                  "row_index": 7,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_015",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1220",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1220",
+            "value_min": 1220.0,
+            "value_max": 1220.0,
+            "spectral_assignment": "C-O-C",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-5",
+                  "column_label": "C-O-C",
+                  "cell_value": "1220",
+                  "cell_id": "T_3_58:r0007:c0006",
+                  "row_index": 7,
+                  "column_index": 6
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_016",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1150",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1150",
+            "value_min": 1150.0,
+            "value_max": 1150.0,
+            "spectral_assignment": "SO2",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-5",
+                  "column_label": "SO2",
+                  "cell_value": "1150, 1291",
+                  "cell_id": "T_3_58:r0007:c0008",
+                  "row_index": 7,
+                  "column_index": 8
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_017",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1291",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1291",
+            "value_min": 1291.0,
+            "value_max": 1291.0,
+            "spectral_assignment": "SO2",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-5",
+                  "column_label": "SO2",
+                  "cell_value": "1150, 1291",
+                  "cell_id": "T_3_58:r0007:c0008",
+                  "row_index": 7,
+                  "column_index": 8
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_018",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "794",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "794",
+            "value_min": 794.0,
+            "value_max": 794.0,
+            "spectral_assignment": "Br",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-5",
+                  "column_label": "Br",
+                  "cell_value": "794",
+                  "cell_id": "T_3_58:r0007:c0009",
+                  "row_index": 7,
+                  "column_index": 9
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_019",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1793",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1793",
+            "value_min": 1793.0,
+            "value_max": 1793.0,
+            "spectral_assignment": "C=O",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-6",
+                  "column_label": "C=O",
+                  "cell_value": "1793",
+                  "cell_id": "T_3_58:r0008:c0005",
+                  "row_index": 8,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_020",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "793",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "793",
+            "value_min": 793.0,
+            "value_max": 793.0,
+            "spectral_assignment": "Br",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_3_58",
+                "page": 3,
+                "bbox": [
+                  111.0,
+                  720.0,
+                  900.0,
+                  903.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+                "table_locator": {
+                  "table_id": "T_3_58",
+                  "row_label": "PC-6",
+                  "column_label": "Br",
+                  "cell_value": "793",
+                  "cell_id": "T_3_58:r0008:c0009",
+                  "row_index": 8,
+                  "column_index": 9
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_021",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1779",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1779",
+            "value_min": 1779.0,
+            "value_max": 1779.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_8_97",
+                "page": 8,
+                "bbox": [
+                  96.0,
+                  336.0,
+                  478.0,
+                  552.0
+                ],
+                "source_type": "text",
+                "source_sentence": "IR spectra of homopolycarbonates based on bisphenol S and bisphenol A indicated the characteristic carbonate absorptions at 1779 and 1765 cm  $^{-1}$ , respectively, due to carbonyl group."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_022",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1765",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1765",
+            "value_min": 1765.0,
+            "value_max": 1765.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_8_97",
+                "page": 8,
+                "bbox": [
+                  96.0,
+                  336.0,
+                  478.0,
+                  552.0
+                ],
+                "source_type": "text",
+                "source_sentence": "IR spectra of homopolycarbonates based on bisphenol S and bisphenol A indicated the characteristic carbonate absorptions at 1779 and 1765 cm  $^{-1}$ , respectively, due to carbonyl group."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_023",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2958",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2958",
+            "value_min": 2958.0,
+            "value_max": 2958.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_8_97",
+                "page": 8,
+                "bbox": [
+                  96.0,
+                  336.0,
+                  478.0,
+                  552.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The —CH  $_{3}$  absorptions of homopolycarbonate and copolycarbonates based on bisphenol A were measured at 2958 cm  $^{-1}$ ."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_024",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1150",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1150",
+            "value_min": 1150.0,
+            "value_max": 1150.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_8_97",
+                "page": 8,
+                "bbox": [
+                  96.0,
+                  336.0,
+                  478.0,
+                  552.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The —SO  $_{2}$ —absorptions of homopolymer and copolymers based on bisphenol S were measured at 1150 and 1291 cm  $^{-1}$ ."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_025",
+            "characterization_id": "char001",
+            "sample_id": "s007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "1291",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1291",
+            "value_min": 1291.0,
+            "value_max": 1291.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_8_97",
+                "page": 8,
+                "bbox": [
+                  96.0,
+                  336.0,
+                  478.0,
+                  552.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The —SO  $_{2}$ —absorptions of homopolymer and copolymers based on bisphenol S were measured at 1150 and 1291 cm  $^{-1}$ ."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_3_55",
+        "P_3_56",
+        "P_6_79",
+        "T_6_81"
+      ],
+      "context_chars": 4700,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop031\",\n        \"prop032\",\n        \"prop033\",\n        \"prop034\",\n        \"prop035\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_56\",\n          \"source_sentence\": \"The polymers from trichloromethyl chloroformate and various diols were characterized by elemental analysis, inherent viscosity, IR spectra, x-ray diffraction, solubility, thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), contact angle, and limiting oxygen index (LOI).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_79\",\n          \"source_sentence\": \"The thermal behavior of polymers was evaluated by means of TGA and DSC.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_6_79\",\n              \"source_sentence\": \"Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\\\circ}$ C/min in nitrogen.\",\n              \"table_locator\": null\n            }\n          ],\n          \"heating_rate\": [\n            {\n              \"block_id\": \"P_6_79\",\n              \"source_sentence\": \"Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\\\circ}$ C/min in nitrogen.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"nitrogen\",\n          \"heating_rate\": \"10°C/min\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"differential scanning calorimetry (DSC)\",\n      \"parameters\": {},\n      \"result_summary\": \"DSC measurements determined glass transition temperatures of polycarbonates PC-1, PC-3, PC-4, PC-5, PC-6 in the range 146 to 206 °C, with brominated polycarbonates having higher Tg values than unbrominated analogues.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 16193,
+              "output_tokens": 3515,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.10005552",
+              "output_cost": "0.10246225",
+              "total_cost": "0.20251777"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "63d7cdbda52983bceff9c7601b476be90f2dd3ea688ef2832d1583877d1b6b66",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s003",
+              "s004",
+              "s005",
+              "s006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "nitrogen"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_6_79",
+                    "page": 6,
+                    "bbox": [
+                      100.0,
+                      589.0,
+                      480.0,
+                      651.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\circ}$ C/min in nitrogen."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "DSC measurements determined glass transition temperatures of polycarbonates PC-1, PC-3, PC-4, PC-5, PC-6 in the range 146 to 206 °C, with brominated polycarbonates having higher Tg values than unbrominated analogues.",
+            "derived_property_ids": [
+              "prop031",
+              "prop032",
+              "prop033",
+              "prop034",
+              "prop035"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_56",
+                "page": 3,
+                "bbox": [
+                  519.0,
+                  225.0,
+                  901.0,
+                  527.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The polymers from trichloromethyl chloroformate and various diols were characterized by elemental analysis, inherent viscosity, IR spectra, x-ray diffraction, solubility, thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), contact angle, and limiting oxygen index (LOI)."
+              },
+              {
+                "block_id": "P_6_79",
+                "page": 6,
+                "bbox": [
+                  100.0,
+                  589.0,
+                  480.0,
+                  651.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The thermal behavior of polymers was evaluated by means of TGA and DSC."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_3_55",
+        "P_3_56",
+        "T_5_74",
+        "I_6_77",
+        "P_6_79",
+        "T_6_81",
+        "P_8_99"
+      ],
+      "context_chars": 7152,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\"score\": 0.9},\n            \"derived_property_ids\": [\"prop001\",\"prop002\",\"prop003\",\"prop004\",\"prop005\",\"prop006\",\"prop007\",\"prop008\",\"prop009\",\"prop010\",\"prop011\",\"prop012\",\"prop013\",\"prop014\",\"prop015\",\"prop016\",\"prop017\",\"prop018\",\"prop019\",\"prop020\",\"prop021\",\"prop022\",\"prop023\",\"prop024\",\"prop025\",\"prop026\",\"prop027\",\"prop028\",\"prop029\",\"prop030\"],\n            \"entity_id\": null,\n            \"entity_ids\": [\"pe001\",\"pe002\",\"pe003\",\"pe004\",\"pe005\",\"pe006\"],\n            \"evidence\": [\n                {\"block_id\": \"P_3_56\", \"source_sentence\": \"The polymers from trichloromethyl chloroformate and various diols were characterized by elemental analysis, inherent viscosity, IR spectra, x-ray diffraction, solubility, thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), contact angle, and limiting oxygen index (LOI).\", \"table_locator\": null},\n                {\"block_id\": \"P_6_79\", \"source_sentence\": \"The thermal behavior of polymers was evaluated by means of TGA and DSC. Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\\\circ}$ C/min in nitrogen. Examples of TGA curves of polycarbonates (PC-1 and PC-4) indicate no loss of mass below 358°C in nitrogen (Fig. 2). TGA and DSC results of polycarbonates are summarized in Table VI.\", \"table_locator\": null},\n                {\"block_id\": \"I_6_77\", \"source_sentence\": \"Figure 2 TGA curves of PC-1 and PC-4 with a heating rate of $10^{\\\\circ}$ C/min.\", \"table_locator\": null},\n                {\"block_id\": \"T_6_81\", \"source_sentence\": \"Table VI Thermal Properties of Polycarbonates Based on Various Bisphenols $^{4}$\", \"table_locator\": null}\n            ],\n            \"instrument\": null,\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {\n                    \"atmosphere\": [{\"block_id\": \"P_6_79\", \"source_sentence\": \"Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\\\circ}$ C/min in nitrogen.\", \"table_locator\": null}],\n                    \"heating_rate\": [\n                        {\"block_id\": \"P_6_79\", \"source_sentence\": \"Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\\\circ}$ C/min in nitrogen.\", \"table_locator\": null},\n                        {\"block_id\": \"I_6_77\", \"source_sentence\": \"Figure 2 TGA curves of PC-1 and PC-4 with a heating rate of $10^{\\\\circ}$ C/min.\", \"table_locator\": null}\n                    ]\n                },\n                \"other_conditions\": {\"atmosphere\": \"nitrogen\", \"heating_rate\": \"10 °C/min\"},\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"TGA\",\n            \"method_raw\": \"thermogravimetric analysis (TGA)\",\n            \"parameters\": {},\n            \"result_summary\": \"Thermal decomposition temperatures (initial, 10%, 20%, 30%, 50% mass loss) and residual mass at 600°C were measured for PC-1 to PC-6; brominated polycarbonates showed lower thermal stability but higher char yield, fluorine-containing PC-3 exhibited improved thermal stability.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s001\",\"s002\",\"s003\",\"s004\",\"s005\",\"s006\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 17091,
+              "output_tokens": 3000,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07383312",
+              "output_cost": "0.08745",
+              "total_cost": "0.16128312"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "f217f207f730c2e9eb10da0dfed505346457e4d36ea52169a5d19506488eefc4",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_6_81"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.other_conditions"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006"
+            ],
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "nitrogen"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_6_79",
+                    "page": 6,
+                    "bbox": [
+                      100.0,
+                      589.0,
+                      480.0,
+                      651.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\circ}$ C/min in nitrogen."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Thermal decomposition temperatures (initial, 10%, 20%, 30%, 50% mass loss) and residual mass at 600°C were measured for PC-1 to PC-6; brominated polycarbonates showed lower thermal stability but higher char yield, fluorine-containing PC-3 exhibited improved thermal stability.",
+            "derived_property_ids": [
+              "prop001",
+              "prop002",
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008",
+              "prop009",
+              "prop010",
+              "prop011",
+              "prop012",
+              "prop013",
+              "prop014",
+              "prop015",
+              "prop016",
+              "prop017",
+              "prop018",
+              "prop019",
+              "prop020",
+              "prop021",
+              "prop022",
+              "prop023",
+              "prop024",
+              "prop025",
+              "prop026",
+              "prop027",
+              "prop028",
+              "prop029",
+              "prop030"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_56",
+                "page": 3,
+                "bbox": [
+                  519.0,
+                  225.0,
+                  901.0,
+                  527.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The polymers from trichloromethyl chloroformate and various diols were characterized by elemental analysis, inherent viscosity, IR spectra, x-ray diffraction, solubility, thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), contact angle, and limiting oxygen index (LOI)."
+              },
+              {
+                "block_id": "P_6_79",
+                "page": 6,
+                "bbox": [
+                  100.0,
+                  589.0,
+                  480.0,
+                  651.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The thermal behavior of polymers was evaluated by means of TGA and DSC. Figure 2 shows an example of polycarbonates at a heating rate   $10^{\\circ}$ C/min in nitrogen. Examples of TGA curves of polycarbonates (PC-1 and PC-4) indicate no loss of mass below 358°C in nitrogen (Fig. 2). TGA and DSC results of polycarbonates are summarized in Table VI."
+              },
+              {
+                "block_id": "I_6_77",
+                "page": 6,
+                "bbox": [
+                  245.0,
+                  85.0,
+                  742.0,
+                  341.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 2 TGA curves of PC-1 and PC-4 with a heating rate of $10^{\\circ}$ C/min."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_3_52",
+        "P_3_55",
+        "P_3_56",
+        "P_4_64",
+        "I_4_67",
+        "T_5_70",
+        "P_5_71",
+        "P_5_73"
+      ],
+      "context_chars": 7948,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\",\n        \"prop_s5_005\",\n        \"prop_s5_006\",\n        \"prop_s5_007\",\n        \"prop_s5_008\",\n        \"prop_s5_009\",\n        \"prop_s5_010\",\n        \"prop_s5_011\",\n        \"prop_s5_012\"\n      ],\n      \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_52\",\n          \"source_sentence\": \"The x-ray diffraction diagram was recorded with a powder method with an x-ray diffractometer (Philips model PW 1710).\"\n        },\n        {\n          \"block_id\": \"P_3_56\",\n          \"source_sentence\": \"The polymers from trichloromethyl chloroformate and various diols were characterized by elemental analysis, inherent viscosity, IR spectra, x-ray diffraction, solubility, thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), contact angle, and limiting oxygen index (LOI).\"\n        },\n        {\n          \"block_id\": \"I_4_67\",\n          \"source_sentence\": \"Figure 1 X-ray diffraction patterns of polycarbonates: (A) PC-1-PC-3; (B) PC-4-PC-6.\"\n        },\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"Table IV Bragg Angle Position and X-ray Data of Various Polycarbonates\"\n        },\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"X-ray diffraction patterns of various polycarbonates are shown in Figure 1 in terms of intensity versus 2θ; θ is the angle of diffraction (Bragg angle). The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ],\n      \"instrument\": \"Philips model PW 1710\",\n      \"method_normalized\": \"XRD\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"parameters\": {\n        \"sample_preparation\": \"powder method\"\n      },\n      \"result_summary\": \"XRD patterns of PC-1 to PC-6 were recorded, confirming all samples are semicrystalline, with 2θ peak positions and degree of crystallinity values reported in Table IV.\",\n      \"sample_resolution_status\": \"multi_resolved\"\n    }\n  ],\n  \"properties\": [\n    {\n      \"property_id\": \"prop_s5_001\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s001\",\n      \"property_name_raw\": \"Degree of Crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"33.4\",\n      \"unit_raw\": \"%\",\n      \"value_min\": 33.4,\n      \"value_max\": 33.4,\n      \"unit_normalized\": \"%\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-1 | 17.2, 25.8, 29.7, 42.4, 43.5, 49.2 | 5.13, 3.51, 3.00, 2.12, 2.07, 1.84 | 33.4\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-1\",\n            \"column_label\": \"Degree of Crystallinity (%)\",\n            \"cell_value\": \"33.4\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_002\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"property_name_raw\": \"Degree of Crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"40.3\",\n      \"unit_raw\": \"%\",\n      \"value_min\": 40.3,\n      \"value_max\": 40.3,\n      \"unit_normalized\": \"%\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-2 | 17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3 | 5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84 | 40.3\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-2\",\n            \"column_label\": \"Degree of Crystallinity (%)\",\n            \"cell_value\": \"40.3\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_003\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s003\",\n      \"property_name_raw\": \"Degree of Crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"29.8\",\n      \"unit_raw\": \"%\",\n      \"value_min\": 29.8,\n      \"value_max\": 29.8,\n      \"unit_normalized\": \"%\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-3 | 19.9, 28.4, 42.5, 43.5, 49.2 | 4.42, 3.14, 2.12, 2.07, 1.84 | 29.8\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-3\",\n            \"column_label\": \"Degree of Crystallinity (%)\",\n            \"cell_value\": \"29.8\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_004\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"property_name_raw\": \"Degree of Crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"28.8\",\n      \"unit_raw\": \"%\",\n      \"value_min\": 28.8,\n      \"value_max\": 28.8,\n      \"unit_normalized\": \"%\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-4 | 42.2, 43.5 | 2.13, 2.07 | 28.8\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-4\",\n            \"column_label\": \"Degree of Crystallinity (%)\",\n            \"cell_value\": \"28.8\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_005\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"Degree of Crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"31.1\",\n      \"unit_raw\": \"%\",\n      \"value_min\": 31.1,\n      \"value_max\": 31.1,\n      \"unit_normalized\": \"%\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-5 | 21.9, 42.5, 43.5 | 4.08, 2.12, 2.07 | 31.1\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"Degree of Crystallinity (%)\",\n            \"cell_value\": \"31.1\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_006\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s006\",\n      \"property_name_raw\": \"Degree of Crystallinity\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"25.4\",\n      \"unit_raw\": \"%\",\n      \"value_min\": 25.4,\n      \"value_max\": 25.4,\n      \"unit_normalized\": \"%\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-6 | 42.4, 43.5, 49.2 | 2.12, 2.07, 1.84 | 25.4\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-6\",\n            \"column_label\": \"Degree of Crystallinity (%)\",\n            \"cell_value\": \"25.4\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_007\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s001\",\n      \"property_name_raw\": \"2θ Value\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"17.2, 25.8, 29.7, 42.4, 43.5, 49.2\",\n      \"unit_raw\": \"deg\",\n      \"value_min\": 17.2,\n      \"value_max\": 49.2,\n      \"unit_normalized\": \"°\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-1 | 17.2, 25.8, 29.7, 42.4, 43.5, 49.2 | 5.13, 3.51, 3.00, 2.12, 2.07, 1.84 | 33.4\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-1\",\n            \"column_label\": \"2θ Value (deg)\",\n            \"cell_value\": \"17.2, 25.8, 29.7, 42.4, 43.5, 49.2\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_008\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"property_name_raw\": \"2θ Value\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3\",\n      \"unit_raw\": \"deg\",\n      \"value_min\": 17.0,\n      \"value_max\": 49.3,\n      \"unit_normalized\": \"°\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-2 | 17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3 | 5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84 | 40.3\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-2\",\n            \"column_label\": \"2θ Value (deg)\",\n            \"cell_value\": \"17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_009\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s003\",\n      \"property_name_raw\": \"2θ Value\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"19.9, 28.4, 42.5, 43.5, 49.2\",\n      \"unit_raw\": \"deg\",\n      \"value_min\": 19.9,\n      \"value_max\": 49.2,\n      \"unit_normalized\": \"°\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-3 | 19.9, 28.4, 42.5, 43.5, 49.2 | 4.42, 3.14, 2.12, 2.07, 1.84 | 29.8\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-3\",\n            \"column_label\": \"2θ Value (deg)\",\n            \"cell_value\": \"19.9, 28.4, 42.5, 43.5, 49.2\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_010\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"property_name_raw\": \"2θ Value\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"42.2, 43.5\",\n      \"unit_raw\": \"deg\",\n      \"value_min\": 42.2,\n      \"value_max\": 43.5,\n      \"unit_normalized\": \"°\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-4 | 42.2, 43.5 | 2.13, 2.07 | 28.8\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-4\",\n            \"column_label\": \"2θ Value (deg)\",\n            \"cell_value\": \"42.2, 43.5\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_011\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"property_name_raw\": \"2θ Value\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"21.9, 42.5, 43.5\",\n      \"unit_raw\": \"deg\",\n      \"value_min\": 21.9,\n      \"value_max\": 43.5,\n      \"unit_normalized\": \"°\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-5 | 21.9, 42.5, 43.5 | 4.08, 2.12, 2.07 | 31.1\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-5\",\n            \"column_label\": \"2θ Value (deg)\",\n            \"cell_value\": \"21.9, 42.5, 43.5\"\n          }\n        }\n      ]\n    },\n    {\n      \"property_id\": \"prop_s5_012\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s006\",\n      \"property_name_raw\": \"2θ Value\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_category\": \"morphology\",\n      \"value_raw\": \"42.4, 43.5, 49.2\",\n      \"unit_raw\": \"deg\",\n      \"value_min\": 42.4,\n      \"value_max\": 49.2,\n      \"unit_normalized\": \"°\",\n      \"evidence\": [\n        {\n          \"block_id\": \"T_5_70\",\n          \"source_sentence\": \"PC-6 | 42.4, 43.5, 49.2 | 2.12, 2.07, 1.84 | 25.4\",\n          \"table_locator\": {\n            \"table_id\": \"T_5_70\",\n            \"row_label\": \"PC-6\",\n            \"column_label\": \"2θ Value (deg)\",\n            \"cell_value\": \"42.4, 43.5, 49.2\"\n          }\n        }\n      ]\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s001\",\n      \"entity_id\": \"pe001\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"semicrystalline\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ]\n    },\n    {\n      \"specialized_id\": \"sp_cand002\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s002\",\n      \"entity_id\": \"pe002\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"semicrystalline\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ]\n    },\n    {\n      \"specialized_id\": \"sp_cand003\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s003\",\n      \"entity_id\": \"pe003\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"semicrystalline\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ]\n    },\n    {\n      \"specialized_id\": \"sp_cand004\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s004\",\n      \"entity_id\": \"pe004\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"semicrystalline\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ]\n    },\n    {\n      \"specialized_id\": \"sp_cand005\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s005\",\n      \"entity_id\": \"pe005\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"semicrystalline\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ]\n    },\n    {\n      \"specialized_id\": \"sp_cand006\",\n      \"confidence\": {\"score\": 0.9},\n      \"sample_resolution_status\": \"resolved\",\n      \"sample_id\": \"s006\",\n      \"entity_id\": \"pe006\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"semicrystalline\",\n      \"method_raw\": \"x-ray diffraction\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_71\",\n          \"source_sentence\": \"The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline.\"\n        }\n      ]\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 17081,
+              "output_tokens": 9059,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.10389168",
+              "output_cost": "0.26406985",
+              "total_cost": "0.36796153"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 12,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "ed15715685ad0912c696bdaa368b470861560482b6800d174e292abcabf6727c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_5_70"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "x-ray diffraction",
+            "method_normalized": "XRD",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Philips model PW 1710",
+            "parameters": {
+              "sample_preparation": "powder method"
+            },
+            "result_summary": "XRD patterns of PC-1 to PC-6 were recorded, confirming all samples are semicrystalline, with 2θ peak positions and degree of crystallinity values reported in Table IV.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010",
+              "prop_s5_011",
+              "prop_s5_012"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_52",
+                "page": 3,
+                "bbox": [
+                  108.0,
+                  496.0,
+                  491.0,
+                  681.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The x-ray diffraction diagram was recorded with a powder method with an x-ray diffractometer (Philips model PW 1710)."
+              },
+              {
+                "block_id": "P_3_56",
+                "page": 3,
+                "bbox": [
+                  519.0,
+                  225.0,
+                  901.0,
+                  527.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The polymers from trichloromethyl chloroformate and various diols were characterized by elemental analysis, inherent viscosity, IR spectra, x-ray diffraction, solubility, thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), contact angle, and limiting oxygen index (LOI)."
+              },
+              {
+                "block_id": "I_4_67",
+                "page": 4,
+                "bbox": [
+                  529.0,
+                  518.0,
+                  868.0,
+                  865.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 1 X-ray diffraction patterns of polycarbonates: (A) PC-1-PC-3; (B) PC-4-PC-6."
+              },
+              {
+                "block_id": "P_5_71",
+                "page": 5,
+                "bbox": [
+                  111.0,
+                  296.0,
+                  496.0,
+                  692.0
+                ],
+                "source_type": "text",
+                "source_sentence": "X-ray diffraction patterns of various polycarbonates are shown in Figure 1 in terms of intensity versus 2θ; θ is the angle of diffraction (Bragg angle). The x-ray diffraction indicated that all polycarbonates (PC-1–PC-6) were semicrystalline."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "Degree of Crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "33.4",
+            "value_min": 33.4,
+            "value_max": 33.4,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-1",
+                  "column_label": "Degree of Crystallinity (%)",
+                  "cell_value": "33.4",
+                  "cell_id": "T_5_70:r0001:c0003",
+                  "row_index": 1,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "Degree of Crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "40.3",
+            "value_min": 40.3,
+            "value_max": 40.3,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-2",
+                  "column_label": "Degree of Crystallinity (%)",
+                  "cell_value": "40.3",
+                  "cell_id": "T_5_70:r0002:c0003",
+                  "row_index": 2,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "Degree of Crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "29.8",
+            "value_min": 29.8,
+            "value_max": 29.8,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-3",
+                  "column_label": "Degree of Crystallinity (%)",
+                  "cell_value": "29.8",
+                  "cell_id": "T_5_70:r0003:c0003",
+                  "row_index": 3,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "Degree of Crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "28.8",
+            "value_min": 28.8,
+            "value_max": 28.8,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-4",
+                  "column_label": "Degree of Crystallinity (%)",
+                  "cell_value": "28.8",
+                  "cell_id": "T_5_70:r0004:c0003",
+                  "row_index": 4,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "Degree of Crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "31.1",
+            "value_min": 31.1,
+            "value_max": 31.1,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-5",
+                  "column_label": "Degree of Crystallinity (%)",
+                  "cell_value": "31.1",
+                  "cell_id": "T_5_70:r0005:c0003",
+                  "row_index": 5,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "Degree of Crystallinity",
+            "property_name_normalized": "xrd_crystallinity",
+            "property_category": "morphology",
+            "value_raw": "25.4",
+            "value_min": 25.4,
+            "value_max": 25.4,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-6",
+                  "column_label": "Degree of Crystallinity (%)",
+                  "cell_value": "25.4",
+                  "cell_id": "T_5_70:r0006:c0003",
+                  "row_index": 6,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2θ Value",
+            "property_name_normalized": "xrd_diffraction_peak_2theta",
+            "property_category": "morphology",
+            "value_raw": "17.2, 25.8, 29.7, 42.4, 43.5, 49.2",
+            "value_min": 17.2,
+            "value_max": 49.2,
+            "unit_raw": "deg",
+            "unit_normalized": "°",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-1",
+                  "column_label": "2θ Value (deg)",
+                  "cell_value": "17.2, 25.8, 29.7, 42.4, 43.5, 49.2",
+                  "cell_id": "T_5_70:r0001:c0001",
+                  "row_index": 1,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "sample_id": "s002",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2θ Value",
+            "property_name_normalized": "xrd_diffraction_peak_2theta",
+            "property_category": "morphology",
+            "value_raw": "17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3",
+            "value_min": 17.0,
+            "value_max": 49.3,
+            "unit_raw": "deg",
+            "unit_normalized": "°",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-2",
+                  "column_label": "2θ Value (deg)",
+                  "cell_value": "17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3",
+                  "cell_id": "T_5_70:r0002:c0001",
+                  "row_index": 2,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "sample_id": "s003",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2θ Value",
+            "property_name_normalized": "xrd_diffraction_peak_2theta",
+            "property_category": "morphology",
+            "value_raw": "19.9, 28.4, 42.5, 43.5, 49.2",
+            "value_min": 19.9,
+            "value_max": 49.2,
+            "unit_raw": "deg",
+            "unit_normalized": "°",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-3",
+                  "column_label": "2θ Value (deg)",
+                  "cell_value": "19.9, 28.4, 42.5, 43.5, 49.2",
+                  "cell_id": "T_5_70:r0003:c0001",
+                  "row_index": 3,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "sample_id": "s004",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2θ Value",
+            "property_name_normalized": "xrd_diffraction_peak_2theta",
+            "property_category": "morphology",
+            "value_raw": "42.2, 43.5",
+            "value_min": 42.2,
+            "value_max": 43.5,
+            "unit_raw": "deg",
+            "unit_normalized": "°",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-4",
+                  "column_label": "2θ Value (deg)",
+                  "cell_value": "42.2, 43.5",
+                  "cell_id": "T_5_70:r0004:c0001",
+                  "row_index": 4,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_011",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2θ Value",
+            "property_name_normalized": "xrd_diffraction_peak_2theta",
+            "property_category": "morphology",
+            "value_raw": "21.9, 42.5, 43.5",
+            "value_min": 21.9,
+            "value_max": 43.5,
+            "unit_raw": "deg",
+            "unit_normalized": "°",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-5",
+                  "column_label": "2θ Value (deg)",
+                  "cell_value": "21.9, 42.5, 43.5",
+                  "cell_id": "T_5_70:r0005:c0001",
+                  "row_index": 5,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_012",
+            "characterization_id": "char001",
+            "sample_id": "s006",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2θ Value",
+            "property_name_normalized": "xrd_diffraction_peak_2theta",
+            "property_category": "morphology",
+            "value_raw": "42.4, 43.5, 49.2",
+            "value_min": 42.4,
+            "value_max": 49.2,
+            "unit_raw": "deg",
+            "unit_normalized": "°",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_5_70",
+                "page": 5,
+                "bbox": [
+                  113.0,
+                  106.0,
+                  901.0,
+                  258.0
+                ],
+                "source_type": "table",
+                "source_sentence": "<table><tr><td>Polymer</td><td>2θ Value (deg)</td><td>d-Spacing (Å)</td><td>Degree of Crystallinity (%)</td></tr><tr><td>PC-1</td><td>17.2, 25.8, 29.7, 42.4, 43.5, 49.2</td><td>5.13, 3.51, 3.00, 2.12, 2.07, 1.84</td><td>33.4</td></tr><tr><td>PC-2</td><td>17.0, 18.8, 20.8, 25.2, 26.3, 42.5, 43.5, 49.3</td><td>5.20, 4.70, 4.26, 3.53, 3.38, 2.12, 2.07, 1.84</td><td>40.3</td></tr><tr><td>PC-3</td><td>19.9, 28.4, 42.5, 43.5, 49.2</td><td>4.42, 3.14, 2.12, 2.07, 1.84</td><td>29.8</td></tr><tr><td>PC-4</td><td>42.2, 43.5</td><td>2.13, 2.07</td><td>28.8</td></tr><tr><td>PC-5</td><td>21.9, 42.5, 43.5</td><td>4.08, 2.12, 2.07</td><td>31.1</td></tr><tr><td>PC-6</td><td>42.4, 43.5, 49.2</td><td>2.12, 2.07, 1.84</td><td>25.4</td></tr></table>",
+                "table_locator": {
+                  "table_id": "T_5_70",
+                  "row_label": "PC-6",
+                  "column_label": "2θ Value (deg)",
+                  "cell_value": "42.4, 43.5, 49.2",
+                  "cell_id": "T_5_70:r0006:c0001",
+                  "row_index": 6,
+                  "column_index": 1
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_3_50",
+        "P_3_51",
+        "P_3_52",
+        "P_3_57",
+        "T_5_70",
+        "P_5_71",
+        "P_5_73"
+      ],
+      "context_chars": 7669,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe001\", \"pe002\", \"pe003\", \"pe004\", \"pe005\", \"pe006\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_52\",\n          \"source_sentence\": \"The inherent viscosities, $\\\\eta_{inh}$, were measured with an Ubbelohde viscometer at a concentration 0.5 dL/g.\"\n        },\n        {\n          \"block_id\": \"P_3_57\",\n          \"source_sentence\": \"Table I presents inherent viscosity data of polycarbonates from two-phase phase-transfer-catalyzed polycondensation of bisphenols with TCF at 25°C. The inherent viscosities of all polymers were in the range of 0.77 to 0.18 dL/g.\"\n        }\n      ],\n      \"instrument\": \"Ubbelohde viscometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"temperature\": {\n          \"raw\": \"25°C\",\n          \"value\": 25,\n          \"unit\": \"°C\",\n          \"evidence\": [\n            {\n              \"block_id\": \"P_3_57\",\n              \"source_sentence\": \"Table I presents inherent viscosity data of polycarbonates from two-phase phase-transfer-catalyzed polycondensation of bisphenols with TCF at 25°C.\"\n            }\n          ]\n        },\n        \"humidity\": null,\n        \"frequency\": null,\n        \"pressure\": null,\n        \"wavelength\": null,\n        \"other_conditions\": {},\n        \"other_condition_evidence\": {}\n      },\n      \"method_normalized\": \"viscometry\",\n      \"method_raw\": \"Ubbelohde viscometer\",\n      \"parameters\": {\n        \"concentration\": \"0.5 dL/g\"\n      },\n      \"result_summary\": \"Inherent viscosities of PC-1 to PC-6 ranged from 0.18 to 0.77 dL/g, with PC-1 exhibiting the highest value.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series002\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 16934,
+              "output_tokens": 3831,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.10325664",
+              "output_cost": "0.11167365",
+              "total_cost": "0.21493029"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "cd9b160af465a07164ae3e456e87c8b4ea0d4fec1ce2f971053adeefebff2d3c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Ubbelohde viscometer",
+            "method_normalized": "viscometry",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006"
+            ],
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series002",
+            "instrument": "Ubbelohde viscometer",
+            "measurement_context": {
+              "temperature": {
+                "raw": "25°C",
+                "value": 25.0,
+                "unit": "°C",
+                "evidence": [
+                  {
+                    "block_id": "P_3_57",
+                    "page": 3,
+                    "bbox": [
+                      519.0,
+                      527.0,
+                      903.0,
+                      681.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Table I presents inherent viscosity data of polycarbonates from two-phase phase-transfer-catalyzed polycondensation of bisphenols with TCF at 25°C."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {},
+              "other_condition_evidence": {},
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "concentration": "0.5 dL/g"
+            },
+            "result_summary": "Inherent viscosities of PC-1 to PC-6 ranged from 0.18 to 0.77 dL/g, with PC-1 exhibiting the highest value.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_52",
+                "page": 3,
+                "bbox": [
+                  108.0,
+                  496.0,
+                  491.0,
+                  681.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The inherent viscosities,  $\\eta_{inh}$, were measured with an Ubbelohde viscometer at a concentration 0.5 dL/g."
+              },
+              {
+                "block_id": "P_3_57",
+                "page": 3,
+                "bbox": [
+                  519.0,
+                  527.0,
+                  903.0,
+                  681.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Table I presents inherent viscosity data of polycarbonates from two-phase phase-transfer-catalyzed polycondensation of bisphenols with TCF at 25°C. The inherent viscosities of all polymers were in the range of 0.77 to 0.18 dL/g."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_3_50",
+        "P_3_51"
+      ],
+      "context_chars": 783,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 14851,
+              "output_tokens": 224,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 14136
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12522384",
+              "output_cost": "0.0065296",
+              "total_cost": "0.13175344"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "426e67c768bd02411bd85b0076c0c425b7bf9ad5dc599d6a729b44efa557b769",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

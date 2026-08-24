@@ -1,0 +1,392 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0038527",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_2_39",
+        "page": 2,
+        "bbox": [
+          514.0,
+          554.0,
+          933.0,
+          879.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Gel permeation chromatography (GPC) showed the chloroformsoluble regioregular polymers have number-average molecular weights $( M _ { \\mathrm { n } } )$ranging from 19 800 to 47 900 (relative to polystyrene calibration standards), corresponding to degrees of polymerization (x) of 39-74 bithiophene repeating units"
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_3_51",
+        "page": 3,
+        "bbox": [
+          514.0,
+          639.0,
+          933.0,
+          965.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The UV-vis spectra of Rg(Th-m,n/p) and Rn(Th-5,4/8) were recorded in chloroform solution and as thin films (Table 1, Figure 6)."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_4_59",
+        "page": 4,
+        "bbox": [
+          67.0,
+          841.0,
+          483.0,
+          964.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Thermal Transitions. Thermal transitions of regiorandom and regioregular alternating alkyl:semifluoroalkyl polymers were determined by differential scanning calorimetry (DSC) (Table 1)."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "condition_id": "mc004",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_4_63",
+        "page": 4,
+        "bbox": [
+          514.0,
+          651.0,
+          933.0,
+          759.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The solid-state structure of Rg(Th-m,n/p) was characterized by X-ray diffraction. ... calculated lattice constants for all homologues are compiled in Table 2."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "condition_id": "mc005",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_5_77",
+        "page": 5,
+        "bbox": [
+          514.0,
+          499.0,
+          932.0,
+          569.0
+        ],
+        "source_type": "text",
+        "source_sentence": "For each individual device, current-voltage $( I _ { \\mathrm { DS } }$ against $V _ { \\mathrm { DS } }$ at multiple, discrete $V _ { \\mathrm { GS } }$ values) and transfer characteristics (I against $V _ { \\mathrm { GS } }$ at fixed $V _ { \\mathrm { DS } } )$ were measured."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s014",
+      "property_name_raw": "field-effect mobility (annealed)",
+      "determination_method_raw": "field-effect transistor transfer characteristic fitting after 150 °C annealing for 2 h",
+      "observation_role": "single",
+      "value_raw": "1.45 × 10⁻²",
+      "value_min": 0.0145,
+      "value_max": 0.0145,
+      "unit_raw": "cm²/(V s)",
+      "unit_normalized": "cm²·V⁻¹·s⁻¹",
+      "measurement_condition_id": "mc005",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_79",
+          "page": 5,
+          "bbox": [
+            514.0,
+            613.0,
+            932.0,
+            964.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Upon thermal annealing $( 1 5 \\mathrm { { 0 } ^ { \\circ } C }$ for 2 h), charge mobilities, on/off current ratios, and threshold voltages increased up to $1 . 4 5 \\times 1 0 ^ { - 2 } \\mathrm { c m } ^ { 2 } / ( \\mathrm { V } \\ \\mathrm { s } ) , > 1 0 ^ { 4 }$, and 32 ${ \\mathrm { V } } ,$ respectively, for the $5 0 0 \\mu \\mathrm { m } \\times 5 0$ µm device."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "unresolved_properties": [],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Mₙ",
+      "determination_method_raw": "GPC relative to polystyrene standards",
+      "unit_raw": "g/mol",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe008",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "19800",
+          "value_min": 19800.0,
+          "value_max": 19800.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_44",
+              "page": 3,
+              "bbox": [
+                71.0,
+                63.0,
+                928.0,
+                273.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Table 1 row Rg(Th-5,4/4) Mₙ cell value: 19 800",
+              "table_locator": {
+                "table_id": "T_3_44",
+                "row_label": "Rg(Th-5,4/4)",
+                "column_label": "Mₙ (g/mol)",
+                "cell_value": null,
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe007",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "29200",
+          "value_min": 29200.0,
+          "value_max": 29200.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_44",
+              "page": 3,
+              "bbox": [
+                71.0,
+                63.0,
+                928.0,
+                273.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Table 1 row Rg(Th-5,4/8) Mₙ cell value: 29 200",
+              "table_locator": {
+                "table_id": "T_3_44",
+                "row_label": "Rg(Th-5,4/8)",
+                "column_label": "Mₙ (g/mol)",
+                "cell_value": null,
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 2,
+        "covered": 2,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_3_44",
+          "page": 3,
+          "bbox": [
+            71.0,
+            63.0,
+            928.0,
+            273.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1 row Rg(Th-5,4/4) Mₙ cell value: 19 800",
+          "table_locator": {
+            "table_id": "T_3_44",
+            "row_label": "Rg(Th-5,4/4)",
+            "column_label": "Mₙ (g/mol)",
+            "cell_value": null,
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        },
+        {
+          "block_id": "T_3_44",
+          "page": 3,
+          "bbox": [
+            71.0,
+            63.0,
+            928.0,
+            273.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1 row Rg(Th-5,4/8) Mₙ cell value: 29 200",
+          "table_locator": {
+            "table_id": "T_3_44",
+            "row_label": "Rg(Th-5,4/8)",
+            "column_label": "Mₙ (g/mol)",
+            "cell_value": null,
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "50f287fea2b6571aab921d40924e29984aa74eecb9504a4440f175a2b9a7e2fa",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "2c1c857d53647d18e74c1fea0fdcf5e2bbb0c3b3258d5b5e8cb7edbf0b10ce5a",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 42,
+    "context_chars": 39509,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 60960,
+      "output_tokens": 17900,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064,
+      "billable_input_tokens": 72024,
+      "total_tokens": 89924
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.31114368",
+      "output_cost": "0.5217850",
+      "total_cost": "0.83292868"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "preview_unscoped_scalar_properties_removed",
+      "message": "Preview 模式已移除没有合法 sample_id 的 resolved scalar property；未猜测主体",
+      "properties": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop002.property_name_raw='field-effect mobility (annealed)' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布",
+      "blocking": true,
+      "series_ids": [
+        "series001"
+      ]
+    }
+  ]
+}

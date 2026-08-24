@@ -1,0 +1,478 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0037645",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "<sup>1</sup>H NMR integration",
+      "method_normalized": "NMR",
+      "sample_id": "s011",
+      "entity_id": "pe011",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "Determined degree of functionalization of PSBPhQ-H-co-PSSiMe<sub>3</sub> as 10.5%",
+      "derived_property_ids": [
+        "prop002"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_4_51",
+          "page": 4,
+          "bbox": [
+            81.0,
+            371.0,
+            483.0,
+            789.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The degree of functionalization for the isolated copolymer PSBPhQ-H-co-PSSiMe was calculated to be 10.5% according to <sup>1</sup>H NMR integration and 12.8% according to GPC-MALLS, which is very close to the feed ratio of BBr<sub>3</sub> to $\\mathrm { S i M e } _ { 3 }$functional groups.<sup>30</sup>"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "NMR",
+      "method_normalized": "NMR",
+      "sample_ids": [
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "Confirmed polymer structure, substitution pattern, atactic nature and tetracoordinated boron centers for PSBPhBr and organoboron quinolate polymers",
+      "derived_property_ids": [
+        "prop_s5_001"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_1_19",
+          "page": 1,
+          "bbox": [
+            81.0,
+            594.0,
+            483.0,
+            959.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Transfer of a single phenyl group to the boron moieties was evident from multinuclear NMR spectroscopy and further confirmed by comparison of the polymer data withthoseofthecorrespondingmolecularcompound(<sup>t</sup>BuPh)<sub>2</sub>BBr.<sup>22</sup>"
+        },
+        {
+          "block_id": "P_1_22",
+          "page": 1,
+          "bbox": [
+            511.0,
+            803.0,
+            915.0,
+            958.0
+          ],
+          "source_type": "text",
+          "source_sentence": "NMR Characterization. The organoboron quinolate polymers were fully characterized by <sup>1</sup>H, $^ { 1 3 } \\mathrm { C } ,$and $^ { 1 1 } \\mathrm { B }$NMR spectroscopy."
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "characterization_id": "char003",
+      "method_raw": "GPC-MALLS",
+      "method_normalized": "GPC",
+      "sample_ids": [
+        "s001",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "measurement_context": {
+        "other_conditions": {
+          "solvent": "THF"
+        },
+        "other_condition_evidence": {
+          "solvent": [
+            {
+              "block_id": "P_2_29",
+              "page": 2,
+              "bbox": [
+                81.0,
+                651.0,
+                483.0,
+                929.0
+              ],
+              "source_type": "text",
+              "source_sentence": "The new quinolate polymers were subjected to gel permeation chromatography (GPC) analysis in THF for determination of the molecular weights using refractive index (RI) and multiangle laser light scattering (MALLS) detectors (Table 1)."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "parameters": {},
+      "result_summary": "Absolute molecular weights, DP, PDI, dn/dc and RH values of the tested polymers were obtained; polymer backbone cleavage or significant cross-linking did not occur during synthesis of quinolate polymers.",
+      "derived_property_ids": [
+        "prop003"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_2_29",
+          "page": 2,
+          "bbox": [
+            81.0,
+            651.0,
+            483.0,
+            929.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The new quinolate polymers were subjected to gel permeation chromatography (GPC) analysis in THF for determination of the molecular weights using refractive index (RI) and multiangle laser light scattering (MALLS) detectors (Table 1)."
+        },
+        {
+          "block_id": "P_2_30",
+          "page": 2,
+          "bbox": [
+            83.0,
+            928.0,
+            483.0,
+            957.0
+          ],
+          "source_type": "text",
+          "source_sentence": "We turned to in-line GPC-MALLS (multiangle laser light scattering) detection for the determination of absolute molecular weights."
+        },
+        {
+          "block_id": "P_4_51",
+          "page": 4,
+          "bbox": [
+            81.0,
+            371.0,
+            483.0,
+            789.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The degree of functionalization for the isolated copolymer PSBPhQ-H-co-PSSiMe was calculated to be 10.5% according to <sup>1</sup>H NMR integration and 12.8% according to GPC-MALLS, which is very close to the feed ratio of BBr<sub>3</sub> to $\\mathrm { S i M e } _ { 3 }$functional groups."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char004",
+      "method_raw": "differential scanning calorimetry (DSC)",
+      "method_normalized": "DSC",
+      "sample_ids": [
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010"
+      ],
+      "entity_ids": [
+        "pe005",
+        "pe006",
+        "pe007",
+        "pe008",
+        "pe009",
+        "pe010"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "DSC analysis revealed high glass transition temperatures ranging from 210 to 275 °C for the quinolate polymers",
+      "derived_property_ids": [
+        "prop005",
+        "prop007",
+        "prop009",
+        "prop011",
+        "prop013",
+        "prop015"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_2_33",
+          "page": 2,
+          "bbox": [
+            511.0,
+            731.0,
+            915.0,
+            898.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermal properties of the quinolate polymers were evaluated by differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) (Table 2). DSC analysis revealed high glass transition temperatures (ranging from 210 to $2 7 5 \\ ^ { \\circ } \\mathrm { C } )$for the quinolate polymers"
+        },
+        {
+          "block_id": "T_3_38",
+          "page": 3,
+          "bbox": [
+            88.0,
+            71.0,
+            908.0,
+            128.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 2. Differential Scanning Calorimetry (DSC) and Thermogravimetric Analysis (TGA) Data for the Boron Quinolate Polymers",
+          "table_locator": {
+            "table_id": "T_3_38",
+            "row_label": "$T_{\\text{g}}$  (°C)a",
+            "column_label": "PSBPhQ-Bpin",
+            "cell_value": null,
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char005",
+      "method_raw": "thermogravimetric analysis (TGA)",
+      "method_normalized": "TGA",
+      "sample_ids": [
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010"
+      ],
+      "entity_ids": [
+        "pe005",
+        "pe006",
+        "pe007",
+        "pe008",
+        "pe009",
+        "pe010"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "High thermal stability with decomposition temperatures over 300 °C; up to 30% residual material observed after heating to 800 °C under nitrogen.",
+      "derived_property_ids": [
+        "prop006",
+        "prop008",
+        "prop010",
+        "prop012",
+        "prop014",
+        "prop016"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_2_33",
+          "page": 2,
+          "bbox": [
+            511.0,
+            731.0,
+            915.0,
+            898.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermal properties of the quinolate polymers were evaluated by differential scanning calorimetry (DSC) and thermogravimetric analysis (TGA) (Table 2)."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop_s5_001",
+      "characterization_id": "char002",
+      "sample_ids": [
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "property_name_raw": "ca. 7 ppm",
+      "property_name_normalized": "nmr_chemical_shift",
+      "property_category": "composition_structure",
+      "value_raw": "ca. 7 ppm",
+      "value_min": 7.0,
+      "value_max": 7.0,
+      "unit_raw": "ppm",
+      "unit_normalized": "ppm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_1_22",
+          "page": 1,
+          "bbox": [
+            511.0,
+            803.0,
+            915.0,
+            958.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Sharp signals in the $^ { 1 1 } \\mathrm { B }$NMR spectra at ca. 7 ppm $( w _ { 1 / 2 } = 3 5 0 – 5 7 0$Hz) confirm the tetracoordinated nature of the boron centers."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "value_kind": "text",
+      "value_raw": "random",
+      "text_value": "random",
+      "sample_id": "s011",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_4_51",
+          "page": 4,
+          "bbox": [
+            81.0,
+            371.0,
+            483.0,
+            789.0
+          ],
+          "source_type": "text",
+          "source_sentence": "we synthesized a random copolymer, $\\mathbf { P S B P h Q - H - } c o \\mathbf { - } \\mathbf { P S S i M e } _ { 3 } ,$with only 10% boron functionalization. Random replacement of the trimethylsilyl moieties along the polymer chain is expected to take place under these conditions."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "73425c9f0d090d23167e1928203c744f5c0bd28a69f403e6f68a6b6bcd751ff0",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "ec900b93da852666e0aaef4196d2f69e2cda2e476cb6e1dcb314256479ac4821",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 19,
+    "context_chars": 23663,
+    "call_count": 4,
+    "usage": {
+      "input_tokens": 50628,
+      "output_tokens": 14062,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 34016,
+      "billable_input_tokens": 84644,
+      "total_tokens": 98706
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.36566208",
+      "output_cost": "0.40990730",
+      "total_cost": "0.77556938"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+      "field_path": "characterizations[1].method_raw",
+      "method_normalized": "NMR"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_optional_fields_cleared",
+      "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+      "field_path": "properties[0]",
+      "property_id": "prop_s5_001",
+      "fields": [
+        "spectral_assignment"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "T_2_27"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context.other_conditions"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_shard_semantic_validation_bypassed",
+      "message": "分片候选通过 Schema，但语义校验需人工复核",
+      "shard_id": "gpc_001",
+      "reason": "prop003 的测定方法 'GPC-MALLS' 缺少同一样品 Characterization 回链"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "T_3_38"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "stage5_shards_partial",
+      "message": "部分 Stage 5 分片失败或含被隔离对象",
+      "blocking": true,
+      "shard_ids": [
+        "gpc_001"
+      ]
+    }
+  ]
+}

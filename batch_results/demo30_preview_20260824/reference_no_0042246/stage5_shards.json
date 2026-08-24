@@ -1,0 +1,410 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0042246",
+  "status": "running",
+  "shard_count": 4,
+  "unrouted_block_ids": [
+    "P_0_10",
+    "P_1_21",
+    "P_1_22",
+    "P_1_26",
+    "P_2_42",
+    "P_2_44",
+    "T_3_62",
+    "P_7_108"
+  ],
+  "shards": [
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "P_1_26",
+        "P_1_31",
+        "P_2_42"
+      ],
+      "context_chars": 1963,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe007\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_31\",\n          \"source_sentence\": \"PM（EO/PO）の合成には，日油のブレンマー 50PEP-300（（オリゴEO/PO）グラフト型メタクリラートモノマー（M（EO/PO）），側鎖の繰り返し数；EO=3，PO=4（<sup>1</sup>H-NMR））を用いた．\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"<sup>1</sup>H-NMR\",\n      \"parameters\": {},\n      \"result_summary\": \"1H-NMR测定（オリゴEO/PO）グラフト型メタクリラートモノマー（M（EO/PO））的侧链重复数为EO=3，PO=4\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"specialized_id\": \"sp_cand001\",\n      \"sample_resolution_status\": \"unresolved\",\n      \"property_name_raw\": \"側鎖の繰り返し数\",\n      \"value_raw\": \"EO=3，PO=4\",\n      \"method_raw\": \"<sup>1</sup>H-NMR\",\n      \"entity_id\": \"pe007\",\n      \"sample_id\": null,\n      \"unit_raw\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_31\",\n          \"source_sentence\": \"PM（EO/PO）の合成には，日油のブレンマー 50PEP-300（（オリゴEO/PO）グラフト型メタクリラートモノマー（M（EO/PO）），側鎖の繰り返し数；EO=3，PO=4（<sup>1</sup>H-NMR））を用いた．\",\n          \"table_locator\": null\n        }\n      ]\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 14379,
+              "output_tokens": 2607,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09221904",
+              "output_cost": "0.07599405",
+              "total_cost": "0.16821309"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "df598901150daa783eedaf674b1cde4bf120eb0ea9ad39ea283cad45c926e048",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "<sup>1</sup>H-NMR",
+            "method_normalized": "NMR",
+            "entity_id": "pe007",
+            "sample_resolution_status": "unresolved",
+            "parameters": {},
+            "result_summary": "1H-NMR测定（オリゴEO/PO）グラフト型メタクリラートモノマー（M（EO/PO））的侧链重复数为EO=3，PO=4",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_31",
+                "page": 1,
+                "bbox": [
+                  515.0,
+                  287.0,
+                  929.0,
+                  562.0
+                ],
+                "source_type": "text",
+                "source_sentence": "PM（EO/PO）の合成には，日油のブレンマー 50PEP-300（（オリゴEO/PO）グラフト型メタクリラートモノマー（M（EO/PO）），側鎖の繰り返し数；EO=3，PO=4（<sup>1</sup>H-NMR））を用いた．"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_44",
+        "P_2_49",
+        "T_3_62"
+      ],
+      "context_chars": 3190,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop003\",\n        \"prop004\",\n        \"prop006\",\n        \"prop007\",\n        \"prop010\",\n        \"prop011\",\n        \"prop012\",\n        \"prop016\",\n        \"prop017\",\n        \"prop018\",\n        \"prop019\",\n        \"prop020\",\n        \"prop021\",\n        \"uprop001\",\n        \"uprop002\",\n        \"uprop003\"\n      ],\n      \"entity_ids\": [\n        \"pe014\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_49\",\n          \"source_sentence\": \"アルミニウム製の専用パンを用い，一部の試料について示差走査熱量計（DSC）による熱分析を行った．測定装置には，DSC-50W（島津製作所）を用いた．乾燥N ガスフロー下（流量：30 mL/min）で，昇温速度を10 ℃/min，測定温度範囲を－100～150 ℃とした．得られたDSCカーブの解析から，ガラス転移温度 $( T _ { \\\\mathrm { g } } )$，融点（ $\\\\left( T _ { \\\\mathrm { m } } \\\\right)$）および融解エンタルピー $( \\\\varDelta H )$ を求めた．\"\n        },\n        {\n          \"block_id\": \"T_3_62\",\n          \"source_sentence\": \"Table 1 Glass transition temperature $( T _ { \\\\mathrm { g } } , \\\\mathrm { o n s e t } )$, melting point $( T _ { \\\\mathrm { m } } , \\\\mathrm { p e a k \\\\ t o p } )$, heat of fusion （ΔH）, storage modulus（E’ at 25 ℃）and AC ionic conductivity $( \\\\sigma _ { i }$ at 25 ℃）of NBR, electrolytes and the blends.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"DSC-50W（島津製作所）\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"DSC\",\n      \"parameters\": {\n        \"flow rate\": \"30 mL/min\",\n        \"heating rate\": \"10 ℃/min\",\n        \"measurement temperature range\": \"-100～150 ℃\"\n      },\n      \"result_summary\": \"DSC was used to measure glass transition temperature (Tg), melting point (Tm) and heat of fusion (ΔH) for NBR, polymer electrolytes and their blend samples.\",\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s006\",\n        \"s010\",\n        \"s011\",\n        \"s012\",\n        \"s013\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series001\"\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 14721,
+              "output_tokens": 5390,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 12088
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.11581488",
+              "output_cost": "0.1571185",
+              "total_cost": "0.27293338"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "2cb7e030c4d844607c62519a33e159a5674150f87384850d8f217f359a835cc8",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_subject_scope_normalized",
+          "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+          "field_path": "characterizations[0]"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_incomplete_table_evidence_removed",
+          "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "T_3_62"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "char001 与 Series 的归属不一致：['series001']"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DSC",
+            "method_normalized": "DSC",
+            "entity_id": "pe014",
+            "sample_resolution_status": "unresolved",
+            "series_id": "series001",
+            "instrument": "DSC-50W（島津製作所）",
+            "parameters": {
+              "flow rate": "30 mL/min",
+              "heating rate": "10 ℃/min"
+            },
+            "result_summary": "DSC was used to measure glass transition temperature (Tg), melting point (Tm) and heat of fusion (ΔH) for NBR, polymer electrolytes and their blend samples.",
+            "derived_property_ids": [
+              "prop003",
+              "prop004",
+              "prop006",
+              "prop007",
+              "prop010",
+              "prop011",
+              "prop012",
+              "prop016",
+              "prop017",
+              "prop018",
+              "prop019",
+              "prop020",
+              "prop021",
+              "uprop001",
+              "uprop002",
+              "uprop003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_49",
+                "page": 2,
+                "bbox": [
+                  515.0,
+                  84.0,
+                  927.0,
+                  228.0
+                ],
+                "source_type": "text",
+                "source_sentence": "アルミニウム製の専用パンを用い，一部の試料について示差走査熱量計（DSC）による熱分析を行った．測定装置には，DSC-50W（島津製作所）を用いた．乾燥N ガスフロー下（流量：30 mL/min）で，昇温速度を10 ℃/min，測定温度範囲を－100～150 ℃とした．得られたDSCカーブの解析から，ガラス転移温度 $( T _ { \\mathrm { g } } )$，融点（ $\\left( T _ { \\mathrm { m } } \\right)$）および融解エンタルピー $( \\varDelta H )$ を求めた．"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tem_001",
+      "method_normalized": "TEM",
+      "block_ids": [
+        "P_0_4",
+        "P_0_7",
+        "T_3_62",
+        "P_5_86",
+        "P_6_95",
+        "P_7_108"
+      ],
+      "context_chars": 7240,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop_s5_001\",\n                \"prop_s5_002\"\n            ],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_0_4\",\n                    \"source_sentence\": \"Obtained samples showed micro- (or nano-) scale Sea-Island phase separation, which was revealed from the TEM observation in case of $\\\\mathrm { N B R 1 8 / P M ( E O / P O ) _ { m o n o } \\\\mathrm { - L i C l O _ { 4 } 5 0 / 5 0 } }$wt% blend\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_5_86\",\n                    \"source_sentence\": \"このような傾向を示す要因として，ブレンド体の作製法によるモルホロジーの変化が影響しているのではないかと考え，TEM測定によるNBR/電解質間の相構造の違いを観察した．\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_6_95\",\n                    \"source_sentence\": \"NBR43系ブレンドにおいても，Figure 8（b）のNBR18系と同じような微細相分離構造を有することがTEM観察の結果から示唆されており\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": null,\n            \"method_normalized\": \"TEM\",\n            \"method_raw\": \"TEM\",\n            \"parameters\": {},\n            \"result_summary\": \"観察対象のブレンド試料が海―島相分離構造を有することを確認し、島相のサイズを測定した\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s007\",\n                \"s009\",\n                \"s012\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_86\",\n                    \"source_sentence\": \"一方，（b）のNBR/モノマー混合物の後重合ブレンドでは，（a）とは大きく異なり極めて小さなサイズ（100～200 nm程度）の球形の島相が，NBRドメイン相に均一分散した海―島相分離構造を有することが明らかとなった．\",\n                    \"table_locator\": null\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"morphology\",\n            \"property_id\": \"prop_s5_001\",\n            \"property_name_normalized\": \"morphology_domain_size\",\n            \"property_name_raw\": \"島相のサイズ\",\n            \"sample_id\": \"s009\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": null,\n            \"spectral_assignment\": null,\n            \"unit_normalized\": \"nm\",\n            \"unit_raw\": \"nm\",\n            \"value_max\": 200,\n            \"value_min\": 100,\n            \"value_raw\": \"100～200 nm程度\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_86\",\n                    \"source_sentence\": \"（b）を拡大してみると，（c）のように20 nm前後のより小さい電解質島相がわずかに点在している様子も確認された．\",\n                    \"table_locator\": null\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"morphology\",\n            \"property_id\": \"prop_s5_002\",\n            \"property_name_normalized\": \"morphology_domain_size\",\n            \"property_name_raw\": \"電解質島相のサイズ\",\n            \"sample_id\": \"s009\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": null,\n            \"spectral_assignment\": null,\n            \"unit_normalized\": \"nm\",\n            \"unit_raw\": \"nm\",\n            \"value_max\": 20,\n            \"value_min\": 20,\n            \"value_raw\": \"20 nm前後\"\n        }\n    ],\n    \"specialized_property_observations\": [\n        {\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_86\",\n                    \"source_sentence\": \"（a）のNBR/高分子ブレンド（ロール混練）では，グレーのNBR海相に対してサイズや形状が不均一な白色のPM（EO/PO）-LiClO（電解質）破砕片（島相）がサブマイクロからマイクロメートルオーダーで粗雑に分散しているのが分かる．\",\n                    \"table_locator\": null\n                }\n            ],\n            \"method_raw\": \"TEM\",\n            \"property_name_raw\": \"モルホロジー\",\n            \"sample_id\": \"s007\",\n            \"sample_resolution_status\": \"resolved\",\n            \"specialized_id\": \"sp_cand001\",\n            \"unit_raw\": null,\n            \"value_raw\": \"サイズや形状が不均一な電解質破砕片（島相）がサブマイクロからマイクロメートルオーダーでNBR海相に粗雑に分散している\"\n        },\n        {\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_5_86\",\n                    \"source_sentence\": \"一方，（b）のNBR/モノマー混合物の後重合ブレンドでは，（a）とは大きく異なり極めて小さなサイズ（100～200 nm程度）の球形の島相が，NBRドメイン相に均一分散した海―島相分離構造を有することが明らかとなった．\",\n                    \"table_locator\": null\n                }\n            ],\n            \"method_raw\": \"TEM\",\n            \"property_name_raw\": \"モルホロジー\",\n            \"sample_id\": \"s009\",\n            \"sample_resolution_status\": \"resolved\",\n            \"specialized_id\": \"sp_cand002\",\n            \"unit_raw\": null,\n            \"value_raw\": \"球形の島相がNBRドメイン相に均一分散した海―島相分離構造\"\n        },\n        {\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_6_95\",\n                    \"source_sentence\": \"NBR43系ブレンドにおいても，Figure 8（b）のNBR18系と同じような微細相分離構造を有することがTEM観察の結果から示唆されており，海―島相分離構造の形成および微細化が吸湿による重量増加や伝導度の変化に及ぼす影響を抑制していると考えられる．\",\n                    \"table_locator\": null\n                }\n            ],\n            \"method_raw\": \"TEM\",\n            \"property_name_raw\": \"モルホロジー\",\n            \"sample_id\": \"s012\",\n            \"sample_resolution_status\": \"resolved\",\n            \"specialized_id\": \"sp_cand003\",\n            \"unit_raw\": null,\n            \"value_raw\": \"微細な海―島相分離構造\"\n        }\n    ]\n}",
+            "usage": {
+              "input_tokens": 16994,
+              "output_tokens": 6187,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 12088
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12563424",
+              "output_cost": "0.18035105",
+              "total_cost": "0.30598529"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 2,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "19f9f5710bd7c07d5d46507f619898be7664e904bcb028b9e6dc5d2e84d939fd",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "TEM",
+            "method_normalized": "TEM",
+            "sample_ids": [
+              "s007",
+              "s009",
+              "s012"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "観察対象のブレンド試料が海―島相分離構造を有することを確認し、島相のサイズを測定した",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_0_4",
+                "page": 0,
+                "bbox": [
+                  65.0,
+                  373.0,
+                  927.0,
+                  557.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Obtained samples showed micro- (or nano-) scale Sea-Island phase separation, which was revealed from the TEM observation in case of $\\mathrm { N B R 1 8 / P M ( E O / P O ) _ { m o n o } \\mathrm { - L i C l O _ { 4 } 5 0 / 5 0 } }$wt% blend"
+              },
+              {
+                "block_id": "P_5_86",
+                "page": 5,
+                "bbox": [
+                  68.0,
+                  769.0,
+                  480.0,
+                  933.0
+                ],
+                "source_type": "text",
+                "source_sentence": "このような傾向を示す要因として，ブレンド体の作製法によるモルホロジーの変化が影響しているのではないかと考え，TEM測定によるNBR/電解質間の相構造の違いを観察した．"
+              },
+              {
+                "block_id": "P_6_95",
+                "page": 6,
+                "bbox": [
+                  65.0,
+                  473.0,
+                  478.0,
+                  933.0
+                ],
+                "source_type": "text",
+                "source_sentence": "NBR43系ブレンドにおいても，Figure 8（b）のNBR18系と同じような微細相分離構造を有することがTEM観察の結果から示唆されており"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "100～200 nm程度",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "100～200 nm程度",
+            "value_min": 100.0,
+            "value_max": 200.0,
+            "unit_raw": "nm",
+            "unit_normalized": "nm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_5_86",
+                "page": 5,
+                "bbox": [
+                  68.0,
+                  769.0,
+                  480.0,
+                  933.0
+                ],
+                "source_type": "text",
+                "source_sentence": "一方，（b）のNBR/モノマー混合物の後重合ブレンドでは，（a）とは大きく異なり極めて小さなサイズ（100～200 nm程度）の球形の島相が，NBRドメイン相に均一分散した海―島相分離構造を有することが明らかとなった．"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "20 nm前後",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "20 nm前後",
+            "value_min": 20.0,
+            "value_max": 20.0,
+            "unit_raw": "nm",
+            "unit_normalized": "nm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_5_86",
+                "page": 5,
+                "bbox": [
+                  68.0,
+                  769.0,
+                  480.0,
+                  933.0
+                ],
+                "source_type": "text",
+                "source_sentence": "（b）を拡大してみると，（c）のように20 nm前後のより小さい電解質島相がわずかに点在している様子も確認された．"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

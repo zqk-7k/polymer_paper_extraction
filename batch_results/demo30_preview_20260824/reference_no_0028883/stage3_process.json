@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0028883",
+  "samples": [
+    {
+      "sample_id": "s001",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe001",
+      "polymer_name": "syndiotactic polypropylene",
+      "sample_label_raw": "syndiotactic polypropylene (sPP)",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_25",
+        "page": 1,
+        "bbox": [
+          512.0,
+          808.0,
+          885.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The materials used in this study were mixtures of syndiotactic polypropylene (sPP) with a weightaverage molecular weight $\\left( M _ { \\mathrm { w } } \\right) = 1 2 7 , 0 0 0$and a number-average molecular weight $( M _ { \\mathrm { n } } ) = 5 4 , 0 0 0 ,$and random PEP with 5–15 wt % ethylene. Both materials were purchased from Aldrich Chemical Company."
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s002",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe002",
+      "polymer_name": "PEP",
+      "sample_label_raw": "PEP",
+      "state_description": "random PEP with 5–15 wt % ethylene",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_25",
+        "page": 1,
+        "bbox": [
+          512.0,
+          808.0,
+          885.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The materials used in this study were mixtures of syndiotactic polypropylene (sPP) with a weightaverage molecular weight $\\left( M _ { \\mathrm { w } } \\right) = 1 2 7 , 0 0 0$and a number-average molecular weight $( M _ { \\mathrm { n } } ) = 5 4 , 0 0 0 ,$and random PEP with 5–15 wt % ethylene. Both materials were purchased from Aldrich Chemical Company."
+      },
+      "confidence": {
+        "score": 0.95
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s003",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe003",
+      "polymer_name": "sPP/PEP",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "sPP/PEP blends",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_2_28",
+        "page": 2,
+        "bbox": [
+          112.0,
+          97.0,
+          485.0,
+          218.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The blends were prepared by dissolving different weight fractions of PEP in hot p-xylene at a temperature around ${ \\bf 1 1 0 } \\ { ^ \\circ } { \\bf C } .$. The solutions were precipitated into a large amount of methanol cooled with ice. These precipitates were then filtered and dried in vacuo at $7 0 ~ ^ { \\circ } \\mathrm { C }$for 12 h to ensure that the solvent was completely removed."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s004",
+      "sample_kind": "test_specimen",
+      "refers_to_entity": "pe003",
+      "polymer_name": "sPP/PEP",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "state_description": "thin films of about 25 $\\mu \\mathrm { m }$ in thickness",
+      "intended_use": [
+        "Phase-Contrast Microscopy observation"
+      ],
+      "evidence": {
+        "block_id": "P_2_30",
+        "page": 2,
+        "bbox": [
+          112.0,
+          259.0,
+          484.0,
+          409.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples were first hot-pressed between two glass plates at $1 3 0 { - } 1 4 0 \\ ^ { \\circ } \\mathrm { C }$to form thin films of about 25 $\\mu \\mathrm { m }$in thickness. The film specimens were then heated to the desired demixing temperature $( T _ { \\mathrm { { d } } } ) _ { \\mathrm { { i } } }$above the melting temperatures of both sPP and PEP, when the time evolution of the resulting decomposition patterns was recorded by a Sony CCD video camera."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s005",
+      "sample_kind": "test_specimen",
+      "refers_to_entity": "pe003",
+      "polymer_name": "sPP/PEP",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "state_description": "films of about 0.5 mm in thickness",
+      "intended_use": [
+        "Cloud Point Measurement"
+      ],
+      "evidence": {
+        "block_id": "P_2_32",
+        "page": 2,
+        "bbox": [
+          112.0,
+          453.0,
+          485.0,
+          603.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples were first hot-pressed between two glass plates at $1 3 0 { - } 1 4 0 \\ ^ { \\circ } \\mathrm { C }$to form films ofabout 0.5 mm in thickness. The films were then heated on a Linkam THMS600 hot stage at various heating rates, and the scattered intensities were measured to determine the liquid–liquid phase boundary."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
+    }
+  ],
+  "process_steps": [
+    {
+      "step_id": "ps001",
+      "process_type": "blending",
+      "input_sample_ids": [
+        "s001",
+        "s002"
+      ],
+      "output_sample_ids": [
+        "s003"
+      ],
+      "parameters": {
+        "dissolution_temperature": "110 ^\\circ \\mathrm{C}",
+        "drying_temperature": "70 ^\\circ \\mathrm{C}",
+        "drying_time": "12 h"
+      },
+      "evidence": {
+        "block_id": "P_2_28",
+        "page": 2,
+        "bbox": [
+          112.0,
+          97.0,
+          485.0,
+          218.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The blends were prepared by dissolving different weight fractions of PEP in hot p-xylene at a temperature around ${ \\bf 1 1 0 } \\ { ^ \\circ } { \\bf C } .$. The solutions were precipitated into a large amount of methanol cooled with ice. These precipitates were then filtered and dried in vacuo at $7 0 ~ ^ { \\circ } \\mathrm { C }$for 12 h to ensure that the solvent was completely removed."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "step_id": "ps002",
+      "process_type": "hot_pressing",
+      "input_sample_ids": [
+        "s003"
+      ],
+      "output_sample_ids": [
+        "s004"
+      ],
+      "parameters": {
+        "temperature": "130 - 140 ^\\circ \\mathrm{C}",
+        "film_thickness": "25 \\mu \\mathrm { m }"
+      },
+      "evidence": {
+        "block_id": "P_2_30",
+        "page": 2,
+        "bbox": [
+          112.0,
+          259.0,
+          484.0,
+          409.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples were first hot-pressed between two glass plates at $1 3 0 { - } 1 4 0 \\ ^ { \\circ } \\mathrm { C }$to form thin films of about 25 $\\mu \\mathrm { m }$in thickness."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "step_id": "ps003",
+      "process_type": "hot_pressing",
+      "input_sample_ids": [
+        "s003"
+      ],
+      "output_sample_ids": [
+        "s005"
+      ],
+      "parameters": {
+        "temperature": "130 - 140 ^\\circ \\mathrm{C}",
+        "film_thickness": "0.5 mm"
+      },
+      "evidence": {
+        "block_id": "P_2_32",
+        "page": 2,
+        "bbox": [
+          112.0,
+          453.0,
+          485.0,
+          603.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The samples were first hot-pressed between two glass plates at $1 3 0 { - } 1 4 0 \\ ^ { \\circ } \\mathrm { C }$to form films ofabout 0.5 mm in thickness."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "unresolved_entity_ids": [],
+  "provenance": {
+    "stage": "stage3_sample_process",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage3.sample_process",
+    "prompt_version": "1.6.0",
+    "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+    "input_hash": "c1dae883409c9609ade11d84b68b7c55b6b6ccb1cb946d3354e1bbfea08249c1",
+    "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
+    "cache_key": "84bca5e16b3694279d594e76e174d50fef6035fd131c6e2eeaffd888a33983ef",
+    "output_schema_version": "sample_process_schema.v4",
+    "implementation_version": "1.7.1",
+    "context_block_count": 12,
+    "context_chars": 8140,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 7388,
+      "output_tokens": 5068,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 7388,
+      "total_tokens": 12456
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.03191616",
+      "output_cost": "0.1477322",
+      "total_cost": "0.17964836"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage3_sample_process",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema/Process 图合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "s004.intended_use 不是 evidence 原文子串：'Phase-Contrast Microscopy observation'"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "material_type_evidence_inferred",
+      "message": "已根据样品中的明确配方或增强组分证据补全 material_type",
+      "items": [
+        {
+          "sample_id": "s003",
+          "field": "material_type",
+          "previous_value": null,
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "blending",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "material_type_process_inherited",
+      "message": "成分保持工艺的输出样品已继承一致的输入 material_type",
+      "items": [
+        {
+          "sample_id": "s004",
+          "field": "material_type",
+          "value": "compound",
+          "step_id": "ps002",
+          "process_type": "hot_pressing",
+          "input_sample_ids": [
+            "s003"
+          ]
+        },
+        {
+          "sample_id": "s005",
+          "field": "material_type",
+          "value": "compound",
+          "step_id": "ps003",
+          "process_type": "hot_pressing",
+          "input_sample_ids": [
+            "s003"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2817 @@
+{
+  "sidecar_schema_version": "stage4t_preview_sidecar.v0.4",
+  "shadow_version": "0.5.0",
+  "authoritative": false,
+  "candidate_layer": "broad",
+  "llm_interpretation_enabled": false,
+  "llm_interpreter_version": "0.4.0",
+  "interpretation_application_version": "0.1.2",
+  "document_id": "reference_no_0101911",
+  "table_count": 3,
+  "summary": {
+    "observation_count": 38,
+    "binding_status_counts": {
+      "bound": 31,
+      "unresolved": 7
+    },
+    "candidate_class_counts": {
+      "official_property": 36,
+      "unknown_observation": 2
+    },
+    "semantic_status_counts": {
+      "normalized": 36,
+      "unmapped": 2
+    },
+    "publication_status_counts": {
+      "candidate_only": 38
+    },
+    "unresolved_count": 7,
+    "tables_with_observations": 3,
+    "warning_counts": {
+      "shadow_unresolved_bindings": 1,
+      "variable_row_width_or_spans": 1
+    }
+  },
+  "tables": [
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_3_58",
+      "caption": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "composition",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_3_58",
+          "column_index": 0,
+          "header_context": [
+            "ABS content (phr)"
+          ],
+          "property_name_raw": "ABS content (phr)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_3_58",
+          "column_index": 1,
+          "header_context": [
+            "Impact strength (J/m)"
+          ],
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_3_58",
+          "column_index": 2,
+          "header_context": [
+            "Tensile strength (MPa)"
+          ],
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_3_58",
+          "column_index": 3,
+          "header_context": [
+            "Elongation at break (%)"
+          ],
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_3_58:T_3_58:r0001:c0001",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "0",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "62.14 ± 3.93",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0002:c0001",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "6",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "193.21 ± 38.92",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0003:c0001",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "8",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1118.93 ± 41.49",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0004:c0001",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "10",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1350.60 ± 23.10",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0005:c0001",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "12",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1263.75 ± 18.75",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0001:c0002",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "0",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "51.66 ± 0.55",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0001:c0002",
+          "row_index": 1,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0002:c0002",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "6",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50.56 ± 1.48",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0002:c0002",
+          "row_index": 2,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0003:c0002",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "8",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "50.19 ± 1.56",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0004:c0002",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "10",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "48.02 ± 1.25",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0005:c0002",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "12",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "47.41 ± 4.19",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0001:c0003",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "0",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "81.72 ± 5.35",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0001:c0003",
+          "row_index": 1,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0002:c0003",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "6",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "94.25 ± 4.32",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0002:c0003",
+          "row_index": 2,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0003:c0003",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "8",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "156.30 ± 8.08",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0004:c0003",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "10",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "140.14 ± 18.22",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_58:T_3_58:r0005:c0003",
+          "table_id": "T_3_58",
+          "direction": "row_samples",
+          "sample_label_raw": "12",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "158.67 ± 11.98",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_3_58:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_58",
+            "cell_id": "T_3_58:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [],
+      "warnings": []
+    },
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_4_70",
+      "caption": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "composition",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_4_70",
+          "column_index": 0,
+          "header_context": [
+            "SMIA content (phr)"
+          ],
+          "property_name_raw": "SMIA content (phr)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_4_70",
+          "column_index": 1,
+          "header_context": [
+            "Impact strength (J/m)"
+          ],
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_4_70",
+          "column_index": 2,
+          "header_context": [
+            "Tensile strength (MPa)"
+          ],
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_4_70",
+          "column_index": 3,
+          "header_context": [
+            "Elongation at break (%)"
+          ],
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_4_70:T_4_70:r0001:c0001",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "0",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1350.60 ± 23.10",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0001:c0001",
+          "row_index": 1,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0002:c0001",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "5",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1266.25 ± 15.18",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0003:c0001",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "10",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1031.61 ± 39.46",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0004:c0001",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "15",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "651.9 ± 39.66",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0005:c0001",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "20",
+          "property_name_raw": "Impact strength (J/m)",
+          "property_name_normalized": "izod_impact",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "397.14 ± 7.07",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "J",
+          "unit_normalized": "J/m",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0005:c0001",
+          "row_index": 5,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1,
+            "header_path": [
+              "Impact strength (J/m)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0001:c0002",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "0",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "48.02 ± 1.25",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0001:c0002",
+          "row_index": 1,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0002:c0002",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "5",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "42.63 ± 1.31",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0002:c0002",
+          "row_index": 2,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0003:c0002",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "10",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "44.45 ± 1.48",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0004:c0002",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "15",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "44.80 ± 1.62",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0005:c0002",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "20",
+          "property_name_raw": "Tensile strength (MPa)",
+          "property_name_normalized": "tensile_stress_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "45.58 ± 1.21",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2,
+            "header_path": [
+              "Tensile strength (MPa)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0001:c0003",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "0",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "140.14 ± 18.22",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0001:c0003",
+          "row_index": 1,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0002:c0003",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "5",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "133.86 ± 9.07",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0002:c0003",
+          "row_index": 2,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0003:c0003",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "10",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "69.06 ± 4.24",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0004:c0003",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "15",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "43.89 ± 2.85",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_4_70:T_4_70:r0005:c0003",
+          "table_id": "T_4_70",
+          "direction": "row_samples",
+          "sample_label_raw": "20",
+          "property_name_raw": "Elongation at break (%)",
+          "property_name_normalized": "elongation_at_break",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "30.03 ± 3.67",
+          "value_kind": "numeric_with_uncertainty",
+          "value_has_footnote": false,
+          "unit_raw": "%",
+          "unit_normalized": "%",
+          "unit_location": "header",
+          "cell_id": "T_4_70:r0005:c0003",
+          "row_index": 5,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_4_70",
+            "cell_id": "T_4_70:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3,
+            "header_path": [
+              "Elongation at break (%)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "value_structure_unvalidated"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved",
+              "value_structure_not_validated"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [],
+      "warnings": []
+    },
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_5_83",
+      "caption": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "composition",
+      "header_rows": [
+        0,
+        1
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_5_83",
+          "column_index": 0,
+          "header_context": [
+            "SMIA content (phr)",
+            "SMIA content (phr)"
+          ],
+          "property_name_raw": "SMIA content (phr) | SMIA content (phr)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": null,
+          "unit_normalized": null,
+          "unit_location": "not_found"
+        },
+        {
+          "table_id": "T_5_83",
+          "column_index": 1,
+          "header_context": [
+            "Temperature (°C)",
+            "$Tg_1$ (°C)"
+          ],
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_5_83",
+          "column_index": 2,
+          "header_context": [
+            "Temperature (°C)",
+            "$Tg_2$ (°C)"
+          ],
+          "property_name_raw": "Temperature (°C) | $Tg_2$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header"
+        },
+        {
+          "table_id": "T_5_83",
+          "column_index": 3,
+          "header_context": [
+            "Temperature (°C)",
+            "$\\Delta T$ (°C)"
+          ],
+          "property_name_raw": "Temperature (°C) | $\\Delta T$ (°C)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_5_83:T_5_83:r0002:c0001",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "91.20",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1,
+            "header_path": [
+              "Temperature (°C) | $Tg_1$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0003:c0001",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "89.30",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "header_path": [
+              "Temperature (°C) | $Tg_1$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0004:c0001",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "89.60",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "header_column_index": 1,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1,
+            "header_path": [
+              "Temperature (°C) | $Tg_1$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0003:c0002",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $Tg_2$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "129.80",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2,
+            "header_path": [
+              "Temperature (°C) | $Tg_2$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0004:c0002",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $Tg_2$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "131.90",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2,
+            "header_path": [
+              "Temperature (°C) | $Tg_2$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0005:c0002",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": "SMIA",
+          "property_name_raw": "Temperature (°C) | $Tg_2$ (°C)",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "132.00",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2,
+            "header_path": [
+              "Temperature (°C) | $Tg_2$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0003:c0003",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $\\Delta T$ (°C)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "40.50",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "header_path": [
+              "Temperature (°C) | $\\Delta T$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped",
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_5_83:T_5_83:r0004:c0003",
+          "table_id": "T_5_83",
+          "direction": "row_samples",
+          "sample_label_raw": null,
+          "property_name_raw": "Temperature (°C) | $\\Delta T$ (°C)",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "unmapped",
+          "candidate_class": "unknown_observation",
+          "candidate_role": "unknown_numeric",
+          "candidate_state": "raw_candidate",
+          "authority_target": null,
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "42.30",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "°C",
+          "unit_normalized": "°C",
+          "unit_location": "header",
+          "cell_id": "T_5_83:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "unresolved",
+          "evidence": {
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_5_83",
+            "cell_id": "T_5_83:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "header_path": [
+              "Temperature (°C) | $\\Delta T$ (°C)"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [
+            "semantic_unmapped",
+            "sample_binding_unresolved"
+          ],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": null,
+            "blockers": [
+              "semantic_unmapped",
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": false,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0002:c0001",
+          "row_index": 2,
+          "column_index": 1,
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0003:c0001",
+          "row_index": 3,
+          "column_index": 1,
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0004:c0001",
+          "row_index": 4,
+          "column_index": 1,
+          "property_name_raw": "Temperature (°C) | $Tg_1$ (°C)",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "property_name_raw": "Temperature (°C) | $Tg_2$ (°C)",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "property_name_raw": "Temperature (°C) | $Tg_2$ (°C)",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "property_name_raw": "Temperature (°C) | $\\Delta T$ (°C)",
+          "semantic_label": null
+        },
+        {
+          "reason": "sample_label_not_found",
+          "cell_id": "T_5_83:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "property_name_raw": "Temperature (°C) | $\\Delta T$ (°C)",
+          "semantic_label": null
+        }
+      ],
+      "warnings": [
+        "shadow_unresolved_bindings",
+        "variable_row_width_or_spans"
+      ]
+    }
+  ],
+  "interpretations": [
+    {
+      "table_id": "T_5_83",
+      "route_reasons": [
+        "multilevel_spanning_header"
+      ],
+      "status": "disabled",
+      "authoritative": false,
+      "publication_status": "candidate_only",
+      "llm_call_attempted": false,
+      "reason": "feature_disabled"
+    }
+  ],
+  "provenance": {
+    "source": "stage0_blocks.json",
+    "stage0_sha256": "9310a7ed5fcd8ca1073d90b8f64bb9c6136f3866d2ba1046de504c6187eb7a3e",
+    "config_sha256": null,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_tokens": 0
+    },
+    "cost": {
+      "status": "not_applicable",
+      "currency": null,
+      "input_per_million": null,
+      "output_per_million": null,
+      "input_cost": "0",
+      "output_cost": "0",
+      "total_cost": "0"
+    },
+    "raw_response": null
+  }
+}

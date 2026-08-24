@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0024941",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 4,
+  "usage": {
+    "input_tokens": 45726,
+    "output_tokens": 15741,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 6968,
+    "billable_input_tokens": 52694,
+    "total_tokens": 68435
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.22763808",
+    "output_cost": "0.45885015",
+    "total_cost": "0.68648823"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_59\",\n          \"source_sentence\": \"UV-vis spectra were made using Diode Array Hewlett Packard Spectrophotometer 8452 and quartz cuvettes of 1 cm spectral path.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_71\",\n          \"source_sentence\": \"The UV-vis spectra were made for monomers and polymers in DMSO solutions. The maximum absorption band of both classes of materials was observed within wavelength in the range 440–460 nm (Tables 1 and 2).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"T_5_75\",\n          \"source_sentence\": \"Table 2 Characteristics of the polymers\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Diode Array Hewlett Packard Spectrophotometer 8452\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {\n          \"measurement medium\": \"DMSO solutions, thin films deposited on glass substrate by spin-coating from THF (2–2.5 wt.%) solutions\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"UV-Vis\",\n      \"method_raw\": \"UV-vis spectra\",\n      \"parameters\": {\n        \"spectral path\": \"1 cm\",\n        \"cuvette material\": \"quartz\"\n      },\n      \"result_summary\": \"Maximum absorption bands of the polymers were observed in the range 438-452 nm, trans-cis isomerization of azobenzene groups was detected under illumination.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+    "usage": {
+      "input_tokens": 12535,
+      "output_tokens": 3353,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.0541512",
+      "output_cost": "0.09773995",
+      "total_cost": "0.15189115"
+    }
+  }
+}

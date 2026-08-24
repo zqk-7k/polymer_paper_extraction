@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043541",
+  "characterizations": [],
+  "properties": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": "primary_structure_informations",
+      "semantic_label": "primary_structure_informations",
+      "value_kind": "text",
+      "value_raw": "stretched",
+      "text_value": "stretched",
+      "method_raw": "reflectivity curves",
+      "sample_id": "s004",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_4_56",
+          "page": 4,
+          "bbox": [
+            96.0,
+            328.0,
+            493.0,
+            537.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The scattering length density profiles of the poly(MPC) brushes in $\\mathbf { D } _ { 2 } \\mathbf { O }$calculated from the reflectivity curves indicated that the poly(METAI) chains were stretched up to 60 nm in $\\mathbf { D } _ { 2 } \\mathbf { O } _ { 3 }$, forming a concentration gradient of ${ \\bf D } _ { 2 } { \\bf O } .$."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "04a77871eca13b068705cfd44a3d78c7c1108f319a3c001fb838798d6f5128c7",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "0c47a42c7389f2e29983e57fafee94e1bb42fa47140b94e1915d0341c1bde5b5",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 23,
+    "context_chars": 17377,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 9572,
+      "output_tokens": 5439,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 9572,
+      "total_tokens": 15011
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.04135104",
+      "output_cost": "0.15854685",
+      "total_cost": "0.19989789"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

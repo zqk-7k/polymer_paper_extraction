@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0043955",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 5,
+  "usage": {
+    "input_tokens": 74465,
+    "output_tokens": 17748,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 36264,
+    "billable_input_tokens": 110729,
+    "total_tokens": 128477
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.47834928",
+    "output_cost": "0.51735420",
+    "total_cost": "0.99570348"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.7\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_10_132\",\n                    \"source_sentence\": \"UV vis absorption spectra were measured on a Varian CARY 100 Bio UV vis spectrophotometer.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Varian CARY 100 Bio UV vis spectrophotometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"not_reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {},\n                \"other_conditions\": {},\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"UV-Vis\",\n            \"method_raw\": \"UV vis\",\n            \"parameters\": {},\n            \"result_summary\": null,\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+    "usage": {
+      "input_tokens": 13474,
+      "output_tokens": 2973,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12088
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11042784",
+      "output_cost": "0.08666295",
+      "total_cost": "0.19709079"
+    }
+  }
+}

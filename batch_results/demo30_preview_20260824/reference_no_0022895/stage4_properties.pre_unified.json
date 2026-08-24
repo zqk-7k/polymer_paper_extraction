@@ -1,0 +1,518 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0022895",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_3_46",
+        "page": 3,
+        "bbox": [
+          67.0,
+          90.0,
+          919.0,
+          194.0
+        ],
+        "source_type": "table",
+        "source_sentence": "Table 1 Common properties of polyamidines 1"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {
+        "electric_field_strength": "100 V"
+      },
+      "other_condition_evidence": {
+        "electric_field_strength": [
+          {
+            "block_id": "P_1_29",
+            "page": 1,
+            "bbox": [
+              511.0,
+              433.0,
+              925.0,
+              612.0
+            ],
+            "source_type": "text",
+            "source_sentence": "The velocity of the particles in an electric field of 100 V was measured by Laser Doppler Anemometry using a He/Ne laser beam"
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_1_29",
+        "page": 1,
+        "bbox": [
+          511.0,
+          433.0,
+          925.0,
+          612.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Zeta potential measurements were carried out on pulverized samples suspended in electrolytic solutions (0.01 wt.%) using a Zeta Sizer 3 (Malvern Instruments, Malvern, Worcestershire, UK). The velocity of the particles in an electric field of 100 V was measured by Laser Doppler Anemometry using a He/Ne laser beam. The simple Smoluchowski equation which allows to calculate zeta potential values from the electrophoretic mobilities - was used:"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "other_conditions": {
+        "solvent": "ethanol (1f–1g) or DMSO (1a–1e)",
+        "titrant": "1 N aqueous HCl standard solution"
+      },
+      "other_condition_evidence": {
+        "solvent": [
+          {
+            "block_id": "P_2_37",
+            "page": 2,
+            "bbox": [
+              65.0,
+              394.0,
+              479.0,
+              591.0
+            ],
+            "source_type": "text",
+            "source_sentence": "dissolved in 40 ml ethanol (1f–1g) or DMSO (1a–1e)"
+          }
+        ],
+        "titrant": [
+          {
+            "block_id": "P_2_37",
+            "page": 2,
+            "bbox": [
+              65.0,
+              394.0,
+              479.0,
+              591.0
+            ],
+            "source_type": "text",
+            "source_sentence": "titrated with 1 N aqueous HCl standard solution"
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_37",
+        "page": 2,
+        "bbox": [
+          65.0,
+          394.0,
+          479.0,
+          591.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The amidine group content of the polymers was determined by potentiometric titration using a Mettler DL 70 titrator (electrode Mettler DG 113-SC). A total of 100 mg of polyamidine were dissolved in 40 ml ethanol (1f–1g) or DMSO (1a–1e) and titrated with 1 N aqueous HCl standard solution."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "unresolved_properties": [],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_id": "s004",
+      "entity_id": "pe004",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "$\\mu_{\\text{inh}}$",
+      "property_name_normalized": "intrinsic_viscosity",
+      "property_code": "P6120",
+      "property_category": "dilute_solution_property",
+      "unit_raw": "(dl g$^{-1}$)",
+      "unit_normalized": "dL/g",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe004",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Sample",
+              "value_raw": "1a",
+              "evidence": {
+                "block_id": "T_3_46",
+                "page": 3,
+                "bbox": [
+                  67.0,
+                  90.0,
+                  919.0,
+                  194.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Sample",
+                "table_locator": {
+                  "table_id": "T_3_46",
+                  "row_label": "1a",
+                  "column_label": "1a",
+                  "cell_value": "1a",
+                  "cell_id": "T_3_46:r0000:c0001",
+                  "row_index": 0,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "0.12",
+          "value_min": 0.12,
+          "value_max": 0.12,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_46",
+              "page": 3,
+              "bbox": [
+                67.0,
+                90.0,
+                919.0,
+                194.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Table 1 Common properties of polyamidines 1",
+              "table_locator": {
+                "table_id": "T_3_46",
+                "row_label": "1a",
+                "column_label": "$\\mu_{\\text{inh}}$ (dl g$^{-1}$)",
+                "cell_value": "0.12",
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe004",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Sample",
+              "value_raw": "1b",
+              "evidence": {
+                "block_id": "T_3_46",
+                "page": 3,
+                "bbox": [
+                  67.0,
+                  90.0,
+                  919.0,
+                  194.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Sample",
+                "table_locator": {
+                  "table_id": "T_3_46",
+                  "row_label": "1b",
+                  "column_label": "1b",
+                  "cell_value": "1b",
+                  "cell_id": "T_3_46:r0000:c0002",
+                  "row_index": 0,
+                  "column_index": 2
+                }
+              }
+            }
+          ],
+          "value_raw": "0.12",
+          "value_min": 0.12,
+          "value_max": 0.12,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_46",
+              "page": 3,
+              "bbox": [
+                67.0,
+                90.0,
+                919.0,
+                194.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Table 1 Common properties of polyamidines 1",
+              "table_locator": {
+                "table_id": "T_3_46",
+                "row_label": "1b",
+                "column_label": "$\\mu_{\\text{inh}}$ (dl g$^{-1}$)",
+                "cell_value": "0.12",
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 2,
+        "covered": 2,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_3_46",
+          "page": 3,
+          "bbox": [
+            67.0,
+            90.0,
+            919.0,
+            194.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1 Common properties of polyamidines 1",
+          "table_locator": {
+            "table_id": "T_3_46",
+            "row_label": "1a",
+            "column_label": "$\\mu_{\\text{inh}}$ (dl g$^{-1}$)",
+            "cell_value": "0.12",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series002",
+      "sample_id": "s004",
+      "entity_id": "pe004",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "$T_{\\text{g}}$",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt003",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe004",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Sample",
+              "value_raw": "1a",
+              "evidence": {
+                "block_id": "T_3_46",
+                "page": 3,
+                "bbox": [
+                  67.0,
+                  90.0,
+                  919.0,
+                  194.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Sample",
+                "table_locator": {
+                  "table_id": "T_3_46",
+                  "row_label": "1a",
+                  "column_label": "1a",
+                  "cell_value": "1a",
+                  "cell_id": "T_3_46:r0000:c0001",
+                  "row_index": 0,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "30",
+          "value_min": 30.0,
+          "value_max": 30.0,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_46",
+              "page": 3,
+              "bbox": [
+                67.0,
+                90.0,
+                919.0,
+                194.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Table 1",
+              "table_locator": {
+                "table_id": "T_3_46",
+                "row_label": "1a",
+                "column_label": "1a",
+                "cell_value": "30",
+                "cell_id": "T_3_46:r0004:c0001",
+                "row_index": 4,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 1,
+        "covered": 1,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_3_46",
+          "page": 3,
+          "bbox": [
+            67.0,
+            90.0,
+            919.0,
+            194.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1",
+          "table_locator": {
+            "table_id": "T_3_46",
+            "row_label": "1a",
+            "column_label": "1a",
+            "cell_value": "30",
+            "cell_id": "T_3_46:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "285f8909305f952f27783805abf51c7b7171d2484b953276f16dd7af6714c83a",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "74fdb8b48785750f15cc5ac0041d7555dca5b1f3b3d89b553c92dfdf9e21dcc6",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 41,
+    "context_chars": 23662,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 23304,
+      "output_tokens": 5435,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064,
+      "billable_input_tokens": 34368,
+      "total_tokens": 39803
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.14846976",
+      "output_cost": "0.15843025",
+      "total_cost": "0.30690001"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "series_unit_surface_repaired",
+      "message": "Series/point 的 unit_raw 缺少表头括号；已从同一表格列名中恢复唯一等价的原文单位表面文本",
+      "fields": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正",
+      "series": 2,
+      "points": 0
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 4
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "pt001 的 table evidence 无法唯一解析到稳定 cell_id"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    }
+  ]
+}

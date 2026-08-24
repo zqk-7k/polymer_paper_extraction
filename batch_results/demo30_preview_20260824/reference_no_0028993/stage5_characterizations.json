@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0028993",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "thermogravimetric analysis (TGA)",
+      "method_normalized": "TGA",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012",
+        "s013",
+        "s014",
+        "s015",
+        "s016",
+        "s017",
+        "s018"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "measurement_context": {
+        "other_conditions": {
+          "atmosphere": "nitrogen gas",
+          "final_temperature": "600°C",
+          "heating_rate": "30°C/min",
+          "sample_mass": "5 ± 1 mg"
+        },
+        "other_condition_evidence": {
+          "atmosphere": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ],
+          "final_temperature": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ],
+          "heating_rate": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ],
+          "sample_mass": [
+            {
+              "block_id": "P_1_28",
+              "page": 1,
+              "bbox": [
+                507.0,
+                707.0,
+                900.0,
+                769.0
+              ],
+              "source_type": "text",
+              "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "parameters": {},
+      "result_summary": "Thermal decomposition temperature rose with increasing PET unit content, higher thermal stability achieved with more embedded aromatic units.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "I_5_59",
+          "page": 5,
+          "bbox": [
+            233.0,
+            102.0,
+            765.0,
+            453.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Figure 8 TGA thermograms of PBAS, PET, and the copolyesters."
+        },
+        {
+          "block_id": "P_7_80",
+          "page": 7,
+          "bbox": [
+            100.0,
+            661.0,
+            490.0,
+            767.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents. The thermal decomposition temperature rose with the number of PET units. Higher thermal stability was achieved with an increased number of embedded aromatic units, which were thermally more stable than the aliphatic units."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "value_kind": "text",
+      "value_raw": "longer block exists when PET contents increased beyond 40 wt %",
+      "text_value": "longer block exists when PET contents increased beyond 40 wt %",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_7_79",
+          "page": 7,
+          "bbox": [
+            100.0,
+            572.0,
+            490.0,
+            662.0
+          ],
+          "source_type": "text",
+          "source_sentence": "As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET. It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "value_kind": "text",
+      "value_raw": "number increases with PET contents greater than 30 wt %",
+      "text_value": "number increases with PET contents greater than 30 wt %",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_7_85",
+          "page": 7,
+          "bbox": [
+            507.0,
+            133.0,
+            900.0,
+            225.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "73d78d994991e0c1059a7e71bb124d3707bcebcf724ba9181c14d59c081b73ad",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "e3e14c51c36cb6d882ccef7710fb39a36eea3ba27215495634249862190d8a64",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 56,
+    "context_chars": 22977,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 11342,
+      "output_tokens": 5539,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 9016,
+      "billable_input_tokens": 20358,
+      "total_tokens": 25897
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.08794656",
+      "output_cost": "0.16146185",
+      "total_cost": "0.24940841"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unlocatable_additional_evidence_removed",
+      "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "P_1_28"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "instrument",
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "char001.measurement_context.other_conditions.sample_mass.raw 无法在字段专属 evidence中定位"
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0027435",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "IR spectra",
+      "method_normalized": "FTIR",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007"
+      ],
+      "entity_ids": [
+        "pe003",
+        "pe004",
+        "pe005",
+        "pe006",
+        "pe007",
+        "pe008",
+        "pe009"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "IR spectra confirmed the formation of imide structure in poly(ether imide)s PI-1 to PI-7, with characteristic imide carbonyl and C-N absorption bands.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_3_62",
+          "page": 3,
+          "bbox": [
+            68.0,
+            522.0,
+            469.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Specifically, the IR spectra of the poly(ether imide)s revealed that the characteristic bands around 1 768 and 1 $7 1 6 \\mathrm { c m } ^ { - 1 }$are commonly attributed to the asymmetric and symmetric stretches of carbonyl group of imides, respectively."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "NMR spectroscopy",
+      "method_normalized": "NMR",
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "168.0 ppm and 167.9 ppm resonance peaks observed for PI-1, assigned to imide group carbon, confirming the polyimide structure",
+      "derived_property_ids": [
+        "prop_s5_001",
+        "prop_s5_002"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_3_62",
+          "page": 3,
+          "bbox": [
+            68.0,
+            522.0,
+            469.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The structure of the polymers was identified by IR and NMR spectroscopy."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char003",
+      "method_raw": "GPC",
+      "method_normalized": "GPC",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007"
+      ],
+      "entity_ids": [
+        "pe001",
+        "pe003",
+        "pe004",
+        "pe005",
+        "pe006",
+        "pe007",
+        "pe008",
+        "pe009"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "series_id": "series001",
+      "parameters": {
+        "solvent": "THF",
+        "standard": "polystyrene"
+      },
+      "result_summary": "Mn of PI-1 to PI-7 ranges from 16000 to 63000, Mw ranges from 32000 to 115000, PDI ranges from 1.68 to 2.37.",
+      "derived_property_ids": [
+        "uprop002",
+        "uprop003"
+      ],
+      "evidence": [
+        {
+          "block_id": "T_3_65",
+          "page": 3,
+          "bbox": [
+            488.0,
+            654.0,
+            882.0,
+            885.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<sup>a)</sup> Measured by GPC in THF, with polystyrene as standard."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char004",
+      "method_raw": "differential scanning calorimeter (DSC)",
+      "method_normalized": "DSC",
+      "entity_id": "pe001",
+      "sample_resolution_status": "unresolved",
+      "series_id": "series002",
+      "parameters": {},
+      "result_summary": "测得poly(ether imide)s PI-1至PI-7的玻璃化转变温度范围为230–262 °C",
+      "derived_property_ids": [
+        "prop001",
+        "prop002",
+        "prop003",
+        "prop004",
+        "prop005",
+        "uprop004"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_4_74",
+          "page": 4,
+          "bbox": [
+            528.0,
+            625.0,
+            926.0,
+            659.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Glass transition temperatures $( T _ { \\mathrm { g } } ^ { \\ \\mathrm { \\gamma } } \\mathrm { s } )$of these poly(ether imide)s, determined by means of differential scanning calorimeter (DSC), were in the range of $2 3 0 { - } 2 6 2 ^ { \\circ } \\mathrm { C } .$"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop_s5_001",
+      "characterization_id": "char002",
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "resonance peak",
+      "property_name_normalized": "nmr_chemical_shift",
+      "property_category": "composition_structure",
+      "value_raw": "168.0",
+      "value_min": 168.0,
+      "value_max": 168.0,
+      "unit_raw": "ppm",
+      "unit_normalized": "ppm",
+      "spectral_assignment": "carbon of the imide group",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_3_62",
+          "page": 3,
+          "bbox": [
+            68.0,
+            522.0,
+            469.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the resonance peaks at 168.0 and 167.9 ppm are ascribed to the carbon of the imide group"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop_s5_002",
+      "characterization_id": "char002",
+      "sample_id": "s001",
+      "entity_id": "pe003",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "resonance peak",
+      "property_name_normalized": "nmr_chemical_shift",
+      "property_category": "composition_structure",
+      "value_raw": "167.9",
+      "value_min": 167.9,
+      "value_max": 167.9,
+      "unit_raw": "ppm",
+      "unit_normalized": "ppm",
+      "spectral_assignment": "carbon of the imide group",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_3_62",
+          "page": 3,
+          "bbox": [
+            68.0,
+            522.0,
+            469.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the resonance peaks at 168.0 and 167.9 ppm are ascribed to the carbon of the imide group"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": "crystallinity",
+      "semantic_label": "crystallinity",
+      "value_kind": "numeric_scalar",
+      "value_raw": "amorphous patterns",
+      "method_raw": "X-ray diffractograms",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_4_74",
+          "page": 4,
+          "bbox": [
+            528.0,
+            625.0,
+            926.0,
+            659.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The crystallinity of the polyimides was estimated using X-ray diffractograms, indicating that all of the polymers presented amorphous patterns."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp002",
+      "value_kind": "text",
+      "value_raw": "formation of the imide structure verified",
+      "text_value": "formation of the imide structure verified",
+      "method_raw": "IR and NMR spectroscopy",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_62",
+          "page": 3,
+          "bbox": [
+            68.0,
+            522.0,
+            469.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The structure of the polymers was identified by IR and NMR spectroscopy. Specifically, the IR spectra of the poly(ether imide)s revealed that the characteristic bands around 1 768 and 1 716 cm⁻¹ are commonly attributed to the asymmetric and symmetric stretches of carbonyl group of imides, respectively. The C–N band at 1369 cm⁻¹ verified the formation of the imide structure. The NMR data of the polymer PI-1 are listed in the experimental section, and the resonance peaks at 168.0 and 167.9 ppm are ascribed to the carbon of the imide group."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp003",
+      "value_kind": "text",
+      "value_raw": "generally in good agreement with the respective structures for hydrogen, carbon, and nitrogen",
+      "text_value": "generally in good agreement with the respective structures for hydrogen, carbon, and nitrogen",
+      "method_raw": "elemental analysis",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_62",
+          "page": 3,
+          "bbox": [
+            68.0,
+            522.0,
+            469.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The elemental analysis data of these polyimides as listed in Table 1 are generally in good agreement with the respective structures for hydrogen, carbon, and nitrogen."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "5b5120bb6387951d38cf0e8cb2bc632327adac680f9828bd7b9f70d2c215cd7b",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "d90bab4ef319be96c151f3c3639f8750f5ea114f17345afba9317f6cda3abb7e",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 15,
+    "context_chars": 17010,
+    "call_count": 5,
+    "usage": {
+      "input_tokens": 73242,
+      "output_tokens": 21235,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 32168,
+      "billable_input_tokens": 105410,
+      "total_tokens": 126645
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.45537120",
+      "output_cost": "0.61900025",
+      "total_cost": "1.07437145"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+      "field_path": "characterizations[0].method_raw",
+      "method_normalized": "FTIR"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_property_removed",
+      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+      "field_path": "properties[0].value_raw",
+      "property_id": "prop_s5_001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_property_removed",
+      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+      "field_path": "properties[1].value_raw",
+      "property_id": "prop_s5_002"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_property_removed",
+      "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+      "field_path": "properties[2].value_raw",
+      "property_id": "prop_s5_003"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_shard_semantic_validation_bypassed",
+      "message": "分片候选通过 Schema，但语义校验需人工复核",
+      "shard_id": "gpc_001",
+      "reason": "char001 的多 Sample 与多 Entity 范围不一致"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_subject_scope_normalized",
+      "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+      "field_path": "characterizations[0]"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_shard_semantic_validation_bypassed",
+      "message": "分片候选通过 Schema，但语义校验需人工复核",
+      "shard_id": "dsc_001",
+      "reason": "char001 与 Series 的归属不一致：['series002']"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "stage5_shards_partial",
+      "message": "部分 Stage 5 分片失败或含被隔离对象",
+      "blocking": true,
+      "shard_ids": [
+        "gpc_001",
+        "dsc_001"
+      ]
+    }
+  ]
+}

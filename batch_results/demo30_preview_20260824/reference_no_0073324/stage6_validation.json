@@ -1,0 +1,803 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0073324",
+  "status": "passed_with_warnings",
+  "error_count": 0,
+  "warning_count": 127,
+  "errors": [],
+  "warnings": [
+    {
+      "stage": "stage0",
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
+    },
+    {
+      "stage": "stage1_material_mention",
+      "code": "mention_surface_recovered",
+      "message": "mention 表面文本已恢复为 evidence 中的原文形式（唯一匹配，多候选时不修复）"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "preview_nested_mentions_split_retained",
+      "message": "Preview 模式已保留无法确定合并关系的嵌套 mention 拆分；需在正式数据中复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "parameters_not_in_source",
+      "message": "无法定位到 evidence 原文的参数已舍弃"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities",
+      "message": "38 个 entity 未解析到实际样品"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities_completed",
+      "message": "模型遗漏了 entity 覆盖清单；已将没有任何 Sample 引用的已知 entity 确定性补入 unresolved_entity_ids"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "empty_reported_context_downgraded",
+      "message": "measurement_context 标记为 reported 但没有任何条件值；已确定性改为 not_reported"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形"
+    },
+    {
+      "stage": "meta_extract",
+      "code": "paper_metadata_incomplete",
+      "message": "Paper metadata_status=failed，需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps003"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop001"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='2a | 0-2-0-9' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='4 | 0-4-0-6' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='5 | 0-4-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='6a | 0-6-0-9' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp005"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp005"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='7a | 0-6-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp006"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp006"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp007"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='9 | 0-9' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp008"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp008"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='13 | 0-18' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp009"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp009"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp010"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='3 | 0-2-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp011"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp011"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp012"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp013"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp014"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='10 | 0-9-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp015"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp015"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='11 | 0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp016"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp016"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='1 | 0-2' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp017"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp017"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='1a | 0-2-0-6' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp018"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp018"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp019"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp020"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='2a | 0-2-0-9' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp021"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp021"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp022"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp023"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp024"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='3 | 0-2-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp025"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp025"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='4 | 0-4-0-6' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp026"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp026"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='5 | 0-4-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp027"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp027"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp028"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='6a | 0-6-0-9' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp029"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp029"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp030"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='7a | 0-6-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp031"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp031"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp032"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp033"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='8 | 0-6-0-HT' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp034"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp034"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='9 | 0-9' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp035"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp035"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='10 | 0-9-0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp036"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp036"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='11 | 0-10' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp037"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp037"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='12 | 0-13' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp038"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp038"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='13 | 0-18' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp039"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic intermediate | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp039"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Acida' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp040"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Chloridea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp041"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='a | 0-2-0-I' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp042"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp042"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp043"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp044"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp045"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp046"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp047"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp048"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='a | 0-6-0-T' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp049"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp049"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp050"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp051"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Dicarboxylic portion | Hydrazidea' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp052"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='a | 0-2-0-I' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp053"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp053"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp054"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp055"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp056"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp057"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp058"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp059"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp060"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp061"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp062"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp063"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp064"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp065"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp066"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp067"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp068"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp069"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='$\\\\eta_{inh}$ (DMSO) | $\\\\eta_{inh}$ (DMSO)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp070"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Dimethyl sulfoxide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp071"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Dimethyl sulfoxide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp072"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Dimethyl sulfoxide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp073"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Dimethyl sulfoxide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp074"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Dimethyl sulfoxide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp075"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Hexamethyl-phosphoramide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp076"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Hexamethyl-phosphoramide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp077"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Hexamethyl-phosphoramide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp078"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Hexamethyl-phosphoramide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp079"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='Solubility | Hexamethyl-phosphoramide' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp080"
+    }
+  ],
+  "checked_counts": {
+    "stage0_blocks": 56,
+    "material_mentions": 70,
+    "polymer_entities": 46,
+    "samples": 8,
+    "process_steps": 3,
+    "measurement_conditions": 1,
+    "stage4_properties": 5,
+    "unresolved_properties": 0,
+    "property_series": 1,
+    "property_series_points": 3,
+    "characterizations": 1,
+    "stage5_properties": 0,
+    "evidence": 159,
+    "preview_published_objects": 138,
+    "preview_rejected_objects": 0,
+    "preview_reference_cleanup_count": 0
+  },
+  "quality_metrics": {
+    "properties_with_units": {
+      "complete": 5,
+      "total": 8,
+      "ratio": 0.625
+    },
+    "standard_process_steps": {
+      "complete": 2,
+      "total": 3,
+      "ratio": 0.6666666666666666
+    },
+    "stage4_methods_with_characterization": {
+      "complete": 1,
+      "total": 3,
+      "ratio": 0.3333333333333333
+    },
+    "objects_with_confidence": {
+      "complete": 138,
+      "total": 138,
+      "ratio": 1.0
+    },
+    "series_points_covered": {
+      "complete": 3,
+      "total": 3,
+      "ratio": 1.0
+    }
+  }
+}

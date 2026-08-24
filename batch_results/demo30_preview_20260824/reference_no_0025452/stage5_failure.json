@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0025452",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 3,
+  "usage": {
+    "input_tokens": 37907,
+    "output_tokens": 12860,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 17008,
+    "billable_input_tokens": 54915,
+    "total_tokens": 67775
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.23723280",
+    "output_cost": "0.37486900",
+    "total_cost": "0.61210180"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_19_97\",\n          \"source_sentence\": \"The thermogravimetric analysis (TGA) was performed on all studied aerogels under nitrogen environment, starting from room temperature to $7 5 0 ~ ^ { \\\\circ } \\\\mathrm { C }$at the rate of $1 0 ~ { ^ { \\\\circ } C } / { \\\\mathrm { m i n } }$\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_21_104\",\n          \"source_sentence\": \"Figure 8. The TGA results of A) PMDA and, B) BPDA backbone aerogels with varying diamine fraction.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"thermogravimetric analysis (TGA)\",\n      \"parameters\": {\n        \"environment\": \"nitrogen\",\n        \"heating_rate\": \"10 °C/min\",\n        \"temperature_range\": \"room temperature to 750 °C\"\n      },\n      \"result_summary\": \"Fabricated polyimide aerogels presented onset of decomposition ranging from 422 to 621 °C.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\", \"s010\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series005\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+    "usage": {
+      "input_tokens": 12519,
+      "output_tokens": 3380,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 10040
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.09745488",
+      "output_cost": "0.098527",
+      "total_cost": "0.19598188"
+    }
+  }
+}

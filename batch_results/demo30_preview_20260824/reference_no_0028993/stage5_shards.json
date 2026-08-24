@@ -1,0 +1,657 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0028993",
+  "status": "running",
+  "shard_count": 5,
+  "unrouted_block_ids": [
+    "P_1_18",
+    "P_1_19",
+    "P_1_20",
+    "P_1_21",
+    "P_1_23",
+    "P_1_24",
+    "P_1_25",
+    "P_1_26",
+    "T_1_29",
+    "P_2_33",
+    "P_2_34",
+    "P_3_40",
+    "P_3_45",
+    "P_4_52",
+    "I_5_62",
+    "I_6_65",
+    "P_6_67",
+    "I_6_68",
+    "I_6_69",
+    "I_6_72",
+    "I_7_75",
+    "I_7_76",
+    "I_7_77",
+    "I_7_78",
+    "P_7_79",
+    "P_7_81",
+    "P_7_82",
+    "P_7_83",
+    "P_7_86",
+    "P_7_87",
+    "P_7_88",
+    "I_7_90",
+    "I_7_91",
+    "I_7_92",
+    "P_8_95",
+    "P_8_97"
+  ],
+  "shards": [
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "T_1_29",
+        "I_2_32",
+        "P_2_33",
+        "P_2_34",
+        "I_3_38",
+        "P_3_42",
+        "P_3_44",
+        "P_3_45",
+        "I_3_46",
+        "P_4_51",
+        "P_4_52"
+      ],
+      "context_chars": 5096,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": [\n        \"pe001\",\n        \"pe002\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\",\n        \"pe008\",\n        \"pe009\",\n        \"pe018\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"I_2_32\",\n          \"source_sentence\": \"Figure 1 <sup>1</sup>H-NMR spectra of PET, PBAS, and M60P10.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_3_42\",\n          \"source_sentence\": \"NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1. New characteristic peaks appeared between 4.7 and 4.0 ppm, which were not found for the homopolymers.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_3_38\",\n          \"source_sentence\": \"Figure 2 <sup>1</sup>H-NMR spectra of M60P10 and a solution blend of PBAS (90 wt %) and PET (10 wt %).\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_3_44\",\n          \"source_sentence\": \"In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_3_46\",\n          \"source_sentence\": \"Figure 3 <sup>1</sup>H-NMR spectra of the copolyesters with respect to the reaction time.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_51\",\n          \"source_sentence\": \"The NMR spectra of the copolyesters with respect to the reaction time are shown in Figure 3. The area of the peak from the heterolinkage increased as the reaction time increased, and this means that the content of the aromatic units in the copolyester increased.<sup>16</sup>\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"1H-NMR\",\n      \"parameters\": {},\n      \"result_summary\": \"1H-NMR spectra were obtained for PET, PBAS, M60P10, SBP10 and copolyesters with different transesterification reaction times; new characteristic peaks between 4.0 and 4.7 ppm were observed for transesterification copolyesters, and the peak area increased with reaction time.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\",\n        \"s012\",\n        \"s017\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe007\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_42\",\n          \"source_sentence\": \"New characteristic peaks appeared between 4.7 and 4.0 ppm, which were not found for the homopolymers.\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"nmr_chemical_shift\",\n      \"property_name_raw\": \"characteristic peaks\",\n      \"sample_id\": \"s010\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"new aromatic heterolinkages\",\n      \"unit_normalized\": \"ppm\",\n      \"unit_raw\": \"ppm\",\n      \"value_max\": 4.7,\n      \"value_min\": 4.0,\n      \"value_raw\": \"between 4.7 and 4.0 ppm\"\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe007\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_45\",\n          \"source_sentence\": \"On the basis of these results, the existence of new aromatic heterolinkages inside the backbone of the copolyester was confirmed as a result of the transesterification reaction.<sup>16</sup>\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"1H-NMR\",\n      \"property_name_raw\": \"backbone linkage structure\",\n      \"sample_id\": \"s010\",\n      \"sample_resolution_status\": \"resolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"new aromatic heterolinkages inside the backbone of the copolyester\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 11528,
+              "output_tokens": 4675,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07990272",
+              "output_cost": "0.13627625",
+              "total_cost": "0.21617897"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 1,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "e46c5e6bd7502f70c9aa607680a8a6af0293d7da9776f397b3891d84317494d2",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "NMR"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "NMR",
+            "method_normalized": "NMR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s008",
+              "s009",
+              "s010",
+              "s011",
+              "s012",
+              "s017"
+            ],
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe018"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "1H-NMR spectra were obtained for PET, PBAS, M60P10, SBP10 and copolyesters with different transesterification reaction times; new characteristic peaks between 4.0 and 4.7 ppm were observed for transesterification copolyesters, and the peak area increased with reaction time.",
+            "derived_property_ids": [
+              "prop_s5_001"
+            ],
+            "evidence": [
+              {
+                "block_id": "I_2_32",
+                "page": 2,
+                "bbox": [
+                  180.0,
+                  103.0,
+                  817.0,
+                  803.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 1 <sup>1</sup>H-NMR spectra of PET, PBAS, and M60P10."
+              },
+              {
+                "block_id": "P_3_42",
+                "page": 3,
+                "bbox": [
+                  98.0,
+                  532.0,
+                  488.0,
+                  565.0
+                ],
+                "source_type": "text",
+                "source_sentence": "NMR spectra of PBAS, PET, and M60P10 (see Table I for the notation), obtained from the transesterification reaction of 10 wt % PET and 90 wt % PBAS for 10 min, are shown in Figure 1. New characteristic peaks appeared between 4.7 and 4.0 ppm, which were not found for the homopolymers."
+              },
+              {
+                "block_id": "I_3_38",
+                "page": 3,
+                "bbox": [
+                  180.0,
+                  104.0,
+                  817.0,
+                  387.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 2 <sup>1</sup>H-NMR spectra of M60P10 and a solution blend of PBAS (90 wt %) and PET (10 wt %)."
+              },
+              {
+                "block_id": "P_3_44",
+                "page": 3,
+                "bbox": [
+                  507.0,
+                  483.0,
+                  900.0,
+                  530.0
+                ],
+                "source_type": "text",
+                "source_sentence": "In Figure 2, NMR spectra of M60P10 and SBP10, which was from a solution blend of the same ratio of PET and PBAS used for M60P10, are depicted."
+              },
+              {
+                "block_id": "I_3_46",
+                "page": 3,
+                "bbox": [
+                  126.0,
+                  577.0,
+                  869.0,
+                  922.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 3 <sup>1</sup>H-NMR spectra of the copolyesters with respect to the reaction time."
+              },
+              {
+                "block_id": "P_4_51",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  427.0,
+                  490.0,
+                  504.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The NMR spectra of the copolyesters with respect to the reaction time are shown in Figure 3. The area of the peak from the heterolinkage increased as the reaction time increased, and this means that the content of the aromatic units in the copolyester increased.<sup>16</sup>"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s010",
+            "entity_id": "pe007",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "characteristic peaks",
+            "property_name_normalized": "nmr_chemical_shift",
+            "property_category": "composition_structure",
+            "value_raw": "between 4.7 and 4.0 ppm",
+            "value_min": 4.0,
+            "value_max": 4.7,
+            "unit_raw": "ppm",
+            "unit_normalized": "ppm",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_42",
+                "page": 3,
+                "bbox": [
+                  98.0,
+                  532.0,
+                  488.0,
+                  565.0
+                ],
+                "source_type": "text",
+                "source_sentence": "New characteristic peaks appeared between 4.7 and 4.0 ppm, which were not found for the homopolymers."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_1_26",
+        "P_1_27",
+        "I_4_49",
+        "P_4_52",
+        "P_4_53",
+        "I_4_54",
+        "I_4_55",
+        "I_4_56",
+        "P_5_61",
+        "I_5_62",
+        "I_6_69",
+        "P_6_71",
+        "I_6_72"
+      ],
+      "context_chars": 5616,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop001\"\n      ],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_27\",\n          \"source_sentence\": \"The $T _ { m }$and crystallization temperature (T ) values of the copolyesters were measured with a Seiko DSC 220C differential scanning calorimetry (DSC) instrument calibrated with pure indium as a standard (Japan). To eliminate the thermal history, samples (2.5 ± 0.5 mg) were heated to 280°C at a heating rate of 20°C/min and held there at 280°C for 1 min. T was measured while the samples were cooled to -50°C at a rate of 20°C/min, and during the third run, $T _ { m }$was measured at a heating rate of 20°C/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_53\",\n          \"source_sentence\": \"DSC thermograms of PBAS and a solution blend of PBAS and PET are shown in Figures 4 and $5 ,$respectively. $T _ { m }$of PBAS was about $9 0 ^ { \\\\circ } \\\\mathrm { C } .$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Seiko DSC 220C\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"differential scanning calorimetry (DSC)\",\n      \"parameters\": {\n        \"calibration_standard\": \"pure indium\",\n        \"sample_mass\": \"2.5 ± 0.5 mg\",\n        \"heating_rate\": \"20°C/min\",\n        \"cooling_rate\": \"20°C/min\",\n        \"thermal_history_treatment\": \"heated to 280°C, held for 1 min\"\n      },\n      \"result_summary\": \"Melting temperature of PBAS was measured to be about 90 °C\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 11426,
+              "output_tokens": 3940,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.04936032",
+              "output_cost": "0.114851",
+              "total_cost": "0.16421132"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "ef27cd9318199ef5a5597276d4cdf5fd94d4716097b7c6e42b6b3b4f3222e962",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_1_27"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "DSC"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DSC",
+            "method_normalized": "DSC",
+            "sample_id": "s001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "resolved",
+            "parameters": {},
+            "result_summary": "Melting temperature of PBAS was measured to be about 90 °C",
+            "derived_property_ids": [
+              "prop001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_4_53",
+                "page": 4,
+                "bbox": [
+                  100.0,
+                  545.0,
+                  490.0,
+                  623.0
+                ],
+                "source_type": "text",
+                "source_sentence": "DSC thermograms of PBAS and a solution blend of PBAS and PET are shown in Figures 4 and $5 ,$respectively. $T _ { m }$of PBAS was about $9 0 ^ { \\circ } \\mathrm { C } .$."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dma_001",
+      "method_normalized": "DMA",
+      "block_ids": [
+        "P_3_40",
+        "P_3_41"
+      ],
+      "context_chars": 470,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 10121,
+              "output_tokens": 317,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 9016
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08267184",
+              "output_cost": "0.00924055",
+              "total_cost": "0.09191239"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "f5ed295b86c74e957a75cb171b92a7c949a22cb264b96d78fc733b8ea06f6289",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_1_28",
+        "T_1_29",
+        "P_3_40",
+        "P_3_41",
+        "I_5_59",
+        "P_7_79",
+        "P_7_80",
+        "P_7_81",
+        "P_7_83",
+        "P_7_85",
+        "P_7_86"
+      ],
+      "context_chars": 4839,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_28\",\n          \"source_sentence\": \"A Seiko TG/DMA320 was used to evaluate the thermal degradation temperature. Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_5_59\",\n          \"source_sentence\": \"Figure 8 TGA thermograms of PBAS, PET, and the copolyesters.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_80\",\n          \"source_sentence\": \"Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents. The thermal decomposition temperature rose with the number of PET units. Higher thermal stability was achieved with an increased number of embedded aromatic units, which were thermally more stable than the aliphatic units.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Seiko TG/DMA320\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ],\n          \"final_temperature\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ],\n          \"heating_rate\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ],\n          \"sample_mass\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"nitrogen gas\",\n          \"final_temperature\": \"600°C\",\n          \"heating_rate\": \"30°C/min\",\n          \"sample_mass\": \"5 ± 1 mg\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"thermogravimetric analysis (TGA)\",\n      \"parameters\": {\n        \"atmosphere\": \"nitrogen gas\",\n        \"final_temperature\": \"600°C\",\n        \"heating_rate\": \"30°C/min\",\n        \"sample_mass\": \"5 ± 1 mg\"\n      },\n      \"result_summary\": \"Thermal decomposition temperature rose with increasing PET unit content, higher thermal stability achieved with more embedded aromatic units.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\",\n        \"s012\",\n        \"s013\",\n        \"s014\",\n        \"s015\",\n        \"s016\",\n        \"s017\",\n        \"s018\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.85\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_79\",\n          \"source_sentence\": \"As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET. It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": null,\n      \"property_name_raw\": \"PET unit block\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"longer block exists when PET contents increased beyond 40 wt %\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.85\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_85\",\n          \"source_sentence\": \"The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": null,\n      \"property_name_raw\": \"hard PET blocks\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand002\",\n      \"unit_raw\": null,\n      \"value_raw\": \"number increases with PET contents greater than 30 wt %\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 11342,
+              "output_tokens": 5539,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 9016
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08794656",
+              "output_cost": "0.16146185",
+              "total_cost": "0.24940841"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "432903f917a6f76d892cba8f0122eb37dfc08168c496c4f25190a44bef9af0a4",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_1_28"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "tga_001",
+          "reason": "char001.measurement_context.other_conditions.sample_mass.raw 无法在字段专属 evidence中定位"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010",
+              "s011",
+              "s012",
+              "s013",
+              "s014",
+              "s015",
+              "s016",
+              "s017",
+              "s018"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "nitrogen gas",
+                "final_temperature": "600°C",
+                "heating_rate": "30°C/min",
+                "sample_mass": "5 ± 1 mg"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_1_28",
+                    "page": 1,
+                    "bbox": [
+                      507.0,
+                      707.0,
+                      900.0,
+                      769.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+                  }
+                ],
+                "final_temperature": [
+                  {
+                    "block_id": "P_1_28",
+                    "page": 1,
+                    "bbox": [
+                      507.0,
+                      707.0,
+                      900.0,
+                      769.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+                  }
+                ],
+                "heating_rate": [
+                  {
+                    "block_id": "P_1_28",
+                    "page": 1,
+                    "bbox": [
+                      507.0,
+                      707.0,
+                      900.0,
+                      769.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+                  }
+                ],
+                "sample_mass": [
+                  {
+                    "block_id": "P_1_28",
+                    "page": 1,
+                    "bbox": [
+                      507.0,
+                      707.0,
+                      900.0,
+                      769.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Thermal decomposition temperature rose with increasing PET unit content, higher thermal stability achieved with more embedded aromatic units.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "I_5_59",
+                "page": 5,
+                "bbox": [
+                  233.0,
+                  102.0,
+                  765.0,
+                  453.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 8 TGA thermograms of PBAS, PET, and the copolyesters."
+              },
+              {
+                "block_id": "P_7_80",
+                "page": 7,
+                "bbox": [
+                  100.0,
+                  661.0,
+                  490.0,
+                  767.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents. The thermal decomposition temperature rose with the number of PET units. Higher thermal stability was achieved with an increased number of embedded aromatic units, which were thermally more stable than the aliphatic units."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

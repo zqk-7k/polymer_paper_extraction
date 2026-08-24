@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0028883",
+  "polymer_entities": [
+    {
+      "entity_id": "pe001",
+      "polymer_name": "syndiotactic polypropylene",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "syndiotactic polypropylene",
+        "sPP"
+      ],
+      "resolved_from_mentions": [
+        "m001",
+        "m002",
+        "m005",
+        "m007",
+        "m009",
+        "m011",
+        "m013",
+        "m015",
+        "m017",
+        "m020",
+        "m021",
+        "m023",
+        "m025",
+        "m029",
+        "m032",
+        "m034",
+        "m038",
+        "m039",
+        "m041",
+        "m044",
+        "m046",
+        "m048"
+      ],
+      "evidence": {
+        "block_id": "P_1_25",
+        "page": 1,
+        "bbox": [
+          512.0,
+          808.0,
+          885.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The materials used in this study were mixtures of syndiotactic polypropylene (sPP) with a weightaverage molecular weight $\\left( M _ { \\mathrm { w } } \\right) = 1 2 7 , 0 0 0$and a number-average molecular weight $( M _ { \\mathrm { n } } ) = 5 4 , 0 0 0 ,$and random PEP with 5–15 wt % ethylene."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.99
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe002",
+      "polymer_name": "PEP",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "PEP"
+      ],
+      "resolved_from_mentions": [
+        "m003",
+        "m004",
+        "m006",
+        "m008",
+        "m010",
+        "m012",
+        "m014",
+        "m016",
+        "m018",
+        "m019",
+        "m022",
+        "m024",
+        "m026",
+        "m030",
+        "m031",
+        "m033",
+        "m035",
+        "m037",
+        "m040",
+        "m042",
+        "m043",
+        "m045",
+        "m047"
+      ],
+      "evidence": {
+        "block_id": "P_1_25",
+        "page": 1,
+        "bbox": [
+          512.0,
+          808.0,
+          885.0,
+          914.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The materials used in this study were mixtures of syndiotactic polypropylene (sPP) with a weightaverage molecular weight $\\left( M _ { \\mathrm { w } } \\right) = 1 2 7 , 0 0 0$and a number-average molecular weight $( M _ { \\mathrm { n } } ) = 5 4 , 0 0 0 ,$and random PEP with 5–15 wt % ethylene."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.91
+      },
+      "polymer_type": null,
+      "copolymer_type": null
+    },
+    {
+      "entity_id": "pe003",
+      "polymer_name": "sPP/PEP",
+      "polymer_type": "polymer_blend",
+      "representation_status": "expert_review_required",
+      "structural_features": [],
+      "source_names": [
+        "sPP/ PEP",
+        "sPP/PEP"
+      ],
+      "resolved_from_mentions": [
+        "m027",
+        "m028",
+        "m036"
+      ],
+      "evidence": {
+        "block_id": "P_6_67",
+        "page": 6,
+        "bbox": [
+          112.0,
+          383.0,
+          485.0,
+          913.0
+        ],
+        "source_type": "text",
+        "source_sentence": "For example, Figure 5 exhibits the DSC heating scans of sPP/PEP blends with various values of $w t _ { \\mathrm { P E P } }$crystallized at $T _ { \\mathrm { c } } ~ = ~ 1 1 0 ~ ^ { \\circ } \\mathrm { C }$."
+      },
+      "source_image_refs": [],
+      "confidence": {
+        "score": 0.98
+      },
+      "copolymer_type": null
+    }
+  ],
+  "unresolved_mention_ids": [],
+  "provenance": {
+    "stage": "stage2_polymer_entity",
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "models": [
+      "gpt-5.6-terra-2026-07-09"
+    ],
+    "prompt_id": "polymer.stage2.polymer_entity",
+    "prompt_version": "1.5.1",
+    "prompt_sha256": "ba24cf5cb30983f77218b8c41e6d9012fc7eba30e6f203a12e1412f9d3ffd033",
+    "input_hash": "428ca47b249508d252a5438bb0ed7510dac91287529d73b55d4984590dbcdd5c",
+    "model_config_hash": "c9e96c2514956e7b4b65eae3d327d34f95b7a33876cec6d4aa56f95eb79a9b50",
+    "cache_key": "412d9cb73b3ab97ee429757d4f105248f0ba902d11de60c692a60d1c7416f5bc",
+    "output_schema_version": "polymer_entity_schema.v3",
+    "implementation_version": "1.6.1",
+    "context_block_count": 44,
+    "context_chars": 36264,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 3,
+      "output_tokens": 1471,
+      "cache_creation_input_tokens": 19159,
+      "cache_read_input_tokens": 2222,
+      "billable_input_tokens": 21384,
+      "total_tokens": 22855
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.363528",
+      "output_cost": "0.148571",
+      "total_cost": "0.512099"
+    },
+    "status": "success"
+  },
+  "warnings": []
+}

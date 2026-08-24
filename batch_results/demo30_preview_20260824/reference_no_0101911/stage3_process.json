@@ -1,0 +1,330 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0101911",
+  "samples": [
+    {
+      "sample_id": "s001",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe001",
+      "polymer_name": "polyvinyl chloride",
+      "sample_label_raw": "PVC",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_30",
+        "page": 1,
+        "bbox": [
+          507.0,
+          406.0,
+          926.0,
+          496.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The dried ABS and PVC powder and the additives (Ca/Zn stabilizer (2.5wt%), ACR (1wt%), and organotin, 1 mL) were mixed in proportion."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s002",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe002",
+      "polymer_name": "polybutadiene grafted styrene and acrylonitrile copolymer",
+      "polymer_type": "copolymer",
+      "copolymer_type": "graft",
+      "sample_label_raw": "ABS",
+      "intended_use": [
+        "toughen PVC"
+      ],
+      "evidence": {
+        "block_id": "P_0_8",
+        "page": 0,
+        "bbox": [
+          80.0,
+          502.0,
+          915.0,
+          702.0
+        ],
+        "source_type": "text",
+        "source_sentence": "In this work, the core–shell structure polybutadiene grafted styrene and acrylonitrile copolymer (PB-g-SAN), named (ABS), was utilized to toughen PVC."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "material_type": null
+    },
+    {
+      "sample_id": "s003",
+      "sample_kind": "synthesis_batch",
+      "refers_to_entity": "pe003",
+      "polymer_name": "styrene-N-phenylmaleimide-acrylonitrile terpolymer",
+      "polymer_type": "copolymer",
+      "sample_label_raw": "SMIA",
+      "state_description": "synthesized by bulk polymerization",
+      "intended_use": [
+        "improve the heat resistance of the composite"
+      ],
+      "evidence": {
+        "block_id": "P_0_8",
+        "page": 0,
+        "bbox": [
+          80.0,
+          502.0,
+          915.0,
+          702.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The heat-resistant modifier styrene-N-phenylmaleimide-acrylonitrile terpolymer (SMIA) synthesized by bulk polymerization was added to PVC/ABS to improve the heat resistance of the composite."
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null,
+      "material_type": null
+    },
+    {
+      "sample_id": "s004",
+      "sample_kind": "intermediate",
+      "refers_to_entity": "pe011",
+      "polymer_name": "PVC/ ABS (90: 10)",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "PVC/ABS (90: 10)",
+      "state_description": "obtained by melting and mixing for 3 min using a two-roll kneader at 170 °C",
+      "intended_use": [
+        "blended with SMIA to optimize heat resistance of the composite"
+      ],
+      "evidence": {
+        "block_id": "P_1_30",
+        "page": 1,
+        "bbox": [
+          507.0,
+          406.0,
+          926.0,
+          496.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The PVC/ABS composite material was obtained by melting and mixing for 3 min using a two-roll kneader at 170 °C"
+      },
+      "confidence": {
+        "score": 0.9
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s005",
+      "sample_kind": "processed_material",
+      "refers_to_entity": "pe012",
+      "polymer_name": "SMIA/PVC/ABS composites",
+      "polymer_type": "polymer_blend",
+      "material_type": "compound",
+      "sample_label_raw": "SMIA/PVC/ABS composites",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_30",
+        "page": 1,
+        "bbox": [
+          507.0,
+          406.0,
+          926.0,
+          496.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The preparation of SMIA/PVC/ABS composites was similar to the aforementioned preparation of PVC/ABS composites."
+      },
+      "confidence": {
+        "score": 0.8
+      },
+      "copolymer_type": null
+    },
+    {
+      "sample_id": "s006",
+      "sample_kind": "commercial_batch",
+      "refers_to_entity": "pe007",
+      "polymer_name": "acrylic resin",
+      "sample_label_raw": "ACR",
+      "intended_use": [],
+      "evidence": {
+        "block_id": "P_1_30",
+        "page": 1,
+        "bbox": [
+          507.0,
+          406.0,
+          926.0,
+          496.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The dried ABS and PVC powder and the additives (Ca/Zn stabilizer (2.5wt%), ACR (1wt%), and organotin, 1 mL) were mixed in proportion."
+      },
+      "confidence": {
+        "score": 0.85
+      },
+      "polymer_type": null,
+      "copolymer_type": null,
+      "material_type": null
+    }
+  ],
+  "process_steps": [
+    {
+      "step_id": "ps001",
+      "process_type": "blending",
+      "input_sample_ids": [
+        "s001",
+        "s002",
+        "s006"
+      ],
+      "output_sample_ids": [
+        "s004"
+      ],
+      "parameters": {
+        "temperature": "170 °C",
+        "mixing_time": "3 min",
+        "equipment": "two-roll kneader",
+        "Ca/Zn stabilizer": "2.5wt%",
+        "ACR": "1wt%",
+        "organotin": "1 mL"
+      },
+      "evidence": {
+        "block_id": "P_1_30",
+        "page": 1,
+        "bbox": [
+          507.0,
+          406.0,
+          926.0,
+          496.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The dried ABS and PVC powder and the additives (Ca/Zn stabilizer (2.5wt%), ACR (1wt%), and organotin, 1 mL) were mixed in proportion. The PVC/ABS composite material was obtained by melting and mixing for 3 min using a two-roll kneader at 170 °C"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "step_id": "ps002",
+      "process_type": "blending",
+      "input_sample_ids": [
+        "s004",
+        "s003"
+      ],
+      "output_sample_ids": [
+        "s005"
+      ],
+      "parameters": {},
+      "evidence": {
+        "block_id": "P_3_60",
+        "page": 3,
+        "bbox": [
+          507.0,
+          38.0,
+          926.0,
+          84.0
+        ],
+        "source_type": "text",
+        "source_sentence": "To optimize heat resistance of the composite, PVC/ ABS (90: 10), which reached the highest impact strength, was blended with SMIA."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "unresolved_entity_ids": [
+    "pe004",
+    "pe005",
+    "pe006",
+    "pe008",
+    "pe009",
+    "pe010"
+  ],
+  "provenance": {
+    "stage": "stage3_sample_process",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage3.sample_process",
+    "prompt_version": "1.6.0",
+    "prompt_sha256": "2e1a68ec3527b9fc0b7864def9fef97739cb972ae5e2de4b8185d81d299aee3e",
+    "input_hash": "9f1d79e8e7bab1107af8ced0a613151b8bb6b37725365d625cc5101338043b7c",
+    "model_config_hash": "7a389959b1eae8cb35e4c5e5702559631666e759a9891cf98687a5b37dd5d1ad",
+    "cache_key": "45b59673e6a575a59991a54033b3f4f5cec1e6b159e8fd1b140221fb850f803c",
+    "output_schema_version": "sample_process_schema.v4",
+    "implementation_version": "1.7.1",
+    "context_block_count": 5,
+    "context_chars": 6030,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 8653,
+      "output_tokens": 5848,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 8653,
+      "total_tokens": 14501
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.03738096",
+      "output_cost": "0.1704692",
+      "total_cost": "0.20785016"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage3_sample_process",
+      "code": "section_fallback",
+      "message": "Methods 为空，仅使用 Stage 2 entity 的 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema/Process 图合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "s004.sample_label_raw 不是 evidence 原文子串"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "material_type_evidence_inferred",
+      "message": "已根据样品中的明确配方或增强组分证据补全 material_type",
+      "items": [
+        {
+          "sample_id": "s004",
+          "field": "material_type",
+          "previous_value": "composite",
+          "value": "compound",
+          "step_id": "ps001",
+          "process_type": "blending",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        },
+        {
+          "sample_id": "s005",
+          "field": "material_type",
+          "previous_value": "composite",
+          "value": "compound",
+          "step_id": "ps002",
+          "process_type": "blending",
+          "reason": "多组分配方步骤无填料或增强体证据"
+        }
+      ]
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities",
+      "message": "6 个 entity 未解析到实际样品",
+      "entity_ids": [
+        "pe004",
+        "pe005",
+        "pe006",
+        "pe008",
+        "pe009",
+        "pe010"
+      ]
+    }
+  ]
+}

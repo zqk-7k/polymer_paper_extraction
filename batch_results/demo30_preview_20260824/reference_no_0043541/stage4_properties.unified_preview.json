@@ -1,0 +1,3016 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043541",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc004",
+      "temperature": null,
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_3_40",
+        "page": 3,
+        "bbox": [
+          89.0,
+          569.0,
+          486.0,
+          915.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The graft density was estimated to be ca. 0.22 $\\mathrm { c h a i n s } / \\mathrm { n m } ^ { 2 }$based on the linear relationship between $M _ { \\mathrm { n } }$and the thickness.",
+        "table_locator": null
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc006",
+      "temperature": {
+        "raw": "298 K",
+        "value": 298.0,
+        "unit": "K",
+        "evidence": [
+          {
+            "block_id": "I_5_74",
+            "page": 5,
+            "bbox": [
+              497.0,
+              690.0,
+              728.0,
+              840.0
+            ],
+            "source_type": "image",
+            "source_sentence": "at 298 K",
+            "table_locator": null
+          }
+        ],
+        "evidence_ids": []
+      },
+      "frequency": null,
+      "humidity": null,
+      "pressure": null,
+      "wavelength": null,
+      "other_conditions": {
+        "sliding_distance": "20 mm",
+        "sliding_velocity": "90 mm/min",
+        "load": "0.49 N"
+      },
+      "other_condition_evidence": {
+        "sliding_distance": [
+          {
+            "block_id": "I_5_74",
+            "page": 5,
+            "bbox": [
+              497.0,
+              690.0,
+              728.0,
+              840.0
+            ],
+            "source_type": "image",
+            "source_sentence": "over a width of 20 mm",
+            "table_locator": null
+          }
+        ],
+        "sliding_velocity": [
+          {
+            "block_id": "I_5_74",
+            "page": 5,
+            "bbox": [
+              497.0,
+              690.0,
+              728.0,
+              840.0
+            ],
+            "source_type": "image",
+            "source_sentence": "at a sliding velocity of 90 mm/min",
+            "table_locator": null
+          }
+        ],
+        "load": [
+          {
+            "block_id": "I_5_74",
+            "page": 5,
+            "bbox": [
+              497.0,
+              690.0,
+              728.0,
+              840.0
+            ],
+            "source_type": "image",
+            "source_sentence": "under loading of 0.49 N",
+            "table_locator": null
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "I_5_74",
+        "page": 5,
+        "bbox": [
+          497.0,
+          690.0,
+          728.0,
+          840.0
+        ],
+        "source_type": "image",
+        "source_sentence": "Friction coefficient of poly(MPC) brush (a) and poly (METAI) brush (b) in NaCl aqueous solution by sliding a glass ball immobilized with OTMS over a width of 20 mm at a sliding velocity of 90 mm/min under loading of 0.49 N at 298 K.",
+        "table_locator": null
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s002",
+      "property_name_raw": "graft density",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": "based on the linear relationship between M<sub>n</sub> and the thickness",
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "0.22",
+      "value_min": 0.22,
+      "value_max": 0.22,
+      "unit_raw": "chains/nm²",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_3_40",
+          "page": 3,
+          "bbox": [
+            89.0,
+            569.0,
+            486.0,
+            915.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The graft density was estimated to be ca. 0.22 $\\mathrm { c h a i n s } / \\mathrm { n m } ^ { 2 }$based on the linear relationship between $M _ { \\mathrm { n } }$and the thickness.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s003",
+      "property_name_raw": "graft density",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "0.40",
+      "value_min": 0.4,
+      "value_max": 0.4,
+      "unit_raw": "chains/nm²",
+      "unit_normalized": null,
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_3_40",
+          "page": 3,
+          "bbox": [
+            89.0,
+            569.0,
+            486.0,
+            915.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Similarly, the graft density of the poly(DMAEMA) brush was determined to be 0.40 chains/nm<sup>2</sup>.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop006",
+      "sample_id": "s002",
+      "property_name_raw": "friction coefficient",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "around 0.1",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "measurement_condition_id": "mc006",
+      "measurement_context": {
+        "temperature": {
+          "raw": "298 K",
+          "value": 298.0,
+          "unit": "K",
+          "evidence": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "at 298 K",
+              "table_locator": null
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "sliding_distance": "20 mm",
+          "sliding_velocity": "90 mm/min",
+          "load": "0.49 N"
+        },
+        "other_condition_evidence": {
+          "sliding_distance": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "over a width of 20 mm",
+              "table_locator": null
+            }
+          ],
+          "sliding_velocity": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "at a sliding velocity of 90 mm/min",
+              "table_locator": null
+            }
+          ],
+          "load": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "under loading of 0.49 N",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_6_82",
+          "page": 6,
+          "bbox": [
+            96.0,
+            603.0,
+            493.0,
+            915.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The friction coefficients in the salt solution were around 0.1, which is close to those in pure water.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s004",
+      "property_name_raw": "friction coefficient",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "molecular_weight_type": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "observation_role": "single",
+      "series_id": null,
+      "series_ids": null,
+      "value_raw": "around 0.1",
+      "value_min": null,
+      "value_max": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "measurement_condition_id": "mc006",
+      "measurement_context": {
+        "temperature": {
+          "raw": "298 K",
+          "value": 298.0,
+          "unit": "K",
+          "evidence": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "at 298 K",
+              "table_locator": null
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {
+          "sliding_distance": "20 mm",
+          "sliding_velocity": "90 mm/min",
+          "load": "0.49 N"
+        },
+        "other_condition_evidence": {
+          "sliding_distance": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "over a width of 20 mm",
+              "table_locator": null
+            }
+          ],
+          "sliding_velocity": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "at a sliding velocity of 90 mm/min",
+              "table_locator": null
+            }
+          ],
+          "load": [
+            {
+              "block_id": "I_5_74",
+              "page": 5,
+              "bbox": [
+                497.0,
+                690.0,
+                728.0,
+                840.0
+              ],
+              "source_type": "image",
+              "source_sentence": "under loading of 0.49 N",
+              "table_locator": null
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_6_82",
+          "page": 6,
+          "bbox": [
+            96.0,
+            603.0,
+            493.0,
+            915.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The friction coefficients in the salt solution were around 0.1, which is close to those in pure water.",
+          "table_locator": null
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "unresolved_properties": [],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "static water contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "1 ~ 3",
+          "value_min": 1.0,
+          "value_max": 3.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td rowspan=\"4\"> $Water^{a)}$ </td><td>(static)</td><td> $1 \\sim 3^{\\circ}$ </td><td> $56^{\\circ}$ </td><td> $36^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "poly(MPC)",
+                "cell_value": "1 ~ 3°",
+                "cell_id": null,
+                "row_index": null,
+                "column_index": null
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "56",
+          "value_min": 56.0,
+          "value_max": 56.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td rowspan=\"4\"> $Water^{a)}$ </td><td>(static)</td><td> $1 \\sim 3^{\\circ}$ </td><td> $56^{\\circ}$ </td><td> $36^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$56^{\\circ}$",
+                "cell_id": "T_4_49:r0001:c0003",
+                "row_index": 1,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt003",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "36",
+          "value_min": 36.0,
+          "value_max": 36.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td rowspan=\"4\"> $Water^{a)}$ </td><td>(static)</td><td> $1 \\sim 3^{\\circ}$ </td><td> $56^{\\circ}$ </td><td> $36^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$36^{\\circ}$",
+                "cell_id": "T_4_49:r0001:c0004",
+                "row_index": 1,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td rowspan=\"4\"> $Water^{a)}$ </td><td>(static)</td><td> $1 \\sim 3^{\\circ}$ </td><td> $56^{\\circ}$ </td><td> $36^{\\circ}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "$Water^{a)}$",
+            "column_label": "poly(MPC)",
+            "cell_value": "1 ~ 3°",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series002",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "advancing water contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt004",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "13",
+          "value_min": 13.0,
+          "value_max": 13.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(advancing)</td><td> $13^{°b)}$ </td><td> $78^{°c)}$ </td><td> $69^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$13^{°b)}$",
+                "cell_id": "T_4_49:r0002:c0002",
+                "row_index": 2,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt005",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "78",
+          "value_min": 78.0,
+          "value_max": 78.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(advancing)</td><td> $13^{°b)}$ </td><td> $78^{°c)}$ </td><td> $69^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$78^{°c)}$",
+                "cell_id": "T_4_49:r0002:c0003",
+                "row_index": 2,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt006",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "69",
+          "value_min": 69.0,
+          "value_max": 69.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(advancing)</td><td> $13^{°b)}$ </td><td> $78^{°c)}$ </td><td> $69^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$69^{°c)}$",
+                "cell_id": "T_4_49:r0002:c0004",
+                "row_index": 2,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td>(advancing)</td><td> $13^{°b)}$ </td><td> $78^{°c)}$ </td><td> $69^{°c)}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "$Water^{a)}$",
+            "column_label": "$<5^{\\circ}$",
+            "cell_value": "$13^{°b)}$",
+            "cell_id": "T_4_49:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series003",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "receding water contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt007",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "<5",
+          "value_min": null,
+          "value_max": 5.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(receding)</td><td> $<5^{°b)}$ </td><td> $27^{°c)}$ </td><td> $18^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$<5^{°b)}$",
+                "cell_id": "T_4_49:r0003:c0002",
+                "row_index": 3,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt008",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "27",
+          "value_min": 27.0,
+          "value_max": 27.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(receding)</td><td> $<5^{°b)}$ </td><td> $27^{°c)}$ </td><td> $18^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$27^{°c)}$",
+                "cell_id": "T_4_49:r0003:c0003",
+                "row_index": 3,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt009",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "18",
+          "value_min": 18.0,
+          "value_max": 18.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(receding)</td><td> $<5^{°b)}$ </td><td> $27^{°c)}$ </td><td> $18^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$18^{°c)}$",
+                "cell_id": "T_4_49:r0003:c0004",
+                "row_index": 3,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td>(receding)</td><td> $<5^{°b)}$ </td><td> $27^{°c)}$ </td><td> $18^{°c)}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "$Water^{a)}$",
+            "column_label": "$<5^{\\circ}$",
+            "cell_value": "$<5^{°b)}$",
+            "cell_id": "T_4_49:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series004",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "sliding water contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt010",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "15",
+          "value_min": 15.0,
+          "value_max": 15.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(sliding)</td><td> $15^{°b)}$ </td><td> $62^{°c)}$ </td><td> $41^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$15^{°b)}$",
+                "cell_id": "T_4_49:r0004:c0002",
+                "row_index": 4,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt011",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "62",
+          "value_min": 62.0,
+          "value_max": 62.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(sliding)</td><td> $15^{°b)}$ </td><td> $62^{°c)}$ </td><td> $41^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$62^{°c)}$",
+                "cell_id": "T_4_49:r0004:c0003",
+                "row_index": 4,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt012",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "41",
+          "value_min": 41.0,
+          "value_max": 41.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>(sliding)</td><td> $15^{°b)}$ </td><td> $62^{°c)}$ </td><td> $41^{°c)}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Water^{a)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$41^{°c)}$",
+                "cell_id": "T_4_49:r0004:c0004",
+                "row_index": 4,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td>(sliding)</td><td> $15^{°b)}$ </td><td> $62^{°c)}$ </td><td> $41^{°c)}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "$Water^{a)}$",
+            "column_label": "$<5^{\\circ}$",
+            "cell_value": "$15^{°b)}$",
+            "cell_id": "T_4_49:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series005",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "static air (in water) contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt013",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "170",
+          "value_min": 170.0,
+          "value_max": 170.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>Air (in water) $^{d)}$ </td><td>(static)</td><td> $170^{\\circ}$ </td><td> $138^{\\circ}$ </td><td> $145^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "Air (in water) $^{d)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$170^{\\circ}$",
+                "cell_id": "T_4_49:r0005:c0002",
+                "row_index": 5,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt014",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "138",
+          "value_min": 138.0,
+          "value_max": 138.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>Air (in water) $^{d)}$ </td><td>(static)</td><td> $170^{\\circ}$ </td><td> $138^{\\circ}$ </td><td> $145^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "Air (in water) $^{d)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$138^{\\circ}$",
+                "cell_id": "T_4_49:r0005:c0003",
+                "row_index": 5,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt015",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "145",
+          "value_min": 145.0,
+          "value_max": 145.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td>Air (in water) $^{d)}$ </td><td>(static)</td><td> $170^{\\circ}$ </td><td> $138^{\\circ}$ </td><td> $145^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "Air (in water) $^{d)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$145^{\\circ}$",
+                "cell_id": "T_4_49:r0005:c0004",
+                "row_index": 5,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td>Air (in water) $^{d)}$ </td><td>(static)</td><td> $170^{\\circ}$ </td><td> $138^{\\circ}$ </td><td> $145^{\\circ}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "Air (in water) $^{d)}$",
+            "column_label": "$<5^{\\circ}$",
+            "cell_value": "$170^{\\circ}$",
+            "cell_id": "T_4_49:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series006",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "static diiodomethane contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt016",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "45",
+          "value_min": 45.0,
+          "value_max": 45.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td> $Diiodomethane^{e)}$ </td><td>(static)</td><td> $45^{\\circ}$ </td><td> $38^{\\circ}$ </td><td> $47^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Diiodomethane^{e)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$45^{\\circ}$",
+                "cell_id": "T_4_49:r0006:c0002",
+                "row_index": 6,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt017",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "38",
+          "value_min": 38.0,
+          "value_max": 38.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td> $Diiodomethane^{e)}$ </td><td>(static)</td><td> $45^{\\circ}$ </td><td> $38^{\\circ}$ </td><td> $47^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Diiodomethane^{e)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$38^{\\circ}$",
+                "cell_id": "T_4_49:r0006:c0003",
+                "row_index": 6,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt018",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "47",
+          "value_min": 47.0,
+          "value_max": 47.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td> $Diiodomethane^{e)}$ </td><td>(static)</td><td> $45^{\\circ}$ </td><td> $38^{\\circ}$ </td><td> $47^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$Diiodomethane^{e)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$47^{\\circ}$",
+                "cell_id": "T_4_49:r0006:c0004",
+                "row_index": 6,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td> $Diiodomethane^{e)}$ </td><td>(static)</td><td> $45^{\\circ}$ </td><td> $38^{\\circ}$ </td><td> $47^{\\circ}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "$Diiodomethane^{e)}$",
+            "column_label": "$<5^{\\circ}$",
+            "cell_value": "$45^{\\circ}$",
+            "cell_id": "T_4_49:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series007",
+      "sample_id": null,
+      "entity_id": null,
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "static n-hexadecane contact angle",
+      "property_name_normalized": null,
+      "property_code": null,
+      "property_category": null,
+      "determination_method_raw": null,
+      "observation_group_id": null,
+      "unit_raw": "°",
+      "unit_normalized": null,
+      "measurement_context": {
+        "temperature": null,
+        "frequency": null,
+        "humidity": null,
+        "pressure": null,
+        "wavelength": null,
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt019",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "<5",
+          "value_min": null,
+          "value_max": 5.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td> $n-Hexadecane^{e)}$ </td><td>(static)</td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$n-Hexadecane^{e)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$<5^{\\circ}$",
+                "cell_id": "T_4_49:r0007:c0002",
+                "row_index": 7,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt020",
+          "observation_role": "series_point",
+          "sample_id": "s003",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "<5",
+          "value_min": null,
+          "value_max": 5.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td> $n-Hexadecane^{e)}$ </td><td>(static)</td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$n-Hexadecane^{e)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$<5^{\\circ}$",
+                "cell_id": "T_4_49:r0007:c0003",
+                "row_index": 7,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt021",
+          "observation_role": "series_point",
+          "sample_id": "s004",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "<5",
+          "value_min": null,
+          "value_max": 5.0,
+          "unit_raw": "°",
+          "unit_normalized": null,
+          "measurement_context": {
+            "temperature": null,
+            "frequency": null,
+            "humidity": null,
+            "pressure": null,
+            "wavelength": null,
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_49",
+              "page": 4,
+              "bbox": [
+                96.0,
+                67.0,
+                903.0,
+                217.0
+              ],
+              "source_type": "table",
+              "source_sentence": "<tr><td> $n-Hexadecane^{e)}$ </td><td>(static)</td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td></tr>",
+              "table_locator": {
+                "table_id": "T_4_49",
+                "row_label": "$n-Hexadecane^{e)}$",
+                "column_label": "$<5^{\\circ}$",
+                "cell_value": "$<5^{\\circ}$",
+                "cell_id": "T_4_49:r0007:c0004",
+                "row_index": 7,
+                "column_index": 4
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "<tr><td> $n-Hexadecane^{e)}$ </td><td>(static)</td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td><td> $<5^{\\circ}$ </td></tr>",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "row_label": "$n-Hexadecane^{e)}$",
+            "column_label": "$<5^{\\circ}$",
+            "cell_value": "$<5^{\\circ}$",
+            "cell_id": "T_4_49:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$1 \\sim 3^{\\circ}$",
+      "value_min": 1.0,
+      "value_max": 3.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$1 \\sim 3^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+            "row_label": "(static)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$1 \\sim 3^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$13^{°b)}$",
+      "value_min": 13.0,
+      "value_max": 13.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$13^{°b)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2,
+            "row_label": "(advancing)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$13^{°b)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp003",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$<5^{°b)}$",
+      "value_min": 5.0,
+      "value_max": 5.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$<5^{°b)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2,
+            "row_label": "(receding)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$<5^{°b)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp004",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$15^{°b)}$",
+      "value_min": 15.0,
+      "value_max": 15.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$15^{°b)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2,
+            "row_label": "(sliding)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$15^{°b)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp005",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$170^{\\circ}$",
+      "value_min": 170.0,
+      "value_max": 170.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$170^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2,
+            "row_label": "(static)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$170^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp006",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$45^{\\circ}$",
+      "value_min": 45.0,
+      "value_max": 45.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$45^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2,
+            "row_label": "(static)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$45^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp007",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$<5^{\\circ}$",
+      "value_min": 5.0,
+      "value_max": 5.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$<5^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2,
+            "row_label": "(static)",
+            "column_label": "poly(MPC)",
+            "cell_value": "$<5^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp008",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$56^{\\circ}$",
+      "value_min": 56.0,
+      "value_max": 56.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$56^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3,
+            "row_label": "(static)",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$56^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp009",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$78^{°c)}$",
+      "value_min": 78.0,
+      "value_max": 78.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$78^{°c)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3,
+            "row_label": "$13^{°b)}$",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$78^{°c)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp010",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$27^{°c)}$",
+      "value_min": 27.0,
+      "value_max": 27.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$27^{°c)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "row_label": "$<5^{°b)}$",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$27^{°c)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp011",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$62^{°c)}$",
+      "value_min": 62.0,
+      "value_max": 62.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$62^{°c)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "row_label": "$15^{°b)}$",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$62^{°c)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp012",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$138^{\\circ}$",
+      "value_min": 138.0,
+      "value_max": 138.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$138^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3,
+            "row_label": "(static)",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$138^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp013",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$38^{\\circ}$",
+      "value_min": 38.0,
+      "value_max": 38.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$38^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3,
+            "row_label": "(static)",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$38^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp014",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$<5^{\\circ}$",
+      "value_min": 5.0,
+      "value_max": 5.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$<5^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0003",
+            "row_index": 7,
+            "column_index": 3,
+            "row_label": "(static)",
+            "column_label": "poly(DMAEMA)",
+            "cell_value": "$<5^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp015",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$36^{\\circ}$",
+      "value_min": 36.0,
+      "value_max": 36.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$36^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0001:c0004",
+            "row_index": 1,
+            "column_index": 4,
+            "row_label": "(static)",
+            "column_label": "poly(METAI)",
+            "cell_value": "$36^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp016",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$69^{°c)}$",
+      "value_min": 69.0,
+      "value_max": 69.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$69^{°c)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0002:c0004",
+            "row_index": 2,
+            "column_index": 4,
+            "row_label": "$13^{°b)}$",
+            "column_label": "poly(METAI)",
+            "cell_value": "$69^{°c)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp017",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$18^{°c)}$",
+      "value_min": 18.0,
+      "value_max": 18.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$18^{°c)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0003:c0004",
+            "row_index": 3,
+            "column_index": 4,
+            "row_label": "$<5^{°b)}$",
+            "column_label": "poly(METAI)",
+            "cell_value": "$18^{°c)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp018",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$41^{°c)}$",
+      "value_min": 41.0,
+      "value_max": 41.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$41^{°c)}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0004:c0004",
+            "row_index": 4,
+            "column_index": 4,
+            "row_label": "$15^{°b)}$",
+            "column_label": "poly(METAI)",
+            "cell_value": "$41^{°c)}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp019",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$145^{\\circ}$",
+      "value_min": 145.0,
+      "value_max": 145.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$145^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0005:c0004",
+            "row_index": 5,
+            "column_index": 4,
+            "row_label": "(static)",
+            "column_label": "poly(METAI)",
+            "cell_value": "$145^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp020",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$47^{\\circ}$",
+      "value_min": 47.0,
+      "value_max": 47.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$47^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4,
+            "row_label": "(static)",
+            "column_label": "poly(METAI)",
+            "cell_value": "$47^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp021",
+      "source_field": null,
+      "semantic_label": null,
+      "variant": null,
+      "value_kind": "numeric_scalar",
+      "value_raw": "$<5^{\\circ}$",
+      "value_min": 5.0,
+      "value_max": 5.0,
+      "categorical_value": null,
+      "text_value": null,
+      "unit_raw": null,
+      "unit_normalized": null,
+      "unit_status": "missing",
+      "method_raw": null,
+      "sample_id": null,
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage4t",
+      "evidence": [
+        {
+          "block_id": "T_4_49",
+          "page": 4,
+          "bbox": [
+            96.0,
+            67.0,
+            903.0,
+            217.0
+          ],
+          "source_type": "table",
+          "source_sentence": "$<5^{\\circ}$",
+          "table_locator": {
+            "table_id": "T_4_49",
+            "cell_id": "T_4_49:r0007:c0004",
+            "row_index": 7,
+            "column_index": 4,
+            "row_label": "(static)",
+            "column_label": "poly(METAI)",
+            "cell_value": "$<5^{\\circ}$"
+          }
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "fb422d00e41b8fca1fc4aff1ba79a5915b55c3a539c421bc79e25a76a6a463ae",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "07d1ac008fc6e0adedb3ed9248b76b85a6e798e7929a38f84ff6e8051b3f65a4",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 23,
+    "context_chars": 17377,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 21078,
+      "output_tokens": 12416,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 21078,
+      "total_tokens": 33494
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.09105696",
+      "output_cost": "0.3619264",
+      "total_cost": "0.45298336"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "preview_point_locator_recovered_from_unique_table_row",
+      "message": "Preview 模式已用唯一完整表格行、唯一列头及一致 value_raw 补全 Series point 的稳定坐标",
+      "points": 20
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 7
+    },
+    {
+      "stage": "stage4_property",
+      "code": "empty_reported_context_downgraded",
+      "message": "measurement_context 标记为 reported 但没有任何条件值；已确定性改为 not_reported",
+      "contexts": 3
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 24
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop004.determination_method_raw='based on the linear relationship between M<sub>n</sub> and the thickness' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布",
+      "blocking": true,
+      "series_ids": [
+        "series001",
+        "series002",
+        "series003",
+        "series004",
+        "series005",
+        "series006",
+        "series007"
+      ]
+    },
+    {
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    }
+  ]
+}

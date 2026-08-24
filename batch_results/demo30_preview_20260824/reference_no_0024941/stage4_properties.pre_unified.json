@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0024941",
+  "measurement_conditions": [],
+  "properties": [],
+  "unresolved_properties": [],
+  "property_series": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2-0-pro-260215",
+    "models": [
+      "doubao-seed-2-0-pro-260215"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "9ae81acf06e2f0c120b5d46b5d747493cb40495ce87e2e8d27fe6bdcfb39e332",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "1c1d610b3f44402b732fb99c933e259416c3c1b0e6849d02a0a6f4bc70911390",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 60,
+    "context_chars": 34599,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 28598,
+      "output_tokens": 23195,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 28598,
+      "total_tokens": 51793
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.12354336",
+      "output_cost": "0.67613425",
+      "total_cost": "0.79967761"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "all_tables_included",
+      "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入",
+      "table_block_ids": [
+        "T_7_105"
+      ]
+    },
+    {
+      "stage": "stage4_property",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 4 响应，未请求模型",
+      "source": "stage4_failure.json"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 6
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 55
+    },
+    {
+      "stage": "stage4_property",
+      "code": "condition_table_locators_synthesized",
+      "message": "已将唯一包含条件 raw 的表头单元格绑定为条件 evidence",
+      "evidence": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_method_evidence_supplemented",
+      "message": "Series determination method 不在 point 表格 evidence；已补入全文中唯一的完全匹配原文 block",
+      "series": 4
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_context_evidence_supplemented",
+      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block",
+      "series_evidence": 3
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_series_unsupported_fields_removed",
+      "message": "PropertySeries 包含仅适用于标量性质的字段；Preview 已删除该字段，Strict 模式仍会报错",
+      "fields": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_degraded_empty_shell",
+      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果",
+      "degraded": true,
+      "blocking": true,
+      "reason": "unresolved_properties.0.entity_id: Input should be a valid string; unresolved_properties.1.entity_id: Input should be a valid string; unresolved_properties.2.entity_id: Input should be a valid string; unresolved_properties.3.entity_id: Input should be a valid string; unresolved_properties.4.entity_id: Input should be a valid string"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0037886",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "sample_id": "s003",
+      "entity_id": "pe001",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "Calorimetric glass transition temperature of P4THPMA sample s003 was measured by DSC.",
+      "derived_property_ids": [
+        "prop001"
+      ],
+      "evidence": [
+        {
+          "block_id": "I_10_130",
+          "page": 10,
+          "bbox": [
+            531.0,
+            618.0,
+            917.0,
+            832.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Arrows show the calorimetric glass transition temperature $( T _ { \\mathrm { g } } ) _ { \\mathrm { : } }$ measured by DSC."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "9db75ed1e6cbe74dd01a8c5add1a9173426b5a11f9a0a26947c0daa7970e77e7",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "467f513f663382797b818618288f54710a155c0df67b48d83da81e198f7604c5",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 74,
+    "context_chars": 56225,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 9624,
+      "output_tokens": 2026,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 9624,
+      "total_tokens": 11650
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.04157568",
+      "output_cost": "0.0590579",
+      "total_cost": "0.10063358"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0039705",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 7,
+  "usage": {
+    "input_tokens": 103346,
+    "output_tokens": 36621,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 50000,
+    "billable_input_tokens": 153346,
+    "total_tokens": 189967
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.66245472",
+    "output_cost": "1.06750215",
+    "total_cost": "1.72995687"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\"characterizations\": [{\"characterization_id\": \"char001\", \"confidence\": {\"score\": 0.9}, \"derived_property_ids\": [], \"entity_ids\": [\"pe004\", \"pe005\", \"pe006\", \"pe007\", \"pe008\", \"pe009\"], \"evidence\": [{\"block_id\": \"P_6_85\", \"source_sentence\": \"The thermal stability was estimated using TGA under nitrogen atmosphere at a heating rate of $10 \\\\mathrm { { ^ { \\\\circ } C / m i n } }$.\", \"table_locator\": null}, {\"block_id\": \"T_6_84\", \"source_sentence\": \"Table 2. TGA Data of Polymers Ia–IIc\", \"table_locator\": null}], \"instrument\": null, \"measurement_context\": null, \"method_normalized\": \"TGA\", \"method_raw\": \"TGA\", \"parameters\": {\"atmosphere\": \"nitrogen\", \"heating_rate\": \"10 °C/min\"}, \"result_summary\": \"Polymers Ia-IIc show two stage decomposition transitions above 250 °C, 5% weight loss temperature, 50% weight loss temperature and char yield at 800 °C are reported, methyl substituted polymers (Ia-Ic) have higher thermal stability and char yield than butyl substituted polymers (IIa-IIc), thermal stability decreases with increasing spacer length.\", \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\"], \"sample_resolution_status\": \"multi_resolved\", \"series_ids\": [\"series006\", \"series007\", \"series008\"]}], \"properties\": [], \"specialized_property_observations\": []}",
+    "usage": {
+      "input_tokens": 12873,
+      "output_tokens": 1812,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.10340784",
+      "output_cost": "0.0528198",
+      "total_cost": "0.15622764"
+    }
+  }
+}

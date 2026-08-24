@@ -1,0 +1,1025 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0042367",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {
+        "heating_rate": "10 °C per minute"
+      },
+      "other_condition_evidence": {
+        "heating_rate": [
+          {
+            "block_id": "P_2_37",
+            "page": 2,
+            "bbox": [
+              500.0,
+              505.0,
+              921.0,
+              750.0
+            ],
+            "source_type": "text",
+            "source_sentence": "the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute"
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_37",
+        "page": 2,
+        "bbox": [
+          500.0,
+          505.0,
+          921.0,
+          750.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Differential scanning calorimetry (DSC) analysis was carried out using a Perkin-Elmer, Pyris 6 DSC. Samples of between 9.3–10.3 mg were prepared from the base polymers and polymer blends. All measurements were conducted in crimped non-hermetic aluminium pans with an empty crimped aluminium pan being used as the reference cell. To assess the melting points and miscibility of the polymer(s), the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute. For investigation of the crystalline interactions, samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute and held isothermal for a 5-min period. The samples were then cooled down from 200°C to 20°C at a rate of 2°C per minute. All DSC tests were carried out under a 20 ml/min flow of nitrogen to prevent oxidation. High-purity indium was used to calibrate the DSC cell."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {
+        "pH": "7.0"
+      },
+      "other_condition_evidence": {
+        "pH": [
+          {
+            "block_id": "P_5_79",
+            "page": 5,
+            "bbox": [
+              504.0,
+              837.0,
+              926.0,
+              900.0
+            ],
+            "source_type": "text",
+            "source_sentence": "For this examination, the samples were immersed in PBS with a pH of 7.0 for 120 hours"
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_39",
+        "page": 2,
+        "bbox": [
+          501.0,
+          776.0,
+          921.0,
+          898.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The testing procedure for the phosphate buffered saline (PBS) adsorption was based on ASTM international standard D570-81 standard test method for water adsorption of plastics. This test covers the determination of the relative rate of adsorption of water by plastics when immersed. Three samples of each batch were cut into 60 mm by 10 mm strips and placed in test-tubes and dried in an oven for 24 hr at a temperature of 50°C. Samples were immersed in PBS at a temperature of 50°C. The PBS was made using distilled water and PBS tablets (Sigma Aldrich). After regular time intervals (24, 48 and 120 hr), samples were taken from the test tubes, surface water was removed using blotting paper, the samples were weighed and re-immersed in PBS."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "other_conditions": {
+        "cross_head_speed": "20 mm/min",
+        "test_length": "20 mm",
+        "width": "4 mm",
+        "standard": "ASTM D882-02"
+      },
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_3_47",
+        "page": 3,
+        "bbox": [
+          73.0,
+          297.0,
+          495.0,
+          450.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The tensile testing procedure used was based on the ASTM international standard D882-02 standard test method for tensile properties of thin plastic sheeting. The samples were cut into tensile samples using a dumbbell cutter, which gave a sample test length of 20 mm and a width of 4 mm. Five samples were tested from each batch using a Lloyd Lrx Tensile tester, with Nexygen software. A cross-head speed of 20 mm/min was used during all tests. To reduce slippage and sample breakage in the jaw area, paper labels were applied to the samples."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc004",
+      "other_conditions": {
+        "drop_volume": "0.1 ml"
+      },
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_3_49",
+        "page": 3,
+        "bbox": [
+          75.0,
+          484.0,
+          495.0,
+          561.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The surface properties of blends and base polymers were assessed using contact angle analysis. The contact angles of water on the thin film polymers were measured using a Rame-Hart Goniometer at room temperature (20°C). The drops were made using a Gilson Pipetman set to 0.1 ml."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s002",
+      "property_name_raw": "T_g",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
+      "observation_role": "single",
+      "value_raw": "65.7 °C",
+      "value_min": 65.7,
+      "value_max": 65.7,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "10 °C per minute"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_37",
+              "page": 2,
+              "bbox": [
+                500.0,
+                505.0,
+                921.0,
+                750.0
+              ],
+              "source_type": "text",
+              "source_sentence": "the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_64",
+          "page": 4,
+          "bbox": [
+            71.0,
+            640.0,
+            491.0,
+            900.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PLGA is a semi-crystalline polymer for which two peaks were exhibited: T_g at 65.7 °C and T_m at 145°C."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s011",
+      "property_name_raw": "T_g",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
+      "observation_role": "single",
+      "value_raw": "54 °C",
+      "value_min": 54.0,
+      "value_max": 54.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "10 °C per minute"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_37",
+              "page": 2,
+              "bbox": [
+                500.0,
+                505.0,
+                921.0,
+                750.0
+              ],
+              "source_type": "text",
+              "source_sentence": "the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_4_64",
+          "page": 4,
+          "bbox": [
+            71.0,
+            640.0,
+            491.0,
+            900.0
+          ],
+          "source_type": "text",
+          "source_sentence": "In the 50% blend of the two polymers, a single T_g was evident at 54 °C."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s001",
+      "property_name_raw": "percentage crystallinity",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
+      "observation_role": "single",
+      "value_raw": "53.5%",
+      "value_min": 53.5,
+      "value_max": 53.5,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "10 °C per minute"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_37",
+              "page": 2,
+              "bbox": [
+                500.0,
+                505.0,
+                921.0,
+                750.0
+              ],
+              "source_type": "text",
+              "source_sentence": "the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_74",
+          "page": 5,
+          "bbox": [
+            73.0,
+            731.0,
+            495.0,
+            898.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The percentage crystallinity calculated for compression moulded PCL homopolymer was 53.5%."
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s004",
+      "property_name_raw": "percentage crystallinity",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
+      "observation_role": "single",
+      "value_raw": "44.4%",
+      "value_min": 44.4,
+      "value_max": 44.4,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "10 °C per minute"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_37",
+              "page": 2,
+              "bbox": [
+                500.0,
+                505.0,
+                921.0,
+                750.0
+              ],
+              "source_type": "text",
+              "source_sentence": "the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_77",
+          "page": 5,
+          "bbox": [
+            504.0,
+            468.0,
+            926.0,
+            804.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the calculated crystallinity decreased from 44.4% to 5% as the blend ratio of PDLLA with PCL increased from 20:80 to 80:20"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s006",
+      "property_name_raw": "percentage crystallinity",
+      "determination_method_raw": "Differential scanning calorimetry (DSC)",
+      "observation_role": "single",
+      "value_raw": "5%",
+      "value_min": 5.0,
+      "value_max": 5.0,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {
+          "heating_rate": "10 °C per minute"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_37",
+              "page": 2,
+              "bbox": [
+                500.0,
+                505.0,
+                921.0,
+                750.0
+              ],
+              "source_type": "text",
+              "source_sentence": "the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_77",
+          "page": 5,
+          "bbox": [
+            504.0,
+            468.0,
+            926.0,
+            804.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the calculated crystallinity decreased from 44.4% to 5% as the blend ratio of PDLLA with PCL increased from 20:80 to 80:20"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop006",
+      "sample_id": "s001",
+      "property_name_raw": "PBS uptake",
+      "determination_method_raw": "ASTM D570-81",
+      "observation_role": "single",
+      "value_raw": "2 wt%",
+      "value_min": 2.0,
+      "value_max": 2.0,
+      "unit_raw": "wt%",
+      "unit_normalized": "wt%",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "other_conditions": {
+          "pH": "7.0"
+        },
+        "other_condition_evidence": {
+          "pH": [
+            {
+              "block_id": "P_5_79",
+              "page": 5,
+              "bbox": [
+                504.0,
+                837.0,
+                926.0,
+                900.0
+              ],
+              "source_type": "text",
+              "source_sentence": "For this examination, the samples were immersed in PBS with a pH of 7.0 for 120 hours"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_79",
+          "page": 5,
+          "bbox": [
+            504.0,
+            837.0,
+            926.0,
+            900.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Films of PCL were found to have a PBS uptake of approximately 2 wt% after 120 hr"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s001",
+      "property_name_raw": "contact angle",
+      "property_name_normalized": "contact_angle",
+      "property_code": "P5150",
+      "property_category": "physicochemical_property",
+      "determination_method_raw": "Rame-Hart Goniometer",
+      "observation_role": "single",
+      "value_raw": "77°",
+      "value_min": 77.0,
+      "value_max": 77.0,
+      "unit_raw": "°",
+      "unit_normalized": "°",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {
+          "drop_volume": "0.1 ml"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_8_111",
+          "page": 8,
+          "bbox": [
+            500.0,
+            99.0,
+            923.0,
+            630.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The contact angle value recorded for PCL was 77°"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop008",
+      "sample_id": "s003",
+      "property_name_raw": "contact angle",
+      "property_name_normalized": "contact_angle",
+      "property_code": "P5150",
+      "property_category": "physicochemical_property",
+      "determination_method_raw": "Rame-Hart Goniometer",
+      "observation_role": "single",
+      "value_raw": "76°",
+      "value_min": 76.0,
+      "value_max": 76.0,
+      "unit_raw": "°",
+      "unit_normalized": "°",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {
+          "drop_volume": "0.1 ml"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_8_111",
+          "page": 8,
+          "bbox": [
+            500.0,
+            99.0,
+            923.0,
+            630.0
+          ],
+          "source_type": "text",
+          "source_sentence": "A contact angle of approximately 76° was obtained for PDLLA."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop009",
+      "sample_id": "s003",
+      "property_name_raw": "Tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester",
+      "observation_role": "single",
+      "value_raw": "2.85",
+      "value_min": 2.85,
+      "value_max": 2.85,
+      "unit_raw": "Mpa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "cross_head_speed": "20 mm/min",
+          "test_length": "20 mm",
+          "width": "4 mm",
+          "standard": "ASTM D882-02"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_7_98",
+          "page": 7,
+          "bbox": [
+            76.0,
+            800.0,
+            493.0,
+            893.0
+          ],
+          "source_type": "table",
+          "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "table_locator": {
+            "table_id": "T_7_98",
+            "row_label": "PDLA",
+            "column_label": "Tensile strength (Mpa)",
+            "cell_value": "2.85",
+            "cell_id": "T_7_98:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop010",
+      "sample_id": "s002",
+      "property_name_raw": "Tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester",
+      "observation_role": "single",
+      "value_raw": "5.82",
+      "value_min": 5.82,
+      "value_max": 5.82,
+      "unit_raw": "Mpa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "cross_head_speed": "20 mm/min",
+          "test_length": "20 mm",
+          "width": "4 mm",
+          "standard": "ASTM D882-02"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_7_98",
+          "page": 7,
+          "bbox": [
+            76.0,
+            800.0,
+            493.0,
+            893.0
+          ],
+          "source_type": "table",
+          "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "table_locator": {
+            "table_id": "T_7_98",
+            "row_label": "PLGA",
+            "column_label": "Tensile strength (Mpa)",
+            "cell_value": "5.82",
+            "cell_id": "T_7_98:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop011",
+      "sample_id": "s001",
+      "property_name_raw": "Tensile strength",
+      "property_name_normalized": "tensile_stress_at_break",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester",
+      "observation_role": "single",
+      "value_raw": "10.22",
+      "value_min": 10.22,
+      "value_max": 10.22,
+      "unit_raw": "Mpa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "cross_head_speed": "20 mm/min",
+          "test_length": "20 mm",
+          "width": "4 mm",
+          "standard": "ASTM D882-02"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_7_98",
+          "page": 7,
+          "bbox": [
+            76.0,
+            800.0,
+            493.0,
+            893.0
+          ],
+          "source_type": "table",
+          "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "table_locator": {
+            "table_id": "T_7_98",
+            "row_label": "PCL",
+            "column_label": "Tensile strength (Mpa)",
+            "cell_value": "10.22",
+            "cell_id": "T_7_98:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop012",
+      "sample_id": "s003",
+      "property_name_raw": "Young's Modulus",
+      "property_name_normalized": "tensile_modulus",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester",
+      "observation_role": "single",
+      "value_raw": "0.163",
+      "value_min": 0.163,
+      "value_max": 0.163,
+      "unit_raw": "Gpa",
+      "unit_normalized": "GPa",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "cross_head_speed": "20 mm/min",
+          "test_length": "20 mm",
+          "width": "4 mm",
+          "standard": "ASTM D882-02"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_7_98",
+          "page": 7,
+          "bbox": [
+            76.0,
+            800.0,
+            493.0,
+            893.0
+          ],
+          "source_type": "table",
+          "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "table_locator": {
+            "table_id": "T_7_98",
+            "row_label": "PDLA",
+            "column_label": "Young's Modulus (Gpa)",
+            "cell_value": "0.163",
+            "cell_id": "T_7_98:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop013",
+      "sample_id": "s002",
+      "property_name_raw": "Young's Modulus",
+      "property_name_normalized": "tensile_modulus",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester",
+      "observation_role": "single",
+      "value_raw": "0.193",
+      "value_min": 0.193,
+      "value_max": 0.193,
+      "unit_raw": "Gpa",
+      "unit_normalized": "GPa",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "cross_head_speed": "20 mm/min",
+          "test_length": "20 mm",
+          "width": "4 mm",
+          "standard": "ASTM D882-02"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_7_98",
+          "page": 7,
+          "bbox": [
+            76.0,
+            800.0,
+            493.0,
+            893.0
+          ],
+          "source_type": "table",
+          "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "table_locator": {
+            "table_id": "T_7_98",
+            "row_label": "PLGA",
+            "column_label": "Young's Modulus (Gpa)",
+            "cell_value": "0.193",
+            "cell_id": "T_7_98:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop014",
+      "sample_id": "s001",
+      "property_name_raw": "Young's Modulus",
+      "property_name_normalized": "tensile_modulus",
+      "property_code": "P8110",
+      "property_category": "tensile_property",
+      "determination_method_raw": "ASTM D882-02, Lloyd Lrx Tensile tester",
+      "observation_role": "single",
+      "value_raw": "0.277",
+      "value_min": 0.277,
+      "value_max": 0.277,
+      "unit_raw": "Gpa",
+      "unit_normalized": "GPa",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {
+          "cross_head_speed": "20 mm/min",
+          "test_length": "20 mm",
+          "width": "4 mm",
+          "standard": "ASTM D882-02"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_7_98",
+          "page": 7,
+          "bbox": [
+            76.0,
+            800.0,
+            493.0,
+            893.0
+          ],
+          "source_type": "table",
+          "source_sentence": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "table_locator": {
+            "table_id": "T_7_98",
+            "row_label": "PCL",
+            "column_label": "Young's Modulus (Gpa)",
+            "cell_value": "0.277",
+            "cell_id": "T_7_98:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "unresolved_properties": [],
+  "property_series": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": "crystallinity",
+      "semantic_label": "crystallinity",
+      "value_kind": "numeric_scalar",
+      "value_raw": "amorphous",
+      "sample_id": "s003",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_4_64",
+          "page": 4,
+          "bbox": [
+            71.0,
+            640.0,
+            491.0,
+            900.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PDLLA is an amorphous polymer and exhibits only one peak, a T_g at approximately 48.8°C."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp002",
+      "source_field": "crystallinity",
+      "semantic_label": "crystallinity",
+      "value_kind": "numeric_scalar",
+      "value_raw": "semi-crystalline",
+      "sample_id": "s002",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_4_64",
+          "page": 4,
+          "bbox": [
+            71.0,
+            640.0,
+            491.0,
+            900.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PLGA is a semi-crystalline polymer for which two peaks were exhibited: T_g at 65.7 °C and T_m at 145°C."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp003",
+      "source_field": "crystallinity",
+      "semantic_label": "crystallinity",
+      "value_kind": "numeric_scalar",
+      "value_raw": "semi-crystalline",
+      "sample_id": "s001",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_6_85",
+          "page": 6,
+          "bbox": [
+            70.0,
+            700.0,
+            491.0,
+            898.0
+          ],
+          "source_type": "text",
+          "source_sentence": "In this study, the polymers PCL and PLGA are both semi-crystalline, which mainly accounts for their low percentage PBS uptakes."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp004",
+      "value_kind": "text",
+      "value_raw": "thin film",
+      "text_value": "thin film",
+      "sample_id": "s015",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_3_54",
+          "page": 3,
+          "bbox": [
+            504.0,
+            354.0,
+            926.0,
+            704.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thin film samples produced using the compression moulding technique had an approximate thickness of 1.2 mm ± 0.3 mm."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "0bcfe334796d8ff3daa57f37d48499ffc4e67744f9c8d25aec921dd66707f29c",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "eaa6f5e41a0ce4214bcc81a56af5a32c87a58744d2642dab345094228074f3b1",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 69,
+    "context_chars": 46072,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 30703,
+      "output_tokens": 13913,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 30703,
+      "total_tokens": 44616
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.13263696",
+      "output_cost": "0.40556395",
+      "total_cost": "0.53820091"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "P_2_39 evidence 无法定位到原文"
+    }
+  ]
+}

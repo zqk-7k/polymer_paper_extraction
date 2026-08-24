@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0101911",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 4,
+  "usage": {
+    "input_tokens": 45024,
+    "output_tokens": 9435,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 34016,
+    "billable_input_tokens": 79040,
+    "total_tokens": 88475
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.34145280",
+    "output_cost": "0.27503025",
+    "total_cost": "0.61648305"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe012\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_0_8\",\n          \"source_sentence\": \"Phase separation was not observed in the scanning electron microscope images of composites, elucidating the outstanding compatibility of ABS, PVC, and SMIA.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"SEM\",\n      \"method_raw\": \"scanning electron microscope\",\n      \"parameters\": {},\n      \"result_summary\": \"No phase separation was observed in the SMIA/PVC/ABS composite samples, demonstrating outstanding compatibility of ABS, PVC and SMIA.\",\n      \"sample_id\": \"s005\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"sample_resolution_status\": \"resolved\",\n      \"property_name_raw\": \"morphology\",\n      \"value_raw\": \"Phase separation was not observed\",\n      \"sample_id\": \"s005\",\n      \"entity_id\": \"pe012\",\n      \"method_raw\": \"scanning electron microscope\",\n      \"unit_raw\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_0_8\",\n          \"source_sentence\": \"Phase separation was not observed in the scanning electron microscope images of composites, elucidating the outstanding compatibility of ABS, PVC, and SMIA.\",\n          \"table_locator\": null\n        }\n      ]\n    }\n  ]\n}",
+    "usage": {
+      "input_tokens": 11498,
+      "output_tokens": 2077,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6968
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.07977312",
+      "output_cost": "0.06054455",
+      "total_cost": "0.14031767"
+    }
+  }
+}

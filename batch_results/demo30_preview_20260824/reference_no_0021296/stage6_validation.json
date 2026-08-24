@@ -1,0 +1,414 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0021296",
+  "status": "passed_with_warnings",
+  "error_count": 0,
+  "warning_count": 64,
+  "errors": [],
+  "warnings": [
+    {
+      "stage": "stage0",
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "preview_nested_mentions_split_retained",
+      "message": "Preview 模式已保留无法确定合并关系的嵌套 mention 拆分；需在正式数据中复核"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "missing_mentions_marked_unresolved",
+      "message": "模型漏覆盖的 mention 已保守标记为 unresolved"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "preview_duplicate_mention_recovered",
+      "message": "Preview 模式仅在名称与 evidence block 唯一匹配时保留归属；无法唯一归属的重复 mention 已标记为 unresolved"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "1 个 mention 未解析为实体，已原样保留引用"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unsupported_state_descriptions_dropped",
+      "message": "已有有效 sample_label_raw；删除无法逐字定位的 state_description"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "parameters_not_in_source",
+      "message": "无法定位到 evidence 原文的参数已舍弃"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities",
+      "message": "5 个 entity 未解析到实际样品"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "all_tables_included",
+      "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_method_evidence_supplemented",
+      "message": "Series determination method 不在 point 表格 evidence；已补入全文中唯一的完全匹配原文 block"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_context_evidence_supplemented",
+      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_synthesized_from_series",
+      "message": "Preview 模式已从方法唯一匹配且主体明确的 Stage 4 Series 补建低置信度 Characterization"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "series_point_subject_scope_inherited",
+      "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "meta_extract",
+      "code": "paper_metadata_incomplete",
+      "message": "Paper metadata_status=failed，需人工复核"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unused_measurement_condition",
+      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002', 'mc003', 'mc004', 'mc005']"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "mc001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 98.0%，内容在本块内但字符被打散",
+      "object_id": "mc002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率仅 92.0%，疑似跨块或被截断，建议人工确认",
+      "object_id": "mc004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "mc005"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt011"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt012"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt013"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt014"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "pt033"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_stable_cell_unresolved",
+      "message": "table_locator 无法唯一解析到稳定 cell_id；保留原行列文字定位",
+      "object_id": "pt039"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | as-Cast' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp051"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | as-Cast' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp052"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | as-Cast' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp053"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "sp054"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | Treated @ 170°C for 2 $hrs^a$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp054"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | Treated @ 170°C for 2 $hrs^a$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp055"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：按 cell_id 精确命中",
+      "object_id": "sp056"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | Second Run of the Treated $HT^a$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp056"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='HT | Second Run of the Treated $HT^a$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp057"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='$T_g$ (°C) | >220' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp058"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | as-Processed' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp058"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='Tan δ | —' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp059"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | as-Processed' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp059"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label=\"E' (GPa) @ 25°C | 2.44\" 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp060"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | as-Processed' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp060"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='$T_g$ (°C) | >220' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp061"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | Treated @ 170°C for 2 hrs' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp061"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='Tan δ | —' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp062"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | Treated @ 170°C for 2 hrs' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp062"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label=\"E' (GPa) @ 25°C | 2.44\" 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp063"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | Treated @ 170°C for 2 hrs' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp063"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='$T_g$ (°C) | >220' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp064"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | Second Run of the Treated OT(2)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp064"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label='Tan δ | —' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp065"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | Second Run of the Treated OT(2)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp065"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.row_label=\"E' (GPa) @ 25°C | 2.44\" 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp066"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='OT(2) | Second Run of the Treated OT(2)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp066"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_object_rejected_evidence_not_in_source",
+      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 85.7%，内容不在该 block 内）",
+      "object_id": "mc004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_object_rejected_evidence_not_in_source",
+      "message": "Preview 已隔离对象；原错误：Evidence.source_sentence 不是 Stage 0 原文子串（词覆盖率 75.0%，内容不在该 block 内）",
+      "object_id": "mc004"
+    }
+  ],
+  "checked_counts": {
+    "stage0_blocks": 81,
+    "material_mentions": 115,
+    "polymer_entities": 10,
+    "samples": 11,
+    "process_steps": 4,
+    "measurement_conditions": 5,
+    "stage4_properties": 0,
+    "unresolved_properties": 0,
+    "property_series": 12,
+    "property_series_points": 49,
+    "characterizations": 11,
+    "stage5_properties": 0,
+    "evidence": 207,
+    "preview_published_objects": 216,
+    "preview_rejected_objects": 1,
+    "preview_reference_cleanup_count": 0
+  },
+  "quality_metrics": {
+    "properties_with_units": {
+      "complete": 5,
+      "total": 46,
+      "ratio": 0.10869565217391304
+    },
+    "standard_process_steps": {
+      "complete": 4,
+      "total": 4,
+      "ratio": 1.0
+    },
+    "stage4_methods_with_characterization": {
+      "complete": 0,
+      "total": 0,
+      "ratio": 1.0
+    },
+    "objects_with_confidence": {
+      "complete": 217,
+      "total": 217,
+      "ratio": 1.0
+    },
+    "series_points_covered": {
+      "complete": 46,
+      "total": 46,
+      "ratio": 1.0
+    }
+  }
+}

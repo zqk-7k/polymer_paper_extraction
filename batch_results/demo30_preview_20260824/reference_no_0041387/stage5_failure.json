@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0041387",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 7,
+  "usage": {
+    "input_tokens": 110695,
+    "output_tokens": 16520,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 56544,
+    "billable_input_tokens": 167239,
+    "total_tokens": 183759
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.72247248",
+    "output_cost": "0.48155800",
+    "total_cost": "1.20403048"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\"characterizations\": [],\"properties\": [],\"specialized_property_observations\": []}",
+    "usage": {
+      "input_tokens": 15182,
+      "output_tokens": 596,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 14136
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.12665376",
+      "output_cost": "0.0173734",
+      "total_cost": "0.14402716"
+    }
+  }
+}

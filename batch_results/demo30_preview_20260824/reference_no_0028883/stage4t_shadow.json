@@ -1,0 +1,88 @@
+{
+  "sidecar_schema_version": "stage4t_preview_sidecar.v0.4",
+  "shadow_version": "0.5.0",
+  "authoritative": false,
+  "candidate_layer": "broad",
+  "llm_interpretation_enabled": false,
+  "llm_interpreter_version": "0.4.0",
+  "interpretation_application_version": "0.1.2",
+  "document_id": "reference_no_0028883",
+  "table_count": 1,
+  "summary": {
+    "observation_count": 0,
+    "binding_status_counts": {},
+    "candidate_class_counts": {},
+    "semantic_status_counts": {},
+    "publication_status_counts": {},
+    "unresolved_count": 0,
+    "tables_with_observations": 0,
+    "warning_counts": {
+      "numeric_table_without_sample_axis": 1,
+      "shadow_direction_unknown": 1,
+      "shadow_no_property_candidates": 1,
+      "variable_row_width_or_spans": 1
+    }
+  },
+  "tables": [
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_7_81",
+      "caption": "Table 1. Comparison of Experimental and Calculated Crystallinities of PEP and sPP for Various Values of $w t _ { \\mathrm { P E P } }$ and $T _ { \\mathrm { c } }$",
+      "direction": "unknown",
+      "sample_axis": "unknown",
+      "axis_role": "unknown",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [],
+      "observations": [],
+      "unresolved": [],
+      "warnings": [
+        "numeric_table_without_sample_axis",
+        "shadow_direction_unknown",
+        "shadow_no_property_candidates",
+        "variable_row_width_or_spans"
+      ]
+    }
+  ],
+  "interpretations": [
+    {
+      "table_id": "T_7_81",
+      "route_reasons": [
+        "direction_unknown"
+      ],
+      "status": "disabled",
+      "authoritative": false,
+      "publication_status": "candidate_only",
+      "llm_call_attempted": false,
+      "reason": "feature_disabled"
+    }
+  ],
+  "provenance": {
+    "source": "stage0_blocks.json",
+    "stage0_sha256": "4b468647b6893205dd2efb7dd42c246c9f15db60f16bd4e610ddf17d6bc43fa1",
+    "config_sha256": null,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_tokens": 0
+    },
+    "cost": {
+      "status": "not_applicable",
+      "currency": null,
+      "input_per_million": null,
+      "output_per_million": null,
+      "input_cost": "0",
+      "output_cost": "0",
+      "total_cost": "0"
+    },
+    "raw_response": null
+  }
+}

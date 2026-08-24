@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0042367",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 2,
+  "usage": {
+    "input_tokens": 27800,
+    "output_tokens": 7012,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 18032,
+    "billable_input_tokens": 45832,
+    "total_tokens": 52844
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.19799424",
+    "output_cost": "0.2043998",
+    "total_cost": "0.40239404"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\"prop001\", \"prop002\", \"prop003\", \"prop004\", \"prop005\"],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe001\", \"pe002\", \"pe004\", \"pe007\", \"pe014\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_37\",\n          \"source_sentence\": \"Differential scanning calorimetry (DSC) analysis was carried out using a Perkin-Elmer, Pyris 6 DSC. Samples of between 9.3–10.3 mg were prepared from the base polymers and polymer blends. All measurements were conducted in crimped non-hermetic aluminium pans with an empty crimped aluminium pan being used as the reference cell. To assess the melting points and miscibility of the polymer(s), the samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute. For investigation of the crystalline interactions, samples were heated from a temperature of 20 °C to 200 °C at a rate of 10 °C per minute and held isothermal for a 5-min period. The samples were then cooled down from 200 °C to 20 °C at a rate of 2 °C per minute. All DSC tests were carried out under a 20 ml/min flow of nitrogen to prevent oxidation. High-purity indium was used to calibrate the DSC cell.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Perkin-Elmer, Pyris 6 DSC\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"Differential scanning calorimetry (DSC)\",\n      \"parameters\": {\n        \"sample_weight_range\": \"9.3–10.3 mg\",\n        \"pan_type\": \"crimped non-hermetic aluminium pans\",\n        \"nitrogen_flow_rate\": \"20 ml/min\",\n        \"heating_rate\": \"10 °C per minute\",\n        \"cooling_rate\": \"2 °C per minute\",\n        \"calibration_standard\": \"High-purity indium\"\n      },\n      \"result_summary\": \"DSC measured Tg, Tm and percentage crystallinity of base polymers and blends; single Tg observed for PDLLA/PLGA blends indicating miscibility, crystallinity of PCL blends decreases with increasing PDLLA/PLGA content.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s004\", \"s006\", \"s011\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.7\n      },\n      \"sample_resolution_status\": \"unresolved\",\n      \"property_name_raw\": \"spherulite structure\",\n      \"value_raw\": \"disordering of the spherulite structure of PCL could be attributed to the addition of small amounts of PDLLA\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_77\",\n          \"source_sentence\": \"Previous work carried out by Tsuji and Ikada (1996) indicate that within blends of PDLLA and PCL, the disordering of the spherulite structure of PCL could be attributed to the addition of small amounts of PDLLA\",\n          \"table_locator\": null\n        }\n      ],\n      \"entity_id\": null,\n      \"sample_id\": null,\n      \"method_raw\": null,\n      \"unit_raw\": null\n    }\n  ]\n}",
+    "usage": {
+      "input_tokens": 14584,
+      "output_tokens": 4358,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11079936",
+      "output_cost": "0.1270357",
+      "total_cost": "0.23783506"
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0024941",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "UV-vis spectra",
+      "method_normalized": "UV-Vis",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "instrument": "Diode Array Hewlett Packard Spectrophotometer 8452",
+      "parameters": {
+        "spectral path": "1 cm",
+        "cuvette material": "quartz"
+      },
+      "result_summary": "Maximum absorption bands of the polymers were observed in the range 438-452 nm, trans-cis isomerization of azobenzene groups was detected under illumination.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_4_59",
+          "page": 4,
+          "bbox": [
+            71.0,
+            430.0,
+            477.0,
+            473.0
+          ],
+          "source_type": "text",
+          "source_sentence": "UV-vis spectra were made using Diode Array Hewlett Packard Spectrophotometer 8452 and quartz cuvettes of 1 cm spectral path."
+        },
+        {
+          "block_id": "P_4_71",
+          "page": 4,
+          "bbox": [
+            509.0,
+            679.0,
+            917.0,
+            843.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The UV-vis spectra were made for monomers and polymers in DMSO solutions. The maximum absorption band of both classes of materials was observed within wavelength in the range 440–460 nm (Tables 1 and 2)."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "530870d24b3de9fa7314c9c8ae1d0ec260087dcd0ff79dae92c22d11d67b1a54",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "b5f57ef9b6f369e146ce8eb2d8aead39e512eca3acecf1cd8c783db31bc5b3e8",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 59,
+    "context_chars": 33976,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 12535,
+      "output_tokens": 3353,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 12535,
+      "total_tokens": 15888
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.0541512",
+      "output_cost": "0.09773995",
+      "total_cost": "0.15189115"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[0].evidence",
+      "block_ids": [
+        "T_5_75"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context.other_conditions",
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

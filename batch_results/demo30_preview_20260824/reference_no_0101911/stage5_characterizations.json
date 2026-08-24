@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0101911",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "scanning electron microscope",
+      "method_normalized": "SEM",
+      "sample_id": "s005",
+      "entity_id": "pe012",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "No phase separation was observed in the SMIA/PVC/ABS composite samples, demonstrating outstanding compatibility of ABS, PVC and SMIA.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_0_8",
+          "page": 0,
+          "bbox": [
+            80.0,
+            502.0,
+            915.0,
+            702.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Phase separation was not observed in the scanning electron microscope images of composites, elucidating the outstanding compatibility of ABS, PVC, and SMIA."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "Phase separation was not observed",
+      "text_value": "Phase separation was not observed",
+      "method_raw": "scanning electron microscope",
+      "sample_id": "s005",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_0_8",
+          "page": 0,
+          "bbox": [
+            80.0,
+            502.0,
+            915.0,
+            702.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Phase separation was not observed in the scanning electron microscope images of composites, elucidating the outstanding compatibility of ABS, PVC, and SMIA."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "439c429102ca2470ab5428c5177c9eb98cf316a8a35d56583ee1d8fb71652019",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "cd1f889b1b50653e72ab9149a3203901a67bcb1873f8b35d19a79dfe07ba9d73",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 12,
+    "context_chars": 11819,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 11498,
+      "output_tokens": 2077,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6968,
+      "billable_input_tokens": 18466,
+      "total_tokens": 20543
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.07977312",
+      "output_cost": "0.06054455",
+      "total_cost": "0.14031767"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，仅使用上游 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

@@ -1,0 +1,1909 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0043590",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_1_19",
+        "page": 1,
+        "bbox": [
+          100.0,
+          133.0,
+          485.0,
+          261.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE I Properties of the Matrix Polymer and Conductive fillers",
+        "table_locator": {
+          "table_id": "T_1_19",
+          "row_label": "Properties",
+          "column_label": "Properties",
+          "cell_value": "Properties",
+          "cell_id": "T_1_19:r0000:c0000",
+          "row_index": 0,
+          "column_index": 0
+        }
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "T_2_42",
+        "page": 2,
+        "bbox": [
+          509.0,
+          835.0,
+          896.0,
+          944.0
+        ],
+        "source_type": "table",
+        "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "temperature": {
+        "raw": "260-C",
+        "value": 260.0,
+        "unit": "°C",
+        "evidence": [
+          {
+            "block_id": "P_0_15",
+            "page": 0,
+            "bbox": [
+              507.0,
+              904.0,
+              898.0,
+              951.0
+            ],
+            "source_type": "text",
+            "source_sentence": "MFR 14 g/10 min at 260-C"
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_0_15",
+        "page": 0,
+        "bbox": [
+          507.0,
+          904.0,
+          898.0,
+          951.0
+        ],
+        "source_type": "text",
+        "source_sentence": "MFR 14 g/10 min at 260-C"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc004",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_3_50",
+        "page": 3,
+        "bbox": [
+          506.0,
+          239.0,
+          898.0,
+          374.0
+        ],
+        "source_type": "text",
+        "source_sentence": "For the nonfoamed composite, $\\sigma _ { L }$was larger $( 1 0 ^ { - 2 } \\ \\mathrm { S / c m } )$than r<sub>T</sub> by almost three orders of magnitude"
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s001",
+      "property_name_raw": "Electrical conductivity",
+      "property_name_normalized": "electric_conductivity",
+      "property_code": "P4130",
+      "property_category": "electrical_property",
+      "observation_role": "single",
+      "value_raw": "<10^{-16}",
+      "unit_raw": "S/cm",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_1_19",
+          "page": 1,
+          "bbox": [
+            100.0,
+            133.0,
+            485.0,
+            261.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Electrical conductivity (S/cm) <10^{-16}",
+          "table_locator": {
+            "table_id": "T_1_19",
+            "row_label": "Electrical conductivity (S/cm)",
+            "column_label": "$<10^{-16}$",
+            "cell_value": "$<10^{-16}$",
+            "cell_id": "T_1_19:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s001",
+      "property_name_raw": "Specific gravity",
+      "observation_role": "single",
+      "value_raw": "1.02",
+      "value_min": 1.02,
+      "value_max": 1.02,
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_1_19",
+          "page": 1,
+          "bbox": [
+            100.0,
+            133.0,
+            485.0,
+            261.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Specific gravity 1.02",
+          "table_locator": {
+            "table_id": "T_1_19",
+            "row_label": "Specific gravity",
+            "column_label": "$<10^{-16}$",
+            "cell_value": "1.02",
+            "cell_id": "T_1_19:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s001",
+      "property_name_raw": "Bulk density",
+      "property_name_normalized": "density",
+      "property_code": "P1110",
+      "property_category": "physical_property",
+      "observation_role": "single",
+      "value_raw": "510",
+      "value_min": 510.0,
+      "value_max": 510.0,
+      "unit_raw": "kg/m3",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_1_19",
+          "page": 1,
+          "bbox": [
+            100.0,
+            133.0,
+            485.0,
+            261.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Bulk density (kg/m3) 510",
+          "table_locator": {
+            "table_id": "T_1_19",
+            "row_label": "Bulk density (kg/m3)",
+            "column_label": "$<10^{-16}$",
+            "cell_value": "510",
+            "cell_id": "T_1_19:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s001",
+      "property_name_raw": "MFR",
+      "observation_role": "single",
+      "value_raw": "14",
+      "value_min": 14.0,
+      "value_max": 14.0,
+      "unit_raw": "g/10 min",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "temperature": {
+          "raw": "260-C",
+          "value": 260.0,
+          "unit": "°C",
+          "evidence": [
+            {
+              "block_id": "P_0_15",
+              "page": 0,
+              "bbox": [
+                507.0,
+                904.0,
+                898.0,
+                951.0
+              ],
+              "source_type": "text",
+              "source_sentence": "MFR 14 g/10 min at 260-C"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_0_15",
+          "page": 0,
+          "bbox": [
+            507.0,
+            904.0,
+            898.0,
+            951.0
+          ],
+          "source_type": "text",
+          "source_sentence": "MFR 14 g/10 min at 260-C"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s005",
+      "property_name_raw": "σ_L (in-plane electrical conductivity)",
+      "property_name_normalized": "electric_conductivity",
+      "property_code": "P4130",
+      "property_category": "electrical_property",
+      "observation_role": "single",
+      "value_raw": "10^{-2}",
+      "unit_raw": "S/cm",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_3_50",
+          "page": 3,
+          "bbox": [
+            506.0,
+            239.0,
+            898.0,
+            374.0
+          ],
+          "source_type": "text",
+          "source_sentence": "For the nonfoamed composite, $\\sigma _ { L }$was larger $( 1 0 ^ { - 2 } \\ \\mathrm { S / c m } )$than r<sub>T</sub> by almost three orders of magnitude"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "unresolved_properties": [],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Void Content",
+      "unit_raw": "%",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "11",
+          "value_min": 11.0,
+          "value_max": 11.0,
+          "unit_raw": "%",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "COC 11",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "COC",
+                "column_label": "Void Content (%)",
+                "cell_value": "11",
+                "cell_id": "T_2_42:r0002:c0001",
+                "row_index": 2,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "15",
+          "value_min": 15.0,
+          "value_max": 15.0,
+          "unit_raw": "%",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "CB3 15",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "CB3",
+                "column_label": "Void Content (%)",
+                "cell_value": "15",
+                "cell_id": "T_2_42:r0003:c0001",
+                "row_index": 3,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt003",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "15",
+          "value_min": 15.0,
+          "value_max": 15.0,
+          "unit_raw": "%",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10 15",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10",
+                "column_label": "Void Content (%)",
+                "cell_value": "15",
+                "cell_id": "T_2_42:r0004:c0001",
+                "row_index": 4,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt004",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "14",
+          "value_min": 14.0,
+          "value_max": 14.0,
+          "unit_raw": "%",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB1 14",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10-CB1",
+                "column_label": "Void Content (%)",
+                "cell_value": "14",
+                "cell_id": "T_2_42:r0005:c0001",
+                "row_index": 5,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt005",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "16",
+          "value_min": 16.0,
+          "value_max": 16.0,
+          "unit_raw": "%",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB3 16",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10-CB3",
+                "column_label": "Void Content (%)",
+                "cell_value": "16",
+                "cell_id": "T_2_42:r0006:c0001",
+                "row_index": 6,
+                "column_index": 1
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 5,
+        "covered": 5,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "COC 11",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "COC",
+            "column_label": "Void Content (%)",
+            "cell_value": "11",
+            "cell_id": "T_2_42:r0002:c0001",
+            "row_index": 2,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "CB3 15",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "CB3",
+            "column_label": "Void Content (%)",
+            "cell_value": "15",
+            "cell_id": "T_2_42:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10 15",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10",
+            "column_label": "Void Content (%)",
+            "cell_value": "15",
+            "cell_id": "T_2_42:r0004:c0001",
+            "row_index": 4,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB1 14",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10-CB1",
+            "column_label": "Void Content (%)",
+            "cell_value": "14",
+            "cell_id": "T_2_42:r0005:c0001",
+            "row_index": 5,
+            "column_index": 1
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB3 16",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10-CB3",
+            "column_label": "Void Content (%)",
+            "cell_value": "16",
+            "cell_id": "T_2_42:r0006:c0001",
+            "row_index": 6,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series002",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Cell Density",
+      "unit_raw": "×10^6 cells/cm3",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt006",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "2.3",
+          "value_min": 2.3,
+          "value_max": 2.3,
+          "unit_raw": "×10^6 cells/cm3",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "COC 2.3",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "COC",
+                "column_label": "Cell Density (×106cells/cm3)",
+                "cell_value": "2.3",
+                "cell_id": "T_2_42:r0002:c0002",
+                "row_index": 2,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt007",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "1.0",
+          "value_min": 1.0,
+          "value_max": 1.0,
+          "unit_raw": "×10^6 cells/cm3",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "CB3 1.0",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "CB3",
+                "column_label": "Cell Density (×106cells/cm3)",
+                "cell_value": "1.0",
+                "cell_id": "T_2_42:r0003:c0002",
+                "row_index": 3,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt008",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "5.0",
+          "value_min": 5.0,
+          "value_max": 5.0,
+          "unit_raw": "×10^6 cells/cm3",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10 5.0",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10",
+                "column_label": "Cell Density (×106cells/cm3)",
+                "cell_value": "5.0",
+                "cell_id": "T_2_42:r0004:c0002",
+                "row_index": 4,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt009",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "2.6",
+          "value_min": 2.6,
+          "value_max": 2.6,
+          "unit_raw": "×10^6 cells/cm3",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB1 2.6",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10-CB1",
+                "column_label": "Cell Density (×106cells/cm3)",
+                "cell_value": "2.6",
+                "cell_id": "T_2_42:r0005:c0002",
+                "row_index": 5,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt010",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "2.5",
+          "value_min": 2.5,
+          "value_max": 2.5,
+          "unit_raw": "×10^6 cells/cm3",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB3 2.5",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10-CB3",
+                "column_label": "Cell Density (×106cells/cm3)",
+                "cell_value": "2.5",
+                "cell_id": "T_2_42:r0006:c0002",
+                "row_index": 6,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 5,
+        "covered": 5,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "COC 2.3",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "COC",
+            "column_label": "Cell Density (×106cells/cm3)",
+            "cell_value": "2.3",
+            "cell_id": "T_2_42:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "CB3 1.0",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "CB3",
+            "column_label": "Cell Density (×106cells/cm3)",
+            "cell_value": "1.0",
+            "cell_id": "T_2_42:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10 5.0",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10",
+            "column_label": "Cell Density (×106cells/cm3)",
+            "cell_value": "5.0",
+            "cell_id": "T_2_42:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB1 2.6",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10-CB1",
+            "column_label": "Cell Density (×106cells/cm3)",
+            "cell_value": "2.6",
+            "cell_id": "T_2_42:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB3 2.5",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10-CB3",
+            "column_label": "Cell Density (×106cells/cm3)",
+            "cell_value": "2.5",
+            "cell_id": "T_2_42:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series003",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "D_n",
+      "unit_raw": "μm",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt011",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "45",
+          "value_min": 45.0,
+          "value_max": 45.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "COC 45",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "COC",
+                "column_label": "$D_n$",
+                "cell_value": "45",
+                "cell_id": "T_2_42:r0002:c0003",
+                "row_index": 2,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt012",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "57",
+          "value_min": 57.0,
+          "value_max": 57.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "CB3 57",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "CB3",
+                "column_label": "$D_n$",
+                "cell_value": "57",
+                "cell_id": "T_2_42:r0003:c0003",
+                "row_index": 3,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt013",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "30",
+          "value_min": 30.0,
+          "value_max": 30.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10 30",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10",
+                "column_label": "$D_n$",
+                "cell_value": "30",
+                "cell_id": "T_2_42:r0004:c0003",
+                "row_index": 4,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt014",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "23",
+          "value_min": 23.0,
+          "value_max": 23.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB1 23",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10-CB1",
+                "column_label": "$D_n$",
+                "cell_value": "23",
+                "cell_id": "T_2_42:r0005:c0003",
+                "row_index": 5,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt015",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "28",
+          "value_min": 28.0,
+          "value_max": 28.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_2_42",
+              "page": 2,
+              "bbox": [
+                509.0,
+                835.0,
+                896.0,
+                944.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB3 28",
+              "table_locator": {
+                "table_id": "T_2_42",
+                "row_label": "cCF10-CB3",
+                "column_label": "$D_n$",
+                "cell_value": "28",
+                "cell_id": "T_2_42:r0006:c0003",
+                "row_index": 6,
+                "column_index": 3
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 5,
+        "covered": 5,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "COC 45",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "COC",
+            "column_label": "$D_n$",
+            "cell_value": "45",
+            "cell_id": "T_2_42:r0002:c0003",
+            "row_index": 2,
+            "column_index": 3
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "CB3 57",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "CB3",
+            "column_label": "$D_n$",
+            "cell_value": "57",
+            "cell_id": "T_2_42:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10 30",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10",
+            "column_label": "$D_n$",
+            "cell_value": "30",
+            "cell_id": "T_2_42:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB1 23",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10-CB1",
+            "column_label": "$D_n$",
+            "cell_value": "23",
+            "cell_id": "T_2_42:r0005:c0003",
+            "row_index": 5,
+            "column_index": 3
+          }
+        },
+        {
+          "block_id": "T_2_42",
+          "page": 2,
+          "bbox": [
+            509.0,
+            835.0,
+            896.0,
+            944.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB3 28",
+          "table_locator": {
+            "table_id": "T_2_42",
+            "row_label": "cCF10-CB3",
+            "column_label": "$D_n$",
+            "cell_value": "28",
+            "cell_id": "T_2_42:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series004",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "Wt. Average Length",
+      "unit_raw": "μm",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt016",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Description",
+              "value_raw": "Nonfoamed",
+              "evidence": {
+                "block_id": "T_4_63",
+                "page": 4,
+                "bbox": [
+                  507.0,
+                  837.0,
+                  896.0,
+                  914.0
+                ],
+                "source_type": "table",
+                "source_sentence": "cCF10 Nonfoamed 172",
+                "table_locator": {
+                  "table_id": "T_4_63",
+                  "row_label": "cCF10",
+                  "column_label": "Description",
+                  "cell_value": "Nonfoamed",
+                  "cell_id": "T_4_63:r0001:c0001",
+                  "row_index": 1,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "172",
+          "value_min": 172.0,
+          "value_max": 172.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_63",
+              "page": 4,
+              "bbox": [
+                507.0,
+                837.0,
+                896.0,
+                914.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10 Nonfoamed 172",
+              "table_locator": {
+                "table_id": "T_4_63",
+                "row_label": "cCF10",
+                "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+                "cell_value": "172",
+                "cell_id": "T_4_63:r0001:c0002",
+                "row_index": 1,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt017",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Description",
+              "value_raw": "Foamed",
+              "evidence": {
+                "block_id": "T_4_63",
+                "page": 4,
+                "bbox": [
+                  507.0,
+                  837.0,
+                  896.0,
+                  914.0
+                ],
+                "source_type": "table",
+                "source_sentence": "cCF10 Foamed 181",
+                "table_locator": {
+                  "table_id": "T_4_63",
+                  "row_label": "cCF10",
+                  "column_label": "Description",
+                  "cell_value": "Foamed",
+                  "cell_id": "T_4_63:r0002:c0001",
+                  "row_index": 2,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "181",
+          "value_min": 181.0,
+          "value_max": 181.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_63",
+              "page": 4,
+              "bbox": [
+                507.0,
+                837.0,
+                896.0,
+                914.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10 Foamed 181",
+              "table_locator": {
+                "table_id": "T_4_63",
+                "row_label": "cCF10",
+                "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+                "cell_value": "181",
+                "cell_id": "T_4_63:r0002:c0002",
+                "row_index": 2,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt018",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Description",
+              "value_raw": "Nonfoamed",
+              "evidence": {
+                "block_id": "T_4_63",
+                "page": 4,
+                "bbox": [
+                  507.0,
+                  837.0,
+                  896.0,
+                  914.0
+                ],
+                "source_type": "table",
+                "source_sentence": "cCF10-CB3 Nonfoamed 188",
+                "table_locator": {
+                  "table_id": "T_4_63",
+                  "row_label": "cCF10-CB3",
+                  "column_label": "Description",
+                  "cell_value": "Nonfoamed",
+                  "cell_id": "T_4_63:r0003:c0001",
+                  "row_index": 3,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "188",
+          "value_min": 188.0,
+          "value_max": 188.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_63",
+              "page": 4,
+              "bbox": [
+                507.0,
+                837.0,
+                896.0,
+                914.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB3 Nonfoamed 188",
+              "table_locator": {
+                "table_id": "T_4_63",
+                "row_label": "cCF10-CB3",
+                "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+                "cell_value": "188",
+                "cell_id": "T_4_63:r0003:c0002",
+                "row_index": 3,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt019",
+          "observation_role": "series_point",
+          "sample_id": "s008",
+          "entity_id": "pe001",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Description",
+              "value_raw": "Foamed",
+              "evidence": {
+                "block_id": "T_4_63",
+                "page": 4,
+                "bbox": [
+                  507.0,
+                  837.0,
+                  896.0,
+                  914.0
+                ],
+                "source_type": "table",
+                "source_sentence": "cCF10-CB3 Foamed 207",
+                "table_locator": {
+                  "table_id": "T_4_63",
+                  "row_label": "cCF10-CB3",
+                  "column_label": "Description",
+                  "cell_value": "Foamed",
+                  "cell_id": "T_4_63:r0004:c0001",
+                  "row_index": 4,
+                  "column_index": 1
+                }
+              }
+            }
+          ],
+          "value_raw": "207",
+          "value_min": 207.0,
+          "value_max": 207.0,
+          "unit_raw": "μm",
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_4_63",
+              "page": 4,
+              "bbox": [
+                507.0,
+                837.0,
+                896.0,
+                914.0
+              ],
+              "source_type": "table",
+              "source_sentence": "cCF10-CB3 Foamed 207",
+              "table_locator": {
+                "table_id": "T_4_63",
+                "row_label": "cCF10-CB3",
+                "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+                "cell_value": "207",
+                "cell_id": "T_4_63:r0004:c0002",
+                "row_index": 4,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 4,
+        "covered": 4,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_4_63",
+          "page": 4,
+          "bbox": [
+            507.0,
+            837.0,
+            896.0,
+            914.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10 Nonfoamed 172",
+          "table_locator": {
+            "table_id": "T_4_63",
+            "row_label": "cCF10",
+            "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+            "cell_value": "172",
+            "cell_id": "T_4_63:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_4_63",
+          "page": 4,
+          "bbox": [
+            507.0,
+            837.0,
+            896.0,
+            914.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10 Foamed 181",
+          "table_locator": {
+            "table_id": "T_4_63",
+            "row_label": "cCF10",
+            "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+            "cell_value": "181",
+            "cell_id": "T_4_63:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_4_63",
+          "page": 4,
+          "bbox": [
+            507.0,
+            837.0,
+            896.0,
+            914.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB3 Nonfoamed 188",
+          "table_locator": {
+            "table_id": "T_4_63",
+            "row_label": "cCF10-CB3",
+            "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+            "cell_value": "188",
+            "cell_id": "T_4_63:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_4_63",
+          "page": 4,
+          "bbox": [
+            507.0,
+            837.0,
+            896.0,
+            914.0
+          ],
+          "source_type": "table",
+          "source_sentence": "cCF10-CB3 Foamed 207",
+          "table_locator": {
+            "table_id": "T_4_63",
+            "row_label": "cCF10-CB3",
+            "column_label": "Wt. Average Length ( $\\mu m$ ) $^{a}$",
+            "cell_value": "207",
+            "cell_id": "T_4_63:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "61af82db512145c6839d66fa325fc437aa518ab8321c8a79005d930010d0b2cd",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "9148f10eb89e4df8bc7b1ebf30ac326f2589962afbda6a5506d363cfdfb44fa6",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 48,
+    "context_chars": 39885,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 26637,
+      "output_tokens": 13750,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 26637,
+      "total_tokens": 40387
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11507184",
+      "output_cost": "0.4008125",
+      "total_cost": "0.51588434"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 4
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 12
+    },
+    {
+      "stage": "stage4_property",
+      "code": "coordinate_locators_aligned_to_point",
+      "message": "重复 coordinate 标签已按同一 point 的唯一性质值行绑定到对应单元格（支持 rowspan）",
+      "evidence": 4
+    },
+    {
+      "stage": "stage4_property",
+      "code": "condition_table_locators_synthesized",
+      "message": "已将唯一包含条件 raw 的表头单元格绑定为条件 evidence",
+      "evidence": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop005.property_name_raw='σ_L (in-plane electrical conductivity)' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布",
+      "blocking": true,
+      "series_ids": [
+        "series001",
+        "series002",
+        "series003",
+        "series004"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1362 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0021296",
+  "status": "running",
+  "shard_count": 8,
+  "unrouted_block_ids": [
+    "P_1_15",
+    "P_1_16",
+    "P_1_17",
+    "P_1_18",
+    "P_1_19",
+    "T_2_22",
+    "E_2_24",
+    "P_2_25",
+    "P_2_27",
+    "P_2_29",
+    "P_2_31",
+    "P_2_32",
+    "P_2_33",
+    "T_3_36",
+    "P_3_38",
+    "P_3_41",
+    "T_5_61",
+    "T_6_64",
+    "P_6_66",
+    "P_8_87",
+    "P_8_88"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_2_27",
+        "P_2_28",
+        "P_2_29",
+        "P_3_41",
+        "P_3_42",
+        "P_3_43",
+        "I_3_44",
+        "P_4_49"
+      ],
+      "context_chars": 4320,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop_s5_001\",\n                \"prop_s5_002\",\n                \"prop_s5_003\",\n                \"prop_s5_004\",\n                \"prop_s5_005\",\n                \"prop_s5_006\",\n                \"prop_s5_007\"\n            ],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_2_28\",\n                    \"source_sentence\": \"Fourier-transform infrared (FTIR) spectra of the DA-polyesters were recorded using a Perkin– Elmer system 2000 FTIR spectrometer equipped with microscope and diamond press accessories.\"\n                },\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"FTIR spectra of the as-synthesised DA-polyesters HS, HI, HT, and OT(2) are shown in Figure 1.\"\n                }\n            ],\n            \"instrument\": \"Perkin– Elmer system 2000 FTIR spectrometer equipped with microscope and diamond press accessories\",\n            \"measurement_context\": null,\n            \"method_normalized\": \"FTIR\",\n            \"method_raw\": \"Fourier-transform infrared (FTIR)\",\n            \"parameters\": {},\n            \"result_summary\": \"FTIR spectra of DA-polyesters HS, HI, HT, OT(2) show characteristic peaks corresponding to methyl side groups, benzene ring CH wagging, and diacetylene group stretching.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_001\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"asymmetric stretching band\",\n            \"sample_id\": \"s005\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"asymmetric stretching of methyl side groups\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 2990,\n            \"value_min\": 2990,\n            \"value_raw\": \"2990\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_002\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"symmetric stretching band\",\n            \"sample_id\": \"s005\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"symmetric stretching of methyl side groups\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 2870,\n            \"value_min\": 2870,\n            \"value_raw\": \"2870\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"while deformation bands at 1450 and $1 3 7 8 ~ \\\\mathrm { { c m } ^ { - 1 } }$, respectively.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_003\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"deformation band\",\n            \"sample_id\": \"s005\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"deformation of methyl side groups\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 1450,\n            \"value_min\": 1450,\n            \"value_raw\": \"1450\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"while deformation bands at 1450 and $1 3 7 8 ~ \\\\mathrm { { c m } ^ { - 1 } }$, respectively.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_004\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"deformation band\",\n            \"sample_id\": \"s005\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"deformation of methyl side groups\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 1378,\n            \"value_min\": 1378,\n            \"value_raw\": \"1378\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.85\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"For all aromatic DA-polyesters, the sharp and strong band at $7 3 0 ~ \\\\mathrm { c m } ^ { \\\\hat { - } \\\\mathbf { 1 } }$is attributed to CH wagging vibrations of the benzene ring.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_005\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"sharp and strong band\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"CH wagging vibrations of the benzene ring\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 730,\n            \"value_min\": 730,\n            \"value_raw\": \"730\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"The characteristic stretching modes of diacetylene group $\\\\scriptstyle - \\\\mathrm { C } = \\\\mathrm { C } -$C'C— are seen at about 2260 and $2 \\\\bar { 1 } 6 0 ~ \\\\mathrm { { c m } ^ { - 1 } }$as weak bands.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_006\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"weak band\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"characteristic stretching modes of diacetylene group -C=C-C'C—\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 2260,\n            \"value_min\": 2260,\n            \"value_raw\": \"about 2260\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_43\",\n                    \"source_sentence\": \"The characteristic stretching modes of diacetylene group $\\\\scriptstyle - \\\\mathrm { C } = \\\\mathrm { C } -$C'C— are seen at about 2260 and $2 \\\\bar { 1 } 6 0 ~ \\\\mathrm { { c m } ^ { - 1 } }$as weak bands.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_007\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"weak band\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"characteristic stretching modes of diacetylene group -C=C-C'C—\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm⁻¹\",\n            \"value_max\": 2160,\n            \"value_min\": 2160,\n            \"value_raw\": \"2160\"\n        }\n    ],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10836,
+              "output_tokens": 6347,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.04681152",
+              "output_cost": "0.18501505",
+              "total_cost": "0.23182657"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 4,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "9525869ba16f40dde35779943ceff46a9e1859500f037ad68b568be3f648f074",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[3].value_raw",
+          "property_id": "prop_s5_004"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[4].value_raw",
+          "property_id": "prop_s5_005"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[5]",
+          "property_id": "prop_s5_006",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[6].value_raw",
+          "property_id": "prop_s5_007"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Fourier-transform infrared (FTIR)",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Perkin– Elmer system 2000 FTIR spectrometer equipped with microscope and diamond press accessories",
+            "parameters": {},
+            "result_summary": "FTIR spectra of DA-polyesters HS, HI, HT, OT(2) show characteristic peaks corresponding to methyl side groups, benzene ring CH wagging, and diacetylene group stretching.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  529.0,
+                  183.0,
+                  913.0,
+                  429.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Fourier-transform infrared (FTIR) spectra of the DA-polyesters were recorded using a Perkin– Elmer system 2000 FTIR spectrometer equipped with microscope and diamond press accessories."
+              },
+              {
+                "block_id": "P_3_43",
+                "page": 3,
+                "bbox": [
+                  529.0,
+                  369.0,
+                  913.0,
+                  508.0
+                ],
+                "source_type": "text",
+                "source_sentence": "FTIR spectra of the as-synthesised DA-polyesters HS, HI, HT, and OT(2) are shown in Figure 1."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2990",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2990",
+            "value_min": 2990.0,
+            "value_max": 2990.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_43",
+                "page": 3,
+                "bbox": [
+                  529.0,
+                  369.0,
+                  913.0,
+                  508.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "symmetric stretching band",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2870",
+            "value_min": 2870.0,
+            "value_max": 2870.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_43",
+                "page": 3,
+                "bbox": [
+                  529.0,
+                  369.0,
+                  913.0,
+                  508.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Due to its methyl side groups in OT(2), the asymmetric and symmetric stretching bands are observed at 2990 and 2870 cm<sup>21</sup>"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_id": "s005",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "deformation band",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1450",
+            "value_min": 1450.0,
+            "value_max": 1450.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_43",
+                "page": 3,
+                "bbox": [
+                  529.0,
+                  369.0,
+                  913.0,
+                  508.0
+                ],
+                "source_type": "text",
+                "source_sentence": "while deformation bands at 1450 and $1 3 7 8 ~ \\mathrm { { c m } ^ { - 1 } }$, respectively."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "weak band",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "about 2260",
+            "value_min": 2260.0,
+            "value_max": 2260.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_3_43",
+                "page": 3,
+                "bbox": [
+                  529.0,
+                  369.0,
+                  913.0,
+                  508.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The characteristic stretching modes of diacetylene group $\\scriptstyle - \\mathrm { C } = \\mathrm { C } -$C'C— are seen at about 2260 and $2 \\bar { 1 } 6 0 ~ \\mathrm { { c m } ^ { - 1 } }$as weak bands."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_29",
+        "P_2_30",
+        "P_4_50",
+        "P_6_68",
+        "P_6_70",
+        "P_6_71",
+        "I_6_72",
+        "I_7_75",
+        "P_7_76",
+        "T_7_77",
+        "P_7_79"
+      ],
+      "context_chars": 10520,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_2_30\",\n                    \"source_sentence\": \"Differential scanning calorimetry (DSC) analysis was carried out employing a Perkin–Elmer DSC-7. All DA-polyesters were analyzed from 40 to 250°C under nitrogen purge at the heating rate of 10°C/min. Isothermal DSC analysis was also carried out by first heating the sample to the annealing temperature $( 8 0 ^ { \\\\circ } \\\\mathrm { C } )$at a rate of $3 0 ^ { \\\\circ } \\\\mathrm { C } / \\\\mathrm { m i n }$.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_6_71\",\n                    \"source_sentence\": \"The DSC curves of as-synthesised DA-polyesters HS, HI, HT, and OT(2) are shown in Figure 5, and the temperatures of melting $( T _ { m } )$and exothermic reaction $( T _ { \\\\mathrm { e x o } } )$of as-synthesised DA-polyesters and their enthalpies are summarized in Table VI.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"T_7_77\",\n                    \"source_sentence\": \"Table VI. DSC Results of the Synthesised DA-Polyesters\",\n                    \"table_locator\": {\n                        \"table_id\": \"T_7_77\",\n                        \"row_label\": \"all rows\",\n                        \"column_label\": \"all columns\",\n                        \"cell_value\": null,\n                        \"cell_id\": null,\n                        \"row_index\": null,\n                        \"column_index\": null\n                    }\n                }\n            ],\n            \"instrument\": \"Perkin–Elmer DSC-7\",\n            \"measurement_context\": null,\n            \"method_normalized\": \"DSC\",\n            \"method_raw\": \"Differential scanning calorimetry (DSC)\",\n            \"parameters\": {\n                \"heating_rate\": \"10°C/min\",\n                \"atmosphere\": \"nitrogen purge\",\n                \"temperature_range\": \"40 to 250°C\",\n                \"isothermal_annealing_temperature\": \"80°C\"\n            },\n            \"result_summary\": \"Tested melting temperature, melting enthalpy, exothermic reaction temperature and exothermic enthalpy of HS, HI, HT, OT(2); HS and OT(2) showed melting behavior, HT and HI had no obvious melting peak; HS and HI exhibited sharp single exothermic peak, HT and OT(2) showed broad bimodal exothermic transition; obvious exothermic peak was observed for HS at 80°C isothermal DSC, no obvious exothermic peak for aromatic DA-polyesters.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\"s001\", \"s002\", \"s004\", \"s005\"],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": [\"series006\", \"series007\", \"series008\", \"series009\"]\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 12406,
+              "output_tokens": 3083,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08369568",
+              "output_cost": "0.08986945",
+              "total_cost": "0.17356513"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "10e8fd510f82c010a7d3246874adea28ce1d6f018706eda5e9ff242d1ce33944",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "T_7_77.table_locator.row_label 不是表格原文"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series006",
+              "series007",
+              "series008",
+              "series009"
+            ],
+            "instrument": "Perkin–Elmer DSC-7",
+            "parameters": {
+              "heating_rate": "10°C/min",
+              "atmosphere": "nitrogen purge",
+              "temperature_range": "40 to 250°C"
+            },
+            "result_summary": "Tested melting temperature, melting enthalpy, exothermic reaction temperature and exothermic enthalpy of HS, HI, HT, OT(2); HS and OT(2) showed melting behavior, HT and HI had no obvious melting peak; HS and HI exhibited sharp single exothermic peak, HT and OT(2) showed broad bimodal exothermic transition; obvious exothermic peak was observed for HS at 80°C isothermal DSC, no obvious exothermic peak for aromatic DA-polyesters.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_30",
+                "page": 2,
+                "bbox": [
+                  527.0,
+                  460.0,
+                  913.0,
+                  814.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Differential scanning calorimetry (DSC) analysis was carried out employing a Perkin–Elmer DSC-7. All DA-polyesters were analyzed from 40 to 250°C under nitrogen purge at the heating rate of 10°C/min. Isothermal DSC analysis was also carried out by first heating the sample to the annealing temperature $( 8 0 ^ { \\circ } \\mathrm { C } )$at a rate of $3 0 ^ { \\circ } \\mathrm { C } / \\mathrm { m i n }$."
+              },
+              {
+                "block_id": "P_6_71",
+                "page": 6,
+                "bbox": [
+                  527.0,
+                  428.0,
+                  913.0,
+                  614.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The DSC curves of as-synthesised DA-polyesters HS, HI, HT, and OT(2) are shown in Figure 5, and the temperatures of melting $( T _ { m } )$and exothermic reaction $( T _ { \\mathrm { e x o } } )$of as-synthesised DA-polyesters and their enthalpies are summarized in Table VI."
+              },
+              {
+                "block_id": "T_7_77",
+                "page": 7,
+                "bbox": [
+                  120.0,
+                  776.0,
+                  498.0,
+                  873.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Table VI. DSC Results of the Synthesised DA-Polyesters",
+                "table_locator": {
+                  "table_id": "T_7_77",
+                  "row_label": "all rows",
+                  "column_label": "all columns",
+                  "cell_value": null,
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dma_001",
+      "method_normalized": "DMA",
+      "block_ids": [
+        "P_2_29",
+        "P_2_30",
+        "P_7_80",
+        "P_7_81",
+        "I_7_82",
+        "I_8_85",
+        "P_8_87"
+      ],
+      "context_chars": 4879,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_30\",\n          \"source_sentence\": \"Dynamic mechanical analysis (DMA) data were collected through a TA Instruments Dynamic Mechanical Analyzer 2980. A film clamp and a single cantilever clamp were used to test solution-cast HT thin film and melt-processed OT(2) samples, respectively. The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air. The peak tan d temperature is taken as the glass transition temperature $T _ { g } .$\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_80\",\n          \"source_sentence\": \"Dynamic Mechanical Analysis (DMA)\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_81\",\n          \"source_sentence\": \"Solution-cast films and melt processed OT(2) sheets were analyzed using DMA in tension mode and single-cantilever mode, respectively. The $T _ { g }$and peak tan d values as well as the $E ^ { \\\\prime }$values at room temperature $( 2 5 \\\\pm 2 ^ { \\\\circ } \\\\mathrm { C } )$are summarized in Table\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"TA Instruments Dynamic Mechanical Analyzer 2980\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": {\n          \"evidence\": [\n            {\n              \"block_id\": \"P_2_30\",\n              \"source_sentence\": \"The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air.\",\n              \"table_locator\": null\n            }\n          ],\n          \"raw\": \"1 Hz\",\n          \"unit\": \"Hz\",\n          \"value\": 1\n        },\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"heating_rate\": [\n            {\n              \"block_id\": \"P_2_30\",\n              \"source_sentence\": \"The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air.\",\n              \"table_locator\": null\n            }\n          ],\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_2_30\",\n              \"source_sentence\": \"The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"heating_rate\": \"3°C/min\",\n          \"atmosphere\": \"air\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"DMA\",\n      \"method_raw\": \"Dynamic mechanical analysis (DMA)\",\n      \"parameters\": {\n        \"clamp_type\": \"film clamp, single cantilever clamp\"\n      },\n      \"result_summary\": \"Measured storage modulus (E'), mechanical damping (tan δ) of HT and OT(2) samples with different processing conditions as a function of temperature, obtained Tg, peak tan δ values and E' at room temperature.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": [\"series010\", \"series011\", \"series012\"]\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10878,
+              "output_tokens": 2787,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07709472",
+              "output_cost": "0.08124105",
+              "total_cost": "0.15833577"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "e41544c4809c9ae9d099e740cee92d594fcac677d3b4917b0b883ff72b5f21dc",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_7_81"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "series_point_subject_scope_inherited",
+          "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围",
+          "field_path": "characterizations[0]",
+          "series_ids": [
+            "series010",
+            "series011",
+            "series012"
+          ],
+          "sample_ids": [
+            "s006",
+            "s010",
+            "s007",
+            "s011"
+          ],
+          "entity_ids": [
+            "pe005",
+            "pe006"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Dynamic mechanical analysis (DMA)",
+            "method_normalized": "DMA",
+            "sample_ids": [
+              "s006",
+              "s010",
+              "s007",
+              "s011"
+            ],
+            "entity_ids": [
+              "pe005",
+              "pe006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series010",
+              "series011",
+              "series012"
+            ],
+            "instrument": "TA Instruments Dynamic Mechanical Analyzer 2980",
+            "measurement_context": {
+              "frequency": {
+                "raw": "1 Hz",
+                "value": 1.0,
+                "unit": "Hz",
+                "evidence": [
+                  {
+                    "block_id": "P_2_30",
+                    "page": 2,
+                    "bbox": [
+                      527.0,
+                      460.0,
+                      913.0,
+                      814.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air."
+                  }
+                ],
+                "evidence_ids": []
+              },
+              "other_conditions": {
+                "heating_rate": "3°C/min",
+                "atmosphere": "air"
+              },
+              "other_condition_evidence": {
+                "heating_rate": [
+                  {
+                    "block_id": "P_2_30",
+                    "page": 2,
+                    "bbox": [
+                      527.0,
+                      460.0,
+                      913.0,
+                      814.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air."
+                  }
+                ],
+                "atmosphere": [
+                  {
+                    "block_id": "P_2_30",
+                    "page": 2,
+                    "bbox": [
+                      527.0,
+                      460.0,
+                      913.0,
+                      814.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "Measured storage modulus (E'), mechanical damping (tan δ) of HT and OT(2) samples with different processing conditions as a function of temperature, obtained Tg, peak tan δ values and E' at room temperature.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_30",
+                "page": 2,
+                "bbox": [
+                  527.0,
+                  460.0,
+                  913.0,
+                  814.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Dynamic mechanical analysis (DMA) data were collected through a TA Instruments Dynamic Mechanical Analyzer 2980. A film clamp and a single cantilever clamp were used to test solution-cast HT thin film and melt-processed OT(2) samples, respectively. The measurement was performed at a heating rate of 3°C/min and a frequency of 1 Hz in air. The peak tan d temperature is taken as the glass transition temperature $T _ { g } .$"
+              },
+              {
+                "block_id": "P_7_80",
+                "page": 7,
+                "bbox": [
+                  531.0,
+                  481.0,
+                  810.0,
+                  498.0
+                ],
+                "source_type": "title",
+                "source_sentence": "Dynamic Mechanical Analysis (DMA)"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_2_29",
+        "P_2_30",
+        "P_6_66",
+        "P_6_67",
+        "P_6_68"
+      ],
+      "context_chars": 3376,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_30\",\n          \"source_sentence\": \"Thermogravimetric analysis (TGA) was performed using a TA Instruments of Hi-res TGA 2950 Thermogravimetric Analyzer. A sample of about 20 mg was put into a clean platinum pan and run under both nitrogen and air atmosphere from room temperature to $8 0 0 ^ { \\\\circ } \\\\mathrm { C }$at a heating rate of 10°C/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_6_68\",\n          \"source_sentence\": \"$T _ { 3 \\\\% }$values obtained both in nitrogen and air are shown in Table V. It can be seen that aromatic DA-polyesters, HT, HI, and OT(2), are much more thermally stable than aliphatic DA-polyester HS, regardless of the testing atmosphere, due to the introduction of the benzene ring in the polymer backbone.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"TA Instruments of Hi-res TGA 2950 Thermogravimetric Analyzer\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"Thermogravimetric analysis (TGA)\",\n      \"parameters\": {\n        \"sample_weight\": \"about 20 mg\",\n        \"sample_pan\": \"platinum\",\n        \"atmosphere\": \"nitrogen and air\",\n        \"heating_rate\": \"10°C/min\",\n        \"temperature_range\": \"room temperature to 800°C\"\n      },\n      \"result_summary\": \"T3% (temperature at 3% weight loss) values for DA-polyesters measured in nitrogen and air indicate aromatic DA-polyesters are more thermally stable than aliphatic DA-polyester HS; degradation proceeds in two stages in air with little/no residue, and in a single stage in nitrogen with 30-40% residue.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": [\"series003\", \"series004\", \"series005\"]\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10435,
+              "output_tokens": 1905,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07518096",
+              "output_cost": "0.05553075",
+              "total_cost": "0.13071171"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "3c4d26059bedfffa4db96e7bdb8c5046cb27ef3fecd716054c83ee2831333dbd",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "series_point_subject_scope_inherited",
+          "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围",
+          "field_path": "characterizations[0]",
+          "series_ids": [
+            "series003",
+            "series004",
+            "series005"
+          ],
+          "sample_ids": [
+            "s001",
+            "s002",
+            "s004",
+            "s005"
+          ],
+          "entity_ids": [
+            "pe002",
+            "pe003",
+            "pe005",
+            "pe006"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "entity_ids": [
+              "pe002",
+              "pe003",
+              "pe005",
+              "pe006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series003",
+              "series004",
+              "series005"
+            ],
+            "instrument": "TA Instruments of Hi-res TGA 2950 Thermogravimetric Analyzer",
+            "parameters": {
+              "sample_weight": "about 20 mg",
+              "sample_pan": "platinum",
+              "atmosphere": "nitrogen and air",
+              "heating_rate": "10°C/min"
+            },
+            "result_summary": "T3% (temperature at 3% weight loss) values for DA-polyesters measured in nitrogen and air indicate aromatic DA-polyesters are more thermally stable than aliphatic DA-polyester HS; degradation proceeds in two stages in air with little/no residue, and in a single stage in nitrogen with 30-40% residue.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_30",
+                "page": 2,
+                "bbox": [
+                  527.0,
+                  460.0,
+                  913.0,
+                  814.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Thermogravimetric analysis (TGA) was performed using a TA Instruments of Hi-res TGA 2950 Thermogravimetric Analyzer. A sample of about 20 mg was put into a clean platinum pan and run under both nitrogen and air atmosphere from room temperature to $8 0 0 ^ { \\circ } \\mathrm { C }$at a heating rate of 10°C/min."
+              },
+              {
+                "block_id": "P_6_68",
+                "page": 6,
+                "bbox": [
+                  119.0,
+                  859.0,
+                  500.0,
+                  907.0
+                ],
+                "source_type": "text",
+                "source_sentence": "$T _ { 3 \\% }$values obtained both in nitrogen and air are shown in Table V. It can be seen that aromatic DA-polyesters, HT, HI, and OT(2), are much more thermally stable than aliphatic DA-polyester HS, regardless of the testing atmosphere, due to the introduction of the benzene ring in the polymer backbone."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "xrd_001",
+      "method_normalized": "XRD",
+      "block_ids": [
+        "P_2_27",
+        "P_2_28",
+        "P_2_29",
+        "I_5_55",
+        "P_5_58",
+        "P_5_59",
+        "P_5_60"
+      ],
+      "context_chars": 6078,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"Wide-angle X-ray diffraction (WAXD) patterns were obtained with a Rigaku RINT 2000 series wide-angle X-ray diffractometer using the parameters of 50 kV and 20 mA at the scanning rate of 2°/min.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_5_59\",\n          \"source_sentence\": \"Wide-angle X-ray diffraction patterns of the DApolyesters HS, HI, HT, and OT(2) are shown in Figure 4.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Rigaku RINT 2000 series wide-angle X-ray diffractometer\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"XRD\",\n      \"method_raw\": \"Wide-angle X-ray diffraction (WAXD)\",\n      \"parameters\": {\n        \"voltage\": \"50 kV\",\n        \"current\": \"20 mA\",\n        \"scanning rate\": \"2°/min\"\n      },\n      \"result_summary\": \"All tested DA-polyesters (HS, HI, HT, OT(2)) are semicrystalline, with crystalline diffraction peaks overlapping an amorphous halo around 2θ≈23°; HI has higher crystallinity than HT; HT has larger interchain spacing than HI; OT(2) has larger interchain spacing than HT due to methyl side groups.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s004\",\n        \"s005\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"property_id\": \"prop_s5_001\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_59\",\n          \"source_sentence\": \"It can be seen that all the DA-polyesters are semicrystalline evident from the observation of several relatively sharp crystalline diffraction peaks overlapping on a broad amorphous halo around $2 \\\\theta \\\\approx 2 3 ^ { \\\\circ }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_name_raw\": \"2θ\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s004\",\n        \"s005\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"spectral_assignment\": \"amorphous halo\",\n      \"unit_normalized\": \"°\",\n      \"unit_raw\": \"°\",\n      \"value_max\": 23,\n      \"value_min\": 23,\n      \"value_raw\": \"≈23°\"\n    },\n    {\n      \"property_id\": \"prop_s5_002\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_60\",\n          \"source_sentence\": \"The diffraction peak in OT(2), which is supposed to be corresponding to the relatively weak diffraction observed in HT at $2 \\\\theta = 1 1 . 3 ^ { \\\\circ }$and $d = 7 . 8 6 \\\\mathrm { ~ \\\\AA } ,$was not observed.\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_name_normalized\": \"xrd_diffraction_peak_2theta\",\n      \"property_name_raw\": \"2θ\",\n      \"sample_id\": \"s004\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"spectral_assignment\": \"weak diffraction peak\",\n      \"unit_normalized\": \"°\",\n      \"unit_raw\": \"°\",\n      \"value_max\": 11.3,\n      \"value_min\": 11.3,\n      \"value_raw\": \"11.3°\"\n    },\n    {\n      \"property_id\": \"prop_s5_003\",\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_60\",\n          \"source_sentence\": \"Comparing meta- and para-isomers of aromatic DA-polyesters, i.e., HI and HT, a higher degree of crystallinity is observed in HI as the diffraction peaks are sharper with a lower amorphous background.\",\n          \"table_locator\": null\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_name_normalized\": \"xrd_crystallinity\",\n      \"property_name_raw\": \"degree of crystallinity\",\n      \"sample_id\": \"s002\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"spectral_assignment\": null,\n      \"unit_normalized\": null,\n      \"unit_raw\": null,\n      \"value_max\": null,\n      \"value_min\": null,\n      \"value_raw\": \"higher than HT\"\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"specialized_id\": \"sp_cand001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe002\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_59\",\n          \"source_sentence\": \"It can be seen that all the DA-polyesters are semicrystalline evident from the observation of several relatively sharp crystalline diffraction peaks overlapping on a broad amorphous halo around $2 \\\\theta \\\\approx 2 3 ^ { \\\\circ }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"Wide-angle X-ray diffraction\",\n      \"property_name_raw\": \"morphology\",\n      \"sample_id\": \"s001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"unit_raw\": null,\n      \"value_raw\": \"semicrystalline\"\n    },\n    {\n      \"specialized_id\": \"sp_cand002\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_59\",\n          \"source_sentence\": \"It can be seen that all the DA-polyesters are semicrystalline evident from the observation of several relatively sharp crystalline diffraction peaks overlapping on a broad amorphous halo around $2 \\\\theta \\\\approx 2 3 ^ { \\\\circ }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"Wide-angle X-ray diffraction\",\n      \"property_name_raw\": \"morphology\",\n      \"sample_id\": \"s002\",\n      \"sample_resolution_status\": \"resolved\",\n      \"unit_raw\": null,\n      \"value_raw\": \"semicrystalline\"\n    },\n    {\n      \"specialized_id\": \"sp_cand003\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe005\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_59\",\n          \"source_sentence\": \"It can be seen that all the DA-polyesters are semicrystalline evident from the observation of several relatively sharp crystalline diffraction peaks overlapping on a broad amorphous halo around $2 \\\\theta \\\\approx 2 3 ^ { \\\\circ }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"Wide-angle X-ray diffraction\",\n      \"property_name_raw\": \"morphology\",\n      \"sample_id\": \"s004\",\n      \"sample_resolution_status\": \"resolved\",\n      \"unit_raw\": null,\n      \"value_raw\": \"semicrystalline\"\n    },\n    {\n      \"specialized_id\": \"sp_cand004\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe006\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_59\",\n          \"source_sentence\": \"It can be seen that all the DA-polyesters are semicrystalline evident from the observation of several relatively sharp crystalline diffraction peaks overlapping on a broad amorphous halo around $2 \\\\theta \\\\approx 2 3 ^ { \\\\circ }$.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"Wide-angle X-ray diffraction\",\n      \"property_name_raw\": \"morphology\",\n      \"sample_id\": \"s005\",\n      \"sample_resolution_status\": \"resolved\",\n      \"unit_raw\": null,\n      \"value_raw\": \"semicrystalline\"\n    },\n    {\n      \"specialized_id\": \"sp_cand005\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_5_60\",\n          \"source_sentence\": \"This indicates that HI may have a more favorable molecular packing structure, i.e., closer packing, for the crosspolymerization to occur.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": \"Wide-angle X-ray diffraction\",\n      \"property_name_raw\": \"molecular packing structure\",\n      \"sample_id\": \"s002\",\n      \"sample_resolution_status\": \"resolved\",\n      \"unit_raw\": null,\n      \"value_raw\": \"closer packing than HT\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 11141,
+              "output_tokens": 8211,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 9016
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08707824",
+              "output_cost": "0.23935065",
+              "total_cost": "0.32642889"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "8ce65ae5cd2bc259df6555ff8923501bad1899a7a24da94992134389c9ece228",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[0].value_raw",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[1].value_raw",
+          "property_id": "prop_s5_002"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[2].value_raw",
+          "property_id": "prop_s5_003"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Wide-angle X-ray diffraction (WAXD)",
+            "method_normalized": "XRD",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Rigaku RINT 2000 series wide-angle X-ray diffractometer",
+            "parameters": {
+              "voltage": "50 kV",
+              "current": "20 mA",
+              "scanning rate": "2°/min"
+            },
+            "result_summary": "All tested DA-polyesters (HS, HI, HT, OT(2)) are semicrystalline, with crystalline diffraction peaks overlapping an amorphous halo around 2θ≈23°; HI has higher crystallinity than HT; HT has larger interchain spacing than HI; OT(2) has larger interchain spacing than HT due to methyl side groups.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  529.0,
+                  183.0,
+                  913.0,
+                  429.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Wide-angle X-ray diffraction (WAXD) patterns were obtained with a Rigaku RINT 2000 series wide-angle X-ray diffractometer using the parameters of 50 kV and 20 mA at the scanning rate of 2°/min."
+              },
+              {
+                "block_id": "P_5_59",
+                "page": 5,
+                "bbox": [
+                  529.0,
+                  161.0,
+                  913.0,
+                  299.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Wide-angle X-ray diffraction patterns of the DApolyesters HS, HI, HT, and OT(2) are shown in Figure 4."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "raman_001",
+      "method_normalized": "Raman",
+      "block_ids": [
+        "P_2_27",
+        "P_2_28",
+        "P_2_29",
+        "P_3_41",
+        "P_3_42",
+        "I_4_47",
+        "P_4_49",
+        "P_4_50",
+        "I_4_52",
+        "P_5_56",
+        "P_7_79"
+      ],
+      "context_chars": 8493,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_28\",\n          \"source_sentence\": \"Raman spectroscopy analysis was conducted using a Renishaw Ramascope 3000 spectrometer equipped with a modified Olympus microscope.\"\n        },\n        {\n          \"block_id\": \"P_4_49\",\n          \"source_sentence\": \"Raman spectra of as-synthesised DApolyesters of HS, HI, HT, and OT(2) are shown in Figure 2.\"\n        },\n        {\n          \"block_id\": \"P_4_50\",\n          \"source_sentence\": \"Raman technique was also used to study the solid-state topochemical crosspolymerization of the diacetylene units in the polymers.\"\n        }\n      ],\n      \"instrument\": \"Renishaw Ramascope 3000 spectrometer equipped with a modified Olympus microscope\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\"\n      },\n      \"method_normalized\": \"Raman\",\n      \"method_raw\": \"Raman spectroscopy\",\n      \"parameters\": {\n        \"objective\": \"350\",\n        \"laser_power\": \"25 mV\",\n        \"laser_wavelength\": \"632.8 nm\",\n        \"detector\": \"Peltier cooled charge-coupled device\"\n      },\n      \"result_summary\": \"Raman spectra detected unreacted diacetylene bands at ~2260 cm⁻¹, and polydiacetylene bands at ~2106/2110 cm⁻¹ and ~1507/1500 cm⁻¹ in as-synthesized and thermally treated DA-polyesters HS, HI, HT, OT(2); aliphatic HS showed higher solid-state cross-polymerization reactivity than aromatic DA-polyesters, with OT(2) exhibiting no reaction at 80°C.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s004\", \"s005\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.95\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_49\",\n          \"source_sentence\": \"in addition to the band of unreacted diacetylene $( { \\\\mathrm { - } } \\\\mathrm { C } { \\\\equiv } \\\\mathrm { C } { \\\\mathrm { - } } \\\\mathrm { C } { \\\\equiv } \\\\mathrm { C } { \\\\mathrm { - } } )$ at about $2 2 6 0 ~ \\\\mathrm { c m } ^ { - 1 }$\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"raman_peak_wavenumber\",\n      \"property_name_raw\": \"Raman band\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s004\", \"s005\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"unreacted diacetylene (-C≡C-C≡C-)\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 2260,\n      \"value_min\": 2260,\n      \"value_raw\": \"2260\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.95\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_49\",\n          \"source_sentence\": \"bands of C'C and C|C vibration in polydiacetylene are also seen at 2106 and $1 5 0 7 \\\\mathrm { c m } ^ { - 1 }$\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"raman_peak_wavenumber\",\n      \"property_name_raw\": \"Raman band\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C'C vibration in polydiacetylene\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 2106,\n      \"value_min\": 2106,\n      \"value_raw\": \"2106\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.95\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_49\",\n          \"source_sentence\": \"bands of C'C and C|C vibration in polydiacetylene are also seen at 2106 and $1 5 0 7 \\\\mathrm { c m } ^ { - 1 }$\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"raman_peak_wavenumber\",\n      \"property_name_raw\": \"Raman band\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"C|C vibration in polydiacetylene\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1507,\n      \"value_min\": 1507,\n      \"value_raw\": \"1507\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_50\",\n          \"source_sentence\": \"By monitoring the three vibrational bands of the unreacted and reacted diacetylenes at about 2260, 2110, and $1 5 0 0 ~ \\\\mathrm { { c m } ^ { - 1 } }$\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_004\",\n      \"property_name_normalized\": \"raman_peak_wavenumber\",\n      \"property_name_raw\": \"Raman band\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s004\", \"s005\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"polydiacetylene chain vibration\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 2110,\n      \"value_min\": 2110,\n      \"value_raw\": \"2110\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_50\",\n          \"source_sentence\": \"By monitoring the three vibrational bands of the unreacted and reacted diacetylenes at about 2260, 2110, and $1 5 0 0 ~ \\\\mathrm { { c m } ^ { - 1 } }$\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"composition_structure\",\n      \"property_id\": \"prop_s5_005\",\n      \"property_name_normalized\": \"raman_peak_wavenumber\",\n      \"property_name_raw\": \"Raman band\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s004\", \"s005\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": \"polydiacetylene chain vibration\",\n      \"unit_normalized\": \"cm⁻¹\",\n      \"unit_raw\": \"cm⁻¹\",\n      \"value_max\": 1500,\n      \"value_min\": 1500,\n      \"value_raw\": \"1500\"\n    }\n  ],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 11802,
+              "output_tokens": 5932,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.05098464",
+              "output_cost": "0.1729178",
+              "total_cost": "0.22390244"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 2,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "c8b3208c507e5694ab02d0f852c77d2916a782307a5d29f1b87135c0936f4a5c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[0].value_raw",
+          "property_id": "prop_s5_001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[2].value_raw",
+          "property_id": "prop_s5_003"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "unit_raw",
+            "spectral_assignment"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[4].value_raw",
+          "property_id": "prop_s5_005"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[0].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_002"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "derived_property_back_reference_completed",
+          "message": "Stage 5 property 已明确引用唯一 Characterization；已补齐其 derived_property_ids 反向引用",
+          "field_path": "properties[1].characterization_id",
+          "characterization_id": "char001",
+          "property_id": "prop_s5_004"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Raman spectroscopy",
+            "method_normalized": "Raman",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Renishaw Ramascope 3000 spectrometer equipped with a modified Olympus microscope",
+            "parameters": {
+              "objective": "350",
+              "laser_wavelength": "632.8 nm",
+              "detector": "Peltier cooled charge-coupled device"
+            },
+            "result_summary": "Raman spectra detected unreacted diacetylene bands at ~2260 cm⁻¹, and polydiacetylene bands at ~2106/2110 cm⁻¹ and ~1507/1500 cm⁻¹ in as-synthesized and thermally treated DA-polyesters HS, HI, HT, OT(2); aliphatic HS showed higher solid-state cross-polymerization reactivity than aromatic DA-polyesters, with OT(2) exhibiting no reaction at 80°C.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_28",
+                "page": 2,
+                "bbox": [
+                  529.0,
+                  183.0,
+                  913.0,
+                  429.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Raman spectroscopy analysis was conducted using a Renishaw Ramascope 3000 spectrometer equipped with a modified Olympus microscope."
+              },
+              {
+                "block_id": "P_4_49",
+                "page": 4,
+                "bbox": [
+                  117.0,
+                  513.0,
+                  501.0,
+                  756.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Raman spectra of as-synthesised DApolyesters of HS, HI, HT, and OT(2) are shown in Figure 2."
+              },
+              {
+                "block_id": "P_4_50",
+                "page": 4,
+                "bbox": [
+                  117.0,
+                  755.0,
+                  501.0,
+                  909.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Raman technique was also used to study the solid-state topochemical crosspolymerization of the diacetylene units in the polymers."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "2106",
+            "property_name_normalized": "raman_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2106",
+            "value_min": 2106.0,
+            "value_max": 2106.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_49",
+                "page": 4,
+                "bbox": [
+                  117.0,
+                  513.0,
+                  501.0,
+                  756.0
+                ],
+                "source_type": "text",
+                "source_sentence": "bands of C'C and C|C vibration in polydiacetylene are also seen at 2106 and $1 5 0 7 \\mathrm { c m } ^ { - 1 }$"
+              }
+            ],
+            "confidence": {
+              "score": 0.95
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "2110",
+            "property_name_normalized": "raman_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "2110",
+            "value_min": 2110.0,
+            "value_max": 2110.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_50",
+                "page": 4,
+                "bbox": [
+                  117.0,
+                  755.0,
+                  501.0,
+                  909.0
+                ],
+                "source_type": "text",
+                "source_sentence": "By monitoring the three vibrational bands of the unreacted and reacted diacetylenes at about 2260, 2110, and $1 5 0 0 ~ \\mathrm { { c m } ^ { - 1 } }$"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_3_38",
+        "P_3_39",
+        "P_3_41"
+      ],
+      "context_chars": 1934,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_3_39\",\n                    \"source_sentence\": \"The dilute solution in m-cresol was charged into a Ubbelohde-type viscometer for testing.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"Ubbelohde-type viscometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"temperature\": {\n                    \"raw\": \"25 ± 0.02 °C\",\n                    \"value\": 25,\n                    \"unit\": \"°C\",\n                    \"evidence\": [\n                        {\n                            \"block_id\": \"P_3_39\",\n                            \"source_sentence\": \"The measurements of the intrinsic viscosities were made in a thermostat bath regulated to 25 $\\\\pm \\\\ : \\\\ : 0 . 0 2 ^ { \\\\circ } \\\\mathrm { C } .$.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                },\n                \"frequency\": null,\n                \"humidity\": null,\n                \"pressure\": null,\n                \"wavelength\": null,\n                \"other_conditions\": {},\n                \"other_condition_evidence\": {}\n            },\n            \"method_normalized\": \"viscometry\",\n            \"method_raw\": \"Ubbelohde-type viscometer\",\n            \"parameters\": {\n                \"solvent\": \"m-cresol\"\n            },\n            \"result_summary\": \"Intrinsic viscosities of synthesized DA-polyesters were measured, HT has [η] = 0.422, OT(2) has [η] = 0.063, HS and HI have [η] < 0.1.\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": \"series001\",\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10162,
+              "output_tokens": 2232,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 9016
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08284896",
+              "output_cost": "0.0650628",
+              "total_cost": "0.14791176"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "3d5ac35e674c8af18e1187518d084272fb024eb4e399c5a5b43f2e01e1450c72",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.temperature",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "series_point_subject_scope_inherited",
+          "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围",
+          "field_path": "characterizations[0]",
+          "series_ids": [
+            "series001"
+          ],
+          "sample_ids": [
+            "s001",
+            "s002",
+            "s003",
+            "s004",
+            "s005"
+          ],
+          "entity_ids": [
+            "pe002",
+            "pe003",
+            "pe004",
+            "pe005",
+            "pe006"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Ubbelohde-type viscometer",
+            "method_normalized": "viscometry",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005"
+            ],
+            "entity_ids": [
+              "pe002",
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series001",
+            "instrument": "Ubbelohde-type viscometer",
+            "parameters": {
+              "solvent": "m-cresol"
+            },
+            "result_summary": "Intrinsic viscosities of synthesized DA-polyesters were measured, HT has [η] = 0.422, OT(2) has [η] = 0.063, HS and HI have [η] < 0.1.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_39",
+                "page": 3,
+                "bbox": [
+                  117.0,
+                  739.0,
+                  501.0,
+                  909.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The dilute solution in m-cresol was charged into a Ubbelohde-type viscometer for testing."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0033493",
+  "status": "candidate_partial",
+  "shard_count": 2,
+  "unrouted_block_ids": [
+    "P_1_57",
+    "P_1_58",
+    "I_2_65",
+    "P_2_69",
+    "P_2_70",
+    "P_3_79",
+    "P_3_80",
+    "T_3_81",
+    "P_3_82",
+    "P_3_83",
+    "P_3_84",
+    "P_3_85",
+    "P_3_86",
+    "I_4_93",
+    "P_4_96",
+    "P_4_97",
+    "I_4_98",
+    "P_4_99",
+    "P_4_100"
+  ],
+  "shards": [
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_67",
+        "P_2_69",
+        "P_2_70",
+        "I_3_77",
+        "P_3_79"
+      ],
+      "context_chars": 3129,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_2_67\",\n                    \"source_sentence\": \"Further investigation by DSC shows a strong variation of the $T _ { \\\\mathrm { g } }$values proportional to the amount of methylhydrosilyl segments (Table 1, Figure 1).\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"I_3_77\",\n                    \"source_sentence\": \"Figure 1. DSC thermogram: (a) PSHDF withMR ¼ 1/3; (b) PSHDF with MR ¼ 1/7.\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": null,\n            \"method_normalized\": \"DSC\",\n            \"method_raw\": \"DSC\",\n            \"parameters\": {},\n            \"result_summary\": \"DSC measured Tg values proportional to methylhydrosilyl segment content, and detected exothermic peaks at 100-135°C for PSHMF and PSHDF corresponding to thermo-induced restructuring of methylhydrosilyl segments.\",\n            \"sample_id\": null,\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"series_id\": null,\n            \"series_ids\": [\"series003\", \"series004\", \"series005\", \"series006\"]\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10899,
+              "output_tokens": 1783,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07718544",
+              "output_cost": "0.05197445",
+              "total_cost": "0.12915989"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "3719e8cc1ecbaf2e38502bc211613eecdc112b70fa99ffc72b4736d143c03b9c",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unscoped_stage5_items_removed",
+          "message": "Preview 模式已移除无法唯一关联任何单/多主体的 Stage 5 表征及其派生性质；未猜测 entity_id",
+          "characterization_ids": [
+            "char001"
+          ],
+          "property_ids": []
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "series003 的测定方法 'DSC' 缺少 Characterization 回链"
+        }
+      ],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "I_2_65",
+        "P_2_66"
+      ],
+      "context_chars": 985,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_66\",\n          \"source_sentence\": \"TGA analysis of PSMF homopolymer shows a single decomposition peak at $3 8 8 ^ { \\\\circ } \\\\mathrm { C }$and two thermal decomposition stages for PSHMF and PSHDF with maxima depending more on the Si–H content than on the nature of the substituents (Table 1).\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"TGA analysis\",\n      \"parameters\": {},\n      \"result_summary\": \"PSMF homopolymer exhibits a single TGA decomposition peak, while PSHMF and PSHDF show two thermal decomposition stages, with decomposition maxima more dependent on Si-H content than substituent nature.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": [\"series001\", \"series002\"]\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10312,
+              "output_tokens": 2244,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.0746496",
+              "output_cost": "0.0654126",
+              "total_cost": "0.1400622"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "7ac25d563a0bfdb3d27779253480c6a398663c4178a875dd6abf2aa623266d5a",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "series_point_subject_scope_inherited",
+          "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围",
+          "field_path": "characterizations[0]",
+          "series_ids": [
+            "series001",
+            "series002"
+          ],
+          "sample_ids": [
+            "s001",
+            "s002",
+            "s003"
+          ],
+          "entity_ids": [
+            "pe001",
+            "pe002",
+            "pe003"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "TGA analysis",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003"
+            ],
+            "entity_ids": [
+              "pe001",
+              "pe002",
+              "pe003"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_ids": [
+              "series001",
+              "series002"
+            ],
+            "parameters": {},
+            "result_summary": "PSMF homopolymer exhibits a single TGA decomposition peak, while PSHMF and PSHDF show two thermal decomposition stages, with decomposition maxima more dependent on Si-H content than substituent nature.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_2_66",
+                "page": 2,
+                "bbox": [
+                  103.0,
+                  708.0,
+                  506.0,
+                  819.0
+                ],
+                "source_type": "text",
+                "source_sentence": "TGA analysis of PSMF homopolymer shows a single decomposition peak at $3 8 8 ^ { \\circ } \\mathrm { C }$and two thermal decomposition stages for PSHMF and PSHDF with maxima depending more on the Si–H content than on the nature of the substituents (Table 1)."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}

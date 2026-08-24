@@ -1,0 +1,727 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0037268",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "temperature": {
+        "raw": "160 °C",
+        "value": 160.0,
+        "unit": "°C",
+        "evidence": [
+          {
+            "block_id": "T_17_134",
+            "page": 17,
+            "bbox": [
+              120.0,
+              171.0,
+              879.0,
+              845.0
+            ],
+            "source_type": "table",
+            "source_sentence": "Surface Energy,  $mJ/m^2$  (160 °C)",
+            "table_locator": {
+              "table_id": "T_17_134",
+              "row_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+              "column_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+              "cell_value": "Surface Energy, $mJ/m^2$ (160 °C)",
+              "cell_id": "T_17_134:r0000:c0005",
+              "row_index": 0,
+              "column_index": 5
+            }
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "T_17_134",
+        "page": 17,
+        "bbox": [
+          120.0,
+          171.0,
+          879.0,
+          845.0
+        ],
+        "source_type": "table",
+        "source_sentence": "Table II. Measured Physical parameters of Biodegradable polymers and their Blends, Surface Energy, $mJ/m^2$ (160 °C)",
+        "table_locator": {
+          "table_id": "T_17_134",
+          "row_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+          "column_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+          "cell_value": "Surface Energy, $mJ/m^2$ (160 °C)",
+          "cell_id": "T_17_134:r0000:c0005",
+          "row_index": 0,
+          "column_index": 5
+        }
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "temperature": {
+        "raw": "110 °C",
+        "value": 110.0,
+        "unit": "°C",
+        "evidence": [
+          {
+            "block_id": "T_17_134",
+            "page": 17,
+            "bbox": [
+              120.0,
+              171.0,
+              879.0,
+              845.0
+            ],
+            "source_type": "table",
+            "source_sentence": "Degree of Crystal-linity at 110 °C",
+            "table_locator": {
+              "table_id": "T_17_134",
+              "row_label": "Degree of Crystal-linity at 110 °C",
+              "column_label": "Degree of Crystal-linity at 110 °C",
+              "cell_value": "Degree of Crystal-linity at 110 °C",
+              "cell_id": "T_17_134:r0000:c0004",
+              "row_index": 0,
+              "column_index": 4
+            }
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "T_17_134",
+        "page": 17,
+        "bbox": [
+          120.0,
+          171.0,
+          879.0,
+          845.0
+        ],
+        "source_type": "table",
+        "source_sentence": "Degree of Crystal-linity at 110 °C",
+        "table_locator": {
+          "table_id": "T_17_134",
+          "row_label": "Degree of Crystal-linity at 110 °C",
+          "column_label": "Degree of Crystal-linity at 110 °C",
+          "cell_value": "Degree of Crystal-linity at 110 °C",
+          "cell_id": "T_17_134:r0000:c0004",
+          "row_index": 0,
+          "column_index": 4
+        }
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_16_126",
+        "page": 16,
+        "bbox": [
+          113.0,
+          283.0,
+          881.0,
+          379.0
+        ],
+        "source_type": "text",
+        "source_sentence": "Where * in Table II denotes parameters measured by the IGC, others are reported by the suppliers."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s001",
+      "property_name_raw": "T_g",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "determination_method_raw": "IGC",
+      "observation_role": "single",
+      "value_raw": "105",
+      "value_min": 105.0,
+      "value_max": 105.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "100% Amylopectin (AP) row, T_g^oC column, value 105*",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "$T_g^oC$",
+            "cell_value": "105*",
+            "cell_id": "T_17_134:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s001",
+      "property_name_raw": "T_m",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "determination_method_raw": "IGC",
+      "observation_role": "single",
+      "value_raw": "166",
+      "value_min": 166.0,
+      "value_max": 166.0,
+      "unit_raw": "°C",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "100% Amylopectin (AP) row, T_m^oC column, value 166*",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "$T_m^oC$",
+            "cell_value": "166*",
+            "cell_id": "T_17_134:r0001:c0003",
+            "row_index": 1,
+            "column_index": 3
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s001",
+      "property_name_raw": "ΔHs",
+      "determination_method_raw": "IGC",
+      "observation_role": "single",
+      "value_raw": "-40.87",
+      "value_min": -40.87,
+      "value_max": -40.87,
+      "unit_raw": "KJ/mol",
+      "unit_normalized": "kJ/mol",
+      "measurement_condition_id": "mc003",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "100% Amylopectin (AP) row, ΔHs, KJ/mol column, value -40.87",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "$\\Delta Hs, KJ/mol$",
+            "cell_value": "-40.87",
+            "cell_id": "T_17_134:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s001",
+      "property_name_raw": "Degree of Crystallinity",
+      "determination_method_raw": "IGC",
+      "observation_role": "single",
+      "value_raw": "81",
+      "value_min": 81.0,
+      "value_max": 81.0,
+      "unit_raw": "%",
+      "unit_normalized": "%",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "110 °C",
+          "value": 110.0,
+          "unit": "°C",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Degree of Crystal-linity at 110 °C",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Degree of Crystal-linity at 110 °C",
+                "column_label": "Degree of Crystal-linity at 110 °C",
+                "cell_value": "Degree of Crystal-linity at 110 °C",
+                "cell_id": "T_17_134:r0000:c0004",
+                "row_index": 0,
+                "column_index": 4
+              }
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "100% Amylopectin (AP) row, Degree of Crystal-linity at 110 °C column, value 81",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "Degree of Crystal-linity at 110 °C",
+            "cell_value": "81",
+            "cell_id": "T_17_134:r0001:c0004",
+            "row_index": 1,
+            "column_index": 4
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s001",
+      "property_name_raw": "Surface Energy",
+      "determination_method_raw": "IGC",
+      "observation_role": "single",
+      "value_raw": "16.00",
+      "value_min": 16.0,
+      "value_max": 16.0,
+      "unit_raw": "mJ/m^2",
+      "unit_normalized": "mJ/m²",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "160 °C",
+          "value": 160.0,
+          "unit": "°C",
+          "evidence": [
+            {
+              "block_id": "T_17_134",
+              "page": 17,
+              "bbox": [
+                120.0,
+                171.0,
+                879.0,
+                845.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Surface Energy,  $mJ/m^2$  (160 °C)",
+              "table_locator": {
+                "table_id": "T_17_134",
+                "row_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+                "column_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+                "cell_value": "Surface Energy, $mJ/m^2$ (160 °C)",
+                "cell_id": "T_17_134:r0000:c0005",
+                "row_index": 0,
+                "column_index": 5
+              }
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_17_134",
+          "page": 17,
+          "bbox": [
+            120.0,
+            171.0,
+            879.0,
+            845.0
+          ],
+          "source_type": "table",
+          "source_sentence": "100% Amylopectin (AP) row, Surface Energy, $mJ/m^2$ (160 °C) column, value 16.00",
+          "table_locator": {
+            "table_id": "T_17_134",
+            "row_label": "100% Amylopectin (AP)",
+            "column_label": "Surface Energy, $mJ/m^2$ (160 °C)",
+            "cell_value": "16.00",
+            "cell_id": "T_17_134:r0001:c0005",
+            "row_index": 1,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "unresolved_properties": [],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_id": "s005",
+      "entity_id": "pe005",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "χ₁₂",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Solute",
+              "value_raw": "Pentane",
+              "evidence": {
+                "block_id": "T_19_142",
+                "page": 19,
+                "bbox": [
+                  134.0,
+                  219.0,
+                  861.0,
+                  811.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Poly acrylic acid (PAA)(MW:2000) row group, Solute column, Pentane"
+              }
+            }
+          ],
+          "value_raw": "0.52",
+          "value_min": 0.52,
+          "value_max": 0.52,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_19_142",
+              "page": 19,
+              "bbox": [
+                134.0,
+                219.0,
+                861.0,
+                811.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Poly acrylic acid (PAA)(MW:2000) row group, Pentane row, χ₁₂ column, value 0.52",
+              "table_locator": {
+                "table_id": "T_19_142",
+                "row_label": "Poly acrylic acid (PAA)(MW:2000)",
+                "column_label": "-10.33",
+                "cell_value": "0.52",
+                "cell_id": "T_19_142:r0001:c0002",
+                "row_index": 1,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s005",
+          "entity_id": "pe005",
+          "sample_resolution_status": "resolved",
+          "coordinates": [
+            {
+              "name_raw": "Solute",
+              "value_raw": "Dodecane",
+              "evidence": {
+                "block_id": "T_19_142",
+                "page": 19,
+                "bbox": [
+                  134.0,
+                  219.0,
+                  861.0,
+                  811.0
+                ],
+                "source_type": "table",
+                "source_sentence": "Poly acrylic acid (PAA)(MW:2000) row group, Solute column, Dodecane"
+              }
+            }
+          ],
+          "value_raw": "-0.46",
+          "value_min": -0.46,
+          "value_max": -0.46,
+          "measurement_context": {
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "not_reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_19_142",
+              "page": 19,
+              "bbox": [
+                134.0,
+                219.0,
+                861.0,
+                811.0
+              ],
+              "source_type": "table",
+              "source_sentence": "Poly acrylic acid (PAA)(MW:2000) row group, Dodecane row, χ₁₂ column, value -0.46",
+              "table_locator": {
+                "table_id": "T_19_142",
+                "row_label": "Poly acrylic acid (PAA)(MW:2000)",
+                "column_label": "-10.33",
+                "cell_value": "-0.46",
+                "cell_id": "T_19_142:r0002:c0002",
+                "row_index": 2,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 2,
+        "covered": 2,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_19_142",
+          "page": 19,
+          "bbox": [
+            134.0,
+            219.0,
+            861.0,
+            811.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Poly acrylic acid (PAA)(MW:2000) row group, Pentane row, χ₁₂ column, value 0.52",
+          "table_locator": {
+            "table_id": "T_19_142",
+            "row_label": "Poly acrylic acid (PAA)(MW:2000)",
+            "column_label": "-10.33",
+            "cell_value": "0.52",
+            "cell_id": "T_19_142:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          }
+        },
+        {
+          "block_id": "T_19_142",
+          "page": 19,
+          "bbox": [
+            134.0,
+            219.0,
+            861.0,
+            811.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Poly acrylic acid (PAA)(MW:2000) row group, Dodecane row, χ₁₂ column, value -0.46",
+          "table_locator": {
+            "table_id": "T_19_142",
+            "row_label": "Poly acrylic acid (PAA)(MW:2000)",
+            "column_label": "-10.33",
+            "cell_value": "-0.46",
+            "cell_id": "T_19_142:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    }
+  ],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "fc9bae8e2009b69255c777bd90121ba0000eb923ab9c2ee67f95d17679bb2e30",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "3672f34e7a5d8de5f502a6a9b39318c592e7934cfb0653201037583082b782f3",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 53,
+    "context_chars": 43522,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 64541,
+      "output_tokens": 36254,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 64541,
+      "total_tokens": 100795
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.27881712",
+      "output_cost": "1.0568041",
+      "total_cost": "1.33562122"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正",
+      "series": 1,
+      "points": 0
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 6
+    },
+    {
+      "stage": "stage4_property",
+      "code": "coordinate_table_locators_synthesized",
+      "message": "已按 coordinate 原文值与表头生成稳定单元格定位",
+      "evidence": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "coordinate_locators_aligned_to_point",
+      "message": "重复 coordinate 标签已按同一 point 的唯一性质值行绑定到对应单元格（支持 rowspan）",
+      "evidence": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "condition_table_locators_synthesized",
+      "message": "已将唯一包含条件 raw 的表头单元格绑定为条件 evidence",
+      "evidence": 4
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop003.property_name_raw='ΔHs' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0028883",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "sample_id": "s001",
+      "entity_id": "pe001",
+      "sample_resolution_status": "resolved",
+      "instrument": "PerkinElmer DSC-7 differential scanning calorimeter",
+      "parameters": {
+        "anneal_time": "10 min",
+        "cooling_rate": "130 °C/min",
+        "heating_rate": "4 ~ { ^ { \\circ } \\mathrm { C / m i n } }"
+      },
+      "result_summary": "Equilibrium melting temperature of sPP determined to be 150 °C via Hoffman-Weeks analysis of DSC heating scans.",
+      "derived_property_ids": [
+        "prop002"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_2_33",
+          "page": 2,
+          "bbox": [
+            114.0,
+            623.0,
+            153.0,
+            638.0
+          ],
+          "source_type": "title",
+          "source_sentence": "DSC"
+        },
+        {
+          "block_id": "P_2_34",
+          "page": 2,
+          "bbox": [
+            112.0,
+            644.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermal crystallization behavior of sPP/PEP blends was analyzed by a PerkinElmer DSC-7 differential scanning calorimeter. First, the samples were heated from room temperature to 200 $^ \\circ \\mathrm { C }$and annealed for 10 min in the melt. The samples were then quickly quenched to the desired crystallization temperature $( T _ { \\mathrm { c } } )$at a cooling rate of 130 °C/min. After complete crystallization, the samples were reheated to a melt with a heating rate of $4 ~ { ^ { \\circ } \\mathrm { C / m i n } }$."
+        },
+        {
+          "block_id": "P_5_59",
+          "page": 5,
+          "bbox": [
+            114.0,
+            556.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "By extrapolating both lines of $T _ { \\mathrm { m 1 , s P P } }$versus $T _ { \\mathrm { c } }$and $T _ { \\mathrm { m 2 , s P P } }$versus $T _ { \\mathrm { c } }$to the line $T _ { \\mathrm { m } } \\overset { \\cdot } { = } T _ { \\mathrm { c } } ,$, according to the linear Hoffman–Weeks analysis,<sup>28</sup> we obtain the same value of the equilibrium melting temperature of sPP, $T _ { \\mathrm { m , s P P } } ^ { \\mathrm { ^ { \\circ } } } ,$which is around 150 °C."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "sample_id": "s002",
+      "entity_id": "pe002",
+      "sample_resolution_status": "resolved",
+      "instrument": "PerkinElmer DSC-7 differential scanning calorimeter",
+      "parameters": {
+        "anneal_time": "10 min",
+        "cooling_rate": "130 °C/min",
+        "heating_rate": "4 ~ { ^ { \\circ } \\mathrm { C / m i n } }"
+      },
+      "result_summary": "Equilibrium melting temperature of PEP determined to be 189 °C via Hoffman-Weeks analysis of DSC heating scans.",
+      "derived_property_ids": [
+        "prop003"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_2_33",
+          "page": 2,
+          "bbox": [
+            114.0,
+            623.0,
+            153.0,
+            638.0
+          ],
+          "source_type": "title",
+          "source_sentence": "DSC"
+        },
+        {
+          "block_id": "P_2_34",
+          "page": 2,
+          "bbox": [
+            112.0,
+            644.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermal crystallization behavior of sPP/PEP blends was analyzed by a PerkinElmer DSC-7 differential scanning calorimeter. First, the samples were heated from room temperature to 200 $^ \\circ \\mathrm { C }$and annealed for 10 min in the melt. The samples were then quickly quenched to the desired crystallization temperature $( T _ { \\mathrm { c } } )$at a cooling rate of 130 °C/min. After complete crystallization, the samples were reheated to a melt with a heating rate of $4 ~ { ^ { \\circ } \\mathrm { C / m i n } }$."
+        },
+        {
+          "block_id": "P_5_61",
+          "page": 5,
+          "bbox": [
+            514.0,
+            186.0,
+            884.0,
+            232.0
+          ],
+          "source_type": "text",
+          "source_sentence": "According to the linear Hoffman–Weeks analysis, the equilibrium melting temperature of PEP, $T _ { \\mathrm { m , P E P } } ^ { \\mathrm { ^ { \\circ } } } ,$is found to be equal to 189 $^ \\circ \\mathrm { C }$."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char003",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "entity_id": "pe003",
+      "sample_resolution_status": "unresolved",
+      "series_id": "series001",
+      "instrument": "PerkinElmer DSC-7 differential scanning calorimeter",
+      "parameters": {},
+      "result_summary": "Crystallinity of PEP and sPP components in sPP/PEP blends determined via deconvolution of DSC melting peaks, listed in Table 1.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_2_33",
+          "page": 2,
+          "bbox": [
+            114.0,
+            623.0,
+            153.0,
+            638.0
+          ],
+          "source_type": "title",
+          "source_sentence": "DSC"
+        },
+        {
+          "block_id": "P_2_34",
+          "page": 2,
+          "bbox": [
+            112.0,
+            644.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The thermal crystallization behavior of sPP/PEP blends was analyzed by a PerkinElmer DSC-7 differential scanning calorimeter."
+        },
+        {
+          "block_id": "P_6_75",
+          "page": 6,
+          "bbox": [
+            512.0,
+            764.0,
+            885.0,
+            916.0
+          ],
+          "source_type": "text",
+          "source_sentence": "As a result, the crystallinities of each component, $X _ { \\mathrm { C , ~ s P P } }$and $X _ { \\mathrm { C } }$<sub>, PEP</sub>, are determined by eq 3 and eq 4 and are listed in Table 1."
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "characterization_id": "char004",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "sample_id": "s001",
+      "entity_id": "pe001",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "Measured equilibrium melting temperature of sPP",
+      "derived_property_ids": [
+        "prop002"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_8_84",
+          "page": 8,
+          "bbox": [
+            112.0,
+            97.0,
+            485.0,
+            218.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the values of $X _ { \\mathrm { C , s P P } }$and $X _ { \\mathrm { C , P E P } }$obtained from analyzing the DSC heating profiles after they are isothermally crystallized at $T _ { \\mathrm { c } }$satisfy the following equations:"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char005",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "sample_id": "s002",
+      "entity_id": "pe002",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "Measured equilibrium melting temperature of PEP",
+      "derived_property_ids": [
+        "prop003"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_8_84",
+          "page": 8,
+          "bbox": [
+            112.0,
+            97.0,
+            485.0,
+            218.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the values of $X _ { \\mathrm { C , s P P } }$and $X _ { \\mathrm { C , P E P } }$obtained from analyzing the DSC heating profiles after they are isothermally crystallized at $T _ { \\mathrm { c } }$satisfy the following equations:"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char006",
+      "method_raw": "DSC",
+      "method_normalized": "DSC",
+      "entity_id": "pe003",
+      "sample_resolution_status": "unresolved",
+      "series_id": "series001",
+      "parameters": {},
+      "result_summary": "Determined $X_{C,PEP}$ (exp) for sPP/PEP blends",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_8_84",
+          "page": 8,
+          "bbox": [
+            112.0,
+            97.0,
+            485.0,
+            218.0
+          ],
+          "source_type": "text",
+          "source_sentence": "the values of $X _ { \\mathrm { C , s P P } }$and $X _ { \\mathrm { C , P E P } }$obtained from analyzing the DSC heating profiles after they are isothermally crystallized at $T _ { \\mathrm { c } }$satisfy the following equations:"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "characterization_id": "char007",
+      "method_raw": "wide-angle X-ray diffraction",
+      "method_normalized": "XRD",
+      "sample_id": "s001",
+      "entity_id": "pe001",
+      "sample_resolution_status": "resolved",
+      "parameters": {},
+      "result_summary": "The unit-cell structure of sPP crystals was identified as orthorhombic system",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_5_59",
+          "page": 5,
+          "bbox": [
+            114.0,
+            556.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "These results suggest that only one unit-cell structure of $\\mathrm { s P P }$crystals that has been identified as an orthorhombic system by wide-angle X-ray diffraction (WAXD),<sup>29</sup> forms during the crystallization process."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "value_kind": "text",
+      "value_raw": "orthorhombic system",
+      "text_value": "orthorhombic system",
+      "method_raw": "wide-angle X-ray diffraction (WAXD)",
+      "sample_id": "s001",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_59",
+          "page": 5,
+          "bbox": [
+            114.0,
+            556.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "These results suggest that only one unit-cell structure of $\\mathrm { s P P }$ crystals that has been identified as an orthorhombic system by wide-angle X-ray diffraction (WAXD),<sup>29</sup> forms during the crystallization process."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "value_kind": "text",
+      "value_raw": "monoclinic system",
+      "text_value": "monoclinic system",
+      "method_raw": "WAXD",
+      "sample_id": "s002",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_61",
+          "page": 5,
+          "bbox": [
+            514.0,
+            186.0,
+            884.0,
+            232.0
+          ],
+          "source_type": "text",
+          "source_sentence": "In addition, our WAXD anal-$\\mathrm { y s i s ^ { 2 9 } }$ indicates that PEP crystals belong to the monoclinic system."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp003",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "three primary lamellar sizes of PEP crystallites formed during isothermal crystallization at low temperatures",
+      "text_value": "three primary lamellar sizes of PEP crystallites formed during isothermal crystallization at low temperatures",
+      "method_raw": "DSC",
+      "sample_id": "s002",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_61",
+          "page": 5,
+          "bbox": [
+            514.0,
+            186.0,
+            884.0,
+            232.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Therefore, we believe that the existence of $T _ { \\mathrm { m 1 , P E P } }$ $T _ { \\mathrm { m 2 , P E P } } ,$ and $T _ { \\mathrm { m 3 , P E P } }$ corresponds to the melting of the three primary lamellar sizes of PEP crystallites formed during the isothermal crystallization process at low temperatures."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp004",
+      "value_kind": "text",
+      "value_raw": "low temperature melting peak $T_{m1,sPP}$ is melting of primary crystallites formed during isothermal crystallization, high temperature melting peak $T_{m2,sPP}$ is melting of crystallites recrystallized during heating",
+      "text_value": "low temperature melting peak $T_{m1,sPP}$ is melting of primary crystallites formed during isothermal crystallization, high temperature melting peak $T_{m2,sPP}$ is melting of crystallites recrystallized during heating",
+      "method_raw": "DSC",
+      "sample_id": "s001",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_59",
+          "page": 5,
+          "bbox": [
+            114.0,
+            556.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The low temperature melting peak $( T _ { \\mathrm { m 1 , s P P } } )$ is a result of the melting of the primary crystallites formed during the isothermal crystallization process, while the occurrence of the high melting temperature peak $T _ { \\mathrm { m 2 , s P P } }$ refers to the melting of the crystallites recrystallized during the heating process."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp005",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "L–L phase separation into sPP-rich and PEP-rich domains in the molten state",
+      "text_value": "L–L phase separation into sPP-rich and PEP-rich domains in the molten state",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_8_84",
+          "page": 8,
+          "bbox": [
+            112.0,
+            97.0,
+            485.0,
+            218.0
+          ],
+          "source_type": "text",
+          "source_sentence": "It is interesting to note that for blends initially undergoing L–L phase separation into sPP-rich and PEP-rich domains in the molten state, such as $w t _ { \\mathrm { P E P } }$in the range of 0.3–0.9 at 200 °C for 10 min, the values of $X _ { \\mathrm { C , s P P } }$and $X _ { \\mathrm { C , P E P } }$obtained from analyzing the DSC heating profiles after they are isothermally crystallized at $T _ { \\mathrm { c } }$satisfy the following equations:"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp006",
+      "value_kind": "text",
+      "value_raw": "orthorhombic system",
+      "text_value": "orthorhombic system",
+      "method_raw": "wide-angle X-ray diffraction",
+      "sample_id": "s001",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_59",
+          "page": 5,
+          "bbox": [
+            114.0,
+            556.0,
+            485.0,
+            914.0
+          ],
+          "source_type": "text",
+          "source_sentence": "These results suggest that only one unit-cell structure of $\\mathrm { s P P }$ crystals that has been identified as an orthorhombic system by wide-angle X-ray diffraction (WAXD),<sup>29</sup> forms during the crystallization process."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "9846a4b830a6a0ed9c9997660d76fafa95ca9dab3e22a5fe7d83c77d7d7e125e",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "1574ca19ae1ce990ce4218cb7cd21edb4cf2c9137cbbed9230b6c1e83913d334",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 56,
+    "context_chars": 43312,
+    "call_count": 3,
+    "usage": {
+      "input_tokens": 36294,
+      "output_tokens": 11374,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 13936,
+      "billable_input_tokens": 50230,
+      "total_tokens": 61604
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.21699360",
+      "output_cost": "0.33155210",
+      "total_cost": "0.54854570"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence",
+      "field_path": "characterizations[2].evidence",
+      "block_ids": [
+        "T_7_81"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[1]",
+      "fields": [
+        "parameters"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[1]",
+      "fields": [
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[2]",
+      "fields": [
+        "measurement_context"
+      ]
+    }
+  ]
+}

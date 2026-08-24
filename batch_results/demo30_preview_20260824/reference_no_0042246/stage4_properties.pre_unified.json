@@ -1,0 +1,2849 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0042246",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "temperature": {
+        "raw": "－100～150 ℃",
+        "unit": "℃",
+        "evidence": [
+          {
+            "block_id": "P_2_49",
+            "page": 2,
+            "bbox": [
+              515.0,
+              84.0,
+              927.0,
+              228.0
+            ],
+            "source_type": "text",
+            "source_sentence": "測定温度範囲を－100～150 ℃とした"
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {
+        "heating_rate": "10 ℃/min"
+      },
+      "other_condition_evidence": {
+        "heating_rate": [
+          {
+            "block_id": "P_2_49",
+            "page": 2,
+            "bbox": [
+              515.0,
+              84.0,
+              927.0,
+              228.0
+            ],
+            "source_type": "text",
+            "source_sentence": "昇温速度を10 ℃/min"
+          }
+        ]
+      },
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_49",
+        "page": 2,
+        "bbox": [
+          515.0,
+          84.0,
+          927.0,
+          228.0
+        ],
+        "source_type": "text",
+        "source_sentence": "乾燥N ガスフロー下（流量：30 mL/min）で，昇温速度を10 ℃/min，測定温度範囲を－100～150 ℃とした。"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "temperature": {
+        "raw": "25 ℃",
+        "value": 25.0,
+        "unit": "℃",
+        "evidence": [
+          {
+            "block_id": "T_3_62",
+            "page": 3,
+            "bbox": [
+              220.0,
+              109.0,
+              778.0,
+              294.0
+            ],
+            "source_type": "table",
+            "source_sentence": "storage modulus（E’ at 25 ℃）"
+          }
+        ],
+        "evidence_ids": []
+      },
+      "frequency": {
+        "raw": "10 Hz",
+        "value": 10.0,
+        "unit": "Hz",
+        "evidence": [
+          {
+            "block_id": "P_2_51",
+            "page": 2,
+            "bbox": [
+              515.0,
+              250.0,
+              927.0,
+              338.0
+            ],
+            "source_type": "text",
+            "source_sentence": "周波数を10 Hz"
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_51",
+        "page": 2,
+        "bbox": [
+          515.0,
+          250.0,
+          927.0,
+          338.0
+        ],
+        "source_type": "text",
+        "source_sentence": "引張モードで温度範囲を－100～50 ℃，昇温速度を5℃/min，周波数を10 Hz，正弦ひずみを0.1 ％として測定を実行した。"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "temperature": {
+        "raw": "25 ℃",
+        "value": 25.0,
+        "unit": "℃",
+        "evidence": [
+          {
+            "block_id": "P_2_55",
+            "page": 2,
+            "bbox": [
+              515.0,
+              492.0,
+              927.0,
+              673.0
+            ],
+            "source_type": "text",
+            "source_sentence": "測定温度は25 ℃で一定とし"
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_2_55",
+        "page": 2,
+        "bbox": [
+          515.0,
+          492.0,
+          927.0,
+          673.0
+        ],
+        "source_type": "text",
+        "source_sentence": "乾燥N ガスフロー中，測定温度は25 ℃で一定とし，印加電圧を1 V，周波数範囲を10 Hz～10 MHzとして測定を実行した。"
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s001",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "1.3",
+      "value_min": 1.3,
+      "value_max": 1.3,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18のE'は1.3 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "NBR18",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "1.3",
+            "cell_id": "T_3_62:r0001:c0005",
+            "row_index": 1,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop002",
+      "sample_id": "s002",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "2.8",
+      "value_min": 2.8,
+      "value_max": 2.8,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR43のE'は2.8 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "NBR43",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "2.8",
+            "cell_id": "T_3_62:r0002:c0005",
+            "row_index": 2,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop003",
+      "sample_id": "s010",
+      "property_name_raw": "T_{\\text{m}}",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "61",
+      "value_min": 61.0,
+      "value_max": 61.0,
+      "unit_raw": "℃",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "PEO-LiClO4のTmは61℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "PEO-LiClO4",
+            "column_label": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+            "cell_value": "61",
+            "cell_id": "T_3_62:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop004",
+      "sample_id": "s010",
+      "property_name_raw": "ΔH",
+      "property_name_normalized": "heat_of_fusion",
+      "property_code": "P3130",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "5.36",
+      "value_min": 5.36,
+      "value_max": 5.36,
+      "unit_raw": "kJ mol^{-1}",
+      "unit_normalized": "kJ/mol",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "PEO-LiClO4のΔHは5.36 kJ mol^{-1}",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "PEO-LiClO4",
+            "column_label": "$\\Delta H / \\text{kJ mol}^{-1}$",
+            "cell_value": "5.36",
+            "cell_id": "T_3_62:r0003:c0004",
+            "row_index": 3,
+            "column_index": 4
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop005",
+      "sample_id": "s010",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "216.8",
+      "value_min": 216.8,
+      "value_max": 216.8,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "PEO-LiClO4のE'は216.8 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "PEO-LiClO4",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "216.8",
+            "cell_id": "T_3_62:r0003:c0005",
+            "row_index": 3,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop006",
+      "sample_id": "s011",
+      "property_name_raw": "T_{\\text{m}}",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "35, (13)",
+      "value_min": 13.0,
+      "value_max": 35.0,
+      "unit_raw": "℃",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "P (EO/PO)-LiClO4のTmは35, (13)℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "P (EO/PO)-LiClO4",
+            "column_label": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+            "cell_value": "35, (13)",
+            "cell_id": "T_3_62:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop007",
+      "sample_id": "s011",
+      "property_name_raw": "ΔH",
+      "property_name_normalized": "heat_of_fusion",
+      "property_code": "P3130",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "2.38",
+      "value_min": 2.38,
+      "value_max": 2.38,
+      "unit_raw": "kJ mol^{-1}",
+      "unit_normalized": "kJ/mol",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "P (EO/PO)-LiClO4のΔHは2.38 kJ mol^{-1}",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "P (EO/PO)-LiClO4",
+            "column_label": "$\\Delta H / \\text{kJ mol}^{-1}$",
+            "cell_value": "2.38",
+            "cell_id": "T_3_62:r0004:c0004",
+            "row_index": 4,
+            "column_index": 4
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop008",
+      "sample_id": "s011",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "5.3",
+      "value_min": 5.3,
+      "value_max": 5.3,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "P (EO/PO)-LiClO4のE'は5.3 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "P (EO/PO)-LiClO4",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "5.3",
+            "cell_id": "T_3_62:r0004:c0005",
+            "row_index": 4,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop009",
+      "sample_id": "s006",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "0.5",
+      "value_min": 0.5,
+      "value_max": 0.5,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "PM (EO/PO)-LiClO4のE'は0.5 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "PM (EO/PO)-LiClO4",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "0.5",
+            "cell_id": "T_3_62:r0005:c0005",
+            "row_index": 5,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop010",
+      "sample_id": "s013",
+      "property_name_raw": "T_{\\text{g}}",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "-70",
+      "value_min": -70.0,
+      "value_max": -70.0,
+      "unit_raw": "℃",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18/PEO systemのTgは-70℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "T_{\\text{g}}",
+            "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+            "cell_value": "-70",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop011",
+      "sample_id": "s013",
+      "property_name_raw": "T_{\\text{m}}",
+      "property_name_normalized": "melting_temperature",
+      "property_code": "P3120",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "62",
+      "value_min": 62.0,
+      "value_max": 62.0,
+      "unit_raw": "℃",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18/PEO systemのTmは62℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+            "cell_value": "62",
+            "cell_id": "T_3_62:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop012",
+      "sample_id": "s013",
+      "property_name_raw": "ΔH",
+      "property_name_normalized": "heat_of_fusion",
+      "property_code": "P3130",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "5.15",
+      "value_min": 5.15,
+      "value_max": 5.15,
+      "unit_raw": "kJ mol^{-1}",
+      "unit_normalized": "kJ/mol",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18/PEO systemのΔHは5.15 kJ mol^{-1}",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$\\Delta H / \\text{kJ mol}^{-1}$",
+            "cell_value": "5.15",
+            "cell_id": "T_3_62:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop013",
+      "sample_id": "s013",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "13.6",
+      "value_min": 13.6,
+      "value_max": 13.6,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18/PEO systemのE'は13.6 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "13.6",
+            "cell_id": "T_3_62:r0006:c0005",
+            "row_index": 6,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop014",
+      "sample_id": "s007",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "1.1",
+      "value_min": 1.1,
+      "value_max": 1.1,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18/PM (EO/PO)polyのE'は1.1 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "1.1",
+            "cell_id": "T_3_62:r0008:c0005",
+            "row_index": 8,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop015",
+      "sample_id": "s009",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "0.8",
+      "value_min": 0.8,
+      "value_max": 0.8,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "NBR18/PM (EO/PO)monoのE'は0.8 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "0.8",
+            "cell_id": "T_3_62:r0009:c0005",
+            "row_index": 9,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    },
+    {
+      "property_id": "prop016",
+      "sample_id": "s012",
+      "property_name_raw": "T_{\\text{g}}",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "observation_role": "single",
+      "value_raw": "-49",
+      "value_min": -49.0,
+      "value_max": -49.0,
+      "unit_raw": "℃",
+      "unit_normalized": "°C",
+      "measurement_condition_id": "mc001",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min"
+        },
+        "other_condition_evidence": {
+          "heating_rate": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "昇温速度を10 ℃/min"
+            }
+          ]
+        },
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 NBR43/PM (EO/PO)monoのTgは-49℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "T_{\\text{g}}",
+            "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+            "cell_value": "-49",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop017",
+      "sample_id": "s012",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "1.5",
+      "value_min": 1.5,
+      "value_max": 1.5,
+      "unit_raw": "MPa",
+      "unit_normalized": "MPa",
+      "measurement_condition_id": "mc002",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "storage modulus（E’ at 25 ℃）"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "frequency": {
+          "raw": "10 Hz",
+          "value": 10.0,
+          "unit": "Hz",
+          "evidence": [
+            {
+              "block_id": "P_2_51",
+              "page": 2,
+              "bbox": [
+                515.0,
+                250.0,
+                927.0,
+                338.0
+              ],
+              "source_type": "text",
+              "source_sentence": "周波数を10 Hz"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "source_type": "table",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 NBR43/PM (EO/PO)monoのE'は1.5 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "1.5",
+            "cell_id": "T_3_62:r0010:c0005",
+            "row_index": 10,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.85
+      }
+    }
+  ],
+  "unresolved_properties": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe014",
+      "property_name_raw": "T_{\\text{g}}",
+      "observation_role": "single",
+      "value_raw": "-70",
+      "unit_raw": "℃",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_not_found",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 Blend /P (EO/PO) のTgは-70℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "T_{\\text{g}}",
+            "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+            "cell_value": "-70",
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.7
+      }
+    },
+    {
+      "unresolved_id": "uprop002",
+      "entity_id": "pe014",
+      "property_name_raw": "T_{\\text{m}}",
+      "observation_role": "single",
+      "value_raw": "40, (12)",
+      "unit_raw": "℃",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_not_found",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 Blend /P (EO/PO) のTmは40, (12)℃",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+            "cell_value": "40, (12)",
+            "cell_id": "T_3_62:r0007:c0003",
+            "row_index": 7,
+            "column_index": 3
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.7
+      }
+    },
+    {
+      "unresolved_id": "uprop003",
+      "entity_id": "pe014",
+      "property_name_raw": "ΔH",
+      "observation_role": "single",
+      "value_raw": "1.74",
+      "unit_raw": "kJ mol^{-1}",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_not_found",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 Blend /P (EO/PO) のΔHは1.74 kJ mol^{-1}",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$\\Delta H / \\text{kJ mol}^{-1}$",
+            "cell_value": "1.74",
+            "cell_id": "T_3_62:r0007:c0004",
+            "row_index": 7,
+            "column_index": 4
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.7
+      }
+    },
+    {
+      "unresolved_id": "uprop004",
+      "entity_id": "pe014",
+      "property_name_raw": "E’ at 25 ℃",
+      "observation_role": "single",
+      "value_raw": "2.5",
+      "unit_raw": "MPa",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_not_found",
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 Blend /P (EO/PO) のE'は2.5 MPa",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$E' / \\text{MPa}$",
+            "cell_value": "2.5",
+            "cell_id": "T_3_62:r0007:c0005",
+            "row_index": 7,
+            "column_index": 5
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.7
+      }
+    }
+  ],
+  "property_series": [
+    {
+      "series_id": "series001",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+      "property_name_normalized": "glass_transition_temperature",
+      "property_code": "P3110",
+      "property_category": "thermal_property",
+      "unit_raw": "℃",
+      "unit_normalized": "°C",
+      "measurement_context": {
+        "temperature": {
+          "raw": "－100～150 ℃",
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_49",
+              "page": 2,
+              "bbox": [
+                515.0,
+                84.0,
+                927.0,
+                228.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度範囲を－100～150 ℃とした"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {
+          "heating_rate": "10 ℃/min",
+          "gas_flow": "乾燥N₂ 30 mL/min"
+        },
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "points": [
+        {
+          "point_id": "pt001",
+          "observation_role": "series_point",
+          "sample_id": "s001",
+          "entity_id": "pe002",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-65",
+          "value_min": -65.0,
+          "value_max": -65.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "NBR18 Tg -65℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "NBR18",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-65",
+                "cell_id": "T_3_62:r0001:c0002",
+                "row_index": 1,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt002",
+          "observation_role": "series_point",
+          "sample_id": "s002",
+          "entity_id": "pe003",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-25",
+          "value_min": -25.0,
+          "value_max": -25.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "NBR43 Tg -25℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "NBR43",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-25",
+                "cell_id": "T_3_62:r0002:c0002",
+                "row_index": 2,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt003",
+          "observation_role": "series_point",
+          "sample_id": "s010",
+          "entity_id": "pe015",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-41",
+          "value_min": -41.0,
+          "value_max": -41.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "PEO-LiClO4 Tg -41℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "PEO-LiClO4",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-41",
+                "cell_id": "T_3_62:r0003:c0002",
+                "row_index": 3,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt004",
+          "observation_role": "series_point",
+          "sample_id": "s011",
+          "entity_id": "pe016",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-45",
+          "value_min": -45.0,
+          "value_max": -45.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "P(EO/PO)-LiClO4 Tg -45℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "P (EO/PO)-LiClO4",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-45",
+                "cell_id": "T_3_62:r0004:c0002",
+                "row_index": 4,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt005",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe017",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-49",
+          "value_min": -49.0,
+          "value_max": -49.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "PM(EO/PO)-LiClO4 Tg -49℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "PM (EO/PO)-LiClO4",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-49",
+                "cell_id": "T_3_62:r0005:c0002",
+                "row_index": 5,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt006",
+          "observation_role": "series_point",
+          "sample_id": "s007",
+          "entity_id": "pe018",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-59",
+          "value_min": -59.0,
+          "value_max": -59.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "NBR18/PM(EO/PO)poly Tg -59℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "50/50 Blend",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-59",
+                "cell_id": "T_3_62:r0008:c0002",
+                "row_index": 8,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt007",
+          "observation_role": "series_point",
+          "sample_id": "s009",
+          "entity_id": "pe019",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-62",
+          "value_min": -62.0,
+          "value_max": -62.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "NBR18/PM(EO/PO)mono Tg -62℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "50/50 Blend",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-62",
+                "cell_id": "T_3_62:r0009:c0002",
+                "row_index": 9,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt008",
+          "observation_role": "series_point",
+          "sample_id": "s012",
+          "entity_id": "pe020",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-49",
+          "value_min": -49.0,
+          "value_max": -49.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "50/50 NBR43/PM(EO/PO)mono Tg -49℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "50/50 Blend",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-49",
+                "cell_id": "T_3_62:r0010:c0002",
+                "row_index": 10,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt009",
+          "observation_role": "series_point",
+          "sample_id": "s012",
+          "entity_id": "pe020",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "-55",
+          "value_min": -55.0,
+          "value_max": -55.0,
+          "measurement_context": {
+            "temperature": {
+              "raw": "－100～150 ℃",
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_49",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    84.0,
+                    927.0,
+                    228.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度範囲を－100～150 ℃とした"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {
+              "heating_rate": "10 ℃/min",
+              "gas_flow": "乾燥N₂ 30 mL/min"
+            },
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "30/70 NBR43/PM(EO/PO)mono Tg -55℃",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "30/70",
+                "column_label": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "cell_value": "-55",
+                "cell_id": "T_3_62:r0011:c0002",
+                "row_index": 11,
+                "column_index": 2
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 9,
+        "covered": 9,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "P_2_49",
+          "page": 2,
+          "bbox": [
+            515.0,
+            84.0,
+            927.0,
+            228.0
+          ],
+          "source_type": "text",
+          "source_sentence": "アルミニウム製の専用パンを用い，一部の試料について示差走査熱量計（DSC）による熱分析を行った．測定装置には，DSC-50W（島津製作所）を用いた．乾燥N ガスフロー下（流量：30 mL/min）で，昇温速度を10 ℃/min，測定温度範囲を－100～150 ℃とした．得られたDSCカーブの解析から，ガラス転移温度 $( T _ { \\mathrm { g } } )$），融点（ $\\left( T _ { \\mathrm { m } } \\right)$）および融解エ$\\smile 5 \\pi \\varrho ^ { \\circ } - ( \\varDelta H )$）を求めた．なお， $\\overrightarrow { 7 } \\nu \\dot { > }$ド体のΔHは試料中の電解質の重量で規格化した値である"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "series_id": "series002",
+      "sample_resolution_status": "unresolved",
+      "property_name_raw": "AC ionic conductivity (σ_i at 25 ℃)",
+      "property_name_normalized": "electric_conductivity",
+      "property_code": "P4130",
+      "property_category": "electrical_property",
+      "unit_raw": "S cm^{-1}",
+      "unit_normalized": "S/cm",
+      "measurement_context": {
+        "temperature": {
+          "raw": "25 ℃",
+          "value": 25.0,
+          "unit": "℃",
+          "evidence": [
+            {
+              "block_id": "P_2_55",
+              "page": 2,
+              "bbox": [
+                515.0,
+                492.0,
+                927.0,
+                673.0
+              ],
+              "source_type": "text",
+              "source_sentence": "測定温度は25 ℃で一定とし"
+            }
+          ],
+          "evidence_ids": []
+        },
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "reported"
+      },
+      "points": [
+        {
+          "point_id": "pt010",
+          "observation_role": "series_point",
+          "sample_id": "s006",
+          "entity_id": "pe017",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$1.1 \\times 10^{-6}$",
+          "value_min": 1.1e-06,
+          "value_max": 1.1e-06,
+          "measurement_context": {
+            "temperature": {
+              "raw": "25 ℃",
+              "value": 25.0,
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_55",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    492.0,
+                    927.0,
+                    673.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度は25 ℃で一定とし"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "PM(EO/PO)-LiClO4 σ_i 1.1e-6 S/cm",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "PM (EO/PO)-LiClO4",
+                "column_label": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+                "cell_value": "$1.1 \\times 10^{-6}$",
+                "cell_id": "T_3_62:r0005:c0006",
+                "row_index": 5,
+                "column_index": 6
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt011",
+          "observation_role": "series_point",
+          "sample_id": "s012",
+          "entity_id": "pe020",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$4.5 \\times 10^{-6}$",
+          "value_min": 4.5e-06,
+          "value_max": 4.5e-06,
+          "measurement_context": {
+            "temperature": {
+              "raw": "25 ℃",
+              "value": 25.0,
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_55",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    492.0,
+                    927.0,
+                    673.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度は25 ℃で一定とし"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "50/50 NBR43/PM(EO/PO)mono σ_i 4.5e-6 S/cm",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "50/50 Blend",
+                "column_label": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+                "cell_value": "$4.5 \\times 10^{-6}$",
+                "cell_id": "T_3_62:r0010:c0006",
+                "row_index": 10,
+                "column_index": 6
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.9
+          }
+        },
+        {
+          "point_id": "pt012",
+          "observation_role": "series_point",
+          "sample_id": "s012",
+          "entity_id": "pe020",
+          "sample_resolution_status": "resolved",
+          "coordinates": [],
+          "value_raw": "$6.7 \\times 10^{-6}$",
+          "value_min": 6.7e-06,
+          "value_max": 6.7e-06,
+          "measurement_context": {
+            "temperature": {
+              "raw": "25 ℃",
+              "value": 25.0,
+              "unit": "℃",
+              "evidence": [
+                {
+                  "block_id": "P_2_55",
+                  "page": 2,
+                  "bbox": [
+                    515.0,
+                    492.0,
+                    927.0,
+                    673.0
+                  ],
+                  "source_type": "text",
+                  "source_sentence": "測定温度は25 ℃で一定とし"
+                }
+              ],
+              "evidence_ids": []
+            },
+            "other_conditions": {},
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported"
+          },
+          "coverage_status": "covered",
+          "evidence": [
+            {
+              "block_id": "T_3_62",
+              "page": 3,
+              "bbox": [
+                220.0,
+                109.0,
+                778.0,
+                294.0
+              ],
+              "source_type": "table",
+              "source_sentence": "30/70 NBR43/PM(EO/PO)mono σ_i 6.7e-6 S/cm",
+              "table_locator": {
+                "table_id": "T_3_62",
+                "row_label": "30/70",
+                "column_label": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+                "cell_value": "$6.7 \\times 10^{-6}$",
+                "cell_id": "T_3_62:r0011:c0006",
+                "row_index": 11,
+                "column_index": 6
+              }
+            }
+          ],
+          "confidence": {
+            "score": 0.95
+          }
+        }
+      ],
+      "coverage": {
+        "expected": 3,
+        "covered": 3,
+        "missing": 0,
+        "not_applicable": 0,
+        "ratio": 1.0
+      },
+      "evidence": [
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "PM(EO/PO)-LiClO4 σ_i 1.1e-6 S/cm",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "PM (EO/PO)-LiClO4",
+            "column_label": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+            "cell_value": "$1.1 \\times 10^{-6}$",
+            "cell_id": "T_3_62:r0005:c0006",
+            "row_index": 5,
+            "column_index": 6
+          }
+        },
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "50/50 NBR43/PM(EO/PO)mono σ_i 4.5e-6 S/cm",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "50/50 Blend",
+            "column_label": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+            "cell_value": "$4.5 \\times 10^{-6}$",
+            "cell_id": "T_3_62:r0010:c0006",
+            "row_index": 10,
+            "column_index": 6
+          }
+        },
+        {
+          "block_id": "T_3_62",
+          "page": 3,
+          "bbox": [
+            220.0,
+            109.0,
+            778.0,
+            294.0
+          ],
+          "source_type": "table",
+          "source_sentence": "30/70 NBR43/PM(EO/PO)mono σ_i 6.7e-6 S/cm",
+          "table_locator": {
+            "table_id": "T_3_62",
+            "row_label": "30/70",
+            "column_label": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+            "cell_value": "$6.7 \\times 10^{-6}$",
+            "cell_id": "T_3_62:r0011:c0006",
+            "row_index": 11,
+            "column_index": 6
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "540429c28a691cb03ecdf0d0b140a6f9ae235bd2752b4c3acd5810da7c201ddf",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "62d8791d45ecec3ef5069ec6ba3603b557c8ab4b6f54052618b50428e53d1b55",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 78,
+    "context_chars": 42088,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 39993,
+      "output_tokens": 17615,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 11064,
+      "billable_input_tokens": 51057,
+      "total_tokens": 68672
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.22056624",
+      "output_cost": "0.51347725",
+      "total_cost": "0.73404349"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，已回落使用全部非 References 正文与全部表格；结果需人工复核",
+      "fallback_block_count": 78
+    },
+    {
+      "stage": "stage4_property",
+      "code": "all_tables_included",
+      "message": "已将目标 section 之外的非空表格一并加入 Stage 4 输入",
+      "table_block_ids": [
+        "T_3_62"
+      ]
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 23
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_context_evidence_supplemented",
+      "message": "Series/point measurement context 不在数值表格 evidence；已补入全文中唯一的完全匹配原文 block",
+      "series_evidence": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "pt001.measurement_context.other_conditions.gas_flow.raw 无法在对象 evidence中定位"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错",
+      "details": {
+        "dropped_conditions": [],
+        "dropped_properties": [],
+        "dropped_unresolved_properties": [],
+        "dropped_series": [],
+        "dropped_points": [],
+        "dropped_evidence": 0,
+        "dropped_coordinates": 0
+      }
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布",
+      "blocking": true,
+      "series_ids": [
+        "series001",
+        "series002"
+      ]
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unresolved_properties",
+      "message": "4 条性质无法可靠关联具体 Sample",
+      "unresolved_ids": [
+        "uprop001",
+        "uprop002",
+        "uprop003",
+        "uprop004"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0042246",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "TEM",
+      "method_normalized": "TEM",
+      "sample_ids": [
+        "s007",
+        "s009",
+        "s012"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "観察対象のブレンド試料が海―島相分離構造を有することを確認し、島相のサイズを測定した",
+      "derived_property_ids": [
+        "prop_s5_001",
+        "prop_s5_002"
+      ],
+      "evidence": [
+        {
+          "block_id": "P_0_4",
+          "page": 0,
+          "bbox": [
+            65.0,
+            373.0,
+            927.0,
+            557.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Obtained samples showed micro- (or nano-) scale Sea-Island phase separation, which was revealed from the TEM observation in case of $\\mathrm { N B R 1 8 / P M ( E O / P O ) _ { m o n o } \\mathrm { - L i C l O _ { 4 } 5 0 / 5 0 } }$wt% blend"
+        },
+        {
+          "block_id": "P_5_86",
+          "page": 5,
+          "bbox": [
+            68.0,
+            769.0,
+            480.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "このような傾向を示す要因として，ブレンド体の作製法によるモルホロジーの変化が影響しているのではないかと考え，TEM測定によるNBR/電解質間の相構造の違いを観察した．"
+        },
+        {
+          "block_id": "P_6_95",
+          "page": 6,
+          "bbox": [
+            65.0,
+            473.0,
+            478.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "NBR43系ブレンドにおいても，Figure 8（b）のNBR18系と同じような微細相分離構造を有することがTEM観察の結果から示唆されており"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop_s5_001",
+      "characterization_id": "char001",
+      "sample_id": "s009",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "100～200 nm程度",
+      "property_name_normalized": "morphology_domain_size",
+      "property_category": "morphology",
+      "value_raw": "100～200 nm程度",
+      "value_min": 100.0,
+      "value_max": 200.0,
+      "unit_raw": "nm",
+      "unit_normalized": "nm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_86",
+          "page": 5,
+          "bbox": [
+            68.0,
+            769.0,
+            480.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "一方，（b）のNBR/モノマー混合物の後重合ブレンドでは，（a）とは大きく異なり極めて小さなサイズ（100～200 nm程度）の球形の島相が，NBRドメイン相に均一分散した海―島相分離構造を有することが明らかとなった．"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "property_id": "prop_s5_002",
+      "characterization_id": "char001",
+      "sample_id": "s009",
+      "sample_resolution_status": "resolved",
+      "property_name_raw": "20 nm前後",
+      "property_name_normalized": "morphology_domain_size",
+      "property_category": "morphology",
+      "value_raw": "20 nm前後",
+      "value_min": 20.0,
+      "value_max": 20.0,
+      "unit_raw": "nm",
+      "unit_normalized": "nm",
+      "source_stage": "stage5",
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_5_86",
+          "page": 5,
+          "bbox": [
+            68.0,
+            769.0,
+            480.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "（b）を拡大してみると，（c）のように20 nm前後のより小さい電解質島相がわずかに点在している様子も確認された．"
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    }
+  ],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "value_kind": "text",
+      "value_raw": "サイズや形状が不均一な電解質破砕片（島相）がサブマイクロからマイクロメートルオーダーでNBR海相に粗雑に分散している",
+      "text_value": "サイズや形状が不均一な電解質破砕片（島相）がサブマイクロからマイクロメートルオーダーでNBR海相に粗雑に分散している",
+      "method_raw": "TEM",
+      "sample_id": "s007",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_86",
+          "page": 5,
+          "bbox": [
+            68.0,
+            769.0,
+            480.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "（a）のNBR/高分子ブレンド（ロール混練）では，グレーのNBR海相に対してサイズや形状が不均一な白色のPM（EO/PO）-LiClO（電解質）破砕片（島相）がサブマイクロからマイクロメートルオーダーで粗雑に分散しているのが分かる．"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "value_kind": "text",
+      "value_raw": "球形の島相がNBRドメイン相に均一分散した海―島相分離構造",
+      "text_value": "球形の島相がNBRドメイン相に均一分散した海―島相分離構造",
+      "method_raw": "TEM",
+      "sample_id": "s009",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_5_86",
+          "page": 5,
+          "bbox": [
+            68.0,
+            769.0,
+            480.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "一方，（b）のNBR/モノマー混合物の後重合ブレンドでは，（a）とは大きく異なり極めて小さなサイズ（100～200 nm程度）の球形の島相が，NBRドメイン相に均一分散した海―島相分離構造を有することが明らかとなった．"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp003",
+      "value_kind": "text",
+      "value_raw": "微細な海―島相分離構造",
+      "text_value": "微細な海―島相分離構造",
+      "method_raw": "TEM",
+      "sample_id": "s012",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_6_95",
+          "page": 6,
+          "bbox": [
+            65.0,
+            473.0,
+            478.0,
+            933.0
+          ],
+          "source_type": "text",
+          "source_sentence": "NBR43系ブレンドにおいても，Figure 8（b）のNBR18系と同じような微細相分離構造を有することがTEM観察の結果から示唆されており，海―島相分離構造の形成および微細化が吸湿による重量増加や伝導度の変化に及ぼす影響を抑制していると考えられる．"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "b4d7cd7a4183993af87621e9d21270613c840c23e0c8a5ebc85d8fa9cb31f257",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "5a75cf1013ca4f849a621eb678162012b29ebe4b87a2b8c9aa7768eaa228f699",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 14,
+    "context_chars": 12946,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 16994,
+      "output_tokens": 6187,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12088,
+      "billable_input_tokens": 29082,
+      "total_tokens": 35269
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.12563424",
+      "output_cost": "0.18035105",
+      "total_cost": "0.30598529"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "section_fallback",
+      "message": "Methods/Results 为空，仅使用上游 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_property_subject_subscope_retained",
+      "message": "Preview 模式已保留多主体 Characterization 下的明确单主体性质；需在正式数据中复核",
+      "items": [
+        {
+          "property_id": "prop_s5_001",
+          "characterization_id": "char001",
+          "sample_id": "s009",
+          "entity_id": null
+        },
+        {
+          "property_id": "prop_s5_002",
+          "characterization_id": "char001",
+          "sample_id": "s009",
+          "entity_id": null
+        }
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    }
+  ]
+}

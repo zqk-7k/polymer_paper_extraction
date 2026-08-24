@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage1_material_mention",
+  "document_id": "reference_no_0028883",
+  "error_type": "Stage1Error",
+  "error": "reference_no_0028883 chunk 3 响应校验失败：mention text 'sPP' 不是 P_6_71 的原文子串",
+  "call_count": 3,
+  "usage": {
+    "input_tokens": 10208,
+    "output_tokens": 1618,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "billable_input_tokens": 10208,
+    "total_tokens": 11826
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "17",
+    "output_per_million": "101",
+    "input_cost": "0.173536",
+    "output_cost": "0.163418",
+    "total_cost": "0.336954"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "gpt-5.6-terra-2026-07-09",
+    "finish_reason": "stop",
+    "content": "{\"mentions\":[{\"confidence\":{\"score\":0.99},\"block_id\":\"P_5_61\",\"text\":\"PEP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_67\",\"text\":\"sPP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_67\",\"text\":\"PEP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_69\",\"text\":\"sPP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_69\",\"text\":\"PEP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_71\",\"text\":\"sPP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_71\",\"text\":\"PEP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_74\",\"text\":\"sPP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_74\",\"text\":\"PEP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_75\",\"text\":\"sPP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.99},\"block_id\":\"P_6_75\",\"text\":\"PEP\",\"mention_role\":\"abbreviation\"},{\"confidence\":{\"score\":0.94},\"block_id\":\"P_6_75\",\"text\":\"SPP\",\"mention_role\":\"abbreviation\"}]}",
+    "usage": {
+      "input_tokens": 3688,
+      "output_tokens": 571,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "17",
+      "output_per_million": "101",
+      "input_cost": "0.062696",
+      "output_cost": "0.057671",
+      "total_cost": "0.120367"
+    }
+  }
+}

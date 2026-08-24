@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0028993",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 4,
+  "usage": {
+    "input_tokens": 44417,
+    "output_tokens": 14471,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 25000,
+    "billable_input_tokens": 69417,
+    "total_tokens": 83888
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.29988144",
+    "output_cost": "0.42182965",
+    "total_cost": "0.72171109"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_28\",\n          \"source_sentence\": \"A Seiko TG/DMA320 was used to evaluate the thermal degradation temperature. Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_5_59\",\n          \"source_sentence\": \"Figure 8 TGA thermograms of PBAS, PET, and the copolyesters.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_7_80\",\n          \"source_sentence\": \"Figure 8 shows thermogravimetric analysis (TGA) thermograms of the copolyesters with different PET contents. The thermal decomposition temperature rose with the number of PET units. Higher thermal stability was achieved with an increased number of embedded aromatic units, which were thermally more stable than the aliphatic units.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Seiko TG/DMA320\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ],\n          \"final_temperature\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ],\n          \"heating_rate\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ],\n          \"sample_mass\": [\n            {\n              \"block_id\": \"P_1_28\",\n              \"source_sentence\": \"Samples (5 ± 1 mg) were heated to 600°C at a heating rate of 30°C/min in nitrogen gas.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"nitrogen gas\",\n          \"final_temperature\": \"600°C\",\n          \"heating_rate\": \"30°C/min\",\n          \"sample_mass\": \"5 ± 1 mg\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"thermogravimetric analysis (TGA)\",\n      \"parameters\": {\n        \"atmosphere\": \"nitrogen gas\",\n        \"final_temperature\": \"600°C\",\n        \"heating_rate\": \"30°C/min\",\n        \"sample_mass\": \"5 ± 1 mg\"\n      },\n      \"result_summary\": \"Thermal decomposition temperature rose with increasing PET unit content, higher thermal stability achieved with more embedded aromatic units.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\",\n        \"s010\",\n        \"s011\",\n        \"s012\",\n        \"s013\",\n        \"s014\",\n        \"s015\",\n        \"s016\",\n        \"s017\",\n        \"s018\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.85\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_79\",\n          \"source_sentence\": \"As the PET contents increased beyond 40 wt %, the crystallization peaks and melting peaks appeared, and these were lower than those of PET. It was thought that these resulted from the increased number of embedded aromatic units in the copolyesters and the existence of the longer block of the PET unit.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": null,\n      \"property_name_raw\": \"PET unit block\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"longer block exists when PET contents increased beyond 40 wt %\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.85\n      },\n      \"entity_id\": \"pe003\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_7_85\",\n          \"source_sentence\": \"The decrease in the tensile strength with the reaction time was thought to be due to the thermal degradation of the copolyesters, and the increase in the tensile strengths of the copolyesters with PET contents greater than 30 wt % can be explained by the increase in the number of hard PET blocks in the copolyesters.\",\n          \"table_locator\": null\n        }\n      ],\n      \"method_raw\": null,\n      \"property_name_raw\": \"hard PET blocks\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand002\",\n      \"unit_raw\": null,\n      \"value_raw\": \"number increases with PET contents greater than 30 wt %\"\n    }\n  ]\n}",
+    "usage": {
+      "input_tokens": 11342,
+      "output_tokens": 5539,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 9016
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.08794656",
+      "output_cost": "0.16146185",
+      "total_cost": "0.24940841"
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0037921",
+  "status": "passed_with_warnings",
+  "error_count": 0,
+  "warning_count": 18,
+  "errors": [],
+  "warnings": [
+    {
+      "stage": "stage0",
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "2 个 mention 未解析为实体，已原样保留引用"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "state_description_replaced_with_evidence",
+      "message": "无标签 Sample 的 state_description 无法逐字定位；已使用验证后的完整 evidence.source_sentence"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "parameters_not_in_source",
+      "message": "无法定位到 evidence 原文的参数已舍弃"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型"
+    },
+    {
+      "stage": "meta_extract",
+      "code": "paper_metadata_incomplete",
+      "message": "Paper metadata_status=failed，需人工复核"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unused_measurement_condition",
+      "message": "MeasurementCondition 未被性质引用：['mc001', 'mc002', 'mc004']"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps003"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "polymer_name_contamination",
+      "message": "polymer_name 疑似包含样品状态、形态或配方数值",
+      "object_id": "s003"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "polymer_name_contamination",
+      "message": "polymer_name 疑似包含样品状态、形态或配方数值",
+      "object_id": "s004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "mc001"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "mc002"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "mc004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "mc005"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：归一化后子串命中",
+      "object_id": "sp002"
+    }
+  ],
+  "checked_counts": {
+    "stage0_blocks": 71,
+    "material_mentions": 20,
+    "polymer_entities": 2,
+    "samples": 4,
+    "process_steps": 4,
+    "measurement_conditions": 5,
+    "stage4_properties": 6,
+    "unresolved_properties": 0,
+    "property_series": 0,
+    "property_series_points": 0,
+    "characterizations": 0,
+    "stage5_properties": 0,
+    "evidence": 31,
+    "preview_published_objects": 41,
+    "preview_rejected_objects": 0,
+    "preview_reference_cleanup_count": 0
+  },
+  "quality_metrics": {
+    "properties_with_units": {
+      "complete": 6,
+      "total": 6,
+      "ratio": 1.0
+    },
+    "standard_process_steps": {
+      "complete": 3,
+      "total": 4,
+      "ratio": 0.75
+    },
+    "stage4_methods_with_characterization": {
+      "complete": 0,
+      "total": 0,
+      "ratio": 1.0
+    },
+    "objects_with_confidence": {
+      "complete": 41,
+      "total": 41,
+      "ratio": 1.0
+    },
+    "series_points_covered": {
+      "complete": 0,
+      "total": 0,
+      "ratio": 1.0
+    }
+  }
+}

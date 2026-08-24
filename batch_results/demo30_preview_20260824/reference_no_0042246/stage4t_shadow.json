@@ -1,0 +1,2144 @@
+{
+  "sidecar_schema_version": "stage4t_preview_sidecar.v0.4",
+  "shadow_version": "0.5.0",
+  "authoritative": false,
+  "candidate_layer": "broad",
+  "llm_interpretation_enabled": false,
+  "llm_interpreter_version": "0.4.0",
+  "interpretation_application_version": "0.1.2",
+  "document_id": "reference_no_0042246",
+  "table_count": 1,
+  "summary": {
+    "observation_count": 32,
+    "binding_status_counts": {
+      "bound": 32
+    },
+    "candidate_class_counts": {
+      "official_property": 32
+    },
+    "semantic_status_counts": {
+      "normalized": 32
+    },
+    "publication_status_counts": {
+      "candidate_only": 32
+    },
+    "unresolved_count": 0,
+    "tables_with_observations": 1,
+    "warning_counts": {
+      "variable_row_width_or_spans": 1
+    }
+  },
+  "tables": [
+    {
+      "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
+      "shadow_version": "0.5.0",
+      "candidate_layer": "broad",
+      "authoritative": false,
+      "table_id": "T_3_62",
+      "caption": "Table 1 Glass transition temperature $( T _ { \\mathrm { g } } , \\mathrm { o n s e t } )$ ）, melting point $( T _ { \\mathrm { m } } , \\mathrm { p e a k \\ t o p } )$ ）, heat of fusion （ ΔH）, storage modulus（E’ at 25 ℃）and AC ionic conductivity（ $( \\sigma _ { i }$ at 25 ℃）of NBR, electrolytes and the blends.",
+      "direction": "row_samples",
+      "sample_axis": "row",
+      "axis_role": "named_sample",
+      "header_rows": [
+        0
+      ],
+      "property_candidates": [
+        {
+          "table_id": "T_3_62",
+          "column_index": 0,
+          "header_context": [
+            "Sample"
+          ],
+          "property_name_raw": "Sample",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "g",
+          "unit_normalized": null,
+          "unit_location": "caption"
+        },
+        {
+          "table_id": "T_3_62",
+          "column_index": 1,
+          "header_context": [
+            "Sample"
+          ],
+          "property_name_raw": "Sample",
+          "property_name_normalized": null,
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "g",
+          "unit_normalized": null,
+          "unit_location": "caption"
+        },
+        {
+          "table_id": "T_3_62",
+          "column_index": 2,
+          "header_context": [
+            "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+          ],
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple"
+        },
+        {
+          "table_id": "T_3_62",
+          "column_index": 3,
+          "header_context": [
+            "$T_{\\text{m}} / ^{\\circ}\\text{C}$"
+          ],
+          "property_name_raw": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "melting_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "C",
+          "unit_normalized": "°C",
+          "unit_location": "multiple"
+        },
+        {
+          "table_id": "T_3_62",
+          "column_index": 4,
+          "header_context": [
+            "$\\Delta H / \\text{kJ mol}^{-1}$"
+          ],
+          "property_name_raw": "$\\Delta H / \\text{kJ mol}^{-1}$",
+          "property_name_normalized": "heat_of_fusion",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "kJ",
+          "unit_normalized": "kJ/mol",
+          "unit_location": "multiple"
+        },
+        {
+          "table_id": "T_3_62",
+          "column_index": 5,
+          "header_context": [
+            "$E' / \\text{MPa}$"
+          ],
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple"
+        },
+        {
+          "table_id": "T_3_62",
+          "column_index": 6,
+          "header_context": [
+            "$\\sigma_{i} / \\text{S cm}^{-1}$"
+          ],
+          "property_name_raw": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+          "property_name_normalized": "electric_conductivity",
+          "semantic_label": null,
+          "property_variant": null,
+          "conditions": {},
+          "direction": "row_samples",
+          "unit_raw": "cm",
+          "unit_normalized": "S/cm",
+          "unit_location": "multiple"
+        }
+      ],
+      "observations": [
+        {
+          "observation_id": "T_3_62:T_3_62:r0001:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "NBR18",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-65",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0001:c0002",
+          "row_index": 1,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0002:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "NBR43",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-25",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0002:c0002",
+          "row_index": 2,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0002:c0002",
+            "row_index": 2,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0003:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PEO-LiClO4",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-41",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0003:c0002",
+          "row_index": 3,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0002",
+            "row_index": 3,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0004:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "P (EO/PO)-LiClO4",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-45",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0004:c0002",
+          "row_index": 4,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0002",
+            "row_index": 4,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0005:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PM (EO/PO)-LiClO4",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-49",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0005:c0002",
+          "row_index": 5,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0005:c0002",
+            "row_index": 5,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0006:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR18/PEO system",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-70",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0006:c0002",
+          "row_index": 6,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0002",
+            "row_index": 6,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0007:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /P (EO/PO)",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-70",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0007:c0002",
+          "row_index": 7,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0002",
+            "row_index": 7,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0008:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /PM (EO/PO)poly",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-59",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0008:c0002",
+          "row_index": 8,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0008:c0002",
+            "row_index": 8,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0009:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /PM (EO/PO)mono",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-62",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0009:c0002",
+          "row_index": 9,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0009:c0002",
+            "row_index": 9,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0009:c0002",
+            "row_index": 9,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0010:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR43/PM (EO/PO)mono",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-49",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0010:c0002",
+          "row_index": 10,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0010:c0002",
+            "row_index": 10,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0010:c0002",
+            "row_index": 10,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0011:c0002",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "30/70 | NBR43/PM (EO/PO)mono",
+          "property_name_raw": "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "glass_transition_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "-55",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "g",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0011:c0002",
+          "row_index": 11,
+          "column_index": 2,
+          "header_column_index": 2,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0011:c0002",
+            "row_index": 11,
+            "column_index": 2
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0011:c0002",
+            "row_index": 11,
+            "column_index": 2,
+            "header_path": [
+              "$T_{\\text{g}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0003:c0003",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PEO-LiClO4",
+          "property_name_raw": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "melting_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "61",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "C",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0003:c0003",
+          "row_index": 3,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0003",
+            "row_index": 3,
+            "column_index": 3,
+            "header_path": [
+              "$T_{\\text{m}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0004:c0003",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "P (EO/PO)-LiClO4",
+          "property_name_raw": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "melting_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "35, (13)",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "C",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0004:c0003",
+          "row_index": 4,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0003",
+            "row_index": 4,
+            "column_index": 3,
+            "header_path": [
+              "$T_{\\text{m}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0006:c0003",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR18/PEO system",
+          "property_name_raw": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "melting_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "62",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "C",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0006:c0003",
+          "row_index": 6,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0003",
+            "row_index": 6,
+            "column_index": 3,
+            "header_path": [
+              "$T_{\\text{m}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0007:c0003",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /P (EO/PO)",
+          "property_name_raw": "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+          "property_name_normalized": "melting_temperature",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "40, (12)",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "C",
+          "unit_normalized": "°C",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0007:c0003",
+          "row_index": 7,
+          "column_index": 3,
+          "header_column_index": 3,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0003",
+            "row_index": 7,
+            "column_index": 3
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0003",
+            "row_index": 7,
+            "column_index": 3,
+            "header_path": [
+              "$T_{\\text{m}} / ^{\\circ}\\text{C}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0003:c0004",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PEO-LiClO4",
+          "property_name_raw": "$\\Delta H / \\text{kJ mol}^{-1}$",
+          "property_name_normalized": "heat_of_fusion",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "5.36",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "kJ",
+          "unit_normalized": "kJ/mol",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0003:c0004",
+          "row_index": 3,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0004",
+            "row_index": 3,
+            "column_index": 4
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0004",
+            "row_index": 3,
+            "column_index": 4,
+            "header_path": [
+              "$\\Delta H / \\text{kJ mol}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0004:c0004",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "P (EO/PO)-LiClO4",
+          "property_name_raw": "$\\Delta H / \\text{kJ mol}^{-1}$",
+          "property_name_normalized": "heat_of_fusion",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "2.38",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "kJ",
+          "unit_normalized": "kJ/mol",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0004:c0004",
+          "row_index": 4,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0004",
+            "row_index": 4,
+            "column_index": 4
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0004",
+            "row_index": 4,
+            "column_index": 4,
+            "header_path": [
+              "$\\Delta H / \\text{kJ mol}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0006:c0004",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR18/PEO system",
+          "property_name_raw": "$\\Delta H / \\text{kJ mol}^{-1}$",
+          "property_name_normalized": "heat_of_fusion",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "5.15",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "kJ",
+          "unit_normalized": "kJ/mol",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0006:c0004",
+          "row_index": 6,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0004",
+            "row_index": 6,
+            "column_index": 4,
+            "header_path": [
+              "$\\Delta H / \\text{kJ mol}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0007:c0004",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /P (EO/PO)",
+          "property_name_raw": "$\\Delta H / \\text{kJ mol}^{-1}$",
+          "property_name_normalized": "heat_of_fusion",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1.74",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "kJ",
+          "unit_normalized": "kJ/mol",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0007:c0004",
+          "row_index": 7,
+          "column_index": 4,
+          "header_column_index": 4,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0004",
+            "row_index": 7,
+            "column_index": 4
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0004",
+            "row_index": 7,
+            "column_index": 4,
+            "header_path": [
+              "$\\Delta H / \\text{kJ mol}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0001:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "NBR18",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1.3",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0001:c0005",
+          "row_index": 1,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0001:c0005",
+            "row_index": 1,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0001:c0005",
+            "row_index": 1,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0002:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "NBR43",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "2.8",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0002:c0005",
+          "row_index": 2,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0002:c0005",
+            "row_index": 2,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0002:c0005",
+            "row_index": 2,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0003:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PEO-LiClO4",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "216.8",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0003:c0005",
+          "row_index": 3,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0005",
+            "row_index": 3,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0003:c0005",
+            "row_index": 3,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0004:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "P (EO/PO)-LiClO4",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "5.3",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0004:c0005",
+          "row_index": 4,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0005",
+            "row_index": 4,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0004:c0005",
+            "row_index": 4,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0005:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PM (EO/PO)-LiClO4",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "0.5",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0005:c0005",
+          "row_index": 5,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0005:c0005",
+            "row_index": 5,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0005:c0005",
+            "row_index": 5,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0006:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR18/PEO system",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "13.6",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0006:c0005",
+          "row_index": 6,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0005",
+            "row_index": 6,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0006:c0005",
+            "row_index": 6,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0007:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /P (EO/PO)",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "2.5",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0007:c0005",
+          "row_index": 7,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0005",
+            "row_index": 7,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0007:c0005",
+            "row_index": 7,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0008:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /PM (EO/PO)poly",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1.1",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0008:c0005",
+          "row_index": 8,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0008:c0005",
+            "row_index": 8,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0008:c0005",
+            "row_index": 8,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0009:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | /PM (EO/PO)mono",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "0.8",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0009:c0005",
+          "row_index": 9,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0009:c0005",
+            "row_index": 9,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0009:c0005",
+            "row_index": 9,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0010:c0005",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR43/PM (EO/PO)mono",
+          "property_name_raw": "$E' / \\text{MPa}$",
+          "property_name_normalized": "dynamic_tensile_properties",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "1.5",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "MPa",
+          "unit_normalized": "MPa",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0010:c0005",
+          "row_index": 10,
+          "column_index": 5,
+          "header_column_index": 5,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0010:c0005",
+            "row_index": 10,
+            "column_index": 5
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0010:c0005",
+            "row_index": 10,
+            "column_index": 5,
+            "header_path": [
+              "$E' / \\text{MPa}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0005:c0006",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "PM (EO/PO)-LiClO4",
+          "property_name_raw": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+          "property_name_normalized": "electric_conductivity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$1.1 \\times 10^{-6}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "cm",
+          "unit_normalized": "S/cm",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0005:c0006",
+          "row_index": 5,
+          "column_index": 6,
+          "header_column_index": 6,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0005:c0006",
+            "row_index": 5,
+            "column_index": 6
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0005:c0006",
+            "row_index": 5,
+            "column_index": 6,
+            "header_path": [
+              "$\\sigma_{i} / \\text{S cm}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0010:c0006",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "50/50 Blend | NBR43/PM (EO/PO)mono",
+          "property_name_raw": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+          "property_name_normalized": "electric_conductivity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$4.5 \\times 10^{-6}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "cm",
+          "unit_normalized": "S/cm",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0010:c0006",
+          "row_index": 10,
+          "column_index": 6,
+          "header_column_index": 6,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0010:c0006",
+            "row_index": 10,
+            "column_index": 6
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0010:c0006",
+            "row_index": 10,
+            "column_index": 6,
+            "header_path": [
+              "$\\sigma_{i} / \\text{S cm}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        },
+        {
+          "observation_id": "T_3_62:T_3_62:r0011:c0006",
+          "table_id": "T_3_62",
+          "direction": "row_samples",
+          "sample_label_raw": "30/70 | NBR43/PM (EO/PO)mono",
+          "property_name_raw": "$\\sigma_{i} / \\text{S cm}^{-1}$",
+          "property_name_normalized": "electric_conductivity",
+          "semantic_label": null,
+          "property_variant": null,
+          "semantic_status": "normalized",
+          "candidate_class": "official_property",
+          "candidate_role": "property_candidate",
+          "candidate_state": "raw_candidate",
+          "authority_target": "property_observation",
+          "conditions": {},
+          "measurement_role": "reported_unknown",
+          "value_raw": "$6.7 \\times 10^{-6}$",
+          "value_kind": "numeric_scalar",
+          "value_has_footnote": false,
+          "unit_raw": "cm",
+          "unit_normalized": "S/cm",
+          "unit_location": "multiple",
+          "cell_id": "T_3_62:r0011:c0006",
+          "row_index": 11,
+          "column_index": 6,
+          "header_column_index": 6,
+          "alignment_status": "exact",
+          "binding_status": "bound",
+          "evidence": {
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0011:c0006",
+            "row_index": 11,
+            "column_index": 6
+          },
+          "evidence_locator": {
+            "source": "table",
+            "table_id": "T_3_62",
+            "cell_id": "T_3_62:r0011:c0006",
+            "row_index": 11,
+            "column_index": 6,
+            "header_path": [
+              "$\\sigma_{i} / \\text{S cm}^{-1}$"
+            ],
+            "axis_role": "row_samples"
+          },
+          "warnings": [],
+          "publication_gate": {
+            "status": "candidate_only",
+            "target": "property_observation",
+            "blockers": [
+              "sample_not_resolved"
+            ],
+            "checks": {
+              "semantic_bound": true,
+              "sample_bound": false,
+              "conditions_validated": false,
+              "value_validated": false,
+              "evidence_bound": true
+            }
+          }
+        }
+      ],
+      "unresolved": [],
+      "warnings": [
+        "variable_row_width_or_spans"
+      ]
+    }
+  ],
+  "interpretations": [],
+  "provenance": {
+    "source": "stage0_blocks.json",
+    "stage0_sha256": "b4aab1eb982ef11ee46482e78e3cc7062f89fe3d20b8117716bb99e09a174bd6",
+    "config_sha256": null,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 0,
+      "total_tokens": 0
+    },
+    "cost": {
+      "status": "not_applicable",
+      "currency": null,
+      "input_per_million": null,
+      "output_per_million": null,
+      "input_cost": "0",
+      "output_cost": "0",
+      "total_cost": "0"
+    },
+    "raw_response": null
+  }
+}

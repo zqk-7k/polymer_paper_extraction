@@ -1,0 +1,459 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0037645",
+  "status": "passed_with_warnings",
+  "error_count": 0,
+  "warning_count": 71,
+  "errors": [],
+  "warnings": [
+    {
+      "stage": "stage0",
+      "code": "metadata_extraction_failed",
+      "message": "未配置统一 LLM 元数据提取器；document JSON 已继续生成"
+    },
+    {
+      "stage": "stage2_polymer_entity",
+      "code": "unresolved_mentions",
+      "message": "16 个 mention 未解析为实体，已原样保留引用"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "section_fallback",
+      "message": "Methods 为空，仅使用 Stage 2 entity 的 evidence block；结果需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unsupported_state_descriptions_dropped",
+      "message": "已有有效 sample_label_raw；删除无法逐字定位的 state_description"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "parameters_not_in_source",
+      "message": "无法定位到 evidence 原文的参数已舍弃"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "unresolved_entities",
+      "message": "1 个 entity 未解析到实际样品"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_unscoped_scalar_properties_removed",
+      "message": "Preview 模式已移除没有合法 sample_id 的 resolved scalar property；未猜测主体"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "empty_reported_context_downgraded",
+      "message": "measurement_context 标记为 reported 但没有任何条件值；已确定性改为 not_reported"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_series_unsupported_fields_removed",
+      "message": "PropertySeries 包含仅适用于标量性质的字段；Preview 已删除该字段，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_objects_salvaged",
+      "message": "Preview 已逐对象保留可安全物化的数据；坏字段、坏对象或失效引用已局部删除，Strict 模式仍会报错"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_subject_unresolved",
+      "message": "PropertySeries 缺少 Sample/PolymerEntity 主体，不得作为完整成功候选发布"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "stage4r_unified_preview",
+      "message": "Stage 4T 仅按 Preview 门控合并；未发布候选见 stage4r_unified_audit.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_method_surface_recovered",
+      "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_stage5_optional_fields_cleared",
+      "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_incomplete_table_evidence_removed",
+      "message": "Preview 模式已移除缺少 table_locator 的附加表格 evidence；同一对象仍保留其他原文 evidence"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_shard_semantic_validation_bypassed",
+      "message": "分片候选通过 Schema，但语义校验需人工复核"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "stage5_shards_partial",
+      "message": "部分 Stage 5 分片失败或含被隔离对象"
+    },
+    {
+      "stage": "meta_extract",
+      "code": "paper_metadata_incomplete",
+      "message": "Paper metadata_status=failed，需人工复核"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps002"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps003"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps005"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps006"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps007"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps008"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps009"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps010"
+    },
+    {
+      "stage": "stage3_sample_process",
+      "code": "generic_process_type",
+      "message": "ProcessStep 使用了通用 process_type=other",
+      "object_id": "ps011"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "missing_characterization",
+      "message": "Stage 4 property 已报告测定方法，但缺少同一样品的 Characterization 回链",
+      "object_id": "prop003"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "evidence_matched_after_block_recovery",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：原文实际在 I_3_40，block_id 归属有误",
+      "object_id": "mc004"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "table_locator_table_scope_accepted",
+      "message": "Preview 接受 Characterization 的表级 locator",
+      "object_id": "char004"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{max}$ (nm) $^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp041"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{max}$ (nm) $^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp042"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{max}$ (nm) $^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp043"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{max}$ (nm) $^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp044"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{max}$ (nm) $^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp045"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{max}$ (nm) $^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp046"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $ε (L mol^{-1} cm^{-1})^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp047"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $ε (L mol^{-1} cm^{-1})^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp048"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $ε (L mol^{-1} cm^{-1})^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp049"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $ε (L mol^{-1} cm^{-1})^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp050"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $ε (L mol^{-1} cm^{-1})^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp051"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $ε (L mol^{-1} cm^{-1})^{b}$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp052"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp053"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp054"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp055"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp056"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp057"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp058"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $Φ$ (%)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp059"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $Φ$ (%)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp060"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $Φ$ (%)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp061"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $Φ$ (%)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp062"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $Φ$ (%)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp063"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='THF | $Φ$ (%)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp064"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{max}$ (nm)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp065"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{max}$ (nm)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp066"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{max}$ (nm)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp067"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{max}$ (nm)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp068"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{max}$ (nm)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp069"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{max}$ (nm)' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp070"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp071"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp072"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp073"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp074"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp075"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "table_locator_matched",
+      "message": "table_locator.column_label='thin $film^d$ | $λ_{em}$ (nm) $^c$' 与表格原文表示不同，但单元格可确定性定位：按 cell_id 精确命中",
+      "object_id": "sp076"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "evidence_matched_after_normalization",
+      "message": "Evidence.source_sentence 与 Stage 0 原文表示不同，已按等价表示接受：词覆盖率 100.0%，内容在本块内但字符被打散",
+      "object_id": "sp001"
+    }
+  ],
+  "checked_counts": {
+    "stage0_blocks": 65,
+    "material_mentions": 53,
+    "polymer_entities": 11,
+    "samples": 11,
+    "process_steps": 11,
+    "measurement_conditions": 14,
+    "stage4_properties": 15,
+    "unresolved_properties": 0,
+    "property_series": 2,
+    "property_series_points": 9,
+    "characterizations": 5,
+    "stage5_properties": 1,
+    "evidence": 163,
+    "preview_published_objects": 132,
+    "preview_rejected_objects": 0,
+    "preview_reference_cleanup_count": 0
+  },
+  "quality_metrics": {
+    "properties_with_units": {
+      "complete": 13,
+      "total": 25,
+      "ratio": 0.52
+    },
+    "standard_process_steps": {
+      "complete": 2,
+      "total": 11,
+      "ratio": 0.18181818181818182
+    },
+    "stage4_methods_with_characterization": {
+      "complete": 1,
+      "total": 2,
+      "ratio": 0.5
+    },
+    "objects_with_confidence": {
+      "complete": 108,
+      "total": 132,
+      "ratio": 0.8181818181818182
+    },
+    "series_points_covered": {
+      "complete": 9,
+      "total": 9,
+      "ratio": 1.0
+    }
+  }
+}

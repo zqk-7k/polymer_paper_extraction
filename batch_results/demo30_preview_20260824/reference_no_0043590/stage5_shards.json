@@ -1,0 +1,1295 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0043590",
+  "status": "running",
+  "shard_count": 4,
+  "unrouted_block_ids": [
+    "P_0_13",
+    "P_0_14",
+    "F_0_16",
+    "F_0_17",
+    "T_1_19",
+    "P_1_21",
+    "P_1_22",
+    "P_1_23",
+    "P_1_25",
+    "P_1_26",
+    "P_1_28",
+    "I_1_29",
+    "I_2_33",
+    "P_2_35",
+    "P_2_36",
+    "P_2_38",
+    "P_2_40",
+    "T_2_42",
+    "P_3_50",
+    "I_4_56",
+    "P_4_60",
+    "P_4_62",
+    "T_4_63",
+    "T_5_67",
+    "P_5_69",
+    "P_5_70",
+    "P_5_72",
+    "P_5_73",
+    "P_5_74",
+    "I_5_75",
+    "P_6_80",
+    "P_6_81",
+    "I_6_83",
+    "P_6_85",
+    "P_6_86",
+    "P_7_94",
+    "I_7_95"
+  ],
+  "shards": [
+    {
+      "shard_id": "dma_001",
+      "method_normalized": "DMA",
+      "block_ids": [
+        "P_1_26",
+        "P_1_27",
+        "P_1_28"
+      ],
+      "context_chars": 3378,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 9476,
+              "output_tokens": 503,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07103808",
+              "output_cost": "0.01466245",
+              "total_cost": "0.08570053"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "e9186ba9b53d72df21c5d8a2e697c4e430e9ede70d93a7c9c3b2e22c391be353",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "T_1_19",
+        "P_1_20",
+        "P_1_21",
+        "P_1_26",
+        "P_1_27",
+        "P_1_28"
+      ],
+      "context_chars": 5428,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": \"pe002\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_1_20\",\n          \"source_sentence\": \"The onset of decomposition for the CBA was determined by thermogravimetric analysis to be 225-C with the majority of gas evolved at 240-C.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"thermogravimetric analysis\",\n      \"parameters\": {},\n      \"result_summary\": \"Onset of decomposition of CBA is 225-C, majority of gas evolved at 240-C\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 10152,
+              "output_tokens": 1404,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 7992
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07838208",
+              "output_cost": "0.0409266",
+              "total_cost": "0.11930868"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "f4e7044f9d5d28dcef019ff907584b764f8c0f6a5922ecc062329e9ae91f3d5f",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis",
+            "method_normalized": "TGA",
+            "entity_id": "pe002",
+            "sample_resolution_status": "unresolved",
+            "parameters": {},
+            "result_summary": "Onset of decomposition of CBA is 225-C, majority of gas evolved at 240-C",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_1_20",
+                "page": 1,
+                "bbox": [
+                  96.0,
+                  300.0,
+                  488.0,
+                  480.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The onset of decomposition for the CBA was determined by thermogravimetric analysis to be 225-C with the majority of gas evolved at 240-C."
+              }
+            ],
+            "confidence": {
+              "score": 0.8
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "sem_001",
+      "method_normalized": "SEM",
+      "block_ids": [
+        "P_2_38",
+        "P_2_39",
+        "P_2_40",
+        "P_2_41",
+        "T_2_42",
+        "I_3_48",
+        "P_3_50",
+        "I_3_52",
+        "I_4_56",
+        "P_4_58",
+        "P_4_60",
+        "P_4_61",
+        "P_4_62",
+        "P_6_86",
+        "I_7_90",
+        "P_7_92",
+        "P_7_94"
+      ],
+      "context_chars": 16245,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop_s5_001\",\n        \"prop_s5_002\",\n        \"prop_s5_003\",\n        \"prop_s5_004\",\n        \"prop_s5_005\",\n        \"prop_s5_006\",\n        \"prop_s5_007\",\n        \"prop_s5_008\",\n        \"prop_s5_009\",\n        \"prop_s5_010\",\n        \"prop_s5_011\",\n        \"prop_s5_012\",\n        \"prop_s5_013\",\n        \"prop_s5_014\",\n        \"prop_s5_015\",\n        \"prop_s5_016\",\n        \"prop_s5_017\",\n        \"prop_s5_018\",\n        \"prop_s5_019\"\n      ],\n      \"entity_id\": null,\n      \"entity_ids\": [\"pe001\"],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_39\",\n          \"source_sentence\": \"SEM micrographs giving a cross-sectional view of the molded part for the foamed COC as well as COC/CB3 and COC/cCF10 are shown in Figure 3.\"\n        },\n        {\n          \"block_id\": \"P_2_41\",\n          \"source_sentence\": \"Comparing SEM micrographs of the foamed and nonfoamed COC/ CB3, as seen in Figure 4, there was no detectable difference in CB dispersion caused by the foaming agent.\"\n        },\n        {\n          \"block_id\": \"I_3_48\",\n          \"source_sentence\": \"Figure 3 SEM image showing the cell morphology for (a) COC, (b) COC/CB3, and (c) COC/cCF10 composite in the LT plane.\"\n        },\n        {\n          \"block_id\": \"I_3_52\",\n          \"source_sentence\": \"Figure 4 Close-up examination of fractured surface of COC/CB3 composite, (a) nonfoamed specimen and (b) foamed specimen, by SEM.\"\n        },\n        {\n          \"block_id\": \"P_4_58\",\n          \"source_sentence\": \"With no localization of the carbon aggregates detected at the bubble boundary by SEM, these conductivity measurements suggest that the bubble growth in our samples resulted in more uniform dispersion of these aggregates throughout the matrix.\"\n        },\n        {\n          \"block_id\": \"P_4_61\",\n          \"source_sentence\": \"SEM analysis found no evidence of cell nucleation occurring at a fiber, indicating the additive did not likely act as a significant nucleating agent in the process.\"\n        },\n        {\n          \"block_id\": \"I_7_90\",\n          \"source_sentence\": \"Figure 8 SEM micrograph of COC/cCF10 demonstrating isolation of carbon fibers by bubble growth during injection molding.\"\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"SEM\",\n      \"method_raw\": \"SEM\",\n      \"parameters\": {},\n      \"result_summary\": \"Characterization of foam morphology, CB aggregate dispersion, and carbon fiber distribution in neat COC and COC/carbon filler composites\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s005\", \"s006\", \"s007\", \"s008\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_41\",\n          \"source_sentence\": \"The largest aggregates of CB found were 0.5 lm in both micrographs in comparison with the nominal cell diameter of 60 lm found in COC/CB3.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_001\",\n      \"property_name_normalized\": \"morphology_particle_size\",\n      \"property_name_raw\": \"largest CB aggregates size\",\n      \"sample_id\": \"s005\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 0.5,\n      \"value_min\": 0.5,\n      \"value_raw\": \"0.5\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_41\",\n          \"source_sentence\": \"The largest aggregates of CB found were 0.5 lm in both micrographs in comparison with the nominal cell diameter of 60 lm found in COC/CB3.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_002\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"nominal cell diameter\",\n      \"sample_id\": \"s005\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 60,\n      \"value_min\": 60,\n      \"value_raw\": \"60\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_39\",\n          \"source_sentence\": \"The foam structure produced by injection molding of the unmodified COC demonstrated a broad range of cell sizes, with finer (<50 lm) bubbles located near the skin of the molded part and very large (>500 lm) bubbles along the centerline.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_003\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"skin bubble size\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 50,\n      \"value_min\": 0,\n      \"value_raw\": \"<50\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_39\",\n          \"source_sentence\": \"The foam structure produced by injection molding of the unmodified COC demonstrated a broad range of cell sizes, with finer (<50 lm) bubbles located near the skin of the molded part and very large (>500 lm) bubbles along the centerline.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_004\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"centerline bubble size\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": null,\n      \"value_min\": 500,\n      \"value_raw\": \">500\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"COC\",\n            \"column_label\": \"D_n\",\n            \"cell_value\": \"45\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_005\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_n\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 45,\n      \"value_min\": 45,\n      \"value_raw\": \"45\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"COC\",\n            \"column_label\": \"D_w\",\n            \"cell_value\": \"72\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_006\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_w\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 72,\n      \"value_min\": 72,\n      \"value_raw\": \"72\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"COC\",\n            \"column_label\": \"D_{max}\",\n            \"cell_value\": \"540\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_007\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_{max}\",\n      \"sample_id\": \"s001\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 540,\n      \"value_min\": 540,\n      \"value_raw\": \"540\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"CB3\",\n            \"column_label\": \"D_n\",\n            \"cell_value\": \"57\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_008\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_n\",\n      \"sample_id\": \"s005\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 57,\n      \"value_min\": 57,\n      \"value_raw\": \"57\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"CB3\",\n            \"column_label\": \"D_w\",\n            \"cell_value\": \"64\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_009\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_w\",\n      \"sample_id\": \"s005\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 64,\n      \"value_min\": 64,\n      \"value_raw\": \"64\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"CB3\",\n            \"column_label\": \"D_{max}\",\n            \"cell_value\": \"400\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_010\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_{max}\",\n      \"sample_id\": \"s005\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 400,\n      \"value_min\": 400,\n      \"value_raw\": \"400\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10\",\n            \"column_label\": \"D_n\",\n            \"cell_value\": \"30\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_011\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_n\",\n      \"sample_id\": \"s006\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 30,\n      \"value_min\": 30,\n      \"value_raw\": \"30\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10\",\n            \"column_label\": \"D_w\",\n            \"cell_value\": \"35\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_012\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_w\",\n      \"sample_id\": \"s006\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 35,\n      \"value_min\": 35,\n      \"value_raw\": \"35\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10\",\n            \"column_label\": \"D_{max}\",\n            \"cell_value\": \"200\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_013\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_{max}\",\n      \"sample_id\": \"s006\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 200,\n      \"value_min\": 200,\n      \"value_raw\": \"200\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_61\",\n          \"source_sentence\": \"The majority of cells were in the range of 30-70 lm, which was similar in magnitude to the average fiber length in the composite.\"\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_014\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"cell size range\",\n      \"sample_id\": \"s006\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 70,\n      \"value_min\": 30,\n      \"value_raw\": \"30-70\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10-CB1\",\n            \"column_label\": \"D_n\",\n            \"cell_value\": \"23\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_015\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_n\",\n      \"sample_id\": \"s007\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 23,\n      \"value_min\": 23,\n      \"value_raw\": \"23\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10-CB1\",\n            \"column_label\": \"D_{max}\",\n            \"cell_value\": \"52\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_016\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_{max}\",\n      \"sample_id\": \"s007\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 52,\n      \"value_min\": 52,\n      \"value_raw\": \"52\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10-CB3\",\n            \"column_label\": \"D_n\",\n            \"cell_value\": \"28\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_017\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_n\",\n      \"sample_id\": \"s008\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 28,\n      \"value_min\": 28,\n      \"value_raw\": \"28\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10-CB3\",\n            \"column_label\": \"D_w\",\n            \"cell_value\": \"35\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_018\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_w\",\n      \"sample_id\": \"s008\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 35,\n      \"value_min\": 35,\n      \"value_raw\": \"35\"\n    },\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"T_2_42\",\n          \"source_sentence\": \"TABLE II Cell Size of the Foam Injection molded Composites\",\n          \"table_locator\": {\n            \"table_id\": \"T_2_42\",\n            \"row_label\": \"cCF10-CB3\",\n            \"column_label\": \"D_{max}\",\n            \"cell_value\": \"72\"\n          }\n        }\n      ],\n      \"measurement_context\": null,\n      \"property_category\": \"morphology\",\n      \"property_id\": \"prop_s5_019\",\n      \"property_name_normalized\": \"morphology_domain_size\",\n      \"property_name_raw\": \"D_{max}\",\n      \"sample_id\": \"s008\",\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"resolved\",\n      \"solvent\": null,\n      \"source_stage\": \"stage5\",\n      \"spectral_assignment\": null,\n      \"unit_normalized\": \"μm\",\n      \"unit_raw\": \"μm\",\n      \"value_max\": 72,\n      \"value_min\": 72,\n      \"value_raw\": \"72\"\n    }\n  ],\n  \"specialized_property_observations\": [\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_39\",\n          \"source_sentence\": \"Despite the broad range of sizes, most bubbles were found to be near spherical in the foamed COC.\"\n        }\n      ],\n      \"method_raw\": \"SEM\",\n      \"property_name_raw\": \"foam morphology\",\n      \"sample_id\": \"s001\",\n      \"sample_resolution_status\": \"resolved\",\n      \"specialized_id\": \"sp_cand001\",\n      \"unit_raw\": null,\n      \"value_raw\": \"most bubbles near spherical\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_39\",\n          \"source_sentence\": \"Conversely, the cells through the core of the different COC composites were more uniform in size except near the skin where the bubbles were highly elongated.\"\n        }\n      ],\n      \"method_raw\": \"SEM\",\n      \"property_name_raw\": \"foam morphology\",\n      \"sample_id\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"specialized_id\": \"sp_cand002\",\n      \"unit_raw\": null,\n      \"value_raw\": \"core cells more uniform in size, skin bubbles highly elongated\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_41\",\n          \"source_sentence\": \"Comparing SEM micrographs of the foamed and nonfoamed COC/ CB3, as seen in Figure 4, there was no detectable difference in CB dispersion caused by the foaming agent.\"\n        }\n      ],\n      \"method_raw\": \"SEM\",\n      \"property_name_raw\": \"CB dispersion\",\n      \"sample_id\": \"s005\",\n      \"sample_resolution_status\": \"resolved\",\n      \"specialized_id\": \"sp_cand003\",\n      \"unit_raw\": null,\n      \"value_raw\": \"no detectable difference in CB dispersion between foamed and nonfoamed samples\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_61\",\n          \"source_sentence\": \"The most notable difference in foam morphology for the cCF-filled composite was the greater frequency of elongated bubbles found in comparison with the CB-filled foam.\"\n        }\n      ],\n      \"method_raw\": \"SEM\",\n      \"property_name_raw\": \"foam morphology\",\n      \"sample_id\": \"s006\",\n      \"sample_resolution_status\": \"resolved\",\n      \"specialized_id\": \"sp_cand004\",\n      \"unit_raw\": null,\n      \"value_raw\": \"greater frequency of elongated bubbles compared to CB-filled foam\"\n    },\n    {\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"entity_id\": \"pe001\",\n      \"evidence\": [\n        {\n          \"block_id\": \"P_4_61\",\n          \"source_sentence\": \"SEM analysis found no evidence of cell nucleation occurring at a fiber, indicating the additive did not likely act as a significant nucleating agent in the process.\"\n        }\n      ],\n      \"method_raw\": \"SEM\",\n      \"property_name_raw\": \"cell nucleation\",\n      \"sample_id\": \"s006\",\n      \"sample_resolution_status\": \"resolved\",\n      \"specialized_id\": \"sp_cand005\",\n      \"unit_raw\": null,\n      \"value_raw\": \"no cell nucleation occurring at carbon fiber\"\n    }\n  ]\n}",
+            "usage": {
+              "input_tokens": 12440,
+              "output_tokens": 10981,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.08384256",
+              "output_cost": "0.32009615",
+              "total_cost": "0.40393871"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 19,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "cf936dbea6ed348522a8bb5caccd1ac8e5594d37135340c5bbfc2d5dc8170a13",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_subject_scope_normalized",
+          "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+          "field_path": "characterizations[0]"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unlocatable_additional_evidence_removed",
+          "message": "Preview 模式已移除无法回定位到 Stage 0 block 的附加 Characterization evidence",
+          "field_path": "characterizations[0].evidence",
+          "block_ids": [
+            "P_4_58"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[0]",
+          "property_id": "prop_s5_001",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[1]",
+          "property_id": "prop_s5_002",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[2]",
+          "property_id": "prop_s5_003",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[3]",
+          "property_id": "prop_s5_004",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_optional_fields_cleared",
+          "message": "Preview 模式已清空无原文支撑的 Stage 5 可选字段",
+          "field_path": "properties[13]",
+          "property_id": "prop_s5_014",
+          "fields": [
+            "unit_raw"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[0]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[1]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[2]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[3]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[4]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[5]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[6]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[7]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[8]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[9]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[10]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[11]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[12]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[13]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[14]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[15]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[16]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[17]",
+          "characterization_id": "char001"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_property_subject_scope_aligned",
+          "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+          "field_path": "properties[18]",
+          "characterization_id": "char001"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "SEM",
+            "method_normalized": "SEM",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "parameters": {},
+            "result_summary": "Characterization of foam morphology, CB aggregate dispersion, and carbon fiber distribution in neat COC and COC/carbon filler composites",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003",
+              "prop_s5_004",
+              "prop_s5_005",
+              "prop_s5_006",
+              "prop_s5_007",
+              "prop_s5_008",
+              "prop_s5_009",
+              "prop_s5_010",
+              "prop_s5_011",
+              "prop_s5_012",
+              "prop_s5_013",
+              "prop_s5_014",
+              "prop_s5_015",
+              "prop_s5_016",
+              "prop_s5_017",
+              "prop_s5_018",
+              "prop_s5_019"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_2_39",
+                "page": 2,
+                "bbox": [
+                  506.0,
+                  358.0,
+                  900.0,
+                  643.0
+                ],
+                "source_type": "text",
+                "source_sentence": "SEM micrographs giving a cross-sectional view of the molded part for the foamed COC as well as COC/CB3 and COC/cCF10 are shown in Figure 3."
+              },
+              {
+                "block_id": "P_2_41",
+                "page": 2,
+                "bbox": [
+                  506.0,
+                  686.0,
+                  900.0,
+                  793.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Comparing SEM micrographs of the foamed and nonfoamed COC/ CB3, as seen in Figure 4, there was no detectable difference in CB dispersion caused by the foaming agent."
+              },
+              {
+                "block_id": "I_3_48",
+                "page": 3,
+                "bbox": [
+                  106.0,
+                  630.0,
+                  480.0,
+                  876.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 3 SEM image showing the cell morphology for (a) COC, (b) COC/CB3, and (c) COC/cCF10 composite in the LT plane."
+              },
+              {
+                "block_id": "I_3_52",
+                "page": 3,
+                "bbox": [
+                  512.0,
+                  651.0,
+                  893.0,
+                  887.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 4 Close-up examination of fractured surface of COC/CB3 composite, (a) nonfoamed specimen and (b) foamed specimen, by SEM."
+              },
+              {
+                "block_id": "P_4_61",
+                "page": 4,
+                "bbox": [
+                  506.0,
+                  183.0,
+                  900.0,
+                  555.0
+                ],
+                "source_type": "text",
+                "source_sentence": "SEM analysis found no evidence of cell nucleation occurring at a fiber, indicating the additive did not likely act as a significant nucleating agent in the process."
+              },
+              {
+                "block_id": "I_7_90",
+                "page": 7,
+                "bbox": [
+                  104.0,
+                  106.0,
+                  482.0,
+                  353.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 8 SEM micrograph of COC/cCF10 demonstrating isolation of carbon fibers by bubble growth during injection molding."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "0.5",
+            "property_name_normalized": "morphology_particle_size",
+            "property_category": "morphology",
+            "value_raw": "0.5",
+            "value_min": 0.5,
+            "value_max": 0.5,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_41",
+                "page": 2,
+                "bbox": [
+                  506.0,
+                  686.0,
+                  900.0,
+                  793.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The largest aggregates of CB found were 0.5 lm in both micrographs in comparison with the nominal cell diameter of 60 lm found in COC/CB3."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "nominal cell diameter",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "60",
+            "value_min": 60.0,
+            "value_max": 60.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_41",
+                "page": 2,
+                "bbox": [
+                  506.0,
+                  686.0,
+                  900.0,
+                  793.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The largest aggregates of CB found were 0.5 lm in both micrographs in comparison with the nominal cell diameter of 60 lm found in COC/CB3."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "<50",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "<50",
+            "value_min": 0.0,
+            "value_max": 50.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_39",
+                "page": 2,
+                "bbox": [
+                  506.0,
+                  358.0,
+                  900.0,
+                  643.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The foam structure produced by injection molding of the unmodified COC demonstrated a broad range of cell sizes, with finer (<50 lm) bubbles located near the skin of the molded part and very large (>500 lm) bubbles along the centerline."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_004",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": ">500",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": ">500",
+            "value_min": 500.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_2_39",
+                "page": 2,
+                "bbox": [
+                  506.0,
+                  358.0,
+                  900.0,
+                  643.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The foam structure produced by injection molding of the unmodified COC demonstrated a broad range of cell sizes, with finer (<50 lm) bubbles located near the skin of the molded part and very large (>500 lm) bubbles along the centerline."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_005",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_n",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "45",
+            "value_min": 45.0,
+            "value_max": 45.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "COC",
+                  "column_label": "D_n",
+                  "cell_value": "45",
+                  "cell_id": "T_2_42:r0002:c0003",
+                  "row_index": 2,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_006",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_w",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "72",
+            "value_min": 72.0,
+            "value_max": 72.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "COC",
+                  "column_label": "D_w",
+                  "cell_value": "72",
+                  "cell_id": "T_2_42:r0002:c0004",
+                  "row_index": 2,
+                  "column_index": 4
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_007",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_{max}",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "540",
+            "value_min": 540.0,
+            "value_max": 540.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "COC",
+                  "column_label": "D_{max}",
+                  "cell_value": "540",
+                  "cell_id": "T_2_42:r0002:c0005",
+                  "row_index": 2,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_008",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_n",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "57",
+            "value_min": 57.0,
+            "value_max": 57.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "CB3",
+                  "column_label": "D_n",
+                  "cell_value": "57",
+                  "cell_id": "T_2_42:r0003:c0003",
+                  "row_index": 3,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_009",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_w",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "64",
+            "value_min": 64.0,
+            "value_max": 64.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "CB3",
+                  "column_label": "D_w",
+                  "cell_value": "64",
+                  "cell_id": "T_2_42:r0003:c0004",
+                  "row_index": 3,
+                  "column_index": 4
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_010",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_{max}",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "400",
+            "value_min": 400.0,
+            "value_max": 400.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "CB3",
+                  "column_label": "D_{max}",
+                  "cell_value": "400",
+                  "cell_id": "T_2_42:r0003:c0005",
+                  "row_index": 3,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_011",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_n",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "30",
+            "value_min": 30.0,
+            "value_max": 30.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10",
+                  "column_label": "D_n",
+                  "cell_value": "30",
+                  "cell_id": "T_2_42:r0004:c0003",
+                  "row_index": 4,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_012",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_w",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "35",
+            "value_min": 35.0,
+            "value_max": 35.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10",
+                  "column_label": "D_w",
+                  "cell_value": "35",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_013",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_{max}",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "200",
+            "value_min": 200.0,
+            "value_max": 200.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10",
+                  "column_label": "D_{max}",
+                  "cell_value": "200",
+                  "cell_id": "T_2_42:r0004:c0005",
+                  "row_index": 4,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_014",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "30-70",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "30-70",
+            "value_min": 30.0,
+            "value_max": 70.0,
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_4_61",
+                "page": 4,
+                "bbox": [
+                  506.0,
+                  183.0,
+                  900.0,
+                  555.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The majority of cells were in the range of 30-70 lm, which was similar in magnitude to the average fiber length in the composite."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_015",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_n",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "23",
+            "value_min": 23.0,
+            "value_max": 23.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10-CB1",
+                  "column_label": "D_n",
+                  "cell_value": "23",
+                  "cell_id": "T_2_42:r0005:c0003",
+                  "row_index": 5,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_016",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_{max}",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "52",
+            "value_min": 52.0,
+            "value_max": 52.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10-CB1",
+                  "column_label": "D_{max}",
+                  "cell_value": "52",
+                  "cell_id": "T_2_42:r0005:c0005",
+                  "row_index": 5,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_017",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_n",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "28",
+            "value_min": 28.0,
+            "value_max": 28.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10-CB3",
+                  "column_label": "D_n",
+                  "cell_value": "28",
+                  "cell_id": "T_2_42:r0006:c0003",
+                  "row_index": 6,
+                  "column_index": 3
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_018",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_w",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "35",
+            "value_min": 35.0,
+            "value_max": 35.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10-CB3",
+                  "column_label": "D_w",
+                  "cell_value": "35",
+                  "cell_id": null,
+                  "row_index": null,
+                  "column_index": null
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_019",
+            "characterization_id": "char001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "property_name_raw": "D_{max}",
+            "property_name_normalized": "morphology_domain_size",
+            "property_category": "morphology",
+            "value_raw": "72",
+            "value_min": 72.0,
+            "value_max": 72.0,
+            "unit_raw": "μm",
+            "unit_normalized": "μm",
+            "source_stage": "stage5",
+            "source_type": "table",
+            "evidence": [
+              {
+                "block_id": "T_2_42",
+                "page": 2,
+                "bbox": [
+                  509.0,
+                  835.0,
+                  896.0,
+                  944.0
+                ],
+                "source_type": "table",
+                "source_sentence": "TABLE II Cell Size of the Foam Injection molded Composites",
+                "table_locator": {
+                  "table_id": "T_2_42",
+                  "row_label": "cCF10-CB3",
+                  "column_label": "D_{max}",
+                  "cell_value": "72",
+                  "cell_id": "T_2_42:r0006:c0005",
+                  "row_index": 6,
+                  "column_index": 5
+                }
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

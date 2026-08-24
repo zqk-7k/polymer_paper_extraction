@@ -1,0 +1,45 @@
+{
+  "status": "failed",
+  "stage": "stage5_characterization",
+  "document_id": "reference_no_0026714",
+  "error_type": "KeyError",
+  "error": "'material_characteristics'",
+  "call_count": 7,
+  "usage": {
+    "input_tokens": 67958,
+    "output_tokens": 20482,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 23976,
+    "billable_input_tokens": 91934,
+    "total_tokens": 112416
+  },
+  "cost": {
+    "status": "calculated",
+    "currency": "CNY",
+    "input_per_million": "4.32",
+    "output_per_million": "29.15",
+    "input_cost": "0.39715488",
+    "output_cost": "0.59705030",
+    "total_cost": "0.99420518"
+  },
+  "raw_response": {
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "finish_reason": "end_turn",
+    "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop001\"\n            ],\n            \"entity_id\": \"pe006\",\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_1_24\",\n                    \"source_sentence\": \"Swelling/deswelling experiments were carried out on gel samples made in glass tubes 4.6 –5 mm in diameter; the gel samples were sliced into cylinders about 10 mm in length. Equilibrium swelling ratios were determined by measuring the diameter of the gel cylinders (to ±0.01 mm) using a digital micrometer.\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"E_1_25\",\n                    \"source_sentence\": \"(V / V _ {0}) = (d / d _ {0}) ^ {3}\",\n                    \"table_locator\": null\n                },\n                {\n                    \"block_id\": \"P_4_65\",\n                    \"source_sentence\": \"For poly(AAM–co–AMPS) gel produced by 8.19 kGy of gamma irradiation, after swelling for 6 days in water, the average value of $V / V _ { 0 }$was 35.4 (see Fig. 6).\",\n                    \"table_locator\": null\n                }\n            ],\n            \"instrument\": \"digital micrometer\",\n            \"measurement_context\": {\n                \"condition_status\": \"reported\",\n                \"frequency\": null,\n                \"humidity\": null,\n                \"other_condition_evidence\": {\n                    \"swelling_time\": [\n                        {\n                            \"block_id\": \"P_1_24\",\n                            \"source_sentence\": \"The gel cylinders were immersed in distilled water for 6 days, then in water– acetone mixtures of varying compositions for 6 days.\",\n                            \"table_locator\": null\n                        }\n                    ]\n                },\n                \"other_conditions\": {\n                    \"swelling_time\": \"6 days\"\n                },\n                \"pressure\": null,\n                \"temperature\": null,\n                \"wavelength\": null\n            },\n            \"method_normalized\": \"swelling\",\n            \"method_raw\": \"Swelling/deswelling experiments\",\n            \"parameters\": {},\n            \"result_summary\": \"The average swelling ratio V/V0 of poly(AAM–co–AMPS) gel produced by 8.19 kGy of gamma irradiation after 6 days swelling in water is 35.4.\",\n            \"sample_id\": \"s001\",\n            \"sample_ids\": null,\n            \"sample_resolution_status\": \"resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [],\n    \"specialized_property_observations\": []\n}",
+    "usage": {
+      "input_tokens": 10752,
+      "output_tokens": 2928,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 7992
+    },
+    "cost": {
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.08097408",
+      "output_cost": "0.0853512",
+      "total_cost": "0.16632528"
+    }
+  }
+}

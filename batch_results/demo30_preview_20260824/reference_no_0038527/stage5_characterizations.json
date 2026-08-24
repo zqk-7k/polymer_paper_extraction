@@ -1,0 +1,359 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0038527",
+  "characterizations": [
+    {
+      "characterization_id": "char001",
+      "method_raw": "UV-vis",
+      "method_normalized": "UV-Vis",
+      "sample_ids": [
+        "s001",
+        "s002",
+        "s003",
+        "s004",
+        "s005",
+        "s006",
+        "s007",
+        "s008",
+        "s009",
+        "s010",
+        "s011",
+        "s012"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "parameters": {},
+      "result_summary": "UV-vis spectra were recorded for regioregular Rg(Th-m,n/p) and regiorandom Rn analogues in chloroform solution and as thin films.",
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "P_2_37",
+          "page": 2,
+          "bbox": [
+            514.0,
+            242.0,
+            933.0,
+            404.0
+          ],
+          "source_type": "text",
+          "source_sentence": "These materials were characterized in this study by NMR, UV-vis, and FT-IR spectroscopies, mass spectrometry, elemental analysis, gel permeation chromatography (GPC), differential scanning calorimetry (DSC), and X-ray diffraction (XRD)."
+        },
+        {
+          "block_id": "P_3_51",
+          "page": 3,
+          "bbox": [
+            514.0,
+            639.0,
+            933.0,
+            965.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The UV-vis spectra of Rg(Th-m,n/p) and Rn(Th-5,4/8) were recorded in chloroform solution and as thin films (Table 1, Figure 6)."
+        },
+        {
+          "block_id": "I_4_56",
+          "page": 4,
+          "bbox": [
+            113.0,
+            268.0,
+            436.0,
+            473.0
+          ],
+          "source_type": "image",
+          "source_sentence": "Figure 6. UV-vis spectra of $\\mathbf { R g } ( \\mathbf { Th } . 5 , 4 / 8 )$ and Rn(Th-5,4/8): (a) chloroform solution and (b) thin film."
+        }
+      ],
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "characterization_id": "char002",
+      "method_raw": "GPC",
+      "method_normalized": "GPC",
+      "sample_ids": [
+        "s004",
+        "s003"
+      ],
+      "entity_ids": [
+        "pe008",
+        "pe007"
+      ],
+      "sample_resolution_status": "multi_resolved",
+      "series_id": "series001",
+      "parameters": {},
+      "derived_property_ids": [],
+      "evidence": [
+        {
+          "block_id": "T_3_44",
+          "page": 3,
+          "bbox": [
+            71.0,
+            63.0,
+            928.0,
+            273.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1 row Rg(Th-5,4/4) Mₙ cell value: 19 800",
+          "table_locator": {
+            "table_id": "T_3_44",
+            "row_label": "Rg(Th-5,4/4)",
+            "column_label": "Mₙ (g/mol)",
+            "cell_value": null,
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        },
+        {
+          "block_id": "T_3_44",
+          "page": 3,
+          "bbox": [
+            71.0,
+            63.0,
+            928.0,
+            273.0
+          ],
+          "source_type": "table",
+          "source_sentence": "Table 1 row Rg(Th-5,4/8) Mₙ cell value: 29 200",
+          "table_locator": {
+            "table_id": "T_3_44",
+            "row_label": "Rg(Th-5,4/8)",
+            "column_label": "Mₙ (g/mol)",
+            "cell_value": null,
+            "cell_id": null,
+            "row_index": null,
+            "column_index": null
+          }
+        }
+      ],
+      "confidence": {
+        "score": 0.5
+      }
+    }
+  ],
+  "properties": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "value_kind": "text",
+      "value_raw": "regioregular",
+      "text_value": "regioregular",
+      "method_raw": "UV-vis spectroscopy",
+      "sample_id": "s003",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_51",
+          "page": 3,
+          "bbox": [
+            514.0,
+            639.0,
+            933.0,
+            965.0
+          ],
+          "source_type": "text",
+          "source_sentence": "In solution, the regioregular polymer Rg(Th-5,4/8) exhibits an absorption maximum $( \\bar { \\lambda } _ { \\operatorname* { m a x } } )$at 450 nm that is slightly red-shifted compared to the regiorandom analogue, Rn(Th-5,4/8) $( \\lambda _ { \\operatorname* { m a x } } = 4 \\bar { 4 } 1$ nm)"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp002",
+      "value_kind": "text",
+      "value_raw": "regiorandom",
+      "text_value": "regiorandom",
+      "method_raw": "UV-vis spectroscopy",
+      "sample_id": "s001",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_51",
+          "page": 3,
+          "bbox": [
+            514.0,
+            639.0,
+            933.0,
+            965.0
+          ],
+          "source_type": "text",
+          "source_sentence": "In solution, the regioregular polymer Rg(Th-5,4/8) exhibits an absorption maximum $( \\bar { \\lambda } _ { \\operatorname* { m a x } } )$at 450 nm that is slightly red-shifted compared to the regiorandom analogue, Rn(Th-5,4/8) $( \\lambda _ { \\operatorname* { m a x } } = 4 \\bar { 4 } 1$ nm)"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp003",
+      "value_kind": "text",
+      "value_raw": "higher percentage of head-to-tail linkages",
+      "text_value": "higher percentage of head-to-tail linkages",
+      "method_raw": "UV-vis spectroscopy",
+      "sample_id": "s003",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_51",
+          "page": 3,
+          "bbox": [
+            514.0,
+            639.0,
+            933.0,
+            965.0
+          ],
+          "source_type": "text",
+          "source_sentence": "This red shift has previously been observed in simple alkylsubstituted regioregular $\\mathrm { P A } \\dot { \\mathrm { T s } } ^ { 1 8 }$and can be attributed to better electron delocalization arising from a more planar polymer backbone with a higher percentage of the head-to-tail linkages."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp004",
+      "value_kind": "text",
+      "value_raw": "present",
+      "text_value": "present",
+      "method_raw": "UV-vis spectroscopy",
+      "sample_id": "s003",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_51",
+          "page": 3,
+          "bbox": [
+            514.0,
+            639.0,
+            933.0,
+            965.0
+          ],
+          "source_type": "text",
+          "source_sentence": "Rg(Th-5,4/8) shows a strong shoulder at 602 nm which can be ascribed to the π-stacked structure."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "unresolved",
+      "reason": "semantic_unmapped"
+    },
+    {
+      "specialized_id": "sp005",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "highly ordered",
+      "text_value": "highly ordered",
+      "method_raw": "UV-vis spectroscopy",
+      "sample_resolution_status": "unresolved",
+      "source_stage": "stage5",
+      "evidence": [
+        {
+          "block_id": "P_3_51",
+          "page": 3,
+          "bbox": [
+            514.0,
+            639.0,
+            933.0,
+            965.0
+          ],
+          "source_type": "text",
+          "source_sentence": "As with the alkyl-substituted PATs, the UV-vis spectroscopic data for the regioregular alternating alkyl:semifluoroalkyl polymers provide strong evidence for the formation of a highly ordered solid phase as a result of the regioregular amphiphilic structure."
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    }
+  ],
+  "provenance": {
+    "stage": "stage5_characterization",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage5.characterization",
+    "prompt_version": "1.7.0",
+    "prompt_sha256": "36e6fe95f806582823caf0fe050b5263e38662167554a267421688e534d39a8a",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "60047111f1b2c611764a31c8222265c4f48edcbd3fbd31e9e9a0d425642b8a05",
+    "model_config_hash": "7e14aff06827af47a7b1a797111258e33d5972d1c072111440c3b2aae020f3ce",
+    "cache_key": "b391c906645653a51f8ed43a5f4e76b28275f9e42fd8403ca8d36c8266dc7a25",
+    "output_schema_version": "characterization_schema.v4",
+    "implementation_version": "1.8.1",
+    "context_block_count": 42,
+    "context_chars": 39509,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 13995,
+      "output_tokens": 5134,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 12088,
+      "billable_input_tokens": 26083,
+      "total_tokens": 31217
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11267856",
+      "output_cost": "0.1496561",
+      "total_cost": "0.26233466"
+    },
+    "status": "success"
+  },
+  "warnings": [
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_characterization_synthesized_from_series",
+      "message": "Preview 模式已从方法唯一匹配且主体明确的 Stage 4 Series 补建低置信度 Characterization",
+      "characterization_id": "char002",
+      "series_id": "series001",
+      "method_normalized": "GPC"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_unsupported_characterization_details_cleared",
+      "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+      "field_path": "characterizations[0]",
+      "fields": [
+        "measurement_context.other_conditions",
+        "measurement_context"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "series_point_subject_scope_inherited",
+      "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围",
+      "field_path": "characterizations[1]",
+      "series_ids": [
+        "series001"
+      ],
+      "sample_ids": [
+        "s004",
+        "s003"
+      ],
+      "entity_ids": [
+        "pe008",
+        "pe007"
+      ]
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+      "source": "stage5_failure.json"
+    },
+    {
+      "stage": "stage5_characterization",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "T_3_44.table_locator.column_label 不是表格原文"
+    }
+  ]
+}

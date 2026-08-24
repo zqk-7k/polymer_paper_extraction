@@ -1,0 +1,487 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0036922",
+  "measurement_conditions": [
+    {
+      "condition_id": "mc001",
+      "other_conditions": {
+        "heating_rate": "10 °C/min",
+        "atmosphere": "nitrogen"
+      },
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_3_38",
+        "page": 3,
+        "bbox": [
+          112.0,
+          337.0,
+          485.0,
+          753.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The initial decomposition temperature $( T _ { \\mathrm { i } } )$ and onset of decomposition curves were determined with a PerkinElmer TGA 7 analyzer at a heating rate of 10 8C/min under a nitrogen atmosphere."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc002",
+      "other_conditions": {
+        "heating_cooling_rate": "10 °C/min",
+        "holding_time": "3 min at 300 °C",
+        "atmosphere": "nitrogen"
+      },
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_3_38",
+        "page": 3,
+        "bbox": [
+          112.0,
+          337.0,
+          485.0,
+          753.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The melting temperature $( T _ { \\mathbf { m } } )$ cold crystallization temperature $( T _ { \\mathrm { { c } } } )$ recrystallization temperature $( T _ { \\mathbf { r } } )$, heat of crystallization $( \\Delta H _ { \\mathrm { m } } )$, and glass transition temperature $( T _ { \\mathrm { g } } )$ of the polymers were measured with a PerkinElmer DSC 7 analyzer at heating/cooling rates of 10 8C/min with a holding time of 3 min at $3 0 0 ~ ^ { \\circ } \\mathrm { C }$ under a nitrogen atmosphere."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc003",
+      "temperature": {
+        "raw": "40 °C",
+        "value": 40.0,
+        "unit": "°C",
+        "evidence": [
+          {
+            "block_id": "P_3_38",
+            "page": 3,
+            "bbox": [
+              112.0,
+              337.0,
+              485.0,
+              753.0
+            ],
+            "source_type": "text",
+            "source_sentence": "with polystyrene standards for calibration at $4 0 ~ ^ { \\circ } \\mathrm { C }$"
+          }
+        ],
+        "evidence_ids": []
+      },
+      "other_conditions": {
+        "eluent": "1,1,1,3,3,3-hexafluoro-2-propanol (HFIP)",
+        "flow_rate": "0.85 mL/min",
+        "calibration": "polystyrene standards"
+      },
+      "other_condition_evidence": {},
+      "condition_status": "reported",
+      "evidence": {
+        "block_id": "P_3_38",
+        "page": 3,
+        "bbox": [
+          112.0,
+          337.0,
+          485.0,
+          753.0
+        ],
+        "source_type": "text",
+        "source_sentence": "The number-average $( M _ { \\mathrm { n } } )$and weight-average $( M _ { \\mathrm { w } } )$molecular weights and molecular weight distributions $( M _ { \\mathrm { w } } / M _ { \\mathrm { n } } )$of the polymers were determined by gel permeation chromatography (GPC) on a Tosoh HPLC-8020 equipped with a Tosoh ultraviolet (254-nm) detector, a refractive-index detector, and a gel column combination (Shodex AD polystyrene 800p, 803s, 805/s, and 807/s) with 1,1,1,3,3,3-hexafluoro-2-propanol (HFIP) as an eluent at a flow rate of 0.85 mL/min and with polystyrene standards for calibration at $4 0 ~ ^ { \\circ } \\mathrm { C }$."
+      },
+      "confidence": {
+        "score": 0.9
+      }
+    },
+    {
+      "condition_id": "mc004",
+      "other_conditions": {},
+      "other_condition_evidence": {},
+      "condition_status": "not_reported",
+      "evidence": {
+        "block_id": "P_3_47",
+        "page": 3,
+        "bbox": [
+          512.0,
+          556.0,
+          884.0,
+          691.0
+        ],
+        "source_type": "text",
+        "source_sentence": "PEAs IIa–IIc were crystalline polymers, whereas PEA IId with an amide content of50 mol % was amorphous and also partially insoluble in HFIP."
+      },
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "properties": [
+    {
+      "property_id": "prop001",
+      "sample_id": "s005",
+      "property_name_raw": "solubility in HFIP",
+      "observation_role": "single",
+      "value_raw": "partially insoluble",
+      "measurement_condition_id": "mc004",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "source_type": "text",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PEAs IIa–IIc were crystalline polymers, whereas PEA IId with an amide content of50 mol % was amorphous and also partially insoluble in HFIP."
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    }
+  ],
+  "unresolved_properties": [
+    {
+      "unresolved_id": "uprop001",
+      "entity_id": "pe001",
+      "property_name_raw": "M_n",
+      "observation_role": "single",
+      "value_raw": "15,800–27,000",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "The PEAs with an amide content of 3 mol % had $M _ { \\mathrm { n } }$values in the range of $1 5 , 8 0 0 { - } 2 7 , 0 0 0$"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "unresolved_id": "uprop002",
+      "entity_id": "pe001",
+      "property_name_raw": "M_w",
+      "observation_role": "single",
+      "value_raw": "56,000–96,000",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "$M _ { \\mathrm { w } }$values in the range of $5 6 , 0 0 0 { - } 9 6 , 0 0 0$"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "unresolved_id": "uprop003",
+      "entity_id": "pe001",
+      "property_name_raw": "M_w/M_n",
+      "observation_role": "single",
+      "value_raw": "3.3–3.6",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "molecular weight distributions $( M _ { \\mathrm { w } } / M _ { \\mathrm { n } } )$of3.3–3.6 for method A"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "unresolved_id": "uprop004",
+      "entity_id": "pe001",
+      "property_name_raw": "M_w/M_n",
+      "observation_role": "single",
+      "value_raw": "2.9–3.2",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "and of 2.9–3.2 for method B"
+        }
+      ],
+      "confidence": {
+        "score": 0.8
+      }
+    },
+    {
+      "unresolved_id": "uprop005",
+      "entity_id": "pe001",
+      "property_name_raw": "T_g",
+      "observation_role": "single",
+      "value_raw": "80 °C",
+      "measurement_context": {
+        "other_conditions": {},
+        "other_condition_evidence": {},
+        "other_condition_evidence_ids": {},
+        "condition_status": "not_reported"
+      },
+      "reason": "sample_ambiguous",
+      "evidence": [
+        {
+          "block_id": "P_4_54",
+          "page": 4,
+          "bbox": [
+            112.0,
+            486.0,
+            484.0,
+            738.0
+          ],
+          "source_type": "text",
+          "source_sentence": "All PEAs showed almost the same $T _ { \\mathrm { g } }$value of $8 0 \\ \\ ^ { \\circ } \\mathrm { C }$"
+        }
+      ],
+      "confidence": {
+        "score": 0.7
+      }
+    }
+  ],
+  "property_series": [],
+  "specialized_property_observations": [
+    {
+      "specialized_id": "sp001",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "crystalline",
+      "text_value": "crystalline",
+      "sample_id": "s002",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PEAs IIa–IIc were crystalline polymers"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp002",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "crystalline",
+      "text_value": "crystalline",
+      "sample_id": "s003",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PEAs IIa–IIc were crystalline polymers"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp003",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "crystalline",
+      "text_value": "crystalline",
+      "sample_id": "s004",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "PEAs IIa–IIc were crystalline polymers"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    },
+    {
+      "specialized_id": "sp004",
+      "source_field": "morphology",
+      "semantic_label": "morphology",
+      "value_kind": "text",
+      "value_raw": "amorphous",
+      "text_value": "amorphous",
+      "sample_id": "s005",
+      "sample_resolution_status": "resolved",
+      "source_stage": "stage4",
+      "evidence": [
+        {
+          "block_id": "P_3_47",
+          "page": 3,
+          "bbox": [
+            512.0,
+            556.0,
+            884.0,
+            691.0
+          ],
+          "source_type": "text",
+          "source_sentence": "whereas PEA IId with an amide content of50 mol % was amorphous"
+        }
+      ],
+      "evidence_ids": [],
+      "publication_status": "published"
+    }
+  ],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2.0-pro",
+    "models": [
+      "doubao-seed-2.0-pro"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "b0ad6175f4e3a45c219d871d14acb7a8beb9a3a3bb4727a10a628fb7c918a949",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "a581c97a065c1799ba7443fb8ed2b0ae2ee5a35cb8421059e474b44aefd3f2bb",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 51,
+    "context_chars": 33567,
+    "call_count": 1,
+    "usage": {
+      "input_tokens": 27561,
+      "output_tokens": 31120,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 27561,
+      "total_tokens": 58681
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.11906352",
+      "output_cost": "0.907148",
+      "total_cost": "1.02621152"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "preview_series_unsupported_fields_removed",
+      "message": "PropertySeries 包含仅适用于标量性质的字段；Preview 已删除该字段，Strict 模式仍会报错",
+      "fields": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_semantic_validation_bypassed",
+      "message": "Preview 已保留 Schema 合法候选，并跳过原文/evidence 语义对应校验；Strict 模式仍会报错",
+      "reason": "prop001.property_name_raw='solubility in HFIP' 不是任一 evidence block 的原文子串"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "unresolved_properties",
+      "message": "5 条性质无法可靠关联具体 Sample",
+      "unresolved_ids": [
+        "uprop001",
+        "uprop002",
+        "uprop003",
+        "uprop004",
+        "uprop005"
+      ]
+    }
+  ]
+}

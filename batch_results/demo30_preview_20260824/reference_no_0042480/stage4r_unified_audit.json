@@ -1,0 +1,531 @@
+{
+  "schema_version": "stage4r_unified_audit.v0.1",
+  "candidate_contract_version": "stage4r_candidate_input.v0.1",
+  "stage": "stage4r_unified_preview",
+  "implementation_version": "0.1.0",
+  "document_id": "reference_no_0042480",
+  "authoritative": false,
+  "inputs": {
+    "stage4n": "stage4_properties.json",
+    "stage4t": "stage4t_shadow.json"
+  },
+  "summary": {
+    "candidate_count": 32,
+    "integrated_count": 0,
+    "duplicate_merged_count": 0,
+    "unmatched_sample_count": 0,
+    "ambiguous_sample_count": 16,
+    "source_conflict_count": 0,
+    "retained_candidate_count": 0,
+    "invalid_candidate_count": 0,
+    "quarantined_stage4_property_count": 0,
+    "specialized_published_count": 0,
+    "specialized_unresolved_count": 16,
+    "specialized_reason_counts": {
+      "not_in_specialized_scope": 12,
+      "sample_binding_unresolved": 4
+    },
+    "specialized_vocabulary_sha256": "53ab32522f9ca7f6d55bd7f9daa9b6f4d514426b16aec1cf0a6a5021877a0ecc",
+    "status_counts": {
+      "ambiguous_sample": 16,
+      "retained_specialized": 16
+    },
+    "sample_resolution_status_counts": {
+      "ambiguous_sample": 32
+    }
+  },
+  "candidate_outcomes": [
+    {
+      "candidate_id": "T_7_73:T_7_73:r0002:c0001",
+      "cell_id": "T_7_73:r0002:c0001",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp019",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0003:c0001",
+      "cell_id": "T_7_73:r0003:c0001",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp020",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0004:c0001",
+      "cell_id": "T_7_73:r0004:c0001",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp021",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0005:c0001",
+      "cell_id": "T_7_73:r0005:c0001",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp022",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0002:c0002",
+      "cell_id": "T_7_73:r0002:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp023",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0003:c0002",
+      "cell_id": "T_7_73:r0003:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp024",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0004:c0002",
+      "cell_id": "T_7_73:r0004:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp025",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0005:c0002",
+      "cell_id": "T_7_73:r0005:c0002",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp026",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0002:c0003",
+      "cell_id": "T_7_73:r0002:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp027",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0003:c0003",
+      "cell_id": "T_7_73:r0003:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp028",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0004:c0003",
+      "cell_id": "T_7_73:r0004:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp029",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0005:c0003",
+      "cell_id": "T_7_73:r0005:c0003",
+      "status": "retained_specialized",
+      "reason": "not_in_specialized_scope",
+      "specialized_id": "sp030",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "elemental_composition",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0002:c0005",
+      "cell_id": "T_7_73:r0002:c0005",
+      "status": "retained_specialized",
+      "reason": "sample_binding_unresolved",
+      "specialized_id": "sp031",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "solution_viscosity",
+      "rerouted_from_official": "intrinsic_viscosity",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0003:c0005",
+      "cell_id": "T_7_73:r0003:c0005",
+      "status": "retained_specialized",
+      "reason": "sample_binding_unresolved",
+      "specialized_id": "sp032",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "solution_viscosity",
+      "rerouted_from_official": "intrinsic_viscosity",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0004:c0005",
+      "cell_id": "T_7_73:r0004:c0005",
+      "status": "retained_specialized",
+      "reason": "sample_binding_unresolved",
+      "specialized_id": "sp033",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "solution_viscosity",
+      "rerouted_from_official": "intrinsic_viscosity",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_7_73:T_7_73:r0005:c0005",
+      "cell_id": "T_7_73:r0005:c0005",
+      "status": "retained_specialized",
+      "reason": "sample_binding_unresolved",
+      "specialized_id": "sp034",
+      "specialized_publication_status": "unresolved",
+      "vocabulary_key": "solution_viscosity",
+      "rerouted_from_official": "intrinsic_viscosity",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0002:c0001",
+      "cell_id": "T_8_84:r0002:c0001",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0003:c0001",
+      "cell_id": "T_8_84:r0003:c0001",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0004:c0001",
+      "cell_id": "T_8_84:r0004:c0001",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0005:c0001",
+      "cell_id": "T_8_84:r0005:c0001",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0002:c0002",
+      "cell_id": "T_8_84:r0002:c0002",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0003:c0002",
+      "cell_id": "T_8_84:r0003:c0002",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0004:c0002",
+      "cell_id": "T_8_84:r0004:c0002",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0005:c0002",
+      "cell_id": "T_8_84:r0005:c0002",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0002:c0003",
+      "cell_id": "T_8_84:r0002:c0003",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0003:c0003",
+      "cell_id": "T_8_84:r0003:c0003",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0004:c0003",
+      "cell_id": "T_8_84:r0004:c0003",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0005:c0003",
+      "cell_id": "T_8_84:r0005:c0003",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0002:c0004",
+      "cell_id": "T_8_84:r0002:c0004",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "I",
+      "sample_matches": [
+        "s002",
+        "s006",
+        "s010",
+        "s014"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0003:c0004",
+      "cell_id": "T_8_84:r0003:c0004",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "II",
+      "sample_matches": [
+        "s003",
+        "s007",
+        "s011",
+        "s015"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0004:c0004",
+      "cell_id": "T_8_84:r0004:c0004",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "III",
+      "sample_matches": [
+        "s004",
+        "s008",
+        "s012",
+        "s016"
+      ]
+    },
+    {
+      "candidate_id": "T_8_84:T_8_84:r0005:c0004",
+      "cell_id": "T_8_84:r0005:c0004",
+      "status": "ambiguous_sample",
+      "sample_resolution_status": "ambiguous_sample",
+      "sample_label_raw": "IV",
+      "sample_matches": [
+        "s005",
+        "s009",
+        "s013",
+        "s017"
+      ]
+    }
+  ],
+  "input_hashes": {
+    "stage0_blocks.json": "e3c8d24cd0c0ec5913a9e709e19a6e19f4cb04c065f9fcd509ebfd19cc64d9e5",
+    "stage2_entities.json": "bb60ef16db709f7c813c33e7276b4aede6c16732af21f2477e2ae986e4ceb872",
+    "stage3_process.json": "461f4c1edb7ebcc327e869bc47ed1e22492456ac7b4e34bded66d4e8ee4beda0",
+    "stage4_properties.json": "43213631a6a893db8f97dab5a0422d9bc8fdc851f03942d29c0163e73df1bf73",
+    "stage4t_shadow.json": "7abb5d7b1c755a903c72b1081e23eb43cf72ce69e5153054856677fa032ec63b"
+  },
+  "output_sha256": "0bb54c685a5879f8b712bfe08627048772d4438199c489b70702da15275e3bc1"
+}

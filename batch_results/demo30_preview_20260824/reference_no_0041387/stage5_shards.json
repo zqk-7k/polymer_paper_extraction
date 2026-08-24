@@ -1,0 +1,890 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0041387",
+  "status": "running",
+  "shard_count": 8,
+  "unrouted_block_ids": [
+    "P_1_23",
+    "P_1_24",
+    "P_1_25",
+    "P_1_26",
+    "P_1_27",
+    "P_1_28",
+    "P_1_29",
+    "P_2_34",
+    "P_2_36",
+    "P_2_37",
+    "P_2_38",
+    "P_2_39",
+    "P_2_42",
+    "P_2_43",
+    "P_2_44",
+    "P_2_45",
+    "P_2_46",
+    "P_2_48",
+    "F_2_53",
+    "P_3_57",
+    "P_3_59",
+    "P_3_60",
+    "P_3_61",
+    "P_3_63",
+    "P_3_64",
+    "P_3_65",
+    "P_3_66",
+    "P_3_67",
+    "I_4_71",
+    "P_4_74",
+    "I_4_77",
+    "P_4_78",
+    "P_5_84",
+    "I_5_86",
+    "I_6_90",
+    "P_6_91",
+    "P_7_99",
+    "P_7_100",
+    "P_7_102",
+    "I_8_106",
+    "P_8_107",
+    "I_8_109",
+    "I_8_112",
+    "T_9_116",
+    "P_9_118"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_2_50",
+        "F_2_53",
+        "I_4_71",
+        "P_4_73",
+        "P_4_74",
+        "P_5_82",
+        "P_5_84"
+      ],
+      "context_chars": 3215,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_2_50\",\n          \"source_sentence\": \"FTIR spectra were recorded on a Perkin–Elmer RX-1 device, on KBr pellets for monomers and intermediates, and on films of a few microns width for polymers. An attenuated total reflection accessory (ATR) was occasionally used for the latter as well.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_73\",\n          \"source_sentence\": \"They were identified by FT infrared spectroscopy, nuclear magnetic resonance, and elemental analysis.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_5_82\",\n          \"source_sentence\": \"Polymers were characterized by their spectroscopic features, using FTIR and NMR spectroscopies.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Perkin–Elmer RX-1 device\",\n      \"measurement_context\": null,\n      \"method_normalized\": \"FTIR\",\n      \"method_raw\": \"FTIR spectra\",\n      \"parameters\": {\n        \"sample_preparation\": \"KBr pellets for monomers and intermediates, films of a few microns width for polymers, attenuated total reflection accessory (ATR) occasionally used for polymers\"\n      },\n      \"result_summary\": \"Applied for identification of monomers/intermediates and characterization of synthesized polymers, no specific peak values reported in text.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15532,
+              "output_tokens": 2662,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06709824",
+              "output_cost": "0.0775973",
+              "total_cost": "0.14469554"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "fbb6920f1f5afd46c2647150c7edb8741c3325cc867c623ae04bc0df1c94eecc",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unscoped_stage5_items_removed",
+          "message": "Preview 模式已移除无法唯一关联任何单/多主体的 Stage 5 表征及其派生性质；未猜测 entity_id",
+          "characterization_ids": [
+            "char001"
+          ],
+          "property_ids": []
+        }
+      ],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "nmr_001",
+      "method_normalized": "NMR",
+      "block_ids": [
+        "F_2_53",
+        "P_3_55",
+        "I_4_71",
+        "P_4_73",
+        "P_4_74",
+        "P_4_78",
+        "I_5_81",
+        "P_5_82",
+        "P_5_84",
+        "I_7_97",
+        "P_7_99"
+      ],
+      "context_chars": 4498,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_55\",\n          \"source_sentence\": \"<sup>1</sup>H and $^ { 1 3 } \\\\mathrm { C }$NMR spectra were recorded on a Varian-Innova 300 spectrometer tuned at 299.95 and 75.43 MHz, respectively.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_5_82\",\n          \"source_sentence\": \"Polymers were characterized by their spectroscopic features, using FTIR and NMR spectroscopies. Figure 3 reproduces the <sup>1</sup>H spectrum of polymer 4BI-MPD. As was also the case for the rest of polymers, chemical shifts could be readily ascribed to the signal observed in the spectra, which did not show strange signal attributable to solvent, impurities, or end groups.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_7_97\",\n          \"source_sentence\": \"Figure 3. <sup>1</sup>H NMR spectrum of polymer 4BI-MPD.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Varian-Innova 300 spectrometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"not_reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"NMR\",\n      \"method_raw\": \"1H and 13C NMR\",\n      \"parameters\": {\n        \"1H NMR resonance frequency\": \"299.95 MHz\",\n        \"13C NMR resonance frequency\": \"75.43 MHz\"\n      },\n      \"result_summary\": \"1H and 13C NMR spectra were recorded for all synthesized polyamide samples, observed chemical shifts were fully ascribed, no signals from solvent, impurities or end groups detected.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15855,
+              "output_tokens": 3151,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 14136
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12956112",
+              "output_cost": "0.09185165",
+              "total_cost": "0.22141277"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "f631fe337f0d5173741972d611e91498f20877805fa44839659db51a5247be2b",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_characterization_method_surface_recovered",
+          "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+          "field_path": "characterizations[0].method_raw",
+          "method_normalized": "NMR"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters",
+            "measurement_context"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "NMR",
+            "method_normalized": "NMR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "instrument": "Varian-Innova 300 spectrometer",
+            "parameters": {
+              "13C NMR resonance frequency": "75.43 MHz"
+            },
+            "result_summary": "1H and 13C NMR spectra were recorded for all synthesized polyamide samples, observed chemical shifts were fully ascribed, no signals from solvent, impurities or end groups detected.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_55",
+                "page": 3,
+                "bbox": [
+                  99.0,
+                  130.0,
+                  483.0,
+                  175.0
+                ],
+                "source_type": "text",
+                "source_sentence": "<sup>1</sup>H and $^ { 1 3 } \\mathrm { C }$NMR spectra were recorded on a Varian-Innova 300 spectrometer tuned at 299.95 and 75.43 MHz, respectively."
+              },
+              {
+                "block_id": "P_5_82",
+                "page": 5,
+                "bbox": [
+                  99.0,
+                  423.0,
+                  485.0,
+                  560.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Polymers were characterized by their spectroscopic features, using FTIR and NMR spectroscopies. Figure 3 reproduces the <sup>1</sup>H spectrum of polymer 4BI-MPD. As was also the case for the rest of polymers, chemical shifts could be readily ascribed to the signal observed in the spectra, which did not show strange signal attributable to solvent, impurities, or end groups."
+              },
+              {
+                "block_id": "I_7_97",
+                "page": 7,
+                "bbox": [
+                  202.0,
+                  103.0,
+                  797.0,
+                  400.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 3. <sup>1</sup>H NMR spectrum of polymer 4BI-MPD."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_2_34",
+        "P_2_35",
+        "P_2_36",
+        "P_2_39",
+        "P_2_41",
+        "P_2_42",
+        "P_2_48",
+        "P_2_49",
+        "P_3_57",
+        "P_3_58",
+        "P_3_59"
+      ],
+      "context_chars": 5283,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "candidate_partial",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop002\",\n        \"prop003\",\n        \"prop004\",\n        \"prop005\",\n        \"prop006\",\n        \"prop007\",\n        \"prop008\",\n        \"prop009\",\n        \"prop010\"\n      ],\n      \"entity_ids\": [\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\",\n        \"pe008\",\n        \"pe009\",\n        \"pe010\",\n        \"pe011\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_58\",\n          \"source_sentence\": \"DSC and TGA were made with Perkin–Elmer analyzers DSC-7 and TGA-7, respectively. All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA. Curves were registered at the second run, after a first one up to $2 5 0 ^ { \\\\circ } \\\\mathrm { C }$to eliminate absorbed water.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Perkin–Elmer DSC-7\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"other_conditions\": {\n          \"heating rate\": \"20 °C/min\",\n          \"atmosphere\": \"nitrogen\"\n        },\n        \"other_condition_evidence\": {\n          \"heating rate\": [\n            {\n              \"block_id\": \"P_3_58\",\n              \"source_sentence\": \"All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA.\",\n              \"table_locator\": null\n            }\n          ],\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_3_58\",\n              \"source_sentence\": \"All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA.\",\n              \"table_locator\": null\n            }\n          ]\n        }\n      },\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"DSC\",\n      \"parameters\": {\n        \"heating rate\": \"20 °C/min\",\n        \"atmosphere\": \"nitrogen\",\n        \"run mode\": \"second run after first run up to 250 °C to eliminate absorbed water\"\n      },\n      \"result_summary\": \"Determined glass transition temperatures of 9 poly(benzimidazole-amide) samples ranging from 292 °C to 331 °C.\",\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series002\"\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 16296,
+              "output_tokens": 2710,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07039872",
+              "output_cost": "0.0789965",
+              "total_cost": "0.14939522"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "candidate_partial",
+      "cache_key": "c1b1e7b831c24d243939c6bd537b35136f566ab653a663d23f8d1c324171eba2",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_shard_semantic_validation_bypassed",
+          "message": "分片候选通过 Schema，但语义校验需人工复核",
+          "shard_id": "dsc_001",
+          "reason": "char001.measurement_context.other_conditions.heating rate.raw 无法在字段专属 evidence中定位"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "DSC",
+            "method_normalized": "DSC",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series002",
+            "measurement_context": {
+              "other_conditions": {
+                "heating rate": "20 °C/min",
+                "atmosphere": "nitrogen"
+              },
+              "other_condition_evidence": {
+                "heating rate": [
+                  {
+                    "block_id": "P_3_58",
+                    "page": 3,
+                    "bbox": [
+                      101.0,
+                      293.0,
+                      483.0,
+                      397.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA."
+                  }
+                ],
+                "atmosphere": [
+                  {
+                    "block_id": "P_3_58",
+                    "page": 3,
+                    "bbox": [
+                      101.0,
+                      293.0,
+                      483.0,
+                      397.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {
+              "atmosphere": "nitrogen"
+            },
+            "result_summary": "Determined glass transition temperatures of 9 poly(benzimidazole-amide) samples ranging from 292 °C to 331 °C.",
+            "derived_property_ids": [
+              "prop002",
+              "prop003",
+              "prop004",
+              "prop005",
+              "prop006",
+              "prop007",
+              "prop008",
+              "prop009",
+              "prop010"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_58",
+                "page": 3,
+                "bbox": [
+                  101.0,
+                  293.0,
+                  483.0,
+                  397.0
+                ],
+                "source_type": "text",
+                "source_sentence": "DSC and TGA were made with Perkin–Elmer analyzers DSC-7 and TGA-7, respectively. All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA. Curves were registered at the second run, after a first one up to $2 5 0 ^ { \\circ } \\mathrm { C }$to eliminate absorbed water."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "dma_001",
+      "method_normalized": "DMA",
+      "block_ids": [
+        "P_5_84",
+        "P_5_85",
+        "I_5_86",
+        "P_6_91",
+        "T_6_93"
+      ],
+      "context_chars": 3775,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [], \"properties\": [], \"specialized_property_observations\": [{\"confidence\": {\"score\": 0.9}, \"specialized_id\": \"sp_cand001\", \"sample_resolution_status\": \"unresolved\", \"property_name_raw\": \"chain sequences\", \"value_raw\": \"head to head, head to tail, and tail to tail sequences\", \"entity_id\": \"pe001\", \"sample_id\": null, \"method_raw\": null, \"unit_raw\": null, \"evidence\": [{\"block_id\": \"P_6_91\", \"source_sentence\": \"Monomer 4BI is an asymmetric monomer that introduces into a polymer chain an element of irregularity and a less effective molecular packing through the formation of head to head, head to tail, and tail to tail sequences.\", \"table_locator\": null}]}, {\"confidence\": {\"score\": 0.9}, \"specialized_id\": \"sp_cand002\", \"sample_resolution_status\": \"unresolved\", \"property_name_raw\": \"polymer structure\", \"value_raw\": \"ordered\", \"entity_id\": \"pe002\", \"sample_id\": null, \"method_raw\": null, \"unit_raw\": null, \"evidence\": [{\"block_id\": \"P_6_91\", \"source_sentence\": \"Only ordered polyamides were prepared from DAB and the symmetric monomers m-DBI and p-DBI resulting in polymers that were insoluble in aprotic polar solvents.\", \"table_locator\": null}]}]}",
+            "usage": {
+              "input_tokens": 15976,
+              "output_tokens": 2547,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 14136
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.13008384",
+              "output_cost": "0.07424505",
+              "total_cost": "0.20432889"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "08e2d9afb565c0c20720cdaf2d0e7a0394f9c34d0ec9c00dc3d3a333bb7dfc15",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_3_57",
+        "P_3_58",
+        "P_3_59",
+        "I_8_109",
+        "P_8_111",
+        "I_8_112",
+        "P_9_119",
+        "I_9_121"
+      ],
+      "context_chars": 5768,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [\n        \"prop011\",\n        \"prop012\",\n        \"prop013\",\n        \"prop014\",\n        \"prop015\",\n        \"prop016\",\n        \"prop017\",\n        \"prop018\",\n        \"prop019\"\n      ],\n      \"entity_ids\": [\n        \"pe003\",\n        \"pe004\",\n        \"pe005\",\n        \"pe006\",\n        \"pe007\",\n        \"pe008\",\n        \"pe009\",\n        \"pe010\",\n        \"pe011\"\n      ],\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_58\",\n          \"source_sentence\": \"DSC and TGA were made with Perkin–Elmer analyzers DSC-7 and TGA-7, respectively. All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_8_111\",\n          \"source_sentence\": \"As to thermal resistance, as measured by TGA, the list of decomposition temperatures shown in Table 1 indicates that all of the polymers begin to decompose in the same temperature range, around 480 - 490 °C, regardless of the monomer combinations.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_9_121\",\n          \"source_sentence\": \"Figure 7. TGA curves of poly(benzimidazole amide)s in N₂ at 10 °/min.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Perkin–Elmer TGA-7 analyzer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {\n          \"atmosphere\": [\n            {\n              \"block_id\": \"P_3_58\",\n              \"source_sentence\": \"All of the samples were tested under nitrogen at a heating rate of 20 °C/min for DSC and 10 °C/min for TGA.\",\n              \"table_locator\": null\n            }\n          ]\n        },\n        \"other_conditions\": {\n          \"atmosphere\": \"nitrogen\"\n        },\n        \"pressure\": null,\n        \"temperature\": null,\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"TGA\",\n      \"parameters\": {\n        \"heating_rate\": \"10 °C/min\"\n      },\n      \"result_summary\": \"All synthesized poly(benzimidazole-amide)s start decomposing at around 480-490 °C; char yield at 800 °C is 75-78% for polymers from symmetric bisbenzimidazole monomers and less than 75% for polymers from 4BI.\",\n      \"sample_ids\": [\n        \"s001\",\n        \"s002\",\n        \"s003\",\n        \"s004\",\n        \"s005\",\n        \"s006\",\n        \"s007\",\n        \"s008\",\n        \"s009\"\n      ],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series003\"\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 16132,
+              "output_tokens": 2956,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 14136
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.13075776",
+              "output_cost": "0.0861674",
+              "total_cost": "0.21692516"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "bf217a785999fe103cd676c91ac2a7711d2431600e3585af9538aa1644b4b39d",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "instrument",
+            "parameters"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "TGA",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series003",
+            "measurement_context": {
+              "other_conditions": {
+                "atmosphere": "nitrogen"
+              },
+              "other_condition_evidence": {
+                "atmosphere": [
+                  {
+                    "block_id": "P_3_58",
+                    "page": 3,
+                    "bbox": [
+                      101.0,
+                      293.0,
+                      483.0,
+                      397.0
+                    ],
+                    "source_type": "text",
+                    "source_sentence": "All of the samples were tested under nitrogen at a heating rate of 20 \u0001C/min for DSC and 10 \u0001C/min for TGA."
+                  }
+                ]
+              },
+              "other_condition_evidence_ids": {},
+              "condition_status": "reported"
+            },
+            "parameters": {},
+            "result_summary": "All synthesized poly(benzimidazole-amide)s start decomposing at around 480-490 °C; char yield at 800 °C is 75-78% for polymers from symmetric bisbenzimidazole monomers and less than 75% for polymers from 4BI.",
+            "derived_property_ids": [
+              "prop011",
+              "prop012",
+              "prop013",
+              "prop014",
+              "prop015",
+              "prop016",
+              "prop017",
+              "prop018",
+              "prop019"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_3_58",
+                "page": 3,
+                "bbox": [
+                  101.0,
+                  293.0,
+                  483.0,
+                  397.0
+                ],
+                "source_type": "text",
+                "source_sentence": "DSC and TGA were made with Perkin–Elmer analyzers DSC-7 and TGA-7, respectively."
+              },
+              {
+                "block_id": "P_8_111",
+                "page": 8,
+                "bbox": [
+                  513.0,
+                  496.0,
+                  895.0,
+                  572.0
+                ],
+                "source_type": "text",
+                "source_sentence": "As to thermal resistance, as measured by TGA, the list of decomposition temperatures shown in Table 1 indicates that all of the polymers begin to decompose in the same temperature range, around $4 8 0 { \\mathrm { - } } 4 9 0 \\ ^ { \\circ } \\mathrm { C }$, regardless of the monomer combinations."
+              },
+              {
+                "block_id": "I_9_121",
+                "page": 9,
+                "bbox": [
+                  519.0,
+                  635.0,
+                  888.0,
+                  837.0
+                ],
+                "source_type": "image",
+                "source_sentence": "TGA curves of poly(benzimidazole amide)s in $\\mathrm { N _ { 2 } }$ at 10 \u0001/min."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "viscometry_001",
+      "method_normalized": "viscometry",
+      "block_ids": [
+        "P_2_46",
+        "P_2_47",
+        "P_2_48",
+        "P_3_56",
+        "P_3_57",
+        "P_4_74",
+        "P_4_76",
+        "I_4_77"
+      ],
+      "context_chars": 3766,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.9\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_3_56\",\n          \"source_sentence\": \"Viscosities were measured on 0.5 g/dL NMP solutions at $2 5 \\\\pm 0 . 1 \\\\ ^ { \\\\circ } \\\\mathrm { C }$in an Ubbelohde viscometer.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"P_4_76\",\n          \"source_sentence\": \"Table 1 shows the inherent viscosities $( \\\\eta _ { \\\\mathrm { i n h } } )$measured in NMP. They all were well above 0.8 dL/g, which indicates high molecular weight in\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": \"Ubbelohde viscometer\",\n      \"measurement_context\": {\n        \"condition_status\": \"reported\",\n        \"frequency\": null,\n        \"humidity\": null,\n        \"other_condition_evidence\": {},\n        \"other_conditions\": {},\n        \"pressure\": null,\n        \"temperature\": {\n          \"evidence\": [\n            {\n              \"block_id\": \"P_3_56\",\n              \"source_sentence\": \"Viscosities were measured on 0.5 g/dL NMP solutions at $2 5 \\\\pm 0 . 1 \\\\ ^ { \\\\circ } \\\\mathrm { C }$in an Ubbelohde viscometer.\",\n              \"table_locator\": null\n            }\n          ],\n          \"raw\": \"25 ± 0.1 °C\",\n          \"unit\": \"°C\",\n          \"value\": 25\n        },\n        \"wavelength\": null\n      },\n      \"method_normalized\": \"viscometry\",\n      \"method_raw\": \"Ubbelohde viscometer\",\n      \"parameters\": {\n        \"concentration\": \"0.5 g/dL\",\n        \"solvent\": \"NMP\"\n      },\n      \"result_summary\": \"Inherent viscosities of all polyamides were above 0.8 dL/g, indicating high molecular weight.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": \"series001\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 15722,
+              "output_tokens": 1898,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06791904",
+              "output_cost": "0.0553267",
+              "total_cost": "0.12324574"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "441e0ab075a584c4cbb62f739871f10ece3a5e14e4397268194125e9242dabda",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "measurement_context.temperature",
+            "measurement_context"
+          ]
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "series_point_subject_scope_inherited",
+          "message": "Characterization 已从关联且主体范围一致的跨主体 Series points 继承完整主体范围",
+          "field_path": "characterizations[0]",
+          "series_ids": [
+            "series001"
+          ],
+          "sample_ids": [
+            "s001",
+            "s002",
+            "s003",
+            "s004",
+            "s005",
+            "s006",
+            "s007",
+            "s008",
+            "s009"
+          ],
+          "entity_ids": [
+            "pe003",
+            "pe004",
+            "pe005",
+            "pe006",
+            "pe007",
+            "pe008",
+            "pe009",
+            "pe010",
+            "pe011"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "Ubbelohde viscometer",
+            "method_normalized": "viscometry",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009"
+            ],
+            "entity_ids": [
+              "pe003",
+              "pe004",
+              "pe005",
+              "pe006",
+              "pe007",
+              "pe008",
+              "pe009",
+              "pe010",
+              "pe011"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series001",
+            "instrument": "Ubbelohde viscometer",
+            "parameters": {
+              "concentration": "0.5 g/dL",
+              "solvent": "NMP"
+            },
+            "result_summary": "Inherent viscosities of all polyamides were above 0.8 dL/g, indicating high molecular weight.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_3_56",
+                "page": 3,
+                "bbox": [
+                  101.0,
+                  175.0,
+                  483.0,
+                  219.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Viscosities were measured on 0.5 g/dL NMP solutions at $2 5 \\pm 0 . 1 \\ ^ { \\circ } \\mathrm { C }$in an Ubbelohde viscometer."
+              },
+              {
+                "block_id": "P_4_76",
+                "page": 4,
+                "bbox": [
+                  511.0,
+                  662.0,
+                  895.0,
+                  709.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Table 1 shows the inherent viscosities $( \\eta _ { \\mathrm { i n h } } )$measured in NMP. They all were well above 0.8 dL/g, which indicates high molecular weight in"
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "swelling_001",
+      "method_normalized": "swelling",
+      "block_ids": [
+        "P_2_46",
+        "P_2_47",
+        "P_2_48"
+      ],
+      "context_chars": 1668,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\"characterizations\": [],\"properties\": [],\"specialized_property_observations\": []}",
+            "usage": {
+              "input_tokens": 15182,
+              "output_tokens": 596,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 14136
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.12665376",
+              "output_cost": "0.0173734",
+              "total_cost": "0.14402716"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 0,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "2409acb50fab4087e2bdddea4eb60f7083287afbd693d8159ae89dae361751b5",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [],
+        "properties": []
+      }
+    }
+  ]
+}

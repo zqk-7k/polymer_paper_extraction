@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "document_id": "reference_no_0026548",
+  "measurement_conditions": [],
+  "properties": [],
+  "unresolved_properties": [],
+  "property_series": [],
+  "specialized_property_observations": [],
+  "provenance": {
+    "stage": "stage4_property",
+    "provider": "dmx",
+    "model": "doubao-seed-2-0-pro-260215",
+    "models": [
+      "doubao-seed-2-0-pro-260215"
+    ],
+    "prompt_id": "polymer.stage4.property",
+    "prompt_version": "1.7.3",
+    "prompt_sha256": "93d01911c2e1a3cc626b1687172b3974ec52f376dd4c9c5f68eaab638fc4b3db",
+    "vocabulary_sha256": "4ac06f9d0b8a44ac1e20bddf349390639f717489b697c8016fb52607e7967dbc",
+    "input_hash": "2d47845fdc0a9bea90ee6e28d526557a5dcaebbcf4ac72a5ffc3863bc769c840",
+    "model_config_hash": "cc96eaab20bd380ae90f3ba1dfa638bd40f111e3e72ca185255fb71b459d40ea",
+    "cache_key": "44733244f95d7799d0d33a424aa4f6d1be6a46c3476edfcc03a0de1fc2666995",
+    "output_schema_version": "property_observation_schema.v7",
+    "implementation_version": "1.7.10",
+    "context_block_count": 26,
+    "context_chars": 21381,
+    "call_count": 0,
+    "usage": {
+      "input_tokens": 23962,
+      "output_tokens": 11041,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "billable_input_tokens": 23962,
+      "total_tokens": 35003
+    },
+    "cost": {
+      "status": "calculated",
+      "currency": "CNY",
+      "input_per_million": "4.32",
+      "output_per_million": "29.15",
+      "input_cost": "0.10351584",
+      "output_cost": "0.32184515",
+      "total_cost": "0.42536099"
+    },
+    "status": "candidate_partial"
+  },
+  "warnings": [
+    {
+      "stage": "stage4_property",
+      "code": "failure_response_replayed",
+      "message": "已离线回放保存的 Stage 4 响应，未请求模型",
+      "source": "stage4_failure.json"
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_entity_relinked_to_sample",
+      "message": "PropertySeries/point 的 entity_id 与已解析 Sample 冲突；已按 Stage 3 Sample.refers_to_entity 确定性纠正",
+      "series": 1,
+      "points": 0
+    },
+    {
+      "stage": "stage4_property",
+      "code": "multi_subject_series_normalized",
+      "message": "PropertySeries 的 points 明确属于多个 Sample/PolymerEntity；已清除错误的单一顶层主体，主体关系保留在各 point",
+      "series": 1
+    },
+    {
+      "stage": "stage4_property",
+      "code": "candidate_table_locator_surface_repaired",
+      "message": "模型 locator 表面文本不在表格原文；已用 property raw 与 determination method 中唯一匹配的 Stage 0 表头恢复",
+      "evidence": 21
+    },
+    {
+      "stage": "stage4_property",
+      "code": "coordinate_locators_aligned_to_point",
+      "message": "重复 coordinate 标签已按同一 point 的唯一性质值行绑定到对应单元格（支持 rowspan）",
+      "evidence": 3
+    },
+    {
+      "stage": "stage4_property",
+      "code": "series_method_evidence_supplemented",
+      "message": "Series determination method 不在 point 表格 evidence；已补入全文中唯一的完全匹配原文 block",
+      "series": 2
+    },
+    {
+      "stage": "stage4_property",
+      "code": "preview_degraded_empty_shell",
+      "message": "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果",
+      "degraded": true,
+      "blocking": true,
+      "reason": "property_series.1.points.0.point_id: String should match pattern '^pt\\d{3,}$'; property_series.1.points.1.point_id: String should match pattern '^pt\\d{3,}$'; property_series.1.points.2.point_id: String should match pattern '^pt\\d{3,}$'"
+    }
+  ]
+}

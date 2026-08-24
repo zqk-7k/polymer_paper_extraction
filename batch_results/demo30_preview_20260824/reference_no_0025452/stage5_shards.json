@@ -1,0 +1,541 @@
+{
+  "schema_version": "stage5_shards.v0.2",
+  "document_id": "reference_no_0025452",
+  "status": "running",
+  "shard_count": 4,
+  "unrouted_block_ids": [
+    "P_1_18",
+    "P_9_52",
+    "P_9_53",
+    "P_9_54",
+    "P_9_55",
+    "P_10_57",
+    "P_10_58",
+    "P_10_59",
+    "P_10_60",
+    "I_11_62",
+    "P_11_63",
+    "P_11_64",
+    "T_12_66",
+    "P_12_67",
+    "P_12_68",
+    "E_13_70",
+    "E_13_71",
+    "I_13_72",
+    "P_13_73",
+    "P_13_74",
+    "P_13_75",
+    "P_14_78",
+    "P_14_79",
+    "P_15_81",
+    "P_15_82",
+    "I_16_85",
+    "P_16_86",
+    "P_17_89",
+    "P_17_91",
+    "P_19_96",
+    "P_19_98",
+    "P_22_108",
+    "P_23_112",
+    "P_24_114",
+    "P_24_115",
+    "I_24_116",
+    "I_25_118",
+    "P_25_119",
+    "E_25_121",
+    "I_26_125",
+    "I_27_128",
+    "P_28_130",
+    "E_28_131",
+    "P_28_132",
+    "E_28_133",
+    "P_28_134",
+    "I_28_135",
+    "P_29_137",
+    "P_29_138",
+    "I_30_141",
+    "I_30_142",
+    "P_30_143"
+  ],
+  "shards": [
+    {
+      "shard_id": "ftir_001",
+      "method_normalized": "FTIR",
+      "block_ids": [
+        "P_16_86",
+        "P_16_87",
+        "P_17_89",
+        "P_17_90",
+        "P_17_91",
+        "I_18_94",
+        "P_19_96",
+        "P_19_98",
+        "P_19_99",
+        "P_22_108",
+        "P_22_109",
+        "P_23_112"
+      ],
+      "context_chars": 11171,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n    \"characterizations\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"derived_property_ids\": [\n                \"prop_s5_001\",\n                \"prop_s5_002\",\n                \"prop_s5_003\",\n                \"prop_s5_004\",\n                \"prop_s5_005\",\n                \"prop_s5_006\",\n                \"prop_s5_007\",\n                \"prop_s5_008\"\n            ],\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"Chemical structure of aerogels was studied qualitatively by FTIR spectroscopy, as presented in Figure 7.\"\n                }\n            ],\n            \"instrument\": null,\n            \"measurement_context\": null,\n            \"method_normalized\": \"FTIR\",\n            \"method_raw\": \"FTIR spectroscopy\",\n            \"parameters\": {},\n            \"result_summary\": \"Characteristic polyimide imide bands were observed for all samples; PMDA backbone aerogels showed small amic acid/amide bands indicating incomplete imidization, while BPDA backbone aerogels showed complete imidization; hybrid samples exhibited combined peaks of single diamine aerogels with varying intensities.\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"series_id\": null,\n            \"series_ids\": null\n        }\n    ],\n    \"properties\": [\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"The characteristic bands of polyimides, including 727 ( cm-1), $1 3 7 0 ( \\\\mathrm { c m } ^ { - 1 } )$(imide C−N), 1715 $( \\\\mathsf { c m } ^ { - 1 } )$(symmetric imide C=O) and $1 7 7 5 ( \\\\mathrm { c m } ^ { - 1 } )$(asymmetric imide C=O) are observed for all studied samples.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_001\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": null,\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 727,\n            \"value_min\": 727,\n            \"value_raw\": \"727\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"The characteristic bands of polyimides, including 727 ( cm-1), $1 3 7 0 ( \\\\mathrm { c m } ^ { - 1 } )$(imide C−N), 1715 $( \\\\mathsf { c m } ^ { - 1 } )$(symmetric imide C=O) and $1 7 7 5 ( \\\\mathrm { c m } ^ { - 1 } )$(asymmetric imide C=O) are observed for all studied samples.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_002\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"imide C−N\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1370,\n            \"value_min\": 1370,\n            \"value_raw\": \"1370\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"The characteristic bands of polyimides, including 727 ( cm-1), $1 3 7 0 ( \\\\mathrm { c m } ^ { - 1 } )$(imide C−N), 1715 $( \\\\mathsf { c m } ^ { - 1 } )$(symmetric imide C=O) and $1 7 7 5 ( \\\\mathrm { c m } ^ { - 1 } )$(asymmetric imide C=O) are observed for all studied samples.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_003\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"symmetric imide C=O\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1715,\n            \"value_min\": 1715,\n            \"value_raw\": \"1715\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"The characteristic bands of polyimides, including 727 ( cm-1), $1 3 7 0 ( \\\\mathrm { c m } ^ { - 1 } )$(imide C−N), 1715 $( \\\\mathsf { c m } ^ { - 1 } )$(symmetric imide C=O) and $1 7 7 5 ( \\\\mathrm { c m } ^ { - 1 } )$(asymmetric imide C=O) are observed for all studied samples.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_004\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"asymmetric imide C=O\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1775,\n            \"value_min\": 1775,\n            \"value_raw\": \"1775\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"None of the sample sets presented significant band of $1 8 6 0 ~ ( \\\\mathrm { c m } ^ { - 1 } )$, which indicates the existence of unreacted anhydride.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_005\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\",\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"unreacted anhydride\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1860,\n            \"value_min\": 1860,\n            \"value_raw\": \"1860\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"However, PMDA backbone aerogels presented small peaks at 1660 $\\\\textstyle { \\\\left( \\\\cos ^ { - 1 } \\\\right) }$(amic acid C=O) and $1 5 3 5 \\\\ : \\\\mathrm { ~ ( ~ c m } ^ { - 1 } )$(amide C−N) bands, which may suggest incomplete imidization of polyimide samples.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_006\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"amic acid C=O\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1660,\n            \"value_min\": 1660,\n            \"value_raw\": \"1660\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_16_87\",\n                    \"source_sentence\": \"However, PMDA backbone aerogels presented small peaks at 1660 $\\\\textstyle { \\\\left( \\\\cos ^ { - 1 } \\\\right) }$(amic acid C=O) and $1 5 3 5 \\\\ : \\\\mathrm { ~ ( ~ c m } ^ { - 1 } )$(amide C−N) bands, which may suggest incomplete imidization of polyimide samples.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_007\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s001\",\n                \"s002\",\n                \"s003\",\n                \"s004\",\n                \"s005\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": \"amide C−N\",\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1535,\n            \"value_min\": 1535,\n            \"value_raw\": \"1535\"\n        },\n        {\n            \"characterization_id\": \"char001\",\n            \"confidence\": {\n                \"score\": 0.9\n            },\n            \"entity_id\": null,\n            \"entity_ids\": null,\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_17_91\",\n                    \"source_sentence\": \"For instance, comparing the sample S7 with S6 presented that addition of ODA to PPDA-BPDA aerogels resulted in appearance of the peak at $1 2 3 8 ( \\\\mathrm { c m } ^ { - 1 } )$band. Furthermore, for S7 to S10 aerogels, the intensity of the peak at $1 2 3 8 \\\\ ( \\\\mathrm { c m } ^ { - 1 } )$band increased with increasing ODA fraction.\"\n                }\n            ],\n            \"measurement_context\": null,\n            \"property_category\": \"composition_structure\",\n            \"property_id\": \"prop_s5_008\",\n            \"property_name_normalized\": \"ftir_peak_wavenumber\",\n            \"property_name_raw\": \"FTIR peak wavenumber\",\n            \"sample_id\": null,\n            \"sample_ids\": [\n                \"s006\",\n                \"s007\",\n                \"s008\",\n                \"s009\",\n                \"s010\"\n            ],\n            \"sample_resolution_status\": \"multi_resolved\",\n            \"solvent\": null,\n            \"source_stage\": \"stage5\",\n            \"spectral_assignment\": null,\n            \"unit_normalized\": \"cm⁻¹\",\n            \"unit_raw\": \"cm-1\",\n            \"value_max\": 1238,\n            \"value_min\": 1238,\n            \"value_raw\": \"1238\"\n        }\n    ],\n    \"specialized_property_observations\": [\n        {\n            \"confidence\": {\n                \"score\": 0.8\n            },\n            \"entity_id\": \"pe014\",\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_17_90\",\n                    \"source_sentence\": \"This suggests that the chemical structure of hybrid samples was formed from the combination of the two single diamine oligomers, but at varying fractions.\"\n                }\n            ],\n            \"method_raw\": \"FTIR spectroscopy\",\n            \"property_name_raw\": \"chemical structure\",\n            \"sample_id\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"specialized_id\": \"sp_cand001\",\n            \"unit_raw\": null,\n            \"value_raw\": \"formed from the combination of the two single diamine oligomers, but at varying fractions\"\n        },\n        {\n            \"confidence\": {\n                \"score\": 0.8\n            },\n            \"entity_id\": \"pe001\",\n            \"evidence\": [\n                {\n                    \"block_id\": \"P_22_109\",\n                    \"source_sentence\": \"Also, the mesoporous cell structure of the aerogels which is considerably less than the required cell size for natural convection, would eliminate the heat transfer by convection.\"\n                }\n            ],\n            \"method_raw\": null,\n            \"property_name_raw\": \"cell structure\",\n            \"sample_id\": null,\n            \"sample_resolution_status\": \"unresolved\",\n            \"specialized_id\": \"sp_cand002\",\n            \"unit_raw\": null,\n            \"value_raw\": \"mesoporous\"\n        }\n    ]\n}",
+            "usage": {
+              "input_tokens": 13899,
+              "output_tokens": 8189,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 0
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.06004368",
+              "output_cost": "0.23870935",
+              "total_cost": "0.29875303"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 3,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "76bf72fd122676b6a9683406ff19365aac6c6d7282e695b69427c59035224c55",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[1].value_raw",
+          "property_id": "prop_s5_002"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[3].value_raw",
+          "property_id": "prop_s5_004"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[4].value_raw",
+          "property_id": "prop_s5_005"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[6].value_raw",
+          "property_id": "prop_s5_007"
+        },
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_stage5_property_removed",
+          "message": "Preview 模式已移除 value_raw 无原文支撑的 Stage 5 性质",
+          "field_path": "properties[7].value_raw",
+          "property_id": "prop_s5_008"
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "FTIR spectroscopy",
+            "method_normalized": "FTIR",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "parameters": {},
+            "result_summary": "Characteristic polyimide imide bands were observed for all samples; PMDA backbone aerogels showed small amic acid/amide bands indicating incomplete imidization, while BPDA backbone aerogels showed complete imidization; hybrid samples exhibited combined peaks of single diamine aerogels with varying intensities.",
+            "derived_property_ids": [
+              "prop_s5_001",
+              "prop_s5_002",
+              "prop_s5_003"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_16_87",
+                "page": 16,
+                "bbox": [
+                  86.0,
+                  652.0,
+                  910.0,
+                  920.0
+                ],
+                "source_type": "text",
+                "source_sentence": "Chemical structure of aerogels was studied qualitatively by FTIR spectroscopy, as presented in Figure 7."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": [
+          {
+            "property_id": "prop_s5_001",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "727",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "727",
+            "value_min": 727.0,
+            "value_max": 727.0,
+            "unit_raw": "cm-1",
+            "unit_normalized": "cm⁻¹",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_16_87",
+                "page": 16,
+                "bbox": [
+                  86.0,
+                  652.0,
+                  910.0,
+                  920.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The characteristic bands of polyimides, including 727 ( cm-1), $1 3 7 0 ( \\mathrm { c m } ^ { - 1 } )$(imide C−N), 1715 $( \\mathsf { c m } ^ { - 1 } )$(symmetric imide C=O) and $1 7 7 5 ( \\mathrm { c m } ^ { - 1 } )$(asymmetric imide C=O) are observed for all studied samples."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_002",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "1715",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1715",
+            "value_min": 1715.0,
+            "value_max": 1715.0,
+            "unit_raw": "cm-1",
+            "unit_normalized": "cm⁻¹",
+            "spectral_assignment": "symmetric imide C=O",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_16_87",
+                "page": 16,
+                "bbox": [
+                  86.0,
+                  652.0,
+                  910.0,
+                  920.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The characteristic bands of polyimides, including 727 ( cm-1), $1 3 7 0 ( \\mathrm { c m } ^ { - 1 } )$(imide C−N), 1715 $( \\mathsf { c m } ^ { - 1 } )$(symmetric imide C=O) and $1 7 7 5 ( \\mathrm { c m } ^ { - 1 } )$(asymmetric imide C=O) are observed for all studied samples."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          },
+          {
+            "property_id": "prop_s5_003",
+            "characterization_id": "char001",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "property_name_raw": "1660",
+            "property_name_normalized": "ftir_peak_wavenumber",
+            "property_category": "composition_structure",
+            "value_raw": "1660",
+            "value_min": 1660.0,
+            "value_max": 1660.0,
+            "unit_raw": "cm-1",
+            "unit_normalized": "cm⁻¹",
+            "spectral_assignment": "amic acid C=O",
+            "source_stage": "stage5",
+            "source_type": "text",
+            "evidence": [
+              {
+                "block_id": "P_16_87",
+                "page": 16,
+                "bbox": [
+                  86.0,
+                  652.0,
+                  910.0,
+                  920.0
+                ],
+                "source_type": "text",
+                "source_sentence": "However, PMDA backbone aerogels presented small peaks at 1660 $\\textstyle { \\left( \\cos ^ { - 1 } \\right) }$(amic acid C=O) and $1 5 3 5 \\ : \\mathrm { ~ ( ~ c m } ^ { - 1 } )$(amide C−N) bands, which may suggest incomplete imidization of polyimide samples."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "shard_id": "dsc_001",
+      "method_normalized": "DSC",
+      "block_ids": [
+        "P_22_106",
+        "I_22_107",
+        "P_22_108"
+      ],
+      "context_chars": 1500,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\"score\": 0.9},\n      \"derived_property_ids\": [\"uprop001\"],\n      \"entity_id\": \"pe001\",\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_22_106\",\n          \"source_sentence\": \"As presented in Figure 9, differential scanning calorimetry (DSC) test was performed on fabricated aerogels. Due to highly crosslink nature of fabricated aerogels, the glass transition peak was barely observed in some of the samples; and specifically, for those with higher PPDA and/or PMDA content. In overall, the glass transition in range of $2 5 0 ~ ^ { \\\\circ } \\\\mathrm { C }$to $3 0 0 ^ { \\\\circ } \\\\mathrm { C }$was observed.\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_22_107\",\n          \"source_sentence\": \"Figure 9. The DSC results of A) PMDA and, B) BPDA backbone aerogels with varying diamine fraction.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"DSC\",\n      \"method_raw\": \"differential scanning calorimetry (DSC)\",\n      \"parameters\": {},\n      \"result_summary\": \"Glass transition temperature of polyimide aerogels was observed in the range of 250 °C to 300 °C, with barely observable peaks in samples with higher PPDA and/or PMDA content.\",\n      \"sample_id\": null,\n      \"sample_ids\": null,\n      \"sample_resolution_status\": \"unresolved\",\n      \"series_id\": null,\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 11489,
+              "output_tokens": 1291,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 6968
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.07973424",
+              "output_cost": "0.03763265",
+              "total_cost": "0.11736689"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "2f59416ef6ff011b348874eb2a53801185e677e3a95e376ca79be18d63ef3691",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "differential scanning calorimetry (DSC)",
+            "method_normalized": "DSC",
+            "entity_id": "pe001",
+            "sample_resolution_status": "unresolved",
+            "parameters": {},
+            "result_summary": "Glass transition temperature of polyimide aerogels was observed in the range of 250 °C to 300 °C, with barely observable peaks in samples with higher PPDA and/or PMDA content.",
+            "derived_property_ids": [
+              "uprop001"
+            ],
+            "evidence": [
+              {
+                "block_id": "P_22_106",
+                "page": 22,
+                "bbox": [
+                  86.0,
+                  90.0,
+                  908.0,
+                  215.0
+                ],
+                "source_type": "text",
+                "source_sentence": "As presented in Figure 9, differential scanning calorimetry (DSC) test was performed on fabricated aerogels. Due to highly crosslink nature of fabricated aerogels, the glass transition peak was barely observed in some of the samples; and specifically, for those with higher PPDA and/or PMDA content. In overall, the glass transition in range of $2 5 0 ~ ^ { \\circ } \\mathrm { C }$to $3 0 0 ^ { \\circ } \\mathrm { C }$was observed."
+              },
+              {
+                "block_id": "I_22_107",
+                "page": 22,
+                "bbox": [
+                  165.0,
+                  253.0,
+                  849.0,
+                  635.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 9. The DSC results of A) PMDA and, B) BPDA backbone aerogels with varying diamine fraction."
+              }
+            ],
+            "confidence": {
+              "score": 0.9
+            }
+          }
+        ],
+        "properties": []
+      }
+    },
+    {
+      "shard_id": "tga_001",
+      "method_normalized": "TGA",
+      "block_ids": [
+        "P_19_96",
+        "P_19_97",
+        "P_19_98",
+        "P_19_99",
+        "I_21_104"
+      ],
+      "context_chars": 5491,
+      "oversize": false,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "complete",
+          "raw_response": {
+            "provider": "dmx",
+            "model": "doubao-seed-2.0-pro",
+            "finish_reason": "end_turn",
+            "content": "{\n  \"characterizations\": [\n    {\n      \"characterization_id\": \"char001\",\n      \"confidence\": {\n        \"score\": 0.8\n      },\n      \"derived_property_ids\": [],\n      \"entity_id\": null,\n      \"entity_ids\": null,\n      \"evidence\": [\n        {\n          \"block_id\": \"P_19_97\",\n          \"source_sentence\": \"The thermogravimetric analysis (TGA) was performed on all studied aerogels under nitrogen environment, starting from room temperature to $7 5 0 ~ ^ { \\\\circ } \\\\mathrm { C }$at the rate of $1 0 ~ { ^ { \\\\circ } C } / { \\\\mathrm { m i n } }$\",\n          \"table_locator\": null\n        },\n        {\n          \"block_id\": \"I_21_104\",\n          \"source_sentence\": \"Figure 8. The TGA results of A) PMDA and, B) BPDA backbone aerogels with varying diamine fraction.\",\n          \"table_locator\": null\n        }\n      ],\n      \"instrument\": null,\n      \"measurement_context\": null,\n      \"method_normalized\": \"TGA\",\n      \"method_raw\": \"thermogravimetric analysis (TGA)\",\n      \"parameters\": {\n        \"environment\": \"nitrogen\",\n        \"heating_rate\": \"10 °C/min\",\n        \"temperature_range\": \"room temperature to 750 °C\"\n      },\n      \"result_summary\": \"Fabricated polyimide aerogels presented onset of decomposition ranging from 422 to 621 °C.\",\n      \"sample_id\": null,\n      \"sample_ids\": [\"s001\", \"s002\", \"s003\", \"s004\", \"s005\", \"s006\", \"s007\", \"s008\", \"s009\", \"s010\"],\n      \"sample_resolution_status\": \"multi_resolved\",\n      \"series_id\": \"series005\",\n      \"series_ids\": null\n    }\n  ],\n  \"properties\": [],\n  \"specialized_property_observations\": []\n}",
+            "usage": {
+              "input_tokens": 12519,
+              "output_tokens": 3380,
+              "cache_creation_input_tokens": 0,
+              "cache_read_input_tokens": 10040
+            },
+            "cost": {
+              "currency": "CNY",
+              "input_per_million": "4.32",
+              "output_per_million": "29.15",
+              "input_cost": "0.09745488",
+              "output_cost": "0.098527",
+              "total_cost": "0.19598188"
+            }
+          },
+          "rejected_objects": [],
+          "characterization_count": 1,
+          "property_count": 0,
+          "rejected_count": 0
+        }
+      ],
+      "status": "complete",
+      "cache_key": "5154f20b17b856fbb37b135ce491e86ea29b7130e7e707ac8025797fb7874296",
+      "cache_hit": false,
+      "raw_replayed": false,
+      "model": "doubao-seed-2.0-pro",
+      "warnings": [
+        {
+          "stage": "stage5_characterization",
+          "code": "preview_unsupported_characterization_details_cleared",
+          "message": "Preview 模式已清空无对象 evidence 支撑的可选表征细节",
+          "field_path": "characterizations[0]",
+          "fields": [
+            "parameters"
+          ]
+        }
+      ],
+      "result": {
+        "characterizations": [
+          {
+            "characterization_id": "char001",
+            "method_raw": "thermogravimetric analysis (TGA)",
+            "method_normalized": "TGA",
+            "sample_ids": [
+              "s001",
+              "s002",
+              "s003",
+              "s004",
+              "s005",
+              "s006",
+              "s007",
+              "s008",
+              "s009",
+              "s010"
+            ],
+            "sample_resolution_status": "multi_resolved",
+            "series_id": "series005",
+            "parameters": {
+              "environment": "nitrogen"
+            },
+            "result_summary": "Fabricated polyimide aerogels presented onset of decomposition ranging from 422 to 621 °C.",
+            "derived_property_ids": [],
+            "evidence": [
+              {
+                "block_id": "P_19_97",
+                "page": 19,
+                "bbox": [
+                  86.0,
+                  126.0,
+                  910.0,
+                  529.0
+                ],
+                "source_type": "text",
+                "source_sentence": "The thermogravimetric analysis (TGA) was performed on all studied aerogels under nitrogen environment, starting from room temperature to $7 5 0 ~ ^ { \\circ } \\mathrm { C }$at the rate of $1 0 ~ { ^ { \\circ } C } / { \\mathrm { m i n } }$"
+              },
+              {
+                "block_id": "I_21_104",
+                "page": 21,
+                "bbox": [
+                  104.0,
+                  446.0,
+                  905.0,
+                  777.0
+                ],
+                "source_type": "image",
+                "source_sentence": "Figure 8. The TGA results of A) PMDA and, B) BPDA backbone aerogels with varying diamine fraction."
+              }
+            ],
+            "confidence": {
+              "score": 0.8
+            }
+          }
+        ],
+        "properties": []
+      }
+    }
+  ]
+}
