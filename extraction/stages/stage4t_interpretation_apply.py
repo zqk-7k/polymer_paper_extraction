@@ -266,7 +266,12 @@ def _measurement_unit(
     property_name: str | None,
     semantic_label: str | None,
 ) -> dict[str, Any]:
-    info = _unit_info([*headers, value_raw], caption)
+    info = _unit_info(
+        [*headers, value_raw],
+        caption,
+        property_name=property_name,
+        semantic_label=semantic_label,
+    )
     joined = " | ".join([*headers, value_raw])
     if property_name == "thermal_decomposition_temperature":
         if info.get("unit_normalized") == "%" or info.get("unit_raw") == "%":
@@ -286,9 +291,10 @@ def _measurement_unit(
     if semantic_label == "residual_mass_fraction" and "%" in joined:
         return {"unit_raw": "%", "unit_normalized": "%", "unit_location": "header"}
     if property_name == "contact_angle" and re.search(
-        r"°|\\circ", joined, re.IGNORECASE
+        r"°|\\circ|\(\s*(?:degrees?|deg)\s*\)", joined, re.IGNORECASE
     ):
-        return {"unit_raw": "°", "unit_normalized": "deg", "unit_location": "value"}
+        raw = "Degrees" if re.search(r"degrees?", joined, re.IGNORECASE) else "°"
+        return {"unit_raw": raw, "unit_normalized": "deg", "unit_location": "header"}
     fallback_units = (
         (r"\bkg\s*/\s*m\s*(?:\^?3|³)\b", "kg/m3", "kg/m³"),
         (r"\bm(?:l|L)\s*/\s*100\s*g\b", "mL/100 g", "mL/100 g"),

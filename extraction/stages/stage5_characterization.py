@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import re
 import sys
@@ -53,6 +54,7 @@ from schema.polymer_schema import (
     Stage5PropertyCandidate,
     Stage5PropertyObservation,
     Stage5Provenance,
+    SpecializedPropertyObservation,
 )
 from stages.stage4_property import (
     _element_source_text,
@@ -61,16 +63,23 @@ from stages.stage4_property import (
     _normalize_evidence,
     _normalize_measurement_context,
     _normalize_raw_across_evidence,
+    _normalized_table_label,
     _resolve_surface_text,
     _resolve_vocabulary_path,
     _sha256_json,
+    _specialized_evidence_matches_stage0,
+    _specialized_identity,
+    _specialized_sample_resolution,
     write_json_atomic,
 )
 
 
 STAGE_ID = "stage5_characterization"
 OUTPUT_SCHEMA_VERSION = "characterization_schema.v4"
-IMPLEMENTATION_VERSION = "1.8.1"
+IMPLEMENTATION_VERSION = "1.8.2"
+CACHE_REVISION = "stage5-specialized-carry-20260904"
+# 1.8.2 preserves source-verified published legacy specialized properties
+# across a Stage 5 recomputation and clears stale final/candidate evidence IDs.
 # 1.8.1 语义校验绕过按 candidate_partial 处理；分片审计支持增量落盘和旧 raw 回放。
 # 1.8.0 Preview 默认按表征方法分片；逐对象校验内聚在 extract_shard，
 # 每个 shard 保存原始响应和解析诊断，局部失败不再清空整篇。
@@ -2646,6 +2655,7 @@ def _stage5_shard_cache_key(
         "vocabulary_sha256": vocabulary_sha256,
         "model_config": llm_config_cache_payload(client.resolved),
         "implementation_version": implementation_version,
+        "cache_revision": CACHE_REVISION,
     })
 
 
@@ -3062,6 +3072,7 @@ def _cache_components(
         "model_config_hash": model_config_hash,
         "output_schema_version": OUTPUT_SCHEMA_VERSION,
         "implementation_version": implementation_version,
+        "cache_revision": CACHE_REVISION,
         "preview_relaxed": preview_relaxed,
         "sharded": sharded,
         "shard_target_chars": shard_target_chars if sharded else None,
@@ -3518,6 +3529,208 @@ def extract_characterizations(
     )
 
 
+_SPECIALIZED_ID_RE = re.compile(r"^sp(\d+)$")
+_SAMPLE_NUMBER_RE = re.compile(r"^([a-z][a-z0-9]*?)-?(\d+)$")
+_SAMPLE_RANGE_RE = re.compile(
+    r"(?<![a-z0-9])([a-z][a-z0-9]*?)-?(\d+)-(?:\1-?)?(\d+)(?![a-z0-9])"
+)
+
+
+def _stage5_specialized_sample_resolution(
+    item: SpecializedPropertyObservation,
+    process: Stage3Document,
+) -> tuple[str | None, bool, str]:
+    """Validate or remap the subject of a carried Stage 5 special fact."""
+
+    if item.sample_resolution_status == "unresolved":
+        return None, item.sample_id is None, "unresolved_subject"
+    resolved = _specialized_sample_resolution(item, process)
+    if resolved is not None:
+        return resolved, True, "direct_evidence_alias"
+
+    # Stage 5 may publish one qualitative observation for every member of an
+    # explicitly stated group, for example "PC-1-PC-6 were semicrystalline".
+    # Resolve an omitted middle label only when the current Stage 3 label is
+    # unique and its numeric suffix lies inside that literal evidence range.
+    samples = {sample.sample_id: sample for sample in process.samples}
+    sample = samples.get(item.sample_id or "")
+    if sample is None:
+        return None, False
+    aliases_by_value: dict[str, set[str]] = {}
+    sample_aliases: set[str] = set()
+    for candidate in process.samples:
+        for raw_alias in (
+            candidate.sample_label_raw,
+            candidate.polymer_name,
+            candidate.state_description,
+        ):
+            if not raw_alias:
+                continue
+            alias = _normalized_table_label(raw_alias)
+            if not alias:
+                continue
+            aliases_by_value.setdefault(alias, set()).add(candidate.sample_id)
+            if candidate.sample_id == sample.sample_id:
+                sample_aliases.add(alias)
+    evidence_text = _normalized_table_label(
+        " ".join(evidence.source_sentence for evidence in item.evidence)
+    )
+    ranges = [
+        (match.group(1), int(match.group(2)), int(match.group(3)))
+        for match in _SAMPLE_RANGE_RE.finditer(evidence_text)
+    ]
+    for alias in sample_aliases:
+        match = _SAMPLE_NUMBER_RE.fullmatch(alias)
+        if match is None or aliases_by_value.get(alias) != {sample.sample_id}:
+            continue
+        prefix, number = match.group(1), int(match.group(2))
+        if any(
+            range_prefix == prefix
+            and min(start, end) <= number <= max(start, end)
+            for range_prefix, start, end in ranges
+        ):
+            return sample.sample_id, True, "explicit_evidence_range"
+
+    # Legacy Stage 5 qualitative facts often describe the tested material as
+    # "the composite" or by a group abbreviation rather than restating its
+    # full Stage 3 label.  Once every evidence anchor has been verified against
+    # the same Stage 0 document, an unchanged, still-existing sample ID is the
+    # only non-inferential subject link available in the legacy artifact.
+    return sample.sample_id, True, "stable_current_sample_id"
+
+
+def _carry_forward_published_stage5_specialized(
+    result: Stage5Document,
+    prior: Stage5Document | None,
+    document: Stage0Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    *,
+    prior_stage5_sha256: str | None,
+    stage0_sha256: str,
+) -> Stage5Document:
+    """Migrate only verified published legacy Stage 5 special facts."""
+
+    if prior is None or prior.document_id != document.document_id:
+        return result
+    candidates = [
+        item
+        for item in prior.specialized_property_observations
+        if item.publication_status == "published"
+    ]
+    if not candidates:
+        return result
+    prior_stage0_hashes = {
+        str(warning.get("stage0_sha256"))
+        for warning in prior.warnings
+        if warning.get("code")
+        == "published_stage5_specialized_properties_carried_forward"
+        and warning.get("stage0_sha256")
+    }
+    if prior_stage0_hashes and prior_stage0_hashes != {stage0_sha256}:
+        warnings = list(result.warnings)
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "published_stage5_specialized_properties_not_carried",
+            "message": (
+                "Prior Stage 5 specialized data belongs to a different "
+                "Stage 0 hash."
+            ),
+            "candidate_count": len(candidates),
+            "stage0_sha256": stage0_sha256,
+            "prior_stage0_sha256": sorted(prior_stage0_hashes),
+        })
+        return result.model_copy(update={"warnings": warnings})
+
+    retained = list(result.specialized_property_observations)
+    identities = {
+        _specialized_identity(item)
+        for item in [*stage4.specialized_property_observations, *retained]
+    }
+    used_ids = {
+        item.specialized_id
+        for item in [*stage4.specialized_property_observations, *retained]
+    }
+    next_id = max(
+        (
+            int(match.group(1))
+            for value in used_ids
+            if (match := _SPECIALIZED_ID_RE.fullmatch(value)) is not None
+        ),
+        default=0,
+    ) + 1
+    counts = {
+        "carried": 0,
+        "sample_id_remapped": 0,
+        "duplicate_removed": 0,
+        "evidence_rejected": 0,
+        "sample_rejected": 0,
+        "id_remapped": 0,
+        "explicit_range_resolved": 0,
+        "stable_sample_id_validated": 0,
+    }
+    for item in candidates:
+        if not _specialized_evidence_matches_stage0(item, document):
+            counts["evidence_rejected"] += 1
+            continue
+        sample_id, sample_valid, resolution_basis = (
+            _stage5_specialized_sample_resolution(
+                item,
+                process,
+            )
+        )
+        if not sample_valid:
+            counts["sample_rejected"] += 1
+            continue
+        sample_remapped = sample_id != item.sample_id
+        item = item.model_copy(update={
+            "sample_id": sample_id,
+            # These IDs address the old final/candidate evidence registry.
+            "evidence_ids": [],
+        })
+        identity = _specialized_identity(item)
+        if identity in identities:
+            counts["duplicate_removed"] += 1
+            continue
+        if item.specialized_id in used_ids:
+            while f"sp{next_id:03d}" in used_ids:
+                next_id += 1
+            item = item.model_copy(update={
+                "specialized_id": f"sp{next_id:03d}",
+            })
+            next_id += 1
+            counts["id_remapped"] += 1
+        retained.append(item)
+        identities.add(identity)
+        used_ids.add(item.specialized_id)
+        counts["carried"] += 1
+        if sample_remapped:
+            counts["sample_id_remapped"] += 1
+        if resolution_basis == "explicit_evidence_range":
+            counts["explicit_range_resolved"] += 1
+        elif resolution_basis == "stable_current_sample_id":
+            counts["stable_sample_id_validated"] += 1
+
+    warnings = list(result.warnings)
+    warnings.append({
+        "stage": STAGE_ID,
+        "code": "published_stage5_specialized_properties_carried_forward",
+        "message": (
+            "Published specialized properties from the prior Stage 5 seed "
+            "were retained only after current Stage 0 evidence and Stage 3 "
+            "sample checks."
+        ),
+        **counts,
+        "source_document_id": prior.document_id,
+        "stage0_sha256": stage0_sha256,
+        "prior_stage5_sha256": prior_stage5_sha256,
+    })
+    return result.model_copy(update={
+        "specialized_property_observations": retained,
+        "warnings": warnings,
+    })
+
+
 def run_stage5(
     stage0_path: Path,
     stage2_path: Path,
@@ -3545,6 +3758,20 @@ def run_stage5(
     entities = load_stage2_document(stage2_path)
     process = load_stage3_document(stage3_path)
     stage4 = load_stage4_document(stage4_path)
+    stage0_sha256 = hashlib.sha256(stage0_path.read_bytes()).hexdigest()
+    prior: Stage5Document | None = None
+    prior_stage5_sha256: str | None = None
+    if output_path.is_file():
+        try:
+            prior_stage5_sha256 = hashlib.sha256(
+                output_path.read_bytes()
+            ).hexdigest()
+            prior = Stage5Document.model_validate_json(
+                output_path.read_text(encoding="utf-8-sig")
+            )
+        except (OSError, ValidationError):
+            prior = None
+            prior_stage5_sha256 = None
     _, _, expected_cache_key = _cache_components(
         document,
         entities,
@@ -3562,11 +3789,9 @@ def run_stage5(
         "stage5_shards.json"
     )
     legacy_shard_output_validated = False
-    if output_path.is_file() and not force:
+    if prior is not None and not force:
         try:
-            cached = Stage5Document.model_validate_json(
-                output_path.read_text(encoding="utf-8-sig")
-            )
+            cached = prior
             if (
                 cached.provenance.cache_key == expected_cache_key
                 and cached.provenance.status != "candidate_partial"
@@ -3669,6 +3894,15 @@ def run_stage5(
         shard_cache=existing_shard_cache,
         diagnostic_writer=write_diagnostics if sharded else None,
         allow_legacy_shard_replay=allow_legacy_shard_replay,
+    )
+    result = _carry_forward_published_stage5_specialized(
+        result,
+        prior,
+        document,
+        process,
+        stage4,
+        prior_stage5_sha256=prior_stage5_sha256,
+        stage0_sha256=stage0_sha256,
     )
     write_json_atomic(
         output_path,

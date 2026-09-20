@@ -36,6 +36,7 @@ STAGE_FAILURE_FILES = {
     "stage4": "stage4_failure.json",
     "stage5": "stage5_failure.json",
 }
+STAGE4_PRIOR_REUSE_WARNING = "stage4_prior_reused_after_transport_failure"
 STAGE_COLLECTION_ALIASES = {
     "stage1": {"material_mentions": ("material_mentions", "mentions")},
     "stage2": {"polymer_entities": ("polymer_entities", "entities")},
@@ -48,13 +49,20 @@ STAGE_COLLECTION_ALIASES = {
         "properties": ("properties",),
         "unresolved_properties": ("unresolved_properties",),
         "property_series": ("property_series", "series"),
+        "specialized_property_observations": (
+            "specialized_property_observations",
+        ),
     },
     "stage5": {
         "characterizations": ("characterizations",),
         "properties": ("properties",),
+        "specialized_property_observations": (
+            "specialized_property_observations",
+        ),
     },
 }
 ID_FIELDS = (
+    "specialized_id",
     "mention_id",
     "entity_id",
     "sample_id",
@@ -147,8 +155,44 @@ def load_candidate_sources(
         stage_path = input_dir / filename
         if stage_path.is_file():
             try:
-                stages[stage_name] = _load_json_object(stage_path, stage_name)
-                stage_states[stage_name] = "completed"
+                stage_payload = _load_json_object(stage_path, stage_name)
+                stages[stage_name] = stage_payload
+                reused_prior = (
+                    stage_name == "stage4"
+                    and any(
+                        isinstance(item, dict)
+                        and item.get("code") == STAGE4_PRIOR_REUSE_WARNING
+                        for item in stage_payload.get("warnings") or []
+                    )
+                )
+                stage_states[stage_name] = (
+                    "validated_prior_reused" if reused_prior else "completed"
+                )
+                if reused_prior:
+                    failure_path = input_dir / STAGE_FAILURE_FILES[stage_name]
+                    try:
+                        failure = (
+                            _load_json_object(failure_path, f"{stage_name} failure")
+                            if failure_path.is_file()
+                            else {}
+                        )
+                    except CandidatePublishError as exc:
+                        failure = {
+                            "error_type": "InvalidFailureOutput",
+                            "error": str(exc),
+                        }
+                    failures.append({
+                        "stage": stage_name,
+                        "error_type": str(
+                            failure.get("error_type") or "Stage4TransportFailure"
+                        ),
+                        "error": str(
+                            failure.get("error")
+                            or "current Stage 4 transport failed; validated prior reused"
+                        ),
+                        "raw_candidate_preserved": False,
+                        "fallback_status": "validated_prior_reused",
+                    })
                 continue
             except CandidatePublishError as exc:
                 failures.append({
@@ -270,10 +314,10 @@ def _attach_evidence_ids(
         source_stage=source_stage,
         object_id=object_id,
     )
-    if evidence_ids:
-        existing = value.get("evidence_ids")
-        existing_ids = existing if isinstance(existing, list) else []
-        value["evidence_ids"] = list(dict.fromkeys([*existing_ids, *evidence_ids]))
+    if "evidence" in value or "evidence_ids" in value:
+        # Candidate assembly owns a new evidence registry.  IDs from an older
+        # final/candidate artifact must never leak into this namespace.
+        value["evidence_ids"] = evidence_ids
     for key, child in value.items():
         if key not in {"evidence", "evidence_ids"}:
             _attach_evidence_ids(
@@ -331,8 +375,18 @@ def build_candidate_payload(
         ("stage4_properties", _as_dict_list(stage4.get("properties")), "stage4_property"),
         ("unresolved_property_observations", _as_dict_list(stage4.get("unresolved_properties")), "stage4_property"),
         ("property_series", _as_dict_list(stage4.get("property_series")), "stage4_property"),
+        (
+            "stage4_specialized_property_observations",
+            _as_dict_list(stage4.get("specialized_property_observations")),
+            "stage4_property",
+        ),
         ("characterizations", _as_dict_list(stage5.get("characterizations")), "stage5_characterization"),
         ("stage5_properties", _as_dict_list(stage5.get("properties")), "stage5_characterization"),
+        (
+            "stage5_specialized_property_observations",
+            _as_dict_list(stage5.get("specialized_property_observations")),
+            "stage5_characterization",
+        ),
     ]
     values: dict[str, list[dict[str, Any]]] = {}
     for name, items, source_stage in collections:
@@ -380,6 +434,11 @@ def build_candidate_payload(
         for stage_name in STAGE_FILES
         if stage_states.get(stage_name) == "candidate_from_failure"
     ]
+    reused_stages = [
+        stage_name
+        for stage_name in STAGE_FILES
+        if stage_states.get(stage_name) == "validated_prior_reused"
+    ]
     failed_stages = [
         stage_name
         for stage_name in STAGE_FILES
@@ -419,6 +478,7 @@ def build_candidate_payload(
             "message": publication_message,
             "completed_stages": completed_stages,
             "candidate_stages": candidate_stages,
+            "reused_stages": reused_stages,
             "failed_stages": failed_stages,
         },
         "paper": copy.deepcopy(stage0.get("paper") or {}),
@@ -435,6 +495,10 @@ def build_candidate_payload(
         "measurement_conditions": values["measurement_conditions"],
         "unresolved_property_observations": values["unresolved_property_observations"],
         "property_series": values["property_series"],
+        "specialized_property_observations": [
+            *values["stage4_specialized_property_observations"],
+            *values["stage5_specialized_property_observations"],
+        ],
         "characterizations": values["characterizations"],
         "evidence": registry.items,
         "provenance": provenance,

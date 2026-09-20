@@ -72,8 +72,15 @@ _PROPERTY_ALIAS_PATTERNS: tuple[tuple[str, str], ...] = (
     (r"\bthermal\s+conductivit(?:y|ies)\b|导热率|热导率", "thermal_conductivity"),
     (r"\bthermal\s+diffusivit(?:y|ies)\b|热扩散率", "thermal_diffusivity"),
     (r"\brefractive\s+index\b|折射率", "refractive_index"),
-    (r"\b(?:intrinsic|inherent|reduced|specific)\s+viscosity\b|特性黏度|特性粘度|"
-     r"(?:^|\W)(?:\\eta|eta|η)\s*(?:_?\s*\{?\s*(?:inh|int|sp|red)\b)?", "intrinsic_viscosity"),
+    (r"\binherent\s+viscosit(?:y|ies)\b|"
+     r"(?:^|\W)(?:\\eta|eta|η)[^a-z0-9]{0,12}(?:text[^a-z0-9]*)?inh\b", "inherent_viscosity"),
+    (r"\breduced\s+viscosit(?:y|ies)\b|"
+     r"(?:^|\W)(?:\\eta|eta|η)[^a-z0-9]{0,12}(?:text[^a-z0-9]*)?red\b", "reduced_viscosity"),
+    (r"\bspecific\s+viscosit(?:y|ies)\b|"
+     r"(?:^|\W)(?:\\eta|eta|η)[^a-z0-9]{0,12}(?:text[^a-z0-9]*)?sp\b", "specific_viscosity"),
+    (r"\bintrinsic\s+viscosit(?:y|ies)\b|特性黏度|特性粘度|"
+     r"\[\s*(?:\\eta|eta|η)\s*\]|"
+     r"(?:^|\W)(?:\\eta|eta|η)[^a-z0-9]{0,12}(?:text[^a-z0-9]*)?(?:int|intrinsic)\b", "intrinsic_viscosity"),
     (r"\bdensit(?:y|ies)\b|密度", "density"),
     (r"\bspecific\s+volume\b|比容", "specific_volume"),
     (r"\boxygen\s+index\b|\bloi\b|氧指数", "oxygen_index"),
@@ -108,10 +115,8 @@ _PROPERTY_ALIAS_PATTERNS: tuple[tuple[str, str], ...] = (
     (r"\bcontact\s+angles?\b|(?:^|\W)(?:\\theta|θ)\s*_?\s*\{?\s*w\b|接触角", "contact_angle"),
 )
 
-# Audit-only refinement for the four dilute-solution viscosity quantities.  The
-# normalized property name remains ``intrinsic_viscosity`` for Stage 4R/schema
-# compatibility; this field prevents coverage reports from collapsing distinct
-# physical quantities into one bucket.
+# Retain the explicit variant as an orthogonal audit field even though the four
+# dilute-solution viscosity quantities now also have distinct normalized names.
 _VISCOSITY_VARIANT_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = tuple(
     (re.compile(pattern, re.IGNORECASE), variant)
     for pattern, variant in (

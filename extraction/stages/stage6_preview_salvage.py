@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter, defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Iterable
 
 from pydantic import BaseModel
@@ -30,6 +30,7 @@ class PreviewCollections:
     property_series: list[Any]
     characterizations: list[Any]
     evidence: list[Any]
+    specialized_property_observations: list[Any] = field(default_factory=list)
 
 
 @dataclass
@@ -53,6 +54,12 @@ _COLLECTION_SPECS = (
         "condition_id",
     ),
     ("property_observations", "property", "stage4_or_stage5", "property_id"),
+    (
+        "specialized_property_observations",
+        "specialized_property",
+        "stage4_property",
+        "specialized_id",
+    ),
     (
         "unresolved_property_observations",
         "unresolved_property",
@@ -94,10 +101,24 @@ def _replace_series_points(series: Any, points: list[Any]) -> Any:
     return _replace(series, points=points, coverage=coverage)
 
 
+def series_point_issue_ids(series: Iterable[Any]) -> dict[tuple[str, str], str]:
+    """Point IDs are series-local; qualify collisions for error routing only.
+
+    Keep unique legacy IDs stable. Never rename the published point ID or
+    treat one invalid pt001 as a rejection of every series' first point.
+    """
+    items = list(series)
+    counts = Counter(point.point_id for item in items for point in item.points)
+    return {(item.series_id, point.point_id):
+            f"{item.series_id}/{point.point_id}" if counts[point.point_id] > 1 else point.point_id
+            for item in items for point in item.points}
+
+
 def _object_index(
     collections: PreviewCollections,
 ) -> dict[str, tuple[str, str, str, Any]]:
     result: dict[str, tuple[str, str, str, Any]] = {}
+    point_ids = series_point_issue_ids(collections.property_series)
     for collection_name, object_type, source_stage, id_field in _COLLECTION_SPECS:
         for item in getattr(collections, collection_name):
             result[str(getattr(item, id_field))] = (
@@ -108,7 +129,7 @@ def _object_index(
             )
             if collection_name == "property_series":
                 for point in item.points:
-                    result[str(point.point_id)] = (
+                    result[point_ids[item.series_id, point.point_id]] = (
                         collection_name,
                         "property_series_point",
                         "stage4_property",
@@ -161,6 +182,7 @@ def salvage_preview(
 
     input_counts = _counts(collections)
     original_index = _object_index(collections)
+    point_ids = series_point_issue_ids(collections.property_series)
     issues_by_id: dict[str, list[ValidationIssue]] = defaultdict(list)
     remaining_errors: list[ValidationIssue] = []
     for issue in errors:
@@ -206,7 +228,7 @@ def salvage_preview(
         if object_type == "property_series":
             for point in indexed_object.points:
                 reject(
-                    point.point_id,
+                    point_ids[indexed_object.series_id, point.point_id],
                     code="preview_parent_series_rejected",
                     message=f"所属 PropertySeries {object_id} 已被隔离",
                     raw_object=point,
@@ -277,7 +299,8 @@ def salvage_preview(
             if series.series_id in rejected_ids:
                 continue
             points = [
-                point for point in series.points if point.point_id not in rejected_ids
+                point for point in series.points
+                if point_ids[series.series_id, point.point_id] not in rejected_ids
             ]
             if not points:
                 reject(
@@ -403,6 +426,16 @@ def salvage_preview(
             "Property 引用失效",
             "property_id",
         )
+        collections.specialized_property_observations = keep_or_reject(
+            collections.specialized_property_observations,
+            lambda item: (
+                "sample has been rejected"
+                if item.sample_id and item.sample_id not in sample_ids
+                else None
+            ),
+            "Specialized property has an invalid reference",
+            "specialized_id",
+        )
         collections.unresolved_property_observations = keep_or_reject(
             collections.unresolved_property_observations,
             lambda item: (
@@ -482,7 +515,7 @@ def salvage_preview(
                     point.entity_id and point.entity_id not in entity_ids
                 ):
                     reject(
-                        point.point_id,
+                        point_ids[series.series_id, point.point_id],
                         code="preview_missing_required_reference",
                         message="PropertySeriesPoint 主体引用已被隔离",
                         raw_object=point,

@@ -51,7 +51,7 @@ from schema.polymer_schema import (
 
 STAGE_ID = "stage2_polymer_entity"
 OUTPUT_SCHEMA_VERSION = "polymer_entity_schema.v3"
-IMPLEMENTATION_VERSION = "1.6.1"
+IMPLEMENTATION_VERSION = "1.6.4"
 DEFAULT_INPUT_SECTIONS = ("Methods", "Results")
 
 
@@ -421,6 +421,88 @@ def _recover_whitespace_equivalent_surface(
     return source[start:end]
 
 
+def _preview_repair_response_representation(
+    data: dict[str, Any],
+    mentions: Stage1Document,
+    repairs: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Repair only lossless Stage 2 response representation mistakes.
+
+    The model occasionally copies ``mention.text`` into
+    ``resolved_from_mentions`` instead of returning mention IDs.  In preview
+    mode only, an exact surface can be expanded back to every matching Stage 1
+    ID.  No case folding, whitespace normalization, or fuzzy chemical-name
+    matching is allowed here.  Unknown strings intentionally remain unchanged
+    so the normal validator still rejects them.
+    """
+
+    mention_ids = {
+        mention.mention_id for mention in mentions.material_mentions
+    }
+    ids_by_exact_surface: dict[str, list[str]] = {}
+    for mention in mentions.material_mentions:
+        ids_by_exact_surface.setdefault(mention.text, []).append(
+            mention.mention_id
+        )
+
+    entities = data.get("entities")
+    if not isinstance(entities, list):
+        return data
+    for entity_index, entity in enumerate(entities):
+        if not isinstance(entity, dict):
+            continue
+        entity_repairs: dict[str, Any] = {
+            "entity_index": entity_index,
+            "entity_id": entity.get("entity_id"),
+        }
+        references = entity.get("resolved_from_mentions")
+        if isinstance(references, list):
+            expanded: list[Any] = []
+            surface_mappings: dict[str, dict[str, Any]] = {}
+            for reference in references:
+                if isinstance(reference, str) and reference in mention_ids:
+                    expanded.append(reference)
+                    continue
+                mapped_ids = (
+                    ids_by_exact_surface.get(reference)
+                    if isinstance(reference, str)
+                    else None
+                )
+                if not mapped_ids:
+                    expanded.append(reference)
+                    continue
+                expanded.extend(mapped_ids)
+                mapping = surface_mappings.setdefault(reference, {
+                    "surface": reference,
+                    "occurrence_count": 0,
+                    "mention_ids": list(mapped_ids),
+                })
+                mapping["occurrence_count"] += 1
+
+            deduplicated: list[Any] = []
+            for reference in expanded:
+                if reference not in deduplicated:
+                    deduplicated.append(reference)
+            entity["resolved_from_mentions"] = deduplicated
+            if surface_mappings:
+                entity_repairs["exact_surface_mappings"] = list(
+                    surface_mappings.values()
+                )
+            duplicate_count = len(expanded) - len(deduplicated)
+            if duplicate_count:
+                entity_repairs["stable_duplicates_removed"] = duplicate_count
+
+        if entity.get("copolymer_type") == "null":
+            entity["copolymer_type"] = None
+            entity_repairs["copolymer_type_repair"] = {
+                "from": "null",
+                "to": None,
+            }
+        if len(entity_repairs) > 2:
+            repairs.append(entity_repairs)
+    return data
+
+
 def _validate_response(
     response: LLMJSONResponse,
     mentions: Stage1Document,
@@ -432,8 +514,15 @@ def _validate_response(
     preview_nested_splits: list[dict[str, str]] | None = None,
     preview_evidence_fallbacks: list[dict[str, str]] | None = None,
     preview_invalid_entities_removed: list[dict[str, Any]] | None = None,
+    preview_response_repairs: list[dict[str, Any]] | None = None,
 ) -> PolymerEntityResponse:
     cleaned_data, dropped = compact_confidence_payload(response.data)
+    if preview_response_repairs is not None:
+        cleaned_data = _preview_repair_response_representation(
+            cleaned_data,
+            mentions,
+            preview_response_repairs,
+        )
     parsed = PolymerEntityResponse.model_validate(cleaned_data)
     mention_map = {
         mention.mention_id: mention for mention in mentions.material_mentions
@@ -500,6 +589,28 @@ def _validate_response(
                         "mention_id": matching_mentions[0].mention_id,
                         "block_id": evidence_block.block_id,
                     })
+            if (recovered is None and preview_evidence_fallbacks is not None
+                    and not entity.structural_features):
+                # An identity-only entity may cite a different already verified
+                # mention of the SAME literal name. Do not use this to support
+                # structural claims or to manufacture a new polymer identity.
+                alternatives = [mention_map[mid] for mid in entity.resolved_from_mentions
+                    if mid in mention_map and mention_map[mid].text == entity.polymer_name
+                    and mention_map[mid].evidence.block_id in block_map
+                    and mention_map[mid].text in mention_map[mid].evidence.source_sentence
+                    and mention_map[mid].evidence.source_sentence in _element_source_text(
+                        block_map[mention_map[mid].evidence.block_id])]
+                if alternatives:
+                    selected = min(alternatives, key=lambda m:(len(m.evidence.source_sentence),m.evidence.block_id,m.mention_id))
+                    old_block_id = evidence_block.block_id
+                    evidence_block = block_map[selected.evidence.block_id]
+                    recovered = selected.evidence.source_sentence
+                    entity = entity.model_copy(update={"evidence": entity.evidence.model_copy(update={
+                        "block_id": evidence_block.block_id})})
+                    preview_evidence_fallbacks.append({"entity_id":entity.entity_id,
+                        "mention_id":selected.mention_id,"block_id":evidence_block.block_id,
+                        "previous_invalid_block_id":old_block_id,
+                        "reason":"identity_only_same_literal_name_verified_mention"})
             if recovered is None:
                 raise ValueError(
                     f"{entity.entity_id}.evidence.source_sentence 不是原文子串"
@@ -963,6 +1074,7 @@ def _cache_components(
     client: LLMClient,
     *,
     preview_relaxed: bool = False,
+    implementation_version: str = IMPLEMENTATION_VERSION,
 ) -> tuple[str, str, str]:
     input_hash = _sha256_json({
         "stage0": document.model_dump(mode="json"),
@@ -978,7 +1090,7 @@ def _cache_components(
         "rendered_prompt_hash": prompt.sha256,
         "model_config_hash": model_config_hash,
         "output_schema_version": OUTPUT_SCHEMA_VERSION,
-        "implementation_version": IMPLEMENTATION_VERSION,
+        "implementation_version": implementation_version,
         "preview_relaxed": preview_relaxed,
     })
     return input_hash, model_config_hash, cache_key
@@ -1013,6 +1125,7 @@ def extract_polymer_entities(
     preview_evidence_fallbacks: list[dict[str, str]] = []
     preview_invalid_entities_removed: list[dict[str, Any]] = []
     preview_duplicate_mention_repairs: list[dict[str, Any]] = []
+    preview_response_repairs: list[dict[str, Any]] = []
     preferred_name_repairs: list[dict[str, str]] = []
 
     if mentions.material_mentions:
@@ -1052,6 +1165,9 @@ def extract_polymer_entities(
                     preview_invalid_entities_removed=(
                         preview_invalid_entities_removed
                         if preview_relaxed else None
+                    ),
+                    preview_response_repairs=(
+                        preview_response_repairs if preview_relaxed else None
                     ),
                 )
                 actual_models.append(response.model)
@@ -1191,6 +1307,19 @@ def extract_polymer_entities(
             ),
             "items": preview_duplicate_mention_repairs,
         })
+    if preview_response_repairs:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_response_representation_recovered",
+            "blocking": True,
+            "status": "candidate_partial",
+            "message": (
+                "Preview 模式仅按 Stage 1 完全相同的 mention 表面文本恢复了 "
+                "mention ID、稳定去重，或将精确字符串 'null' 恢复为 JSON null；"
+                "未执行模糊名称或化学语义推断"
+            ),
+            "items": preview_response_repairs,
+        })
     if parsed.unresolved_mention_ids:
         warnings.append({
             "stage": STAGE_ID,
@@ -1273,6 +1402,12 @@ def run_stage2(
                 output_path.read_text(encoding="utf-8-sig")
             )
             if cached.provenance.cache_key == expected_cache_key:
+                return output_path, True
+            _, _, parent_cache_key = _cache_components(document, mentions, prompt, client,
+                preview_relaxed=preview_relaxed, implementation_version="1.6.3")
+            if cached.provenance.implementation_version == "1.6.3" and cached.provenance.cache_key == parent_cache_key:
+                # Successful old outputs are unchanged by the new failure-only
+                # repair. Keep their original provenance, no model re-request.
                 return output_path, True
         except (OSError, ValidationError):
             pass

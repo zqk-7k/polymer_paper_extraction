@@ -53,14 +53,22 @@ from schema.polymer_schema import (
 
 STAGE_ID = "stage3_sample_process"
 OUTPUT_SCHEMA_VERSION = "sample_process_schema.v4"
-IMPLEMENTATION_VERSION = "1.7.1"
+IMPLEMENTATION_VERSION = "1.8.4"
 # 类型推断与材料加工链继承已变化，旧缓存不能复用。
-COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS: tuple[str, ...] = ()
-DEFAULT_INPUT_SECTIONS = ("Methods",)
+COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS: tuple[str, ...] = ("1.8.3",)
+DEFAULT_INPUT_SECTIONS = ("Methods", "Results")
+DEFAULT_MAX_INPUT_CHARS = 60000
 INITIAL_SAMPLE_KINDS = {"synthesis_batch", "commercial_batch"}
 SENTENCE_BOUNDARY_RE = re.compile(r"[.!?。！？]\s+|\n+")
 HTML_CHARACTER_REFERENCE_RE = re.compile(
     r"&(?:#[0-9]+|#x[0-9a-f]+|[a-z][a-z0-9]+);",
+    flags=re.IGNORECASE,
+)
+GENERIC_SECTION_TITLE_RE = re.compile(
+    r"^\s*(?:\d+(?:\.\d+)*\.?\s*)?"
+    r"(?:results(?:\s+and\s+discussion)?|methods?|"
+    r"materials?\s+and\s+methods?|experimental(?:\s+section)?)"
+    r"\s*[.:]?\s*$",
     flags=re.IGNORECASE,
 )
 COMPOSITE_EVIDENCE_RE = re.compile(
@@ -262,7 +270,11 @@ def _element_source_text(element: Stage0Element) -> str:
     if element.type in {"text", "title", "equation", "footnote"}:
         return (element.text or "").strip()
     if element.type == "table":
-        return (element.table_body or element.caption or "").strip()
+        return "\n".join(
+            value.strip()
+            for value in (element.caption, element.table_body)
+            if value and value.strip()
+        )
     if element.type == "image":
         return (element.caption or "").strip()
     return ""
@@ -273,7 +285,8 @@ def select_context_blocks(
     entities: Stage2Document,
     *,
     input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
-    max_input_chars: int = 50000,
+    max_input_chars: int = DEFAULT_MAX_INPUT_CHARS,
+    preview_relaxed: bool = False,
 ) -> tuple[list[Stage0Element], list[dict[str, Any]], int]:
     if max_input_chars < 2000:
         raise ValueError("max_input_chars 不得小于 2000")
@@ -304,29 +317,118 @@ def select_context_blocks(
             "footnote",
         }
     }
-    selected_ids = section_ids | referenced_ids
+    # Result tables often carry the only author-defined sample/formulation labels.
+    # Include every non-empty table regardless of its inferred section, while still
+    # avoiding the indiscriminate inclusion of prose from e.g. Conclusion.
+    table_ids = {
+        element.block_id
+        for element in document.elements
+        if element.type == "table"
+        and bool(_element_source_text(element))
+    }
+    selected_ids = section_ids | referenced_ids | table_ids
     blocks = [
         element
         for element in document.elements
         if element.block_id in selected_ids
     ]
-    context_chars = sum(
+    warnings: list[dict[str, Any]] = []
+    original_context_chars = sum(
         len(_element_source_text(element)) + 200 for element in blocks
     )
+    context_chars = original_context_chars
+    if context_chars > max_input_chars and preview_relaxed:
+        dropped_blocks: list[dict[str, str]] = []
+        remaining_by_id = {element.block_id: element for element in blocks}
+
+        # Empty, unreferenced image placeholders carry no text for Stage 3. They
+        # are the safest preview-only blocks to omit, so exhaust this class before
+        # considering any title. Images with a caption or a Stage 2 reference are
+        # deliberately ineligible.
+        empty_image_candidates = [
+            element
+            for element in blocks
+            if element.type == "image"
+            and element.block_id not in referenced_ids
+            and not _element_source_text(element)
+        ]
+        for element in empty_image_candidates:
+            if context_chars <= max_input_chars:
+                break
+            remaining_by_id.pop(element.block_id, None)
+            context_chars -= len(_element_source_text(element)) + 200
+            dropped_blocks.append({
+                "block_id": element.block_id,
+                "reason": "unreferenced_image_without_source_text_or_caption",
+            })
+
+        # A title is removed only if empty images were insufficient and its full
+        # text is an explicit generic section heading such as ``3. Results`` or
+        # ``2. Experimental``.  Short process headings such as ``Drying`` and
+        # ``Annealing`` can carry the only process/sample relation and are never
+        # eligible. Body text, equations/footnotes, non-empty tables, captioned
+        # images and every Stage 2 referenced block are also never candidates.
+        title_candidates = sorted(
+            (
+                element
+                for element in blocks
+                if element.type == "title"
+                and element.block_id not in referenced_ids
+                and element.block_id in remaining_by_id
+                and GENERIC_SECTION_TITLE_RE.fullmatch(
+                    _element_source_text(element)
+                )
+            ),
+            key=lambda element: (
+                len(_element_source_text(element)),
+                element.source_block_index,
+                element.block_id,
+            ),
+        )
+        for element in title_candidates:
+            if context_chars <= max_input_chars:
+                break
+            remaining_by_id.pop(element.block_id, None)
+            context_chars -= len(_element_source_text(element)) + 200
+            dropped_blocks.append({
+                "block_id": element.block_id,
+                "reason": (
+                    "unreferenced_generic_section_title_for_preview_context_limit"
+                ),
+            })
+
+        if context_chars <= max_input_chars:
+            blocks = [
+                element
+                for element in blocks
+                if element.block_id in remaining_by_id
+            ]
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "preview_context_compressed",
+                "message": (
+                    "Preview 模式已仅移除安全的空图像占位块和明确的通用章节标题；"
+                    "正文、非空表格、有标题图像与 Stage 2 引用块均保留"
+                ),
+                "original_context_chars": original_context_chars,
+                "context_chars": context_chars,
+                "max_input_chars": max_input_chars,
+                "dropped_blocks": dropped_blocks,
+            })
+
     if context_chars > max_input_chars:
         raise Stage3Error(
             f"{document.document_id} Stage 3 上下文 {context_chars} 字符，"
             f"超过 max_input_chars={max_input_chars}"
         )
 
-    warnings: list[dict[str, Any]] = []
     if not section_ids and entities.polymer_entities:
         warnings.append({
             "stage": STAGE_ID,
             "code": "section_fallback",
             "message": (
-                "Methods 为空，仅使用 Stage 2 entity 的 evidence block；"
-                "结果需人工复核"
+                "Methods/Results 为空，仅使用 Stage 2 entity 的 evidence block "
+                "和非空表格；结果需人工复核"
             ),
         })
     return blocks, warnings, context_chars
@@ -361,6 +463,15 @@ def _user_message(
             "page": block.page,
             "type": block.type,
             "section": block.section,
+            "context_role": (
+                "table"
+                if block.type == "table"
+                else "methods"
+                if (block.section or "").casefold() == "methods"
+                else "results"
+                if (block.section or "").casefold() == "results"
+                else "entity_evidence_or_other"
+            ),
             "source_text": _element_source_text(block),
             "image_path": block.image_path if block.type == "image" else None,
         }
@@ -371,9 +482,9 @@ def _user_message(
         "--- BEGIN UNTRUSTED POLYMER ENTITIES ---\n"
         + json.dumps(entity_data, ensure_ascii=False, indent=2)
         + "\n--- END UNTRUSTED POLYMER ENTITIES ---\n"
-        "--- BEGIN UNTRUSTED METHODS BLOCKS ---\n"
+        "--- BEGIN UNTRUSTED METHODS RESULTS AND TABLE BLOCKS ---\n"
         + json.dumps(block_data, ensure_ascii=False, indent=2)
-        + "\n--- END UNTRUSTED METHODS BLOCKS ---"
+        + "\n--- END UNTRUSTED METHODS RESULTS AND TABLE BLOCKS ---"
     )
     if validation_feedback:
         message += (
@@ -532,7 +643,12 @@ def _repair_preview_evidence_key_typos(
 def _normalize_preview_process_types(
     data: dict[str, Any],
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    """Preview 下规范化已核实的工艺修饰词，其他未知类型仍交给 Schema 拒绝。"""
+    """Normalize known wording, retain out-of-taxonomy chemistry as unclassified.
+
+    This never certifies that a proposed chemistry label is correct. The raw
+    proposed label is retained in the repair warning, and source evidence and
+    sample-graph validation still execute before output.
+    """
     cleaned = copy.deepcopy(data)
     repairs: list[dict[str, Any]] = []
     steps = cleaned.get("process_steps")
@@ -542,6 +658,14 @@ def _normalize_preview_process_types(
         if not isinstance(step, dict):
             continue
         process_type = step.get("process_type")
+        if isinstance(process_type,str) and process_type.strip().casefold() in {
+            'hydrolysis','dealkylation','esterification','neutralization','quaternization'
+        }:
+            step['process_type']='other'
+            repairs.append({'pattern':'process_type_normalized','step_id':step.get('step_id'),
+                'original_value':process_type,'resolved_value':'other',
+                'taxonomy_status':'unclassified; original chemistry label is not verified'})
+            continue
         if (
             not isinstance(process_type, str)
             or process_type.strip().casefold() != "oxidative polymerization"
@@ -1893,6 +2017,48 @@ def _apply_material_type_policy(
     )
 
 
+def _context_selection_cache_summary(
+    document: Stage0Document,
+    entities: Stage2Document,
+    *,
+    input_sections: tuple[str, ...],
+    max_input_chars: int,
+    preview_relaxed: bool,
+) -> dict[str, Any]:
+    """Return the deterministic Stage 3 prompt-context identity.
+
+    Context configuration affects both which blocks are sent and whether
+    preview compression occurs.  It therefore belongs in the cache identity,
+    not only in runtime provenance.
+    """
+
+    blocks, _, context_chars = select_context_blocks(
+        document,
+        entities,
+        input_sections=input_sections,
+        max_input_chars=max_input_chars,
+        preview_relaxed=preview_relaxed,
+    )
+    context_payload = [
+        {
+            "block_id": block.block_id,
+            "type": block.type,
+            "section": block.section,
+            "source_block_index": block.source_block_index,
+            "source_text": _element_source_text(block),
+            "image_path": block.image_path if block.type == "image" else None,
+        }
+        for block in blocks
+    ]
+    return {
+        "input_sections": list(input_sections),
+        "max_input_chars": max_input_chars,
+        "selected_block_ids": [block.block_id for block in blocks],
+        "context_chars": context_chars,
+        "selected_context_sha256": _sha256_json(context_payload),
+    }
+
+
 def _cache_components(
     document: Stage0Document,
     entities: Stage2Document,
@@ -1900,6 +2066,8 @@ def _cache_components(
     client: LLMClient,
     *,
     implementation_version: str = IMPLEMENTATION_VERSION,
+    input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
+    max_input_chars: int = DEFAULT_MAX_INPUT_CHARS,
     preview_relaxed: bool = False,
 ) -> tuple[str, str, str]:
     input_hash = _sha256_json({
@@ -1917,11 +2085,73 @@ def _cache_components(
         "model_config_hash": model_config_hash,
         "output_schema_version": OUTPUT_SCHEMA_VERSION,
         "implementation_version": implementation_version,
+        "context_selection": _context_selection_cache_summary(
+            document,
+            entities,
+            input_sections=input_sections,
+            max_input_chars=max_input_chars,
+            preview_relaxed=preview_relaxed,
+        ),
     }
     if preview_relaxed:
         cache_payload["preview_relaxed"] = True
     cache_key = _sha256_json(cache_payload)
     return input_hash, model_config_hash, cache_key
+
+
+def _partition_repairs_for_final_steps(
+    repairs: list[dict[str, Any]],
+    step_id_map: dict[str, str],
+    *,
+    repair_code: str,
+    step_fields: tuple[str, ...],
+    sample_fields: tuple[str, ...] = (),
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Separate canonicalizable repairs from repairs superseded by step cleanup.
+
+    Structural preview repairs are recorded before ambiguous-producer cleanup.
+    That later cleanup may remove an entire raw process step.  Such a repair
+    must not be mapped into the final canonical ID namespace: a removed raw
+    ``ps001`` can have the same spelling as a different surviving step after
+    materialization renumbers it.
+    """
+
+    active: list[dict[str, Any]] = []
+    superseded: list[dict[str, Any]] = []
+    for repair in repairs:
+        source_step_ids = {
+            field: str(repair[field])
+            for field in step_fields
+        }
+        missing_source_step_ids = list(dict.fromkeys(
+            source_step_id
+            for source_step_id in source_step_ids.values()
+            if source_step_id not in step_id_map
+        ))
+        if not missing_source_step_ids:
+            active.append(repair)
+            continue
+
+        audit_item: dict[str, Any] = {
+            "repair_code": repair_code,
+            "id_namespaces": {
+                "source_step_ids": "model_response",
+                "source_sample_ids": "pre_materialization",
+            },
+            "source_step_ids": source_step_ids,
+            "missing_source_step_ids": missing_source_step_ids,
+        }
+        if repair.get("pattern") is not None:
+            audit_item["pattern"] = repair["pattern"]
+        source_sample_ids = {
+            field: list(repair[field])
+            for field in sample_fields
+            if isinstance(repair.get(field), list)
+        }
+        if source_sample_ids:
+            audit_item["source_sample_ids"] = source_sample_ids
+        superseded.append(audit_item)
+    return active, superseded
 
 
 def extract_samples_processes(
@@ -1931,7 +2161,7 @@ def extract_samples_processes(
     prompt: RenderedPrompt,
     *,
     input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
-    max_input_chars: int = 50000,
+    max_input_chars: int = DEFAULT_MAX_INPUT_CHARS,
     max_validation_retries: int = 1,
     max_tokens: int = 8192,
     preview_relaxed: bool = False,
@@ -1944,6 +2174,7 @@ def extract_samples_processes(
         entities,
         input_sections=input_sections,
         max_input_chars=max_input_chars,
+        preview_relaxed=preview_relaxed,
     )
     actual_models: list[str] = []
     dropped_parameters: list[tuple[str, str]] = []
@@ -2058,6 +2289,18 @@ def extract_samples_processes(
         candidate.step_id: process_steps[index].step_id
         for index, candidate in enumerate(parsed.process_steps)
     }
+    superseded_step_repairs: list[dict[str, Any]] = []
+    (
+        consecutive_process_repairs,
+        superseded_consecutive_repairs,
+    ) = _partition_repairs_for_final_steps(
+        consecutive_process_repairs,
+        step_id_map,
+        repair_code="consecutive_process_samples_inserted",
+        step_fields=("previous_step_id", "current_step_id"),
+        sample_fields=("intermediate_sample_ids", "final_sample_ids"),
+    )
+    superseded_step_repairs.extend(superseded_consecutive_repairs)
     if isinstance(client, _FailureReplayClient):
         warnings.append({
             "stage": STAGE_ID,
@@ -2159,8 +2402,8 @@ def extract_samples_processes(
             "stage": STAGE_ID,
             "code": "preview_process_type_normalized",
             "message": (
-                "Preview 已将明确的 oxidative polymerization 修饰词"
-                "规范为 polymerization；Strict 模式仍会报错"
+                "Preview 已规范工艺术语；词表外的已知化学术语保留原始标签并记作 other，"
+                "不代表确认其化学含义。Strict 模式及原文证据检查不变"
             ),
             "repairs": process_type_repairs,
         })
@@ -2168,6 +2411,17 @@ def extract_samples_processes(
         item for item in preview_in_place_repairs
         if "step_id" in item and "final_sample_ids" in item
     ]
+    (
+        in_place_output_repairs,
+        superseded_in_place_repairs,
+    ) = _partition_repairs_for_final_steps(
+        in_place_output_repairs,
+        step_id_map,
+        repair_code="preview_in_place_postprocess_outputs_split",
+        step_fields=("step_id",),
+        sample_fields=("input_sample_ids", "final_sample_ids"),
+    )
+    superseded_step_repairs.extend(superseded_in_place_repairs)
     if in_place_output_repairs:
         warnings.append({
             "stage": STAGE_ID,
@@ -2214,6 +2468,17 @@ def extract_samples_processes(
                 for item in producer_conflict_repairs
             ],
         })
+    (
+        preview_fraction_repairs,
+        superseded_fraction_repairs,
+    ) = _partition_repairs_for_final_steps(
+        preview_fraction_repairs,
+        step_id_map,
+        repair_code="preview_duplicate_upstream_fraction_outputs_removed",
+        step_fields=("polymerization_step_id", "fractionation_step_id"),
+        sample_fields=("sample_ids",),
+    )
+    superseded_step_repairs.extend(superseded_fraction_repairs)
     if preview_fraction_repairs:
         warnings.append({
             "stage": STAGE_ID,
@@ -2238,6 +2503,16 @@ def extract_samples_processes(
                 }
                 for item in preview_fraction_repairs
             ],
+        })
+    if superseded_step_repairs:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_repairs_superseded_by_step_cleanup",
+            "message": (
+                "较早的 Preview repair 引用了随后被结构清理删除的模型原始"
+                " ProcessStep；已保留为预物化审计记录，但未映射成最终 canonical ID"
+            ),
+            "repairs": superseded_step_repairs,
         })
     if process_input_repairs:
         warnings.append({
@@ -2438,6 +2713,8 @@ def extract_samples_processes(
         entities,
         prompt,
         client,
+        input_sections=input_sections,
+        max_input_chars=max_input_chars,
         preview_relaxed=preview_relaxed,
     )
     unique_models = list(dict.fromkeys(actual_models))
@@ -2447,6 +2724,14 @@ def extract_samples_processes(
         client,
         history_start,
         call_count=len(actual_models),
+    )
+    context_compression = next(
+        (
+            warning
+            for warning in warnings
+            if warning.get("code") == "preview_context_compressed"
+        ),
+        None,
     )
     provenance = Stage3Provenance(
         provider=client.resolved.provider,
@@ -2462,6 +2747,16 @@ def extract_samples_processes(
         implementation_version=IMPLEMENTATION_VERSION,
         context_block_count=len(blocks),
         context_chars=context_chars,
+        context_chars_before_compression=(
+            context_compression["original_context_chars"]
+            if context_compression is not None
+            else None
+        ),
+        context_dropped_blocks=(
+            context_compression["dropped_blocks"]
+            if context_compression is not None
+            else None
+        ),
         call_count=len(actual_models),
         usage=usage,
         cost=cost,
@@ -2485,7 +2780,7 @@ def run_stage3(
     *,
     force: bool = False,
     input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
-    max_input_chars: int = 50000,
+    max_input_chars: int = DEFAULT_MAX_INPUT_CHARS,
     max_validation_retries: int = 1,
     max_tokens: int = 8192,
     preview_relaxed: bool = False,
@@ -2497,6 +2792,8 @@ def run_stage3(
         entities,
         prompt,
         client,
+        input_sections=input_sections,
+        max_input_chars=max_input_chars,
         preview_relaxed=preview_relaxed,
     )
     if output_path.is_file() and not force:
@@ -2513,6 +2810,8 @@ def run_stage3(
                     prompt,
                     client,
                     implementation_version=compatible_version,
+                    input_sections=input_sections,
+                    max_input_chars=max_input_chars,
                     preview_relaxed=preview_relaxed,
                 )
                 if (
@@ -2617,7 +2916,7 @@ def main() -> int:
     max_input_chars = int(
         args.max_input_chars
         or stage_config.get("max_input_chars")
-        or 50000
+        or DEFAULT_MAX_INPUT_CHARS
     )
     max_validation_retries = (
         0

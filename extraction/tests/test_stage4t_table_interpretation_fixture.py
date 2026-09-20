@@ -68,7 +68,7 @@ def test_v01_interpretations_validate_against_real_stage0_cells() -> None:
         assert not _contains_value_key(case["interpretation"])
 
 
-def test_v01_cases_are_routed_because_rule_shadow_has_no_semantics() -> None:
+def test_v01_unresolved_cases_route_and_newly_deterministic_case_does_not() -> None:
     fixture = _load(FIXTURE_PATH)
     documents: dict[str, Stage0Document] = {}
 
@@ -87,11 +87,18 @@ def test_v01_cases_are_routed_because_rule_shadow_has_no_semantics() -> None:
         shadow = shadow_extract_table(table)
         reasons = interpretation_route_reasons(survey, shadow, eligible=True)
 
-        assert "only_unmapped_candidates" in reasons, (
-            doc_id,
-            case["table_id"],
-            reasons,
-        )
+        if (doc_id, case["table_id"]) == (
+            "reference_no_0043541",
+            "T_4_49",
+        ):
+            assert reasons == []
+            assert len(shadow["observations"]) == 21
+        else:
+            assert "only_unmapped_candidates" in reasons, (
+                doc_id,
+                case["table_id"],
+                reasons,
+            )
 
 
 def test_v01_freezes_expected_direction_overrides() -> None:

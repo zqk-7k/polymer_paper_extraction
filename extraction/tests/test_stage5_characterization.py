@@ -24,6 +24,8 @@ from schema.polymer_schema import (
     Stage2Document,
     Stage3Document,
     Stage4Document,
+    Stage5Document,
+    SpecializedPropertyObservation,
 )
 from tests.helpers import add_model_confidence
 from stages.stage5_characterization import (
@@ -2692,6 +2694,134 @@ class Stage5Tests(unittest.TestCase):
         self.assertFalse(first_cached)
         self.assertTrue(second_cached)
         self.assertEqual(client.calls, 1)
+
+    def test_stage5_rerun_carries_only_verified_published_specialized(self) -> None:
+        resolved_special = SpecializedPropertyObservation.model_validate({
+            "specialized_id": "sp001",
+            "source_field": "morphology",
+            "semantic_label": "morphology",
+            "value_kind": "text",
+            "value_raw": "crosslinked",
+            "text_value": "crosslinked",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "source_stage": "stage5",
+            "evidence": [{
+                "block_id": "P_2_0",
+                "page": 2,
+                "bbox": [5, 6, 7, 8],
+                "source_type": "text",
+                "source_sentence": FTIR_SENTENCE,
+            }],
+            "evidence_ids": ["ev_old_resolved"],
+            "publication_status": "published",
+        })
+        unresolved_special = SpecializedPropertyObservation.model_validate({
+            "specialized_id": "sp002",
+            "source_field": "morphology",
+            "semantic_label": "morphology",
+            "value_kind": "text",
+            "value_raw": "heterogeneous",
+            "text_value": "heterogeneous",
+            "sample_id": None,
+            "sample_resolution_status": "unresolved",
+            "source_stage": "stage5",
+            "evidence": [{
+                "block_id": "P_2_0",
+                "page": 2,
+                "bbox": [5, 6, 7, 8],
+                "source_type": "text",
+                "source_sentence": FTIR_SENTENCE,
+            }],
+            "evidence_ids": ["ev_old_unresolved"],
+            "publication_status": "published",
+        })
+        stage4_special = resolved_special.model_copy(update={
+            "value_raw": "film",
+            "text_value": "film",
+            "source_stage": "stage4",
+            "evidence_ids": [],
+        })
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            stage0_path = root / "stage0.json"
+            stage2_path = root / "stage2.json"
+            stage3_path = root / "stage3.json"
+            stage4_path = root / "stage4.json"
+            output_path = root / "stage5.json"
+            stage4 = stage4_document().model_copy(update={
+                "specialized_property_observations": [stage4_special],
+            })
+            for path, model in (
+                (stage0_path, stage0_document()),
+                (stage2_path, stage2_document()),
+                (stage3_path, stage3_document()),
+                (stage4_path, stage4),
+            ):
+                path.write_text(
+                    json.dumps(model.model_dump(mode="json")),
+                    encoding="utf-8",
+                )
+
+            prior = extract_characterizations(
+                stage0_document(),
+                stage2_document(),
+                stage3_document(),
+                stage4,
+                FakeClient(),
+                rendered_prompt(),
+                self.methods,
+                self.vocabulary,
+                self.vocabulary_hash,
+            ).model_copy(update={
+                "specialized_property_observations": [
+                    resolved_special,
+                    unresolved_special,
+                    resolved_special.model_copy(update={
+                        "specialized_id": "sp003",
+                    }),
+                ],
+            })
+            output_path.write_text(
+                json.dumps(prior.model_dump(mode="json")),
+                encoding="utf-8",
+            )
+
+            run_stage5(
+                stage0_path,
+                stage2_path,
+                stage3_path,
+                stage4_path,
+                output_path,
+                FakeClient(),
+                rendered_prompt(),
+                self.methods,
+                self.vocabulary,
+                self.vocabulary_hash,
+                force=True,
+            )
+            result = Stage5Document.model_validate_json(
+                output_path.read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(
+            [item.specialized_id for item in result.specialized_property_observations],
+            ["sp002", "sp003"],
+        )
+        self.assertTrue(all(
+            item.publication_status == "published"
+            and item.evidence_ids == []
+            for item in result.specialized_property_observations
+        ))
+        warning = next(
+            item for item in result.warnings
+            if item["code"]
+            == "published_stage5_specialized_properties_carried_forward"
+        )
+        self.assertEqual(warning["carried"], 2)
+        self.assertEqual(warning["duplicate_removed"], 1)
+        self.assertEqual(warning["id_remapped"], 2)
 
     def test_failure_response_can_be_replayed_without_network(self) -> None:
         response = FakeClient().call_json("", "")

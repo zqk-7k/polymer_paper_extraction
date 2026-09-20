@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from schema.polymer_schema import Stage0Element
 from stages.stage4t_table_property import shadow_extract_table
 from stages.table_grid import parse_table_cells
@@ -335,6 +337,7 @@ def test_grouped_polymer_header_does_not_override_run_sample_axis() -> None:
     ))
 
     assert report["observations"][0]["sample_label_raw"] == "1"
+    assert report["observations"][0]["property_name_normalized"] == "inherent_viscosity"
     assert report["observations"][0]["property_variant"] == "inherent"
 
 
@@ -391,7 +394,7 @@ def test_viscosity_column_shift_requires_strong_adjacent_evidence() -> None:
 
     viscosity = [
         item for item in report["observations"]
-        if item["property_name_normalized"] == "intrinsic_viscosity"
+        if item["property_name_normalized"] == "inherent_viscosity"
     ]
     assert [item["cell_id"] for item in viscosity] == [
         "T_shifted_viscosity:r0001:c0004",
@@ -410,6 +413,128 @@ def test_viscosity_column_shift_requires_strong_adjacent_evidence() -> None:
     assert insoluble["semantic_label"] == "solubility"
     assert insoluble["candidate_class"] == "material_characteristic"
     assert "shadow_inferred_column_shift" in report["warnings"]
+    pmt = [
+        item for item in report["observations"]
+        if item["property_name_normalized"] == "melting_temperature"
+    ]
+    assert [item["cell_id"] for item in pmt] == [
+        "T_shifted_viscosity:r0001:c0003",
+        "T_shifted_viscosity:r0002:c0003",
+        "T_shifted_viscosity:r0003:c0003",
+        "T_shifted_viscosity:r0004:c0003",
+    ]
+    assert all(item["header_column_index"] == 2 for item in pmt)
+    assert all(item["alignment_status"] == "paired_right_shift" for item in pmt)
+    assert all(
+        item["alignment_basis"] == "paired_with_confirmed_viscosity_right_shift"
+        for item in pmt
+    )
+    assert "shadow_inferred_paired_column_shift" in report["warnings"]
+
+
+def test_crystallinity_multirow_convention_infers_percent_with_provenance() -> None:
+    report = shadow_extract_table(_table(
+        "T_crystallinity_percent",
+        "<table><tr><td>Sample</td><td>Degree of Crystal-linity at 110 °C</td></tr>"
+        "<tr><td>Sample-A</td><td>81</td></tr>"
+        "<tr><td>Sample-B</td><td>93</td></tr>"
+        "<tr><td>Sample-C</td><td>40</td></tr></table>",
+    ))
+
+    values = [
+        item for item in report["observations"]
+        if item["semantic_label"] == "crystallinity"
+    ]
+    assert [item["value_raw"] for item in values] == ["81", "93", "40"]
+    assert all(item["unit_normalized"] == "%" for item in values)
+    assert all(
+        item["unit_location"] == "inferred_property_convention"
+        and item["unit_inference_basis"] == "degree_crystallinity_column_0_100"
+        and item["conditions"] == {"temperature_celsius": 110.0}
+        for item in values
+    )
+
+
+@pytest.mark.parametrize(
+    ("header", "values"),
+    [
+        ("Degree of Crystallinity at 110 °C", ["81"]),
+        ("Degree of Crystallinity at 110 °C", ["0.2", "0.8"]),
+        ("Degree of Crystallinity at 110 °C", ["81", "101"]),
+        ("Degree of Crystallinity (MPa)", ["81", "93"]),
+        ("Crystal-lining at 110 °C", ["81", "93"]),
+    ],
+)
+def test_crystallinity_percent_inference_requires_protected_shape(
+    header: str,
+    values: list[str],
+) -> None:
+    rows = "".join(
+        f"<tr><td>S{index}</td><td>{value}</td></tr>"
+        for index, value in enumerate(values, start=1)
+    )
+    report = shadow_extract_table(_table(
+        "T_crystallinity_guard",
+        f"<table><tr><td>Sample</td><td>{header}</td></tr>{rows}</table>",
+    ))
+    assert not any(
+        item.get("unit_location") == "inferred_property_convention"
+        for item in report["observations"]
+    )
+
+
+def test_paired_pmt_shift_fails_closed_when_original_column_has_temperature() -> None:
+    report = shadow_extract_table(_table(
+        "T_shift_guard",
+        "<table><tr><td>Code</td><td>Method</td><td>PMT (°C)</td>"
+        "<td>$η_{inh}$</td><td>Comments</td></tr>"
+        "<tr><td>P-1</td><td></td><td>250</td><td>342</td><td>1.43</td></tr>"
+        "<tr><td>P-2</td><td></td><td>HTS</td><td>290</td><td>0.12</td></tr>"
+        "<tr><td>P-3</td><td></td><td>HTS</td><td>310</td><td>Insoluble</td></tr>"
+        "<tr><td>P-4</td><td></td><td>HTS</td><td>260</td><td>0.04</td></tr></table>",
+    ))
+    assert not any(
+        item.get("alignment_status") == "paired_right_shift"
+        for item in report["observations"]
+    )
+
+
+def test_solution_viscosity_quantities_keep_distinct_names_symbols_and_units() -> None:
+    report = shadow_extract_table(_table(
+        "T_viscosity_semantics",
+        "<table><tr><td>Sample</td><td>$η_{inh}$ (dL/g)</td>"
+        "<td>Intrinsic viscosity [η] (dL/g)</td>"
+        "<td>$η_{red}$ (dL/g)</td><td>$η_{sp}$</td></tr>"
+        "<tr><td>P-1</td><td>0.21</td><td>0.31</td><td>0.18</td><td>0.08</td>"
+        "</tr></table>",
+    ))
+
+    assert [item["property_name_normalized"] for item in report["observations"]] == [
+        "inherent_viscosity",
+        "intrinsic_viscosity",
+        "reduced_viscosity",
+        "specific_viscosity",
+    ]
+    assert [item["property_variant"] for item in report["observations"]] == [
+        "inherent", "intrinsic", "reduced", "specific",
+    ]
+    assert report["observations"][0]["property_name_raw"] == "$η_{inh}$ (dL/g)"
+    assert report["observations"][0]["unit_raw"] == "dL/g"
+    assert report["observations"][0]["unit_normalized"] == "dL/g"
+
+
+def test_viscosity_footnote_marker_is_not_reported_as_a_unit() -> None:
+    report = shadow_extract_table(_table(
+        "T_viscosity_footnote",
+        "<table><tr><td>Polymer</td><td>$η_{inh}$ (DMSO)</td></tr>"
+        "<tr><td>P-1</td><td>1.01</td></tr></table>",
+        caption="TABLE II $^c$ Preparation of McFarlane and Miller.",
+    ))
+
+    item = report["observations"][0]
+    assert item["property_name_normalized"] == "inherent_viscosity"
+    assert item["unit_raw"] is None
+    assert item["unit_normalized"] is None
 
 
 def test_multicolumn_sample_axis_combines_group_and_child_labels() -> None:

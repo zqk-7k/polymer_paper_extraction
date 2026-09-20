@@ -17,11 +17,13 @@ from llm_client import (
 )
 from prompt_loader import PromptLoader
 from schema.polymer_schema import (
+    Evidence,
     PropertyEvidenceCandidate,
     PropertyStageResponse,
     Stage0Document,
     Stage2Document,
     Stage3Document,
+    Stage4Document,
     UnresolvedPropertyObservation,
     _validate_aggregate_series_reference,
 )
@@ -30,22 +32,30 @@ from stages.stage4_property import (
     DEFAULT_VOCABULARY_PATH,
     Stage4Error,
     _cache_components,
+    _carry_forward_published_specialized,
+    _carry_forward_verified_prior_results,
     _normalize_condition_field_evidence,
     _normalize_determination_method,
     _normalize_property_name,
     _candidate_repair_warnings,
     _failure_replay_client,
+    _explicit_solution_viscosity_name,
     _looks_like_series_property_header,
     _materialize,
     _preview_salvage_materialization,
     _preview_publication_status,
     _recover_grouped_table_methods,
     _repair_candidate_response_payload,
+    _repair_explicit_solution_viscosity_fields,
     _resolve_surface_text,
+    _sample_resolution_from_evidence,
     _resolve_vocabulary_path,
     _stage4_raw_response_artifact,
+    _specialized_semantic_unit_is_valid,
+    _user_message,
     _validation_retry_count,
     _validate_required_table_series,
+    _write_validated_stage4_document,
     extract_properties,
     load_property_vocabulary,
     run_stage4,
@@ -100,6 +110,195 @@ class VocabularyPathResolutionTests(unittest.TestCase):
             ),
             0,
         )
+
+    def test_user_message_exposes_sample_details_and_structured_table_targets(self) -> None:
+        document = tg_mn_table_document()
+        process_data = stage3_document().model_dump(mode="json")
+        process_data["samples"][0].update({
+            "sample_label_raw": "dried PB film",
+            "state_description": "dried PB film",
+            "material_type": "neat_resin",
+        })
+        process = Stage3Document.model_validate(process_data)
+        vocabulary, _ = load_property_vocabulary(DEFAULT_VOCABULARY_PATH)
+
+        message = _user_message(
+            document.document_id,
+            stage2_document(),
+            process,
+            document.elements,
+            vocabulary,
+        )
+
+        self.assertIn('"sample_label_raw": "dried PB film"', message)
+        self.assertIn('"material_type": "neat_resin"', message)
+        self.assertIn('"cell_id": "T_4_0:r0001:c0001"', message)
+        self.assertIn('"column_label": "Tg/K"', message)
+        self.assertIn('"numeric_cell_count": 2', message)
+
+    def test_explicit_solution_viscosity_names_remain_distinct(self) -> None:
+        cases = {
+            r"$\eta_{\mathrm{inh}}^b$ (dL/g)": "inherent_viscosity",
+            "eta_inh": "inherent_viscosity",
+            "inherent viscosities": "inherent_viscosity",
+            "[η]": "intrinsic_viscosity",
+            "intrinsic viscosity": "intrinsic_viscosity",
+            "η_red": "reduced_viscosity",
+            "reduced viscosity": "reduced_viscosity",
+            "η_sp": "specific_viscosity",
+        }
+        for raw, expected in cases.items():
+            with self.subTest(raw=raw):
+                self.assertEqual(_explicit_solution_viscosity_name(raw), expected)
+        self.assertIsNone(_explicit_solution_viscosity_name("viscosity"))
+        self.assertIsNone(_explicit_solution_viscosity_name("η"))
+        for raw in ("eta_interfacial", "eta_inhibition", "eta_redox"):
+            with self.subTest(raw=raw):
+                self.assertIsNone(_explicit_solution_viscosity_name(raw))
+
+    def test_explicit_inherent_viscosity_repair_preserves_raw_fields(self) -> None:
+        vocabulary, _ = load_property_vocabulary(DEFAULT_VOCABULARY_PATH)
+        item = {
+            "property_name_raw": r"$\eta_{\text{inh}}^{\text{b}}$ (dL/g)",
+            "property_name_normalized": "intrinsic_viscosity",
+            "property_code": "P6120",
+            "property_category": "dilute_solution_property",
+            "value_raw": "0.77",
+            "unit_raw": "dL/g",
+        }
+
+        self.assertTrue(_repair_explicit_solution_viscosity_fields(item, vocabulary))
+        self.assertEqual(item["property_name_normalized"], "inherent_viscosity")
+        self.assertEqual(item["property_name_raw"], r"$\eta_{\text{inh}}^{\text{b}}$ (dL/g)")
+        self.assertEqual(item["value_raw"], "0.77")
+        self.assertEqual(item["unit_raw"], "dL/g")
+
+    def test_molecular_weight_series_applies_strict_display_multiplier(self) -> None:
+        payload = {
+            "property_series": [{
+                "series_id": "series001",
+                "property_name_raw": r"$\overline{M}_{n}$",
+                "unit_raw": r"$10^{4}$",
+                "points": [
+                    {
+                        "point_id": "pt001",
+                        "value_raw": "1.6",
+                        "value_min": 1.6,
+                        "value_max": 1.6,
+                    },
+                    {
+                        "point_id": "pt002",
+                        "value_raw": "3.6",
+                        "value_min": 3.6,
+                        "value_max": 3.6,
+                    },
+                ],
+            }],
+        }
+
+        repaired, repairs = _repair_candidate_response_payload(
+            payload,
+            stage3_document(),
+        )
+
+        points = repaired["property_series"][0]["points"]
+        self.assertEqual(
+            [(point["value_min"], point["value_max"]) for point in points],
+            [(16000.0, 16000.0), (36000.0, 36000.0)],
+        )
+        self.assertEqual([point["value_raw"] for point in points], ["1.6", "3.6"])
+        self.assertEqual(
+            repairs["molecular_weight_display_multiplier_points_repaired"],
+            2,
+        )
+        warning_codes = {
+            item["code"] for item in _candidate_repair_warnings(repairs)
+        }
+        self.assertIn("molecular_weight_display_multiplier_applied", warning_codes)
+
+    def test_molecular_weight_multiplier_accepts_explicit_mw_phrase(self) -> None:
+        payload = {
+            "property_series": [{
+                "property_name_raw": "weight-average molecular weight",
+                "unit_raw": "× 10^3",
+                "points": [{
+                    "value_raw": "2.5",
+                    "value_min": 2.5,
+                    "value_max": 2.5,
+                }],
+            }],
+        }
+
+        repaired, repairs = _repair_candidate_response_payload(
+            payload,
+            stage3_document(),
+        )
+
+        point = repaired["property_series"][0]["points"][0]
+        self.assertEqual((point["value_min"], point["value_max"]), (2500.0, 2500.0))
+        self.assertEqual(
+            repairs["molecular_weight_display_multiplier_points_repaired"],
+            1,
+        )
+
+    def test_molecular_weight_multiplier_does_not_double_scale(self) -> None:
+        payload = {
+            "property_series": [{
+                "property_name_raw": "Mn",
+                "unit_raw": "10^4",
+                "points": [{
+                    "value_raw": "1.6",
+                    "value_min": 16000.0,
+                    "value_max": 16000.0,
+                }],
+            }],
+        }
+
+        repaired, repairs = _repair_candidate_response_payload(
+            payload,
+            stage3_document(),
+        )
+
+        point = repaired["property_series"][0]["points"][0]
+        self.assertEqual((point["value_min"], point["value_max"]), (16000.0, 16000.0))
+        self.assertEqual(
+            repairs["molecular_weight_display_multiplier_points_repaired"],
+            0,
+        )
+
+    def test_molecular_weight_multiplier_rejects_units_and_ambiguous_names(self) -> None:
+        cases = (
+            ("Mn", "S/m"),
+            ("Mw", "10^-2 S/cm"),
+            ("Mn", "10^-4"),
+            ("molecular weight", "10^4"),
+            ("Mw/Mn", "10^4"),
+        )
+        for property_name, unit_raw in cases:
+            with self.subTest(property_name=property_name, unit_raw=unit_raw):
+                payload = {
+                    "property_series": [{
+                        "property_name_raw": property_name,
+                        "unit_raw": unit_raw,
+                        "points": [{
+                            "value_raw": "1.6",
+                            "value_min": 1.6,
+                            "value_max": 1.6,
+                        }],
+                    }],
+                }
+                repaired, repairs = _repair_candidate_response_payload(
+                    payload,
+                    stage3_document(),
+                )
+                point = repaired["property_series"][0]["points"][0]
+                self.assertEqual((point["value_min"], point["value_max"]), (1.6, 1.6))
+                self.assertEqual(
+                    repairs[
+                        "molecular_weight_display_multiplier_points_repaired"
+                    ],
+                    0,
+                )
 
 
 RESULT_SENTENCE = (
@@ -1215,6 +1414,68 @@ def rendered_prompt():
 
 
 class Stage4Tests(unittest.TestCase):
+    def test_missing_series_and_point_contexts_default_to_not_reported(self) -> None:
+        payload = SeriesClient().call_json("", "").data
+        series = payload["property_series"][0]
+        series.pop("measurement_context")
+        series["points"][0]["measurement_context"] = None
+
+        repaired, repairs = _repair_candidate_response_payload(
+            payload,
+            stage3_document(),
+        )
+
+        repaired_series = repaired["property_series"][0]
+        self.assertEqual(
+            repaired_series["measurement_context"],
+            {"condition_status": "not_reported"},
+        )
+        self.assertEqual(
+            repaired_series["points"][0]["measurement_context"],
+            {"condition_status": "not_reported"},
+        )
+        self.assertEqual(
+            repairs["series_measurement_context_defaults_added"], 1
+        )
+        self.assertEqual(
+            repairs["point_measurement_context_defaults_added"], 1
+        )
+        PropertyStageResponse.model_validate(repaired)
+        warning = next(
+            item
+            for item in _candidate_repair_warnings(repairs)
+            if item["code"]
+            == "required_series_measurement_context_defaulted"
+        )
+        self.assertEqual((warning["series"], warning["points"]), (1, 1))
+
+    def test_non_null_series_context_is_never_defaulted(self) -> None:
+        payload = SeriesClient().call_json("", "").data
+        reported = {
+            "other_conditions": {"atmosphere": "nitrogen"},
+            "condition_status": "reported",
+        }
+        series = payload["property_series"][0]
+        series["measurement_context"] = reported
+        series["points"][0]["measurement_context"] = reported
+
+        repaired, repairs = _repair_candidate_response_payload(
+            payload,
+            stage3_document(),
+        )
+
+        repaired_series = repaired["property_series"][0]
+        self.assertEqual(repaired_series["measurement_context"], reported)
+        self.assertEqual(
+            repaired_series["points"][0]["measurement_context"], reported
+        )
+        self.assertEqual(
+            repairs["series_measurement_context_defaults_added"], 0
+        )
+        self.assertEqual(
+            repairs["point_measurement_context_defaults_added"], 0
+        )
+
     @staticmethod
     def _salvage_condition(condition_id: str = "mc001", *, block_id: str = "P_2_0") -> dict:
         return {
@@ -1602,7 +1863,7 @@ class Stage4Tests(unittest.TestCase):
     def test_prompt_requires_base_and_component_series_coverage(self) -> None:
         prompt = rendered_prompt()
 
-        self.assertEqual(prompt.version, "1.7.2")
+        self.assertEqual(prompt.version, "1.8.1")
         self.assertIn("分量 Series 不得视为已覆盖普通端点", prompt.text)
 
     def test_prompt_disambiguates_aggregate_binding_from_guessing(self) -> None:
@@ -1619,7 +1880,7 @@ class Stage4Tests(unittest.TestCase):
     def test_prompt_requires_minimal_verbatim_property_name(self) -> None:
         prompt = rendered_prompt()
 
-        self.assertEqual(prompt.version, "1.7.2")
+        self.assertEqual(prompt.version, "1.8.1")
         self.assertIn("足以标识该结果的最短", prompt.text)
         self.assertIn("不得把不同句子的片段拼接", prompt.text)
         self.assertIn("所有 `*_raw` 字段必须", prompt.text)
@@ -3979,9 +4240,443 @@ class Stage4Tests(unittest.TestCase):
         )
 
     def test_vocabulary_has_99_authoritative_entries(self) -> None:
-        self.assertEqual(len(self.vocabulary), 99)
+        self.assertEqual(len(self.vocabulary), 102)
         self.assertIn("thermal_decomposition_weight_loss", self.vocabulary)
         self.assertIn("contact_angle", self.vocabulary)
+
+    def test_published_specialized_seed_is_deduplicated_and_remapped(self) -> None:
+        document = tg_mn_table_document()
+        process_payload = stage3_document().model_dump(mode="json")
+        process_payload["samples"][0]["sample_label_raw"] = "A"
+        process = Stage3Document.model_validate(process_payload)
+        base = extract_properties(
+            document,
+            stage2_document(),
+            process,
+            FakeClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+        )
+        specialized = {
+            "specialized_id": "sp001",
+            "source_field": "average_molecular_weight",
+            "semantic_label": "molecular_weight",
+            "variant": "number_average",
+            "value_kind": "numeric_scalar",
+            "value_raw": "1000",
+            "value_min": 1000,
+            "value_max": 1000,
+            "unit_raw": None,
+            "unit_normalized": None,
+            "unit_status": "missing",
+            "sample_id": "s009",
+            "sample_resolution_status": "resolved",
+            "source_stage": "stage4t",
+            "evidence": [{
+                "block_id": "T_4_0",
+                "page": 4,
+                "bbox": [1, 2, 3, 4],
+                "source_type": "table",
+                "source_sentence": "1000",
+                "table_locator": {
+                    "table_id": "T_4_0",
+                    "cell_id": "T_4_0:r0001:c0002",
+                    "row_index": 1,
+                    "column_index": 2,
+                    "row_label": "A",
+                    "column_label": "Mn",
+                    "cell_value": "1000",
+                },
+            }],
+            "evidence_ids": ["ev99999"],
+            "publication_status": "published",
+        }
+        prior_payload = base.model_dump(mode="json")
+        prior_payload["specialized_property_observations"] = [
+            specialized,
+            {**specialized, "specialized_id": "sp002"},
+        ]
+        prior = Stage4Document.model_validate(prior_payload)
+
+        carried = _carry_forward_published_specialized(
+            base,
+            prior,
+            document,
+            process,
+            prior_stage4_sha256="a" * 64,
+            stage0_sha256="b" * 64,
+        )
+
+        self.assertEqual(len(carried.specialized_property_observations), 1)
+        self.assertEqual(
+            carried.specialized_property_observations[0].sample_id,
+            "s001",
+        )
+        self.assertEqual(
+            carried.specialized_property_observations[0].evidence_ids,
+            [],
+        )
+        warning = carried.warnings[-1]
+        self.assertEqual(warning["carried"], 1)
+        self.assertEqual(warning["sample_id_remapped"], 1)
+        self.assertEqual(warning["duplicate_removed"], 1)
+
+    def test_verified_prior_property_and_condition_are_carried(self) -> None:
+        document = stage0_document()
+        process = stage3_document()
+        prior = extract_properties(
+            document,
+            stage2_document(),
+            process,
+            FakeClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+        )
+        current = prior.model_copy(update={
+            "measurement_conditions": [],
+            "properties": [],
+        })
+
+        carried = _carry_forward_verified_prior_results(
+            current,
+            prior,
+            document,
+            process,
+            prior_stage4_sha256="a" * 64,
+            stage0_sha256="b" * 64,
+        )
+
+        self.assertEqual(len(carried.properties), 1)
+        self.assertEqual(carried.properties[0].sample_id, "s001")
+        self.assertEqual(carried.properties[0].property_id, "prop001")
+        self.assertEqual(len(carried.measurement_conditions), 1)
+        self.assertEqual(
+            carried.properties[0].measurement_condition_id,
+            carried.measurement_conditions[0].condition_id,
+        )
+        self.assertEqual(
+            carried.measurement_conditions[0].temperature.evidence_ids,
+            [],
+        )
+        warning = carried.warnings[-1]
+        self.assertEqual(warning["properties_carried"], 1)
+        self.assertEqual(warning["sample_id_remapped"], 0)
+
+    def test_verified_prior_property_never_overwrites_new_conflict(self) -> None:
+        document = stage0_document()
+        process = stage3_document()
+        prior = extract_properties(
+            document,
+            stage2_document(),
+            process,
+            FakeClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+        )
+        current_payload = prior.model_dump(mode="json")
+        current_payload["properties"][0].update({
+            "value_raw": "9.9",
+            "value_min": 9.9,
+            "value_max": 9.9,
+        })
+        current = Stage4Document.model_validate(current_payload)
+
+        carried = _carry_forward_verified_prior_results(
+            current,
+            prior,
+            document,
+            process,
+            prior_stage4_sha256="a" * 64,
+            stage0_sha256="b" * 64,
+        )
+
+        self.assertEqual(len(carried.properties), 1)
+        self.assertEqual(carried.properties[0].value_raw, "9.9")
+        self.assertEqual(
+            carried.warnings[-1]["semantic_conflict_rejected"],
+            1,
+        )
+
+    def test_verified_prior_series_appends_only_missing_rebound_point(self) -> None:
+        document = tg_mn_table_document()
+        process_payload = stage3_document().model_dump(mode="json")
+        process_payload["samples"][0].update({
+            "sample_label_raw": "A",
+            "polymer_name": "sample A",
+        })
+        second = dict(process_payload["samples"][0])
+        second.update({
+            "sample_id": "s002",
+            "sample_label_raw": "B",
+            "polymer_name": "sample B",
+        })
+        process_payload["samples"].append(second)
+        process = Stage3Document.model_validate(process_payload)
+        prior = extract_properties(
+            document,
+            stage2_document(),
+            process,
+            CoordinateOnlyMnClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+        )
+        prior_payload = prior.model_dump(mode="json")
+        prior_payload["property_series"][0]["points"][0]["sample_id"] = "s008"
+        prior_payload["property_series"][0]["points"][1]["sample_id"] = "s009"
+        prior = Stage4Document.model_validate(prior_payload)
+        current_payload = prior.model_dump(mode="json")
+        current_payload["property_series"][0]["points"] = [
+            prior_payload["property_series"][0]["points"][0]
+        ]
+        current_payload["property_series"][0]["points"][0]["sample_id"] = "s001"
+        current_payload["property_series"][0]["coverage"] = {
+            "expected": 1,
+            "covered": 1,
+            "missing": 0,
+            "not_applicable": 0,
+            "ratio": 1.0,
+        }
+        current = Stage4Document.model_validate(current_payload)
+
+        carried = _carry_forward_verified_prior_results(
+            current,
+            prior,
+            document,
+            process,
+            prior_stage4_sha256="a" * 64,
+            stage0_sha256="b" * 64,
+        )
+
+        points = carried.property_series[0].points
+        self.assertEqual([(item.sample_id, item.value_raw) for item in points], [
+            ("s001", "301"),
+            ("s002", "302"),
+        ])
+        self.assertEqual([item.point_id for item in points], ["pt001", "pt002"])
+        self.assertEqual(carried.property_series[0].coverage.covered, 2)
+        warning = carried.warnings[-1]
+        self.assertEqual(warning["series_points_carried"], 1)
+        self.assertEqual(warning["duplicate_removed"], 1)
+        self.assertEqual(warning["sample_id_remapped"], 1)
+
+    def test_verified_series_value_survives_unverified_ancillary_context(self) -> None:
+        document = tg_mn_table_document()
+        process_payload = stage3_document().model_dump(mode="json")
+        process_payload["samples"][0].update({
+            "sample_label_raw": "A",
+            "polymer_name": "sample A",
+        })
+        second = dict(process_payload["samples"][0])
+        second.update({
+            "sample_id": "s002",
+            "sample_label_raw": "B",
+            "polymer_name": "sample B",
+        })
+        process_payload["samples"].append(second)
+        process = Stage3Document.model_validate(process_payload)
+        prior = extract_properties(
+            document,
+            stage2_document(),
+            process,
+            CoordinateOnlyMnClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+        )
+        prior_payload = prior.model_dump(mode="json")
+        invalid_context = {
+            "temperature": None,
+            "frequency": None,
+            "humidity": None,
+            "pressure": None,
+            "wavelength": None,
+            "other_conditions": {"solvent": "THF"},
+            # Schema-valid but incomplete: the optional context has no source
+            # evidence, while each numeric point remains directly evidenced.
+            "other_condition_evidence": {},
+            "other_condition_evidence_ids": {},
+            "condition_status": "reported",
+        }
+        prior_payload["property_series"][0]["measurement_context"] = invalid_context
+        for point in prior_payload["property_series"][0]["points"]:
+            point["measurement_context"] = invalid_context
+        prior = Stage4Document.model_validate(prior_payload)
+        current = prior.model_copy(update={"property_series": []})
+
+        carried = _carry_forward_verified_prior_results(
+            current,
+            prior,
+            document,
+            process,
+            prior_stage4_sha256="a" * 64,
+            stage0_sha256="b" * 64,
+        )
+
+        self.assertEqual(len(carried.property_series), 1)
+        self.assertEqual(len(carried.property_series[0].points), 2)
+        self.assertEqual(
+            carried.property_series[0].measurement_context.condition_status,
+            "not_reported",
+        )
+        self.assertTrue(all(
+            point.measurement_context is not None
+            and point.measurement_context.condition_status == "not_reported"
+            for point in carried.property_series[0].points
+        ))
+        warning = carried.warnings[-1]
+        self.assertEqual(warning["series_points_carried"], 2)
+        self.assertEqual(warning["ancillary_context_dropped"], 3)
+
+    def test_continuation_row_inherits_unique_nearest_sample_label(self) -> None:
+        document_payload = tg_mn_table_document().model_dump(mode="json")
+        table = document_payload["elements"][-1]
+        table["table_body"] = table["table_body"].replace(
+            "| B | 302 | 2000 |",
+            "| b | 302 | 2000 |",
+        )
+        table["table_cells"][-3]["text"] = "b"
+        document = Stage0Document.model_validate(document_payload)
+        process_payload = stage3_document().model_dump(mode="json")
+        process_payload["samples"][0].update({
+            "sample_label_raw": "A",
+            "polymer_name": "sample A",
+        })
+        process = Stage3Document.model_validate(process_payload)
+        evidence = {
+            "block_id": "T_4_0",
+            "page": 4,
+            "bbox": [1, 2, 3, 4],
+            "source_type": "table",
+            "source_sentence": "302",
+            "table_locator": {
+                "table_id": "T_4_0",
+                "cell_id": "T_4_0:r0002:c0001",
+                "row_index": 2,
+                "column_index": 1,
+                "row_label": "b",
+                "column_label": "Tg/K",
+                "cell_value": "302",
+            },
+        }
+        self.assertEqual(
+            _sample_resolution_from_evidence(
+                "s009",
+                [Evidence.model_validate(evidence)],
+                process,
+                document,
+            ),
+            "s001",
+        )
+
+    def test_text_subject_hint_uses_parenthetical_sample_acronym(self) -> None:
+        process_payload = stage3_document().model_dump(mode="json")
+        process_payload["samples"][0].update({
+            "sample_label_raw": "syndiotactic polypropylene (sPP)",
+            "polymer_name": "syndiotactic polypropylene",
+        })
+        second = dict(process_payload["samples"][0])
+        second.update({
+            "sample_id": "s002",
+            "sample_label_raw": "random PEP",
+            "polymer_name": "PEP",
+        })
+        process_payload["samples"].append(second)
+        process = Stage3Document.model_validate(process_payload)
+        evidence = Evidence.model_validate({
+            "block_id": "P_2_0",
+            "page": 2,
+            "bbox": [5, 6, 7, 8],
+            "source_type": "text",
+            "source_sentence": "The densities of sPP and PEP were measured.",
+        })
+
+        self.assertEqual(
+            _sample_resolution_from_evidence(
+                "s001",
+                [evidence],
+                process,
+                stage0_document(),
+                subject_hint="mass density of amorphous sPP",
+            ),
+            "s001",
+        )
+
+    def test_crystallinity_specialized_temperature_unit_is_rejected(self) -> None:
+        document = tg_mn_table_document()
+        process_payload = stage3_document().model_dump(mode="json")
+        process_payload["samples"][0]["sample_label_raw"] = "A"
+        process = Stage3Document.model_validate(process_payload)
+        base = extract_properties(
+            document,
+            stage2_document(),
+            process,
+            FakeClient(),
+            rendered_prompt(),
+            self.vocabulary,
+            self.vocabulary_hash,
+            preview_relaxed=True,
+        )
+        item = {
+            "specialized_id": "sp001",
+            "source_field": "crystallinity",
+            "semantic_label": "degree of crystallinity",
+            "value_kind": "numeric_scalar",
+            "value_raw": "45",
+            "value_min": 45,
+            "value_max": 45,
+            "unit_raw": "°C",
+            "unit_normalized": "°C",
+            "unit_status": "normalized",
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "source_stage": "stage4t",
+            "evidence": [{
+                "block_id": "T_4_0",
+                "page": 4,
+                "bbox": [1, 2, 3, 4],
+                "source_type": "table",
+                "source_sentence": "301",
+                "table_locator": {
+                    "table_id": "T_4_0",
+                    "cell_id": "T_4_0:r0001:c0001",
+                    "row_index": 1,
+                    "column_index": 1,
+                    "row_label": "A",
+                    "column_label": "Tg/K",
+                    "cell_value": "301",
+                },
+            }],
+            "publication_status": "published",
+        }
+        prior_payload = base.model_dump(mode="json")
+        prior_payload["specialized_property_observations"] = [item]
+        prior = Stage4Document.model_validate(prior_payload)
+        self.assertFalse(
+            _specialized_semantic_unit_is_valid(
+                prior.specialized_property_observations[0]
+            )
+        )
+
+        carried = _carry_forward_published_specialized(
+            base,
+            prior,
+            document,
+            process,
+            prior_stage4_sha256="a" * 64,
+            stage0_sha256="b" * 64,
+        )
+
+        self.assertEqual(carried.specialized_property_observations, [])
+        self.assertEqual(carried.warnings[-1]["semantic_unit_rejected"], 1)
 
     def test_surface_text_resolves_latex_formatting_to_source(self) -> None:
         source = (

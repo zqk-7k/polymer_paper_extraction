@@ -190,7 +190,6 @@ def test_current_semantic_zero_tables_route_to_llm_interpretation() -> None:
         ("reference_no_0021296", "T_8_91"),
         ("reference_no_0038527", "T_5_69"),
         ("reference_no_0039705", "T_6_84"),
-        ("reference_no_0043541", "T_4_49"),
         ("reference_no_0043590", "T_1_19"),
     }
     documents: dict[str, Stage0Document] = {}
@@ -212,6 +211,25 @@ def test_current_semantic_zero_tables_route_to_llm_interpretation() -> None:
         reasons = interpretation_route_reasons(survey, shadow, eligible=True)
 
         assert "only_unmapped_candidates" in reasons, (doc_id, table_id, reasons)
+
+
+def test_contact_angle_multidescriptor_table_no_longer_requires_llm() -> None:
+    doc_id = "reference_no_0043541"
+    document = Stage0Document.model_validate(json.loads(
+        (BATCH_ROOT / doc_id / "stage0_blocks.json").read_text(encoding="utf-8")
+    ))
+    table = next(
+        element for element in document.elements if element.block_id == "T_4_49"
+    )
+    survey = survey_table(table)
+    shadow = shadow_extract_table(table)
+
+    assert interpretation_route_reasons(survey, shadow, eligible=True) == []
+    assert len(shadow["observations"]) == 21
+    assert all(
+        item["property_name_normalized"] == "contact_angle"
+        for item in shadow["observations"]
+    )
 
 
 def test_interpretation_prompt_uses_registered_schema() -> None:

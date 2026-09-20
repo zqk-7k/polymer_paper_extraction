@@ -25,12 +25,20 @@ from schema.polymer_schema import Stage0Document, Stage4Document
 
 
 STAGE_ID = "stage4r_unified_preview"
-IMPLEMENTATION_VERSION = "0.1.0"
+IMPLEMENTATION_VERSION = "0.2.3"
 OUTPUT_NAME = "stage4_properties.unified_preview.json"
 AUDIT_NAME = "stage4r_unified_audit.json"
 CANDIDATE_CONTRACT_VERSION = "stage4r_candidate_input.v0.1"
 _PROPERTY_ID_RE = re.compile(r"^prop(\d+)$")
 _CONDITION_ID_RE = re.compile(r"^mc(\d+)$")
+_UNSPECIFIED_MOLAR_MASS_SEMANTICS = frozenset({
+    "molarmass",
+    "averagemolarmass",
+    "molecularmass",
+    "averagemolecularmass",
+    "molecularweight",
+    "averagemolecularweight",
+})
 
 
 def _norm(value: Any) -> str:
@@ -79,6 +87,61 @@ def _candidate_semantic(candidate: Mapping[str, Any]) -> str:
         candidate.get("property_name_normalized")
         or candidate.get("semantic_label")
         or candidate.get("property_name_raw")
+    )
+
+
+def _semantics_are_conservative_aliases(left: str, right: str) -> bool:
+    """Return true only for unqualified molecular-mass naming variants.
+
+    Mn, Mw and other explicitly qualified molecular-weight measures are
+    intentionally absent: treating those as aliases would merge distinct
+    properties from the same table cell.
+    """
+
+    return (
+        bool(left)
+        and bool(right)
+        and left != right
+        and left in _UNSPECIFIED_MOLAR_MASS_SEMANTICS
+        and right in _UNSPECIFIED_MOLAR_MASS_SEMANTICS
+    )
+
+
+def _same_observed_value(left: Mapping[str, Any], right: Mapping[str, Any]) -> bool:
+    if _value_equal(left.get("value_raw"), right.get("value_raw")):
+        return True
+    left_min, left_max = left.get("value_min"), left.get("value_max")
+    right_min, right_max = right.get("value_min"), right.get("value_max")
+    return (
+        left_min is not None
+        and left_max is not None
+        and right_min is not None
+        and right_max is not None
+        and _value_equal(left_min, right_min)
+        and _value_equal(left_max, right_max)
+    )
+
+
+def _units_for_comparison(item: Mapping[str, Any]) -> Any:
+    return item.get("unit_normalized") or item.get("unit_raw")
+
+
+def _same_fact_through_semantic_alias(
+    existing: Mapping[str, Any],
+    candidate: Mapping[str, Any],
+    *,
+    resolved_sample_id: Any,
+) -> bool:
+    return (
+        _semantics_are_conservative_aliases(
+            _semantic(existing), _candidate_semantic(candidate)
+        )
+        and bool(resolved_sample_id)
+        and str(existing.get("sample_id") or "") == str(resolved_sample_id)
+        and _same_observed_value(existing, candidate)
+        and _units_compatible(
+            _units_for_comparison(existing), _units_for_comparison(candidate)
+        )
     )
 
 
@@ -182,7 +245,14 @@ def _evidence(candidate: Mapping[str, Any], tables: Mapping[str, Any]) -> dict[s
             "cell_id": candidate.get("cell_id"),
             "row_index": candidate.get("row_index"),
             "column_index": candidate.get("column_index"),
-            "row_label": candidate.get("sample_label_raw"),
+            # Generated family labels (for example PU12 from an integer row
+            # axis) are binding labels, not verbatim table text.  The locator
+            # must retain the actual source-cell label for Stage 6 evidence
+            # validation.
+            "row_label": (
+                candidate.get("sample_axis_value_raw")
+                or candidate.get("sample_label_raw")
+            ),
             "column_label": " / ".join(header_path) or candidate.get("property_name_raw"),
             "cell_value": value_raw,
         },
@@ -290,6 +360,77 @@ def _append_unique_evidence(item: dict[str, Any], evidence: dict[str, Any]) -> N
     item.setdefault("evidence", []).append(evidence)
 
 
+def _backfill_required_series_measurement_contexts(
+    stage4: Mapping[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Compatibility repair for Stage 4 v1.8.6 carry-forward output.
+
+    Final PropertySeries and PropertySeriesPoint objects require an explicit
+    measurement-context snapshot.  The repair is intentionally narrow: only a
+    missing key or JSON null is replaced.  Existing non-null values, including
+    malformed ones, remain untouched and must pass normal schema validation.
+    """
+
+    payload = copy.deepcopy(dict(stage4))
+    repaired: list[dict[str, Any]] = []
+    series_count = 0
+    point_count = 0
+    for series_index, series in enumerate(payload.get("property_series") or []):
+        if not isinstance(series, dict):
+            continue
+        if series.get("measurement_context") is None:
+            reason = (
+                "missing"
+                if "measurement_context" not in series
+                else "null"
+            )
+            series["measurement_context"] = {
+                "condition_status": "not_reported",
+            }
+            series_count += 1
+            repaired.append({
+                "object_type": "property_series",
+                "series_id": series.get("series_id"),
+                "point_id": None,
+                "path": f"property_series.{series_index}.measurement_context",
+                "reason": reason,
+                "replacement": {"condition_status": "not_reported"},
+            })
+        for point_index, point in enumerate(series.get("points") or []):
+            if not isinstance(point, dict):
+                continue
+            if point.get("measurement_context") is not None:
+                continue
+            reason = (
+                "missing"
+                if "measurement_context" not in point
+                else "null"
+            )
+            point["measurement_context"] = {
+                "condition_status": "not_reported",
+            }
+            point_count += 1
+            repaired.append({
+                "object_type": "property_series_point",
+                "series_id": series.get("series_id"),
+                "point_id": point.get("point_id"),
+                "path": (
+                    f"property_series.{series_index}.points.{point_index}."
+                    "measurement_context"
+                ),
+                "reason": reason,
+                "replacement": {"condition_status": "not_reported"},
+            })
+    return payload, {
+        "policy": "only_missing_or_null",
+        "replacement": {"condition_status": "not_reported"},
+        "series_repaired_count": series_count,
+        "point_repaired_count": point_count,
+        "total_repaired_count": series_count + point_count,
+        "items": repaired,
+    }
+
+
 def unify_documents(
     stage0: Stage0Document,
     stage2: Mapping[str, Any],
@@ -297,7 +438,9 @@ def unify_documents(
     stage4: Mapping[str, Any],
     sidecar: Mapping[str, Any],
 ) -> tuple[Stage4Document, dict[str, Any]]:
-    payload = copy.deepcopy(dict(stage4))
+    payload, context_compatibility = (
+        _backfill_required_series_measurement_contexts(stage4)
+    )
     candidates = _flatten_candidates(sidecar)
     sample_index, _ = _sample_index(stage2, stage3)
     tables = _table_elements(stage0)
@@ -311,6 +454,7 @@ def unify_documents(
 
     # 同一来源格子的已映射语义不一致时，Preview 不选择任一结果，先隔离。
     quarantined_ids: set[str] = set()
+    compatible_alias_pairs: set[tuple[str, str]] = set()
     for candidate in candidates:
         cell_id = str(candidate.get("cell_id") or "")
         candidate_semantic = _candidate_semantic(candidate)
@@ -319,6 +463,19 @@ def unify_documents(
         for item in by_cell.get(cell_id, []):
             if _semantic(item) and _semantic(item) != candidate_semantic:
                 resolution = resolve_sample(candidate, sample_index)
+                if (
+                    resolution["status"] == "matched"
+                    and _same_fact_through_semantic_alias(
+                        item,
+                        candidate,
+                        resolved_sample_id=resolution.get("sample_id"),
+                    )
+                ):
+                    compatible_alias_pairs.add((
+                        str(candidate.get("observation_id") or ""),
+                        str(item.get("property_id") or ""),
+                    ))
+                    continue
                 quarantined_ids.add(str(item["property_id"]))
                 record = {
                     "candidate_id": candidate.get("observation_id"),
@@ -435,8 +592,19 @@ def unify_documents(
         duplicate = next(
             (
                 item for item in same_cell
-                if _semantic(item) == semantic
-                and _value_equal(item.get("value_raw"), candidate.get("value_raw"))
+                if (
+                    (
+                        _semantic(item) == semantic
+                        and _value_equal(
+                            item.get("value_raw"), candidate.get("value_raw")
+                        )
+                    )
+                    or _same_fact_through_semantic_alias(
+                        item,
+                        candidate,
+                        resolved_sample_id=resolution.get("sample_id"),
+                    )
+                )
             ),
             None,
         )
@@ -529,6 +697,17 @@ def unify_documents(
         })
 
     warnings = payload.setdefault("warnings", [])
+    if context_compatibility["total_repaired_count"]:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "stage4r_required_measurement_context_backfilled",
+            "message": (
+                "Stage 4R backfilled only missing/null PropertySeries and "
+                "point measurement contexts as not_reported snapshots."
+            ),
+            "series": context_compatibility["series_repaired_count"],
+            "points": context_compatibility["point_repaired_count"],
+        })
     if not any(
         isinstance(item, Mapping)
         and item.get("code") == "stage4r_unified_preview"
@@ -555,15 +734,26 @@ def unify_documents(
             "unmatched_sample_count": status_counts["unmatched_sample"],
             "ambiguous_sample_count": status_counts["ambiguous_sample"],
             "source_conflict_count": status_counts["source_conflict"],
+            "compatible_semantic_alias_count": len(compatible_alias_pairs),
             "retained_candidate_count": status_counts["retained_candidate"],
             "invalid_candidate_count": status_counts["invalid_candidate"],
             "quarantined_stage4_property_count": len(quarantined_ids),
+            "measurement_context_repaired_count": context_compatibility[
+                "total_repaired_count"
+            ],
+            "series_measurement_context_repaired_count": (
+                context_compatibility["series_repaired_count"]
+            ),
+            "point_measurement_context_repaired_count": (
+                context_compatibility["point_repaired_count"]
+            ),
             "status_counts": dict(sorted(status_counts.items())),
             "sample_resolution_status_counts": dict(sorted(Counter(
                 str(item.get("sample_resolution_status") or "not_recorded")
                 for item in records
             ).items())),
         },
+        "measurement_context_compatibility": context_compatibility,
         "candidate_outcomes": records,
     }
     return merged, audit

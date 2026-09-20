@@ -25,6 +25,7 @@ from stages.stage4t_table_survey import (
     _grid_shape,
     _is_value_like_numeric,
     _load_property_patterns,
+    _multi_descriptor_column_sample_layout,
     _normalized_text,
     _property_header_like,
     _property_match,
@@ -36,7 +37,7 @@ from stages.stage4t_table_survey import (
 from stages.table_grid import table_cells_for
 
 
-SHADOW_VERSION = "0.5.0"
+SHADOW_VERSION = "0.9.1"
 _SAMPLE_AXIS_WORD_RE = re.compile(
     r"\b(?:samples?|polymers?|specimens?|resins?|compounds?|blends?|runs?|codes?[a-z]?|no\.?|编号|样品|试样)\b",
     re.IGNORECASE,
@@ -81,6 +82,96 @@ _FOOTNOTED_DEGREE_VALUE_RE = re.compile(
     re.IGNORECASE,
 )
 
+_PARENTHETICAL_ANGLE_UNIT_RE = re.compile(
+    r"\(\s*(degrees?|deg)\s*\)",
+    re.IGNORECASE,
+)
+_HEADER_TEMPERATURE_CONDITION_RE = re.compile(
+    r"\bat\s+([+-]?(?:\d+(?:\.\d*)?|\.\d+))\s*"
+    r"(?:°|º|\\circ|deg(?:ree)?s?\s*)?c\b",
+    re.IGNORECASE,
+)
+_UV_DURATION_RE = re.compile(
+    r"\b([+-]?(?:\d+(?:\.\d*)?|\.\d+))\s*(?:h|hr|hrs|hours?)\b",
+    re.IGNORECASE,
+)
+_DEGREE_CRYSTALLINITY_COLUMN_RE = re.compile(
+    r"^(?:degree\s+of\s+)?crystal\s*-?\s*linity"
+    r"(?:\s+at\s+[+-]?(?:\d+(?:\.\d*)?|\.\d+)\s*"
+    r"(?:(?:°|º|�|��)\s*|deg(?:ree)?s?\s*)?c)?$",
+    re.IGNORECASE,
+)
+_POLYMERIZATION_METHOD_TOKEN_RE = re.compile(
+    r"^(?:hts|lts)(?:\s+[a-z])?$",
+    re.IGNORECASE,
+)
+
+_PU_FAMILY_AXIS_TOKEN = "polymerpuiwherei"
+_PU_FAMILY_T0_HEADER_RE = re.compile(r"^t0[a-z]?c?$")
+_PU_FAMILY_MAX_DTG_HEADER_RE = re.compile(r"^maxdtg[a-z]?c?$")
+_PU_FAMILY_SCALAR_RE = re.compile(r"^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$")
+_PU_FAMILY_MULTI_RE = re.compile(
+    r"^([+-]?(?:\d+(?:\.\d*)?|\.\d+))/"
+    r"([+-]?(?:\d+(?:\.\d*)?|\.\d+))$"
+)
+_CONTACT_ANGLE_MODE_RE = re.compile(
+    r"^\(?\s*(static|advancing|receding|sliding)\s*\)?$",
+    re.IGNORECASE,
+)
+_EXPLICIT_ANGLE_VALUE_RE = re.compile(
+    r"(?:\\circ|\\degree|\u00b0|\u00ba)",
+    re.IGNORECASE,
+)
+
+
+def _flat_latex_surface(value: str) -> str:
+    """Flatten only enough LaTeX to recognize a unit expression.
+
+    This helper is intentionally not used for ``property_name_raw`` or
+    ``value_raw``.  Those fields must remain verbatim evidence.
+    """
+
+    text = str(value or "")
+    for _ in range(3):
+        text = re.sub(
+            r"\\(?:text|mathrm|operatorname)\s*\{([^{}]*)\}",
+            r"\1",
+            text,
+        )
+    text = text.replace("\\Omega", "ohm").replace("Ω", "ohm")
+    text = text.replace("−", "-").replace("–", "-")
+    return re.sub(r"[\s${}]", "", text).casefold()
+
+
+def _reciprocal_ohm_cm_unit(value: str) -> bool:
+    flat = _flat_latex_surface(value)
+    return bool(re.search(r"ohm(?:\^)?-1(?:[*/·]?)cm(?:\^)?-1", flat))
+
+
+def _conductivity_display_scale(value: str) -> dict[str, Any]:
+    """Recognize the narrow ``sigma (10^n ohm^-1 cm^-1)`` convention.
+
+    In these conductivity tables the printed cells are ``sigma * 10^n``;
+    therefore the physical conductivity is the displayed cell times
+    ``10^-n``.  Returning explicit metadata keeps the inverse operation out
+    of generic unit/exponent inference.
+    """
+
+    if not _reciprocal_ohm_cm_unit(value):
+        return {}
+    flat = _flat_latex_surface(value)
+    match = re.search(r"10\^\+?(\d+)", flat)
+    if not match:
+        return {}
+    exponent = int(match.group(1))
+    if not 1 <= exponent <= 18:
+        return {}
+    return {
+        "display_multiplier_exponent": exponent,
+        "value_scale_factor": 10.0 ** (-exponent),
+        "scale_interpretation": "display_value_equals_physical_value_times_10^n",
+    }
+
 
 def _text(cell: Stage0TableCell | None) -> str:
     return cell.text.strip() if cell is not None else ""
@@ -100,7 +191,14 @@ def _header_context(
     return values
 
 
-def _unit_info(headers: Sequence[str], caption: str | None) -> dict[str, Any]:
+def _unit_info(
+    headers: Sequence[str],
+    caption: str | None,
+    *,
+    property_name: str | None = None,
+    semantic_label: str | None = None,
+) -> dict[str, Any]:
+    joined_headers = " | ".join(headers)
     header_units = _unit_hits(" | ".join(headers))
     caption_units = _unit_hits(caption or "")
     raw = header_units[0] if header_units else (
@@ -114,7 +212,7 @@ def _unit_info(headers: Sequence[str], caption: str | None) -> dict[str, Any]:
         locations.append("header")
     if caption_units:
         locations.append("caption")
-    return {
+    result = {
         "unit_raw": raw,
         "unit_normalized": normalized,
         "unit_location": (
@@ -122,6 +220,46 @@ def _unit_info(headers: Sequence[str], caption: str | None) -> dict[str, Any]:
             else "multiple" if locations else "not_found"
         ),
     }
+
+    # ``Degrees`` is an angle unit only in an explicit unit wrapper and only
+    # after the column has independently been identified as contact angle.
+    # This prevents "Degree of Crystallinity" from becoming an angle.
+    if property_name == "contact_angle":
+        angle_match = _PARENTHETICAL_ANGLE_UNIT_RE.search(joined_headers)
+        if angle_match:
+            result.update({
+                "unit_raw": angle_match.group(1),
+                "unit_normalized": "deg",
+                "unit_location": "header",
+            })
+
+    if property_name == "electric_conductivity" and _reciprocal_ohm_cm_unit(
+        joined_headers
+    ):
+        result.update({
+            "unit_raw": "ohm^-1 cm^-1",
+            "unit_normalized": "S/cm",
+            "unit_location": "header",
+        })
+        result.update(_conductivity_display_scale(joined_headers))
+
+    # A temperature in "Degree of crystallinity at 110 °C" is a measurement
+    # condition, never the response unit.  Keep an explicitly printed percent
+    # sign if present; otherwise leave the response unit unknown.
+    if semantic_label == "crystallinity":
+        if "%" in joined_headers:
+            result.update({
+                "unit_raw": "%",
+                "unit_normalized": "%",
+                "unit_location": "header",
+            })
+        else:
+            result.update({
+                "unit_raw": None,
+                "unit_normalized": None,
+                "unit_location": "not_found",
+            })
+    return result
 
 
 def _sample_label_for_row(
@@ -242,6 +380,7 @@ def _property_semantics(
     semantic_label: str | None = None
     property_variant: str | None = None
     conditions: dict[str, Any] = {}
+    condition_binding_validated = False
 
     if property_name is None and re.search(r"(?:^|\W)t\s+i(?:\W|$)", normalized):
         degradation_context = re.search(
@@ -277,11 +416,22 @@ def _property_semantics(
         (r"\breduced\s+viscosity\b|(?:\\eta|eta|η)\s*red\b", "reduced"),
         (r"\bspecific\s+viscosity\b|(?:\\eta|eta|η)\s*sp\b", "specific"),
     )
-    if property_name == "intrinsic_viscosity":
+    if property_name in {
+        "inherent_viscosity",
+        "intrinsic_viscosity",
+        "reduced_viscosity",
+        "specific_viscosity",
+    }:
         property_variant = next(
             (variant for pattern, variant in viscosity_variants if re.search(pattern, normalized)),
             property_variant,
         )
+        property_name = {
+            "inherent": "inherent_viscosity",
+            "intrinsic": "intrinsic_viscosity",
+            "reduced": "reduced_viscosity",
+            "specific": "specific_viscosity",
+        }.get(property_variant, property_name)
 
     molecular_weight_distribution = re.search(
         r"m\s+[nw]\s*/(?:\\overline\s*)?m\s+[nw]|"
@@ -308,6 +458,20 @@ def _property_semantics(
 
     if property_name is None and re.search(r"\b(?:degree\s+of\s+)?crystal\s*-?\s*linity\b|结晶度", normalized):
         semantic_label = "crystallinity"
+
+    if semantic_label == "crystallinity":
+        if temperature := _HEADER_TEMPERATURE_CONDITION_RE.search(normalized):
+            conditions["temperature_celsius"] = float(temperature.group(1))
+            condition_binding_validated = True
+
+    if property_name == "electric_conductivity":
+        if "before uv exposure" in normalized:
+            conditions["uv_exposure_state"] = "before"
+            condition_binding_validated = True
+        elif "after uv exposure" in normalized:
+            if duration := _UV_DURATION_RE.search(normalized):
+                conditions["uv_exposure_hours"] = float(duration.group(1))
+                condition_binding_validated = True
 
     if property_name is None and semantic_label is None and re.search(
         r"\bsolubility\b|溶解性",
@@ -548,6 +712,7 @@ def _property_semantics(
         "semantic_label": semantic_label,
         "property_variant": property_variant,
         "conditions": conditions,
+        "condition_binding_validated": condition_binding_validated,
     }
 
 
@@ -563,9 +728,11 @@ def _observation(
     conditions: Mapping[str, Any],
     unit: Mapping[str, Any],
     direction: str,
+    condition_binding_validated: bool = False,
     measurement_role: str = "reported_unknown",
     header_column_index: int | None = None,
     alignment_status: str = "exact",
+    alignment_basis: str | None = None,
     header_path: Sequence[str] | None = None,
     axis_role: str | None = None,
 ) -> dict[str, Any]:
@@ -638,6 +805,7 @@ def _observation(
         "candidate_state": "raw_candidate",
         "authority_target": publication_target,
         "conditions": dict(conditions),
+        "condition_binding_validated": bool(condition_binding_validated),
         "measurement_role": measurement_role,
         "value_raw": value_raw,
         "value_kind": value_kind,
@@ -662,7 +830,20 @@ def _observation(
         "evidence_locator": locator,
         "warnings": warnings,
     }
-    item["publication_gate"] = assess_publication_candidate(item)
+    if alignment_basis:
+        item["alignment_basis"] = alignment_basis
+    for key in (
+        "display_multiplier_exponent",
+        "value_scale_factor",
+        "scale_interpretation",
+        "unit_inference_basis",
+    ):
+        if unit.get(key) is not None:
+            item[key] = unit[key]
+    item["publication_gate"] = assess_publication_candidate(
+        item,
+        condition_binding_validated=condition_binding_validated,
+    )
     return item
 
 
@@ -767,14 +948,16 @@ def _deduplicate_observations(
     order: list[str] = []
     for item in observations:
         cell_id = str(item["cell_id"])
-        if cell_id not in by_cell:
-            by_cell[cell_id] = item
-            order.append(cell_id)
+        value_index = item.get("value_index")
+        key = cell_id if value_index is None else f"{cell_id}#v{value_index}"
+        if key not in by_cell:
+            by_cell[key] = item
+            order.append(key)
             continue
-        current = by_cell[cell_id]
+        current = by_cell[key]
         if priority[item["candidate_class"]] > priority[current["candidate_class"]]:
-            by_cell[cell_id] = item
-    return [by_cell[cell_id] for cell_id in order]
+            by_cell[key] = item
+    return [by_cell[key] for key in order]
 
 
 def _unresolved_for_observations(
@@ -812,7 +995,12 @@ def _row_value_column(
     column_count: int,
 ) -> tuple[int, str]:
     column = int(descriptor["column_index"])
-    if descriptor.get("property_name_normalized") != "intrinsic_viscosity":
+    if descriptor.get("property_name_normalized") not in {
+        "inherent_viscosity",
+        "intrinsic_viscosity",
+        "reduced_viscosity",
+        "specific_viscosity",
+    }:
         return column, "exact"
     if column + 1 >= column_count:
         return column, "exact"
@@ -846,6 +1034,154 @@ def _row_value_column(
     return column, "exact"
 
 
+def _crystallinity_column_header_is_protected(value: Any) -> bool:
+    normalized = _normalized_text(str(value or ""))
+    normalized = re.sub(r"\s*\|\s*", " ", normalized).strip()
+    return bool(_DEGREE_CRYSTALLINITY_COLUMN_RE.fullmatch(normalized))
+
+
+def _with_inferred_crystallinity_percent(
+    descriptor: Mapping[str, Any],
+    cells: Sequence[Stage0TableCell],
+    *,
+    data_start: int,
+    row_count: int,
+) -> dict[str, Any]:
+    """Infer percent only from a protected multi-row crystallinity column."""
+
+    result = dict(descriptor)
+    if (
+        descriptor.get("semantic_label") != "crystallinity"
+        and descriptor.get("property_name_normalized") != "crystallinity"
+    ):
+        return result
+    if descriptor.get("unit_raw") or descriptor.get("unit_normalized"):
+        return result
+    if str(descriptor.get("unit_location") or "not_found") != "not_found":
+        return result
+    if not _crystallinity_column_header_is_protected(
+        descriptor.get("property_name_raw")
+    ):
+        return result
+
+    column = int(descriptor["column_index"])
+    values: list[float] = []
+    for row in range(data_start, row_count):
+        text = _text(_cell_at(cells, row, column))
+        if not text or _value_kind(text) != "numeric_scalar":
+            continue
+        if _FOOTNOTE_VALUE_RE.search(text):
+            continue
+        value = _numeric_scalar(text)
+        if value is not None:
+            values.append(value)
+    if (
+        len(values) < 2
+        or not all(0.0 <= value <= 100.0 for value in values)
+        or not any(value > 1.0 for value in values)
+    ):
+        return result
+    result.update({
+        "unit_raw": "%",
+        "unit_normalized": "%",
+        "unit_location": "inferred_property_convention",
+        "unit_inference_basis": "degree_crystallinity_column_0_100",
+    })
+    return result
+
+
+def _row_column_alignment_map(
+    descriptors: Sequence[Mapping[str, Any]],
+    cells: Sequence[Stage0TableCell],
+    *,
+    data_start: int,
+    row_count: int,
+    column_count: int,
+) -> dict[int, dict[str, Any]]:
+    """Build guarded table-level mappings for missing-colspan recovery."""
+
+    mapping: dict[int, dict[str, Any]] = {}
+    descriptors_by_column = {
+        int(descriptor["column_index"]): descriptor for descriptor in descriptors
+    }
+    for descriptor in descriptors:
+        header_column = int(descriptor["column_index"])
+        value_column, status = _row_value_column(
+            descriptor,
+            cells,
+            data_start=data_start,
+            row_count=row_count,
+            column_count=column_count,
+        )
+        mapping[header_column] = {
+            "value_column": value_column,
+            "alignment_status": status,
+            "alignment_basis": (
+                "adjacent_viscosity_value_shape"
+                if status == "inferred_right_shift" else None
+            ),
+        }
+
+    for viscosity_column, viscosity_alignment in list(mapping.items()):
+        if viscosity_alignment["alignment_status"] != "inferred_right_shift":
+            continue
+        viscosity = descriptors_by_column.get(viscosity_column)
+        if not viscosity or viscosity.get("property_name_normalized") not in {
+            "inherent_viscosity",
+            "intrinsic_viscosity",
+            "reduced_viscosity",
+            "specific_viscosity",
+        }:
+            continue
+        pmt_column = viscosity_column - 1
+        pmt = descriptors_by_column.get(pmt_column)
+        if not pmt or pmt.get("property_name_normalized") != "melting_temperature":
+            continue
+
+        current_texts = [
+            _text(_cell_at(cells, row, pmt_column))
+            for row in range(data_start, row_count)
+        ]
+        nonempty_current = [
+            _normalized_text(text).strip() for text in current_texts if text.strip()
+        ]
+        if nonempty_current and not all(
+            _POLYMERIZATION_METHOD_TOKEN_RE.fullmatch(text)
+            for text in nonempty_current
+        ):
+            continue
+
+        target_column = viscosity_column
+        target_texts = [
+            _text(_cell_at(cells, row, target_column))
+            for row in range(data_start, row_count)
+        ]
+        nonempty_target = [text for text in target_texts if text.strip()]
+        target_values = [
+            value for text in nonempty_target
+            if _value_kind(text) == "numeric_scalar"
+            and (value := _numeric_scalar(text)) is not None
+        ]
+        if len(target_values) != len(nonempty_target) or len(target_values) < 3:
+            continue
+        if not all(50.0 <= value <= 1500.0 for value in target_values):
+            continue
+
+        conflicting_owner = any(
+            other_column != pmt_column
+            and int(other_alignment["value_column"]) == target_column
+            for other_column, other_alignment in mapping.items()
+        )
+        if conflicting_owner:
+            continue
+        mapping[pmt_column] = {
+            "value_column": target_column,
+            "alignment_status": "paired_right_shift",
+            "alignment_basis": "paired_with_confirmed_viscosity_right_shift",
+        }
+    return mapping
+
+
 def _property_descriptor(
     *,
     table_id: str,
@@ -862,7 +1198,12 @@ def _property_descriptor(
         patterns,
         table_context=table_context,
     )
-    unit = _unit_info(headers, caption)
+    unit = _unit_info(
+        headers,
+        caption,
+        property_name=semantics["property_name_normalized"],
+        semantic_label=semantics["semantic_label"],
+    )
     return {
         "table_id": table_id,
         "column_index": column_index,
@@ -907,9 +1248,25 @@ def _row_shadow(
             descriptors.append(descriptor)
             descriptor_keys.add(descriptor_key)
 
+    data_start = max(header_rows, default=-1) + 1
+    descriptors = [
+        _with_inferred_crystallinity_percent(
+            descriptor,
+            cells,
+            data_start=data_start,
+            row_count=row_count,
+        )
+        for descriptor in descriptors
+    ]
+    alignment_map = _row_column_alignment_map(
+        descriptors,
+        cells,
+        data_start=data_start,
+        row_count=row_count,
+        column_count=column_count,
+    )
     observations: list[dict[str, Any]] = []
     unresolved: list[dict[str, Any]] = []
-    data_start = max(header_rows, default=-1) + 1
     for descriptor in descriptors:
         header_column = int(descriptor["column_index"])
         if not _descriptor_is_observation_candidate(
@@ -917,13 +1274,9 @@ def _row_shadow(
             allow_unmapped=header_column > 0,
         ):
             continue
-        column, alignment_status = _row_value_column(
-            descriptor,
-            cells,
-            data_start=data_start,
-            row_count=row_count,
-            column_count=column_count,
-        )
+        alignment = alignment_map[header_column]
+        column = int(alignment["value_column"])
+        alignment_status = str(alignment["alignment_status"])
         for row in range(data_start, row_count):
             cell = _cell_at(cells, row, column)
             if cell is None or not _value_cell_like(cell.text):
@@ -945,6 +1298,9 @@ def _row_shadow(
                 conditions=conditions,
                 unit=descriptor,
                 direction=direction,
+                condition_binding_validated=bool(
+                    descriptor.get("condition_binding_validated")
+                ),
                 measurement_role=_measurement_role_for_row(
                     cells,
                     row,
@@ -952,6 +1308,7 @@ def _row_shadow(
                 ),
                 header_column_index=header_column,
                 alignment_status=alignment_status,
+                alignment_basis=alignment.get("alignment_basis"),
             )
             if sample_label is None:
                 item["binding_status"] = "unresolved"
@@ -988,10 +1345,24 @@ def _column_shadow(
     observations: list[dict[str, Any]] = []
     unresolved: list[dict[str, Any]] = []
     descriptor_rows: set[int] = set()
-    for column in range(1, column_count):
+    multi_descriptor_layout = _multi_descriptor_column_sample_layout(
+        cells,
+        header_row=header_row,
+        patterns=patterns,
+        column_count=column_count,
+    )
+    if multi_descriptor_layout is None:
+        property_column = 0
+        sample_columns = range(1, column_count)
+    else:
+        property_column, _ = multi_descriptor_layout
+        property_column -= 1
+        sample_columns = range(property_column + 1, column_count)
+    caption_property = _match_property(table.caption or "", patterns)
+    for column in sample_columns:
         sample_label = _text(_cell_at(cells, header_row, column))
         for row in range(max(header_rows, default=-1) + 1, row_count):
-            property_cell = _cell_at(cells, row, 0)
+            property_cell = _cell_at(cells, row, property_column)
             value_cell = _cell_at(cells, row, column)
             if property_cell is None or value_cell is None:
                 continue
@@ -1000,13 +1371,38 @@ def _column_shadow(
                 continue
             descriptor = _property_descriptor(
                 table_id=table.block_id,
-                column_index=0,
+                column_index=property_column,
                 headers=[property_raw],
                 caption=table.caption,
                 patterns=patterns,
                 direction=direction,
                 table_context=table.caption or "",
             )
+            if (
+                multi_descriptor_layout is not None
+                and caption_property == "contact_angle"
+            ):
+                mode = _CONTACT_ANGLE_MODE_RE.fullmatch(
+                    _normalized_text(property_raw)
+                )
+                if (
+                    mode is None
+                    or not _EXPLICIT_ANGLE_VALUE_RE.search(value_cell.text)
+                ):
+                    # Do not let another quantity in the same mixed-property
+                    # table inherit the caption's contact-angle semantics.
+                    continue
+                descriptor.update({
+                    "property_name_normalized": "contact_angle",
+                    "semantic_label": None,
+                    "property_variant": mode.group(1).casefold(),
+                    "conditions": {},
+                    "condition_binding_validated": False,
+                    "unit_raw": "degree",
+                    "unit_normalized": "deg",
+                    "unit_location": "value",
+                    "unit_inference_basis": "explicit_angle_symbol_in_value",
+                })
             if not _descriptor_is_observation_candidate(
                 descriptor,
                 allow_unmapped=True,
@@ -1026,6 +1422,9 @@ def _column_shadow(
                 conditions=descriptor["conditions"],
                 unit=descriptor,
                 direction=direction,
+                condition_binding_validated=bool(
+                    descriptor.get("condition_binding_validated")
+                ),
                 measurement_role=_measurement_role_for_row(
                     cells,
                     row,
@@ -1166,6 +1565,9 @@ def _grouped_column_shadow(
                 conditions=descriptor["conditions"],
                 unit=descriptor,
                 direction=direction,
+                condition_binding_validated=bool(
+                    descriptor.get("condition_binding_validated")
+                ),
             )
             if descriptor["property_name_normalized"] is None:
                 unresolved.append({
@@ -1251,6 +1653,9 @@ def _condition_shadow(
                 conditions=conditions,
                 unit=descriptor,
                 direction=direction,
+                condition_binding_validated=bool(
+                    descriptor.get("condition_binding_validated")
+                ),
             )
             if descriptor["property_name_normalized"] is not None:
                 item["binding_status"] = "condition_bound"
@@ -1265,6 +1670,208 @@ def _condition_shadow(
                 })
             observations.append(item)
     return descriptors, observations, unresolved
+
+
+def _pu_family_header_token(value: str) -> str:
+    """Return the conservative ASCII token used by the PU-family fingerprint."""
+
+    return re.sub(r"[^a-z0-9]+", "", _normalized_text(value))
+
+
+def _has_stable_cell_locator(
+    cell: Stage0TableCell | None,
+    *,
+    table_id: str,
+    row: int,
+    column: int,
+) -> bool:
+    if cell is None:
+        return False
+    return bool(
+        cell.row_index == row
+        and cell.column_index == column
+        and cell.row_span == 1
+        and cell.column_span == 1
+        and cell.cell_id == f"{table_id}:r{row:04d}:c{column:04d}"
+    )
+
+
+def _pu_family_celsius_unit(header: str) -> dict[str, Any] | None:
+    """Require an explicit Celsius unit; never infer it from numeric shape."""
+
+    hits = _unit_hits(header)
+    if len(hits) != 1:
+        return None
+    token = re.sub(r"[^a-z]+", "", _normalized_text(hits[0]))
+    if token != "c":
+        return None
+    return {
+        "unit_raw": hits[0],
+        "unit_normalized": "\u00b0C",
+        "unit_location": "header",
+        "unit_inference_basis": "explicit_pu_thermal_column_header",
+    }
+
+
+def _strong_pu_family_thermal_shadow(
+    *,
+    table: Stage0Element,
+    cells: Sequence[Stage0TableCell],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]] | None:
+    """Expand the narrow ``Polymer PU_i where i=`` thermal table family.
+
+    This deliberately is not a generic numeric-axis heuristic.  Every guard is
+    table-local and observable at runtime: exact family header, explicit Celsius
+    units, a 1..N contiguous integer axis, scalar thermal cells, and canonical
+    Stage 0 cell locators.  Any failed guard disables the whole rule.
+    """
+
+    row_count, column_count = _grid_shape(cells)
+    if row_count < 3 or column_count < 2:
+        return None
+    axis_header = _cell_at(cells, 0, 0)
+    if not _has_stable_cell_locator(
+        axis_header, table_id=table.block_id, row=0, column=0
+    ):
+        return None
+    if _pu_family_header_token(_text(axis_header)) != _PU_FAMILY_AXIS_TOKEN:
+        return None
+
+    target_columns: list[dict[str, Any]] = []
+    for column in range(1, column_count):
+        header = _cell_at(cells, 0, column)
+        if not _has_stable_cell_locator(
+            header, table_id=table.block_id, row=0, column=column
+        ):
+            return None
+        raw = _text(header)
+        token = _pu_family_header_token(raw)
+        if _PU_FAMILY_T0_HEADER_RE.fullmatch(token):
+            target_columns.append({
+                "column": column,
+                "raw": raw,
+                "property_name": "thermal_decomposition_temperature",
+                "semantic_label": None,
+                "property_variant": "mass_loss_threshold",
+                "conditions": {"mass_loss_percent": 5.0},
+                "allow_multiple": False,
+            })
+        elif _PU_FAMILY_MAX_DTG_HEADER_RE.fullmatch(token):
+            target_columns.append({
+                "column": column,
+                "raw": raw,
+                "property_name": None,
+                "semantic_label": "max_dtg",
+                "property_variant": "maximum_decomposition_rate",
+                "conditions": {},
+                "allow_multiple": True,
+            })
+
+    if not target_columns:
+        return None
+    if len({item["property_variant"] for item in target_columns}) != len(target_columns):
+        return None
+    for target in target_columns:
+        unit = _pu_family_celsius_unit(str(target["raw"]))
+        if unit is None:
+            return None
+        target["unit"] = unit
+
+    axis_values: list[int] = []
+    parsed_values: dict[tuple[int, int], list[str]] = {}
+    for row in range(1, row_count):
+        axis_cell = _cell_at(cells, row, 0)
+        if not _has_stable_cell_locator(
+            axis_cell, table_id=table.block_id, row=row, column=0
+        ):
+            return None
+        axis_raw = _text(axis_cell)
+        if not re.fullmatch(r"[1-9]\d*", axis_raw):
+            return None
+        axis_values.append(int(axis_raw))
+        for target in target_columns:
+            column = int(target["column"])
+            value_cell = _cell_at(cells, row, column)
+            if not _has_stable_cell_locator(
+                value_cell, table_id=table.block_id, row=row, column=column
+            ):
+                return None
+            compact = re.sub(r"\s+", "", _text(value_cell))
+            if compact in {"", "-", "—", "–", "−"}:
+                parsed_values[(row, column)] = []
+                continue
+            if _PU_FAMILY_SCALAR_RE.fullmatch(compact):
+                parsed_values[(row, column)] = [compact]
+                continue
+            multiple = _PU_FAMILY_MULTI_RE.fullmatch(compact)
+            if multiple and bool(target["allow_multiple"]):
+                parsed_values[(row, column)] = [multiple.group(1), multiple.group(2)]
+                continue
+            return None
+
+    if axis_values != list(range(1, row_count)):
+        return None
+    if any(
+        not any(parsed_values[(row, int(target["column"]))] for row in range(1, row_count))
+        for target in target_columns
+    ):
+        return None
+
+    descriptors: list[dict[str, Any]] = []
+    observations: list[dict[str, Any]] = []
+    for target in target_columns:
+        column = int(target["column"])
+        descriptor = {
+            "table_id": table.block_id,
+            "column_index": column,
+            "header_context": [target["raw"]],
+            "property_name_raw": target["raw"],
+            "property_name_normalized": target["property_name"],
+            "semantic_label": target["semantic_label"],
+            "property_variant": target["property_variant"],
+            "conditions": dict(target["conditions"]),
+            "condition_binding_validated": True,
+            "direction": "row_samples",
+            **target["unit"],
+        }
+        descriptors.append(descriptor)
+        for row, sample_number in enumerate(axis_values, start=1):
+            source_cell = _cell_at(cells, row, column)
+            assert source_cell is not None  # guarded above
+            values = parsed_values[(row, column)]
+            for value_index, value_raw in enumerate(values):
+                scalar_cell = source_cell.model_copy(update={"text": value_raw})
+                item = _observation(
+                    table_id=table.block_id,
+                    cell=scalar_cell,
+                    sample_label=f"PU{sample_number}",
+                    property_raw=str(target["raw"]),
+                    property_name=target["property_name"],
+                    semantic_label=target["semantic_label"],
+                    property_variant=str(target["property_variant"]),
+                    conditions=target["conditions"],
+                    unit=target["unit"],
+                    direction="row_samples",
+                    condition_binding_validated=True,
+                    header_column_index=column,
+                    header_path=[str(target["raw"])],
+                    axis_role="generated_sample_family",
+                )
+                item.update({
+                    "sample_label_basis": "pu_family_integer_axis_expansion",
+                    "sample_axis_value_raw": str(sample_number),
+                    "source_value_raw": source_cell.text.strip(),
+                })
+                if len(values) > 1:
+                    item["value_index"] = value_index
+                    item["value_count"] = len(values)
+                    item["observation_id"] = (
+                        f"{table.block_id}:{source_cell.cell_id}:v{value_index + 1:02d}"
+                    )
+                    item["evidence_locator"]["value_index"] = value_index
+                    item["evidence_locator"]["value_count"] = len(values)
+                observations.append(item)
+    return descriptors, observations
 
 
 def _mixed_shadow(
@@ -1288,7 +1895,12 @@ def _mixed_shadow(
             continue
         semantics = _property_semantics(property_header, patterns)
         property_name = semantics["property_name_normalized"]
-        unit = _unit_info([property_header], table.caption)
+        unit = _unit_info(
+            [property_header],
+            table.caption,
+            property_name=semantics["property_name_normalized"],
+            semantic_label=semantics["semantic_label"],
+        )
         descriptors.append(_property_descriptor(
             table_id=table.block_id,
             column_index=property_column,
@@ -1314,6 +1926,9 @@ def _mixed_shadow(
                 conditions=semantics["conditions"],
                 unit=unit,
                 direction=direction,
+                condition_binding_validated=bool(
+                    semantics.get("condition_binding_validated")
+                ),
             )
             if sample_label is None or property_name is None:
                 item["binding_status"] = "unresolved"
@@ -1346,8 +1961,17 @@ def shadow_extract_table(
         header_rows = {min(header_rows)}
     survey = survey_table(table, property_patterns=patterns)
     direction = survey["direction"]
+    strong_pu_thermal = _strong_pu_family_thermal_shadow(
+        table=table,
+        cells=cells,
+    )
 
-    if direction == "column_samples":
+    if strong_pu_thermal is not None:
+        descriptors, observations = strong_pu_thermal
+        unresolved = []
+        header_rows = {0}
+        direction = "row_samples"
+    elif direction == "column_samples":
         if solubility_caption:
             descriptors, observations, unresolved = _solubility_column_shadow(
                 table=table,
@@ -1399,6 +2023,15 @@ def shadow_extract_table(
     unresolved = _unresolved_for_observations(observations)
 
     warnings = list(survey.get("warnings") or [])
+    if strong_pu_thermal is not None:
+        warnings = [
+            warning for warning in warnings
+            if warning not in {
+                "numeric_table_without_property_columns",
+                "numeric_table_without_sample_axis",
+            }
+        ]
+        warnings.append("strong_pu_thermal_fingerprint_applied")
     if direction == "unknown":
         warnings.append("shadow_direction_unknown")
     if not descriptors and survey["numeric_cell_count"]:
@@ -1410,6 +2043,11 @@ def shadow_extract_table(
         for item in observations
     ):
         warnings.append("shadow_inferred_column_shift")
+    if any(
+        item.get("alignment_status") == "paired_right_shift"
+        for item in observations
+    ):
+        warnings.append("shadow_inferred_paired_column_shift")
     return {
         "shadow_schema_version": "stage4t_table_property_shadow.v0.5",
         "shadow_version": SHADOW_VERSION,
@@ -1418,8 +2056,12 @@ def shadow_extract_table(
         "table_id": table.block_id,
         "caption": table.caption,
         "direction": direction,
-        "sample_axis": survey["sample_axis"],
-        "axis_role": survey.get("axis_role", "unknown"),
+        "sample_axis": "row" if strong_pu_thermal is not None else survey["sample_axis"],
+        "axis_role": (
+            "generated_sample_family"
+            if strong_pu_thermal is not None
+            else survey.get("axis_role", "unknown")
+        ),
         "header_rows": sorted(header_rows),
         "property_candidates": descriptors,
         "observations": observations,

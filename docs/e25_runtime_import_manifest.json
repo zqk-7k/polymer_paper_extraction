@@ -1,0 +1,652 @@
+{
+  "source_version": "E25",
+  "snapshot_created_utc": "2026-09-07T03:55:07.828984+00:00",
+  "imported": [
+    {
+      "path": "extraction/batch_runner.py",
+      "frozen_sha256": "f4f7af49a5bac2272189f73d60285523cb69340cf967e0f2f94dd587238b57df"
+    },
+    {
+      "path": "extraction/config/polymer_schema.yaml",
+      "frozen_sha256": "d427b3fa26149a335b5f94a594051fa4fca32509066a44fad6dd731bbd13c670"
+    },
+    {
+      "path": "extraction/prompts/stage3_sample_process.md",
+      "frozen_sha256": "2dcb37650e752957089e2861edea11c4363b7140f7e23bd297b0c1154c58612f"
+    },
+    {
+      "path": "extraction/prompts/stage4_direct_table_supplement.txt",
+      "frozen_sha256": "1f80ada4625e4846777cf163d48b36b00a673140d57650351bc306c8415f9744"
+    },
+    {
+      "path": "extraction/prompts/stage4_direct_text_supplement.txt",
+      "frozen_sha256": "7523357161521279a5c58770d27a04135d3507c8a1a0543dd19c85f75de8bf2e"
+    },
+    {
+      "path": "extraction/prompts/stage4_property.md",
+      "frozen_sha256": "f1fcc002cff3accce5ee3c7b3384e1a2a4c4d8bc2b27ff6bbfc08e20b0d52efc"
+    },
+    {
+      "path": "extraction/prompts/stage4t_table_interpretation.md",
+      "frozen_sha256": "8cd21657330eda3ef4ebd4c74d87bbd8c91b65c3f0bac1472304502702db2585"
+    },
+    {
+      "path": "extraction/reports/__init__.py",
+      "frozen_sha256": "3d8f48d10e81d3434f71d05e2c469b97e3a31c27e576e4a4bc553b6c987b04c0"
+    },
+    {
+      "path": "extraction/reports/assets/mathjax-3.2.2/README.md",
+      "frozen_sha256": "c6021563e0c7ea235047e7398cd03a74ec9b4f4947dcbdfa0a99362cd2c5f891"
+    },
+    {
+      "path": "extraction/reports/render_extraction_html.py",
+      "frozen_sha256": "788fe1e197835541ef6a2807458f6eb8b80290623ee598c0f438e801402eaeb9"
+    },
+    {
+      "path": "extraction/reports/report_view_model.py",
+      "frozen_sha256": "76c02311e3fc28f7d0925985d8209751a1bcb500c37fe17287d38d4b886c1fe0"
+    },
+    {
+      "path": "extraction/sample_normalization.py",
+      "frozen_sha256": "d204cf008e64860ee64ba4d7d9c4bff9f06c743c13418da5d1fdb92df210538a"
+    },
+    {
+      "path": "extraction/schema/polymer_schema.py",
+      "frozen_sha256": "3fbe13f78cf39d549384abcac7b13059cffbdd6b8eec2c73a758320b19d82df2"
+    },
+    {
+      "path": "extraction/stages/evidence_matcher.py",
+      "frozen_sha256": "7fa03fee204bceb4ea021faf4d654a75e304d37827e214926c0da53a475eb52e"
+    },
+    {
+      "path": "extraction/stages/property_publication_policy.py",
+      "frozen_sha256": "a9717f5a5a3afa2b09c96f9be3ea60992b847fa690709313eb3c5ba1ec9e99a0"
+    },
+    {
+      "path": "extraction/stages/source_compound_thermal_peaks.py",
+      "frozen_sha256": "e67b70681d61c5f1e3125c45560e0401ba9ae2710b58c5b9eead2a761c322515"
+    },
+    {
+      "path": "extraction/stages/source_control_escapes.py",
+      "frozen_sha256": "e7e035f39286117f722c2a704184943f6a297468649a5058b9d7809f5e79dcfc"
+    },
+    {
+      "path": "extraction/stages/source_crystallinity_fraction.py",
+      "frozen_sha256": "d9634a49c53e315c2c0a904b22d7d5502e5150430c3c21f745a62767da959787"
+    },
+    {
+      "path": "extraction/stages/source_diffraction_lists.py",
+      "frozen_sha256": "6fc410d90aa654ed6958c6a932fee4933db8f7102031b349685e97d08f49ef1b"
+    },
+    {
+      "path": "extraction/stages/source_display_scaling.py",
+      "frozen_sha256": "5ed9cd16eb5f8866cb967fbea6ee0aa98b614a4cc2c7912233e91dcbe4058e9e"
+    },
+    {
+      "path": "extraction/stages/source_explicit_thermal_cells.py",
+      "frozen_sha256": "be2ff60aebf579a28cc935f1b20fe867986e243b27b6b5c95e33536c3b645af0"
+    },
+    {
+      "path": "extraction/stages/source_intervals.py",
+      "frozen_sha256": "35194c0e2d75bf60f1f5ba4215efebc3d3f4a883ae29d3b05556d20631c0d2fa"
+    },
+    {
+      "path": "extraction/stages/source_linked_table_units.py",
+      "frozen_sha256": "06fa3742c4302ac34582b077625a6a9ff1c3587be127cb2ef33877dfc6f2ccd8"
+    },
+    {
+      "path": "extraction/stages/source_number_literals.py",
+      "frozen_sha256": "19fb252910d1c8b6196e9114fa171ad5015772ffccb421cedd6f50f02ecf1bb5"
+    },
+    {
+      "path": "extraction/stages/source_peak_lists.py",
+      "frozen_sha256": "5a52591d77aff4149ec116bd1650309b6a4e1373bf49d7e8984fcafc351259ac"
+    },
+    {
+      "path": "extraction/stages/source_phase_transitions.py",
+      "frozen_sha256": "483dbe137cb280b02c1973db4a09ffc467026ace2754fba507add17512f690ec"
+    },
+    {
+      "path": "extraction/stages/source_prose_loss_facts.py",
+      "frozen_sha256": "2ab75c44ec45d40e4e88194fba758c10f8148fc61fef575e1a0565cddd456fd7"
+    },
+    {
+      "path": "extraction/stages/source_quantity_normalization.py",
+      "frozen_sha256": "3aca60a22554c1444330b58efb414c5dfae31702cc791de9cd6f8b2348ef549e"
+    },
+    {
+      "path": "extraction/stages/source_refinement.py",
+      "frozen_sha256": "cfd8b181e58b4ceedf6017ba5971a6883979231a7abe30b1418052e26719277a"
+    },
+    {
+      "path": "extraction/stages/source_standard_unit_resolution.py",
+      "frozen_sha256": "869b7bf02fd606c1919679b1ce691820105a2cd9dcc077c3e79a5d2207c09fcd"
+    },
+    {
+      "path": "extraction/stages/source_subject_labels.py",
+      "frozen_sha256": "ea380c28d1e8ba276127c139733b9fc33b7722f300f5adf1c4c6fa9340d73329"
+    },
+    {
+      "path": "extraction/stages/source_symbol_recovery.py",
+      "frozen_sha256": "f88756d3428d7fe3c021c8f0663b6b5ed9186684f36a99a9d4905c3ed3fbed03"
+    },
+    {
+      "path": "extraction/stages/source_thermal_criteria.py",
+      "frozen_sha256": "3adc310da1d639730084ff743cf15146a1be41ad1d0de4c4789e845aa155ee5c"
+    },
+    {
+      "path": "extraction/stages/source_unit_font_repair.py",
+      "frozen_sha256": "94c779a6f9a8c831a1e863e2b8d336356a1c2feb7d2049d4c9d582559f1cb6cc"
+    },
+    {
+      "path": "extraction/stages/source_verified_exponent_runs.py",
+      "frozen_sha256": "e9e1fd46b016f6fa52702474aa1de76896eb76dbd8f78714fc3f34345d5ce9bf"
+    },
+    {
+      "path": "extraction/stages/stage0_load_document.py",
+      "frozen_sha256": "7db8ce7f3ceaa44dbba998a33fd965aeb3711a29aae05893c47cb10f11342d6b"
+    },
+    {
+      "path": "extraction/stages/stage0_reference_guard.py",
+      "frozen_sha256": "faa7b93606a8acff2f0104176145e6fbf07718c623a92a6528df74f241551a05"
+    },
+    {
+      "path": "extraction/stages/stage1_material_mention.py",
+      "frozen_sha256": "43852133dac80d02b73524b6c90466baa1add60abac338fd77823c3457d7864f"
+    },
+    {
+      "path": "extraction/stages/stage2_polymer_entity.py",
+      "frozen_sha256": "fe93a6bc46cc15f3c5bf2a09e8c40bb2863a677dceebf1add0e11a23c2370631"
+    },
+    {
+      "path": "extraction/stages/stage3_sample_process.py",
+      "frozen_sha256": "a8ed6108fe2d9e06a919209c4548157d7583a56ab4225ea437b40b797565d51b"
+    },
+    {
+      "path": "extraction/stages/stage4_aligned_table_release.py",
+      "frozen_sha256": "9e06f1b517772fdb91914bc06df94328f481ca26258b161e9be4bf8403d0f8e4"
+    },
+    {
+      "path": "extraction/stages/stage4_direct_table_supplement.py",
+      "frozen_sha256": "3a061ee33302583a14d8d8433ad1bf1bfc5f61ac410e1b64193774827e46f6ff"
+    },
+    {
+      "path": "extraction/stages/stage4_direct_text_supplement.py",
+      "frozen_sha256": "1b34897883c302145de293b03e52940ea2c7fcacf139b44cdc85d201c5e6e5bd"
+    },
+    {
+      "path": "extraction/stages/stage4_property.py",
+      "frozen_sha256": "dcbc70c4b9d8c56e259e734c6d69d6566ef2b791eacf88bf8ad55ac5dfdede57"
+    },
+    {
+      "path": "extraction/stages/stage4_schema_isolation.py",
+      "frozen_sha256": "6da4ce628f81d49821aa5bb91a244b834df732cb07242cdc4bd4950ab1ce96cf"
+    },
+    {
+      "path": "extraction/stages/stage4_symbol_condition_binding.py",
+      "frozen_sha256": "7418923b08153dea612364eb19ba6d4d0d47f74e0a13320127cb5e714fc78d6f"
+    },
+    {
+      "path": "extraction/stages/stage4_table_footnote_supplement.py",
+      "frozen_sha256": "dec9fac16d1f00a3147491e95257a7e29b938eb117dfd975f3592a06d1b94b04"
+    },
+    {
+      "path": "extraction/stages/stage4p_publication_recovery.py",
+      "frozen_sha256": "4cc77eefcf660e7fdd198eaa01b8cdcd119f4c02ff332febe95699e886b7db07"
+    },
+    {
+      "path": "extraction/stages/stage4r_table_recovery.py",
+      "frozen_sha256": "2f74acc4304484654c897240fc91027a45c2b60aeae86f76d564d29e32d1b675"
+    },
+    {
+      "path": "extraction/stages/stage4r_unified_preview.py",
+      "frozen_sha256": "714830f8bd38afccea5aa63774153bcd111ec7ca64cd848ab2f0f46e0ecf0c0e"
+    },
+    {
+      "path": "extraction/stages/stage4t_candidate_gate.py",
+      "frozen_sha256": "aa639988a44be75ee236b63d71ea176f955696c9c1a862c76bd3556b1dff1c53"
+    },
+    {
+      "path": "extraction/stages/stage4t_candidate_precision.py",
+      "frozen_sha256": "be2b541978d5b279acf251d454c39ff87f9c6ca9b7de9a96832698d43366f0b0"
+    },
+    {
+      "path": "extraction/stages/stage4t_interpretation_apply.py",
+      "frozen_sha256": "024812c860c393a0dc01677b0ba29d4aca38d9ff9e3c6004643afe5bac397675"
+    },
+    {
+      "path": "extraction/stages/stage4t_interpretation_audit.py",
+      "frozen_sha256": "a14201c3f43c20bb4a1c1c5fea69466ceb563a5174d37e824e8020867a0493d3"
+    },
+    {
+      "path": "extraction/stages/stage4t_llm_interpreter.py",
+      "frozen_sha256": "6937997778898626e8a7a5761692c7b8d5ebd88cc97db4fe84fb7612c3933ac5"
+    },
+    {
+      "path": "extraction/stages/stage4t_precision_audit.py",
+      "frozen_sha256": "b6fa2a11ebac1e0a07c7d76c90692806e9b9b6f2a7a6fc645b4f001253fc7d1c"
+    },
+    {
+      "path": "extraction/stages/stage4t_preview_sidecar.py",
+      "frozen_sha256": "609e130e3b125e061525f229cd1672f9b0e0e7ebbbc8855a03d427da1e5f5839"
+    },
+    {
+      "path": "extraction/stages/stage4t_shadow_binding_audit.py",
+      "frozen_sha256": "1d7cb79ffcbc4fda91daee9cade993a923af3ef9a2b515904cc665903e813f57"
+    },
+    {
+      "path": "extraction/stages/stage4t_table_eligibility.py",
+      "frozen_sha256": "9ad6b89f47a387be4b2632366d3661c7923a46b6ebe4e29cb03eab071025a136"
+    },
+    {
+      "path": "extraction/stages/stage4t_table_interpretation.py",
+      "frozen_sha256": "75e63df65e4cb18c7543a4b69aaa48980769ba7db22e4b89a192be21cb37e8d6"
+    },
+    {
+      "path": "extraction/stages/stage4t_table_property.py",
+      "frozen_sha256": "d9b2c733380fe2217f2d5102e1a30ae197437b78235caf01484d635469c32271"
+    },
+    {
+      "path": "extraction/stages/stage4t_table_survey.py",
+      "frozen_sha256": "0f2d72954a89c77625eadfabb86718eb8d4ccd3ebd09c4b2a1ed49c5099e855d"
+    },
+    {
+      "path": "extraction/stages/stage5_characterization.py",
+      "frozen_sha256": "bfdc2badd90a025697584a3f08cecd7fa2f7fff5c75247f0012890563511d73d"
+    },
+    {
+      "path": "extraction/stages/stage6_preview_salvage.py",
+      "frozen_sha256": "8aefba670c4a64b4fbd3f3f9b6d9e449cdfb9c9d01c2ca25a5efcbaabf0fb9bf"
+    },
+    {
+      "path": "extraction/stages/stage6_validate_merge.py",
+      "frozen_sha256": "605a788a228281509b7fdd1cb79632e3ce35b56096aa059c62daa1d46dd62d82"
+    },
+    {
+      "path": "extraction/stages/table_grid.py",
+      "frozen_sha256": "65ef87c0320b517073b309da83f2e81bf30620fa2fe3997ce14685ab164a750b"
+    },
+    {
+      "path": "extraction/stages/table_recall_audit.py",
+      "frozen_sha256": "2c58bb0dbec22d4876b145767a6d36a0e720adeacb7c82f2915fe7d1c79b43e0"
+    },
+    {
+      "path": "extraction/tests/helpers.py",
+      "frozen_sha256": "cd6335351f6f3efa373b66abee2b00d53ad92e600c73ad2f1afcfa94d5b8538d"
+    },
+    {
+      "path": "extraction/tests/test_aligned_table_release.py",
+      "frozen_sha256": "dd18507b50ced8f8b8c2736e7753e439f0f84e390f2581e8c0928085b96fcd07"
+    },
+    {
+      "path": "extraction/tests/test_backfill_demo20_types.py",
+      "frozen_sha256": "1cca761014fe402cb41d4ffa9d05f369b0c8abee2ae082f98f436945c1f71a58"
+    },
+    {
+      "path": "extraction/tests/test_batch_runner.py",
+      "frozen_sha256": "e61b03a5d1feca6efda4a87e78809401b1d334e6a31f1450ed30cf226c5617d1"
+    },
+    {
+      "path": "extraction/tests/test_blank_table_condition.py",
+      "frozen_sha256": "2fb437d3cce56de0958424e1737412fe90435d00efbafb225e3e10b42caa05f5"
+    },
+    {
+      "path": "extraction/tests/test_caption_header_review_guards.py",
+      "frozen_sha256": "b4f4eca5fa2d4a6b2c653d2228c3e51510d2c8b59495fcdfa58e6d6e12474509"
+    },
+    {
+      "path": "extraction/tests/test_caption_subject_supplement.py",
+      "frozen_sha256": "05d209e4e81c0ab66ad386a4327065e8f7137fbedd5be2ecc57956df8770d0a8"
+    },
+    {
+      "path": "extraction/tests/test_crystallinity_fraction.py",
+      "frozen_sha256": "b387bd10970cc89bf9fd073aa1dc95a47f0be00601fa46e89a97cbad2517f2f5"
+    },
+    {
+      "path": "extraction/tests/test_declared_unit_footnote.py",
+      "frozen_sha256": "af715ad3994464ef344fab4fe60563b0f5813913f7d5bb8b315233e40cb23770"
+    },
+    {
+      "path": "extraction/tests/test_direct_assignment_supplement.py",
+      "frozen_sha256": "7d2b758f87764fdbb9241dabf6fe1a43a625728e2e323d26056c4a41940b438f"
+    },
+    {
+      "path": "extraction/tests/test_direct_table_supplement.py",
+      "frozen_sha256": "cb06439d5d5a9947fe6d2941a88e1d4a4019a67fbd7871ae1b5e9ed069a60a10"
+    },
+    {
+      "path": "extraction/tests/test_direct_text_supplement.py",
+      "frozen_sha256": "95706a38555afbd410e4c22e37be43763afca7d5854e3bc200c09722dda0632d"
+    },
+    {
+      "path": "extraction/tests/test_evaluate_demo20_types.py",
+      "frozen_sha256": "20e69084ce908b3b66e214ec58f86a12474fbf57840525b5be0c060f5db6b88c"
+    },
+    {
+      "path": "extraction/tests/test_evidence_matcher.py",
+      "frozen_sha256": "8f3b118c25a76d9ad5026e00e7618572ea85e29ff12dc32d2267a882acea5933"
+    },
+    {
+      "path": "extraction/tests/test_historical_numeric_tables.py",
+      "frozen_sha256": "d238bf697b1986cfc7349858e4b25e85ea0732e26e9483ca0a9b4e08aa7b4599"
+    },
+    {
+      "path": "extraction/tests/test_llm_client.py",
+      "frozen_sha256": "a336c2fc0ebbf5e2136e187dea7d77ea7c47dacd494e85657baf43ba602bbef6"
+    },
+    {
+      "path": "extraction/tests/test_parallel_report_assets.py",
+      "frozen_sha256": "1e53a084cc043055f867c2d0e4dda0489c1fe261f307fb85d1a84c43eb8ca400"
+    },
+    {
+      "path": "extraction/tests/test_pipeline_runner.py",
+      "frozen_sha256": "07d0c1bc362425ab2ab77bf89551f6bac06d50183d15eda5184d29bf0b73a859"
+    },
+    {
+      "path": "extraction/tests/test_printed_heat_capacity_scaling.py",
+      "frozen_sha256": "a7eec6d9c1658b37fd9384cd80a07c40ce988366ec3e3ebcc52e16b8050c56d6"
+    },
+    {
+      "path": "extraction/tests/test_prompt_loader.py",
+      "frozen_sha256": "16ae329f1a75d6ee5f9e6ef9c6c90dd7ef76c1ba8219d3828ff9d356e7775850"
+    },
+    {
+      "path": "extraction/tests/test_render_extraction_html.py",
+      "frozen_sha256": "0d7382438f5660092d80f90c1ec0f76e50bab8cf5b3fba4feb9de310343995af"
+    },
+    {
+      "path": "extraction/tests/test_replay_failures.py",
+      "frozen_sha256": "25dc54a316972449fb64823e780e739c7ecef18da4ac910a7651411f872cb76c"
+    },
+    {
+      "path": "extraction/tests/test_report_view_model.py",
+      "frozen_sha256": "16b841752852a887cc65efe7f12d5f2adbdd8959053eb4eb170e58c37cd16eac"
+    },
+    {
+      "path": "extraction/tests/test_source_abbreviation_units.py",
+      "frozen_sha256": "188a7afcb04d409ae35785b5cb073e6716838326f65efade8fa7b57959194e8b"
+    },
+    {
+      "path": "extraction/tests/test_source_compound_thermal_peaks.py",
+      "frozen_sha256": "1383c3610ccf66581a7f4e3e4684fabdf8d1556ca0b73375dc8ab31eb4181c38"
+    },
+    {
+      "path": "extraction/tests/test_source_control_escapes.py",
+      "frozen_sha256": "42efb5803936e84a6168c1a34753e4fdc3bb2beca80f83b7f63bc42c1ccea1f4"
+    },
+    {
+      "path": "extraction/tests/test_source_diffraction_lists.py",
+      "frozen_sha256": "309a2af93cc59a86d77b6248b4df7de207814b191dd835683309fa92685b3e78"
+    },
+    {
+      "path": "extraction/tests/test_source_display_scaling.py",
+      "frozen_sha256": "84287a4f726bc084c0c572aa336fcc22caf4e5412465fd572f956f9bcc2c47b1"
+    },
+    {
+      "path": "extraction/tests/test_source_explicit_thermal_cells.py",
+      "frozen_sha256": "3b895ea1a6f12a334f66af2a026a24fed4530d6f1d94fb8d3f369d0388db63fe"
+    },
+    {
+      "path": "extraction/tests/test_source_inline_angles.py",
+      "frozen_sha256": "0a1e77a09356e5994452f2691676fd9e2374418fd11387566c561fa1194f038b"
+    },
+    {
+      "path": "extraction/tests/test_source_intervals.py",
+      "frozen_sha256": "0b25afdaf8daa8d47d74c1fc29d1de4d447b8c3b69e877902e38942b3bca44a0"
+    },
+    {
+      "path": "extraction/tests/test_source_layout_e6.py",
+      "frozen_sha256": "8909727414310ffabe5baa76f5f8de9d3bcb6c98a53595a775c12bf97135dfc1"
+    },
+    {
+      "path": "extraction/tests/test_source_linked_table_units.py",
+      "frozen_sha256": "32253199ecf089d8b2a795c08172f7886fd2ff0288d9da6eb2cfc68b9bf37330"
+    },
+    {
+      "path": "extraction/tests/test_source_literal_typography_e23.py",
+      "frozen_sha256": "72e004cf46f742df8f6d7756e7de64d99d2bfb883c119fc61ff448881223b906"
+    },
+    {
+      "path": "extraction/tests/test_source_number_literals.py",
+      "frozen_sha256": "4802efade63cc125ca044b1361200c5c27775af0bb51ff7698063bc09240aca9"
+    },
+    {
+      "path": "extraction/tests/test_source_peak_lists.py",
+      "frozen_sha256": "8337271b1360fa03f10f10fabebf2733e143b083a0ee2160cc2bafd7a2723fcc"
+    },
+    {
+      "path": "extraction/tests/test_source_phase_transitions.py",
+      "frozen_sha256": "303778de396440f2d669482cacff5256293473dacc83c3d1e0d417dfaa633923"
+    },
+    {
+      "path": "extraction/tests/test_source_prose_loss_facts.py",
+      "frozen_sha256": "2c6e831acbdacf17d79edecea7ab02494f1b85e95741e7ed3c5872e5aebdc1ab"
+    },
+    {
+      "path": "extraction/tests/test_source_quantity_normalization.py",
+      "frozen_sha256": "b06875491c69df06e30c67f0a45ec3b721e7c94249997dd65740911dba900596"
+    },
+    {
+      "path": "extraction/tests/test_source_standard_unit_resolution.py",
+      "frozen_sha256": "f369ed2cc8f059bd6a9e90e39fba77c85c3dd673187f5401a557321243100894"
+    },
+    {
+      "path": "extraction/tests/test_source_subject_labels.py",
+      "frozen_sha256": "a1e7ce1eb9904e85ce70b99df0fdb8c3323ffb93820894b5d07a550edde3d7fd"
+    },
+    {
+      "path": "extraction/tests/test_source_supplement_replay_safety.py",
+      "frozen_sha256": "9ddd110de982590781fb9f9e98b630161dfb42de07b5baf2ab76a0ab5348e415"
+    },
+    {
+      "path": "extraction/tests/test_source_thermal_criteria.py",
+      "frozen_sha256": "32f30511d1ba8ab88bb7edd806acadab97ae80bdd489fe13681aa814336a4bfe"
+    },
+    {
+      "path": "extraction/tests/test_specialized_attribution_agent.py",
+      "frozen_sha256": "e0866ece2ced664ec8819fa87e0ac9e1de3f1a23c874264c5997b6a002a58b21"
+    },
+    {
+      "path": "extraction/tests/test_specialized_coverage_agent.py",
+      "frozen_sha256": "ac7cca2af94e80ab1969422df8f5de72a0e0e906c380b83390e7253fbf8bd6c7"
+    },
+    {
+      "path": "extraction/tests/test_stage0_load_document.py",
+      "frozen_sha256": "98b44d817c271272a6008f628e2c1099776d4e1db0d7df4fbbb5b5e34bf194e4"
+    },
+    {
+      "path": "extraction/tests/test_stage0_reference_guard.py",
+      "frozen_sha256": "8a64a8d69109fa69bbb3a6fb5648b711832948089154b157e22c5430970e6157"
+    },
+    {
+      "path": "extraction/tests/test_stage1_material_mention.py",
+      "frozen_sha256": "02267db10bfa14f2b351de8e635d2074f3c82c953f24519684d5513987c68060"
+    },
+    {
+      "path": "extraction/tests/test_stage2_polymer_entity.py",
+      "frozen_sha256": "f2c8a0b6336c2e5d2fb5d0551a6648012cad5b55839be43a562a0ff481fe8b0f"
+    },
+    {
+      "path": "extraction/tests/test_stage3_sample_process.py",
+      "frozen_sha256": "6d817a31adc79c6c864504efc656f9943b25e91cb3d2de7652b59b5244bbc462"
+    },
+    {
+      "path": "extraction/tests/test_stage4_property.py",
+      "frozen_sha256": "1a94f0f722bc30875ce4b4b01fae42b86256140bd1689b90cacd621b40c60e3a"
+    },
+    {
+      "path": "extraction/tests/test_stage4_schema_isolation.py",
+      "frozen_sha256": "87d64627dec8020439dd4a4f02702840b02d28f2e70727773ee4214683cf2454"
+    },
+    {
+      "path": "extraction/tests/test_stage4p_publication_recovery.py",
+      "frozen_sha256": "a5225a4fbc8dbb44300c723a4a11250e65d9b422312b23022f622ea310fdd9be"
+    },
+    {
+      "path": "extraction/tests/test_stage4r_table_recovery.py",
+      "frozen_sha256": "df5993fad32120517ad80ab6e6cd2e302f0449781d05369d195147d9105563c6"
+    },
+    {
+      "path": "extraction/tests/test_stage4r_unified_preview.py",
+      "frozen_sha256": "724b362fe663ffb3a3e2455f286f52fa719a4e89d9ec6746961b7580e9a40b70"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_candidate_gate.py",
+      "frozen_sha256": "f69c7608174bfb8e6586c0e5ec85590d29c5052a1fdced5cb670ca7a812f896b"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_candidate_precision.py",
+      "frozen_sha256": "98871e78b943fbbba6ef5b6677202d61de07bfb7faf2cab22438594a0afd1e8d"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_contact_angle_multidescriptor.py",
+      "frozen_sha256": "a7ca65366c7c761ac901afc2ce892c15ee2a289b58ea5535d7fe2c31caf3b071"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_interpretation_apply.py",
+      "frozen_sha256": "d4f24c7193082a3733184bbb6700713a3ddb6c324aca4a5a64bf6af4a445e406"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_interpretation_audit.py",
+      "frozen_sha256": "ce51d490deb4f9484317fd3b87b325f1372ce713ff06eb118f5e2b9ba4b387de"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_llm_interpreter.py",
+      "frozen_sha256": "ca98cbd2475974990524c3876b77e6deb0ae640ff680e2e86a0a6103f3d7105f"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_precision_fixture.py",
+      "frozen_sha256": "a68472b5f6472630471a08e91e292154cff5073c91c282c5a8f9af51e1f2582f"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_preview_sidecar.py",
+      "frozen_sha256": "8be1e9f377b4517b0b741bfe37abe05208df2b349c0c277e4148bb65b1c7d6d2"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_pu_thermal_family.py",
+      "frozen_sha256": "7120367e2491b67d577524112356cff94e00dc7f34b8a0b64fd770eb653a1e36"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_real_table_normalization_fixture.py",
+      "frozen_sha256": "92660ec8d6a9d6556b62a9818b4f874667d9d0fdbdedde1738c9837eeba9fa90"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_shadow_binding_audit.py",
+      "frozen_sha256": "6c25a594a98de5a073b095ee8ccfab371b85041ae5c2b03f5c25d56a96c5383f"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_shadow_binding_fixture_v02.py",
+      "frozen_sha256": "b539751a8102c6d8beef73f0d1da0f5aad67ec281f959132d061b24bda2e39cf"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_shadow_binding_fixture_v03.py",
+      "frozen_sha256": "bed8d46d2294a462ec840a9bb65d17c9d4daf4b77e3e11ccdbb9f88ca55bbf35"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_table_eligibility.py",
+      "frozen_sha256": "92c100fac14874c146a2b3cb231575232cc3015cf3da8a9bd9e4a2fd676e1904"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_table_interpretation.py",
+      "frozen_sha256": "3948e45ce084ce2ff537dbd8b74be4133698108fbcb60b2c893bc0ce4725d0fd"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_table_interpretation_fixture.py",
+      "frozen_sha256": "1eef64a85e7468d16bba0045ba16743ce34dc4038439e7f6394482ac17f93f5c"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_table_property.py",
+      "frozen_sha256": "8805782fed3a43ed10f45fe2bc9e9f646d9a5dac468fbbed8f21ac3705f34ac1"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_table_survey.py",
+      "frozen_sha256": "364c27b4700e37a9a0bd5f8757ae976ed40f4ccdc9dac216490d97672bc6afde"
+    },
+    {
+      "path": "extraction/tests/test_stage4t_unknown_direction_fixture.py",
+      "frozen_sha256": "7cd23ddc3161245ab804ec93979ed5e21f2596d882a81e7a4876ee2b9840bb0f"
+    },
+    {
+      "path": "extraction/tests/test_stage5_characterization.py",
+      "frozen_sha256": "b551cb8776bef05f7a8eb089ab401ee7e0e2ee22321d86043dacd30d32eda617"
+    },
+    {
+      "path": "extraction/tests/test_stage6_scoped_series_points.py",
+      "frozen_sha256": "7c4df3c6b42700e7811445a1daf9ce8d70b7512c917f897b50d37511be0fcda4"
+    },
+    {
+      "path": "extraction/tests/test_stage6_validate_merge.py",
+      "frozen_sha256": "bdbfe033907386ca186269e9a4fe1d22a9cd41a51b4d0a156e4bb26ad3cc3645"
+    },
+    {
+      "path": "extraction/tests/test_stage_minus1_reorganize_mineru.py",
+      "frozen_sha256": "310b01216d62cf3eb860641f1c7b6fafc7b260005f8146651e35fc0512e24369"
+    },
+    {
+      "path": "extraction/tests/test_symbol_condition_binding.py",
+      "frozen_sha256": "f11772411cb444546ba796e11d150a16f91034549807f6de9ca38c9d449e65ab"
+    },
+    {
+      "path": "extraction/tests/test_table_footnote_supplement.py",
+      "frozen_sha256": "faa6ef8bd83bc114f66d4706bbcedb3c3f0a6352fe9e27ae7cf36d10fbfb154a"
+    },
+    {
+      "path": "extraction/tests/test_table_grid.py",
+      "frozen_sha256": "fe91fb4f73baff3ae2a5f6a5203bd04cd81492b40c4640268cca124dc3471f60"
+    },
+    {
+      "path": "extraction/tests/test_table_recall_audit.py",
+      "frozen_sha256": "73d6fc7f190d513f70033879acaf24f68bd4f4a50aae74ea8d474248e7dff06b"
+    },
+    {
+      "path": "extraction/tests/test_text_coverage_hints.py",
+      "frozen_sha256": "e26b375d0af8a239a7a23ee20efdef829abf1cf2a6c0c4784e4706359975ed5b"
+    },
+    {
+      "path": "extraction/tests/test_unit_font_repair.py",
+      "frozen_sha256": "3f3b730983b12dadf00ba29858189317eab18ac61f2e9dc3d4ce520887443acd"
+    },
+    {
+      "path": "extraction/tests/test_verified_exponent_runs.py",
+      "frozen_sha256": "e7e832922a0810f61d6004be25709d4c62f2787366b6fb7cb0399c744af12597"
+    },
+    {
+      "path": "extraction/tests/test_verified_header_scope.py",
+      "frozen_sha256": "2726c4e438cc9e1b16943515522e550991b700aa58f879c4b9ed4278fc1b9ffc"
+    },
+    {
+      "path": "preview/publish_candidate.py",
+      "frozen_sha256": "317867a423e32996674b505ebe47d436fb97d518f186cbd8946badc19029ab8a"
+    },
+    {
+      "path": "preview/tests/test_publish_candidate.py",
+      "frozen_sha256": "7b1e67c24487e24d4d8d5b173b2642f03bd02f54d0c506d0c18ad72e70ff016d"
+    },
+    {
+      "path": "preview/tests/test_validate_published_batches.py",
+      "frozen_sha256": "4d2f07f9cd566323066dc82122673cf551a2993d12765917cd1666476a4f607b"
+    },
+    {
+      "path": "preview/tests/test_verify_demo20.py",
+      "frozen_sha256": "e89b31c5c205c09a46cbf6894b6da0dd31b7483ddd54cf4d07c57f9530da414b"
+    }
+  ],
+  "excluded_experiment_dependent_tests": [
+    "extraction/tests/test_controlled_evolution_runner.py",
+    "extraction/tests/test_controlled_gold_builder.py",
+    "extraction/tests/test_full_polyinfo_p2_e5.py",
+    "extraction/tests/test_full_polyinfo_recount_v2.py",
+    "extraction/tests/test_controlled_evolution_harness.py",
+    "extraction/tests/test_controlled_numeric_release.py",
+    "extraction/tests/test_evolution_reviewer.py",
+    "extraction/tests/test_numeric_recall_agent.py"
+  ],
+  "provider_config_imported": false,
+  "experiment_answers_imported": false,
+  "integration_additions": [
+    "extraction/evaluation/property_views.py",
+    "extraction/tests/fixtures/stage4t_real_table_normalization_v0.1.json",
+    "extraction/tests/fixtures/stage4t_reference_no_0043541_t4_49_v0.1.json"
+  ],
+  "config_adaptation": "Retain production providers and request budgets; Stage3 uses Methods+Results, 60000 characters and one validation-repair retry, as in E25."
+}

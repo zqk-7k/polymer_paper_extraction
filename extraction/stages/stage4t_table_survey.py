@@ -25,10 +25,11 @@ from stages.table_recall_audit import (
 )
 
 
-SURVEY_VERSION = "0.3.0"
+SURVEY_VERSION = "0.5.0"
 _UNIT_RE = re.compile(
-    r"(?<![A-Za-z])(?:°|º)?\s*(?:c|k)\b|%|\b(?:dL|mL|g|kg|mg|mol|mmol|MPa|GPa|Pa|Hz|kHz|J|kJ|W|cm|mm|nm|Å|deg|degree)(?:\s*/\s*(?:g|mol|L|mL|cm))?\b",
-    re.IGNORECASE,
+    r"(?<![A-Za-z])(?:°|º)\s*[cCkK]\b|(?<![A-Za-z])K\b|%|"
+    r"(?i:\b(?:dL|mL|g|kg|mg|mol|mmol|MPa|GPa|Pa|Hz|kHz|J|kJ|W|cm|mm|nm|Å|deg|degree)"
+    r"(?:\s*/\s*(?:g|mol|L|mL|cm))?\b)",
 )
 _SAMPLE_WORD_RE = re.compile(
     r"\b(?:samples?|polymers?|polyesters?|resins?|specimens?|compounds?|blends?|runs?|code|sample\s*id)\b|样品|聚合物|编号|试样",
@@ -53,6 +54,10 @@ _COMPOUND_VALUE_RE = re.compile(
     re.IGNORECASE,
 )
 _GROUP_ROW_EXCLUSION_RE = re.compile(r"^(?:calcd|calculated|found)$", re.IGNORECASE)
+_DURATION_SUBHEADER_RE = re.compile(
+    r"^\s*[+-]?(?:\d+(?:\.\d*)?|\.\d+)\s*(?:h|hr|hrs|hours?)\s*$",
+    re.IGNORECASE,
+)
 
 
 def _grid_shape(cells: Sequence[Stage0TableCell]) -> tuple[int, int]:
@@ -156,12 +161,62 @@ def _has_numeric_data_after_headers(
     )
 
 
+def _condition_subheader_row(
+    cells: Sequence[Stage0TableCell],
+    header_rows: set[int],
+    patterns: Sequence[tuple[re.Pattern[str], str]],
+) -> int | None:
+    """Return a child header row made of repeated duration labels.
+
+    ``2 h | 4 h | ...`` looks numeric to the generic header detector.  It is
+    nevertheless a header when those cells sit under a spanning property
+    heading and ordinary numeric rows follow.  Requiring at least two child
+    duration labels plus the spanning property parent keeps this repair
+    structural rather than paper-specific.
+    """
+
+    if not header_rows:
+        return None
+    row_count, _ = _grid_shape(cells)
+    candidate_row = max(header_rows) + 1
+    if candidate_row >= row_count - 1:
+        return None
+    duration_cells = [
+        cell
+        for cell in cells
+        if cell.row_index == candidate_row
+        and _DURATION_SUBHEADER_RE.fullmatch(cell.text.strip())
+    ]
+    if len(duration_cells) < 2:
+        return None
+    parent_matches = 0
+    for child in duration_cells:
+        if any(
+            parent.row_index in header_rows
+            and parent.column_span > 1
+            and _covers(parent, candidate_row - 1, child.column_index)
+            and _property_header_like(parent.text, patterns)
+            for parent in cells
+        ):
+            parent_matches += 1
+    if parent_matches < 2:
+        return None
+    if not any(
+        _row_has_numeric_payload(cells, row)
+        for row in range(candidate_row + 1, row_count)
+    ):
+        return None
+    return candidate_row
+
+
 def _stage4t_header_rows(
     cells: Sequence[Stage0TableCell],
     patterns: Sequence[tuple[re.Pattern[str], str]],
 ) -> set[int]:
     """收窄被稀疏数值行或样品分组行误扩大的表头。"""
     inferred = _infer_header_rows(cells)
+    if condition_row := _condition_subheader_row(cells, inferred, patterns):
+        return {*inferred, condition_row}
     if not inferred:
         first_row = [cell for cell in cells if cell.row_index == 0]
         has_explicit_sample_axis = any(
@@ -238,6 +293,15 @@ def _header_direction_signal(
         [cell for cell in cells if cell.row_index == header_row],
         key=lambda cell: cell.column_index,
     )
+    multi_descriptor_layout = _multi_descriptor_column_sample_layout(
+        cells,
+        header_row=header_row,
+        patterns=patterns,
+        column_count=column_count,
+    )
+    if multi_descriptor_layout is not None:
+        _, named_samples = multi_descriptor_layout
+        return "column", len(named_samples), "named_sample"
     has_axis_title = bool(
         top_cells
         and top_cells[0].column_index == 0
@@ -280,6 +344,57 @@ def _header_direction_signal(
         ):
             return "mixed", len(sample_positions), "named_sample"
     return "unknown", 0, "unknown"
+
+
+def _multi_descriptor_column_sample_layout(
+    cells: Sequence[Stage0TableCell],
+    *,
+    header_row: int,
+    patterns: Sequence[tuple[re.Pattern[str], str]],
+    column_count: int,
+) -> tuple[int, list[Stage0TableCell]] | None:
+    """Recognize transposed tables with multiple left descriptor columns.
+
+    A table such as ``blank | blank | Sample A | Sample B`` has two row
+    descriptor columns before its sample columns.  The older corner rule
+    skipped only one blank cell and therefore discarded the otherwise strong
+    column-sample signal.  This repair is deliberately narrow: every top-row
+    cell must be a contiguous singleton, there must be at least two leading
+    blanks, and every remaining cell must independently look like a named
+    sample rather than a property header.
+    """
+
+    top_cells = sorted(
+        [cell for cell in cells if cell.row_index == header_row],
+        key=lambda cell: cell.column_index,
+    )
+    if len(top_cells) != column_count or column_count < 4:
+        return None
+    if any(
+        cell.column_index != index
+        or cell.column_span != 1
+        or cell.row_span != 1
+        for index, cell in enumerate(top_cells)
+    ):
+        return None
+    leading_blank_count = 0
+    for cell in top_cells:
+        if cell.text.strip():
+            break
+        leading_blank_count += 1
+    if leading_blank_count < 2:
+        return None
+    sample_cells = top_cells[leading_blank_count:]
+    if len(sample_cells) < 2:
+        return None
+    if not all(
+        cell.text.strip()
+        and _sample_like(cell.text)
+        and not _property_header_like(cell.text, patterns)
+        for cell in sample_cells
+    ):
+        return None
+    return leading_blank_count, sample_cells
 
 
 def _unit_hits(text: str) -> list[str]:
