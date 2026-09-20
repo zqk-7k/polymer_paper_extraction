@@ -1,5 +1,6 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- evidence crops reuse a dynamically rendered PDF page */
+import { batchPdfUrl, evidencePageUrl } from "./evidence-urls.mjs";
 
 import {
   Alert,
@@ -775,8 +776,8 @@ export default function Home() {
 
   const pdfUrl = dataSource === "task" && job
     ? `${API_BASE}/api/tasks/${job.task_id}/pdf`
-    : dataSource === "batch" && selectedBatch?.pdf_url
-      ? `${API_BASE}${selectedBatch.pdf_url}`
+    : dataSource === "batch" && selectedBatch
+      ? batchPdfUrl(API_BASE, selectedBatch)
       : `${API_BASE}/api/source-pdfs/reference_no_0101911/pdf`;
 
   const downloadJson = () => {
@@ -1777,9 +1778,9 @@ function NoResult({ onUpload, onSample }: { onUpload: () => void; onSample: () =
 }
 
 function EvidenceVisual({ evidence, pdfUrl }: { evidence: Evidence; pdfUrl: string }) {
-  const [imageFailed, setImageFailed] = useState(false);
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
   const page = evidence.page ?? 0;
-  const pageImageUrl = `${pdfUrl}/pages/${page}`;
+  const pageImageUrl = evidencePageUrl(pdfUrl, page);
   const sourceWidth = 1000;
   const sourceHeight = 1000;
   const values = Array.isArray(evidence.bbox) ? evidence.bbox.map(Number) : [];
@@ -1802,12 +1803,12 @@ function EvidenceVisual({ evidence, pdfUrl }: { evidence: Evidence; pdfUrl: stri
     top: `${(-y0 / boxHeight) * 100}%`,
   };
 
-  if (imageFailed) return <Alert type="warning" showIcon message="证据页图像暂不可用" description="仍可通过下方按钮直接打开 PDF 对应页核对证据。" />;
+  if (failedUrl === pageImageUrl) return <Alert type="warning" showIcon message="证据页图像暂不可用" description="仍可通过下方按钮直接打开 PDF 对应页核对证据。" action={<Button size="small" onClick={() => setFailedUrl(null)}>重试</Button>} />;
 
   return <section className="evidence-visual-panel">
     <div className="evidence-visual-heading"><div><strong>原文定位</strong><span>红框为抽取记录保存的 bbox 坐标</span></div></div>
     <div className="evidence-page-preview">
-      <img src={pageImageUrl} alt={`原文第 ${page + 1} 页证据定位`} onError={() => setImageFailed(true)} />
+      <img src={pageImageUrl} alt={`原文第 ${page + 1} 页证据定位`} onError={() => setFailedUrl(pageImageUrl)} />
       {hasBox && <i className="evidence-bbox" style={boxStyle}><span>bbox</span></i>}
     </div>
     {hasBox && <div className="evidence-crop-section"><div><strong>证据区域放大</strong><span>{values.join(", ")}</span></div><div className="evidence-crop-frame" style={{ aspectRatio: `${boxWidth} / ${boxHeight}` }}><img src={pageImageUrl} alt="根据 bbox 裁剪的原文证据区域" style={cropImageStyle} /><i /></div></div>}
