@@ -11,6 +11,7 @@ from unittest.mock import Mock, patch
 from batch_runner import (
     PREVIEW_STAGE,
     PREVIEW_STAGES,
+    STAGE4P_PUBLICATION_PREVIEW_STAGE,
     STAGE4R_PREVIEW_STAGE,
     STAGE4R_UNIFIED_PREVIEW_STAGE,
     STAGE4T_PREVIEW_SIDECAR_STAGE,
@@ -23,12 +24,46 @@ from batch_runner import (
     build_batch_acceptance,
     build_run_summary,
     build_stage_command,
+    _failure_has_replayable_raw_response,
+    _stage4_transport_failure,
     preview_stage_specs,
     run_document,
     run_stage_process,
     select_document_paths,
     strict_stage_window,
 )
+
+
+def _valid_stage4_payload(ref_no: str) -> dict:
+    return {
+        "schema_version": "1.0",
+        "document_id": ref_no,
+        "measurement_conditions": [],
+        "properties": [],
+        "unresolved_properties": [],
+        "property_series": [],
+        "specialized_property_observations": [],
+        "provenance": {
+            "stage": "stage4_property",
+            "provider": "test",
+            "model": "test-model",
+            "models": ["test-model"],
+            "prompt_id": "test.stage4",
+            "prompt_version": "1",
+            "prompt_sha256": "1" * 64,
+            "vocabulary_sha256": "2" * 64,
+            "input_hash": "3" * 64,
+            "model_config_hash": "4" * 64,
+            "cache_key": "5" * 64,
+            "output_schema_version": "property_observation_schema.v7",
+            "implementation_version": "1.8.4",
+            "context_block_count": 0,
+            "context_chars": 0,
+            "call_count": 0,
+            "status": "success",
+        },
+        "warnings": [],
+    }
 
 
 class StageWindowTests(unittest.TestCase):
@@ -246,12 +281,13 @@ class StageCommandTests(unittest.TestCase):
         self.assertIn("--input-root", command)
         self.assertNotIn("--force", command)
 
-    def test_unified_stage4r_is_preview_only_and_runs_between_stage4_and_stage5(self) -> None:
+    def test_unified_stage4r_and_stage4p_are_preview_only_and_run_before_stage5(self) -> None:
         preview_ids = [spec.stage_id for spec in PREVIEW_STAGES]
         strict_ids = [spec.stage_id for spec in STAGES]
 
         self.assertNotIn(STAGE4R_PREVIEW_STAGE.stage_id, strict_ids)
         self.assertNotIn(STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id, strict_ids)
+        self.assertNotIn(STAGE4P_PUBLICATION_PREVIEW_STAGE.stage_id, strict_ids)
         self.assertEqual(
             preview_ids[preview_ids.index("stage4_property") + 1],
             STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id,
@@ -260,8 +296,25 @@ class StageCommandTests(unittest.TestCase):
             preview_ids[
                 preview_ids.index(STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id) + 1
             ],
+            STAGE4P_PUBLICATION_PREVIEW_STAGE.stage_id,
+        )
+        self.assertEqual(
+            preview_ids[
+                preview_ids.index(STAGE4P_PUBLICATION_PREVIEW_STAGE.stage_id) + 1
+            ],
             "stage5_characterization",
         )
+
+    def test_stage4p_applies_schema_valid_recovery_in_standard_preview_roots(self) -> None:
+        command = build_stage_command(
+            STAGE4P_PUBLICATION_PREVIEW_STAGE,
+            ref_no="reference_no_0000001",
+            settings=self.settings,
+        )
+
+        self.assertIn("--input-root", command)
+        self.assertIn("--output-root", command)
+        self.assertIn("--apply", command)
 
     def test_stage4t_sidecar_is_preview_only_and_runs_after_stage0(self) -> None:
         preview_ids = [spec.stage_id for spec in PREVIEW_STAGES]
@@ -488,7 +541,7 @@ class StageCommandTests(unittest.TestCase):
         failure_dir = self.settings.output_dir / "reference_no_0000001"
         failure_dir.mkdir(parents=True)
         (failure_dir / "stage2_failure.json").write_text(
-            "{}",
+            json.dumps({"raw_response": {"content": "{}"}}),
             encoding="utf-8",
         )
         failed_stage = StageSpec(
@@ -552,7 +605,8 @@ class StageCommandTests(unittest.TestCase):
         failure_dir = self.settings.output_dir / "reference_no_0000002"
         failure_dir.mkdir(parents=True)
         (failure_dir / "stage3_failure.json").write_text(
-            "{}", encoding="utf-8"
+            json.dumps({"raw_response": {"content": "{}"}}),
+            encoding="utf-8",
         )
         failed_stage = StageSpec(
             "stage3_sample_process",
@@ -591,6 +645,159 @@ class StageCommandTests(unittest.TestCase):
             process_call.call_args_list[0].kwargs["extra_args"],
             ("--replay-failure", "--preview-relaxed", "--force"),
         )
+
+    def test_failure_replay_requires_nonempty_raw_response_content(self) -> None:
+        root = Path(self.temporary_directory.name) / "failure-replayability"
+        root.mkdir()
+        failure_path = root / "stage2_failure.json"
+        for payload, expected in (
+            ({}, False),
+            ({"raw_response": None}, False),
+            ({"raw_response": {}}, False),
+            ({"raw_response": {"content": ""}}, False),
+            ({"raw_response": {"content": "  \n"}}, False),
+            ({"raw_response": {"content": "{}"}}, True),
+        ):
+            with self.subTest(payload=payload):
+                failure_path.write_text(json.dumps(payload), encoding="utf-8")
+                self.assertEqual(
+                    _failure_has_replayable_raw_response(failure_path),
+                    expected,
+                )
+
+    def test_null_raw_response_skips_replay_before_and_after_normal_attempt(
+        self,
+    ) -> None:
+        root = Path(self.temporary_directory.name) / "null-replay-gate"
+        root.mkdir()
+        ref_no = "reference_no_0000002"
+        store = BatchStateStore(root / "batch.sqlite3")
+        document_path = root / f"{ref_no}_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-null-gate", [ref_no])
+        store.claim_next(
+            run_id="run-null-gate",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=root / "pipeline.yaml",
+            input_dir=root / "input",
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=False,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+        failure_dir = settings.output_dir / ref_no
+        failure_dir.mkdir(parents=True)
+        (failure_dir / "stage2_failure.json").write_text(
+            json.dumps({"raw_response": None}),
+            encoding="utf-8",
+        )
+        failed_stage = StageSpec(
+            "stage2_polymer_entity",
+            "stage2_polymer_entity.py",
+            ("stage2_entities.json",),
+            True,
+        )
+
+        with patch(
+            "batch_runner.run_stage_process",
+            side_effect=[(False, "proxy failure"), (True, None)],
+        ) as process_call:
+            succeeded = run_document(
+                store=store,
+                run_id="run-null-gate",
+                worker_id="worker-1",
+                ref_no=ref_no,
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=(failed_stage, PREVIEW_STAGE),
+            )
+
+        self.assertFalse(succeeded)
+        self.assertEqual(process_call.call_count, 2)
+        self.assertEqual(
+            process_call.call_args_list[0].kwargs["spec"].stage_id,
+            "stage2_polymer_entity",
+        )
+        self.assertNotIn("extra_args", process_call.call_args_list[0].kwargs)
+        self.assertEqual(
+            process_call.call_args_list[1].kwargs["spec"],
+            PREVIEW_STAGE,
+        )
+
+    def test_stage2_representation_recovery_marks_batch_candidate_partial(
+        self,
+    ) -> None:
+        root = Path(self.temporary_directory.name) / "stage2-blocking-repair"
+        root.mkdir()
+        ref_no = "reference_no_0000002"
+        store = BatchStateStore(root / "batch.sqlite3")
+        document_path = root / f"{ref_no}_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-stage2-blocking", [ref_no])
+        store.claim_next(
+            run_id="run-stage2-blocking",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=root / "pipeline.yaml",
+            input_dir=root / "input",
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+
+        def run_stage(**kwargs):
+            if kwargs["spec"].stage_id == "stage2_polymer_entity":
+                output_path = (
+                    settings.output_dir / ref_no / "stage2_entities.json"
+                )
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                output_path.write_text(
+                    json.dumps({
+                        "warnings": [{
+                            "stage": "stage2_polymer_entity",
+                            "code": "preview_response_representation_recovered",
+                            "blocking": True,
+                            "status": "candidate_partial",
+                        }],
+                    }),
+                    encoding="utf-8",
+                )
+            return True, None
+
+        with patch("batch_runner.run_stage_process", side_effect=run_stage):
+            succeeded = run_document(
+                store=store,
+                run_id="run-stage2-blocking",
+                worker_id="worker-1",
+                ref_no=ref_no,
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=(STAGES[2], PREVIEW_STAGE),
+            )
+
+        self.assertTrue(succeeded)
+        with closing(sqlite3.connect(store.path)) as connection:
+            status = connection.execute(
+                "SELECT status FROM documents WHERE ref_no = ?",
+                (ref_no,),
+            ).fetchone()[0]
+        self.assertEqual(status, "candidate_partial")
 
     def test_preview_failure_publishes_partial_candidate(self) -> None:
         root = Path(self.temporary_directory.name)
@@ -639,6 +846,371 @@ class StageCommandTests(unittest.TestCase):
                 ("reference_no_0000001",),
             ).fetchone()[0]
         self.assertEqual(status, "candidate_partial")
+
+    def test_stage4_transport_failure_reuses_validated_prior_and_runs_full_preview_tail(
+        self,
+    ) -> None:
+        root = Path(self.temporary_directory.name) / "stage4-prior-reuse"
+        root.mkdir()
+        ref_no = "reference_no_0000004"
+        store = BatchStateStore(root / "batch.sqlite3")
+        document_path = root / f"{ref_no}_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-stage4-prior", [ref_no])
+        store.claim_next(
+            run_id="run-stage4-prior",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=root / "pipeline.yaml",
+            input_dir=root / "input",
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+        output_base = settings.output_dir / ref_no
+        output_base.mkdir(parents=True)
+        stage4_path = output_base / "stage4_properties.json"
+        stage4_path.write_text(
+            json.dumps(_valid_stage4_payload(ref_no)),
+            encoding="utf-8",
+        )
+        downstream_observed_prior = []
+
+        def run_stage(**kwargs):
+            stage_id = kwargs["spec"].stage_id
+            if stage_id == "stage4_property":
+                if kwargs.get("extra_args"):
+                    return False, "failure replay contained no model response"
+                (output_base / "stage4_failure.json").write_text(
+                    json.dumps({
+                        "status": "failed",
+                        "stage": "stage4_property",
+                        "document_id": ref_no,
+                        "error_type": "ChunkedEncodingError",
+                        "error": "Response ended prematurely",
+                        "call_count": 0,
+                        "raw_response": None,
+                    }),
+                    encoding="utf-8",
+                )
+                return False, "stage4_property exited with code 1"
+            if stage_id == STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id:
+                reused = json.loads(stage4_path.read_text(encoding="utf-8"))
+                downstream_observed_prior.append(reused)
+            return True, None
+
+        preview_tail = (
+            STAGES[4],
+            STAGE4R_UNIFIED_PREVIEW_STAGE,
+            STAGE4P_PUBLICATION_PREVIEW_STAGE,
+            STAGES[5],
+            STAGES[6],
+            PREVIEW_STAGE,
+        )
+        with patch("batch_runner.run_stage_process", side_effect=run_stage) as process_call:
+            succeeded = run_document(
+                store=store,
+                run_id="run-stage4-prior",
+                worker_id="worker-1",
+                ref_no=ref_no,
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=preview_tail,
+            )
+
+        self.assertTrue(succeeded)
+        self.assertEqual(
+            [call.kwargs["spec"].stage_id for call in process_call.call_args_list],
+            [
+                "stage4_property",
+                STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id,
+                STAGE4P_PUBLICATION_PREVIEW_STAGE.stage_id,
+                "stage5_characterization",
+                "stage6_validate_merge",
+                PREVIEW_STAGE.stage_id,
+            ],
+        )
+        self.assertEqual(len(downstream_observed_prior), 1)
+        reused = downstream_observed_prior[0]
+        self.assertEqual(reused["provenance"]["status"], "candidate_partial")
+        warning = next(
+            item
+            for item in reused["warnings"]
+            if item["code"] == "stage4_prior_reused_after_transport_failure"
+        )
+        self.assertTrue(warning["blocking"])
+        self.assertEqual(warning["current_stage4_status"], "transport_failed")
+        self.assertEqual(warning["fallback_status"], "validated_prior_reused")
+        with closing(sqlite3.connect(store.path)) as connection:
+            status, last_error = connection.execute(
+                "SELECT status, last_error FROM documents WHERE ref_no = ?",
+                (ref_no,),
+            ).fetchone()
+        self.assertEqual(status, "candidate_partial")
+        self.assertEqual(
+            last_error,
+            "stage4_prior_reused_after_transport_failure",
+        )
+
+    def test_stage4_transport_failure_does_not_reuse_invalid_prior(self) -> None:
+        root = Path(self.temporary_directory.name) / "stage4-invalid-prior"
+        root.mkdir()
+        ref_no = "reference_no_0000005"
+        store = BatchStateStore(root / "batch.sqlite3")
+        document_path = root / f"{ref_no}_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-stage4-invalid", [ref_no])
+        store.claim_next(
+            run_id="run-stage4-invalid",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=root / "pipeline.yaml",
+            input_dir=root / "input",
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+        output_base = settings.output_dir / ref_no
+        output_base.mkdir(parents=True)
+        (output_base / "stage4_properties.json").write_text(
+            "{}",
+            encoding="utf-8",
+        )
+
+        def run_stage(**kwargs):
+            if kwargs["spec"].stage_id == "stage4_property":
+                if not kwargs.get("extra_args"):
+                    (output_base / "stage4_failure.json").write_text(
+                        json.dumps({
+                            "status": "failed",
+                            "stage": "stage4_property",
+                            "document_id": ref_no,
+                            "error_type": "LLMRequestError",
+                            "error": "connection reset",
+                            "raw_response": None,
+                        }),
+                        encoding="utf-8",
+                    )
+                return False, "stage4 failed"
+            return True, None
+
+        with patch("batch_runner.run_stage_process", side_effect=run_stage) as process_call:
+            succeeded = run_document(
+                store=store,
+                run_id="run-stage4-invalid",
+                worker_id="worker-1",
+                ref_no=ref_no,
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=(
+                    STAGES[4],
+                    STAGE4R_UNIFIED_PREVIEW_STAGE,
+                    STAGE4P_PUBLICATION_PREVIEW_STAGE,
+                    STAGES[5],
+                    STAGES[6],
+                    PREVIEW_STAGE,
+                ),
+            )
+
+        self.assertFalse(succeeded)
+        self.assertEqual(
+            [call.kwargs["spec"].stage_id for call in process_call.call_args_list],
+            ["stage4_property", PREVIEW_STAGE.stage_id],
+        )
+        self.assertEqual(
+            json.loads((output_base / "stage4_properties.json").read_text(encoding="utf-8")),
+            {},
+        )
+
+    def test_stage4_prior_fallback_rejects_stale_transport_failure_artifact(
+        self,
+    ) -> None:
+        root = Path(self.temporary_directory.name) / "stage4-stale-failure"
+        root.mkdir()
+        ref_no = "reference_no_0000006"
+        store = BatchStateStore(root / "batch.sqlite3")
+        document_path = root / f"{ref_no}_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-stage4-stale", [ref_no])
+        store.claim_next(
+            run_id="run-stage4-stale",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=root / "pipeline.yaml",
+            input_dir=root / "input",
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+        output_base = settings.output_dir / ref_no
+        output_base.mkdir(parents=True)
+        stage4_path = output_base / "stage4_properties.json"
+        stage4_path.write_text(
+            json.dumps(_valid_stage4_payload(ref_no)),
+            encoding="utf-8",
+        )
+        (output_base / "stage4_failure.json").write_text(
+            json.dumps({
+                "status": "failed",
+                "stage": "stage4_property",
+                "document_id": ref_no,
+                "error_type": "ChunkedEncodingError",
+                "error": "old response ended prematurely",
+                "raw_response": None,
+            }),
+            encoding="utf-8",
+        )
+
+        with patch(
+            "batch_runner.run_stage_process",
+            side_effect=[
+                (False, "current process failed before writing an artifact"),
+                (True, None),
+            ],
+        ) as process_call:
+            succeeded = run_document(
+                store=store,
+                run_id="run-stage4-stale",
+                worker_id="worker-1",
+                ref_no=ref_no,
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=(
+                    STAGES[4],
+                    STAGE4R_UNIFIED_PREVIEW_STAGE,
+                    PREVIEW_STAGE,
+                ),
+            )
+
+        self.assertFalse(succeeded)
+        self.assertEqual(
+            [call.kwargs["spec"].stage_id for call in process_call.call_args_list],
+            ["stage4_property", PREVIEW_STAGE.stage_id],
+        )
+        unchanged = json.loads(stage4_path.read_text(encoding="utf-8"))
+        self.assertEqual(unchanged["provenance"]["status"], "success")
+        self.assertEqual(unchanged["warnings"], [])
+
+    def test_stage4_prior_fallback_rejects_non_transport_failure(self) -> None:
+        root = Path(self.temporary_directory.name) / "stage4-non-transport"
+        root.mkdir()
+        ref_no = "reference_no_0000007"
+        store = BatchStateStore(root / "batch.sqlite3")
+        document_path = root / f"{ref_no}_document.json"
+        document_path.write_text("{}", encoding="utf-8")
+        store.register_documents([document_path])
+        store.prepare_run("run-stage4-validation", [ref_no])
+        store.claim_next(
+            run_id="run-stage4-validation",
+            worker_id="worker-1",
+            allowed_statuses=["pending"],
+            lease_seconds=60,
+        )
+        settings = RunnerSettings(
+            config_path=root / "pipeline.yaml",
+            input_dir=root / "input",
+            output_dir=root / "output",
+            logs_dir=root / "logs",
+            force=True,
+            heartbeat_seconds=10,
+            lease_seconds=90,
+            preview=True,
+        )
+        output_base = settings.output_dir / ref_no
+        output_base.mkdir(parents=True)
+        stage4_path = output_base / "stage4_properties.json"
+        stage4_path.write_text(
+            json.dumps(_valid_stage4_payload(ref_no)),
+            encoding="utf-8",
+        )
+
+        def run_stage(**kwargs):
+            if kwargs["spec"].stage_id == "stage4_property":
+                if not kwargs.get("extra_args"):
+                    (output_base / "stage4_failure.json").write_text(
+                        json.dumps({
+                            "status": "failed",
+                            "stage": "stage4_property",
+                            "document_id": ref_no,
+                            "error_type": "ValidationError",
+                            "error": "property schema mismatch",
+                            "raw_response": {"content": "{}"},
+                        }),
+                        encoding="utf-8",
+                    )
+                return False, "stage4 validation failed"
+            return True, None
+
+        with patch("batch_runner.run_stage_process", side_effect=run_stage) as process_call:
+            succeeded = run_document(
+                store=store,
+                run_id="run-stage4-validation",
+                worker_id="worker-1",
+                ref_no=ref_no,
+                settings=settings,
+                llm_semaphore=threading.Semaphore(1),
+                stop_event=threading.Event(),
+                stage_specs=(
+                    STAGES[4],
+                    STAGE4R_UNIFIED_PREVIEW_STAGE,
+                    PREVIEW_STAGE,
+                ),
+            )
+
+        self.assertFalse(succeeded)
+        self.assertEqual(
+            [call.kwargs["spec"].stage_id for call in process_call.call_args_list],
+            ["stage4_property", "stage4_property", PREVIEW_STAGE.stage_id],
+        )
+        unchanged = json.loads(stage4_path.read_text(encoding="utf-8"))
+        self.assertEqual(unchanged["provenance"]["status"], "success")
+        self.assertEqual(unchanged["warnings"], [])
+
+    def test_stage4_transport_failure_requires_exact_document_id(self) -> None:
+        root = Path(self.temporary_directory.name) / "failure-identity"
+        root.mkdir()
+        failure_path = root / "stage4_failure.json"
+        for document_id in (None, "reference_no_9999999"):
+            with self.subTest(document_id=document_id):
+                failure_path.write_text(
+                    json.dumps({
+                        "stage": "stage4_property",
+                        "document_id": document_id,
+                        "error_type": "ChunkedEncodingError",
+                        "error": "Response ended prematurely",
+                    }),
+                    encoding="utf-8",
+                )
+                transport, _ = _stage4_transport_failure(
+                    failure_path,
+                    "reference_no_0000008",
+                    None,
+                )
+                self.assertFalse(transport)
 
     def test_stage4t_sidecar_failure_does_not_change_candidate_status(self) -> None:
         root = Path(self.temporary_directory.name)

@@ -1,0 +1,29 @@
+{
+  "schema_version": "stage4t_real_table_normalization_fixture.v0.1",
+  "source": "Reduced verbatim headers and values from three audited Stage0 tables",
+  "cases": [
+    {
+      "case_id": "conductivity_display_multiplier",
+      "table_id": "T_conductivity",
+      "caption": "TABLE 2. The deviation percentage of DC conductivity sigma.",
+      "table_body": "<table><tr><td colspan=\"2\">Before UV exposure</td><td colspan=\"2\">$\\sigma$ after UV exposure ( $10^{12} \\Omega^{-1} \\text{cm}^{-1}$ )</td></tr><tr><td>Conc. by weight</td><td>$\\sigma (10^{12} \\Omega^{-1} \\text{cm}^{-1})$</td><td>2 h</td><td>6 h</td></tr><tr><td>PVC</td><td>2.58</td><td>3.65</td><td>7.78</td></tr></table>",
+      "expected_header_rows": [0, 1],
+      "expected_values": ["2.58", "3.65", "7.78"]
+    },
+    {
+      "case_id": "contact_angle_degrees",
+      "table_id": "T_contact",
+      "caption": "Surface and thermal properties",
+      "table_body": "<table><tr><td>Polymer</td><td>$\\theta_w$ (Degrees) $^e$</td></tr><tr><td>PC-1</td><td>82.0</td></tr></table>",
+      "expected_unit": "deg"
+    },
+    {
+      "case_id": "crystallinity_temperature_condition",
+      "table_id": "T_crystallinity",
+      "caption": "Measured physical parameters of biodegradable polymers and their blends",
+      "table_body": "<table><tr><td>Name of Polymers or Blends</td><td>Degree of Crystal-linity at 110 °C</td></tr><tr><td>100% Amylopectin (AP)</td><td>81</td></tr></table>",
+      "expected_semantic_label": "crystallinity",
+      "expected_temperature_celsius": 110.0
+    }
+  ]
+}

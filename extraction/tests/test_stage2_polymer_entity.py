@@ -679,6 +679,224 @@ class Stage2Tests(unittest.TestCase):
             for item in result.warnings
         ))
 
+    def test_preview_maps_exact_surfaces_to_all_ids_and_stably_deduplicates(
+        self,
+    ) -> None:
+        mention_payload = stage1_document().model_dump(mode="json")
+        repeated = dict(mention_payload["material_mentions"][1])
+        repeated["mention_id"] = "m004"
+        mention_payload["material_mentions"].append(repeated)
+        mentions = Stage1Document.model_validate(mention_payload)
+        client = FakeClient()
+        original_call = client.call_json
+        raw_payloads = []
+
+        def call_with_surfaces(*args, **kwargs):
+            response = original_call(*args, **kwargs)
+            response.data["entities"][0]["resolved_from_mentions"] = [
+                "Polybutadiene",
+                "PB",
+                "PB",
+            ]
+            raw_payloads.append(response.data)
+            return response
+
+        client.call_json = call_with_surfaces
+        result = extract_polymer_entities(
+            stage0_document(),
+            mentions,
+            client,
+            rendered_prompt(),
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+
+        self.assertEqual(
+            result.polymer_entities[0].resolved_from_mentions,
+            ["m001", "m002", "m004"],
+        )
+        warning = next(
+            item for item in result.warnings
+            if item["code"] == "preview_response_representation_recovered"
+        )
+        self.assertIs(warning["blocking"], True)
+        self.assertEqual(warning["status"], "candidate_partial")
+        repair = next(
+            item for item in warning["items"]
+            if item["entity_id"] == "pe010"
+        )
+        pb_mapping = next(
+            item for item in repair["exact_surface_mappings"]
+            if item["surface"] == "PB"
+        )
+        self.assertEqual(pb_mapping["occurrence_count"], 2)
+        self.assertEqual(pb_mapping["mention_ids"], ["m002", "m004"])
+        self.assertEqual(repair["stable_duplicates_removed"], 2)
+        self.assertEqual(
+            raw_payloads[0]["entities"][0]["resolved_from_mentions"],
+            ["Polybutadiene", "PB", "PB"],
+        )
+
+    def test_preview_cross_entity_exact_surface_is_conservative_and_blocking(
+        self,
+    ) -> None:
+        mention_payload = stage1_document().model_dump(mode="json")
+        repeated = dict(mention_payload["material_mentions"][1])
+        repeated["mention_id"] = "m004"
+        mention_payload["material_mentions"].append(repeated)
+        mentions = Stage1Document.model_validate(mention_payload)
+        client = FakeClient()
+        original_call = client.call_json
+
+        def call_with_cross_entity_surface(*args, **kwargs):
+            response = original_call(*args, **kwargs)
+            template = response.data["entities"][0]
+            response.data["entities"] = [
+                {
+                    **template,
+                    "entity_id": "pe010",
+                    "polymer_name": "PB",
+                    "resolved_from_mentions": ["PB"],
+                },
+                {
+                    **template,
+                    "entity_id": "pe011",
+                    "polymer_name": "PB",
+                    "resolved_from_mentions": ["PB"],
+                },
+            ]
+            response.data["unresolved_mention_ids"] = ["m001", "m003"]
+            return response
+
+        client.call_json = call_with_cross_entity_surface
+        result = extract_polymer_entities(
+            stage0_document(),
+            mentions,
+            client,
+            rendered_prompt(),
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+
+        resolved_ids = [
+            mention_id
+            for entity in result.polymer_entities
+            for mention_id in entity.resolved_from_mentions
+        ]
+        self.assertEqual(len(resolved_ids), len(set(resolved_ids)))
+        self.assertEqual(
+            set(result.unresolved_mention_ids),
+            {"m001", "m002", "m003", "m004"},
+        )
+        warning = next(
+            item for item in result.warnings
+            if item["code"] == "preview_response_representation_recovered"
+        )
+        self.assertIs(warning["blocking"], True)
+        self.assertEqual(warning["status"], "candidate_partial")
+        duplicate_warning = next(
+            item for item in result.warnings
+            if item["code"] == "preview_duplicate_mention_recovered"
+        )
+        self.assertEqual(
+            {item["mention_id"] for item in duplicate_warning["items"]},
+            {"m002", "m004"},
+        )
+
+    def test_strict_does_not_repair_surface_mentions_or_duplicates(self) -> None:
+        client = FakeClient()
+        original_call = client.call_json
+
+        def call_with_surfaces(*args, **kwargs):
+            response = original_call(*args, **kwargs)
+            response.data["entities"][0]["resolved_from_mentions"] = [
+                "Polybutadiene",
+                "PB",
+                "PB",
+            ]
+            return response
+
+        client.call_json = call_with_surfaces
+        with self.assertRaises(Stage2Error):
+            extract_polymer_entities(
+                stage0_document(),
+                stage1_document(),
+                client,
+                rendered_prompt(),
+                max_validation_retries=0,
+            )
+
+    def test_preview_still_rejects_unknown_surface(self) -> None:
+        client = FakeClient()
+        original_call = client.call_json
+
+        def call_with_unknown_surface(*args, **kwargs):
+            response = original_call(*args, **kwargs)
+            response.data["entities"][0]["resolved_from_mentions"] = [
+                "not an exact Stage 1 surface",
+            ]
+            return response
+
+        client.call_json = call_with_unknown_surface
+        with self.assertRaises(Stage2Error):
+            extract_polymer_entities(
+                stage0_document(),
+                stage1_document(),
+                client,
+                rendered_prompt(),
+                max_validation_retries=0,
+                preview_relaxed=True,
+            )
+
+    def test_preview_repairs_only_exact_null_sentinel(self) -> None:
+        def client_with_copolymer_value(value: str) -> FakeClient:
+            client = FakeClient()
+            original_call = client.call_json
+
+            def call_with_value(*args, **kwargs):
+                response = original_call(*args, **kwargs)
+                response.data["entities"][0]["copolymer_type"] = value
+                return response
+
+            client.call_json = call_with_value
+            return client
+
+        preview = extract_polymer_entities(
+            stage0_document(),
+            stage1_document(),
+            client_with_copolymer_value("null"),
+            rendered_prompt(),
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+        self.assertIsNone(preview.polymer_entities[0].copolymer_type)
+        warning = next(
+            item for item in preview.warnings
+            if item["code"] == "preview_response_representation_recovered"
+        )
+        self.assertEqual(
+            warning["items"][0]["copolymer_type_repair"],
+            {"from": "null", "to": None},
+        )
+
+        with self.assertRaises(Stage2Error):
+            extract_polymer_entities(
+                stage0_document(),
+                stage1_document(),
+                client_with_copolymer_value("null"),
+                rendered_prompt(),
+                max_validation_retries=0,
+            )
+        with self.assertRaises(Stage2Error):
+            extract_polymer_entities(
+                stage0_document(),
+                stage1_document(),
+                client_with_copolymer_value("random"),
+                rendered_prompt(),
+                max_validation_retries=0,
+                preview_relaxed=True,
+            )
+
     def test_table_source_text_includes_caption_and_body(self) -> None:
         data = stage0_document().model_dump(mode="json")
         data["elements"].append({

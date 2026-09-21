@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import hashlib
 import json
 import sqlite3
 import subprocess
@@ -106,6 +107,12 @@ STAGE4R_UNIFIED_PREVIEW_STAGE = StageSpec(
     ("stage4r_unified_audit.json", "stage4_properties.unified_preview.json"),
     False,
 )
+STAGE4P_PUBLICATION_PREVIEW_STAGE = StageSpec(
+    "stage4p_publication_recovery",
+    "stage4p_publication_recovery.py",
+    ("stage4_properties.p2_preview.json", "stage4p_publication_audit.json"),
+    False,
+)
 STAGE4T_PREVIEW_SIDECAR_STAGE = StageSpec(
     "stage4t_preview_sidecar",
     "stage4t_preview_sidecar.py",
@@ -123,6 +130,7 @@ PREVIEW_STAGES = (
     STAGE4T_PREVIEW_SIDECAR_STAGE,
     *STAGES[1:5],
     STAGE4R_UNIFIED_PREVIEW_STAGE,
+    STAGE4P_PUBLICATION_PREVIEW_STAGE,
     STAGES[5],
     # Stage 6 在 preview 下带 --preview-relaxed 跑：证据的表示层差异降级为
     # warning，仍产出 final.json / report.html。跑不过的篇目会走下面的
@@ -132,6 +140,7 @@ PREVIEW_STAGES = (
 )
 PREVIEW_NON_BLOCKING_STAGES = {
     STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id,
+    STAGE4P_PUBLICATION_PREVIEW_STAGE.stage_id,
 }
 
 
@@ -556,6 +565,24 @@ class RunnerSettings:
     stage4t_llm_interpretation: bool = False
 
 
+@dataclass(frozen=True)
+class ArtifactFingerprint:
+    """Identity used to distinguish a current failure artifact from a stale one."""
+
+    sha256: str
+    size: int
+    modified_ns: int
+
+
+@dataclass(frozen=True)
+class ValidatedStage4Prior:
+    """Schema-valid Stage 4 artifact frozen before the current model attempt."""
+
+    path: Path
+    sha256: str
+    failure_before: ArtifactFingerprint | None
+
+
 def build_stage_command(
     spec: StageSpec,
     *,
@@ -587,6 +614,8 @@ def build_stage_command(
     if spec.stage_id == STAGE4R_PREVIEW_STAGE.stage_id:
         command.extend(["--apply", "--allow-filled-up-sample-binding"])
     if spec.stage_id == STAGE4R_UNIFIED_PREVIEW_STAGE.stage_id:
+        command.append("--apply")
+    if spec.stage_id == STAGE4P_PUBLICATION_PREVIEW_STAGE.stage_id:
         command.append("--apply")
     if (
         spec.stage_id == STAGE4T_PREVIEW_SIDECAR_STAGE.stage_id
@@ -762,6 +791,7 @@ def run_document(
         item.stage_id == PREVIEW_STAGE.stage_id for item in selected_stages
     )
     preview_partial = False
+    preview_status_messages: list[str] = []
     for spec in selected_stages:
         if stop_event.is_set():
             message = "batch supervisor interrupted before next stage"
@@ -772,6 +802,11 @@ def run_document(
                 error_message=message,
             )
             return False
+        prior_stage4 = (
+            _validated_stage4_prior(settings.output_dir, ref_no)
+            if preview_run and spec.stage_id == "stage4_property"
+            else None
+        )
         failure_name = PREVIEW_RECOVERABLE_FAILURES.get(spec.stage_id)
         failure_path = (
             settings.output_dir / ref_no / failure_name
@@ -783,7 +818,7 @@ def run_document(
             and spec.uses_llm
             and not settings.force
             and failure_path is not None
-            and failure_path.is_file()
+            and _failure_has_replayable_raw_response(failure_path)
             and not _outputs_exist(spec, settings.output_dir, ref_no)
         ):
             replay_args = [
@@ -895,7 +930,7 @@ def run_document(
                 preview_run
                 and status == "failed"
                 and failure_path is not None
-                and failure_path.is_file()
+                and _failure_has_replayable_raw_response(failure_path)
             ):
                 recovery_args = [
                     "--replay-failure",
@@ -922,6 +957,29 @@ def run_document(
                     print(f"[recovered] {ref_no}: {spec.stage_id} 已离线恢复")
                     continue
                 error = f"{error}; preview recovery failed: {recovery_error}"
+            if (
+                preview_run
+                and status == "failed"
+                and spec.stage_id == "stage4_property"
+            ):
+                reused, prior_error = _reuse_validated_stage4_prior(
+                    settings.output_dir,
+                    ref_no,
+                    prior_stage4,
+                )
+                if reused:
+                    preview_partial = True
+                    preview_status_messages.append(
+                        "stage4_prior_reused_after_transport_failure"
+                    )
+                    print(
+                        f"[prior-stage4-reused] {ref_no}: 本次 Stage 4 传输失败；"
+                        "已复用运行前通过 schema 校验的 Stage 4，"
+                        "继续执行后续 Preview 恢复链"
+                    )
+                    continue
+                if prior_error:
+                    error = f"{error}; prior Stage 4 fallback rejected: {prior_error}"
             if (
                 preview_run
                 and status == "failed"
@@ -968,7 +1026,16 @@ def run_document(
         final_status = "candidate_partial" if preview_partial else "candidate_complete"
     else:
         final_status = "succeeded"
-    store.finish_document(ref_no, worker_id=worker_id, status=final_status)
+    store.finish_document(
+        ref_no,
+        worker_id=worker_id,
+        status=final_status,
+        error_message=(
+            "; ".join(preview_status_messages)
+            if preview_status_messages
+            else None
+        ),
+    )
     print(f"[done] {ref_no}")
     return True
 
@@ -1072,6 +1139,216 @@ def _read_json_object(path: Path) -> dict[str, Any] | None:
     except (OSError, json.JSONDecodeError):
         return None
     return value if isinstance(value, dict) else None
+
+
+def _failure_has_replayable_raw_response(path: Path) -> bool:
+    """Return true only when an offline replay has actual model text.
+
+    Pre-call context failures and transport failures commonly write a failure
+    artifact with ``raw_response=null``.  Starting ``--replay-failure`` for
+    those artifacts can never succeed and only adds a misleading failed
+    attempt to the batch ledger.
+    """
+
+    failure = _read_json_object(path)
+    if failure is None:
+        return False
+    raw_response = failure.get("raw_response")
+    if not isinstance(raw_response, dict):
+        return False
+    content = raw_response.get("content")
+    return isinstance(content, str) and bool(content.strip())
+
+
+_STAGE4_PRIOR_REUSE_WARNING = "stage4_prior_reused_after_transport_failure"
+_STAGE4_TRANSPORT_ERROR_TYPES = {
+    "chunkedencodingerror",
+    "connectionerror",
+    "connecttimeout",
+    "networkerror",
+    "protocolerror",
+    "proxyerror",
+    "readtimeout",
+    "remotedisconnected",
+    "sslerror",
+    "timeout",
+    "timeouterror",
+}
+_STAGE4_TRANSPORT_MESSAGE_MARKERS = (
+    "connection reset",
+    "connection aborted",
+    "connection refused",
+    "network unreachable",
+    "response ended prematurely",
+    "server disconnected",
+    "timed out",
+    "transport error",
+    "transport failure",
+)
+
+
+def _validated_stage4_prior(
+    output_dir: Path,
+    ref_no: str,
+) -> ValidatedStage4Prior | None:
+    """Freeze the identity of an existing Stage 4 artifact before a new call.
+
+    The fallback is preview-only, but it still requires full Stage4Document
+    validation and an exact document identifier.  Merely being readable JSON is
+    deliberately insufficient.
+    """
+
+    path = output_dir / ref_no / LLM_STAGE_OUTPUTS["stage4_property"]
+    try:
+        raw = path.read_bytes()
+        from schema.polymer_schema import Stage4Document
+
+        document = Stage4Document.model_validate_json(raw)
+    except (OSError, ValueError):
+        return None
+    if document.document_id != ref_no:
+        return None
+    return ValidatedStage4Prior(
+        path=path,
+        sha256=hashlib.sha256(raw).hexdigest(),
+        failure_before=_artifact_fingerprint(
+            output_dir / ref_no / LLM_STAGE_FAILURES["stage4_property"]
+        ),
+    )
+
+
+def _artifact_fingerprint(path: Path) -> ArtifactFingerprint | None:
+    try:
+        raw = path.read_bytes()
+        stat = path.stat()
+    except OSError:
+        return None
+    return ArtifactFingerprint(
+        sha256=hashlib.sha256(raw).hexdigest(),
+        size=len(raw),
+        modified_ns=stat.st_mtime_ns,
+    )
+
+
+def _stage4_transport_failure(
+    failure_path: Path,
+    ref_no: str,
+    failure_before: ArtifactFingerprint | None,
+) -> tuple[bool, str | None]:
+    failure_after = _artifact_fingerprint(failure_path)
+    if failure_after is None:
+        return False, "current_failure_artifact_missing"
+    if failure_before is not None and failure_after == failure_before:
+        return False, "stale_failure_artifact"
+    failure = _read_json_object(failure_path)
+    if failure is None:
+        return False, None
+    if failure.get("stage") != "stage4_property":
+        return False, None
+    if failure.get("document_id") != ref_no:
+        return False, None
+    error_type = str(failure.get("error_type") or "").strip()
+    normalized_error_type = error_type.casefold()
+    short_error_type = normalized_error_type.rsplit(".", 1)[-1]
+    error_message = str(failure.get("error") or "").casefold()
+    explicit_transport = (
+        short_error_type in _STAGE4_TRANSPORT_ERROR_TYPES
+        or any(
+            marker in error_message
+            for marker in _STAGE4_TRANSPORT_MESSAGE_MARKERS
+        )
+    )
+    if not explicit_transport:
+        return False, str(failure.get("error_type") or "non_transport_failure")
+    return True, error_type or "transport_failure"
+
+
+def _write_json_object_atomic(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    try:
+        temp_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        temp_path.replace(path)
+    finally:
+        try:
+            temp_path.unlink(missing_ok=True)
+        except OSError:
+            pass
+
+
+def _reuse_validated_stage4_prior(
+    output_dir: Path,
+    ref_no: str,
+    prior: ValidatedStage4Prior | None,
+) -> tuple[bool, str | None]:
+    """Mark and reuse a frozen prior after a current Stage 4 transport failure."""
+
+    failure_path = output_dir / ref_no / LLM_STAGE_FAILURES["stage4_property"]
+    is_transport_failure, error_type = _stage4_transport_failure(
+        failure_path,
+        ref_no,
+        prior.failure_before if prior is not None else None,
+    )
+    if not is_transport_failure:
+        return False, error_type
+    if prior is None:
+        return False, "no schema-valid prior Stage 4 was present before the call"
+    try:
+        raw = prior.path.read_bytes()
+    except OSError as exc:
+        return False, f"prior Stage 4 is no longer readable: {exc}"
+    if hashlib.sha256(raw).hexdigest() != prior.sha256:
+        return False, "prior Stage 4 changed during the failed call"
+    try:
+        from schema.polymer_schema import Stage4Document
+
+        document = Stage4Document.model_validate_json(raw)
+    except ValueError as exc:
+        return False, f"prior Stage 4 is no longer schema-valid: {exc}"
+    if document.document_id != ref_no:
+        return False, "prior Stage 4 document_id does not match the batch document"
+
+    payload = document.model_dump(mode="json", exclude_none=True)
+    provenance = dict(payload["provenance"])
+    provenance["status"] = "candidate_partial"
+    payload["provenance"] = provenance
+    warnings = [
+        item
+        for item in payload.get("warnings") or []
+        if not (
+            isinstance(item, dict)
+            and item.get("code") == _STAGE4_PRIOR_REUSE_WARNING
+        )
+    ]
+    warnings.append({
+        "stage": "stage4_property",
+        "code": _STAGE4_PRIOR_REUSE_WARNING,
+        "message": (
+            "The current Stage 4 model transport failed. A schema-valid Stage 4 "
+            "artifact frozen before this call was reused so downstream preview "
+            "recovery could continue; this is not a successful new Stage 4 extraction."
+        ),
+        "blocking": True,
+        "status": "candidate_partial",
+        "current_stage4_status": "transport_failed",
+        "fallback_status": "validated_prior_reused",
+        "failure_error_type": error_type,
+        "failure_artifact": failure_path.name,
+        "prior_stage4_sha256": prior.sha256,
+    })
+    payload["warnings"] = warnings
+    try:
+        validated = Stage4Document.model_validate(payload)
+        _write_json_object_atomic(
+            prior.path,
+            validated.model_dump(mode="json", exclude_none=True),
+        )
+    except (OSError, ValueError) as exc:
+        return False, f"failed to materialize validated prior Stage 4: {exc}"
+    return True, None
 
 
 def _has_blocking_preview_warning(

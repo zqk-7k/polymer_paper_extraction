@@ -1,3 +1,4 @@
+import copy
 import json
 import tempfile
 import unittest
@@ -20,6 +21,7 @@ from schema.polymer_schema import (
 )
 from tests.helpers import add_model_confidence
 from stages.stage3_sample_process import (
+    DEFAULT_MAX_INPUT_CHARS,
     IMPLEMENTATION_VERSION,
     Stage3Error,
     _cache_components,
@@ -32,6 +34,8 @@ from stages.stage3_sample_process import (
     _split_consecutive_extraction_drying_outputs,
     _split_preview_in_place_postprocess_outputs,
     _failure_replay_client,
+    _element_source_text,
+    _user_message,
     extract_samples_processes,
     run_stage3,
     select_context_blocks,
@@ -738,6 +742,34 @@ class AmbiguousDuplicateFractionProducerClient(DuplicateFractionProducerClient):
     intermediate_label = "Buna CB"
 
 
+class SupersededFractionRepairClient(DuplicateFractionProducerClient):
+    """A fraction repair whose upstream raw step is removed by later cleanup."""
+
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        response = super().call_json(
+            system_prompt,
+            user_message,
+            max_tokens=max_tokens,
+        )
+        response.data["process_steps"][0]["step_id"] = "ps001"
+        response.data["process_steps"][1]["step_id"] = "ps003"
+        duplicate_intermediate_producer = copy.deepcopy(
+            response.data["process_steps"][0]
+        )
+        duplicate_intermediate_producer.update({
+            "step_id": "ps004",
+            "output_sample_ids": ["s030"],
+        })
+        response.data["process_steps"].append(duplicate_intermediate_producer)
+        return response
+
+
 class InvalidParameterClient(FakeClient):
     def call_json(
         self,
@@ -1401,7 +1433,7 @@ class Stage3Tests(unittest.TestCase):
                 prompt,
             )
 
-            self.assertEqual(IMPLEMENTATION_VERSION, "1.7.1")
+            self.assertEqual(IMPLEMENTATION_VERSION, "1.8.4")
             self.assertFalse(cached)
             self.assertEqual(client.calls, calls_after_first + 1)
     def test_sample_label_html_entity_is_recovered_with_warning(self) -> None:
@@ -1702,7 +1734,7 @@ class Stage3Tests(unittest.TestCase):
     def test_prompt_requires_verbatim_raw_fields(self) -> None:
         prompt = rendered_prompt()
 
-        self.assertEqual(prompt.version, "1.6.0")
+        self.assertEqual(prompt.version, "1.7.0")
         self.assertIn("不得翻译、概括、添加括号解释", prompt.text)
         self.assertIn("无法从 evidence 逐字复制时必须设为 `null`", prompt.text)
         self.assertIn("`intended_use` 只能放入", prompt.text)
@@ -2026,6 +2058,57 @@ class Stage3Tests(unittest.TestCase):
                 "sample_ids": ["s002"],
             }],
         )
+
+    def test_preview_records_fraction_repair_superseded_by_later_step_drop(
+        self,
+    ) -> None:
+        result = extract_samples_processes(
+            fractionation_stage0_document(),
+            stage2_document(),
+            SupersededFractionRepairClient(),
+            rendered_prompt(),
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+
+        self.assertEqual(len(result.process_steps), 1)
+        self.assertEqual(result.process_steps[0].step_id, "ps001")
+        self.assertEqual(result.process_steps[0].process_type, "fractionation")
+        self.assertEqual(result.process_steps[0].output_sample_ids, ["s002"])
+        self.assertFalse(any(
+            item["code"]
+            == "preview_duplicate_upstream_fraction_outputs_removed"
+            for item in result.warnings
+        ))
+        warning = next(
+            item for item in result.warnings
+            if item["code"] == "preview_repairs_superseded_by_step_cleanup"
+        )
+        self.assertEqual(warning["repairs"], [{
+            "repair_code": "preview_duplicate_upstream_fraction_outputs_removed",
+            "id_namespaces": {
+                "source_step_ids": "model_response",
+                "source_sample_ids": "pre_materialization",
+            },
+            "source_step_ids": {
+                "polymerization_step_id": "ps001",
+                "fractionation_step_id": "ps003",
+            },
+            "missing_source_step_ids": ["ps001"],
+            "source_sample_ids": {"sample_ids": ["s020"]},
+        }])
+
+    def test_superseded_fraction_repair_pattern_is_rejected_in_strict(
+        self,
+    ) -> None:
+        with self.assertRaises(Stage3Error):
+            extract_samples_processes(
+                fractionation_stage0_document(),
+                stage2_document(),
+                SupersededFractionRepairClient(),
+                rendered_prompt(),
+                max_validation_retries=0,
+            )
 
     def test_preview_removes_all_ambiguous_duplicate_producer_links(self) -> None:
         result = extract_samples_processes(
@@ -2449,6 +2532,337 @@ class Stage3Tests(unittest.TestCase):
         )
         self.assertEqual(warnings[0]["code"], "section_fallback")
 
+    def test_context_includes_results_and_all_nonempty_tables_not_conclusion_prose(self) -> None:
+        document_data = stage0_document().model_dump(mode="json")
+        document_data["elements"].extend([
+            {
+                "block_id": "P_2_0",
+                "type": "text",
+                "section": "Results",
+                "text": "Formulation F-1 was evaluated.",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 2,
+            },
+            {
+                "block_id": "P_3_0",
+                "type": "text",
+                "section": "Conclusion",
+                "text": "The material showed improved performance.",
+                "page": 3,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 3,
+            },
+            {
+                "block_id": "T_3_1",
+                "type": "table",
+                "section": "Conclusion",
+                "caption": "Table 1. Tested formulations",
+                "table_body": (
+                    "<table><tr><td>Sample</td><td>Filler (wt %)</td></tr>"
+                    "<tr><td>F-1</td><td>5</td></tr></table>"
+                ),
+                "page": 3,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 4,
+            },
+        ])
+        document = Stage0Document.model_validate(document_data)
+
+        blocks, warnings, _ = select_context_blocks(document, stage2_document())
+
+        self.assertEqual(
+            [block.block_id for block in blocks],
+            ["P_1_0", "P_2_0", "T_3_1"],
+        )
+        self.assertEqual(warnings, [])
+        self.assertIn(
+            "Table 1. Tested formulations",
+            _element_source_text(blocks[-1]),
+        )
+        self.assertIn("<td>F-1</td>", _element_source_text(blocks[-1]))
+
+    def test_default_context_limit_accepts_just_over_50000_and_rejects_over_60000(
+        self,
+    ) -> None:
+        document_data = stage0_document().model_dump(mode="json")
+        document_data["elements"].append({
+            "block_id": "P_2_0",
+            "type": "text",
+            "section": "Results",
+            "text": "x" * 52000,
+            "page": 2,
+            "bbox": [1, 2, 3, 4],
+            "source_block_index": 2,
+        })
+        document = Stage0Document.model_validate(document_data)
+
+        _, _, context_chars = select_context_blocks(
+            document,
+            stage2_document(),
+        )
+
+        self.assertEqual(DEFAULT_MAX_INPUT_CHARS, 60000)
+        self.assertGreater(context_chars, 50000)
+        self.assertLessEqual(context_chars, DEFAULT_MAX_INPUT_CHARS)
+
+        document_data["elements"][-1]["text"] = "x" * 61000
+        oversized = Stage0Document.model_validate(document_data)
+        with self.assertRaisesRegex(Stage3Error, "max_input_chars=60000"):
+            select_context_blocks(oversized, stage2_document())
+        with self.assertRaisesRegex(Stage3Error, "max_input_chars=60000"):
+            select_context_blocks(
+                oversized,
+                stage2_document(),
+                preview_relaxed=True,
+            )
+
+    def test_preview_context_compression_only_drops_safe_blocks(self) -> None:
+        document_data = stage0_document().model_dump(mode="json")
+        document_data["elements"].extend([
+            {
+                "block_id": "P_2_0",
+                "type": "text",
+                "section": "Results",
+                "text": "x" * 3000,
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 2,
+            },
+            {
+                "block_id": "P_2_1",
+                "type": "title",
+                "section": "Results",
+                "text": "3. Results",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 3,
+                "title_level": 2,
+            },
+            {
+                "block_id": "I_2_2",
+                "type": "image",
+                "section": "Results",
+                "caption": None,
+                "image_path": "images/empty.png",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 4,
+            },
+            {
+                "block_id": "I_2_3",
+                "type": "image",
+                "section": "Results",
+                "caption": "Figure 1. Sample morphology.",
+                "image_path": "images/captioned.png",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 5,
+            },
+            {
+                "block_id": "I_2_4",
+                "type": "image",
+                "section": "Results",
+                "caption": None,
+                "image_path": "images/referenced.png",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 6,
+            },
+            {
+                "block_id": "T_2_5",
+                "type": "table",
+                "section": "Results",
+                "caption": "Table 1. Formulations",
+                "table_body": "<table><tr><td>F-1</td></tr></table>",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 7,
+            },
+        ])
+        document = Stage0Document.model_validate(document_data)
+        entities_data = stage2_document().model_dump(mode="json")
+        entities_data["polymer_entities"][0]["source_image_refs"].append({
+            "block_id": "I_2_4",
+            "page": 2,
+            "bbox": [1, 2, 3, 4],
+            "image_path": "images/referenced.png",
+            "caption": None,
+        })
+        entities = Stage2Document.model_validate(entities_data)
+
+        _, _, original_context_chars = select_context_blocks(
+            document,
+            entities,
+            max_input_chars=100000,
+        )
+        max_input_chars = original_context_chars - 300
+        with self.assertRaisesRegex(Stage3Error, "max_input_chars="):
+            select_context_blocks(
+                document,
+                entities,
+                max_input_chars=max_input_chars,
+            )
+
+        blocks, warnings, context_chars = select_context_blocks(
+            document,
+            entities,
+            max_input_chars=max_input_chars,
+            preview_relaxed=True,
+        )
+
+        block_ids = {block.block_id for block in blocks}
+        self.assertNotIn("I_2_2", block_ids)
+        self.assertNotIn("P_2_1", block_ids)
+        self.assertIn("P_2_0", block_ids)
+        self.assertIn("I_2_3", block_ids)
+        self.assertIn("I_2_4", block_ids)
+        self.assertIn("T_2_5", block_ids)
+        self.assertLessEqual(context_chars, max_input_chars)
+        warning = next(
+            item
+            for item in warnings
+            if item["code"] == "preview_context_compressed"
+        )
+        self.assertEqual(
+            warning["original_context_chars"],
+            original_context_chars,
+        )
+        self.assertEqual(warning["context_chars"], context_chars)
+        self.assertEqual(
+            warning["dropped_blocks"],
+            [
+                {
+                    "block_id": "I_2_2",
+                    "reason": (
+                        "unreferenced_image_without_source_text_or_caption"
+                    ),
+                },
+                {
+                    "block_id": "P_2_1",
+                    "reason": (
+                        "unreferenced_generic_section_title_for_preview_context_limit"
+                    ),
+                },
+            ],
+        )
+
+        result = extract_samples_processes(
+            document,
+            entities,
+            FakeClient(),
+            rendered_prompt(),
+            max_input_chars=max_input_chars,
+            max_validation_retries=0,
+            preview_relaxed=True,
+        )
+        self.assertEqual(
+            result.provenance.context_chars_before_compression,
+            original_context_chars,
+        )
+        self.assertEqual(
+            result.provenance.context_dropped_blocks,
+            warning["dropped_blocks"],
+        )
+        self.assertEqual(result.provenance.context_chars, context_chars)
+
+    def test_preview_context_compression_never_drops_process_titles(self) -> None:
+        document_data = stage0_document().model_dump(mode="json")
+        document_data["elements"].extend([
+            {
+                "block_id": "P_2_0",
+                "type": "text",
+                "section": "Results",
+                "text": "x" * 3000,
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 2,
+            },
+            {
+                "block_id": "P_2_1",
+                "type": "title",
+                "section": "Results",
+                "text": "Drying",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 3,
+                "title_level": 2,
+            },
+            {
+                "block_id": "P_2_2",
+                "type": "title",
+                "section": "Results",
+                "text": "Annealing",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 4,
+                "title_level": 2,
+            },
+        ])
+        document = Stage0Document.model_validate(document_data)
+        _, _, original_context_chars = select_context_blocks(
+            document,
+            stage2_document(),
+            max_input_chars=100000,
+        )
+
+        with self.assertRaisesRegex(Stage3Error, "max_input_chars="):
+            select_context_blocks(
+                document,
+                stage2_document(),
+                max_input_chars=original_context_chars - 1,
+                preview_relaxed=True,
+            )
+
+    def test_user_message_marks_methods_results_and_table_semantics(self) -> None:
+        document_data = stage0_document().model_dump(mode="json")
+        document_data["elements"].extend([
+            {
+                "block_id": "P_2_0",
+                "type": "text",
+                "section": "Results",
+                "text": "Formulation F-1 was evaluated.",
+                "page": 2,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 2,
+            },
+            {
+                "block_id": "T_4_0",
+                "type": "table",
+                "section": None,
+                "caption": "Formulations",
+                "table_body": "<table><tr><td>F-1</td></tr></table>",
+                "page": 4,
+                "bbox": [1, 2, 3, 4],
+                "source_block_index": 3,
+            },
+        ])
+        document = Stage0Document.model_validate(document_data)
+        blocks, _, _ = select_context_blocks(document, stage2_document())
+
+        message = _user_message(document.document_id, stage2_document(), blocks)
+
+        self.assertIn("UNTRUSTED METHODS RESULTS AND TABLE BLOCKS", message)
+        self.assertIn('"context_role": "methods"', message)
+        self.assertIn('"context_role": "results"', message)
+        self.assertIn('"context_role": "table"', message)
+
+    def test_prompt_requires_table_sample_labels_without_condition_samples(self) -> None:
+        prompt = rendered_prompt()
+
+        self.assertIn("必须逐一检查输入中的每个非空表格", prompt.text)
+        self.assertIn("配方标签或实际研究配方", prompt.text)
+        self.assertIn("测试温度、时间、频率、湿度、波长、载荷", prompt.text)
+        self.assertIn("不能单独当作 Sample", prompt.text)
+
+    def test_pipeline_config_enables_results_and_one_validation_retry(self) -> None:
+        config = load_pipeline_config(DEFAULT_CONFIG_PATH)
+        stage_config = config["stages"]["stage3_sample_process"]
+
+        self.assertEqual(stage_config["input_sections"], ["Methods", "Results"])
+        self.assertEqual(stage_config["max_input_chars"], 60000)
+        self.assertEqual(stage_config["max_validation_retries"], 1)
+
     def test_preview_relaxed_uses_distinct_cache_key(self) -> None:
         document = stage0_document()
         entities = stage2_document()
@@ -2470,6 +2884,90 @@ class Stage3Tests(unittest.TestCase):
         )[2]
 
         self.assertNotEqual(strict_key, preview_key)
+
+    def test_context_configuration_changes_invalidate_cache_key(self) -> None:
+        document = stage0_document()
+        entities = stage2_document()
+        client = FakeClient()
+        prompt = rendered_prompt()
+
+        baseline_key = _cache_components(
+            document,
+            entities,
+            prompt,
+            client,
+            input_sections=("Methods", "Results"),
+            max_input_chars=60000,
+        )[2]
+        methods_only_key = _cache_components(
+            document,
+            entities,
+            prompt,
+            client,
+            input_sections=("Methods",),
+            max_input_chars=60000,
+        )[2]
+        lower_limit_key = _cache_components(
+            document,
+            entities,
+            prompt,
+            client,
+            input_sections=("Methods", "Results"),
+            max_input_chars=59999,
+        )[2]
+
+        self.assertNotEqual(baseline_key, methods_only_key)
+        self.assertNotEqual(baseline_key, lower_limit_key)
+
+    def test_run_stage3_recomputes_after_context_limit_changes(self) -> None:
+        document = stage0_document()
+        entities = stage2_document()
+        client = FakeClient()
+        prompt = rendered_prompt()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            stage0_path = root / "stage0_blocks.json"
+            stage2_path = root / "stage2_entities.json"
+            output_path = root / "stage3_process.json"
+            stage0_path.write_text(
+                json.dumps(document.model_dump(mode="json")),
+                encoding="utf-8",
+            )
+            stage2_path.write_text(
+                json.dumps(entities.model_dump(mode="json")),
+                encoding="utf-8",
+            )
+
+            _, first_cached = run_stage3(
+                stage0_path,
+                stage2_path,
+                output_path,
+                client,
+                prompt,
+                max_input_chars=60000,
+            )
+            calls_after_first = client.calls
+            _, second_cached = run_stage3(
+                stage0_path,
+                stage2_path,
+                output_path,
+                client,
+                prompt,
+                max_input_chars=59999,
+            )
+            _, third_cached = run_stage3(
+                stage0_path,
+                stage2_path,
+                output_path,
+                client,
+                prompt,
+                max_input_chars=59999,
+            )
+
+        self.assertFalse(first_cached)
+        self.assertFalse(second_cached)
+        self.assertTrue(third_cached)
+        self.assertEqual(client.calls, calls_after_first + 1)
 
     def test_compatible_output_cache_is_reused(self) -> None:
         document = stage0_document()

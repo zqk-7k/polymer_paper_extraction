@@ -1,0 +1,39 @@
+{
+  "runtime_version": "E25-core-20260920",
+  "release_scope": "E25 source refinement, sample/context repair and preview publication recovery",
+  "supplementary_model_requests_enabled": false,
+  "enhanced_process_graph_enabled": false,
+  "property_experiment": {
+    "version": "E25",
+    "date": "2026-09-07",
+    "papers": 101,
+    "papers_with_nonzero_denominator": 98,
+    "denominator": 3525,
+    "all_stage_hits": 3315,
+    "final_hits": 3211,
+    "baseline_version": "E13",
+    "baseline_all_stage_hits": 3166,
+    "baseline_final_hits": 3029,
+    "source_report": "experiments/foundation90_evolution/runs/c101_continuous9490_20260907/public_strict/101篇双引擎自进化目标达成报告.md",
+    "reference_scope": "Frozen directly reported text/table numeric facts, v4 value/unit matching; development corpus, not held-out testing"
+  },
+  "process_experiment": {
+    "version": "r7",
+    "papers": 26,
+    "coverage": {
+      "operation": {"hits": 200, "denominator": 205},
+      "parameter": {"hits": 557, "denominator": 578},
+      "order": {"hits": 118, "denominator": 120},
+      "binding": {"hits": 123, "denominator": 135}
+    },
+    "support": {"hits": 6246, "denominator": 6375},
+    "source_report": "0909_工艺优化_9590/evaluations/foundation31_r7_v2_new26_crosschecked/metrics.json"
+  },
+  "limits": [
+    "Historical experiment summaries, not measurements on newly uploaded papers.",
+    "The 101 papers participated in optimization; these are not held-out generalization scores.",
+    "The process audit covers 26 papers, not all 101; binding coverage remains below 95%.",
+    "No private PDFs, PoLyInfo records, raw model responses or task credentials are bundled.",
+    "E25 experiment-specific OCR repairs and supplementary LLM request history are not reproduced automatically."
+  ]
+}

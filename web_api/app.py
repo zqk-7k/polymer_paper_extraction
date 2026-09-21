@@ -15,7 +15,8 @@ from typing import Any
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
+from web_api.evolution_report import release_info, report_html
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1227,6 +1228,7 @@ def health(request: Request) -> dict[str, Any]:
     env = _load_pipeline_environment()
     return {
         "status": "ok",
+        "runtime_version": release_info()["runtime_version"],
         "pipeline_root": str(ROOT),
         "python_ready": PYTHON.is_file() or shutil.which("python") is not None,
         "accepts_user_keys": True,
@@ -1482,6 +1484,16 @@ def get_demo30_polyinfo_report() -> FileResponse:
     if not report.is_file():
         raise HTTPException(status_code=404, detail="demo30 audit report not found")
     return FileResponse(report, media_type="text/html; charset=utf-8")
+
+
+@app.get("/api/reports/evolution", response_class=HTMLResponse)
+def get_evolution_report() -> HTMLResponse:
+    return HTMLResponse(report_html())
+
+
+@app.get("/api/reports/evolution/data")
+def get_evolution_report_data() -> JSONResponse:
+    return JSONResponse(release_info())
 
 
 @app.get("/api/reports/demo30-polyinfo/data")

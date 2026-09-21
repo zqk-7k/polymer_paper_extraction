@@ -1,6 +1,6 @@
 ---
 prompt_id: polymer.stage4.property
-version: 1.7.2
+version: 1.8.1
 stage: stage4_property
 output_schema: property_observation_schema.v7
 ---
@@ -114,6 +114,18 @@ output_schema: property_observation_schema.v7
     `Tg1/Tg2/Tg3`），普通端点应形成基础性质 Series，每个重复下标分量分别形成
     独立 Series；分量 Series 不得视为已覆盖普通端点。对同表中的其他性质列按相同
     规则完整处理。
+
+## 表格完整覆盖与样品绑定补充规则
+
+28. 输入中的 `table_cells` 是确定性的表格网格。必须使用其 `cell_id`、行列索引和跨行跨列信息理解多级表头；不要只依赖扁平化的 `source_text`。
+29. 输入中的 `DETERMINISTIC TABLE COVERAGE TARGETS` 是待检查的性质列清单。对每个目标列逐一处理全部数值单元格：多行列必须形成 `property_series`，不得只返回正文举例的几行。若某格语义确实不能判定，仍建立 `missing` point 并保留该格证据；不得静默跳过。
+30. 表格行名或列名若与输入 Sample 的 `sample_label_raw`、`state_description`、组成或工艺状态一致，应绑定相应 `sample_id`。多样品表允许在每个 point 上分别绑定样品；不要因为顶层 Series 无法绑定单一样品而丢弃整列。
+31. 配方量、处理时间、测试温度、频率、浓度等自变量应放入 `coordinates` 或 measurement context。它们不是性质响应值，也不得仅凭数字创建新 Sample。只有作者明确给出的样品、配方或持久处理状态才能作为 Sample。
+32. 识别并完整抽取下列常见表头及符号：Mn、Mw、Mw/Mn 或 PDI、Tg、Tm、Tc、Td、5%/10%/50%失重温度、Xc、d-spacing、Vicat/VST、PMT、ΔHm、Izod/Charpy、表面能及其极性/色散分量、接触角、电导率/电阻率，以及拉伸强度、模量和断裂伸长率。原文中的性质变体必须分别保留，不得合并成一个值。
+33. 表头明确给出 `×10^n`、`10^-n` 等倍率时，它属于该列所有数值的显式语义。`value_raw` 和表格 evidence 保持原文；`value_min/value_max` 应应用该显式倍率，并在 unit/measurement context 中保留表头信息。不得应用原文没有报告的换算。
+34. `mJ/m²` 与 `mN/m`、`J/m` 与 `kJ/m` 等只有在评价或下游规范化明确支持时才换算；抽取阶段必须始终保留逐字 `unit_raw` 和原始数值。均值±误差时，均值是 property value，误差保留在原文证据和上下文中，不得把误差另当性质值。
+35. 输出前执行逐表核对：列出每个目标性质列的预期数值格数与实际 `covered` point 数。任何目标列覆盖不完整时，优先补齐该列，而不是增加正文解释或重复 scalar。
+36. 稀溶液黏度的物理量不得混并：`η_inh`、`eta_inh` 和 inherent viscosity 只能映射为 `inherent_viscosity`；`[η]`、`η_int` 和 intrinsic viscosity 映射为 `intrinsic_viscosity`；`η_red` 和 reduced viscosity 映射为 `reduced_viscosity`；`η_sp` 和 specific viscosity 映射为 `specific_viscosity`。逐字保留原始符号、脚注和原文单位，不得把 `inh` 改写成 intrinsic，也不得把溶剂名或脚注字母当作单位。
 
 # Confidence
 

@@ -209,10 +209,15 @@ def test_viscosity_variants_are_retained_for_preview_audit() -> None:
         cells["T_1_7:r0001:c0004"]["property_variant"],
     ]
     assert variants == ["inherent", "intrinsic", "reduced", "specific"]
-    assert all(
-        cells[f"T_1_7:r0001:c000{i}"]["property_name_normalized"] == "intrinsic_viscosity"
+    assert [
+        cells[f"T_1_7:r0001:c000{i}"]["property_name_normalized"]
         for i in range(1, 5)
-    )
+    ] == [
+        "inherent_viscosity",
+        "intrinsic_viscosity",
+        "reduced_viscosity",
+        "specific_viscosity",
+    ]
 
 
 def test_td_only_header_rows_are_not_replaced_by_previous_data_values() -> None:

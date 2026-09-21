@@ -66,17 +66,19 @@ from schema.polymer_schema import (
     Stage3Document,
     Stage4Document,
     Stage4Provenance,
+    SpecializedPropertyObservation,
     TableLocatorCandidate,
     UnresolvedPropertyCandidate,
     UnresolvedPropertyObservation,
 )
 from stages.table_grid import resolve_table_locator, table_cells_for
+from stages.stage4_schema_isolation import isolate_invalid_scalar_records, is_degraded_empty_shell
 
 
 STAGE_ID = "stage4_property"
 OUTPUT_SCHEMA_VERSION = "property_observation_schema.v7"
-IMPLEMENTATION_VERSION = "1.7.10"
-CACHE_REVISION = "stage4-preview-repair-20260809"
+IMPLEMENTATION_VERSION = "1.8.9"
+CACHE_REVISION = "stage4-required-series-context-and-prewrite-validation-20260905"
 # CACHE_REVISION 用于使本轮 Preview 修复后的缓存与旧空壳缓存隔离；
 # provenance 版本保持现有 Schema 支持的 1.7.10，Strict 语义不变。
 # 1.7.10 Preview 在响应结构合法但 evidence 语义校验失败时保留原候选；
@@ -111,6 +113,7 @@ def _preview_publication_status(
     incomplete_response_reason: str | None,
     preview_semantic_bypass_reason: str | None,
     property_series: list[Any],
+    schema_quarantined: bool = False,
 ) -> tuple[str, list[str]]:
     """返回 Preview 发布状态及缺少顶层主体的 series。"""
 
@@ -125,6 +128,7 @@ def _preview_publication_status(
             preview_degraded_reason is not None
             or incomplete_response_reason is not None
             or preview_semantic_bypass_reason is not None
+            or schema_quarantined
             or unbound_series
         )
         else "success"
@@ -259,6 +263,34 @@ def write_json_atomic(path: Path, data: Any) -> None:
         encoding="utf-8",
     )
     temp_path.replace(path)
+
+
+def _write_validated_stage4_document(
+    path: Path,
+    document: Stage4Document,
+) -> Stage4Document:
+    """Fully revalidate the final object graph before replacing Stage 4.
+
+    ``model_copy(update=...)`` deliberately avoids validation.  Stage 4 uses
+    it while carrying independently verified prior facts, so a nested required
+    field can otherwise become null and be omitted by ``exclude_none``.  The
+    output file must never be replaced until the complete graph validates.
+    """
+
+    try:
+        validated = Stage4Document.model_validate(
+            document.model_dump(mode="python")
+        )
+    except ValidationError as exc:
+        raise Stage4Error(
+            "Stage 4 pre-write full-document validation failed: "
+            f"{_validation_feedback(exc)}"
+        ) from exc
+    write_json_atomic(
+        path,
+        validated.model_dump(mode="json", exclude_none=True),
+    )
+    return validated
 
 
 def _load_model(path: Path, model: type[Any], label: str) -> Any:
@@ -455,6 +487,16 @@ def _user_message(
                 "sample_kind": item.sample_kind,
                 "refers_to_entity": item.refers_to_entity,
                 "polymer_name": item.polymer_name,
+                "polymer_type": item.polymer_type,
+                "copolymer_type": item.copolymer_type,
+                "material_type": item.material_type,
+                "sample_label_raw": item.sample_label_raw,
+                "state_description": item.state_description,
+                "intended_use": item.intended_use,
+                "evidence": {
+                    "block_id": item.evidence.block_id,
+                    "source_sentence": item.evidence.source_sentence,
+                },
             }
             for item in process.samples
         ],
@@ -464,6 +506,11 @@ def _user_message(
                 "process_type": item.process_type,
                 "input_sample_ids": item.input_sample_ids,
                 "output_sample_ids": item.output_sample_ids,
+                "parameters": item.parameters,
+                "evidence": {
+                    "block_id": item.evidence.block_id,
+                    "source_sentence": item.evidence.source_sentence,
+                },
             }
             for item in process.process_steps
         ],
@@ -475,9 +522,52 @@ def _user_message(
             "type": block.type,
             "section": block.section,
             "source_text": _element_source_text(block),
+            "table_cells": (
+                [
+                    {
+                        "cell_id": cell.cell_id,
+                        "row_index": cell.row_index,
+                        "column_index": cell.column_index,
+                        "row_span": cell.row_span,
+                        "column_span": cell.column_span,
+                        "text": cell.text,
+                        "is_header": cell.is_header,
+                    }
+                    for cell in table_cells_for(block)
+                ]
+                if block.type == "table"
+                else None
+            ),
         }
         for block in blocks
     ]
+    table_coverage_targets = []
+    for block in blocks:
+        if block.type != "table":
+            continue
+        cells = table_cells_for(block)
+        cells_by_column: dict[int, list[Any]] = {}
+        for cell in cells:
+            cells_by_column.setdefault(cell.column_index, []).append(cell)
+        for header in cells:
+            if header.row_index > 3 or not _looks_like_series_property_header(header.text):
+                continue
+            value_cells = [
+                cell
+                for cell in cells_by_column.get(header.column_index, [])
+                if cell.row_index > header.row_index
+                and re.search(r"[-+]?\d+(?:[.,]\d+)?", cell.text)
+                and not _looks_like_series_property_header(cell.text)
+            ]
+            if value_cells:
+                table_coverage_targets.append({
+                    "table_id": block.block_id,
+                    "header_cell_id": header.cell_id,
+                    "column_index": header.column_index,
+                    "column_label": header.text,
+                    "numeric_cell_count": len(value_cells),
+                    "numeric_cell_ids": [cell.cell_id for cell in value_cells],
+                })
     vocabulary_data = {
         name: {"property_code": code, "property_category": category}
         for name, (code, category) in vocabulary.items()
@@ -493,6 +583,9 @@ def _user_message(
         "--- BEGIN CONTROLLED PROPERTY VOCABULARY ---\n"
         + json.dumps(vocabulary_data, ensure_ascii=False, indent=2)
         + "\n--- END CONTROLLED PROPERTY VOCABULARY ---\n"
+        "--- BEGIN DETERMINISTIC TABLE COVERAGE TARGETS ---\n"
+        + json.dumps(table_coverage_targets, ensure_ascii=False, indent=2)
+        + "\n--- END DETERMINISTIC TABLE COVERAGE TARGETS ---\n"
         "--- BEGIN UNTRUSTED METHODS AND RESULTS BLOCKS ---\n"
         + json.dumps(block_data, ensure_ascii=False, indent=2)
         + "\n--- END UNTRUSTED METHODS AND RESULTS BLOCKS ---"
@@ -2257,8 +2350,18 @@ def _looks_like_series_property_header(value: str) -> bool:
         return False
     return bool(
         re.search(
-            r"(?:\btg\b|\bt\s+[gm]\b|\bmn\b|\bmw\b|\bm\s+[nw]\b|"
-            r"glass\s+trans(?:ition|formation)|melting\s+temperature)",
+            r"(?:\btg\b|\bt\s*[gmcd]\b|\bmn\b|\bmw\b|\bm\s*[nw]\b|"
+            r"\bpdi\b|mw\s*/\s*mn|dispersity|molecular\s+weight|"
+            r"glass\s+trans(?:ition|formation)|melting\s+(?:temperature|point)|"
+            r"decompos(?:ition|ition\s+temperature)|weight\s+loss|"
+            r"crystallinity|\bxc\b|heat\s+of\s+fusion|enthalpy|\bdh?m\b|"
+            r"surface\s+(?:free\s+)?energy|surface\s+tension|contact\s+angle|"
+            r"conductivity|resistivity|dielectric|"
+            r"tensile\s+(?:strength|stress|modulus)|elongation|"
+            r"impact(?:\s+strength)?|izod|charpy|"
+            r"vicat|\bvst\b|softening|\bpmt\b|"
+            r"d\s*spacing|interplanar\s+(?:distance|spacing)|"
+            r"water\s+(?:absorption|uptake)|oxygen\s+index)",
             normalized,
             flags=re.IGNORECASE,
         )
@@ -2342,6 +2445,225 @@ def _candidate_property_key(item: dict[str, Any]) -> tuple[str, str]:
     return "raw", _normalized_table_label(raw)
 
 
+_DILUTE_SOLUTION_VISCOSITY_NAMES = frozenset({
+    "inherent_viscosity",
+    "intrinsic_viscosity",
+    "reduced_viscosity",
+    "specific_viscosity",
+})
+
+
+def _explicit_solution_viscosity_name(property_name_raw: Any) -> str | None:
+    """Return a viscosity family only when the raw label names it explicitly.
+
+    This is source-text normalization, not a scientific inference.  In
+    particular, ``eta_inh`` is inherent viscosity and must never be expanded to
+    intrinsic viscosity.  A bare, unqualified ``eta`` remains ambiguous.
+    """
+
+    raw = str(property_name_raw or "").casefold()
+    if not raw.strip():
+        return None
+    # Flatten only LaTeX wrappers while retaining token separators.  Matching
+    # the fully compacted label made prefixes such as ``eta_inhibition`` look
+    # like the abbreviation ``eta_inh``.
+    surface = raw.replace("\\eta", "eta").replace("η", "eta")
+    for _ in range(3):
+        surface = re.sub(
+            r"\\(?:mathrm|text|operatorname)\s*\{([^{}]*)\}",
+            r"\1",
+            surface,
+        )
+    surface = surface.replace("{", "").replace("}", "")
+    phrase_patterns = (
+        (r"\binherent\s+viscosit(?:y|ies)\b", "inherent_viscosity"),
+        (r"\breduced\s+viscosit(?:y|ies)\b", "reduced_viscosity"),
+        (r"\bspecific\s+viscosit(?:y|ies)\b", "specific_viscosity"),
+        (r"\bintrinsic\s+viscosit(?:y|ies)\b", "intrinsic_viscosity"),
+    )
+    for pattern, name in phrase_patterns:
+        if re.search(pattern, surface):
+            return name
+    if re.search(r"\[\s*eta\s*\]", surface):
+        return "intrinsic_viscosity"
+    abbreviation_patterns = (
+        (r"(?:^|[^a-z0-9])eta[\s_]*inh(?![a-z0-9])", "inherent_viscosity"),
+        (r"(?:^|[^a-z0-9])eta[\s_]*red(?![a-z0-9])", "reduced_viscosity"),
+        (r"(?:^|[^a-z0-9])eta[\s_]*sp(?![a-z0-9])", "specific_viscosity"),
+        (
+            r"(?:^|[^a-z0-9])eta[\s_]*(?:int|intrinsic)(?![a-z0-9])",
+            "intrinsic_viscosity",
+        ),
+    )
+    return next(
+        (
+            name
+            for pattern, name in abbreviation_patterns
+            if re.search(pattern, surface)
+        ),
+        None,
+    )
+
+
+def _repair_explicit_solution_viscosity_fields(
+    item: dict[str, Any],
+    vocabulary: dict[str, tuple[str, str]] | None,
+) -> bool:
+    """Align controlled fields to an explicit raw viscosity symbol or name."""
+
+    name = _explicit_solution_viscosity_name(item.get("property_name_raw"))
+    if name is None or vocabulary is None or name not in vocabulary:
+        return False
+    code, category = vocabulary[name]
+    expected = (name, code, category)
+    current = (
+        item.get("property_name_normalized"),
+        item.get("property_code"),
+        item.get("property_category"),
+    )
+    if current == expected:
+        return False
+    item["property_name_normalized"] = name
+    item["property_code"] = code
+    item["property_category"] = category
+    return True
+
+
+def _explicit_molecular_weight_average(
+    property_name_raw: Any,
+) -> str | None:
+    """Return ``Mn``/``Mw`` only for an explicit molecular-weight label.
+
+    A generic ``molecular weight`` label is deliberately insufficient.  The
+    compact LaTeX projection also rejects ratios such as ``Mw/Mn`` because a
+    table display multiplier cannot safely be assigned to either side of a
+    ratio.
+    """
+
+    if not isinstance(property_name_raw, str) or not property_name_raw.strip():
+        return None
+    surface = html.unescape(property_name_raw).strip()
+    phrase = re.sub(r"[\s_-]+", " ", surface).casefold()
+    if re.search(r"\bnumber average molecular weight\b", phrase):
+        return "Mn"
+    if re.search(r"\bweight average molecular weight\b", phrase):
+        return "Mw"
+
+    compact = re.sub(
+        r"\\(?:overline|bar|mathrm|text|operatorname|mathit|rm)\s*",
+        "",
+        surface,
+        flags=re.IGNORECASE,
+    )
+    compact = re.sub(r"[\s${}\\]", "", compact).casefold()
+    if "/" in compact or "ratio" in compact:
+        return None
+    match = re.fullmatch(r"m_?([nw])(?:\^[a-z]\)?)?", compact)
+    if match is None:
+        return None
+    return "Mn" if match.group(1) == "n" else "Mw"
+
+
+def _strict_power_of_ten_multiplier(unit_raw: Any) -> Decimal | None:
+    """Parse a stand-alone table display factor such as ``$10^{4}$``.
+
+    Units that merely contain a power of ten (for example ``10^-2 S/cm``) are
+    not display multipliers and must remain untouched.
+    """
+
+    if not isinstance(unit_raw, str) or not unit_raw.strip():
+        return None
+    surface = html.unescape(unit_raw).strip()
+    surface = re.sub(r"^\\\(|\\\)$", "", surface)
+    surface = surface.strip().strip("$").strip()
+    surface = surface.replace("\\times", "×").replace("\\cdot", "·")
+    surface = re.sub(r"\s+", "", surface)
+    match = re.fullmatch(
+        r"(?:[×x*·])?10\^\{?([+-]?\d{1,2})\}?",
+        surface,
+        flags=re.IGNORECASE,
+    )
+    if match is None:
+        return None
+    exponent = int(match.group(1))
+    # A positive stand-alone factor unambiguously means that the displayed
+    # mantissa still needs scaling.  Negative exponents in table headings are
+    # commonly written as ``M x 10^-4`` (the inverse display convention), so
+    # multiplying by them would move the value in the wrong direction.
+    if exponent <= 0 or exponent > 12:
+        return None
+    return Decimal(10) ** exponent
+
+
+def _displayed_numeric_value(value_raw: Any) -> Decimal | None:
+    if not isinstance(value_raw, str) or not value_raw.strip():
+        return None
+    surface = (
+        value_raw.strip()
+        .replace("−", "-")
+        .replace("–", "-")
+        .replace("＋", "+")
+    )
+    if re.fullmatch(
+        r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?",
+        surface,
+    ) is None:
+        return None
+    try:
+        return Decimal(surface)
+    except ArithmeticError:
+        return None
+
+
+def _repair_molecular_weight_display_multiplier(
+    series: dict[str, Any],
+) -> int:
+    """Apply an explicit ``10^n`` table-header factor to Mn/Mw series points.
+
+    The repair is intentionally narrow: both numeric bounds must still equal
+    the displayed cell text.  This prevents multiplying values that the model
+    already scaled or values represented as ranges, errors, or derived text.
+    """
+
+    if _explicit_molecular_weight_average(
+        series.get("property_name_raw")
+    ) is None:
+        return 0
+    multiplier = _strict_power_of_ten_multiplier(series.get("unit_raw"))
+    if multiplier is None:
+        return 0
+    repaired = 0
+    for point in series.get("points", []):
+        if not isinstance(point, dict):
+            continue
+        point_unit = point.get("unit_raw")
+        if point_unit is not None and _strict_power_of_ten_multiplier(
+            point_unit
+        ) != multiplier:
+            continue
+        displayed = _displayed_numeric_value(point.get("value_raw"))
+        value_min = point.get("value_min")
+        value_max = point.get("value_max")
+        if (
+            displayed is None
+            or isinstance(value_min, bool)
+            or isinstance(value_max, bool)
+            or not isinstance(value_min, (int, float))
+            or not isinstance(value_max, (int, float))
+        ):
+            continue
+        if (
+            Decimal(str(value_min)) != displayed
+            or Decimal(str(value_max)) != displayed
+        ):
+            continue
+        physical = displayed * multiplier
+        point["value_min"] = float(physical)
+        point["value_max"] = float(physical)
+        repaired += 1
+    return repaired
+
+
 def _mark_candidate_relation_uncertain(
     item: dict[str, Any],
     *fields: str,
@@ -2372,6 +2694,8 @@ def _repair_candidate_response_payload(
         "series_with_inherited_confidence": 0,
         "series_confidence_inherited_from_points": 0,
         "property_names_mapped_from_code_category": 0,
+        "explicit_solution_viscosity_semantics_repaired": 0,
+        "molecular_weight_display_multiplier_points_repaired": 0,
         "table_locator_ids_aligned_to_evidence": 0,
         "table_locator_surfaces_repaired": 0,
         "blank_table_cell_values_normalized": 0,
@@ -2388,6 +2712,8 @@ def _repair_candidate_response_payload(
         "point_locators_aligned_to_coordinates": 0,
         "point_compound_locators_aligned_to_coordinates": 0,
         "measurement_context_surfaces_repaired": 0,
+        "series_measurement_context_defaults_added": 0,
+        "point_measurement_context_defaults_added": 0,
         "series_method_evidence_supplemented": 0,
         "series_multimethod_downgraded": 0,
         "series_context_evidence_supplemented": 0,
@@ -2499,6 +2825,13 @@ def _repair_candidate_response_payload(
                 compact_preview_condition_quantity_ranges(child)
 
     normalize_evidence_aliases(payload)
+    for collection_name in ("properties", "property_series"):
+        for item in payload.get(collection_name, []):
+            if isinstance(item, dict) and _repair_explicit_solution_viscosity_fields(
+                item,
+                vocabulary,
+            ):
+                repairs["explicit_solution_viscosity_semantics_repaired"] += 1
     if preview_relaxed:
         compact_preview_condition_quantity_ranges(payload)
         for series in payload.get("property_series", []):
@@ -2697,6 +3030,26 @@ def _repair_candidate_response_payload(
         for item in payload.get("property_series", [])
         if isinstance(item, dict)
     ]
+    for series in series_items:
+        # PropertySeries and its materialized points require an explicit
+        # condition snapshot.  A missing/null model field means only that no
+        # condition was reported; it must not turn a valid numeric series into
+        # an invalid Stage4Document.  Non-null payloads remain authoritative
+        # and are still fully validated below.
+        if series.get("measurement_context") is None:
+            series["measurement_context"] = {
+                "condition_status": "not_reported",
+            }
+            repairs["series_measurement_context_defaults_added"] += 1
+        for point in series.get("points", []):
+            if (
+                isinstance(point, dict)
+                and point.get("measurement_context") is None
+            ):
+                point["measurement_context"] = {
+                    "condition_status": "not_reported",
+                }
+                repairs["point_measurement_context_defaults_added"] += 1
     def downgrade_empty_reported_context(value: Any) -> None:
         if isinstance(value, dict):
             status = value.get("condition_status")
@@ -4489,6 +4842,11 @@ def _repair_candidate_response_payload(
                 property_name,
             )
 
+    for series in series_items:
+        repairs["molecular_weight_display_multiplier_points_repaired"] += (
+            _repair_molecular_weight_display_multiplier(series)
+        )
+
     def candidate_unit_keys(item: dict[str, Any]) -> set[str]:
         values = [item.get("unit_normalized"), item.get("unit_raw")]
         for point in item.get("points", []):
@@ -4978,6 +5336,19 @@ def _candidate_repair_warnings(
             ),
             "fields": repairs["series_unit_surfaces_repaired"],
         })
+    if repairs["molecular_weight_display_multiplier_points_repaired"]:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "molecular_weight_display_multiplier_applied",
+            "message": (
+                "An explicit stand-alone 10^n table-header display factor was "
+                "applied to unscaled Mn/Mw series-point numeric bounds; raw "
+                "cell text and source unit surface were retained."
+            ),
+            "points": repairs[
+                "molecular_weight_display_multiplier_points_repaired"
+            ],
+        })
     if (
         repairs["series_entity_relinked_to_sample"]
         or repairs["point_entity_relinked_to_sample"]
@@ -5092,6 +5463,18 @@ def _candidate_repair_warnings(
                 "已按唯一的 property_code 与 property_category 映射到规范键"
             ),
             "properties": repairs["property_names_mapped_from_code_category"],
+        })
+    if repairs["explicit_solution_viscosity_semantics_repaired"]:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "explicit_solution_viscosity_semantics_repaired",
+            "message": (
+                "已按原文明确符号区分 inherent、intrinsic、reduced 和 specific "
+                "viscosity；raw 名称、数值与单位保持不变"
+            ),
+            "properties": repairs[
+                "explicit_solution_viscosity_semantics_repaired"
+            ],
         })
     if repairs["table_locator_ids_aligned_to_evidence"]:
         warnings.append({
@@ -5255,6 +5638,24 @@ def _candidate_repair_warnings(
             ),
             "evidence": repairs[
                 "point_compound_locators_aligned_to_coordinates"
+            ],
+        })
+    if (
+        repairs["series_measurement_context_defaults_added"]
+        or repairs["point_measurement_context_defaults_added"]
+    ):
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "required_series_measurement_context_defaulted",
+            "message": (
+                "Missing/null PropertySeries and point measurement contexts "
+                "were materialized as explicit not_reported snapshots."
+            ),
+            "series": repairs[
+                "series_measurement_context_defaults_added"
+            ],
+            "points": repairs[
+                "point_measurement_context_defaults_added"
             ],
         })
     if repairs["measurement_context_surfaces_repaired"]:
@@ -6287,7 +6688,12 @@ def _cache_components(
     model_config_hash = _sha256_json(
         llm_config_cache_payload(client.resolved)
     )
+    refinement_cache = {}
+    if implementation_version == "1.8.8":
+        from stages.source_refinement import runtime_fingerprint
+        refinement_cache['source_refinement_fingerprint'] = runtime_fingerprint()
     cache_key = _sha256_json({
+        **refinement_cache,
         "input_hash": input_hash,
         "prompt_id": prompt.prompt_id,
         "prompt_version": prompt.version,
@@ -6340,6 +6746,7 @@ def extract_properties(
     supplemented_unresolved_evidence: list[tuple[str, str]] = []
     dropped_condition_ids: list[str] = []
     candidate_repairs: dict[str, int] = {}
+    schema_quarantine: list[dict[str, Any]] = []
     dropped_confidence_fields: list[str] = []
     coordinate_only_table_columns: list[dict[str, Any]] = []
     preview_semantic_bypass_reason: str | None = None
@@ -6385,6 +6792,8 @@ def extract_properties(
                         preview_relaxed=preview_relaxed,
                     )
                 )
+                if preview_relaxed:
+                    repaired_data, schema_quarantine = isolate_invalid_scalar_records(repaired_data)
                 response = LLMJSONResponse(
                     data=repaired_data,
                     provider=response.provider,
@@ -6492,6 +6901,14 @@ def extract_properties(
         })
     if candidate_repairs:
         warnings.extend(_candidate_repair_warnings(candidate_repairs))
+    if schema_quarantine:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_schema_objects_quarantined",
+            "message": "仅隔离结构不合法的标量记录，合法记录继续处理；隔离项不发布且原样留存",
+            "blocking": True,
+            "records": schema_quarantine,
+        })
     if preview_semantic_bypass_reason is not None:
         warnings.append({
             "stage": STAGE_ID,
@@ -6539,6 +6956,7 @@ def extract_properties(
         incomplete_response_reason=incomplete_response_reason,
         preview_semantic_bypass_reason=preview_semantic_bypass_reason,
         property_series=property_series,
+        schema_quarantined=bool(schema_quarantine),
     )
     if unbound_series:
         warnings.append({
@@ -6864,6 +7282,1086 @@ def _stage4_raw_response_artifact(
     })
 
 
+_SPECIALIZED_ID_RE = re.compile(r"^sp(\d+)$")
+_PROPERTY_ID_RE = re.compile(r"^prop(\d+)$")
+_CONDITION_ID_RE = re.compile(r"^mc(\d+)$")
+_SERIES_ID_RE = re.compile(r"^series(\d+)$")
+_POINT_ID_RE = re.compile(r"^pt(\d+)$")
+
+
+def _evidence_matches_stage0(
+    evidence: Evidence,
+    document: Stage0Document,
+) -> bool:
+    """Return whether an evidence object is still a direct Stage 0 anchor."""
+
+    blocks = {block.block_id: block for block in document.elements}
+    block = blocks.get(evidence.block_id)
+    if block is None or evidence.page != block.page:
+        return False
+    locator = evidence.table_locator
+    if locator is None:
+        source = _element_source_text(block)
+        return _resolve_surface_text(source, evidence.source_sentence) is not None
+    if block.type != "table" or locator.get("table_id") != block.block_id:
+        return False
+    cell_id = locator.get("cell_id")
+    if not isinstance(cell_id, str) or not cell_id.strip():
+        # A carried table value must retain a stable cell anchor.  Surface-only
+        # locators are deliberately not accepted on this migration path.
+        return False
+    cells = {cell.cell_id: cell for cell in table_cells_for(block)}
+    cell = cells.get(cell_id)
+    if cell is None:
+        return False
+    cell_value = locator.get("cell_value")
+    return not (
+        isinstance(cell_value, str)
+        and cell_value.strip()
+        and _resolve_surface_text(cell.text, cell_value) is None
+    )
+
+
+def _continuation_sample_resolution(
+    evidence: list[Evidence],
+    document: Stage0Document,
+    aliases: dict[str, set[str]],
+) -> str | None:
+    """Resolve a table continuation row from its nearest labelled parent row."""
+
+    blocks = {block.block_id: block for block in document.elements}
+    resolved: set[str] = set()
+    for item in evidence:
+        locator = item.table_locator or {}
+        cell_id = locator.get("cell_id")
+        block = blocks.get(item.block_id)
+        if (
+            block is None
+            or block.type != "table"
+            or not isinstance(cell_id, str)
+        ):
+            continue
+        cells = table_cells_for(block)
+        target = next((cell for cell in cells if cell.cell_id == cell_id), None)
+        if target is None:
+            continue
+        row_cells = [cell for cell in cells if cell.row_index == target.row_index]
+        direct = set().union(*(
+            aliases.get(_normalized_table_label(cell.text), set())
+            for cell in row_cells
+            if cell.column_index < target.column_index and cell.text.strip()
+        )) if row_cells else set()
+        if direct:
+            if len(direct) != 1:
+                return None
+            resolved.update(direct)
+            continue
+
+        first_cell = min(row_cells, key=lambda cell: cell.column_index, default=None)
+        marker = _normalized_table_label(first_cell.text if first_cell else "")
+        # Restrict inheritance to conventional blank/letter continuation rows;
+        # an ordinary numbered row must state its own sample.
+        if marker and re.fullmatch(r"[a-z]", marker, flags=re.IGNORECASE) is None:
+            continue
+        for row_index in range(target.row_index - 1, -1, -1):
+            parent_matches = set().union(*(
+                aliases.get(_normalized_table_label(cell.text), set())
+                for cell in cells
+                if cell.row_index == row_index
+                and cell.column_index < target.column_index
+                and cell.text.strip()
+            ))
+            if not parent_matches:
+                continue
+            if len(parent_matches) != 1:
+                return None
+            resolved.update(parent_matches)
+            break
+    return next(iter(resolved)) if len(resolved) == 1 else None
+
+
+def _evidence_list_matches_stage0(
+    evidence: list[Evidence],
+    document: Stage0Document,
+) -> bool:
+    return bool(evidence) and all(
+        _evidence_matches_stage0(item, document) for item in evidence
+    )
+
+
+def _clear_quantity_evidence_ids(
+    quantity: ConditionQuantity | None,
+) -> ConditionQuantity | None:
+    if quantity is None:
+        return None
+    return quantity.model_copy(update={"evidence_ids": []})
+
+
+def _clear_context_evidence_ids(
+    context: MeasurementContext | None,
+) -> MeasurementContext | None:
+    if context is None:
+        return None
+    return context.model_copy(update={
+        "temperature": _clear_quantity_evidence_ids(context.temperature),
+        "frequency": _clear_quantity_evidence_ids(context.frequency),
+        "humidity": _clear_quantity_evidence_ids(context.humidity),
+        "pressure": _clear_quantity_evidence_ids(context.pressure),
+        "wavelength": _clear_quantity_evidence_ids(context.wavelength),
+        "other_condition_evidence_ids": {},
+    })
+
+
+def _clear_condition_evidence_ids(
+    condition: MeasurementCondition,
+) -> MeasurementCondition:
+    return condition.model_copy(update={
+        "temperature": _clear_quantity_evidence_ids(condition.temperature),
+        "frequency": _clear_quantity_evidence_ids(condition.frequency),
+        "humidity": _clear_quantity_evidence_ids(condition.humidity),
+        "pressure": _clear_quantity_evidence_ids(condition.pressure),
+        "wavelength": _clear_quantity_evidence_ids(condition.wavelength),
+    })
+
+
+def _condition_evidence_matches_stage0(
+    condition: MeasurementCondition,
+    document: Stage0Document,
+) -> bool:
+    evidence = [condition.evidence]
+    for quantity in (
+        condition.temperature,
+        condition.frequency,
+        condition.humidity,
+        condition.pressure,
+        condition.wavelength,
+    ):
+        if quantity is not None:
+            evidence.extend(quantity.evidence)
+    for values in condition.other_condition_evidence.values():
+        evidence.extend(values)
+    return all(_evidence_matches_stage0(item, document) for item in evidence)
+
+
+def _context_evidence_matches_stage0(
+    context: MeasurementContext | None,
+    document: Stage0Document,
+) -> bool:
+    if context is None:
+        return True
+    evidence: list[Evidence] = []
+    for quantity in (
+        context.temperature,
+        context.frequency,
+        context.humidity,
+        context.pressure,
+        context.wavelength,
+    ):
+        if quantity is not None:
+            if not quantity.evidence:
+                return False
+            evidence.extend(quantity.evidence)
+    for key in context.other_conditions:
+        values = context.other_condition_evidence.get(key, [])
+        if not values:
+            return False
+        evidence.extend(values)
+    return all(_evidence_matches_stage0(item, document) for item in evidence)
+
+
+def _verified_or_dropped_context(
+    context: MeasurementContext | None,
+    document: Stage0Document,
+) -> tuple[MeasurementContext | None, bool]:
+    """Keep an ancillary context only when all of its evidence still verifies.
+
+    A direct property or series point remains a valid source observation even
+    when an older optional method/solvent snapshot is incomplete.  Dropping
+    that snapshot is safer than dropping the directly evidenced value, and it
+    prevents an unverified condition from leaking into the new release.
+    """
+
+    if context is None:
+        return None, False
+    if _context_evidence_matches_stage0(context, document):
+        return _clear_context_evidence_ids(context), False
+    return None, True
+
+
+def _sample_aliases(
+    process: Stage3Document,
+) -> tuple[dict[str, set[str]], dict[str, set[str]]]:
+    aliases: dict[str, set[str]] = {}
+    aliases_by_sample: dict[str, set[str]] = {}
+    for sample in process.samples:
+        raw_values = [
+            value
+            for value in (
+                sample.sample_label_raw,
+                sample.polymer_name,
+                sample.state_description,
+            )
+            if value
+        ]
+        values = {_normalized_table_label(value) for value in raw_values}
+        for raw_value in raw_values:
+            values.update(
+                _normalized_table_label(match)
+                for match in re.findall(r"\(([^()]{2,24})\)", raw_value)
+                if re.fullmatch(r"[A-Za-z0-9_-]{2,24}", match.strip())
+            )
+        values.discard("")
+        aliases_by_sample[sample.sample_id] = values
+        for value in values:
+            aliases.setdefault(value, set()).add(sample.sample_id)
+    return aliases, aliases_by_sample
+
+
+def _sample_resolution_from_evidence(
+    sample_id: str | None,
+    evidence: list[Evidence],
+    process: Stage3Document,
+    document: Stage0Document,
+    *,
+    subject_hint: str | None = None,
+) -> str | None:
+    """Resolve a prior sample only from unique current aliases in its evidence."""
+
+    aliases, aliases_by_sample = _sample_aliases(process)
+    table_labels: set[str] = set()
+    for item in evidence:
+        locator = item.table_locator or {}
+        for key in ("row_label", "column_label"):
+            raw = locator.get(key)
+            if isinstance(raw, str) and raw.strip():
+                table_labels.add(_normalized_table_label(raw))
+    table_labels.discard("")
+    matches = set().union(
+        *(aliases.get(label, set()) for label in table_labels)
+    ) if table_labels else set()
+    if len(matches) == 1:
+        return next(iter(matches))
+    if len(matches) > 1:
+        return None
+
+    continuation = _continuation_sample_resolution(
+        evidence,
+        document,
+        aliases,
+    )
+    if continuation is not None:
+        return continuation
+
+    if subject_hint:
+        normalized_hint = _normalized_table_label(subject_hint)
+        hint_matches = [
+            (len(alias), resolved_ids)
+            for alias, resolved_ids in aliases.items()
+            if len(alias) >= 3 and alias in normalized_hint
+        ]
+        if hint_matches:
+            longest = max(length for length, _ in hint_matches)
+            resolved = set().union(*(
+                resolved_ids
+                for length, resolved_ids in hint_matches
+                if length == longest
+            ))
+            if len(resolved) == 1:
+                return next(iter(resolved))
+            return None
+
+    # Without a table axis or an explicit subject hint, text can only confirm
+    # an unchanged current ID.  It may not remap a broad polymer-class phrase
+    # onto whichever detailed sample happens to have a matching name.
+    if sample_id not in aliases_by_sample:
+        return None
+    evidence_text = _normalized_table_label(
+        " ".join(item.source_sentence for item in evidence)
+    )
+    supported = [
+        alias
+        for alias in aliases_by_sample[sample_id]
+        if len(alias) >= 3
+        and alias in evidence_text
+        and aliases.get(alias) == {sample_id}
+    ]
+    return sample_id if supported else None
+
+
+def _observation_family(
+    *,
+    property_code: str | None,
+    property_name_normalized: str | None,
+    property_name_raw: str,
+    molecular_weight_type: str | None = None,
+) -> tuple[str, str | None]:
+    family = (
+        (property_code or "").strip().casefold()
+        or (property_name_normalized or "").strip().casefold()
+        or _normalized_table_label(property_name_raw)
+    )
+    return family, molecular_weight_type
+
+
+def _unit_identity(value: str | None) -> str:
+    if value is None:
+        return ""
+    normalized = _normalized_table_label(value).casefold()
+    normalized = normalized.replace("掳", "°").replace("��", "°")
+    normalized = re.sub(r"\s+", "", normalized)
+    if normalized in {"c", "°c", "degc", "degreec", "degreesc"}:
+        return "degc"
+    return normalized
+
+
+def _value_identity(
+    value_raw: str | None,
+    value_min: float | None,
+    value_max: float | None,
+) -> tuple[Any, ...]:
+    if value_min is not None or value_max is not None:
+        return (
+            "numeric",
+            None if value_min is None else float(value_min),
+            None if value_max is None else float(value_max),
+        )
+    return ("raw", _normalized_table_label(value_raw or ""))
+
+
+def _observation_anchors(
+    evidence: list[Evidence],
+    value_raw: str | None,
+) -> set[tuple[str, ...]]:
+    anchors: set[tuple[str, ...]] = set()
+    normalized_value = _normalized_table_label(value_raw or "")
+    for item in evidence:
+        locator = item.table_locator or {}
+        cell_id = locator.get("cell_id")
+        if isinstance(cell_id, str) and cell_id.strip():
+            anchors.add(("cell", item.block_id, cell_id))
+            continue
+        if locator:
+            anchors.add((
+                "table",
+                item.block_id,
+                _normalized_table_label(str(locator.get("row_label") or "")),
+                _normalized_table_label(str(locator.get("column_label") or "")),
+                _normalized_table_label(str(locator.get("cell_value") or "")),
+            ))
+            continue
+        sentence = _normalized_table_label(item.source_sentence)
+        if normalized_value and normalized_value in sentence:
+            anchors.add(("text", item.block_id, sentence, normalized_value))
+    return anchors
+
+
+def _observation_descriptor(
+    *,
+    sample_id: str,
+    property_code: str | None,
+    property_name_normalized: str | None,
+    property_name_raw: str,
+    molecular_weight_type: str | None,
+    value_raw: str | None,
+    value_min: float | None,
+    value_max: float | None,
+    unit_raw: str | None,
+    unit_normalized: str | None,
+    evidence: list[Evidence],
+) -> dict[str, Any]:
+    return {
+        "sample_id": sample_id,
+        "family": _observation_family(
+            property_code=property_code,
+            property_name_normalized=property_name_normalized,
+            property_name_raw=property_name_raw,
+            molecular_weight_type=molecular_weight_type,
+        ),
+        "value": _value_identity(value_raw, value_min, value_max),
+        "unit": _unit_identity(unit_normalized or unit_raw),
+        "anchors": _observation_anchors(evidence, value_raw),
+    }
+
+
+def _descriptors_relation(
+    candidate: dict[str, Any],
+    current: dict[str, Any],
+) -> str:
+    """Classify overlapping observations as distinct, duplicate, or conflict."""
+
+    if not (candidate["anchors"] & current["anchors"]):
+        return "distinct"
+    same_core = (
+        candidate["sample_id"] == current["sample_id"]
+        and candidate["family"] == current["family"]
+        and candidate["value"] == current["value"]
+    )
+    if not same_core:
+        return "conflict"
+    # A missing unit in either version does not justify reintroducing an older
+    # interpretation.  The freshly extracted object remains authoritative.
+    if (
+        not candidate["unit"]
+        or not current["unit"]
+        or candidate["unit"] == current["unit"]
+    ):
+        return "duplicate"
+    return "conflict"
+
+
+def _series_table_keys(series: PropertySeries) -> set[tuple[str, str]]:
+    keys: set[tuple[str, str]] = set()
+    for point in series.points:
+        for evidence in point.evidence:
+            locator = evidence.table_locator or {}
+            table_id = locator.get("table_id")
+            if isinstance(table_id, str) and table_id:
+                keys.add((evidence.block_id, table_id))
+            else:
+                keys.add((evidence.block_id, ""))
+    return keys
+
+
+def _series_family(series: PropertySeries) -> tuple[str, str | None]:
+    return _observation_family(
+        property_code=series.property_code,
+        property_name_normalized=series.property_name_normalized,
+        property_name_raw=series.property_name_raw,
+    )
+
+
+def _series_coverage(points: list[PropertySeriesPoint]) -> SeriesCoverage:
+    covered = sum(point.coverage_status == "covered" for point in points)
+    missing = sum(point.coverage_status == "missing" for point in points)
+    not_applicable = sum(
+        point.coverage_status == "not_applicable" for point in points
+    )
+    expected = covered + missing
+    return SeriesCoverage(
+        expected=expected,
+        covered=covered,
+        missing=missing,
+        not_applicable=not_applicable,
+        ratio=(covered / expected if expected else 1.0),
+    )
+
+
+def _next_numeric_id(values: set[str], pattern: re.Pattern[str]) -> int:
+    return max(
+        (
+            int(match.group(1))
+            for value in values
+            if (match := pattern.fullmatch(value)) is not None
+        ),
+        default=0,
+    ) + 1
+
+
+def _condition_identity(condition: MeasurementCondition) -> str:
+    payload = condition.model_dump(mode="json", exclude={"condition_id"})
+    for field in ("temperature", "frequency", "humidity", "pressure", "wavelength"):
+        quantity = payload.get(field)
+        if isinstance(quantity, dict):
+            quantity["evidence_ids"] = []
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def _carry_forward_verified_prior_results(
+    result: Stage4Document,
+    prior: Stage4Document | None,
+    document: Stage0Document,
+    process: Stage3Document,
+    *,
+    prior_stage4_sha256: str | None,
+    stage0_sha256: str,
+) -> Stage4Document:
+    """Carry only missing, source-verified, uniquely bound prior observations.
+
+    New Stage 4 output always wins at a shared evidence anchor.  Prior data can
+    fill a genuine omission, but can neither overwrite a new interpretation nor
+    restore an ambiguous sample binding.
+    """
+
+    if prior is None or prior.document_id != document.document_id:
+        return result
+    if not prior.properties and not prior.property_series:
+        return result
+
+    conditions = list(result.measurement_conditions)
+    properties = list(result.properties)
+    series = list(result.property_series)
+    condition_by_id = {
+        item.condition_id: item for item in prior.measurement_conditions
+    }
+    condition_identities = {
+        _condition_identity(item): item.condition_id for item in conditions
+    }
+    used_condition_ids = {item.condition_id for item in conditions}
+    used_property_ids = {item.property_id for item in properties}
+    used_series_ids = {item.series_id for item in series}
+    used_point_ids = {
+        point.point_id for item in series for point in item.points
+    }
+    next_condition = _next_numeric_id(used_condition_ids, _CONDITION_ID_RE)
+    next_property = _next_numeric_id(used_property_ids, _PROPERTY_ID_RE)
+    next_series = _next_numeric_id(used_series_ids, _SERIES_ID_RE)
+    next_point = _next_numeric_id(used_point_ids, _POINT_ID_RE)
+
+    current_descriptors: list[dict[str, Any]] = [
+        _observation_descriptor(
+            sample_id=item.sample_id,
+            property_code=item.property_code,
+            property_name_normalized=item.property_name_normalized,
+            property_name_raw=item.property_name_raw,
+            molecular_weight_type=item.molecular_weight_type,
+            value_raw=item.value_raw,
+            value_min=item.value_min,
+            value_max=item.value_max,
+            unit_raw=item.unit_raw,
+            unit_normalized=item.unit_normalized,
+            evidence=item.evidence,
+        )
+        for item in properties
+    ]
+    for item in series:
+        for point in item.points:
+            if point.sample_id is None or point.value_raw is None:
+                continue
+            current_descriptors.append(_observation_descriptor(
+                sample_id=point.sample_id,
+                property_code=item.property_code,
+                property_name_normalized=item.property_name_normalized,
+                property_name_raw=item.property_name_raw,
+                molecular_weight_type=None,
+                value_raw=point.value_raw,
+                value_min=point.value_min,
+                value_max=point.value_max,
+                unit_raw=point.unit_raw or item.unit_raw,
+                unit_normalized=point.unit_normalized or item.unit_normalized,
+                evidence=point.evidence,
+            ))
+
+    counts = {
+        "properties_carried": 0,
+        "series_created": 0,
+        "series_points_carried": 0,
+        "sample_id_remapped": 0,
+        "duplicate_removed": 0,
+        "evidence_rejected": 0,
+        "sample_rejected": 0,
+        "semantic_conflict_rejected": 0,
+        "condition_rejected": 0,
+        "ancillary_context_dropped": 0,
+    }
+    prior_series_id_map: dict[str, str] = {}
+
+    # Recover series points before aggregate properties so series references can
+    # be remapped deterministically.
+    for old_series in prior.property_series:
+        family = _series_family(old_series)
+        table_keys = _series_table_keys(old_series)
+        same_source = [
+            item for item in series
+            if _series_family(item) == family
+            and bool(_series_table_keys(item) & table_keys)
+        ]
+        compatible = [
+            item for item in same_source
+            if (
+                not _unit_identity(old_series.unit_normalized or old_series.unit_raw)
+                or not _unit_identity(item.unit_normalized or item.unit_raw)
+                or _unit_identity(old_series.unit_normalized or old_series.unit_raw)
+                == _unit_identity(item.unit_normalized or item.unit_raw)
+            )
+        ]
+        destination = compatible[0] if len(compatible) == 1 else None
+        if len(compatible) > 1 or (same_source and not compatible):
+            counts["semantic_conflict_rejected"] += sum(
+                point.coverage_status == "covered" for point in old_series.points
+            )
+            continue
+
+        carried_points: list[PropertySeriesPoint] = []
+        for old_point in old_series.points:
+            if old_point.coverage_status != "covered" or old_point.value_raw is None:
+                continue
+            all_evidence = list(old_point.evidence) + [
+                coordinate.evidence for coordinate in old_point.coordinates
+            ]
+            if not _evidence_list_matches_stage0(all_evidence, document):
+                counts["evidence_rejected"] += 1
+                continue
+            point_context, context_dropped = _verified_or_dropped_context(
+                old_point.measurement_context,
+                document,
+            )
+            if context_dropped:
+                counts["ancillary_context_dropped"] += 1
+            sample_id = _sample_resolution_from_evidence(
+                old_point.sample_id,
+                all_evidence,
+                process,
+                document,
+            )
+            if sample_id is None:
+                counts["sample_rejected"] += 1
+                continue
+            descriptor = _observation_descriptor(
+                sample_id=sample_id,
+                property_code=old_series.property_code,
+                property_name_normalized=old_series.property_name_normalized,
+                property_name_raw=old_series.property_name_raw,
+                molecular_weight_type=None,
+                value_raw=old_point.value_raw,
+                value_min=old_point.value_min,
+                value_max=old_point.value_max,
+                unit_raw=old_point.unit_raw or old_series.unit_raw,
+                unit_normalized=(
+                    old_point.unit_normalized or old_series.unit_normalized
+                ),
+                evidence=old_point.evidence,
+            )
+            relations = [
+                _descriptors_relation(descriptor, current)
+                for current in current_descriptors
+            ]
+            if "conflict" in relations:
+                counts["semantic_conflict_rejected"] += 1
+                continue
+            if "duplicate" in relations:
+                counts["duplicate_removed"] += 1
+                continue
+            sample = next(
+                item for item in process.samples if item.sample_id == sample_id
+            )
+            point = old_point.model_copy(update={
+                "point_id": f"pt{next_point:03d}",
+                "sample_id": sample_id,
+                "entity_id": sample.refers_to_entity,
+                "sample_resolution_status": "resolved",
+                "measurement_context": (
+                    point_context
+                    or MeasurementContext(condition_status="not_reported")
+                ),
+            })
+            next_point += 1
+            carried_points.append(point)
+            current_descriptors.append(descriptor)
+            if sample_id != old_point.sample_id:
+                counts["sample_id_remapped"] += 1
+
+        if destination is not None:
+            prior_series_id_map[old_series.series_id] = destination.series_id
+            if carried_points:
+                index = series.index(destination)
+                merged_points = [*destination.points, *carried_points]
+                destination = destination.model_copy(update={
+                    "points": merged_points,
+                    "coverage": _series_coverage(merged_points),
+                })
+                series[index] = destination
+                counts["series_points_carried"] += len(carried_points)
+            continue
+        if not carried_points:
+            continue
+        if not _evidence_list_matches_stage0(old_series.evidence, document):
+            counts["evidence_rejected"] += len(carried_points)
+            # Remove descriptors staged for a series that cannot itself be
+            # represented safely. They must not suppress later observations.
+            del current_descriptors[-len(carried_points):]
+            continue
+        series_context, context_dropped = _verified_or_dropped_context(
+            old_series.measurement_context,
+            document,
+        )
+        if context_dropped:
+            counts["ancillary_context_dropped"] += 1
+        point_samples = {point.sample_id for point in carried_points}
+        if len(point_samples) == 1:
+            top_sample_id = next(iter(point_samples))
+            top_sample = next(
+                item for item in process.samples
+                if item.sample_id == top_sample_id
+            )
+            top_entity_id = top_sample.refers_to_entity
+            top_status = "resolved"
+        else:
+            top_sample_id = None
+            top_entity_id = None
+            top_status = "unresolved"
+        new_series_id = f"series{next_series:03d}"
+        next_series += 1
+        created = old_series.model_copy(update={
+            "series_id": new_series_id,
+            "sample_id": top_sample_id,
+            "entity_id": top_entity_id,
+            "sample_resolution_status": top_status,
+            "observation_group_id": None,
+            "measurement_context": (
+                series_context
+                or MeasurementContext(condition_status="not_reported")
+            ),
+            "points": carried_points,
+            "coverage": _series_coverage(carried_points),
+        })
+        series.append(created)
+        prior_series_id_map[old_series.series_id] = new_series_id
+        counts["series_created"] += 1
+        counts["series_points_carried"] += len(carried_points)
+
+    for old_property in prior.properties:
+        if not _evidence_list_matches_stage0(old_property.evidence, document):
+            counts["evidence_rejected"] += 1
+            continue
+        property_context, context_dropped = _verified_or_dropped_context(
+            old_property.measurement_context,
+            document,
+        )
+        if context_dropped:
+            counts["ancillary_context_dropped"] += 1
+        sample_id = _sample_resolution_from_evidence(
+            old_property.sample_id,
+            old_property.evidence,
+            process,
+            document,
+            subject_hint=old_property.property_name_raw,
+        )
+        if sample_id is None:
+            counts["sample_rejected"] += 1
+            continue
+        descriptor = _observation_descriptor(
+            sample_id=sample_id,
+            property_code=old_property.property_code,
+            property_name_normalized=old_property.property_name_normalized,
+            property_name_raw=old_property.property_name_raw,
+            molecular_weight_type=old_property.molecular_weight_type,
+            value_raw=old_property.value_raw,
+            value_min=old_property.value_min,
+            value_max=old_property.value_max,
+            unit_raw=old_property.unit_raw,
+            unit_normalized=old_property.unit_normalized,
+            evidence=old_property.evidence,
+        )
+        relations = [
+            _descriptors_relation(descriptor, current)
+            for current in current_descriptors
+        ]
+        if "conflict" in relations:
+            counts["semantic_conflict_rejected"] += 1
+            continue
+        if "duplicate" in relations:
+            counts["duplicate_removed"] += 1
+            continue
+
+        series_update: dict[str, Any] = {}
+        if old_property.observation_role == "aggregate":
+            old_series_ids = (
+                old_property.series_ids
+                if old_property.series_ids is not None
+                else [old_property.series_id]
+            )
+            if any(
+                item is None or item not in prior_series_id_map
+                for item in old_series_ids
+            ):
+                counts["semantic_conflict_rejected"] += 1
+                continue
+            mapped = [prior_series_id_map[str(item)] for item in old_series_ids]
+            if old_property.series_ids is not None:
+                series_update = {"series_id": None, "series_ids": mapped}
+            else:
+                series_update = {"series_id": mapped[0], "series_ids": None}
+
+        old_condition = condition_by_id.get(
+            old_property.measurement_condition_id
+        )
+        if (
+            old_condition is None
+            or not _condition_evidence_matches_stage0(old_condition, document)
+        ):
+            counts["condition_rejected"] += 1
+            continue
+        clean_condition = _clear_condition_evidence_ids(old_condition)
+        condition_identity = _condition_identity(clean_condition)
+        condition_id = condition_identities.get(condition_identity)
+        if condition_id is None:
+            condition_id = f"mc{next_condition:03d}"
+            next_condition += 1
+            clean_condition = clean_condition.model_copy(update={
+                "condition_id": condition_id,
+            })
+            conditions.append(clean_condition)
+            condition_identities[condition_identity] = condition_id
+        carried = old_property.model_copy(update={
+            "property_id": f"prop{next_property:03d}",
+            "sample_id": sample_id,
+            "measurement_condition_id": condition_id,
+            "measurement_context": property_context,
+            "observation_group_id": None,
+            **series_update,
+        })
+        next_property += 1
+        properties.append(carried)
+        current_descriptors.append(descriptor)
+        counts["properties_carried"] += 1
+        if sample_id != old_property.sample_id:
+            counts["sample_id_remapped"] += 1
+
+    warnings = list(result.warnings)
+    warnings.append({
+        "stage": STAGE_ID,
+        "code": "verified_prior_stage4_results_carried_forward",
+        "message": (
+            "Missing prior properties and series points were retained only "
+            "after current Stage 0 evidence, unique Stage 3 sample, duplicate, "
+            "and semantic-conflict checks; current extraction always wins."
+        ),
+        **counts,
+        "source_document_id": prior.document_id,
+        "stage0_sha256": stage0_sha256,
+        "prior_stage4_sha256": prior_stage4_sha256,
+    })
+    return result.model_copy(update={
+        "measurement_conditions": conditions,
+        "properties": properties,
+        "property_series": series,
+        "warnings": warnings,
+    })
+
+
+def _specialized_evidence_matches_stage0(
+    item: SpecializedPropertyObservation,
+    document: Stage0Document,
+) -> bool:
+    """Require every carried observation to remain anchored in this Stage 0."""
+
+    return _evidence_list_matches_stage0(item.evidence, document)
+
+
+def _specialized_semantic_unit_is_valid(
+    item: SpecializedPropertyObservation,
+) -> bool:
+    """Reject dimensionally impossible carried specialized observations."""
+
+    semantic = " ".join(
+        value
+        for value in (item.source_field, item.semantic_label, item.variant)
+        if value
+    ).casefold()
+    is_crystallinity = (
+        "crystallinity" in semantic
+        or "crystal-linity" in semantic
+        or "crystalline fraction" in semantic
+    )
+    if is_crystallinity and _unit_identity(
+        item.unit_normalized or item.unit_raw
+    ) == "degc":
+        # The temperature may be a measurement/annealing condition, but it can
+        # never be the response unit of crystallinity.  Do not guess a percent.
+        return False
+    return True
+
+
+def _specialized_sample_resolution(
+    item: SpecializedPropertyObservation,
+    process: Stage3Document,
+) -> str | None:
+    """Resolve a carried item against current Stage 3, remapping shifted IDs."""
+
+    samples = {sample.sample_id: sample for sample in process.samples}
+    aliases: dict[str, set[str]] = {}
+    aliases_by_sample: dict[str, set[str]] = {}
+    for sample in process.samples:
+        values = {
+            _normalized_table_label(value)
+            for value in (
+                sample.sample_label_raw,
+                sample.polymer_name,
+                sample.state_description,
+            )
+            if value
+        }
+        values.discard("")
+        aliases_by_sample[sample.sample_id] = values
+        for value in values:
+            aliases.setdefault(value, set()).add(sample.sample_id)
+
+    row_labels = {
+        _normalized_table_label(evidence.table_locator.get("row_label"))
+        for evidence in item.evidence
+        if evidence.table_locator is not None
+        and evidence.table_locator.get("row_label")
+    }
+    row_labels.discard("")
+    if row_labels:
+        matches = set().union(*(aliases.get(label, set()) for label in row_labels))
+        return next(iter(matches)) if len(matches) == 1 else None
+
+    # Text evidence has no table row axis.  Keep the old ID only when a current,
+    # unique sample alias is stated in the same evidence sentence.
+    sample = samples.get(item.sample_id or "")
+    if sample is None:
+        return None
+    evidence_text = _normalized_table_label(
+        " ".join(evidence.source_sentence for evidence in item.evidence)
+    )
+    supported = [
+        alias
+        for alias in aliases_by_sample.get(sample.sample_id, set())
+        if len(alias) >= 3
+        and alias in evidence_text
+        and aliases.get(alias) == {sample.sample_id}
+    ]
+    return sample.sample_id if supported else None
+
+
+def _specialized_identity(item: SpecializedPropertyObservation) -> str:
+    payload = item.model_dump(
+        mode="json",
+        exclude={"specialized_id", "evidence_ids"},
+    )
+    return json.dumps(
+        payload,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+
+
+def _carry_forward_published_specialized(
+    result: Stage4Document,
+    prior: Stage4Document | None,
+    document: Stage0Document,
+    process: Stage3Document,
+    *,
+    prior_stage4_sha256: str | None,
+    stage0_sha256: str,
+) -> Stage4Document:
+    """Carry only source-verified, sample-resolved published special facts.
+
+    This is deliberately a migration path, not another extractor.  It protects
+    a trusted old Stage 4 seed when an LLM/cache upgrade recomputes the ordinary
+    property channel.  No unresolved or candidate-only item is promoted.
+    """
+
+    if prior is None or prior.document_id != document.document_id:
+        return result
+    candidates = [
+        item
+        for item in prior.specialized_property_observations
+        if item.publication_status == "published"
+    ]
+    if not candidates:
+        return result
+    prior_stage0_hashes = {
+        str(warning.get("stage0_sha256"))
+        for warning in prior.warnings
+        if warning.get("code")
+        == "published_specialized_properties_carried_forward"
+        and warning.get("stage0_sha256")
+    }
+    if prior_stage0_hashes and prior_stage0_hashes != {stage0_sha256}:
+        warnings = list(result.warnings)
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "published_specialized_properties_not_carried",
+            "message": "Prior Stage 4 specialized data belongs to a different Stage 0 hash.",
+            "candidate_count": len(candidates),
+            "stage0_sha256": stage0_sha256,
+            "prior_stage0_sha256": sorted(prior_stage0_hashes),
+        })
+        return result.model_copy(update={"warnings": warnings})
+
+    retained = list(result.specialized_property_observations)
+    identities = {_specialized_identity(item) for item in retained}
+    used_ids = {item.specialized_id for item in retained}
+    next_id = max(
+        (
+            int(match.group(1))
+            for value in used_ids
+            if (match := _SPECIALIZED_ID_RE.fullmatch(value)) is not None
+        ),
+        default=0,
+    ) + 1
+    counts = {
+        "carried": 0,
+        "sample_id_remapped": 0,
+        "duplicate_removed": 0,
+        "evidence_rejected": 0,
+        "sample_rejected": 0,
+        "semantic_unit_rejected": 0,
+    }
+    for item in candidates:
+        if not _specialized_semantic_unit_is_valid(item):
+            counts["semantic_unit_rejected"] += 1
+            continue
+        if not _specialized_evidence_matches_stage0(item, document):
+            counts["evidence_rejected"] += 1
+            continue
+        sample_id = _specialized_sample_resolution(item, process)
+        if sample_id is None:
+            counts["sample_rejected"] += 1
+            continue
+        sample_remapped = sample_id != item.sample_id
+        item = item.model_copy(update={
+            "sample_id": sample_id,
+            # Evidence IDs belong to the previous final/candidate registry.
+            # Stage 6 must allocate them again for the current assembly.
+            "evidence_ids": [],
+        })
+        identity = _specialized_identity(item)
+        if identity in identities:
+            counts["duplicate_removed"] += 1
+            continue
+        if item.specialized_id in used_ids:
+            while f"sp{next_id:03d}" in used_ids:
+                next_id += 1
+            item = item.model_copy(update={
+                "specialized_id": f"sp{next_id:03d}",
+            })
+            next_id += 1
+        retained.append(item)
+        identities.add(identity)
+        used_ids.add(item.specialized_id)
+        counts["carried"] += 1
+        if sample_remapped:
+            counts["sample_id_remapped"] += 1
+
+    warnings = list(result.warnings)
+    warnings.append({
+        "stage": STAGE_ID,
+        "code": "published_specialized_properties_carried_forward",
+        "message": (
+            "Published specialized properties from the prior Stage 4 seed were "
+            "retained only after current Stage 0 evidence and Stage 3 sample checks."
+        ),
+        **counts,
+        "source_document_id": prior.document_id,
+        "stage0_sha256": stage0_sha256,
+        "prior_stage4_sha256": prior_stage4_sha256,
+    })
+    return result.model_copy(update={
+        "specialized_property_observations": retained,
+        "warnings": warnings,
+    })
+
+
+def _refine_stage4_from_source(result, document, output_path):
+    """Shared deterministic refinement; preserve base on a typed failure."""
+    from stages.source_refinement import refine_source_properties
+    try:
+        payload, audit = refine_source_properties(
+            result.model_dump(mode="json"), document.model_dump(mode="json"))
+        refined = Stage4Document.model_validate(payload)
+    except Exception as exc:
+        write_json_atomic(output_path.with_name("stage4_source_refinement_audit.json"),
+                          {"status": "failed_preserved_base", "error_type": type(exc).__name__})
+        return result
+    write_json_atomic(output_path.with_name("stage4_source_refinement_audit.json"),
+                      {"status": "succeeded", **audit})
+    return refined
+
+
 def run_stage4(
     stage0_path: Path,
     stage2_path: Path,
@@ -6884,6 +8382,18 @@ def run_stage4(
     document = load_stage0_document(stage0_path)
     entities = load_stage2_document(stage2_path)
     process = load_stage3_document(stage3_path)
+    stage0_sha256 = hashlib.sha256(stage0_path.read_bytes()).hexdigest()
+    prior: Stage4Document | None = None
+    prior_stage4_sha256: str | None = None
+    if output_path.is_file():
+        try:
+            prior_stage4_sha256 = hashlib.sha256(output_path.read_bytes()).hexdigest()
+            prior = Stage4Document.model_validate_json(
+                output_path.read_text(encoding="utf-8-sig")
+            )
+        except (OSError, ValidationError):
+            prior = None
+            prior_stage4_sha256 = None
     _, _, expected_cache_key = _cache_components(
         document,
         entities,
@@ -6893,12 +8403,20 @@ def run_stage4(
         client,
         preview_relaxed=preview_relaxed,
     )
-    if output_path.is_file() and not force:
+    if prior is not None and not force and not is_degraded_empty_shell(prior):
         try:
-            cached = Stage4Document.model_validate_json(
-                output_path.read_text(encoding="utf-8-sig")
-            )
+            cached = prior
             if cached.provenance.cache_key == expected_cache_key:
+                return output_path, True
+            _, _, parent_cache_key = _cache_components(
+                document, entities, process, prompt, vocabulary_sha256, client,
+                implementation_version="1.8.7", preview_relaxed=preview_relaxed)
+            if (cached.provenance.implementation_version == "1.8.7"
+                    and cached.provenance.cache_key == parent_cache_key):
+                upgraded = _refine_stage4_from_source(cached, document, output_path)
+                upgraded = upgraded.model_copy(update={"provenance": upgraded.provenance.model_copy(update={
+                    "implementation_version": IMPLEMENTATION_VERSION, "cache_key": expected_cache_key})})
+                _write_validated_stage4_document(output_path, upgraded)
                 return output_path, True
             for compatible_version in COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS:
                 _, _, compatible_cache_key = _cache_components(
@@ -6945,9 +8463,9 @@ def run_stage4(
                     }),
                     "warnings": warnings,
                 })
-                write_json_atomic(
+                upgraded = _write_validated_stage4_document(
                     output_path,
-                    upgraded.model_dump(mode="json", exclude_none=True),
+                    upgraded,
                 )
                 return output_path, True
         except (OSError, ValidationError):
@@ -6968,9 +8486,26 @@ def run_stage4(
         max_tokens=max_tokens,
         preview_relaxed=preview_relaxed,
     )
-    write_json_atomic(
+    result = _carry_forward_verified_prior_results(
+        result,
+        prior,
+        document,
+        process,
+        prior_stage4_sha256=prior_stage4_sha256,
+        stage0_sha256=stage0_sha256,
+    )
+    result = _carry_forward_published_specialized(
+        result,
+        prior,
+        document,
+        process,
+        prior_stage4_sha256=prior_stage4_sha256,
+        stage0_sha256=stage0_sha256,
+    )
+    result = _refine_stage4_from_source(result, document, output_path)
+    result = _write_validated_stage4_document(
         output_path,
-        result.model_dump(mode="json", exclude_none=True),
+        result,
     )
     raw_artifact = _stage4_raw_response_artifact(
         client,

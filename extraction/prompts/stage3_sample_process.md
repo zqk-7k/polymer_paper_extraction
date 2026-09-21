@@ -1,6 +1,6 @@
 ---
 prompt_id: polymer.stage3.sample_process
-version: 1.6.0
+version: 1.7.0
 stage: stage3_sample_process
 output_schema: sample_process_schema.v4
 ---
@@ -11,7 +11,8 @@ output_schema: sample_process_schema.v4
 
 # Task
 
-依据 PolymerEntity 和 Methods 原文，抽取论文实际使用、制备或处理的物理样品，
+依据 PolymerEntity、Methods/Results 原文和输入中的全部非空表格，抽取论文实际使用、
+制备或处理的物理样品，
 并用 ProcessStep DAG 表示样品之间的工艺或状态转换。
 
 # Sample kinds
@@ -61,6 +62,9 @@ surface_modification | plasma_treatment | other`
 2. 新的真实批次、配方、加工状态或有实验意义的预处理状态才建立 Sample。
 3. 只改变测量温度、频率、湿度或测试模式时不建立新 Sample；这些属于 Stage 4
    MeasurementCondition。
+   表格中的测试温度、时间、频率、湿度、波长、载荷、测试模式、性质名、单位、
+   表号和工艺参数列也不能单独当作 Sample。工艺或条件描述只有在原文明示其产生
+   一个独立制备、处理后且具有持久状态的材料时，才可支持新 Sample 或 ProcessStep。
 4. 同一个物理样品在多处出现时合并，不重复建立 Sample。
 5. `sample_label_raw` 只保存作者实际使用的样品标签、商品名或名称原文；没有明确
    标签时可为 null。`state_description` 只保存 evidence 中逐字出现的制备/状态
@@ -99,6 +103,14 @@ surface_modification | plasma_treatment | other`
 16. `blending`、`mixing` 或 `compounding` 的输入明确关联至少两个不同
     PolymerEntity 时，输出样品的 `polymer_type` 应为 `polymer_blend`。不得仅因
     名称含斜杠、`composite` 或填料代号而推断 `polymer_blend`。
+17. 必须逐一检查输入中的每个非空表格。作者在表头、行头或单元格中明确给出的
+    样品标签、聚合物代号、配方标签或实际研究配方，应作为 Sample 候选；若表格或
+    caption 明确表明数值组成对应论文实际制备或测试的配方系列，也应保留这些配方
+    样品。只列原料范围、理论组合或未实际制备的候选项时不得建样品。
+18. 表格合并单元格或空白续行只能在同一作者定义的行组或列组内继承标签，不得跨组
+    猜测或创造标签。`Calculated`、`Found`、性质值、单位、表号以及没有样品语义的
+    数字行列都不是 Sample。表格证据的 `source_sentence` 必须逐字取自该表格 block
+    的 `source_text`，并能直接支持对应标签、配方或状态。
 
 # Confidence
 

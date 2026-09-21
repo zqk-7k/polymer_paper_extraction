@@ -856,6 +856,7 @@ export default function Home() {
             })}
           </nav>
           <div className="side-secondary">
+            <Button type="text" href={`${API_BASE}/api/reports/evolution`} target="_blank" title="最新进化版本与实验结果" icon={<Workflow size={17} />}>{!collapsed && "最新进化结果"}</Button>
             <button title="设置"><Settings size={17} />{!collapsed && <span>系统设置</span>}</button>
           </div>
         </aside>

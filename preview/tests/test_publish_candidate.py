@@ -83,6 +83,65 @@ def test_build_candidate_flattens_stages_and_registers_evidence() -> None:
     assert len(candidate["evidence"]) == 1
 
 
+def test_build_candidate_preserves_specialized_property_and_evidence() -> None:
+    stages = _stages()
+    stages["stage4"]["specialized_property_observations"] = [{
+        "specialized_id": "sp001",
+        "source_field": "crystallinity",
+        "semantic_label": "crystallinity",
+        "value_kind": "numeric_scalar",
+        "value_raw": "42",
+        "value_min": 42,
+        "value_max": 42,
+        "unit_raw": "%",
+        "unit_normalized": "%",
+        "unit_status": "normalized",
+        "sample_id": "s001",
+        "sample_resolution_status": "resolved",
+        "source_stage": "stage4t",
+        "evidence": [{
+            "block_id": "P_0_1",
+            "page": 0,
+            "source_type": "text",
+            "source_sentence": "Polymer A was prepared.",
+        }],
+        "evidence_ids": [],
+        "publication_status": "published",
+    }]
+    stages["stage5"]["specialized_property_observations"] = [{
+        "specialized_id": "sp002",
+        "source_field": "morphology",
+        "semantic_label": "morphology",
+        "value_kind": "text",
+        "value_raw": "semicrystalline",
+        "text_value": "semicrystalline",
+        "sample_id": None,
+        "sample_resolution_status": "unresolved",
+        "source_stage": "stage5",
+        "evidence": [{
+            "block_id": "P_0_1",
+            "page": 0,
+            "source_type": "text",
+            "source_sentence": "Polymer A was prepared.",
+        }],
+        "evidence_ids": ["stale_evidence_id"],
+        "publication_status": "published",
+    }]
+
+    candidate = build_candidate_payload("reference_no_0000001", stages)
+
+    specialized = candidate["specialized_property_observations"]
+    assert [item["specialized_id"] for item in specialized] == ["sp001", "sp002"]
+    assert all(len(item["evidence_ids"]) == 1 for item in specialized)
+    assert all(
+        item["evidence_ids"][0] in {
+            evidence["evidence_id"] for evidence in candidate["evidence"]
+        }
+        for item in specialized
+    )
+    assert "stale_evidence_id" not in specialized[1]["evidence_ids"]
+
+
 def test_build_candidate_marks_blocking_warning_as_partial() -> None:
     stages = _stages()
     stages["stage4"]["warnings"] = [{
@@ -138,6 +197,62 @@ def test_publish_candidate_writes_json_and_html(tmp_path: Path) -> None:
     report = report_path.read_text(encoding="utf-8")
     assert "候选结果 · Stage 0-5 已完成" in report
     assert "未经完整科学语义校验" in report
+
+
+def test_publish_candidate_marks_validated_prior_stage4_as_reused(
+    tmp_path: Path,
+) -> None:
+    ref_no = "reference_no_0000001"
+    input_dir = tmp_path / "input" / ref_no
+    input_dir.mkdir(parents=True)
+    stages = _stages(ref_no)
+    stages["stage4"]["provenance"] = {"status": "candidate_partial"}
+    stages["stage4"]["warnings"] = [{
+        "stage": "stage4_property",
+        "code": "stage4_prior_reused_after_transport_failure",
+        "message": "current Stage 4 transport failed; validated prior reused",
+        "blocking": True,
+        "fallback_status": "validated_prior_reused",
+    }]
+    for stage_name, payload in stages.items():
+        filename = {
+            "stage0": "stage0_blocks.json",
+            "stage1": "stage1_mentions.json",
+            "stage2": "stage2_entities.json",
+            "stage3": "stage3_process.json",
+            "stage4": "stage4_properties.json",
+            "stage5": "stage5_characterizations.json",
+        }[stage_name]
+        (input_dir / filename).write_text(json.dumps(payload), encoding="utf-8")
+    (input_dir / "stage4_failure.json").write_text(
+        json.dumps({
+            "status": "failed",
+            "stage": "stage4_property",
+            "document_id": ref_no,
+            "error_type": "ChunkedEncodingError",
+            "error": "Response ended prematurely",
+            "raw_response": None,
+        }),
+        encoding="utf-8",
+    )
+
+    candidate_path, _ = publish_candidate(
+        ref_no,
+        input_root=tmp_path / "input",
+        output_root=tmp_path / "output",
+    )
+
+    candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+    assert candidate["publication"]["status"] == "partial"
+    assert "stage4" not in candidate["publication"]["completed_stages"]
+    assert candidate["publication"]["reused_stages"] == ["stage4"]
+    assert "stage4" in candidate["publication"]["failed_stages"]
+    assert candidate["stage_failures"][0]["error_type"] == (
+        "ChunkedEncodingError"
+    )
+    assert candidate["stage_failures"][0]["fallback_status"] == (
+        "validated_prior_reused"
+    )
 
 
 def test_publish_candidate_recovers_partial_stage_from_failure(

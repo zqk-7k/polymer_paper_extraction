@@ -25,6 +25,7 @@ from stages.stage5_characterization import (
 )
 from stages.stage6_validate_merge import run_stage6, validate_and_merge
 from tests.test_stage5_characterization import (
+    DSC_SENTENCE,
     FTIR_SENTENCE,
     FakeClient,
     UnresolvedStage4LinkClient,
@@ -101,6 +102,83 @@ def all_stages():
 
 
 class Stage6Tests(unittest.TestCase):
+    def test_published_specialized_property_survives_final_assembly(self) -> None:
+        stages = list(all_stages())
+        stage4_payload = stages[4].model_dump(mode="json")
+        stage4_payload["specialized_property_observations"] = [{
+            "specialized_id": "sp001",
+            "source_field": "crystallinity",
+            "semantic_label": "crystallinity",
+            "variant": None,
+            "value_kind": "numeric_scalar",
+            "value_raw": "42",
+            "value_min": 42,
+            "value_max": 42,
+            "unit_raw": "%",
+            "unit_normalized": "%",
+            "unit_status": "normalized",
+            "method_raw": None,
+            "sample_id": "s001",
+            "sample_resolution_status": "resolved",
+            "source_stage": "stage4t",
+            "evidence": [{
+                "block_id": "P_2_1",
+                "page": 2,
+                "bbox": [9, 10, 11, 12],
+                "source_type": "text",
+                "source_sentence": DSC_SENTENCE,
+                "table_locator": None,
+            }],
+            "evidence_ids": [],
+            "publication_status": "published",
+            "reason": None,
+        }]
+        stages[4] = type(stages[4]).model_validate(stage4_payload)
+        stage5_payload = stages[5].model_dump(mode="json")
+        stage5_payload["specialized_property_observations"] = [{
+            "specialized_id": "sp002",
+            "source_field": "morphology",
+            "semantic_label": "morphology",
+            "variant": None,
+            "value_kind": "text",
+            "value_raw": "semicrystalline",
+            "text_value": "semicrystalline",
+            "sample_id": None,
+            "sample_resolution_status": "unresolved",
+            "source_stage": "stage5",
+            "evidence": [{
+                "block_id": "P_2_0",
+                "page": 2,
+                "bbox": [5, 6, 7, 8],
+                "source_type": "text",
+                "source_sentence": FTIR_SENTENCE,
+                "table_locator": None,
+            }],
+            "evidence_ids": ["stale_evidence_id"],
+            "publication_status": "published",
+            "reason": None,
+        }]
+        stages[5] = type(stages[5]).model_validate(stage5_payload)
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertEqual(validation.error_count, 0)
+        assert final is not None
+        self.assertEqual(
+            [item.specialized_id for item in final.specialized_property_observations],
+            ["sp001", "sp002"],
+        )
+        for specialized in final.specialized_property_observations:
+            self.assertTrue(specialized.evidence_ids)
+            self.assertIn(
+                specialized.evidence_ids[0],
+                {item.evidence_id for item in final.evidence},
+            )
+        self.assertNotIn(
+            "stale_evidence_id",
+            final.specialized_property_observations[1].evidence_ids,
+        )
+
     def test_copolymer_type_is_preserved_in_final_entity_and_sample(self) -> None:
         stages = list(all_stages())
         stage2_payload = stages[2].model_dump(mode="json")

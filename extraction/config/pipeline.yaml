@@ -79,9 +79,9 @@ stages:
     max_tokens: 32768
   stage3_sample_process:
     prompt_id: polymer.stage3.sample_process
-    input_sections: [Methods]
-    max_input_chars: 50000
-    max_validation_retries: 0
+    input_sections: [Methods, Results]
+    max_input_chars: 60000
+    max_validation_retries: 1
     max_tokens: 32768
   stage4_property:
     prompt_id: polymer.stage4.property

@@ -756,7 +756,7 @@ class Stage2Provenance(BaseModel):
     ]
     implementation_version: Literal[
         "1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4",
-        "1.3.5", "1.4.0", "1.5.0", "1.6.0", "1.6.1",
+        "1.3.5", "1.4.0", "1.5.0", "1.6.0", "1.6.1", "1.6.2", "1.6.3", "1.6.4",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt
@@ -999,10 +999,13 @@ class Stage3Provenance(BaseModel):
     implementation_version: Literal[
         "1.0.0", "1.1.0", "1.1.1", "1.1.2", "1.2.0", "1.3.0", "1.3.1",
         "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7",
-        "1.4.0", "1.5.0", "1.6.0", "1.7.0", "1.7.1",
+        "1.4.0", "1.5.0", "1.6.0", "1.7.0", "1.7.1", "1.7.3", "1.8.0", "1.8.1",
+        "1.8.2", "1.8.3", "1.8.4",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt
+    context_chars_before_compression: NonNegativeInt | None = None
+    context_dropped_blocks: list[dict[str, str]] | None = None
     call_count: NonNegativeInt
     usage: TokenUsageSummary | None = None
     cost: StageCost | None = None
@@ -1615,6 +1618,8 @@ class PropertySeriesPoint(BaseModel):
     sample_id: str | None = Field(default=None, pattern=r"^s\d{3,}$")
     entity_id: str | None = Field(default=None, pattern=r"^pe\d{3,}$")
     sample_resolution_status: SampleResolutionStatus
+    # A verified literal source label is not a resolved Sample ID.
+    sample_label_raw: str | None = Field(default=None, min_length=1)
     coordinates: list[PropertySeriesCoordinate] = Field(default_factory=list)
     value_raw: str | None = None
     value_min: float | None = None
@@ -1728,7 +1733,8 @@ class Stage4Provenance(BaseModel):
         "1.7.1",
         "1.7.2",
         "1.7.3",
-        "1.7.4", "1.7.5", "1.7.6", "1.7.7", "1.7.8", "1.7.9", "1.7.10",
+        "1.7.4", "1.7.5", "1.7.6", "1.7.7", "1.7.8", "1.7.9", "1.7.10", "1.7.11",
+        "1.8.0", "1.8.1", "1.8.2", "1.8.3", "1.8.4", "1.8.5", "1.8.6", "1.8.7", "1.8.8", "1.8.9",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt
@@ -1736,6 +1742,59 @@ class Stage4Provenance(BaseModel):
     usage: TokenUsageSummary | None = None
     cost: StageCost | None = None
     status: Literal["success", "candidate_partial"] = "success"
+
+
+class SpecializedPropertyObservation(BaseModel):
+    """Directly evidenced observation for a dedicated property channel.
+
+    Some table facts, such as a list of diffraction peaks, cannot be represented
+    faithfully by the ordinary scalar property schema.  The explicit
+    ``publication_status`` keeps audit-only candidates separate from released
+    observations while preserving both through downstream assembly.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    specialized_id: str = Field(pattern=r"^sp\d{3,}$")
+    source_field: str | None = Field(default=None, min_length=1)
+    semantic_label: str | None = Field(default=None, min_length=1)
+    variant: str | None = Field(default=None, min_length=1)
+    value_kind: Literal[
+        "numeric_scalar", "numeric_multiple", "categorical", "text"
+    ]
+    value_raw: str = Field(min_length=1)
+    value_min: float | None = None
+    value_max: float | None = None
+    categorical_value: str | None = Field(default=None, min_length=1)
+    text_value: str | None = Field(default=None, min_length=1)
+    unit_raw: str | None = Field(default=None, min_length=1)
+    unit_normalized: str | None = Field(default=None, min_length=1)
+    unit_status: Literal["normalized", "raw_only", "missing"] | None = None
+    method_raw: str | None = Field(default=None, min_length=1)
+    sample_id: str | None = Field(default=None, pattern=r"^s\d{3,}$")
+    sample_resolution_status: SampleResolutionStatus
+    source_stage: str = Field(min_length=1)
+    evidence: list[Evidence] = Field(min_length=1)
+    evidence_ids: list[str] = Field(default_factory=list)
+    publication_status: Literal["published", "unresolved", "candidate_only"]
+    reason: str | None = Field(default=None, min_length=1)
+
+    @model_validator(mode="after")
+    def validate_publication_state(self) -> "SpecializedPropertyObservation":
+        if self.sample_resolution_status == "resolved" and self.sample_id is None:
+            raise ValueError("resolved specialized property must reference a sample")
+        if self.sample_resolution_status == "unresolved" and self.sample_id is not None:
+            raise ValueError("unresolved specialized property must not reference a sample")
+        if self.publication_status == "published":
+            if self.source_field is None or self.semantic_label is None:
+                raise ValueError(
+                    "published specialized property requires source_field and semantic_label"
+                )
+            if self.reason is not None:
+                raise ValueError(
+                    "published specialized property must not carry a rejection reason"
+                )
+        return self
 
 
 class Stage4Document(BaseModel):
@@ -1751,11 +1810,20 @@ class Stage4Document(BaseModel):
         default_factory=list
     )
     property_series: list[PropertySeries] = Field(default_factory=list)
+    specialized_property_observations: list[
+        SpecializedPropertyObservation
+    ] = Field(default_factory=list)
     provenance: Stage4Provenance
     warnings: list[dict[str, Any]] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def validate_references(self) -> "Stage4Document":
+        specialized_ids = [
+            item.specialized_id
+            for item in self.specialized_property_observations
+        ]
+        if len(specialized_ids) != len(set(specialized_ids)):
+            raise ValueError("specialized_id must be unique")
         condition_ids = [
             condition.condition_id for condition in self.measurement_conditions
         ]
@@ -2055,6 +2123,7 @@ class Stage5Provenance(BaseModel):
         "1.7.1",
         "1.8.0",
         "1.8.1",
+        "1.8.2",
     ]
     context_block_count: NonNegativeInt
     context_chars: NonNegativeInt
@@ -2073,11 +2142,20 @@ class Stage5Document(BaseModel):
     document_id: str = Field(min_length=1)
     characterizations: list[Characterization] = Field(default_factory=list)
     properties: list[Stage5PropertyObservation] = Field(default_factory=list)
+    specialized_property_observations: list[
+        SpecializedPropertyObservation
+    ] = Field(default_factory=list)
     provenance: Stage5Provenance
     warnings: list[dict[str, Any]] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def validate_references(self) -> "Stage5Document":
+        specialized_ids = [
+            item.specialized_id
+            for item in self.specialized_property_observations
+        ]
+        if len(specialized_ids) != len(set(specialized_ids)):
+            raise ValueError("Stage 5 specialized_id must be unique")
         characterization_ids = [
             item.characterization_id for item in self.characterizations
         ]
@@ -2391,6 +2469,7 @@ class FinalPropertySeriesPoint(BaseModel):
     sample_id: str | None = Field(default=None, pattern=r"^s\d{3,}$")
     entity_id: str | None = Field(default=None, pattern=r"^pe\d{3,}$")
     sample_resolution_status: SampleResolutionStatus
+    sample_label_raw: str | None = Field(default=None, min_length=1)
     coordinates: list[FinalPropertySeriesCoordinate] = Field(
         default_factory=list
     )
@@ -2619,6 +2698,9 @@ class FinalDocument(BaseModel):
         FinalUnresolvedPropertyObservation
     ] = Field(default_factory=list)
     property_series: list[FinalPropertySeries] = Field(default_factory=list)
+    specialized_property_observations: list[
+        SpecializedPropertyObservation
+    ] = Field(default_factory=list)
     characterizations: list[FinalCharacterization] = Field(default_factory=list)
     evidence: list[FinalEvidence] = Field(default_factory=list)
     provenance: list[dict[str, Any]] = Field(default_factory=list)
@@ -2631,6 +2713,12 @@ class FinalDocument(BaseModel):
 
     @model_validator(mode="after")
     def validate_references(self) -> "FinalDocument":
+        specialized_ids = [
+            item.specialized_id
+            for item in self.specialized_property_observations
+        ]
+        if len(specialized_ids) != len(set(specialized_ids)):
+            raise ValueError("Final specialized_id must be unique")
         evidence_ids = [item.evidence_id for item in self.evidence]
         if len(evidence_ids) != len(set(evidence_ids)):
             raise ValueError("evidence_id 不得重复")
@@ -2644,6 +2732,7 @@ class FinalDocument(BaseModel):
             *self.measurement_conditions,
             *self.unresolved_property_observations,
             *self.property_series,
+            *self.specialized_property_observations,
             *self.characterizations,
         ]
         for item in evidence_consumers:
@@ -2730,6 +2819,11 @@ class FinalDocument(BaseModel):
                             "PropertySeries coordinate 引用了未知 evidence："
                             f"{unknown}"
                         )
+        for item in self.specialized_property_observations:
+            if item.sample_id and item.sample_id not in sample_ids:
+                raise ValueError(
+                    "SpecializedPropertyObservation references an unknown sample"
+                )
         for item in self.characterizations:
             if item.sample_id and item.sample_id not in sample_ids:
                 raise ValueError("Characterization 引用了未知 sample")

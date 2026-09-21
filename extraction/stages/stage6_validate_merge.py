@@ -58,7 +58,7 @@ from stages.stage4_property import (
     write_json_atomic,
 )
 from stages import evidence_matcher
-from stages.stage6_preview_salvage import PreviewCollections, salvage_preview
+from stages.stage6_preview_salvage import PreviewCollections, salvage_preview, series_point_issue_ids
 
 
 STAGE_ID = "stage6_validate_merge"
@@ -235,7 +235,7 @@ class EvidenceRegistry:
         self.preview = preview
         self._ids: dict[str, str] = {}
         self.items: list[FinalEvidence] = []
-        self._validated: set[tuple[str, str]] = set()
+        self._validated: set[tuple[str, str, str, str]] = set()
         self._stable_warnings: set[str] = set()
         self._text_blocks: list[tuple[str, str]] | None = None
 
@@ -300,7 +300,9 @@ class EvidenceRegistry:
                 object_id=object_id,
             )
         key = _evidence_key(evidence)
-        validation_key = (key, locator_scope)
+        # Evidence storage is shared, but validation errors belong to each
+        # referencing object. A second owner of bad evidence is not exempt.
+        validation_key = (key, locator_scope, stage, object_id)
         if validation_key not in self._validated:
             self._validate(
                 evidence,
@@ -1046,6 +1048,22 @@ def _validate_document_references(
                 ),
                 object_id=item.property_id,
             )
+    for source_stage, items in (
+        ("stage4_property", stage4.specialized_property_observations),
+        ("stage5_characterization", stage5.specialized_property_observations),
+    ):
+        for item in items:
+            if item.sample_id and item.sample_id not in sample_ids:
+                _add_issue(
+                    errors,
+                    stage=source_stage,
+                    code="unknown_sample_reference",
+                    message=(
+                        "Specialized property references an unknown sample: "
+                        f"{item.sample_id}"
+                    ),
+                    object_id=item.specialized_id,
+                )
     unused_conditions = condition_ids - referenced_conditions
     if unused_conditions:
         _add_issue(
@@ -1065,6 +1083,7 @@ def _validate_document_references(
             )
 
     series_ids = {item.series_id for item in stage4.property_series}
+    point_issue_ids = series_point_issue_ids(stage4.property_series)
     for item in [*stage4.properties, *stage4.unresolved_properties]:
         references = set(item.series_ids or [])
         if item.series_id is not None:
@@ -1109,7 +1128,7 @@ def _validate_document_references(
                         "PropertySeries point 引用了未知 sample："
                         f"{point.sample_id}"
                     ),
-                    object_id=point.point_id,
+                    object_id=point_issue_ids[item.series_id, point.point_id],
                 )
             if point.entity_id and point.entity_id not in entity_ids:
                 _add_issue(
@@ -1120,7 +1139,7 @@ def _validate_document_references(
                         "PropertySeries point 引用了未知 entity："
                         f"{point.entity_id}"
                     ),
-                    object_id=point.point_id,
+                    object_id=point_issue_ids[item.series_id, point.point_id],
                 )
 
     stage4_property_ids = {item.property_id for item in stage4.properties}
@@ -1258,6 +1277,14 @@ def _validate_document_references(
         for sample_id in (*step.input_sample_ids, *step.output_sample_ids)
     } | {
         item.sample_id for item in stage4.properties
+    } | {
+        item.sample_id
+        for item in stage4.specialized_property_observations
+        if item.sample_id is not None
+    } | {
+        item.sample_id
+        for item in stage5.specialized_property_observations
+        if item.sample_id is not None
     } | {
         item.sample_id
         for item in stage5.characterizations
@@ -1589,6 +1616,21 @@ def validate_and_merge(
         )
         for item in stage4.properties
     ]
+    final_specialized_properties = []
+    for source_stage, items in (
+        ("stage4_property", stage4.specialized_property_observations),
+        ("stage5_characterization", stage5.specialized_property_observations),
+    ):
+        final_specialized_properties.extend(
+            item.model_copy(update={
+                "evidence_ids": registry.add_many(
+                    item.evidence,
+                    stage=source_stage,
+                    object_id=item.specialized_id,
+                ),
+            })
+            for item in items
+        )
     final_unresolved = [
         FinalUnresolvedPropertyObservation(
             **{
@@ -1613,6 +1655,7 @@ def validate_and_merge(
         for item in stage4.unresolved_properties
     ]
     final_series = []
+    point_issue_ids = series_point_issue_ids(stage4.property_series)
     for item in stage4.property_series:
         points = [
             FinalPropertySeriesPoint(
@@ -1625,7 +1668,7 @@ def validate_and_merge(
                         point.measurement_context,
                         registry,
                         stage="stage4_property",
-                        object_id=point.point_id,
+                        object_id=point_issue_ids[item.series_id, point.point_id],
                     ),
                 },
                 coordinates=[
@@ -1634,7 +1677,7 @@ def validate_and_merge(
                         evidence_ids=[registry.add(
                             coordinate.evidence,
                             stage="stage4_property",
-                            object_id=point.point_id,
+                            object_id=point_issue_ids[item.series_id, point.point_id],
                         )],
                     )
                     for coordinate in point.coordinates
@@ -1642,7 +1685,7 @@ def validate_and_merge(
                 evidence_ids=registry.add_many(
                     point.evidence,
                     stage="stage4_property",
-                    object_id=point.point_id,
+                    object_id=point_issue_ids[item.series_id, point.point_id],
                 ),
             )
             for point in item.points
@@ -1730,6 +1773,16 @@ def validate_and_merge(
         "process_steps": len(stage3.process_steps),
         "measurement_conditions": len(stage4.measurement_conditions),
         "stage4_properties": len(stage4.properties),
+        "specialized_property_observations": len(
+            stage4.specialized_property_observations
+        ) + len(stage5.specialized_property_observations),
+        "published_specialized_property_observations": sum(
+            item.publication_status == "published"
+            for item in [
+                *stage4.specialized_property_observations,
+                *stage5.specialized_property_observations,
+            ]
+        ),
         "unresolved_properties": len(stage4.unresolved_properties),
         "property_series": len(stage4.property_series),
         "property_series_points": sum(
@@ -1759,6 +1812,9 @@ def validate_and_merge(
                 property_series=final_series,
                 characterizations=final_characterizations,
                 evidence=registry.items,
+                specialized_property_observations=(
+                    final_specialized_properties
+                ),
             ),
             errors,
             warnings,
@@ -1773,6 +1829,9 @@ def validate_and_merge(
         final_properties = salvaged.collections.property_observations
         final_unresolved = salvaged.collections.unresolved_property_observations
         final_series = salvaged.collections.property_series
+        final_specialized_properties = (
+            salvaged.collections.specialized_property_observations
+        )
         final_characterizations = salvaged.collections.characterizations
         final_evidence = salvaged.collections.evidence
         errors = salvaged.remaining_errors
@@ -1834,6 +1893,7 @@ def validate_and_merge(
         measurement_conditions=final_conditions,
         unresolved_property_observations=final_unresolved,
         property_series=final_series,
+        specialized_property_observations=final_specialized_properties,
         characterizations=final_characterizations,
         evidence=final_evidence,
         provenance=provenance,

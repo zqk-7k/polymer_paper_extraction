@@ -74,6 +74,8 @@ test("keeps candidate limitations visible in the implementation", async () => {
   assert.match(page, /systemPid/);
   assert.match(page, /PolymerStructure/);
   assert.match(page, /EvidenceVisual/);
+  assert.match(page, /最新进化结果/);
+  assert.match(page, /\/api\/reports\/evolution/);
   assert.match(page, /pageImageUrl = evidencePageUrl\(pdfUrl, page\)/);
   assert.match(page, /graph-stage-headings/);
   assert.match(page, /样品中心实验知识图谱/);

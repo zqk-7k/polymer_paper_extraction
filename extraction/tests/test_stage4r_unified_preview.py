@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+import pytest
+from pydantic import ValidationError
+
 from schema.polymer_schema import Stage0Document, Stage4Document, Stage0Element
-from stages.stage4r_unified_preview import unify_documents
+from stages.stage4r_unified_preview import (
+    _backfill_required_series_measurement_contexts,
+    _evidence,
+    unify_documents,
+)
 from stages.table_grid import parse_table_cells
 
 
@@ -99,6 +106,45 @@ def _stage4() -> dict:
     }
 
 
+def _published_specialized() -> dict:
+    return {
+        "specialized_id": "sp001",
+        "source_field": "crystallinity",
+        "semantic_label": "crystallinity",
+        "variant": None,
+        "value_kind": "numeric_scalar",
+        "value_raw": "120",
+        "value_min": 120,
+        "value_max": 120,
+        "unit_raw": "%",
+        "unit_normalized": "%",
+        "unit_status": "normalized",
+        "method_raw": None,
+        "sample_id": "s001",
+        "sample_resolution_status": "resolved",
+        "source_stage": "stage4t",
+        "evidence": [{
+            "block_id": "T_1",
+            "page": 1,
+            "bbox": None,
+            "source_type": "table",
+            "source_sentence": "120",
+            "table_locator": {
+                "table_id": "T_1",
+                "cell_id": "T_1:r0001:c0001",
+                "row_index": 1,
+                "column_index": 1,
+                "row_label": "Sample-A",
+                "column_label": "Tg (掳C)",
+                "cell_value": "120",
+            },
+        }],
+        "evidence_ids": [],
+        "publication_status": "published",
+        "reason": None,
+    }
+
+
 def _candidate(**updates) -> dict:
     value = {
         "observation_id": "T_1:T_1:r0001:c0001",
@@ -179,6 +225,91 @@ def _text_property() -> dict:
     }
 
 
+def _table_property(**updates) -> dict:
+    value = _text_property()
+    value["source_type"] = "table"
+    value["evidence"] = [{
+        "block_id": "T_1",
+        "page": 1,
+        "bbox": None,
+        "source_type": "table",
+        "source_sentence": str(updates.get("value_raw", value["value_raw"])),
+        "table_locator": {
+            "table_id": "T_1",
+            "cell_id": "T_1:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "row_label": "Sample-A",
+            "column_label": str(
+                updates.get("property_name_raw", value["property_name_raw"])
+            ),
+            "cell_value": str(updates.get("value_raw", value["value_raw"])),
+        },
+    }]
+    value.update(updates)
+    return value
+
+
+def _property_series() -> dict:
+    evidence = {
+        "block_id": "T_1",
+        "page": 1,
+        "bbox": None,
+        "source_type": "table",
+        "source_sentence": "Sample-A 120",
+        "table_locator": {
+            "table_id": "T_1",
+            "cell_id": "T_1:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "row_label": "Sample-A",
+            "column_label": "Tg (掳C)",
+            "cell_value": "120",
+        },
+    }
+    return {
+        "series_id": "series001",
+        "sample_id": "s001",
+        "entity_id": "pe001",
+        "sample_resolution_status": "resolved",
+        "property_name_raw": "Tg",
+        "property_name_normalized": "glass_transition_temperature",
+        "property_code": None,
+        "property_category": None,
+        "determination_method_raw": None,
+        "observation_group_id": None,
+        "unit_raw": "掳C",
+        "unit_normalized": "掳C",
+        "measurement_context": {"condition_status": "not_reported"},
+        "points": [{
+            "point_id": "pt001",
+            "observation_role": "series_point",
+            "sample_id": "s001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "resolved",
+            "coordinates": [],
+            "value_raw": "120",
+            "value_min": 120,
+            "value_max": 120,
+            "unit_raw": "掳C",
+            "unit_normalized": "掳C",
+            "measurement_context": {"condition_status": "not_reported"},
+            "coverage_status": "covered",
+            "evidence": [evidence],
+            "confidence": {"score": 0.9},
+        }],
+        "coverage": {
+            "expected": 1,
+            "covered": 1,
+            "missing": 0,
+            "not_applicable": 0,
+            "ratio": 1.0,
+        },
+        "evidence": [evidence],
+        "confidence": {"score": 0.9},
+    }
+
+
 def test_unique_stage3_sample_integrates_official_property() -> None:
     merged, audit = unify_documents(
         _stage0(), _stage2(), _stage3(), _stage4(), _sidecar(_candidate())
@@ -194,6 +325,21 @@ def test_unique_stage3_sample_integrates_official_property() -> None:
     assert audit["summary"]["sample_resolution_status_counts"] == {
         "matched": 1
     }
+
+
+def test_unified_preview_preserves_published_specialized_channel() -> None:
+    stage4 = _stage4()
+    stage4["specialized_property_observations"] = [_published_specialized()]
+
+    merged, _ = unify_documents(
+        _stage0(), _stage2(), _stage3(), stage4, _sidecar()
+    )
+
+    assert [
+        item.specialized_id
+        for item in merged.specialized_property_observations
+    ] == ["sp001"]
+    assert merged.specialized_property_observations[0].sample_id == "s001"
 
 
 def test_unmatched_and_ambiguous_samples_remain_auditable() -> None:
@@ -263,6 +409,108 @@ def test_same_cell_semantic_conflict_quarantines_stage4_property() -> None:
     assert audit["summary"]["quarantined_stage4_property_count"] == 1
 
 
+def test_same_cell_molar_mass_alias_keeps_published_property_idempotently() -> None:
+    stage4 = _stage4()
+    stage4["measurement_conditions"] = [_condition()]
+    stage4["properties"] = [_table_property(
+        property_name_raw="Av. Molar Mass, g/mol",
+        property_name_normalized="molar_mass",
+        molecular_weight_type="unspecified",
+        value_raw=r"$6.6 \times 10^{6}$",
+        value_min=6_600_000,
+        value_max=6_600_000,
+        unit_raw="g/mol",
+        unit_normalized="g/mol",
+    )]
+    candidate = _candidate(
+        property_name_raw="Av. Molar Mass, g/mol",
+        property_name_normalized=None,
+        semantic_label="molecular_weight",
+        candidate_class="material_characteristic",
+        value_raw=r"$6.6 \times 10^{6}$",
+        value_min=None,
+        value_max=None,
+        unit_raw="g/mol",
+        unit_normalized="g/mol",
+    )
+
+    merged, audit = unify_documents(
+        _stage0(), _stage2(), _stage3(), stage4, _sidecar(candidate)
+    )
+
+    assert [item.property_name_normalized for item in merged.properties] == [
+        "molar_mass"
+    ]
+    assert audit["summary"]["source_conflict_count"] == 0
+    assert audit["summary"]["quarantined_stage4_property_count"] == 0
+    assert audit["summary"]["compatible_semantic_alias_count"] == 1
+
+
+def test_molar_mass_alias_with_different_value_remains_source_conflict() -> None:
+    stage4 = _stage4()
+    stage4["measurement_conditions"] = [_condition()]
+    stage4["properties"] = [_table_property(
+        property_name_raw="Av. Molar Mass, g/mol",
+        property_name_normalized="molar_mass",
+        molecular_weight_type="unspecified",
+        value_raw="6600000",
+        value_min=6_600_000,
+        value_max=6_600_000,
+        unit_raw="g/mol",
+        unit_normalized="g/mol",
+    )]
+    candidate = _candidate(
+        property_name_normalized=None,
+        semantic_label="average_molecular_weight",
+        candidate_class="material_characteristic",
+        value_raw="80000",
+        value_min=80_000,
+        value_max=80_000,
+        unit_raw="g/mol",
+        unit_normalized="g/mol",
+    )
+
+    merged, audit = unify_documents(
+        _stage0(), _stage2(), _stage3(), stage4, _sidecar(candidate)
+    )
+
+    assert merged.properties == []
+    assert audit["summary"]["source_conflict_count"] == 1
+    assert audit["summary"]["compatible_semantic_alias_count"] == 0
+
+
+def test_molar_mass_alias_with_incompatible_unit_remains_source_conflict() -> None:
+    stage4 = _stage4()
+    stage4["measurement_conditions"] = [_condition()]
+    stage4["properties"] = [_table_property(
+        property_name_normalized="molar_mass",
+        molecular_weight_type="unspecified",
+        value_raw="6600000",
+        value_min=6_600_000,
+        value_max=6_600_000,
+        unit_raw="g/mol",
+        unit_normalized="g/mol",
+    )]
+    candidate = _candidate(
+        property_name_normalized=None,
+        semantic_label="molecular_weight",
+        candidate_class="material_characteristic",
+        value_raw="6600000",
+        value_min=6_600_000,
+        value_max=6_600_000,
+        unit_raw="kg/mol",
+        unit_normalized="kg/mol",
+    )
+
+    merged, audit = unify_documents(
+        _stage0(), _stage2(), _stage3(), stage4, _sidecar(candidate)
+    )
+
+    assert merged.properties == []
+    assert audit["summary"]["source_conflict_count"] == 1
+    assert audit["summary"]["compatible_semantic_alias_count"] == 0
+
+
 def test_material_candidate_keeps_sample_resolution_in_audit() -> None:
     characteristic = _candidate(
         property_name_normalized=None,
@@ -319,3 +567,75 @@ def test_unified_document_is_idempotent_for_cached_preview_rerun() -> None:
     )
 
     assert second.model_dump(mode="json") == first.model_dump(mode="json")
+
+
+def test_missing_and_null_required_series_contexts_are_backfilled() -> None:
+    stage4 = _stage4()
+    series = _property_series()
+    del series["measurement_context"]
+    series["points"][0]["measurement_context"] = None
+    stage4["property_series"] = [series]
+
+    merged, audit = unify_documents(
+        _stage0(), _stage2(), _stage3(), stage4, _sidecar()
+    )
+
+    not_reported = {"condition_status": "not_reported"}
+    assert merged.property_series[0].measurement_context.model_dump(
+        mode="json", exclude_defaults=True
+    ) == not_reported
+    assert merged.property_series[0].points[0].measurement_context.model_dump(
+        mode="json", exclude_defaults=True
+    ) == not_reported
+    compatibility = audit["measurement_context_compatibility"]
+    assert compatibility["series_repaired_count"] == 1
+    assert compatibility["point_repaired_count"] == 1
+    assert [item["reason"] for item in compatibility["items"]] == [
+        "missing",
+        "null",
+    ]
+
+
+def test_non_null_malformed_series_context_is_not_rewritten_or_accepted() -> None:
+    stage4 = _stage4()
+    series = _property_series()
+    malformed = {
+        "condition_status": "not_reported",
+        "unexpected_field": "must remain invalid",
+    }
+    series["measurement_context"] = malformed.copy()
+    stage4["property_series"] = [series]
+
+    repaired, compatibility = _backfill_required_series_measurement_contexts(
+        stage4
+    )
+
+    assert repaired["property_series"][0]["measurement_context"] == malformed
+    assert compatibility["total_repaired_count"] == 0
+    with pytest.raises(ValidationError, match="unexpected_field"):
+        unify_documents(
+            _stage0(), _stage2(), _stage3(), stage4, _sidecar()
+        )
+
+
+def test_generated_family_sample_keeps_verbatim_axis_value_in_locator() -> None:
+    stage0 = _stage0()
+    table = next(item for item in stage0.elements if item.type == "table")
+    evidence = _evidence(
+        {
+            "table_id": "T_1",
+            "cell_id": "T_1:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+            "sample_label_raw": "PU1",
+            "sample_axis_value_raw": "1",
+            "property_name_raw": "T0 (\u00b0C)",
+            "value_raw": "330",
+            "evidence_locator": {
+                "header_path": ["T0 (\u00b0C)"],
+            },
+        },
+        {"T_1": table},
+    )
+
+    assert evidence["table_locator"]["row_label"] == "1"

@@ -25,6 +25,7 @@ from schema.polymer_schema import (
     Stage0Element,
 )
 from stages.table_grid import parse_table_cells
+from stages.stage0_reference_guard import is_mislabeled_characterization
 
 
 SECTION_ALIASES = {
@@ -183,7 +184,14 @@ def load_document_elements(source: SourceDocument) -> Stage0Document:
         element_type = element.element_type
         data = element.model_dump(mode="python")
         if element_type == "references":
-            continue
+            if not is_mislabeled_characterization(data, current_section):
+                continue
+            element_type = "text"
+            warnings.append(_stage0_warning(
+                "experimental_paragraph_recovered",
+                "Recovered source characterization paragraph mislabeled as references; original ID/text/bbox preserved",
+                element.block_id,
+            ))
         if element_type not in RETAINED_TYPES:
             warnings.append(_stage0_warning(
                 "unsupported_element_type",
@@ -269,6 +277,17 @@ def run_stage0(
                 for item in cached_document.elements
             ):
                 raise ValueError("Stage 0 缓存缺少稳定表格网格")
+            # Old caches silently removed these source paragraphs. Invalidate
+            # only when an eligible source ID is absent, not for all documents.
+            source_for_cache = load_source_document(document_path)
+            cached_ids = {item.block_id for item in cached_document.elements}
+            if any(is_mislabeled_characterization(item.model_dump(mode="python"))
+                   and item.block_id not in cached_ids for item in source_for_cache.elements):
+                fresh = load_document_elements(source_for_cache)
+                recovered_ids = {warning['block_id'] for warning in fresh.warnings
+                                 if warning.get('code') == 'experimental_paragraph_recovered'}
+                if recovered_ids - cached_ids:
+                    raise ValueError("Stage 0 cache omits a source characterization paragraph")
             return output_path, True
         except (OSError, json.JSONDecodeError, ValidationError, ValueError):
             pass

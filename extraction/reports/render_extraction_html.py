@@ -7,6 +7,7 @@ import filecmp
 import json
 import os
 import shutil
+import threading
 from html import escape
 from pathlib import Path
 from typing import Any
@@ -19,6 +20,7 @@ except ModuleNotFoundError:  # 兼容直接执行本文件
 
 
 MATHJAX_VERSION = "3.2.2"
+_ASSET_COPY_LOCK = threading.RLock()
 MATHJAX_SOURCE_DIR = (
     Path(__file__).resolve().parent
     / "assets"
@@ -57,17 +59,20 @@ def _copy_mathjax_assets(
         / "_assets"
         / f"mathjax-{MATHJAX_VERSION}"
     )
-    target_dir.mkdir(parents=True, exist_ok=True)
-    for name in ("tex-svg.js", "LICENSE", "README.md"):
-        source = MATHJAX_SOURCE_DIR / name
-        if not source.is_file():
-            continue
-        target = target_dir / name
-        if (
-            not target.is_file()
-            or not filecmp.cmp(source, target, shallow=False)
-        ):
-            shutil.copy2(source, target)
+    # Concurrent paper renders share this destination. Only serialize the
+    # small shared-assets section; independent paper rendering stays parallel.
+    with _ASSET_COPY_LOCK:
+        target_dir.mkdir(parents=True, exist_ok=True)
+        for name in ("tex-svg.js", "LICENSE", "README.md"):
+            source = MATHJAX_SOURCE_DIR / name
+            if not source.is_file():
+                continue
+            target = target_dir / name
+            if (
+                not target.is_file()
+                or not filecmp.cmp(source, target, shallow=False)
+            ):
+                shutil.copy2(source, target)
 
     relative = Path(os.path.relpath(
         target_dir / "tex-svg.js",
