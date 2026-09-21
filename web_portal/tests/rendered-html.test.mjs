@@ -1,6 +1,24 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
+import { batchPdfUrl, evidencePageUrl } from "../app/evidence-urls.mjs";
+
+test("evidence page URLs preserve collection queries, not append to their values", () => {
+  assert.equal(evidencePageUrl("/api/batch-results/ref/pdf?collection=demo30", 6),
+    "/api/batch-results/ref/pdf/pages/6?collection=demo30");
+  assert.equal(evidencePageUrl("https://example.com/api/ref/pdf?collection=a%20b&v=2#page=1", 0),
+    "https://example.com/api/ref/pdf/pages/0?collection=a%20b&v=2");
+  assert.equal(evidencePageUrl("/api/tasks/123/pdf", 2), "/api/tasks/123/pdf/pages/2");
+  assert.equal(evidencePageUrl("/api/source-pdfs/ref/pdf", 0), "/api/source-pdfs/ref/pdf/pages/0");
+  assert.throws(() => evidencePageUrl("/pdf", -1), RangeError);
+});
+
+test("a batch without a source PDF keeps its own identity instead of the demo PDF", () => {
+  assert.equal(batchPdfUrl("", { ref_no: "reference_no_123", collection_id: "test", pdf_url: null }),
+    "/api/batch-results/reference_no_123/pdf?collection=test");
+  assert.equal(batchPdfUrl("https://example.com", { pdf_url: "/api/ref/pdf?collection=test" }),
+    "https://example.com/api/ref/pdf?collection=test");
+});
 
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -58,7 +76,7 @@ test("keeps candidate limitations visible in the implementation", async () => {
   assert.match(page, /EvidenceVisual/);
   assert.match(page, /最新进化结果/);
   assert.match(page, /\/api\/reports\/evolution/);
-  assert.match(page, /pageImageUrl = `\$\{pdfUrl\}\/pages\/\$\{page\}`/);
+  assert.match(page, /pageImageUrl = evidencePageUrl\(pdfUrl, page\)/);
   assert.match(page, /graph-stage-headings/);
   assert.match(page, /样品中心实验知识图谱/);
   assert.match(page, /KnowledgeGraph/);
