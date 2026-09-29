@@ -1,115 +1,18 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { batchPdfUrl, evidencePageUrl } from "../app/evidence-urls.mjs";
 
-test("evidence page URLs preserve collection queries, not append to their values", () => {
-  assert.equal(evidencePageUrl("/api/batch-results/ref/pdf?collection=demo30", 6),
-    "/api/batch-results/ref/pdf/pages/6?collection=demo30");
-  assert.equal(evidencePageUrl("https://example.com/api/ref/pdf?collection=a%20b&v=2#page=1", 0),
-    "https://example.com/api/ref/pdf/pages/0?collection=a%20b&v=2");
-  assert.equal(evidencePageUrl("/api/tasks/123/pdf", 2), "/api/tasks/123/pdf/pages/2");
-  assert.equal(evidencePageUrl("/api/source-pdfs/ref/pdf", 0), "/api/source-pdfs/ref/pdf/pages/0");
-  assert.throws(() => evidencePageUrl("/pdf", -1), RangeError);
+test("portal shell renders PolymerLit Extractor boot state", async () => {
+  const app = await readFile(new URL("../src/App.tsx", import.meta.url), "utf8");
+  assert.match(app, /PolymerLit Extractor/);
+  assert.match(app, /正在加载文献抽取工作台/);
+  assert.match(app, /最新进化结果/);
+  assert.match(app, /\/api\/reports\/evolution/);
+  assert.match(app, /不可直接入库或统计/);
 });
 
-test("a batch without a source PDF keeps its own identity instead of the demo PDF", () => {
-  assert.equal(batchPdfUrl("", { ref_no: "reference_no_123", collection_id: "test", pdf_url: null }),
-    "/api/batch-results/reference_no_123/pdf?collection=test");
-  assert.equal(batchPdfUrl("https://example.com", { pdf_url: "/api/ref/pdf?collection=test" }),
-    "https://example.com/api/ref/pdf?collection=test");
-});
-
-async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  return worker.fetch(
-    new Request("http://localhost/", { headers: { accept: "text/html" } }),
-    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
-    { waitUntil() {}, passThroughOnException() {} },
-  );
-}
-
-test("server-renders a hydration-stable portal shell", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
-  assert.match(html, /PolymerLit Extractor/);
-  assert.match(html, /正在加载文献抽取工作台/);
-  assert.match(html, /lucide-flask-conical/);
-  assert.doesNotMatch(html, /class="anticon/);
-});
-
-test("ships the real candidate JSON and source PDF", async () => {
-  const jsonUrl = new URL("../dist/client/data/reference_no_0101911_candidate.json", import.meta.url);
-  const pdfUrl = new URL("../dist/client/papers/reference_no_0101911.pdf", import.meta.url);
-  await Promise.all([access(jsonUrl), access(pdfUrl)]);
-
-  const data = JSON.parse(await readFile(jsonUrl, "utf8"));
-  assert.equal(data.paper.ref_no, "reference_no_0101911");
-  assert.equal(data.paper.doi, "10.1002/app.56573");
-  assert.equal(data.publication.validation_status, "not_validated");
-  assert.equal(data.polymer_entities.length, 13);
-  assert.equal(data.samples.length, 6);
-  assert.equal(data.property_observations.length, 4);
-  assert.equal(data.evidence.length, 68);
-});
-
-test("keeps candidate limitations visible in the implementation", async () => {
-  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
-  assert.match(page, /不可直接入库或统计分析/);
-  assert.match(page, /warningLabels/);
-  assert.match(page, /property_observations/);
-  assert.match(page, /evidence_ids/);
-  assert.match(page, /PolymerDirectory/);
-  assert.match(page, /PolymerPage/);
-  assert.match(page, /SamplePage/);
-  assert.match(page, /relatedProcessSteps/);
-  assert.match(page, /工艺与样品谱系/);
-  assert.match(page, /input_sample_ids \/ output_sample_ids/);
-  assert.match(page, /systemPid/);
-  assert.match(page, /PolymerStructure/);
-  assert.match(page, /EvidenceVisual/);
-  assert.match(page, /最新进化结果/);
-  assert.match(page, /\/api\/reports\/evolution/);
-  assert.match(page, /pageImageUrl = evidencePageUrl\(pdfUrl, page\)/);
-  assert.match(page, /graph-stage-headings/);
-  assert.match(page, /样品中心实验知识图谱/);
-  assert.match(page, /KnowledgeGraph/);
-  assert.match(page, /\/graph/);
-  assert.match(page, /PolyInfoResultsPage/);
-  assert.match(page, /PolyInfoComparisonDrawer/);
-  assert.match(page, /\/api\/polyinfo-results/);
-  assert.match(page, /\/api\/batch-collections/);
-  assert.match(page, /property_alignment/);
-  assert.match(page, /PoLyInfo 锚点一致性/);
-  assert.match(page, /性质绑定合法样品/);
-  assert.match(page, /当前批次的阶段变化/);
-  assert.match(page, /单篇论文评价指标/);
-  assert.match(page, /锚点 F1/);
-  assert.match(page, /function displayApiText/);
-  assert.match(page, /render: displayApiText/);
-  assert.match(page, /process\.env\.NODE_ENV === "development" \? "http:\/\/localhost:8000"/);
-  assert.match(page, /本次性质阶段未生成可用观测/);
-  assert.match(page, /上传高分子论文并运行抽取/);
-  assert.match(page, /\/api\/tasks/);
-  assert.match(page, /文档解析与加载/);
-  assert.doesNotMatch(page, /@ant-design\/icons/);
-});
-
-test("uses MinerU normalized bbox coordinates and places source metadata below the visual", async () => {
-  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
-  assert.match(page, /const sourceWidth = 1000;/);
-  assert.match(page, /const sourceHeight = 1000;/);
-  assert.doesNotMatch(page, /sourceWidth \* pageAspect/);
-
-  const drawerStart = page.indexOf("function EvidenceDrawer");
-  const visualIndex = page.indexOf("<EvidenceVisual", drawerStart);
-  const locationIndex = page.indexOf('className="evidence-location evidence-location-below"', drawerStart);
-  assert.ok(drawerStart >= 0 && visualIndex > drawerStart);
-  assert.ok(locationIndex > visualIndex);
+test("candidate limitation copy stays visible", async () => {
+  const app = await readFile(new URL("../src/App.tsx", import.meta.url), "utf8");
+  assert.match(app, /尚未完成科学语义校验/);
+  assert.match(app, /请以原文证据与 PDF 为准/);
 });

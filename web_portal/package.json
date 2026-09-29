@@ -9,7 +9,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ignore-pattern dist"
+    "lint": "eslint .",
+    "test": "node --test tests/",
+    "build": "vite build"
   },
   "dependencies": {
     "@ant-design/icons": "^6.3.2",
