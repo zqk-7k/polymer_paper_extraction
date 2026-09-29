@@ -40,6 +40,18 @@
 }
 .upload-eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #1f5eff, #7c3aed); box-shadow: 0 0 0 3px rgba(31,94,255,.15); }
 .upload-hero h2.ant-typography { margin: 2px 0 0 !important; color: #131c26 !important; font-size: 18px !important; line-height: 1.25 !important; font-weight: 800 !important; letter-spacing: -.02em !important; text-shadow: none; }
+
+/* 左卡：单卡三步提交 — 纵向步骤线，克制高级感 */
+.submit-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1; }
+.submit-step { display: flex; gap: 12px; padding: 14px 2px; border-bottom: 1px solid #eef1f5; }
+.submit-step:last-child { border-bottom: 0; padding-bottom: 2px; }
+.submit-num { flex: 0 0 24px; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; display: grid; place-items: center; font-size: 11.5px; font-weight: 700; background: #eef1f6; border: 1px solid #e1e6ee; color: #9aa3b2; }
+.submit-step.active .submit-num { background: #131c26; border-color: #131c26; color: #fff; box-shadow: 0 3px 8px rgba(19,28,38,.28); }
+.submit-step.done .submit-num { background: #e6f4ec; border-color: #bfe6cd; color: #15803d; }
+.submit-body { flex: 1; min-width: 0; overflow: hidden; }
+.submit-label { font-size: 12.5px; font-weight: 700; color: #131c26; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.submit-label em { font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; color: #0f766e; background: #ccfbf1; border: 1px solid #99f6e4; border-radius: 999px; padding: 1px 8px; }
+.cred-block.flat { margin-bottom: 0; }
 .upload-hero .ant-typography-paragraph { margin: 0 !important; color: #7a8799 !important; font-size: 14px !important; line-height: 1.7 !important; }
 .upload-hero-side { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; position: relative; z-index: 1; }
 .svc-dot { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: #4b5563; background: #fff; border: 1px solid #e2e7ee; border-radius: 999px; padding: 6px 13px; box-shadow: 0 1px 3px rgba(16,24,40,.05); }
@@ -54,15 +66,19 @@
 
 .upload-alert { border-radius: 14px !important; box-shadow: 0 4px 14px rgba(16,24,40,.07); }
 
-/* Grid */
-.upload-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: start; }
+/* Grid — 两卡等高：stretch + 卡内纵向 flex，底部自动顶齐（仅限上传页 grid 内卡片，避免污染 Sample/Results） */
+.upload-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: stretch; }
+/* 全站卡片基座：保持默认块级，不设 flex，避免覆盖各页 grid（如 paper-summary / sample-property-identity） */
 .ucard {
   background: #fff;
   border: 1px solid #e2e7ee; border-radius: 14px; padding: 20px;
   box-shadow: none;
   position: relative; overflow: hidden;
   transition: border-color .18s ease, box-shadow .18s ease;
+  box-sizing: border-box;
 }
+/* 仅上传页两卡等高需要纵向 flex */
+.upload-grid .ucard { display: flex; flex-direction: column; height: 100%; }
 .pipe-card::before { background: linear-gradient(90deg, #1f5eff, #7c3aed 60%, #38bdf8); }
 .ucard:hover { border-color: #d3dbe5; box-shadow: 0 2px 4px rgba(16,24,40,.06), 0 14px 36px rgba(30,44,61,.12); transform: translateY(-1px); }
 .ucard-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 2px 2px 14px; border-bottom: 1px solid #edf0f5; }
@@ -82,18 +98,28 @@
 .cred-grid .ant-input-affix-wrapper { margin-top: 5px; border-radius: 9px !important; }
 .cred-hint { margin: 8px 0 0; font-size: 11.5px; color: #9aa3b2; }
 
-/* Dropzone */
-.pdf-drop .ant-upload-drag { border: 1.5px dashed #c4cedb !important; background: linear-gradient(180deg, #f8fafc, #f1f4f8) !important; border-radius: 14px !important; transition: all .18s ease !important; }
-.pdf-drop .ant-upload-drag:hover, .pdf-drop .ant-upload-drag.ant-upload-drag-hover { border-color: #2f4357 !important; background: #fff !important; box-shadow: 0 6px 18px rgba(47,67,87,.12) !important; }
-.pdf-drop .ant-upload-btn { padding: 18px 16px !important; }
-.pdf-drop-inner { display: flex !important; align-items: center; gap: 12px; text-align: left; width: 100%; }
-.pdf-drop-icon { flex: 0 0 40px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(135deg, #131c26, #2f4357); color: #fff; box-shadow: 0 4px 12px rgba(19,28,38,.3); }
-.pdf-drop-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.pdf-drop-text strong { font-size: 13px; color: #131c26; }
+/* Dropzone — 卡内视觉重心：加大、居中、柔和品牌蓝，不动 Hero */
+.submit-card .ant-upload-wrapper { display: block; width: 100%; }
+.submit-card .ant-upload { display: block !important; width: 100% !important; }
+.submit-card .ant-upload-drag-container { display: block !important; width: 100%; }
+.pdf-drop { display: block; width: 100%; }
+.pdf-drop .ant-upload-drag { display: block; width: 100%; box-sizing: border-box; border: 2px dashed #b9c8e2 !important; background: linear-gradient(180deg, #f7faff 0%, #eef3fd 100%) !important; border-radius: 16px !important; transition: all .2s ease !important; position: relative; }
+.pdf-drop .ant-upload-drag::after { content: ""; position: absolute; inset: 6px; border-radius: 11px; border: 1px dashed transparent; pointer-events: none; transition: border-color .2s ease; }
+.pdf-drop .ant-upload-drag:hover, .pdf-drop .ant-upload-drag.ant-upload-drag-hover { border-color: #1d4ed8 !important; background: #fff !important; box-shadow: 0 0 0 4px rgba(29,78,216,.08), 0 12px 28px rgba(29,78,216,.14) !important; }
+.pdf-drop .ant-upload-drag:hover::after, .pdf-drop .ant-upload-drag-hover::after { border-color: rgba(29,78,216,.3); }
+.submit-card .pdf-drop:focus-within .ant-upload-drag { border-color: #1d4ed8 !important; box-shadow: 0 0 0 4px rgba(29,78,216,.12) !important; }
+.pdf-drop .ant-upload-btn { display: block; width: 100%; padding: 26px 18px !important; overflow: hidden; }
+.pdf-drop-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; width: 100%; box-sizing: border-box; min-height: 148px; }
+.pdf-drop-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; background: linear-gradient(135deg, #131c26, #2f4357); color: #fff; box-shadow: 0 8px 18px rgba(19,28,38,.28), inset 0 1px 0 rgba(255,255,255,.2); margin-bottom: 2px; }
+.pdf-drop:hover .pdf-drop-icon { background: linear-gradient(135deg, #1d4ed8, #1e40af); box-shadow: 0 8px 22px rgba(29,78,216,.4), inset 0 1px 0 rgba(255,255,255,.25); }
+.pdf-drop-text { display: flex; flex-direction: column; gap: 3px; align-items: center; }
+.pdf-drop-text strong { font-size: 15px; color: #131c26; letter-spacing: -.01em; }
 .pdf-drop-text span { font-size: 12px; color: #8b94a3; }
+.pdf-browse { margin-top: 6px; display: inline-flex; align-items: center; font-size: 12.5px; font-weight: 700; color: #1d4ed8; background: #e8efff; border: 1px solid #c9d8ff; border-radius: 999px; padding: 6px 20px; transition: all .18s ease; }
+.pdf-drop:hover .pdf-browse { background: #1d4ed8; border-color: #1d4ed8; color: #fff; box-shadow: 0 6px 16px rgba(29,78,216,.35); }
 
 /* File row */
-.file-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 10px 11px; border: 1px solid #e2e7ee; border-radius: 12px; background: linear-gradient(180deg, #fff, #f7f9fc); box-shadow: 0 2px 8px rgba(16,24,40,.05); }
+.file-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 10px 11px; border: 1px solid #e2e7ee; border-radius: 12px; background: linear-gradient(180deg, #fff, #f7f9fc); box-shadow: 0 2px 8px rgba(16,24,40,.05); box-sizing: border-box; width: 100%; }
 .file-badge { flex: 0 0 32px; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 9px; background: linear-gradient(135deg, #eef2ff, #e0e7ff); color: #1f5eff; }
 .file-meta { flex: 1; min-width: 0; }
 .file-meta strong, .file-meta span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -102,7 +128,7 @@
 .file-remove { border: 0; background: #eef1f6; border-radius: 8px; width: 26px; height: 26px; display: grid; place-items: center; cursor: pointer; color: #6b7280; transition: all .15s; }
 .file-remove:hover { background: #131c26; color: #fff; }
 .file-row .ok { color: #16a34a; }
-.file-empty { margin-top: 10px; padding: 11px; text-align: center; font-size: 12px; color: #8b94a3; border: 1px dashed #d5dbe4; border-radius: 12px; background: #f7f9fc; }
+.file-empty { display: block; clear: both; box-sizing: border-box; width: 100%; margin-top: 10px; padding: 11px; text-align: center; font-size: 12px; color: #8b94a3; border: 1px dashed #d5dbe4; border-radius: 12px; background: #f7f9fc; }
 
 .input-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .input-actions .ant-btn { height: 42px !important; border-radius: 12px !important; font-size: 13.5px; font-weight: 600; }
@@ -112,14 +138,14 @@
 .start-btn.ant-btn-primary:not(:disabled):hover { background: linear-gradient(135deg, #0f1722, #1e2f42 70%) !important; border-color: rgba(255,255,255,.16) !important; box-shadow: 0 8px 22px rgba(15,23,34,.45), inset 0 1px 0 rgba(255,255,255,.2) !important; transform: translateY(-1px); }
 .start-btn.ant-btn-primary:disabled { background: linear-gradient(135deg, #3a4c61, #55697f) !important; border-color: transparent !important; color: rgba(255,255,255,.8) !important; opacity: .6; cursor: not-allowed; box-shadow: none !important; }
 .gate-hint { margin: 8px 0 0; font-size: 12px; color: #9aa3b2; }
-.secure-note { display: flex; gap: 7px; align-items: flex-start; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #edf0f5; color: #8b94a3; font-size: 11.5px; line-height: 1.6; }
+.secure-note { display: flex; gap: 7px; align-items: flex-start; margin: auto 0 0; padding-top: 12px; border-top: 1px solid #edf0f5; color: #8b94a3; font-size: 11.5px; line-height: 1.6; }
 
 /* Pipeline */
 .pipe-meter { border: 1px solid #e4e9f0; background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%); border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; box-shadow: inset 0 1px 0 #fff; }
 .pipe-meter-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; font-size: 12px; }
 .pipe-meter-top .ant-typography-secondary { color: #6b7686 !important; }
 .pipe-meter-top strong { font-size: 22px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; color: #131c26; text-shadow: none; }
-.pipe-list { list-style: none; margin: 12px 0 0; padding: 0; }
+.pipe-list { list-style: none; margin: 12px 0 0; padding: 0; flex: 1; }
 .pipe-item { display: flex; gap: 12px; padding: 11px 8px; border-bottom: 1px solid #f0f3f7; border-radius: 12px; transition: background .15s ease; }
 .pipe-item:hover { background: #f6f8fb; }
 .pipe-item:last-child { border-bottom: 0; }
@@ -137,7 +163,7 @@
 .pipe-item.running .pipe-status { color: #1d4ed8; background: #dbeafe; }
 .pipe-item.failed .pipe-status { color: #b42318; background: #fee4e2; }
 .pipe-body p { margin: 4px 0 0; font-size: 12.5px; color: #5b6b82; line-height: 1.6; }
-.pipe-foot { margin-top: 12px; padding-top: 14px; border-top: 1px solid #edf0f5; }
+.pipe-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid #edf0f5; }
 .pipe-idle { margin: 0; font-size: 12px; color: #9aa3b2; text-align: center; background: #f7f9fc; border: 1px dashed #dbe1ea; border-radius: 12px; padding: 12px; }
 .pipe-foot .ant-btn-primary.start-btn { width: 100%; height: 44px !important; font-size: 14px; }
 .pipe-foot .ant-btn-primary { font-weight: 650 !important; background: linear-gradient(135deg, #1c2a3a 0%, #2f4357 60%, #3d5670 100%) !important; border-color: rgba(255,255,255,.12) !important; color: #fff !important; box-shadow: 0 6px 16px rgba(28,42,58,.35), inset 0 1px 0 rgba(255,255,255,.18) !important; height: 44px !important; border-radius: 12px !important; font-size: 14px; }

@@ -80,14 +80,14 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
 
       <section className="ucard sample-process-panel">
         <div className="ucard-head"><div><h3>工艺与样品谱系</h3><p>仅展示通过 input / output 与当前样品直接绑定的工艺关系 · {relatedProcessSteps.length} steps</p></div></div>
-        {relatedProcessSteps.length ? <div className="process-list">{relatedProcessSteps.map((step) => {
+        {relatedProcessSteps.length ? <div className="process-list">{relatedProcessSteps.map((step, idx) => {
           const isProduced = step.output_sample_ids.includes(sample.sample_id);
           const isConsumed = step.input_sample_ids.includes(sample.sample_id);
           const relation = isProduced && isConsumed ? "该步骤更新当前样品状态" : isProduced ? "该步骤生成当前样品" : "当前样品参与该步骤";
           const parameters = Object.entries((step.parameters || {}) as Record<string, unknown>);
           const stepEvidence = step.evidence_ids?.map((id) => evidenceMap.get(id)).find(Boolean);
           return <article className="process-card" key={step.step_id}>
-            <header className="process-card-header"><div><Workflow size={19} /><span><strong>{processTypeLabel(step.process_type)}</strong><small>{step.step_id} · {relation}</small></span></div><Space size={5}>{confidenceTag(step.confidence?.score)}<Tag color={isProduced ? "success" : "processing"}>{isProduced ? "生成关系" : "输入关系"}</Tag></Space></header>
+            <header className="process-card-header"><div><Workflow size={19} /><span><strong>步骤 {idx + 1} · {processTypeLabel(step.process_type)}</strong><small>{step.step_id} · {relation}</small></span></div><Space size={5}>{confidenceTag(step.confidence?.score)}<Tag color={isProduced ? "success" : "processing"}>{isProduced ? "生成关系" : "输入关系"}</Tag></Space></header>
             <div className="process-flow">
               {renderProcessSamples("输入样品", step.input_sample_ids)}
               <ArrowRight size={18} />
