@@ -1,7 +1,7 @@
 "use client";
 
 import { Alert, Button, Input, Progress, Typography, Upload } from "antd";
-import { ArrowRight, Check, FileText, FileUp, LoaderCircle, Play, ShieldCheck, X } from "lucide-react";
+import { Activity, ArrowRight, Check, ClipboardList, FileText, FileUp, LoaderCircle, Play, ShieldCheck, X } from "lucide-react";
 import type { ExtractionJob, HealthState, JobStage } from "../../types";
 import { formatBytes, stageCatalog, stageStatusLabel } from "../../utils/format";
 import { useExtraction } from "../../store/extraction";
@@ -63,7 +63,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
         {/* ——— 左：提交卡 — 单卡走完 选文件→填密钥→开始 ——— */}
         <section className="ucard input-card submit-card">
           <div className="ucard-head">
-            <div><h3>新建抽取任务</h3><p>PDF · 最大 50 MB · 密钥内存态不落盘</p></div>
+            <div><h3><span className="title-icon"><ClipboardList size={15} /></span>新建抽取任务</h3><p>PDF · 最大 50 MB · 密钥内存态不落盘</p></div>
             <span className="step-chip">01</span>
           </div>
 
@@ -131,7 +131,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
         {/* ——— 右：流水线卡 ——— */}
         <section className="ucard pipe-card">
           <div className="ucard-head">
-            <div><h3>抽取流水线</h3><p>{job ? `${job.ref_no} · ${job.file_name}` : "提交后显示真实阶段状态"}</p></div>
+            <div><h3><span className="title-icon"><Activity size={15} /></span>抽取流水线</h3><p>{job ? `${job.ref_no} · ${job.file_name}` : "提交后显示真实阶段状态"}</p></div>
             <span className="step-chip">02</span>
           </div>
 

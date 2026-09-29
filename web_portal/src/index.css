@@ -21,7 +21,26 @@
   --shadow-hover: 0 8px 24px rgba(16,24,40,.08);
   --font-family: MiSans, "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-sans: MiSans, "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --title-icon-bg: #eef1f5;
+  --title-icon-fg: #38414f;
 }
+
+/* —— 卡片标题图标：全站统一的克制型 title-icon —— */
+.title-icon {
+  flex: 0 0 28px !important; width: 28px !important; height: 28px !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  border-radius: 8px; line-height: 1 !important;
+  background: var(--title-icon-bg); color: var(--title-icon-fg);
+  border: 1px solid #e2e7ee; vertical-align: middle !important;
+}
+.title-icon svg { display: block !important; width: 15px !important; height: 15px !important; margin: 0 !important; padding: 0 !important; flex: 0 0 auto !important; }
+.ucard-head h3, .panel-heading h4, .analysis-panel-heading strong,
+.table-section-heading h4, .identity-data-heading b, .identity-section-title b,
+.quality-analysis-panel .work-panel-title, .work-panel-title {
+  display: flex !important; align-items: center !important; gap: 8px !important;
+}
+.analysis-panel-heading strong .title-icon, .ucard-head h3 .title-icon { margin-right: 2px !important; align-self: center !important; flex-shrink: 0 !important; }
+.ucard-head { align-items: center !important; }
 
 * { box-sizing: border-box; letter-spacing: 0; }
 
@@ -558,10 +577,12 @@ body { overflow: hidden !important; }
 .precision-ui.is-collapsed .tool-sidebar, .is-collapsed .tool-sidebar { width: 64px !important; }
 .precision-ui .tool-content, .tool-content {
   height: calc(100vh - 24px) !important; min-height: 0 !important; max-height: calc(100vh - 24px) !important;
-  margin: 12px !important; overflow-y: auto !important; overflow-x: hidden !important;
+  margin: 12px 12px 12px 12px !important; box-sizing: border-box !important;
+  overflow-y: auto !important; overflow-x: hidden !important;
   background: var(--surface-2) !important; border: 1px solid var(--border) !important; border-radius: 14px !important;
-  box-shadow: none !important;
+  box-shadow: none !important; background-clip: padding-box !important;
 }
+.tool-content > .page-stack { padding-bottom: 12px !important; }
 
 /* 导航图标保持与菜单文字同色，不额外添加图标底色。 */
 .tool-sidebar .side-nav a .side-nav-icon,

@@ -2,7 +2,7 @@
 
 import { Button, Empty, Space, Table, Tag, Tooltip, Typography } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { ArrowLeft, ArrowRight, Beaker, Download, FileSearch, Link2, Workflow } from "lucide-react";
+import { ArrowLeft, ArrowRight, Beaker, Download, FileSearch, Gauge, Link2, Workflow } from "lucide-react";
 import type { CandidateData, Evidence, PropertyObservation } from "../../types";
 import { confidenceTag, measurementConditionText, polymerTypeLabel, processParameterText, processTypeLabel, sampleDisplayName, sampleKindLabel, systemPid } from "../../utils/format";
 import { NoResult, zhPagination } from "../../components/common";
@@ -79,7 +79,7 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
       </section>
 
       <section className="ucard sample-process-panel">
-        <div className="ucard-head"><div><h3>工艺与样品谱系</h3><p>仅展示通过 input / output 与当前样品直接绑定的工艺关系 · {relatedProcessSteps.length} steps</p></div></div>
+        <div className="ucard-head"><div><h3><span className="title-icon"><Workflow size={15} /></span>工艺与样品谱系</h3><p>仅展示通过 input / output 与当前样品直接绑定的工艺关系 · {relatedProcessSteps.length} steps</p></div></div>
         {relatedProcessSteps.length ? <div className="process-list">{relatedProcessSteps.map((step, idx) => {
           const isProduced = step.output_sample_ids.includes(sample.sample_id);
           const isConsumed = step.input_sample_ids.includes(sample.sample_id);
@@ -102,7 +102,7 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
       </section>
 
       <section className="ucard sample-property-table">
-        <div className="ucard-head"><div><h3>性质数据</h3><p>每条性质保留数值、单位、测量语境、置信度与原文证据 · {properties.length} records</p></div></div>
+        <div className="ucard-head"><div><h3><span className="title-icon"><Gauge size={15} /></span>性质数据</h3><p>每条性质保留数值、单位、测量语境、置信度与原文证据 · {properties.length} records</p></div></div>
         {properties.length ? <Table rowKey="property_id" columns={propertyColumns} dataSource={properties} pagination={zhPagination({ pageSize: 10, hideOnSinglePage: true })} scroll={{ x: 1080 }} /> : <Empty description="本次性质阶段未生成可用观测" />}
       </section>
     </div>

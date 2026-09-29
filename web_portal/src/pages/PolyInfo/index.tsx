@@ -125,14 +125,14 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
     </section>
     <div className="quality-analysis-grid">
       <section className="work-panel quality-analysis-panel">
-        <div className="analysis-panel-heading"><div><strong>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
+        <div className="analysis-panel-heading"><div><strong><span className="title-icon"><ShieldCheck size={15} /></span>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
         <ScoreBar label="Precision" value={activeCollection.anchor.precision} />
         <ScoreBar label="Recall" value={activeCollection.anchor.recall} color="#0f8a72" />
         <ScoreBar label="F1" value={activeCollection.anchor.f1} color="#7b5aa6" />
         <div className="alignment-summary compact"><span className="matched"><b>{activeCollection.anchor.matched}</b>数值一致</span><span className="different"><b>{activeCollection.anchor.value_diff}</b>同名值不同</span><span className="pi-only"><b>{activeCollection.anchor.polyinfo_only}</b>仅 PoLyInfo</span><span className="web-only"><b>{activeCollection.anchor.extraction_only}</b>仅本批次</span></div>
       </section>
       <section className="work-panel quality-analysis-panel">
-        <div className="analysis-panel-heading"><div><strong>候选记录完整度</strong><span>检查关系和证据是否存在，不等同于人工确认其语义正确</span></div><Tag color="green">PIPELINE QUALITY</Tag></div>
+        <div className="analysis-panel-heading"><div><strong><span className="title-icon"><Database size={15} /></span>候选记录完整度</strong><span>检查关系和证据是否存在，不等同于人工确认其语义正确</span></div><Tag color="green">PIPELINE QUALITY</Tag></div>
         <ScoreBar label="性质绑定合法样品" value={activeCollection.quality.sample_binding_coverage} color="#0f8a72" />
         <ScoreBar label="性质绑定原文证据" value={activeCollection.quality.evidence_coverage} color="#1177bb" />
         <ScoreBar label="单位字段完整" value={activeCollection.quality.unit_completeness} color="#7b5aa6" />
@@ -140,7 +140,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       </section>
     </div>
     <section className="work-panel stage-evolution-panel">
-      <div className="analysis-panel-heading"><div><strong>当前批次的阶段变化</strong><span>同一批次从 Stage 4 原始抽取到 Stage 4R 恢复、候选汇总和 Stage 6 发布</span></div><Tag>{activeCollection.strict_compliance_claimed ? "STRICT" : "PREVIEW"}</Tag></div>
+      <div className="analysis-panel-heading"><div><strong><span className="title-icon"><GitBranch size={15} /></span>当前批次的阶段变化</strong><span>同一批次从 Stage 4 原始抽取到 Stage 4R 恢复、候选汇总和 Stage 6 发布</span></div><Tag>{activeCollection.strict_compliance_claimed ? "STRICT" : "PREVIEW"}</Tag></div>
       <div className="stage-evolution-track">
         <div><span>Stage 4 初始性质</span><strong>{activeCollection.stage.stage4_pre_properties}</strong><small>LLM / 规则初始结果</small></div><ArrowRight size={18} />
         <div><span>Stage 4R 后</span><strong>{activeCollection.stage.stage4_post_properties}</strong><small>迁移 {activeCollection.stage.stage4r_migrated} · 跳过 {activeCollection.stage.stage4r_skipped}</small></div><ArrowRight size={18} />
