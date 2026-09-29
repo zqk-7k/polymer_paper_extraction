@@ -7,7 +7,7 @@ import { ExtractionProvider, useExtraction } from "./store/extraction";
 import { API_BASE } from "./types";
 import { EntityDrawer, EvidenceDrawer, PolyInfoComparisonDrawer } from "./components/drawers";
 
-import logoUrl from "./assets/logo.png";
+import logoUrl from "./assets/logo.svg";
 
 function AppShell() {
   const pathname = useLocation().pathname;
@@ -91,7 +91,7 @@ function AppShell() {
             )}
           </div>
           <nav className="side-nav" aria-label="主导航">
-            {!collapsed && <p className="side-group-title">学术对话</p>}
+            {!collapsed && <p className="side-group-title">文献抽取</p>}
             {navItems.slice(0, 2).map((item) => {
               const Icon = item.icon;
               const active = isActive(item.key);
@@ -102,7 +102,7 @@ function AppShell() {
                 </Link>
               );
             })}
-            {!collapsed && <p className="side-group-title">数据管理</p>}
+            {!collapsed && <p className="side-group-title">结果浏览</p>}
             {navItems.slice(2).map((item) => {
               const Icon = item.icon;
               const active = isActive(item.key);
