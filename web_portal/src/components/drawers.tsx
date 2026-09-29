@@ -1,6 +1,6 @@
-import { Alert, Button, Descriptions, Drawer, Empty, Space, Table, Tabs, Tag, Tooltip, Typography } from "antd";
+import { Alert, Button, Descriptions, Drawer, Empty, Space, Table, Tabs, Tag, Typography } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { Boxes, FileSearch, FlaskConical, Link2, LoaderCircle, TableProperties, Workflow } from "lucide-react";
+import { Boxes, FileSearch, FlaskConical, Link2, LoaderCircle } from "lucide-react";
 import { useState } from "react";
 import { evidencePageUrl } from "../evidence-urls.mjs";
 import type { CandidateData, Evidence, PolyInfoComparison, PolyInfoProperty, PolymerEntity, PropertyObservation } from "../types";

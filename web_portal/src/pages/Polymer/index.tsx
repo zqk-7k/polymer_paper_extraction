@@ -1,10 +1,10 @@
 "use client";
 
-import { Button, Space, Table, Tag, Typography, Empty } from "antd";
+import { Button, Space, Table, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { ArrowLeft, FileSearch, Download, Link2 } from "lucide-react";
+import { ArrowLeft, FileSearch, Download } from "lucide-react";
 import type { CandidateData } from "../../types";
-import { confidenceTag, polymerTypeLabel, processParameterText, sampleDisplayName, sampleKindLabel, systemPid, repeatUnitFor } from "../../utils/format";
+import { polymerTypeLabel, sampleKindLabel, systemPid, repeatUnitFor } from "../../utils/format";
 import { PolymerStructure } from "../../components/PolymerStructure";
 import { NoResult, PageTitle, zhPagination } from "../../components/common";
 import { useExtraction } from "../../store/extraction";

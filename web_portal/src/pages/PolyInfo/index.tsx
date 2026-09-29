@@ -6,10 +6,10 @@ import { ArrowRight, Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, 
 import { useEffect, useState } from "react";
 import type { BatchCollectionSummary, BatchResultSummary, PolyInfoSummary } from "../../types";
 import { API_BASE } from "../../types";
-import { Metric, PageTitle, ScoreBar, TableSkeleton, zhPagination } from "../../components/common";
+import { Metric, ScoreBar, TableSkeleton, zhPagination } from "../../components/common";
 import { useExtraction } from "../../store/extraction";
 import "./style.css";
-const { Title, Text, Paragraph } = Typography;
+const { Title, Paragraph } = Typography;
 
 function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, selectedCollectionId, onCollection, onRefresh, onCompare }: {
   loading: boolean;
