@@ -1,18 +1,24 @@
 :root {
   color-scheme: light;
-  --radius: 0.5rem;
-  --brand: hsl(221 83% 53%);
-  --brand-dark: hsl(221 83% 45%);
-  --brand-soft: hsl(214 100% 97%);
-  --page: #f3f6f9;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --brand: #1f5eff;
+  --brand-dark: #1849c6;
+  --brand-soft: #eef3ff;
+  --ink: #1d2129;
+  --ink-2: #38414f;
+  --page: #f4f5f7;
   --surface: #ffffff;
-  --border: hsl(214.3 20% 91%);
-  --ring: hsl(221 83% 53%);
-  --text: hsl(222.2 84% 4.9%);
-  --muted: hsl(215 16% 47%);
-  --accent: hsl(210 40% 96.1%);
-  --shadow: 0 1px 3px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.02);
-  --shadow-hover: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  --surface-2: #f8fafc;
+  --border: #e6e9ee;
+  --border-soft: #eef1f5;
+  --ring: #1f5eff;
+  --text: #1d2129;
+  --muted: #6b7686;
+  --muted-2: #9aa3b2;
+  --accent: #f2f4f7;
+  --shadow: 0 1px 2px rgba(16,24,40,.05);
+  --shadow-hover: 0 8px 24px rgba(16,24,40,.08);
   --font-family: MiSans, "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-sans: MiSans, "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -163,7 +169,8 @@ button, input, select, textarea, h1, h2, h3, h4, h5, h6, em, strong, small, labe
 
 .metric-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 
-.metric-item { min-height: 72px; padding: 12px; display: flex; gap: 10px; align-items: center; background: white; border: 1px solid var(--border); border-radius: 7px; box-shadow: 0 4px 14px rgba(33,56,101,.04); }
+.metric-item { min-height: 72px; padding: 13px 14px; display: flex; gap: 12px; align-items: center; background: white; border: 1px solid var(--border); border-radius: 12px; box-shadow: none; }
+.metric-item strong { margin-top: 2px; font-size: 20px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
 
 .metric-icon { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 7px; }
 
@@ -552,8 +559,8 @@ body { overflow: hidden !important; }
 .precision-ui .tool-content, .tool-content {
   height: calc(100vh - 24px) !important; min-height: 0 !important; max-height: calc(100vh - 24px) !important;
   margin: 12px !important; overflow-y: auto !important; overflow-x: hidden !important;
-  background: #fff !important; border: 1px solid #e9edf3 !important; border-radius: 10px !important;
-  box-shadow: 0 1px 2px rgba(16,24,40,.03) !important;
+  background: var(--surface-2) !important; border: 1px solid var(--border) !important; border-radius: 14px !important;
+  box-shadow: none !important;
 }
 
 /* 导航图标保持与菜单文字同色，不额外添加图标底色。 */

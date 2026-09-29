@@ -11,19 +11,19 @@
 .upload-page::before,
 .upload-page::after { content: none; }
 
-/* Hero — light editorial banner,与下方白色卡片同色系，避免头重脚轻 */
+/* Hero — restrained editorial banner: flat surface, single hairline accent */
 .upload-hero {
   display: flex; align-items: center; justify-content: space-between; gap: 28px;
-  padding: 24px 26px;
-  background: linear-gradient(180deg, #fbfcfe 0%, #f2f5f9 100%);
+  padding: 20px 24px;
+  background: #fff;
   border: 1px solid #e2e7ee;
-  border-radius: 18px;
-  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(30,44,61,.06), inset 0 1px 0 #fff;
+  border-radius: 14px;
+  box-shadow: none;
   position: relative; overflow: hidden;
 }
 .upload-hero::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: linear-gradient(180deg, #2f4357, #5b7a99 55%, #9db4c9);
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: #1d2129;
 }
 /* .results-page .upload-hero::before { background: linear-gradient(180deg, #1f5eff, #7c3aed 60%, #38bdf8); } */
 .upload-hero::after {
@@ -57,11 +57,11 @@
 /* Grid */
 .upload-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: start; }
 .ucard {
-  background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
-  border: 1px solid #e2e7ee; border-radius: 18px; padding: 22px 20px;
-  box-shadow: 0 1px 2px rgba(16,24,40,.05), 0 8px 28px rgba(30,44,61,.08);
+  background: #fff;
+  border: 1px solid #e2e7ee; border-radius: 14px; padding: 20px;
+  box-shadow: none;
   position: relative; overflow: hidden;
-  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  transition: border-color .18s ease, box-shadow .18s ease;
 }
 .pipe-card::before { background: linear-gradient(90deg, #1f5eff, #7c3aed 60%, #38bdf8); }
 .ucard:hover { border-color: #d3dbe5; box-shadow: 0 2px 4px rgba(16,24,40,.06), 0 14px 36px rgba(30,44,61,.12); transform: translateY(-1px); }
