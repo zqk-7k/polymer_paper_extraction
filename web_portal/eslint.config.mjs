@@ -13,7 +13,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    "_legacy_next_bak/**",
   ]),
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
