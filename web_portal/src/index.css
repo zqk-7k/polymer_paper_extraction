@@ -498,6 +498,12 @@ code, pre, .ant-typography code { font-family: inherit !important; }
 .brand-symbol.as-toggle:hover { background: #e4e8ef !important; }
 .brand-symbol.as-toggle:focus-visible { outline: 2px solid #1f5eff !important; outline-offset: 2px !important; }
 .tool-brand strong { font-size: 14px !important; font-weight: 600 !important; color: #1d2129 !important; white-space: nowrap !important; }
+/* ===== 品牌标题高级感优化 ===== */
+.brand-title { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 1px; line-height: 1; }
+.brand-name { display: inline-flex !important; align-items: baseline !important; gap: 5px; margin: 0 !important; font-size: 16px !important; font-weight: 800 !important; letter-spacing: .2px !important; line-height: 1.1 !important; white-space: nowrap !important; background: linear-gradient(92deg, #0f2a6b 0%, #1f5eff 55%, #00a2c7 100%) !important; -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important; -webkit-text-fill-color: transparent !important; }
+.brand-name em { font-style: normal !important; font-weight: 400 !important; font-size: 13px !important; letter-spacing: .6px !important; background: none !important; color: #5b6b82 !important; -webkit-text-fill-color: #5b6b82 !important; }
+.brand-sub { font-size: 10px !important; font-weight: 500 !important; letter-spacing: 2.5px !important; color: #9aa5b8 !important; white-space: nowrap !important; }
+.tool-brand .brand-symbol { position: relative; }
 .is-collapsed .tool-sidebar .side-nav a, .is-collapsed .tool-sidebar .side-secondary .ant-btn, .is-collapsed .tool-sidebar .side-secondary button { justify-content: center !important; padding: 0 !important; }
 .is-collapsed .tool-sidebar .side-nav a > span:not(.side-nav-icon), .is-collapsed .tool-sidebar .side-nav a i, .is-collapsed .side-group-title, .is-collapsed .side-login-btn { display: none !important; }
 .precision-ui .candidate-banner, .candidate-banner { top: 0 !important; margin: 12px 12px 0 !important; border-radius: 10px !important; }

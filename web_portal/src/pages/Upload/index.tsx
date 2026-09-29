@@ -147,7 +147,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
           <div className="pipe-foot">
             {job?.error && <Alert type="error" showIcon message="任务未完成" description={job.error} className="upload-alert" />}
             {job?.result_ready
-              ? <Button type="primary" block icon={<ArrowRight size={14} />} onClick={onOpenResults}>查看抽取结果</Button>
+              ? <Button type="primary" block icon={<ArrowRight size={14} />} onClick={onOpenResults} className="start-btn result-btn">查看抽取结果</Button>
               : <p className="pipe-idle">{job ? "流水线按 Stage 0–5 顺序推进，结果就绪后可跳转查看。" : "暂无运行中的任务 — 左侧上传并开始抽取。"}</p>}
           </div>
         </section>

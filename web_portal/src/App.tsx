@@ -78,7 +78,12 @@ function AppShell() {
             ) : (
               <div className="brand-symbol"><img src={logoUrl} alt="PolymerLit logo" width={30} height={30} /></div>
             )}
-            {!collapsed && <strong>PolymerLit&nbsp;<span>Extractor</span></strong>}
+            {!collapsed && (
+              <div className="brand-title">
+                <strong className="brand-name">PolymerLit <em>Extractor</em></strong>
+                <span className="brand-sub">高分子文献智能抽取</span>
+              </div>
+            )}
             {!collapsed && (
               <button className="brand-collapse" aria-label="收起侧栏" onClick={() => setCollapsed(true)}>
                 <PanelLeftClose size={18} />

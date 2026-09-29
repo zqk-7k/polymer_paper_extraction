@@ -97,8 +97,9 @@
 .pipe-body p { margin: 3px 0 0; font-size: 12.5px; color: #4b5563; line-height: 1.55; }
 .pipe-foot { margin-top: 12px; padding-top: 14px; border-top: 1px solid #eef1f5; }
 .pipe-idle { margin: 0; font-size: 12px; color: #9ca3af; text-align: center; }
-.pipe-foot .ant-btn-primary { font-weight: 600 !important; background: #3a2a20 !important; border-color: #3a2a20 !important; color: #fff !important; box-shadow: none !important; height: 40px !important; border-radius: 10px !important; }
-.pipe-foot .ant-btn-primary:not(:disabled):hover { background: #523c2e !important; border-color: #523c2e !important; color: #fff !important; }
+.pipe-foot .ant-btn-primary.start-btn { width: 100%; }
+.pipe-foot .ant-btn-primary { font-weight: 600 !important; background: #2f4357 !important; border-color: #2f4357 !important; color: #fff !important; box-shadow: none !important; height: 40px !important; border-radius: 10px !important; font-size: 13.5px; }
+.pipe-foot .ant-btn-primary:not(:disabled):hover { background: #16202a !important; border-color: #16202a !important; color: #fff !important; box-shadow: 0 3px 10px rgba(22,32,42,.28) !important; }
 
 @media (max-width: 1080px) { .upload-grid { grid-template-columns: 1fr; } .ucard-head p { max-width: none; white-space: normal; } }
 @media (max-width: 620px) {
