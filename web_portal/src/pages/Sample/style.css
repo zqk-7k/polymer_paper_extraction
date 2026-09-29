@@ -1,0 +1,436 @@
+/* sample page styles */
+
+.sample-property-identity { min-height: 126px; padding: 18px 20px; display: grid; grid-template-columns: 46px minmax(170px,.45fr) minmax(0,1.55fr); align-items: center; gap: 15px; }
+
+.sample-property-title { min-width: 0; }
+
+.sample-property-title strong, .sample-property-title span { display: block; overflow: hidden; text-overflow: ellipsis; }
+
+.sample-property-title strong { color: #25344b; font-size: 18px; white-space: nowrap; }
+
+.sample-property-title span { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+.sample-property-table > .ant-empty { min-height: 230px; margin: 0 -18px; display: flex; flex-direction: column; justify-content: center; }
+
+.condition-copy { color: #48556a; font-size: 12px; line-height: 1.55; }
+
+.sample-process-panel > .sample-property-heading { margin: 0 -18px; }
+
+.sample-process-panel > .ant-empty { min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+
+/* quiet-lab + #2f4357 theme */
+.results-page .upload-hero-side, .sample-property-page .upload-hero-side, .polyinfo-results-page .upload-hero-side { flex-wrap: wrap; justify-content: flex-end; }
+.results-metrics-card .ucard-head + .metric-strip, .polyinfo-metrics { margin-top: 16px; }
+.results-metrics { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; }
+.result-browser-card { padding-bottom: 18px; }
+.result-browser-card .result-browser { padding-top: 6px; }
+.start-btn.ant-btn-primary, .results-page .ant-btn-primary, .sample-property-page .ant-btn-primary, .polyinfo-results-page .ant-btn-primary { background: #2f4357 !important; border-color: #2f4357 !important; color: #fff !important; box-shadow: none !important; font-weight: 600 !important; }
+.start-btn.ant-btn-primary:not(:disabled):hover, .results-page .ant-btn-primary:not(:disabled):hover, .sample-property-page .ant-btn-primary:not(:disabled):hover, .polyinfo-results-page .ant-btn-primary:not(:disabled):hover { background: #16202a !important; border-color: #16202a !important; color: #fff !important; box-shadow: 0 3px 10px rgba(22,32,42,.28) !important; }
+.results-page .ant-table-thead > tr > th, .sample-property-page .ant-table-thead > tr > th, .polyinfo-results-page .ant-table-thead > tr > th { background: #f6f8fa !important; }
+.polyinfo-tabs-card { padding: 18px 20px 20px; }
+@media (max-width: 1080px) { .results-metrics { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+.process-list { margin: 0 -18px; display: grid; }
+
+.process-card { padding: 17px 18px; background: #fff; }
+
+.process-card + .process-card { border-top: 1px solid var(--border); }
+
+.process-card-header { margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+.process-card-header > div { min-width: 0; display: flex; align-items: center; gap: 9px; }
+
+.process-card-header > div > svg { flex: 0 0 auto; color: #c66a14; }
+
+.process-card-header strong, .process-card-header small { display: block; }
+
+.process-card-header strong { color: #26344a; font-size: 14px; }
+
+.process-card-header small { margin-top: 3px; color: var(--muted); font-size: 10px; }
+
+.process-flow { display: grid; grid-template-columns: minmax(180px,1fr) 24px minmax(150px,.62fr) 24px minmax(180px,1fr); align-items: center; gap: 10px; }
+
+.process-flow > svg { justify-self: center; color: #8b97a9; }
+
+.process-sample-group { min-width: 0; }
+
+.process-sample-group > span { display: block; margin-bottom: 6px; color: #7d899a; font-size: 10px; font-weight: 700; }
+
+.process-sample-group > div { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.process-sample-group button { min-width: 112px; padding: 7px 9px; border: 1px solid #d5dde8; border-radius: 5px; color: #39465a; background: #f9fafc; text-align: left; cursor: pointer; }
+
+.process-sample-group button:hover { border-color: #96abd0; background: #f3f7fd; }
+
+.process-sample-group button.output { border-color: #b9d9d7; background: #f2faf9; }
+
+.process-sample-group button.current { border-color: #e0a563; background: #fff8ef; cursor: default; }
+
+.process-sample-group button:disabled { color: #39465a; opacity: 1; }
+
+.process-sample-group strong, .process-sample-group small { display: block; }
+
+.process-sample-group strong { font-size: 11px; line-height: 1.4; }
+
+.process-sample-group small { margin-top: 3px; color: #7d899a; font-size: 9px; }
+
+.process-sample-group em { color: #8a95a5; font-size: 11px; font-style: normal; }
+
+.process-node { min-height: 66px; padding: 10px; display: flex; align-items: center; gap: 8px; color: #b95e0d; background: #fff9f2; border: 1px solid #e9bf8f; border-radius: 6px; }
+
+.process-node svg { flex: 0 0 auto; }
+
+.process-node strong, .process-node small { display: block; }
+
+.process-node strong { color: #7d3f0a; font-size: 12px; }
+
+.process-node small { margin-top: 3px; color: #9a6b43; font-size: 9px; overflow-wrap: anywhere; }
+
+.process-parameters { margin-top: 13px; padding: 11px 12px; display: grid; grid-template-columns: 82px minmax(0,1fr); gap: 12px; background: #f7f9fb; border: 1px solid #e1e6ed; border-radius: 5px; }
+
+.process-parameters > span { color: #6e7a8c; font-size: 10px; font-weight: 700; }
+
+.process-parameters dl { margin: 0; display: flex; flex-wrap: wrap; gap: 7px 18px; }
+
+.process-parameters dl > div { display: flex; gap: 6px; font-size: 11px; }
+
+.process-parameters dt { color: #788497; }
+
+.process-parameters dd { margin: 0; color: #29374c; font-weight: 600; }
+
+.process-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; color: #778396; font-size: 10px; }
+
+.precision-ui .sample-property-identity { min-height: 144px; padding: 22px 24px; }
+
+.precision-ui .sample-property-title strong { color: #152033; font-size: 20px; }
+
+/* process-flow redesign: lane cards */
+.process-list { margin: 16px 0 0 !important; display: grid !important; gap: 14px !important; }
+.process-card { padding: 0 !important; border: 1px solid #e6e9ee !important; border-radius: 14px !important; overflow: hidden !important; background: #fff !important; }
+.process-card-header { margin-bottom: 0 !important; padding: 13px 16px !important; background: linear-gradient(180deg,#fafbfc,#f3f5f8) !important; border-bottom: 1px solid #eef1f5 !important; }
+.process-flow { grid-template-columns: minmax(0,1fr) 28px minmax(0,.7fr) 28px minmax(0,1fr) !important; padding: 14px 16px !important; gap: 8px !important; background: #fbfcfd !important; align-items: stretch !important; }
+.process-flow > svg { align-self: center !important; justify-self: center !important; color: #2f4357 !important; }
+.process-sample-group { border: 1px solid #e6e9ee !important; border-radius: 12px !important; background: #fff !important; padding: 10px 11px !important; min-width: 0 !important; }
+.process-sample-group > span { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #6b7280; margin-bottom: 8px; }
+.process-sample-group > div { display: grid !important; gap: 8px !important; }
+.process-sample-group button { min-width: 0 !important; border-radius: 10px !important; padding: 9px 11px !important; }
+.process-node { border-radius: 12px !important; min-height: 76px !important; justify-content: center !important; text-align: center !important; }
+.process-parameters, .process-meta { margin-left: 16px !important; margin-right: 16px !important; }
+.process-meta { padding-bottom: 14px !important; }
+.process-parameters { margin-top: 0 !important; margin-bottom: 12px !important; border-radius: 10px !important; }
+/* compact flow: no stretched boxes, slate-teal palette */
+.process-flow { align-items: center !important; background: linear-gradient(180deg,#f8fafc,#f1f5f9) !important; border-top: 1px solid #eef1f5 !important; border-bottom: 1px solid #eef1f5 !important; }
+.process-sample-group { padding: 8px 9px !important; background: #f8fafc !important; border-color: #e2e8f0 !important; align-self: center !important; }
+.process-sample-group > div { gap: 6px !important; }
+.process-sample-group button { padding: 6px 9px !important; border-color: #cbd5e1 !important; background: #fff !important; }
+.process-sample-group button.output { border-color: #99c9c4 !important; background: #effaf9 !important; }
+.process-sample-group button.current { border-color: #2f4357 !important; background: #eef2f6 !important; }
+.process-node { min-height: 0 !important; padding: 8px 12px !important; gap: 8px !important; color: #fff !important; background: #2f4357 !important; border: 1px solid #2f4357 !important; align-self: center !important; }
+.process-node strong { color: #fff !important; }
+.process-node small { color: rgba(255,255,255,.75) !important; }
+.process-node svg { color: #fff !important; }
+
+/* Distinguish the two sample lanes from the central polymer/process node. */
+.process-sample-group.input-group {
+  border-left: 3px solid #64748b !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+}
+
+.process-sample-group.output-group {
+  border-left: 3px solid #159a8a !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fbf9 100%) !important;
+}
+
+.process-sample-group.input-group > span,
+.process-sample-group.output-group > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #475569;
+}
+
+.process-sample-group.input-group > span::before,
+.process-sample-group.output-group > span::before {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  content: "";
+}
+
+.process-sample-group.input-group > span::before { background: #64748b; }
+.process-sample-group.output-group > span { color: #087f73; }
+.process-sample-group.output-group > span::before { background: #159a8a; }
+
+.process-sample-group.output-group > div {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.process-sample-group button {
+  min-height: 58px !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04) !important;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.process-sample-group button::after {
+  width: 3px;
+  position: absolute;
+  inset: 0 auto 0 0;
+  content: "";
+  background: #94a3b8;
+}
+
+.process-sample-group button.output::after { background: #37b7a6; }
+.process-sample-group button.current::after { background: #2f4357; }
+
+.process-sample-group button:not(:disabled):hover {
+  box-shadow: 0 5px 12px rgba(30, 64, 85, .1) !important;
+  transform: translateY(-1px);
+}
+
+.process-sample-group button strong { color: #26384b; }
+.process-sample-group button.output strong { color: #126b64; }
+.process-sample-group button small { color: #8190a3; }
+
+.process-node {
+  min-height: 86px !important;
+  position: relative;
+  flex-direction: column;
+  justify-content: center !important;
+  gap: 5px !important;
+  overflow: hidden;
+  background: linear-gradient(145deg, #344b60, #243746) !important;
+  border: 0 !important;
+  box-shadow: 0 8px 18px rgba(36, 55, 70, .18) !important;
+}
+
+.process-node::before {
+  width: 54px;
+  height: 54px;
+  position: absolute;
+  top: -20px;
+  right: -16px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 50%;
+  content: "";
+}
+
+.process-node svg {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  z-index: 1;
+  color: #d5f4ef !important;
+  background: rgba(21, 154, 138, .28);
+  border: 1px solid rgba(213, 244, 239, .32);
+  border-radius: 9px;
+}
+
+.process-node strong,
+.process-node small { position: relative; z-index: 1; }
+.process-node strong { font-size: 12px; letter-spacing: .02em; }
+.process-node small { color: rgba(226, 244, 242, .7) !important; }
+
+@media (max-width: 760px) {
+  .process-flow {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .process-flow > svg {
+    transform: rotate(90deg);
+  }
+
+  .process-node {
+    min-height: 72px !important;
+  }
+}
+
+/* Make output samples read as selectable lineage targets, with a strong current state. */
+.process-sample-group.output-group button.output:not(.current) {
+  border-color: #a8d8d1 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f1fbfa 100%) !important;
+  color: #176b64;
+  cursor: pointer;
+}
+
+.process-sample-group.output-group button.output:not(.current)::after {
+  background: #43b9a8;
+}
+
+.process-sample-group.output-group button.output:not(.current):hover {
+  border-color: #159a8a !important;
+  background: linear-gradient(135deg, #f8fffe 0%, #dff7f3 100%) !important;
+  box-shadow: 0 6px 14px rgba(21, 154, 138, .16) !important;
+}
+
+.process-sample-group.output-group button.output:not(.current):focus-visible {
+  outline: 3px solid rgba(21, 154, 138, .2);
+  outline-offset: 2px;
+}
+
+.process-sample-group.output-group button.output.current {
+  border-color: #087f73 !important;
+  background: linear-gradient(135deg, #168f82 0%, #086d66 100%) !important;
+  color: #fff !important;
+  cursor: default;
+  box-shadow: 0 0 0 3px rgba(21, 154, 138, .14), 0 7px 16px rgba(8, 109, 102, .2) !important;
+}
+
+.process-sample-group.output-group button.output.current::before {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  color: rgba(255, 255, 255, .82);
+  content: "当前";
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.process-sample-group.output-group button.output.current::after {
+  width: 4px;
+  background: #b8fff3;
+}
+
+.process-sample-group.output-group button.output.current strong,
+.process-sample-group.output-group button.output.current small {
+  color: #fff !important;
+}
+
+.process-sample-group.output-group button.output.current small {
+  color: rgba(255, 255, 255, .72) !important;
+}
+
+/* Keep output samples aligned with the primary export action instead of using a separate teal accent. */
+.process-sample-group.output-group {
+  border-left: 0 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%) !important;
+}
+
+.process-sample-group.output-group > span {
+  color: #2f4357 !important;
+}
+
+.process-sample-group.output-group > span::before {
+  background: #2f4357;
+}
+
+.process-sample-group.output-group button.output:not(.current) {
+  border-color: #c5ced8 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%) !important;
+  color: #2f4357;
+}
+
+.process-sample-group.output-group button.output:not(.current)::after {
+  background: #718196;
+}
+
+.process-sample-group.output-group button.output:not(.current):hover {
+  border-color: #2f4357 !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e9eef3 100%) !important;
+  box-shadow: 0 6px 14px rgba(47, 67, 87, .16) !important;
+}
+
+.process-sample-group.output-group button.output:not(.current):focus-visible {
+  outline-color: rgba(47, 67, 87, .25);
+}
+
+.process-sample-group.output-group button.output.current {
+  border-color: #2f4357 !important;
+  background: linear-gradient(135deg, #3b5268 0%, #2f4357 100%) !important;
+  box-shadow: 0 0 0 3px rgba(47, 67, 87, .14), 0 7px 16px rgba(47, 67, 87, .22) !important;
+}
+
+.process-sample-group.output-group button.output.current::after {
+  background: #d9e4ee;
+}
+
+/* Use a warm amber result color so output samples remain distinct from the navy process node. */
+.process-sample-group.output-group {
+  background: linear-gradient(135deg, #ffffff 0%, #fffaf0 100%) !important;
+}
+
+.process-sample-group.output-group > span {
+  color: #946200 !important;
+}
+
+.process-sample-group.output-group > span::before {
+  background: #d49a28;
+}
+
+.process-sample-group.output-group button.output:not(.current) {
+  border-color: #e4c47d !important;
+  background: linear-gradient(135deg, #ffffff 0%, #fff7e3 100%) !important;
+  color: #825a12;
+}
+
+.process-sample-group.output-group button.output:not(.current)::after {
+  background: #d49a28;
+}
+
+.process-sample-group.output-group button.output:not(.current):hover {
+  border-color: #c58a1b !important;
+  background: linear-gradient(135deg, #fffdf8 0%, #ffedbd 100%) !important;
+  box-shadow: 0 6px 14px rgba(180, 125, 24, .18) !important;
+}
+
+.process-sample-group.output-group button.output:not(.current):focus-visible {
+  outline-color: rgba(197, 138, 27, .28);
+}
+
+.process-sample-group.output-group button.output.current {
+  border-color: #9b6914 !important;
+  background: linear-gradient(135deg, #c58a1b 0%, #9b6914 100%) !important;
+  box-shadow: 0 0 0 3px rgba(197, 138, 27, .18), 0 7px 16px rgba(155, 105, 20, .24) !important;
+}
+
+.process-sample-group.output-group button.output.current::after {
+  background: #ffe8a8;
+}
+
+/* Muted steel-blue output accent: distinct from the process node without breaking the lab palette. */
+.process-sample-group.output-group {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f7f9 100%) !important;
+}
+
+.process-sample-group.output-group > span {
+  color: #5e7382 !important;
+}
+
+.process-sample-group.output-group > span::before {
+  background: #7b919f;
+}
+
+.process-sample-group.output-group button.output:not(.current) {
+  border-color: #c8d5dd !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f7 100%) !important;
+  color: #536b7b;
+}
+
+.process-sample-group.output-group button.output:not(.current)::after {
+  background: #8ca0ad;
+}
+
+.process-sample-group.output-group button.output:not(.current):hover {
+  border-color: #7b919f !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e7eef2 100%) !important;
+  box-shadow: 0 6px 14px rgba(73, 96, 112, .14) !important;
+}
+
+.process-sample-group.output-group button.output:not(.current):focus-visible {
+  outline-color: rgba(96, 120, 136, .25);
+}
+
+.process-sample-group.output-group button.output.current {
+  border-color: #607888 !important;
+  background: linear-gradient(135deg, #718896 0%, #607888 100%) !important;
+  box-shadow: 0 0 0 3px rgba(96, 120, 136, .15), 0 7px 16px rgba(73, 96, 112, .2) !important;
+}
+
+.process-sample-group.output-group button.output.current::after {
+  background: #dce8ed;
+}
