@@ -110,9 +110,12 @@ button, input, select, textarea, h1, h2, h3, h4, h5, h6, em, strong, small, labe
 
 .candidate-banner .ant-tag { margin-left: auto; }
 
-.tool-content { padding: 26px clamp(20px, 2vw, 32px) 52px; }
+.tool-content { padding: 22px clamp(20px, 2.5vw, 36px) 52px; }
 
-.page-stack { width: 100%; max-width: 1760px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+/* —— 全站主体宽度统一：所有页面 + 候选提示条共用同一容器宽度 —— */
+:root { --content-max: 1760px; }
+.page-stack { width: 100%; max-width: var(--content-max); margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.candidate-banner.in-content { width: 100% !important; max-width: var(--content-max) !important; margin: 0 auto 4px !important; }
 
 .page-title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
 
@@ -506,8 +509,8 @@ code, pre, .ant-typography code { font-family: inherit !important; }
 .tool-brand .brand-symbol { position: relative; }
 .is-collapsed .tool-sidebar .side-nav a, .is-collapsed .tool-sidebar .side-secondary .ant-btn, .is-collapsed .tool-sidebar .side-secondary button { justify-content: center !important; padding: 0 !important; }
 .is-collapsed .tool-sidebar .side-nav a > span:not(.side-nav-icon), .is-collapsed .tool-sidebar .side-nav a i, .is-collapsed .side-group-title, .is-collapsed .side-login-btn { display: none !important; }
-.precision-ui .candidate-banner, .candidate-banner { top: 0 !important; margin: 12px 12px 0 !important; border-radius: 10px !important; }
-.candidate-banner.in-content { position: static !important; margin: 0 0 4px !important; padding: 12px 16px !important; gap: 12px !important; background: linear-gradient(180deg,#fafbfc,#f4f6f9) !important; border: 1px solid #e6e9ee !important;  border-radius: 12px !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.9) !important; color: #171717 !important; }
+.precision-ui .candidate-banner:not(.in-content), .candidate-banner:not(.in-content) { top: 0 !important; margin: 12px 12px 0 !important; border-radius: 10px !important; }
+.candidate-banner.in-content { position: static !important; width: 100% !important; max-width: var(--content-max) !important; margin: 0 auto 16px !important; box-sizing: border-box !important; padding: 12px 16px !important; gap: 12px !important; background: linear-gradient(180deg,#fafbfc,#f4f6f9) !important; border: 1px solid #e6e9ee !important;  border-radius: 12px !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.9) !important; color: #171717 !important; }
 .candidate-banner-icon { flex: 0 0 32px; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 9px; background: #2f4357; color: #fff; }
 .candidate-banner-body { flex: 1; min-width: 0; }
 .candidate-banner-body strong { display: block; font-size: 13.5px; }
@@ -528,7 +531,8 @@ code, pre, .ant-typography code { font-family: inherit !important; }
 .ant-table-wrapper .ant-spin-blur { opacity: .55; }
 .ant-skeleton-content .ant-skeleton-title, .ant-skeleton-content .ant-skeleton-paragraph > li { background: linear-gradient(90deg,#eef1f5,#e2e7ee,#eef1f5) !important; }
 @media (max-width: 620px) {
-  .precision-ui .candidate-banner, .candidate-banner { margin: 8px 8px 0 !important; }
+  .precision-ui .candidate-banner:not(.in-content), .candidate-banner:not(.in-content) { margin: 8px 8px 0 !important; }
+  .candidate-banner.in-content { margin: 0 auto 12px !important; }
 }
 /* ===== 布局唯一真相来源：本文件内此前所有 .tool-shell / .tool-sidebar / .tool-content
    重复定义均以此处为准；历史 Next 残留 web_portal/app/globals.css 已删除 ===== */

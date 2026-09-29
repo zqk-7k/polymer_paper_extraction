@@ -70,7 +70,7 @@ function ResultsPage({ candidate, graphPayload, sourceFileName, sourceReferenceN
       </section>
 
       <section className="ucard results-metrics-card">
-        <div className="ucard-head"><div><h3>抽取规模总览</h3><p>{displayPaperMeta(candidate.paper)}</p></div><span className="step-chip">01</span></div>
+        <div className="ucard-head"><div><h3>抽取规模总览</h3><p>{displayPaperMeta(candidate.paper)}</p></div></div>
       <div className="metric-strip results-metrics">
         <Metric icon={<Boxes size={19} />} label="聚合物实体" value={candidate.polymer_entities.length} tone="blue" />
         <Metric icon={<Beaker size={19} />} label="具体样品" value={candidate.samples.length} tone="violet" />
@@ -81,7 +81,7 @@ function ResultsPage({ candidate, graphPayload, sourceFileName, sourceReferenceN
       </section>
 
       <section className="ucard result-browser-card">
-        <div className="ucard-head"><div><h3>关系浏览</h3><p>聚合物目录 · 知识图谱 · 数据表</p></div><span className="step-chip">02</span></div>
+        <div className="ucard-head"><div><h3>关系浏览</h3><p>聚合物目录 · 知识图谱 · 数据表</p></div></div>
       <div className="result-browser">
         <Tabs
           defaultActiveKey="hierarchy"
@@ -120,7 +120,7 @@ function ResultsPage({ candidate, graphPayload, sourceFileName, sourceReferenceN
 
       {candidate.warnings.length > 0 && (
         <section className="ucard warning-panel">
-          <div className="ucard-head"><div><h3>待人工复核</h3><p>以下为流水线自动标记的可疑项，共 {candidate.warnings.length} 项 · 结论不可直接入库</p></div><span className="step-chip">03</span></div>
+          <div className="ucard-head"><div><h3>待人工复核</h3><p>以下为流水线自动标记的可疑项，共 {candidate.warnings.length} 项 · 结论不可直接入库</p></div></div>
           <div className="warning-grid">{candidate.warnings.slice(0, 6).map((warning, index) => (
             <div className="warning-card" key={`${warning.code}-${index}`}>
               <span className="warning-index">{String(index + 1).padStart(2, "0")}</span>

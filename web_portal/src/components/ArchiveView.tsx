@@ -152,7 +152,6 @@ export function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, 
     <section className="ucard history-metrics-card">
       <div className="ucard-head">
         <div><h3>关系规模总览</h3><p>{kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}</p></div>
-        <span className="step-chip">01</span>
       </div>
       <div className="history-metrics">
         <Metric icon={<FileSearch size={19} />} label="文献" value={rows.length} tone="blue" />
@@ -162,7 +161,7 @@ export function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, 
       </div>
     </section>
     <section className="ucard history-table-card">
-      <div className="ucard-head"><div><h3>{kind === "history" ? "网页任务记录" : `${batchCollection} 文献记录`}</h3><p>每行显示文献及其关系链规模，点击后进入完整关系、图谱和样品详情。</p></div><span className="step-chip">02</span></div>
+      <div className="ucard-head"><div><h3>{kind === "history" ? "网页任务记录" : `${batchCollection} 文献记录`}</h3><p>每行显示文献及其关系链规模，点击后进入完整关系、图谱和样品详情。</p></div></div>
       <div className="history-table-wrap">
         <Table rowKey="key" columns={columns} dataSource={showSkeleton ? skeletonRows : rows} pagination={showSkeleton ? false : zhPagination({ pageSize: 10 })} scroll={{ x: 1110 }} locale={{ emptyText: <Empty description={kind === "history" ? "还没有网页抽取记录" : "未发现可发布的批处理结果"} /> }} />
       </div>
