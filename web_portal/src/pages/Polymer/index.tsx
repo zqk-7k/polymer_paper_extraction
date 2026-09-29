@@ -6,7 +6,7 @@ import { ArrowLeft, FileSearch, Download } from "lucide-react";
 import type { CandidateData } from "../../types";
 import { polymerTypeLabel, sampleKindLabel, systemPid, repeatUnitFor } from "../../utils/format";
 import { PolymerStructure } from "../../components/PolymerStructure";
-import { NoResult, PageTitle, zhPagination } from "../../components/common";
+import { NoResult, zhPagination } from "../../components/common";
 import { useExtraction } from "../../store/extraction";
 import { useNavigate } from "react-router-dom";
 import "./style.css";

@@ -2,13 +2,13 @@
 
 import { Alert, Button, Input, Segmented, Select, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { AlertTriangle, ArrowLeft, Beaker, Boxes, ChevronRight, FileSearch, Gauge, GitBranch, Link2, Network, Search, TableProperties, Workflow } from "lucide-react";
+import { ArrowLeft, Beaker, Boxes, ChevronRight, FileSearch, Gauge, GitBranch, Link2, Network, Search, TableProperties, Workflow } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Background, Controls, MarkerType, MiniMap, ReactFlow, type Edge, type Node, type NodeMouseHandler } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import type { CandidateData, Evidence, GraphPayload, PolymerEntity } from "../../types";
 import { confidenceTag, displayPaperAuthors, displayPaperMeta, displayPaperTitle, polymerTypeLabel, sampleDisplayName, sampleKindLabel, systemPid, repeatUnitFor, warningLabels } from "../../utils/format";
-import { Metric, NoResult, PageTitle, zhPagination } from "../../components/common";
+import { Metric, NoResult, zhPagination } from "../../components/common";
 import { PolymerStructure } from "../../components/PolymerStructure";
 import { useExtraction } from "../../store/extraction";
 import { useNavigate } from "react-router-dom";

@@ -72,8 +72,8 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
           <div className="cred-block">
             <div className="cred-title"><KeyRound size={14} /><strong>本次任务凭据</strong><em>内存态 · 不落盘</em></div>
             <div className="cred-grid">
-              <label>DMX API Key<Input.Password id="dmx-api-key" value={dmxApiKey} onChange={(e) => onDmxApiKey(e.target.value)} autoComplete="new-password" placeholder="sk-…" size="middle" /></label>
-              <label>MinerU API Key<Input.Password id="mineru-api-key" value={mineruApiKey} onChange={(e) => onMineruApiKey(e.target.value)} autoComplete="new-password" placeholder="minerU-…" size="middle" /></label>
+              <label htmlFor="dmx-api-key">DMX API Key<Input.Password id="dmx-api-key" value={dmxApiKey} onChange={(e) => onDmxApiKey(e.target.value)} autoComplete="new-password" placeholder="sk-…" size="middle" /></label>
+              <label htmlFor="mineru-api-key">MinerU API Key<Input.Password id="mineru-api-key" value={mineruApiKey} onChange={(e) => onMineruApiKey(e.target.value)} autoComplete="new-password" placeholder="minerU-…" size="middle" /></label>
             </div>
             {!keysReady && <p className="cred-hint">输入两个密钥后方可提交，任务结束后内存清除。</p>}
           </div>
