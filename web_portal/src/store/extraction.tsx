@@ -565,6 +565,7 @@ export function ExtractionProvider({ children }: { children: React.ReactNode }) 
       refreshPolyInfoResults, openPolyInfoComparison, startExtraction, loadSample, openResults,
       selectBatchCollection, ensureBatchPage, openHistoryTask, openBatchResult,
       returnToResultList, openPolymerPage, openSamplePage, pdfUrl, downloadJson,
+      setSelectedEntity, setSelectedEvidence,
     ],
   );
 
