@@ -1,32 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#14B8A6"/>
-      <stop offset="0.5" stop-color="#2563EB"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
       <stop offset="1" stop-color="#7C3AED"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="0" width="1024" height="1024" rx="230" fill="url(#bg)"/>
-  <!-- document: pure white, no translucency to avoid grey blur at 16px -->
-  <rect x="297" y="252" width="430" height="540" rx="46" fill="#FFFFFF"/>
-  <!-- polymer chain: bold -->
-  <polyline points="357,482 447,402 537,482 627,402" fill="none" stroke="#2563EB" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- hexagon left -->
-  <polygon points="469.7,378.3 407,414.5 407,486.9 469.7,523.1 532.4,486.9 532.4,414.5" fill="#E0F2FE" stroke="#2563EB" stroke-width="26" stroke-linejoin="round"/>
-  <polygon points="441.1,417.1 407,436.7 407,476 441.1,495.6 475.2,476 475.2,436.7" fill="none" stroke="#2563EB" stroke-width="18" stroke-linejoin="round"/>
-  <!-- hexagon right -->
-  <polygon points="649.7,378.3 587,414.5 587,486.9 649.7,523.1 712.4,486.9 712.4,414.5" fill="#EDE9FF" stroke="#7C3AED" stroke-width="26" stroke-linejoin="round"/>
-  <polygon points="621.1,417.1 587,436.7 587,476 621.1,495.6 655.2,476 655.2,436.7" fill="none" stroke="#7C3AED" stroke-width="18" stroke-linejoin="round"/>
-  <!-- monomer node -->
-  <circle cx="493" cy="456" r="30" fill="#14B8A6" stroke="#fff" stroke-width="10"/>
-  <!-- text lines: solid, higher contrast -->
-  <rect x="377" y="582" width="270" height="26" rx="13" fill="#CBD5E1"/>
-  <rect x="402" y="638" width="220" height="26" rx="13" fill="#94A3B8"/>
-  <rect x="377" y="694" width="270" height="26" rx="13" fill="#CBD5E1"/>
-  <!-- spark -->
-  <path d="M367 269 l10 28 28 10 -28 10 -10 28 -10 -28 -28 -10 28 -10 Z" fill="#FDE047" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
-  <!-- check badge -->
-  <circle cx="687" cy="752" r="100" fill="#F97316" stroke="#fff" stroke-width="18"/>
-  <polyline points="647,762 687,732 727,722" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-  <polyline points="677,794 705,762" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#bg)"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- document slab -->
+  <rect x="14" y="10" width="36" height="44" rx="7" fill="#FFFFFF"/>
+  <!-- single chunky hexagon -->
+  <g transform="translate(32 28)">
+    <polygon points="0,-13 11.3,-6.5 11.3,6.5 0,13 -11.3,6.5 -11.3,-6.5" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="4.5" stroke-linejoin="round"/>
+    <circle r="3.4" fill="#14B8A6" stroke="#FFFFFF" stroke-width="1.6"/>
+  </g>
+  <!-- extraction lines -->
+  <rect x="20" y="42" width="24" height="3.6" rx="1.8" fill="#2563EB"/>
+  <rect x="23" y="47.5" width="18" height="3.2" rx="1.6" fill="#94A3B8"/>
+  <!-- orange check badge, oversized for 16px legibility -->
+  <circle cx="46" cy="46" r="12" fill="#F97316" stroke="#FFFFFF" stroke-width="3.5"/>
+  <path d="M40.5 46.2 L44.6 50.3 L52 41.5" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
