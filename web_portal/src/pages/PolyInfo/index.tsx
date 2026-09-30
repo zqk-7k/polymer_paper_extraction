@@ -1,12 +1,13 @@
 "use client";
 
-import { Button, Input, Progress, Select, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
+import { Button, Input, Progress, Select, Skeleton, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
+import type React from "react";
 import { ArrowRight, Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { BatchCollectionSummary, BatchResultSummary, PolyInfoSummary } from "../../types";
 import { API_BASE } from "../../types";
-import { Metric, ScoreBar, TableSkeleton, zhPagination } from "../../components/common";
+import { Metric, ScoreBar, zhPagination } from "../../components/common";
 import { useExtraction } from "../../store/extraction";
 import "./style.css";
 const { Title, Paragraph } = Typography;
@@ -50,28 +51,44 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
     if (index > 0) previousByCollection.set(item.collection_id, chronological[index - 1]);
   });
 
+  // 与 batch 页文献记录表一致的行内骨架屏：骨架行直接作为 dataSource 渲染，
+  // 而不是在表格上/下叠加一块 Skeleton，避免错位与闪烁。
+  const sk = (width: string | number) =>
+    typeof width === "number" ? (
+      <Skeleton.Input active size="small" style={{ width, maxWidth: "100%", flex: "0 1 auto", minWidth: 0 }} />
+    ) : (
+      <Skeleton.Input active size="small" block style={{ width, maxWidth: "100%" }} />
+    );
+  const isSkeleton = (item: unknown) => Boolean((item as { skeleton?: boolean } | null)?.skeleton);
+  const cellSkeleton = (item: unknown, node: React.ReactNode) =>
+    isSkeleton(item) ? <div className="archive-skeleton-cell">{node}</div> : node;
+
   const columns: ColumnsType<PolyInfoSummary> = [
     {
       title: "文献与来源",
       key: "paper",
       width: 330,
-      render: (_, item) => <div className="polyinfo-paper-cell"><strong>{item.ref_no}</strong><span>{item.reference.journal || "期刊未记录"} · {item.reference.year || "年份未记录"}</span><small>{item.reference.doi || "无 DOI"}</small></div>,
+      render: (_, item) => cellSkeleton(item, isSkeleton(item)
+        ? <div className="polyinfo-paper-cell">{sk("70%")}<div style={{ marginTop: 8 }}>{sk("90%")}</div><div style={{ marginTop: 8 }}>{sk("55%")}</div></div>
+        : <div className="polyinfo-paper-cell"><strong>{item.ref_no}</strong><span>{item.reference.journal || "期刊未记录"} · {item.reference.year || "年份未记录"}</span><small>{item.reference.doi || "无 DOI"}</small></div>),
     },
     {
       title: "PoLyInfo 聚合物",
       key: "polymers",
-      render: (_, item) => <div className="polyinfo-polymer-cell"><strong>{item.polymer_names[0] || "名称未记录"}</strong>{item.polymer_name_count > 1 && <span>另有 {item.polymer_name_count - 1} 个规范名称</span>}<small>{item.stats.polymer_count} PID · {item.stats.structure_count} 个结构图</small></div>,
+      render: (_, item) => cellSkeleton(item, isSkeleton(item)
+        ? <div className="polyinfo-polymer-cell">{sk("80%")}<div style={{ marginTop: 8 }}>{sk("60%")}</div></div>
+        : <div className="polyinfo-polymer-cell"><strong>{item.polymer_names[0] || "名称未记录"}</strong>{item.polymer_name_count > 1 && <span>另有 {item.polymer_name_count - 1} 个规范名称</span>}<small>{item.stats.polymer_count} PID · {item.stats.structure_count} 个结构图</small></div>),
     },
-    { title: "样品", key: "samples", width: 86, align: "right", render: (_, item) => <b className="numeric-cell">{item.stats.sample_count}</b> },
-    { title: "性质值", key: "properties", width: 96, align: "right", render: (_, item) => <b className="numeric-cell">{item.stats.property_count}</b> },
-    { title: "工艺字段", key: "processes", width: 96, align: "right", render: (_, item) => <b className="numeric-cell">{item.stats.process_count}</b> },
-    { title: "来源组", dataIndex: "group", key: "group", width: 88, render: (value) => <Tag color={value === "有doi" ? "blue" : "default"}>{value}</Tag> },
-    { title: "批处理", key: "matched", width: 118, render: (_, item) => item.has_batch_result ? <Tag color="success">可直接对照</Tag> : <Tag>无配对结果</Tag> },
+    { title: "样品", key: "samples", width: 86, align: "right", render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(40) : <b className="numeric-cell">{item.stats.sample_count}</b>) },
+    { title: "性质值", key: "properties", width: 96, align: "right", render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(40) : <b className="numeric-cell">{item.stats.property_count}</b>) },
+    { title: "工艺字段", key: "processes", width: 96, align: "right", render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(40) : <b className="numeric-cell">{item.stats.process_count}</b>) },
+    { title: "来源组", dataIndex: "group", key: "group", width: 88, render: (value, item) => cellSkeleton(item, isSkeleton(item) ? sk(64) : <Tag color={value === "有doi" ? "blue" : "default"}>{value}</Tag>) },
+    { title: "批处理", key: "matched", width: 118, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(86) : item.has_batch_result ? <Tag color="success">可直接对照</Tag> : <Tag>无配对结果</Tag>) },
     {
       title: "操作",
       key: "action",
       width: 210,
-      render: (_, item) => <Space size={7}><Button type={item.has_batch_result ? "primary" : "default"} icon={<GitBranch size={15} />} onClick={() => onCompare(item.ref_no, activeCollection?.collection_id)}>{item.has_batch_result ? "查看逐项差异" : "查看原始记录"}</Button>{item.has_pdf && <Tooltip title="打开该目录中的论文 PDF"><Button aria-label="打开 PoLyInfo 对应论文" href={`${API_BASE}/api/polyinfo-results/${item.ref_no}/pdf`} target="_blank" icon={<FileSearch size={15} />} /></Tooltip>}</Space>,
+      render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(130) : <Space size={7}><Button type={item.has_batch_result ? "primary" : "default"} icon={<GitBranch size={15} />} onClick={() => onCompare(item.ref_no, activeCollection?.collection_id)}>{item.has_batch_result ? "查看逐项差异" : "查看原始记录"}</Button>{item.has_pdf && <Tooltip title="打开该目录中的论文 PDF"><Button aria-label="打开 PoLyInfo 对应论文" href={`${API_BASE}/api/polyinfo-results/${item.ref_no}/pdf`} target="_blank" icon={<FileSearch size={15} />} /></Tooltip>}</Space>),
     },
   ];
 
@@ -81,27 +98,34 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       key: "collection",
       width: 265,
       fixed: "left",
-      render: (_, item) => <div className="batch-version-cell"><strong>{item.collection_id}</strong><span>{item.result_date} · {item.result_mode}</span><small>{item.collection_kind === "review" ? `审阅批次 · ${item.publication_status.partial} 篇 partial` : item.is_active ? "当前生产批次" : item.validation_status}</small></div>,
+      render: (_, item) => cellSkeleton(item, isSkeleton(item)
+        ? <div className="batch-version-cell">{sk("80%")}<div style={{ marginTop: 8 }}>{sk("60%")}</div></div>
+        : <div className="batch-version-cell"><strong>{item.collection_id}</strong><span>{item.result_date} · {item.result_mode}</span><small>{item.collection_kind === "review" ? `审阅批次 · ${item.publication_status.partial} 篇 partial` : item.is_active ? "当前生产批次" : item.validation_status}</small></div>),
     },
-    { title: "文献", key: "papers", width: 90, align: "right", render: (_, item) => <b>{item.paired_documents}/{item.document_count}</b> },
+    { title: "文献", key: "papers", width: 90, align: "right", render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(48) : <b>{item.paired_documents}/{item.document_count}</b>) },
     {
       title: "锚点 F1",
       key: "f1",
       width: 145,
-      render: (_, item) => {
+      render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(72) : (() => {
         const previous = previousByCollection.get(item.collection_id);
         const delta = previous ? item.anchor.f1 - previous.anchor.f1 : null;
         return <div className="batch-score-cell"><strong>{(item.anchor.f1 * 100).toFixed(1)}%</strong>{delta !== null && <Tag color={delta > 0 ? "success" : delta < 0 ? "error" : "default"}>{delta > 0 ? "+" : ""}{(delta * 100).toFixed(1)} pp</Tag>}</div>;
-      },
+      })()),
     },
-    { title: "P / R", key: "pr", width: 140, render: (_, item) => <span className="compact-ratio">{(item.anchor.precision * 100).toFixed(1)} / {(item.anchor.recall * 100).toFixed(1)}%</span> },
-    { title: "样品绑定", key: "sample", width: 120, render: (_, item) => <Progress percent={Math.round(item.quality.sample_binding_coverage * 100)} size="small" strokeColor="#0f8a72" /> },
-    { title: "证据绑定", key: "evidence", width: 120, render: (_, item) => <Progress percent={Math.round(item.quality.evidence_coverage * 100)} size="small" strokeColor="#1177bb" /> },
-    { title: "单位完整", key: "unit", width: 120, render: (_, item) => <Progress percent={Math.round(item.quality.unit_completeness * 100)} size="small" strokeColor="#7b5aa6" /> },
-    { title: "性质候选", key: "properties", width: 105, align: "right", render: (_, item) => <b>{item.totals.property_observations}</b> },
-    { title: "Stage 4R", key: "stage4r", width: 128, render: (_, item) => <div className="stage-compact"><b>+{item.stage.stage4r_migrated}</b><span>{item.stage.stage4r_recovered} 候选恢复</span></div> },
-    { title: "Stage 6", key: "stage6", width: 150, render: (_, item) => <div className="stage-compact"><b>{item.stage.final_documents}/{item.document_count} final</b><span>{item.stage.rejected_objects} 拒绝 · {item.stage.stage6_warnings} 警告</span></div> },
+    { title: "P / R", key: "pr", width: 140, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(84) : <span className="compact-ratio">{(item.anchor.precision * 100).toFixed(1)} / {(item.anchor.recall * 100).toFixed(1)}%</span>) },
+    { title: "样品绑定", key: "sample", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.sample_binding_coverage * 100)} size="small" strokeColor="#0f8a72" />) },
+    { title: "证据绑定", key: "evidence", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.evidence_coverage * 100)} size="small" strokeColor="#1177bb" />) },
+    { title: "单位完整", key: "unit", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.unit_completeness * 100)} size="small" strokeColor="#7b5aa6" />) },
+    { title: "性质候选", key: "properties", width: 105, align: "right", render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(48) : <b>{item.totals.property_observations}</b>) },
+    { title: "Stage 4R", key: "stage4r", width: 128, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? <div>{sk(56)}<div style={{ marginTop: 8 }}>{sk(84)}</div></div> : <div className="stage-compact"><b>+{item.stage.stage4r_migrated}</b><span>{item.stage.stage4r_recovered} 候选恢复</span></div>) },
+    { title: "Stage 6", key: "stage6", width: 150, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? <div>{sk(72)}<div style={{ marginTop: 8 }}>{sk(96)}</div></div> : <div className="stage-compact"><b>{item.stage.final_documents}/{item.document_count} final</b><span>{item.stage.rejected_objects} 拒绝 · {item.stage.stage6_warnings} 警告</span></div>) },
   ];
+
+  const showPaperSkeleton = loading && filtered.length === 0;
+  const showEvolutionSkeleton = loading && batchCollections.length === 0;
+  const paperSkeletonRows = Array.from({ length: 8 }, (_, i) => ({ ref_no: `skeleton-${i}`, skeleton: true })) as unknown as PolyInfoSummary[];
+  const evolutionSkeletonRows = Array.from({ length: 5 }, (_, i) => ({ collection_id: `skeleton-${i}`, skeleton: true })) as unknown as BatchCollectionSummary[];
 
   const qualityOverview = activeCollection ? <div className="batch-quality-stack">
     {activeCollection.collection_kind === "review" && <div className="source-strip"><span className="source-strip-icon"><ShieldCheck size={16} /></span><div className="source-strip-body"><strong>当前展示 demo30 审阅批次，不是可发布生产数据</strong><span>{`32 篇结果完整可浏览，其中 ${activeCollection.publication_status.partial} 篇为 partial。下列指标用于定位缺口和推动人工审核，不代表已达到入库标准。`}</span></div><span className="source-strip-tag">REVIEW</span></div>}
@@ -164,13 +188,13 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
     </div>
     <section className="work-panel batch-evolution-panel">
       <div className="polyinfo-table-toolbar"><div><strong>生产与审阅批次的质量演进</strong><span>不同文献集合的记录级指标不可直接当作同一测试集的提升；审阅批次单独标记，逐篇差异可在下一页核查。</span></div><Tag color="blue">{batchCollections.length} 批次</Tag></div>
-      <div className="table-loading-shell"><Table rowKey="collection_id" columns={evolutionColumns} dataSource={batchCollections} pagination={zhPagination()} scroll={{ x: 1500 }} />{loading && <TableSkeleton />}</div>
+      <Table rowKey="collection_id" columns={evolutionColumns} dataSource={showEvolutionSkeleton ? evolutionSkeletonRows : batchCollections} pagination={showEvolutionSkeleton ? false : zhPagination()} scroll={{ x: 1500 }} />
     </section>
   </div>;
 
   const paperDetails = <section className="work-panel polyinfo-table-panel">
     <div className="polyinfo-table-toolbar"><div><strong>真实 PoLyInfo 文献记录</strong><span>当前显示 {filtered.length} / {rows.length} 篇；逐篇查看聚合物、样品、性质和原始字段差异。</span></div><Input value={search} onChange={(event) => setSearch(event.target.value)} prefix={<Search size={15} />} placeholder="搜索 reference_no、DOI、期刊或聚合物" allowClear /></div>
-    <div className="table-loading-shell"><Table rowKey="ref_no" columns={columns} dataSource={filtered} pagination={zhPagination({ pageSize: 12, showSizeChanger: false })} scroll={{ x: 1280 }} rowClassName={(item) => item.has_batch_result ? "polyinfo-linked-row" : ""} locale={{ emptyText: <Empty description="没有读取到 PoLyInfo 原始记录" /> }} />{loading && <TableSkeleton />}</div>
+    <Table rowKey="ref_no" columns={columns} dataSource={showPaperSkeleton ? paperSkeletonRows : filtered} pagination={showPaperSkeleton ? false : zhPagination({ pageSize: 12, showSizeChanger: false })} scroll={{ x: 1280 }} rowClassName={(item) => !isSkeleton(item) && (item as PolyInfoSummary).has_batch_result ? "polyinfo-linked-row" : ""} locale={{ emptyText: <Empty description="没有读取到 PoLyInfo 原始记录" /> }} />
   </section>;
 
   return <div className="page-stack upload-page polyinfo-results-page">

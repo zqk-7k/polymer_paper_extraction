@@ -40,13 +40,13 @@
 
 .sample-id-link { height: auto; padding: 0 !important; color: #14889b !important; font-size: 13px; }
 
-.sample-property-preview { width: 100%; padding: 0; display: grid; gap: 3px; border: 0; color: #39465c; background: transparent; text-align: left; cursor: pointer; }
+.sample-property-preview { width: auto; max-width: 100%; padding: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; border: 0; background: transparent; text-align: left; cursor: pointer; }
 
-.sample-property-preview:hover span { color: var(--brand); }
+.sample-property-preview span { display: inline-flex; align-items: baseline; justify-content: flex-start; gap: 10px; max-width: 100%; padding: 3px 9px; border: 1px solid #e8edf2; border-radius: 7px; color: #5b6b82; background: #f7f9fc; font-size: 12px; line-height: 1.55; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.sample-property-preview span { display: flex; justify-content: space-between; gap: 14px; font-size: 12px; line-height: 1.5; }
+.sample-property-preview span:hover { border-color: var(--brand); color: var(--brand); }
 
-.sample-property-preview b { color: #1f365f; font-weight: 600; white-space: nowrap; }
+.sample-property-preview b { color: #1f365f; font-weight: 700; white-space: nowrap; }
 
 .sample-property-preview small { margin-top: 4px; color: var(--brand); font-size: 11px; }
 
