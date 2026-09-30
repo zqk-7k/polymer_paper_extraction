@@ -1,7 +1,7 @@
 "use client";
 
 import { Alert, Button, Input, Progress, Typography, Upload } from "antd";
-import { Activity, ArrowRight, Check, ClipboardList, FileText, FileUp, LoaderCircle, Play, ShieldCheck, X } from "lucide-react";
+import { Activity, ArrowRight, BadgeCheck, Check, ClipboardList, FileText, FileUp, FileCheck2, Layers, ListChecks, LoaderCircle, Play, ShieldCheck, Sparkles, Timer, X } from "lucide-react";
 import type { ExtractionJob, HealthState, JobStage } from "../../types";
 import { formatBytes, stageCatalog, stageStatusLabel } from "../../utils/format";
 import { useExtraction } from "../../store/extraction";
@@ -34,20 +34,6 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
 
   return (
     <div className="upload-page">
-      {/* ——— Hero：克制编辑风，与其他页一致，只讲标题+状态 ——— */}
-      <header className="upload-hero">
-        <div className="upload-hero-main">
-          <span className="upload-eyebrow">论文抽取 · 单篇 PDF</span>
-          <Title level={2}>上传一篇高分子论文</Title>
-          <Paragraph>按 ① 选文件 → ② 填密钥 → ③ 开始抽取的顺序，一张卡内完成提交，右侧实时显示流水线进度。</Paragraph>
-        </div>
-        <div className="upload-hero-side">
-          <span className={`svc-dot ${health ? "on" : ""}`}><i />{health ? "服务在线" : apiChecked ? "服务未连接" : "检测中…"}</span>
-          {job && (
-            <span className={`svc-dot job-dot ${job.status === "complete" ? "ok" : job.status === "failed" ? "bad" : "run"}`}><i />{job.status === "complete" ? `已完成 ${job.progress}%` : job.status === "failed" ? "任务失败" : `运行中 ${job.progress || 0}%`}</span>
-          )}
-        </div>
-      </header>
 
       {apiChecked && !health && (
         <Alert className="upload-alert" type="warning" showIcon message="本地抽取服务尚未启动"
@@ -164,6 +150,40 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
             {job?.result_ready
               ? <Button type="primary" block icon={<ArrowRight size={14} />} onClick={onOpenResults} className="start-btn result-btn">查看抽取结果</Button>
               : <p className="pipe-idle">{job ? "流水线按 Stage 0–5 顺序推进，结果就绪后可跳转查看。" : "暂无运行中的任务 — 左侧上传并开始抽取。"}</p>}
+          </div>
+        </section>
+      </div>
+
+      {/* ——— 下方补充区：常见问题（左）/ 抽取产出（右），与上方双卡同列宽对齐 ——— */}
+      <div className="upload-extra">
+        <section className="ucard extra-card faq-card">
+          <div className="ucard-head">
+            <div><h3><span className="title-icon"><FileText size={15} /></span>常见问题</h3><p>抽取失败先看这里</p></div>
+          </div>
+          <details open><summary>支持哪些论文？</summary><p>英文聚合物 / 电介质 / 储能方向论文 PDF，优先选择出版商原版可复制文本文件。</p></details>
+          <details><summary>密钥会被保存吗？</summary><p>不会。密钥只保存在浏览器内存中，随本次任务提交，刷新或关闭即清除。</p></details>
+          <details><summary>中途可以关闭页面吗？</summary><p>不建议。流水线按 Stage 0–5 顺序推进，关闭后需重新提交任务。</p></details>
+        </section>
+
+        <section className="ucard extra-card output-card">
+          <div className="ucard-head">
+            <div><h3><span className="title-icon"><Sparkles size={15} /></span>本次抽取将得到什么</h3><p>结构化聚合结果 · 可直接进入审核</p></div>
+          </div>
+          <ul className="output-list">
+            {[
+              { icon: <Layers size={15} />, t: "聚合物档案", d: "名称 / 缩写 / SMILES / 分子量 / 分子式" },
+              { icon: <FileCheck2 size={15} />, t: "样品卡片", d: "配比 / 加工条件 / 厚度 / 测试方法" },
+              { icon: <ListChecks size={15} />, t: "性能数据点", d: "介电 / 击穿 / 能量密度 · 含数值与单位" },
+              { icon: <BadgeCheck size={15} />, t: "溯源定位", d: "每条记录保留原文页码与表格编号" },
+            ].map((item) => (
+              <li key={item.t}>
+                <span className="output-icon">{item.icon}</span>
+                <div><strong>{item.t}</strong><span>{item.d}</span></div>
+              </li>
+            ))}
+          </ul>
+          <div className="extra-foot">
+            <span className="extra-meta"><Timer size={12} />典型论文约 3–8 分钟</span>
           </div>
         </section>
       </div>

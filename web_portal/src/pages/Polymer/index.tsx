@@ -28,17 +28,7 @@ function PolymerPage({ candidate, entityId, pdfUrl, onExport, onBack, onSample }
   ];
 
   return <div className="page-stack upload-page polymer-page">
-    <header className="upload-hero">
-      <div className="upload-hero-main">
-        <span className="upload-eyebrow">聚合物实体 · 样品列表</span>
-        <Title level={2}>Sample List ({entity.polymer_name})</Title>
-        <Paragraph>{systemPid(entity)} · {polymerTypeLabel(entity.polymer_type, entity.polymer_name)} — 同一实体的全部样品与性质预览，点击进入样品详情。</Paragraph>
-      </div>
-      <div className="upload-hero-side">
-        <span className="svc-dot on"><i />{samples.length} 个样品</span>
-        <Space><Button icon={<ArrowLeft size={15} />} onClick={onBack}>返回聚合物目录</Button><Button href={pdfUrl} target="_blank" icon={<FileSearch size={15} />}>原文</Button><Button className="start-btn" type="primary" onClick={onExport} icon={<Download size={15} />}>导出数据</Button></Space>
-      </div>
-    </header>
+    
     <section className="ucard polymer-identity-panel">
       <div className="ucard-head">
         <div>
@@ -67,6 +57,7 @@ function PolymerPage({ candidate, entityId, pdfUrl, onExport, onBack, onSample }
         </div>
       </div>
     </section>
+    
     <section className="ucard polymer-sample-table"><div className="ucard-head"><div><h3><span className="title-icon"><TestTubes size={15} /></span>样品列表</h3><p>Number of data points: {samples.length} · PID = {systemPid(entity)}</p></div></div><div className="polymer-table-wrap"><Table rowKey="sample_id" columns={columns} dataSource={samples} pagination={zhPagination({ pageSize: 10, hideOnSinglePage: true })} scroll={{ x: 1040 }} locale={{ emptyText: <Empty description="该聚合物尚未绑定样品" /> }} /></div></section>
   </div>;
 }

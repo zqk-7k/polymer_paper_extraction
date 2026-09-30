@@ -53,17 +53,7 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
 
   return (
     <div className="page-stack upload-page sample-property-page">
-      <header className="upload-hero">
-        <div className="upload-hero-main">
-          <span className="upload-eyebrow">样品 · 性质数据</span>
-          <Title level={2}>Property Data ({sampleDisplayName(sample)})</Title>
-          <Paragraph>{sample.sample_id} · {entity?.polymer_name || sample.polymer_name} — 每条性质保留数值、单位、测量语境、置信度与原文证据。</Paragraph>
-        </div>
-        <div className="upload-hero-side">
-          <span className="svc-dot on"><i />{properties.length} 条性质</span>
-          <Space><Button icon={<ArrowLeft size={15} />} onClick={onBack}>返回样品列表</Button><Button href={pdfUrl} target="_blank" icon={<FileSearch size={15} />}>原文</Button><Button className="start-btn" type="primary" onClick={onExport} icon={<Download size={15} />}>导出数据</Button></Space>
-        </div>
-      </header>
+      
 
       <section className="ucard sample-property-identity">
         <div className="sample-avatar"><Beaker size={23} /></div>

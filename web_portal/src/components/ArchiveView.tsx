@@ -133,21 +133,11 @@ export function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, 
   ];
 
   return <div className="page-stack archive-page upload-page history-page">
-    <header className="upload-hero">
-      <div className="upload-hero-main">
-        <span className="upload-eyebrow">{kind === "history" ? "网页抽取 · 历史任务" : "离线批处理 · 结果归档"}</span>
-        <Title level={2}>{kind === "history" ? "抽取结果" : "离线批处理结果"}</Title>
-        <Paragraph>{kind === "history" ? "按上传时间从新到旧展示网页任务。打开任一文献后，可按文献 → 聚合物 → 样品 → 性质逐层查看。" : `独立展示 ${batchResultDate} 发布的 ${rows.length} 篇离线候选结果；这些记录不是在网页端生成，不会混入网页历史。`}</Paragraph>
-      </div>
-      <div className="upload-hero-side">
-        <span className="svc-dot on"><i />{rows.length} 篇文献</span>
-        <Space>{kind === "batch" && <Select className="batch-collection-select" value={activeCollection?.collection_id || selectedCollectionId} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" />}<Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新列表</Button></Space>
-      </div>
-    </header>
     <div className="source-strip">
       <span className="source-strip-icon"><FileSearch size={16} /></span>
       <div className="source-strip-body"><strong>{kind === "history" ? "数据源 · web_runtime/tasks" : `数据源 · batch_results/${batchCollection}${activeCollection?.collection_kind === "review" ? "（审阅批次，非生产）" : ""}`}</strong><span>{kind === "history" ? "仅展示网页端任务，不混入离线批处理；运行中与失败任务保留用于追踪。" : `当前模式：${batchMode}。${activeCollection?.collection_kind === "review" ? `完整展示 ${activeCollection.document_count} 篇候选，其中 ${activeCollection.publication_status.partial} 篇仍为 partial；` : ""}批处理结果仅供审核对比，是否可入库以科学校验状态为准。`}</span></div>
-      <span className="source-strip-tag">{kind === "history" ? "WEB" : batchMode.toUpperCase()}</span>
+      <div className="source-strip-side">{kind === "batch" && <Select className="batch-collection-select source-strip-select" value={activeCollection?.collection_id || selectedCollectionId} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" />}
+      <span className="source-strip-tag">{kind === "history" ? "WEB" : batchMode.toUpperCase()}</span></div>
     </div>
     <section className="ucard history-metrics-card">
       <div className="ucard-head">

@@ -170,6 +170,34 @@
 .pipe-foot .ant-btn-primary:not(:disabled):hover { background: linear-gradient(135deg, #0f1722, #1e2f42 70%) !important; box-shadow: 0 8px 22px rgba(15,23,34,.45) !important; transform: translateY(-1px); }
 
 @media (max-width: 1080px) { .upload-grid { grid-template-columns: 1fr; } .ucard-head p { max-width: none; white-space: normal; } }
+/* 下方补充区：两卡，与上方双卡同列宽对齐 */
+.upload-extra { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: stretch; }
+.upload-extra .ucard { display: flex; flex-direction: column; height: 100%; }
+.title-icon { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; background: #eef2ff; color: #1f5eff; margin-right: 7px; vertical-align: -5px; }
+.submit-card .title-icon { background: #131c26; color: #fff; }
+.output-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; align-content: start; }
+.output-list li { display: flex; gap: 10px; align-items: flex-start; padding: 11px 12px; border: 1px solid #e9edf3; border-radius: 12px; background: linear-gradient(180deg, #fbfcfe, #f4f7fb); transition: all .15s ease; }
+.output-list li:hover { border-color: #c9d8ff; box-shadow: 0 4px 14px rgba(31,94,255,.1); transform: translateY(-1px); }
+.output-icon { flex: 0 0 30px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 9px; background: linear-gradient(135deg, #1f5eff, #7c3aed); color: #fff; box-shadow: 0 4px 10px rgba(31,94,255,.3); }
+.output-list strong { display: block; font-size: 12.5px; color: #131c26; }
+.output-list li div span { font-size: 11.5px; color: #7a8799; }
+.output-list li div span { display: block; margin-top: 2px; }
+.extra-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px solid #edf0f5; }
+.extra-meta { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; color: #8b94a3; }
+.faq-card details { border: 1px solid #e9edf3; border-radius: 12px; padding: 10px 12px; margin-top: 10px; background: #fbfcfe; transition: border-color .15s ease; }
+.faq-card details:hover { border-color: #c9d8ff; }
+.faq-card details[open] { background: #fff; border-color: #c9d8ff; box-shadow: 0 4px 14px rgba(31,94,255,.08); }
+.faq-card summary { cursor: pointer; font-size: 12.5px; font-weight: 700; color: #131c26; list-style: none; display: flex; align-items: center; gap: 8px; }
+.faq-card summary::before { content: "Q"; flex: 0 0 18px; width: 18px; height: 18px; display: grid; place-items: center; font-size: 10px; font-weight: 800; border-radius: 6px; background: #131c26; color: #fff; }
+.faq-card details p { margin: 8px 0 2px 26px; font-size: 12px; line-height: 1.7; color: #5b6b82; }
+@media (max-width: 1080px) { .upload-extra { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .output-list { grid-template-columns: 1fr; } }
+/* 主体内容区内的操作行（替代 hero / toolbar） */
+.paper-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.polyinfo-body-select { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+.polyinfo-body-select .batch-collection-select { min-width: 280px; max-width: 420px; }
+.history-table-card .ucard-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.history-table-card .batch-collection-select { min-width: 260px; max-width: 400px; }
 @media (max-width: 620px) {
   .upload-hero { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
   .upload-hero h2 { font-size: 26px !important; }
@@ -178,3 +206,15 @@
   .pdf-drop-inner { flex-wrap: wrap; }
   .ucard { padding: 16px; }
 }
+
+/*主体内容区控件位置*/
+.paper-foot-actions{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid #eef1f5}
+.paper-foot-actions .foot-spacer{flex:1}
+.card-foot-actions{display:flex;align-items:center;gap:8px;margin:0 0 12px}
+.card-foot-actions .foot-spacer{flex:1}
+.card-head-actions{display:flex;gap:8px;margin-bottom:10px;justify-content:flex-end}
+.source-strip{display:flex;align-items:center;gap:12px}
+.source-strip-body{flex:1;min-width:0}
+.source-strip-select{min-width:280px;max-width:420px}
+.batch-comparison-tabs .ant-tabs-nav{margin-bottom:12px}
+.batch-comparison-tabs .batch-collection-select{min-width:260px}

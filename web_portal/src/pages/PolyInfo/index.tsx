@@ -174,19 +174,8 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
   </section>;
 
   return <div className="page-stack upload-page polyinfo-results-page">
-    <header className="upload-hero">
-      <div className="upload-hero-main">
-        <span className="upload-eyebrow">批处理质量 · PoLyInfo 对照</span>
-        <Title level={2}>批处理质量与 PoLyInfo 对照</Title>
-        <Paragraph>按 reference_no 连接 {batchCollection} 与 PoLyInfo，并追踪不同 batch_results 版本的质量和阶段变化。</Paragraph>
-      </div>
-      <div className="upload-hero-side">
-        <span className="svc-dot on"><i />{batchResultDate}</span>
-        <Space><Select className="batch-collection-select" value={activeCollection?.collection_id} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" /><Button icon={<RefreshCw size={15} />} loading={loading} onClick={onRefresh}>刷新</Button></Space>
-      </div>
-    </header>
     <div className="ucard polyinfo-tabs-card">
-    <Tabs className="batch-comparison-tabs" defaultActiveKey="overview" items={[
+    <Tabs className="batch-comparison-tabs" defaultActiveKey="overview" tabBarExtraContent={{ right: <Select className="batch-collection-select" value={activeCollection?.collection_id} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" /> }} items={[
       { key: "overview", label: "质量总览", children: qualityOverview },
       { key: "evolution", label: `批次演进 (${batchCollections.length})`, children: batchEvolution },
       { key: "papers", label: `文献逐篇 (${polyInfoTotals.matched})`, children: paperDetails },

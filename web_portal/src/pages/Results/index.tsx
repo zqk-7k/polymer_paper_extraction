@@ -52,21 +52,12 @@ function ResultsPage({ candidate, graphPayload, sourceFileName, sourceReferenceN
 
   return (
     <div className="page-stack upload-page results-page">
-      <header className="upload-hero">
-        <div className="upload-hero-main">
-          <span className="upload-eyebrow">关系抽取 · 结果浏览</span>
-          <Title level={2}>论文关系化抽取结果</Title>
-          <Paragraph>沿论文 → 聚合物 → 样品 → 性质逐层浏览；所有关系均来自候选 JSON 中的对象 ID。</Paragraph>
-        </div>
-        <div className="upload-hero-side">
-          <span className="svc-dot on"><i />{sourceLabel}</span>
-          <Space><Button icon={<ArrowLeft size={15} />} onClick={onBack}>返回结果列表</Button><Button href={pdfUrl} target="_blank" icon={<FileSearch size={15} />}>原文</Button><Button className="start-btn" type="primary" onClick={onExport}>导出数据</Button></Space>
-        </div>
-      </header>
+      
 
       <section className="ucard paper-summary">
         <div className="paper-main"><Text>文献 · {sourceLabel}</Text><Title level={4}>{displayPaperTitle(candidate.paper, sourceReferenceNo || "未识别题名")}</Title><div className="paper-fields"><span><b>作者</b>{displayPaperAuthors(candidate.paper.authors)}</span><span><b>DOI</b>{candidate.paper.doi || "未识别"}</span><span><b>来源编号</b>{sourceReferenceNo || candidate.paper.ref_no}</span>{sourceFileName && <span><b>上传文件</b>{sourceFileName}</span>}</div></div>
         <div className="paper-badge"><FileSearch size={28} /><span>{sourceLabel}</span><strong>{candidate.paper.year || "--"}</strong></div>
+        
       </section>
 
       <section className="ucard results-metrics-card">

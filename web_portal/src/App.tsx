@@ -1,9 +1,10 @@
 
-import { AlertTriangle, FileUp, FlaskConical, GitBranchPlus, GitCompareArrows, History as HistoryIcon, Layers3, PanelLeftClose } from "lucide-react";
-import { Button, ConfigProvider, Tag, message } from "antd";
+import { AlertTriangle, ArrowLeft, CheckCircle2, Download, FileSearch, FileUp, FlaskConical, GitBranchPlus, GitCompareArrows, History as HistoryIcon, Layers3, PanelLeftClose } from "lucide-react";
+import { Button, ConfigProvider, Space, Tag, message } from "antd";
 import zhCN from "antd/locale/zh_CN";
-import { Link, Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { Link, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ExtractionProvider, useExtraction } from "./store/extraction";
+import { displayPaperTitle } from "./utils/format";
 import { API_BASE } from "./types";
 import { EntityDrawer, EvidenceDrawer, PolyInfoComparisonDrawer } from "./components/drawers";
 
@@ -11,14 +12,28 @@ import logoUrl from "./assets/logo.svg";
 
 function AppShell() {
   const pathname = useLocation().pathname;
+  const navigate = useNavigate();
   const segment = pathname.split("/")[1] || "upload";
   const store = useExtraction();
   const {
     mounted, collapsed, setCollapsed, contextHolder, candidate, dataSource,
     selectedEvidence, setSelectedEvidence, selectedEntity, setSelectedEntity,
     polyInfoComparison, polyInfoComparisonLoading, setPolyInfoComparison,
-    pdfUrl,
+    pdfUrl, downloadJson, returnToResultList, selectedPolymerId,
   } = store;
+  const onDetailPage = Boolean(candidate) && ["results", "polymer", "sample"].includes(segment);
+  const showCandidateWarning = Boolean(candidate) && candidate.publication.validation_status === "not_validated";
+  const backLabel =
+    segment === "polymer" ? "返回抽取结果"
+    : dataSource === "batch" ? "返回批处理列表"
+    : dataSource === "sample" ? "返回上传页"
+    : dataSource === "task" ? "返回历史任务"
+    : "返回结果列表";
+  const handleBannerBack = () => {
+    if (segment === "results") returnToResultList();
+    else if (segment === "polymer") navigate("/results");
+    else navigate(selectedPolymerId ? "/polymer" : "/results");
+  };
 
   const navItems = [
     { key: "upload", label: "上传文献", icon: FileUp, href: "/upload" },
@@ -123,11 +138,31 @@ function AppShell() {
         </aside>
 
         <main className="tool-content">
-          {candidate && ["results", "polymer", "sample"].includes(segment) && candidate.publication.validation_status === "not_validated" && (
+          {onDetailPage && (
+            <div className={segment === "sample" ? "detail-topbar sample-no-back" : "detail-topbar"}>
+              {segment !== "sample" && (
+                <Button icon={<ArrowLeft size={15} />} onClick={handleBannerBack}>{backLabel}</Button>
+              )}
+              <Space>
+                <Button href={pdfUrl} target="_blank" icon={<FileSearch size={15} />}>原文</Button>
+                <Button className="start-btn" type="primary" onClick={downloadJson} icon={<Download size={15} />}>导出数据</Button>
+              </Space>
+            </div>
+          )}
+          {onDetailPage && (
             <div className="candidate-banner in-content" role="note">
-              <span className="candidate-banner-icon"><AlertTriangle size={15} /></span>
-              <div className="candidate-banner-body"><strong>候选结果 · 尚未完成科学语义校验</strong><span>结论仅供人工审核，不可直接入库或统计。请以原文证据与 PDF 为准。</span></div>
-              {dataSource === "task" && <Tag color="blue">网页抽取</Tag>}{dataSource === "batch" && <Tag color="purple">离线批处理</Tag>}{dataSource === "sample" && <Tag>内置示例</Tag>}
+              {showCandidateWarning ? (
+                <>
+                  <span className="candidate-banner-icon"><AlertTriangle size={15} /></span>
+                  <div className="candidate-banner-body"><strong>候选结果 · 尚未完成科学语义校验</strong><span>结论仅供人工审核，不可直接入库或统计。请以原文证据与 PDF 为准。</span></div>
+                  {dataSource === "task" && <Tag color="blue">网页抽取</Tag>}{dataSource === "batch" && <Tag color="purple">离线批处理</Tag>}{dataSource === "sample" && <Tag>内置示例</Tag>}
+                </>
+              ) : (
+                <>
+                  <span className="candidate-banner-icon is-ok"><CheckCircle2 size={15} /></span>
+                  <div className="candidate-banner-body"><strong>{candidate ? displayPaperTitle(candidate.paper, "抽取结果") : "抽取结果"}</strong></div>
+                </>
+              )}
             </div>
           )}
           <Outlet />

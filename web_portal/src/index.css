@@ -606,3 +606,11 @@ body { overflow: hidden !important; }
     margin: 8px !important; height: calc(100vh - 16px) !important; max-height: calc(100vh - 16px) !important;
   }
 }
+
+.candidate-banner.has-actions { flex-wrap: wrap; }
+.candidate-banner .banner-back { flex: 0 0 auto; border-color: #dfe4ea; background: #fff; box-shadow: none; }
+.candidate-banner .banner-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.candidate-banner-icon.is-ok { background: #0f8a72; }
+@media (max-width: 720px) {
+  .candidate-banner .banner-actions { margin-left: 0; width: 100%; justify-content: flex-end; }
+}

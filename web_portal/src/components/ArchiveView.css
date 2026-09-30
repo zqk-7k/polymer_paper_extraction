@@ -45,7 +45,18 @@
 .source-strip-body { flex: 1; min-width: 0; }
 .source-strip-body strong { display: block; font-size: 13.5px; color: #171717; }
 .source-strip-body span { display: block; margin-top: 3px; font-size: 12.5px; color: #5b626d; line-height: 1.6; }
-.source-strip-tag { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #2f4357; background: #eef1f5; border: 1px solid #e2e7ee; border-radius: 999px; padding: 3px 10px; }
+.source-strip-tag { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #2f4357; background: #eef1f5; border: 1px solid #e2e7ee; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.source-strip-side { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex: 0 0 auto; min-width: 0; }
+.source-strip-side .batch-collection-select { width: min(320px, 36vw); flex: 0 0 auto; }
+.detail-topbar { width: 100%; max-width: var(--content-max); margin: 0 auto 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.detail-topbar.sample-no-back { justify-content: flex-end; }
+.detail-topbar .start-btn.ant-btn-primary { background: #2f4357 !important; border-color: #2f4357 !important; }
+.detail-topbar .start-btn.ant-btn-primary:not(:disabled):hover { background: #16202a !important; border-color: #16202a !important; }
+@media (max-width: 720px) {
+  .source-strip { flex-wrap: wrap; }
+  .source-strip-side { margin-left: 0; width: 100%; }
+  .source-strip-side .batch-collection-select { flex: 1; width: auto; }
+}
 
 /* table readability */
 .history-table-wrap .ant-table-thead > tr > th, .history-table-wrap .ant-table-tbody > tr > td { font-size: 13.5px !important; }
