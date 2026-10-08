@@ -1,6 +1,6 @@
 
 import { AlertTriangle, ArrowLeft, CheckCircle2, Download, FileSearch, FileUp, FlaskConical, GitBranchPlus, GitCompareArrows, History as HistoryIcon, Layers3, PanelLeftClose } from "lucide-react";
-import { Button, ConfigProvider, Space, Tag, message } from "antd";
+import { Button, ConfigProvider, Space, Tag, Tooltip, message } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import { Link, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ExtractionProvider, useExtraction } from "./store/extraction";
@@ -34,6 +34,9 @@ function AppShell() {
     else if (segment === "polymer") navigate("/results");
     else navigate(selectedPolymerId ? "/polymer" : "/results");
   };
+  const candidateTooltip = showCandidateWarning
+    ? `候选结果 · 尚未完成科学语义校验。结论仅供人工审核，不可直接入库或统计，请以原文证据与 PDF 为准。${dataSource === "task" ? "（网页抽取）" : dataSource === "batch" ? "（离线批处理）" : dataSource === "sample" ? "（内置示例）" : ""}`
+    : candidate ? displayPaperTitle(candidate.paper, "抽取结果") : "抽取结果";
 
   const navItems = [
     { key: "upload", label: "上传文献", icon: FileUp, href: "/upload" },
@@ -144,11 +147,13 @@ function AppShell() {
                 <Button icon={<ArrowLeft size={15} />} onClick={handleBannerBack}>{backLabel}</Button>
               )}
               <Space>
+                <Tooltip placement="bottom" title={candidateTooltip}><span className="detail-help" style={{ display: "inline-grid", placeItems: "center", width: 22, height: 22, borderRadius: "50%", border: showCandidateWarning ? "1px solid #f4c98f" : "1px solid #c3cbd6", background: showCandidateWarning ? "#fff1df" : "transparent", color: showCandidateWarning ? "#a34f05" : "#7b879b", fontSize: 12, fontWeight: 700, lineHeight: 1, cursor: "help" }}>{showCandidateWarning ? "!" : "?"}</span></Tooltip>
                 <Button href={pdfUrl} target="_blank" icon={<FileSearch size={15} />}>原文</Button>
                 <Button className="start-btn" type="primary" onClick={downloadJson} icon={<Download size={15} />}>导出数据</Button>
               </Space>
             </div>
           )}
+          {/* candidate-banner 已注释隐藏（sample / results / polymer 页面不再展示）。
           {onDetailPage && (
             <div className="candidate-banner in-content" role="note">
               {showCandidateWarning ? (
@@ -165,6 +170,7 @@ function AppShell() {
               )}
             </div>
           )}
+          */}
           <Outlet />
         </main>
 

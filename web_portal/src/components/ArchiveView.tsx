@@ -1,5 +1,5 @@
 import type React from "react";
-import { Button, Select, Skeleton, Space, Table, Tag, Typography, Empty } from "antd";
+import { Button, Select, Skeleton, Space, Table, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { Beaker, Boxes, ChevronRight, FileSearch, Gauge, RefreshCw } from "lucide-react";
 import type { BatchCollectionSummary, BatchResultSummary, ExtractionJob, ResultStats } from "../types";
@@ -133,15 +133,18 @@ export function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, 
   ];
 
   return <div className="page-stack archive-page upload-page history-page">
+    {/* source-strip 已注释隐藏（history / batch 页面不再展示数据源提示条）。
     <div className="source-strip">
       <span className="source-strip-icon"><FileSearch size={16} /></span>
       <div className="source-strip-body"><strong>{kind === "history" ? "数据源 · web_runtime/tasks" : `数据源 · batch_results/${batchCollection}${activeCollection?.collection_kind === "review" ? "（审阅批次，非生产）" : ""}`}</strong><span>{kind === "history" ? "仅展示网页端任务，不混入离线批处理；运行中与失败任务保留用于追踪。" : `当前模式：${batchMode}。${activeCollection?.collection_kind === "review" ? `完整展示 ${activeCollection.document_count} 篇候选，其中 ${activeCollection.publication_status.partial} 篇仍为 partial；` : ""}批处理结果仅供审核对比，是否可入库以科学校验状态为准。`}</span></div>
       <div className="source-strip-side">{kind === "batch" && <Select className="batch-collection-select source-strip-select" value={activeCollection?.collection_id || selectedCollectionId} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" />}
       <span className="source-strip-tag">{kind === "history" ? "WEB" : batchMode.toUpperCase()}</span></div>
     </div>
+    */}
     <section className="ucard history-metrics-card">
-      <div className="ucard-head">
-        <div><h3>关系规模总览</h3><p>{kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}</p></div>
+      <div className="ucard-head" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
+        <div><h3>关系规模总览<Tooltip placement="right" title={kind === "history" ? "数据源 · web_runtime/tasks。仅展示网页端任务，不混入离线批处理；运行中与失败任务保留用于追踪。" : `数据源 · batch_results/${batchCollection}${activeCollection?.collection_kind === "review" ? "（审阅批次，非生产）" : ""}。当前模式：${batchMode}。${activeCollection?.collection_kind === "review" ? `完整展示 ${activeCollection.document_count} 篇候选，其中 ${activeCollection.publication_status.partial} 篇仍为 partial；` : ""}批处理结果仅供审核对比，是否可入库以科学校验状态为准。`}><span className="overview-help" style={{ display: "inline-grid", placeItems: "center", width: 16, height: 16, marginLeft: 6, borderRadius: "50%", border: "1px solid #c3cbd6", color: "#7b879b", fontSize: 11, lineHeight: 1, cursor: "help", verticalAlign: "2px" }}>?</span></Tooltip></h3><p>{kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}</p></div>
+        {kind === "batch" && <Select className="batch-collection-select" style={{ width: 320, maxWidth: "36vw" }} value={activeCollection?.collection_id || selectedCollectionId} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" />}
       </div>
       <div className="history-metrics">
         <Metric icon={<FileSearch size={19} />} label="文献" value={rows.length} tone="blue" />
