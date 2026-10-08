@@ -2,7 +2,7 @@
 
 import { Button, Empty, Space, Table, Tag, Tooltip, Typography } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { ArrowRight, Beaker, Gauge, Link2, Workflow } from "lucide-react";
+import { ArrowLeft, ArrowRight, Beaker, Gauge, Link2, Workflow } from "lucide-react";
 import type { CandidateData, Evidence, PropertyObservation } from "../../types";
 import { confidenceTag, measurementConditionText, polymerTypeLabel, processParameterText, processTypeLabel, sampleDisplayName, sampleKindLabel, systemPid } from "../../utils/format";
 import { NoResult, zhPagination } from "../../components/common";
