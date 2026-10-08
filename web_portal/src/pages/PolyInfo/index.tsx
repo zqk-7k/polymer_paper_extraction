@@ -3,7 +3,7 @@
 import { Button, Input, Progress, Skeleton, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import type React from "react";
-import { Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, Workflow } from "lucide-react";
+import { Anchor, Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { BatchCollectionSummary, BatchResultSummary, PolyInfoSummary } from "../../types";
 import { API_BASE } from "../../types";
@@ -150,7 +150,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
     </section>
     <div className="quality-analysis-grid">
       <section className="work-panel quality-analysis-panel">
-        <div className="analysis-panel-heading"><div><strong><span className="title-icon"><ShieldCheck size={15} /></span>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
+        <div className="analysis-panel-heading"><div><strong><span className="title-icon"><Anchor size={15} /></span>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
         <ScoreBar label="Precision" value={activeCollection.anchor.precision} color="#3f6fb5" />
         <ScoreBar label="Recall" value={activeCollection.anchor.recall} color="#2f9e8f" />
         <ScoreBar label="F1" value={activeCollection.anchor.f1} color="#6f6aa8" />
