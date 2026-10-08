@@ -87,32 +87,25 @@
 
 .alignment-summary.compact b { font-size: 19px; }
 
-.stage-evolution-track {
-  display: grid;
-  grid-template-columns: minmax(150px,1fr) 22px minmax(150px,1fr) 22px minmax(150px,1fr) 22px minmax(150px,1fr);
-  align-items: center;
-  gap: 10px;
-}
-
-.stage-evolution-track > svg { color: #8f9baa; }
-
-.stage-evolution-track > div {
-  min-height: 110px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #f8fafc;
-  border: 1px solid #d9e1e9;
-  border-top: 3px solid #0066cc;
-  border-radius: 7px;
-}
-
-.stage-evolution-track span { color: #526174; font-size: 12px; }
-
-.stage-evolution-track strong { margin-top: 5px; color: #142033; font-size: 27px; font-variant-numeric: tabular-nums; }
-
-.stage-evolution-track small { margin-top: 5px; color: #7a8798; font-size: 10px; line-height: 1.45; }
+/* ---- Stage flow: mature stepper, replaces the boxy AI-looking track ---- */
+.stage-evolution-panel { padding: 20px 22px 22px !important; }
+.stage-flow { list-style: none; margin: 16px 0 2px; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; position: relative; }
+.stage-flow::before { content: ""; position: absolute; top: 13px; left: 26px; right: 26px; height: 2px; background: #e2e8f0; border-radius: 2px; }
+.stage-flow-step { display: grid; grid-template-rows: auto 1fr; min-width: 0; position: relative; }
+.stage-flow-node { display: flex; align-items: center; padding: 0 0 12px; }
+.stage-flow-index { position: relative; z-index: 1; flex: 0 0 auto; width: 26px; height: 26px; display: grid; place-items: center; font-size: 11px; font-weight: 700; letter-spacing: .04em; color: #334155; background: #fff; border: 1.5px solid #cbd5e1; border-radius: 50%; font-variant-numeric: tabular-nums; }
+.stage-flow-step.is-final .stage-flow-index { color: #fff; background: #1e3a2f; border-color: #1e3a2f; }
+.stage-flow-card { padding: 12px 14px 11px; background: #f8fafc; border: 1px solid #e5eaf0; border-radius: 10px; min-width: 0; height: 100%; }
+.stage-flow-step.is-final .stage-flow-card { background: #f2f7f4; border-color: #cfdccf; }
+.stage-flow-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.stage-flow-name { font-size: 12px; font-weight: 600; color: #334155; white-space: nowrap; }
+.stage-flow-delta { flex: 0 0 auto; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.stage-flow-delta.up { color: #166534; background: #e3f2e9; border: 1px solid #c4e2cf; }
+.stage-flow-delta.down { color: #b42318; background: #fdecea; border: 1px solid #f5c6c0; }
+.stage-flow-value { margin-top: 6px; font-size: 24px; font-weight: 750; letter-spacing: -0.02em; color: #0f172a; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stage-flow-value em { font-style: normal; margin-left: 8px; font-size: 11px; font-weight: 600; color: #64748b; letter-spacing: 0; vertical-align: middle; }
+.stage-flow-foot { margin: 5px 0 0; font-size: 11.5px; line-height: 1.55; color: #718096; }
+@media (max-width: 1080px) { .stage-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .stage-flow::before { display: none; } }
 
 .batch-evolution-panel { padding: 0; overflow: hidden; }
 
@@ -237,23 +230,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #596678;
+  color: var(--muted);
   background: #fff;
-  border: 1px solid #d9e0e8;
-  border-top: 3px solid #8995a5;
-  border-radius: 7px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
   font-size: 12px;
+  box-shadow: none;
 }
-
-.alignment-summary b { margin-bottom: 3px; color: #172134; font-size: 23px; font-variant-numeric: tabular-nums; }
-
-.alignment-summary .matched { border-top-color: #178a63; }
-
-.alignment-summary .different { border-top-color: #c9362b; }
-
-.alignment-summary .pi-only { border-top-color: #d27a16; }
-
-.alignment-summary .web-only { border-top-color: #0066cc; }
+.alignment-summary b { margin-bottom: 3px; color: var(--ink); font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
 
 .polyinfo-number { color: #7b5aa6; }
 
@@ -324,11 +308,10 @@
 .polyinfo-paper-cell small, .polyinfo-polymer-cell small { font-size: 11.5px !important; }
 .polyinfo-polymer-cell strong { font-size: 13.5px !important; }
 .quality-analysis-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
-.quality-analysis-panel, .stage-evolution-panel { border: 1px solid #edf0f4 !important; background: linear-gradient(180deg,#fafbfc,#f3f5f8) !important; border-radius: 12px !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.9) !important; }
-.analysis-panel-heading { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #eef1f5; margin-bottom: 6px; }
-.analysis-panel-heading strong { display: block; font-size: 14px; color: #171717; }
-.analysis-panel-heading span { display: block; margin-top: 3px; font-size: 12.5px; color: #5b626d; }
-.stage-evolution-track > div { border-radius: 12px !important; border: 1px solid #edf0f4 !important; border-top: 3px solid #2f4357 !important; background: #fff !important; }
+.quality-analysis-panel, .stage-evolution-panel { border: 1px solid var(--border) !important; background: #fff !important; border-radius: 12px !important; box-shadow: var(--shadow) !important; }
+.analysis-panel-heading { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border-soft); margin-bottom: 6px; }
+.analysis-panel-heading strong { display: block; font-size: 14px; color: var(--ink); font-weight: 650; }
+.analysis-panel-heading span { display: block; margin-top: 3px; font-size: 12px; color: var(--muted); }
 .analysis-panel-heading .ant-tag { display: inline-flex !important; align-items: center !important; height: 22px !important; line-height: 20px !important; padding: 0 10px !important; margin: 0 !important; flex: 0 0 auto !important; align-self: center !important; font-size: 11px !important; border-radius: 999px !important; }
 @media (max-width: 1080px) { .quality-analysis-grid { grid-template-columns: 1fr; } }
 

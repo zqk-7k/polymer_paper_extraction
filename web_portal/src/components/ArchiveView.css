@@ -15,12 +15,16 @@
 .history-page .upload-hero-side .ant-btn-default { border-radius: 999px; }
 .history-page .ant-table-thead > tr > th { background: #f6f8fa !important; }
 .history-page .archive-status-tags { align-items: flex-start; }
-.history-page .archive-status-tag { min-width: 72px; margin-inline-end: 0; padding: 3px 9px; border: 1px solid transparent; border-radius: 999px; text-align: center; font-size: 12px; font-weight: 650; line-height: 18px; }
-.history-page .archive-status-tag.status-complete { color: #087443; background: #e9f8ef; border-color: #bce8cb; }
-.history-page .archive-status-tag.status-partial { color: #a34f05; background: #fff1df; border-color: #f4c98f; }
-.history-page .archive-status-tag.status-validation { color: #6941a5; background: #f2eaff; border-color: #d8c1fa; }
-.history-page .archive-status-tag.status-failed { color: #b42318; background: #fff0ee; border-color: #f3c2bd; }
-.history-page .archive-status-tag.status-running { color: #1458a6; background: #eaf3ff; border-color: #bdd7fb; }
+.history-page .archive-status-tag { min-width: 76px; margin-inline-end: 0; padding: 3px 10px 3px 8px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #e2e7ee; border-radius: 6px; background: #f4f6f9; color: #3d4a60; text-align: center; font-size: 12px; font-weight: 600; line-height: 18px; letter-spacing: .01em; box-shadow: inset 0 1px 0 rgba(255,255,255,.7); white-space: nowrap; }
+.history-page .archive-status-tag .status-dot { width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: currentColor; }
+.history-page .archive-status-tag.status-complete { color: #1c6b4a; background: linear-gradient(180deg,#f3faf5,#e9f4ec); border-color: #c9e2d1; }
+.history-page .archive-status-tag.status-complete .status-dot { box-shadow: 0 0 0 3px rgba(28,107,74,.14); }
+.history-page .archive-status-tag.status-partial { color: #8a5a12; background: linear-gradient(180deg,#fdf9f0,#f8efe0); border-color: #e6d3ab; }
+.history-page .archive-status-tag.status-validation { color: #5b5f6e; background: linear-gradient(180deg,#f7f8fa,#eff1f5); border-color: #d6dbe2; border-style: dashed; font-weight: 500; }
+.history-page .archive-status-tag.status-failed { color: #96382e; background: linear-gradient(180deg,#fdf4f3,#f9e9e7); border-color: #e3b8b3; }
+.history-page .archive-status-tag.status-running { color: #2f5b8f; background: linear-gradient(180deg,#f3f7fc,#e7eff8); border-color: #bfd4e8; }
+.history-page .archive-status-tag.status-running .status-dot { animation: status-pulse 1.4s ease-in-out infinite; }
+@keyframes status-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
 .history-page .ant-pagination { margin-right: 20px !important; }
 
 @media (max-width: 1080px) { .history-metrics { grid-template-columns: repeat(2, minmax(0,1fr)); } }

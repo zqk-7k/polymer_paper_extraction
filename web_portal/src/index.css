@@ -193,6 +193,8 @@ button, input, select, textarea, h1, h2, h3, h4, h5, h6, em, strong, small, labe
 
 .metric-icon { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 7px; }
 
+.metric-icon.ink { color: #1d2129; background: #eef1f5; }
+
 .metric-icon.blue { color: #2b5ce6; background: #eaf1ff; }
 
 .metric-icon.violet { color: #7652c7; background: #f1edff; }
@@ -614,3 +616,27 @@ body { overflow: hidden !important; }
 @media (max-width: 720px) {
   .candidate-banner .banner-actions { margin-left: 0; width: 100%; justify-content: flex-end; }
 }
+
+/* —— Batch 批次切换器：单行工具条风格 —— */
+.batch-switcher, .batch-switcher2 { min-width: 0; max-width: none; height: 32px; padding: 0 4px 0 10px; display: inline-flex; align-items: center; gap: 0; background: #fff; border: 1px solid #d7dde4; border-radius: 6px; box-shadow: none; cursor: default; transition: border-color .15s ease; }
+.batch-switcher:hover, .batch-switcher2:hover { border-color: #b9c2cc; box-shadow: none; }
+.batch-switcher:focus-within, .batch-switcher2:focus-within { border-color: #0969da; box-shadow: 0 0 0 2px rgba(9,105,218,.15); }
+.batch-switcher2-label { color: #57606a; font-size: 12px; white-space: nowrap; }
+.batch-switcher2-sep { width: 1px; height: 14px; margin: 0 8px 0 10px; background: #d7dde4; }
+.batch-switcher2-select { width: 300px; min-width: 300px; max-width: 300px; flex: 0 0 300px; }
+.batch-switcher2-select .ant-select-selector { padding: 0 !important; color: #24292f; font-size: 12.5px !important; }
+.batch-switcher2-value { display: inline-flex; align-items: baseline; gap: 6px; max-width: 264px; }
+.batch-switcher2-value .id { overflow: hidden; max-width: 240px; text-overflow: ellipsis; color: #24292f; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.batch-switcher2-value .meta { color: #57606a; font-size: 12px; font-weight: 400; white-space: nowrap; }
+.batch-switcher2 .dot { align-self: center; width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: #8d959e; }
+.batch-switcher2 .dot.production { background: #1a7f37; }
+.batch-switcher2 .dot.review { background: #bc7b25; }
+.batch-switcher2-kind { margin-left: 8px; padding: 1px 6px; color: #57606a; background: #f0f2f5; border: 1px solid #e0e4e9; border-radius: 4px; font-size: 11px; line-height: 18px; white-space: nowrap; }
+.batch-switcher2-kind.production { color: #1a7f37; background: #eaf5ec; border-color: #d4e8d8; }
+.batch-switcher2-kind.review { color: #8a5a12; background: #faf3e5; border-color: #ecdfc2; }
+.batch-switcher2-popup .ant-select-item { padding: 7px 10px !important; border-radius: 6px; }
+.batch-switcher2-popup .ant-select-item-option-selected { background: #f0f4fa !important; font-weight: 400 !important; }
+.batch-opt2 { display: flex; flex-direction: column; gap: 1px; }
+.batch-opt2 .row1 { display: flex; align-items: center; gap: 7px; color: #24292f; font-size: 12.5px; font-weight: 600; }
+.batch-opt2 .row2 { padding-left: 14px; color: #57606a; font-size: 12px; font-weight: 400; }
+.batch-opt2 .cur { padding: 0 5px; color: #0969da; background: #e5eefb; border-radius: 3px; font-size: 11px; font-weight: 500; line-height: 17px; }

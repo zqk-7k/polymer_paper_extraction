@@ -2,14 +2,14 @@
 
 import { Button, Empty, Space, Table, Tag, Tooltip, Typography } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { ArrowLeft, ArrowRight, Beaker, Download, FileSearch, Gauge, Link2, Workflow } from "lucide-react";
+import { ArrowRight, Beaker, Gauge, Link2, Workflow } from "lucide-react";
 import type { CandidateData, Evidence, PropertyObservation } from "../../types";
 import { confidenceTag, measurementConditionText, polymerTypeLabel, processParameterText, processTypeLabel, sampleDisplayName, sampleKindLabel, systemPid } from "../../utils/format";
 import { NoResult, zhPagination } from "../../components/common";
 import { useExtraction } from "../../store/extraction";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-const { Title, Text, Paragraph } = Typography;
+const { Text } = Typography;
 
 function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSample, onBack }: {
   candidate: CandidateData;
@@ -30,13 +30,18 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
   const entityPid = entity ? systemPid(entity) : "待归一";
 
   const renderProcessSamples = (label: string, ids: string[], output = false) => (
-    <div className={`process-sample-group ${output ? "output-group" : "input-group"}`}>
-      <span>{label}</span>
-      <div>{ids.length ? ids.map((id) => {
+    <div className={`flow-col ${output ? "is-out" : "is-in"}`}>
+      <div className="flow-col-head"><span className="flow-dot" />{label}<em>× {ids.length}</em></div>
+      <div className="flow-chips">{ids.length ? ids.map((id) => {
         const linkedSample = sampleMap.get(id);
         const isCurrent = id === sample.sample_id;
-        return <button className={`${output ? "output" : "input"}${isCurrent ? " current" : ""}`} type="button" key={id} onClick={() => !isCurrent && onSample(id)} disabled={isCurrent}><strong>{linkedSample ? sampleDisplayName(linkedSample) : id}</strong><small>{id}{isCurrent ? " · 当前样品" : ""}</small></button>;
-      }) : <em>原文未建立</em>}</div>
+        return <button className={`flow-chip${isCurrent ? " is-current" : ""}`} type="button" key={id} onClick={() => !isCurrent && onSample(id)} disabled={isCurrent} title={isCurrent ? "当前样品" : `查看样品 ${id}`}>
+          <span className="flow-chip-text">
+            <span className="flow-chip-name">{linkedSample ? sampleDisplayName(linkedSample) : id}</span>
+            <span className="flow-chip-id">{id}</span>
+          </span>
+        </button>;
+      }) : <span className="flow-empty">— 未建立 —</span>}</div>
     </div>
   );
 
@@ -69,24 +74,30 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
       </section>
 
       <section className="ucard sample-process-panel">
-        <div className="ucard-head"><div><h3><span className="title-icon"><Workflow size={15} /></span>工艺与样品谱系</h3><p>仅展示通过 input / output 与当前样品直接绑定的工艺关系 · {relatedProcessSteps.length} steps</p></div></div>
-        {relatedProcessSteps.length ? <div className="process-list">{relatedProcessSteps.map((step, idx) => {
+        <div className="ucard-head"><div><h3><span className="title-icon"><Workflow size={15} /></span>工艺与样品谱系</h3><p>按工艺顺序展示当前样品的上游输入与下游输出 · {relatedProcessSteps.length} steps</p></div><span className="lineage-legend"><i className="lg-in" />输入<i className="lg-cur" />当前<i className="lg-out" />输出</span></div>
+        {relatedProcessSteps.length ? <div className="lineage-rail">{relatedProcessSteps.map((step, idx) => {
           const isProduced = step.output_sample_ids.includes(sample.sample_id);
           const isConsumed = step.input_sample_ids.includes(sample.sample_id);
-          const relation = isProduced && isConsumed ? "该步骤更新当前样品状态" : isProduced ? "该步骤生成当前样品" : "当前样品参与该步骤";
+          const relation = isProduced && isConsumed ? "状态更新" : isProduced ? "生成当前样品" : "作为输入参与";
           const parameters = Object.entries((step.parameters || {}) as Record<string, unknown>);
           const stepEvidence = step.evidence_ids?.map((id) => evidenceMap.get(id)).find(Boolean);
-          return <article className="process-card" key={step.step_id}>
-            <header className="process-card-header"><div><Workflow size={19} /><span><strong>步骤 {idx + 1} · {processTypeLabel(step.process_type)}</strong><small>{step.step_id} · {relation}</small></span></div><Space size={5}>{confidenceTag(step.confidence?.score)}<Tag color={isProduced ? "success" : "processing"}>{isProduced ? "生成关系" : "输入关系"}</Tag></Space></header>
-            <div className="process-flow">
-              {renderProcessSamples("输入样品", step.input_sample_ids)}
-              <ArrowRight size={18} />
-              <div className="process-node"><Workflow size={18} /><span><strong>{processTypeLabel(step.process_type)}</strong><small>{step.process_type}</small></span></div>
-              <ArrowRight size={18} />
-              {renderProcessSamples("输出样品", step.output_sample_ids, true)}
+          return <article className="lineage-step" key={step.step_id}>
+            <div className="lineage-gutter"><span className="lineage-index">{String(idx + 1).padStart(2, "0")}</span><span className="lineage-line" /></div>
+            <div className="lineage-body">
+              <header className="lineage-head">
+                <div className="lineage-title"><strong>{processTypeLabel(step.process_type)}</strong><span className="lineage-sub">{step.step_id} · {step.process_type}</span></div>
+                <Space size={6}>{confidenceTag(step.confidence?.score)}<Tag className={`rel-tag ${isProduced ? "is-gen" : "is-use"}`}>{relation}</Tag></Space>
+              </header>
+              <div className="process-flow">
+                {renderProcessSamples("INPUT · 输入", step.input_sample_ids)}
+                <div className="flow-op"><span className="flow-op-icon"><ArrowRight size={14} /></span></div>
+                <div className="process-node"><span className="node-kicker">工艺步骤</span><strong>{processTypeLabel(step.process_type)}</strong><small>{step.step_id}</small></div>
+                <div className="flow-op"><span className="flow-op-icon"><ArrowRight size={14} /></span></div>
+                {renderProcessSamples("OUTPUT · 输出", step.output_sample_ids, true)}
+              </div>
+              <div className="process-parameters"><span className="param-label"><Gauge size={13} />工艺参数<Tag>{parameters.length}</Tag></span>{parameters.length ? <dl>{parameters.map(([key, value]) => <div className="param-item" key={key}><dt>{key}</dt><dd>{processParameterText(value)}</dd></div>)}</dl> : <Text type="secondary">未抽取到结构化工艺参数</Text>}</div>
+              <footer className="process-meta"><span className="meta-chain"><span className="meta-label">关系依据</span><span className="meta-links">{step.input_sample_ids.length ? step.input_sample_ids.map((id) => <code key={id} className={id === sample.sample_id ? "is-cur" : ""}>{id}</code>) : <span className="meta-empty">无显式输入</span>}<span className="meta-arrow is-step">→</span><code className="meta-step">{step.step_id}</code><span className="meta-arrow is-step">→</span>{step.output_sample_ids.length ? step.output_sample_ids.map((id) => <code key={id} className={id === sample.sample_id ? "is-cur" : ""}>{id}</code>) : <span className="meta-empty">无显式输出</span>}</span></span><Button size="small" type="primary" className="meta-evidence-btn" disabled={!stepEvidence} icon={<Link2 size={13} />} onClick={() => stepEvidence && onEvidence(stepEvidence)}>原文证据</Button></footer>
             </div>
-            <div className="process-parameters"><span>工艺参数</span>{parameters.length ? <dl>{parameters.map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{processParameterText(value)}</dd></div>)}</dl> : <Text type="secondary">未抽取到结构化工艺参数</Text>}</div>
-            <footer className="process-meta"><span>关系依据：{step.input_sample_ids.join(", ") || "无显式输入"} → {step.step_id} → {step.output_sample_ids.join(", ") || "无显式输出"}</span><Tooltip title={stepEvidence ? "查看该工艺步骤的原文证据" : "当前工艺未绑定可定位证据"}><Button size="small" disabled={!stepEvidence} icon={<Link2 size={14} />} onClick={() => stepEvidence && onEvidence(stepEvidence)}>原文证据</Button></Tooltip></footer>
           </article>;
         })}</div> : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="当前抽取结果未建立该样品与工艺步骤的直接关系" />}
       </section>

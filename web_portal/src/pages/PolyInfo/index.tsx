@@ -1,13 +1,14 @@
 "use client";
 
-import { Button, Input, Progress, Select, Skeleton, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
+import { Button, Input, Progress, Skeleton, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import type React from "react";
-import { ArrowRight, Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, Workflow } from "lucide-react";
+import { Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { BatchCollectionSummary, BatchResultSummary, PolyInfoSummary } from "../../types";
 import { API_BASE } from "../../types";
 import { Metric, ScoreBar, zhPagination } from "../../components/common";
+import BatchSwitcher from "../../components/BatchSwitcher";
 import { useExtraction } from "../../store/extraction";
 import "./style.css";
 const { Title, Paragraph } = Typography;
@@ -114,9 +115,9 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       })()),
     },
     { title: "P / R", key: "pr", width: 140, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(84) : <span className="compact-ratio">{(item.anchor.precision * 100).toFixed(1)} / {(item.anchor.recall * 100).toFixed(1)}%</span>) },
-    { title: "样品绑定", key: "sample", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.sample_binding_coverage * 100)} size="small" strokeColor="#0f8a72" />) },
-    { title: "证据绑定", key: "evidence", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.evidence_coverage * 100)} size="small" strokeColor="#1177bb" />) },
-    { title: "单位完整", key: "unit", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.unit_completeness * 100)} size="small" strokeColor="#7b5aa6" />) },
+    { title: "样品绑定", key: "sample", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.sample_binding_coverage * 100)} size="small" strokeColor="#2f9e8f" trailColor="#e8ebf0" strokeLinecap="round" />) },
+    { title: "证据绑定", key: "evidence", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.evidence_coverage * 100)} size="small" strokeColor="#3f6fb5" trailColor="#e8ebf0" strokeLinecap="round" />) },
+    { title: "单位完整", key: "unit", width: 120, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk("90%") : <Progress percent={Math.round(item.quality.unit_completeness * 100)} size="small" strokeColor="#6f6aa8" trailColor="#e8ebf0" strokeLinecap="round" />) },
     { title: "性质候选", key: "properties", width: 105, align: "right", render: (_, item) => cellSkeleton(item, isSkeleton(item) ? sk(48) : <b>{item.totals.property_observations}</b>) },
     { title: "Stage 4R", key: "stage4r", width: 128, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? <div>{sk(56)}<div style={{ marginTop: 8 }}>{sk(84)}</div></div> : <div className="stage-compact"><b>+{item.stage.stage4r_migrated}</b><span>{item.stage.stage4r_recovered} 候选恢复</span></div>) },
     { title: "Stage 6", key: "stage6", width: 150, render: (_, item) => cellSkeleton(item, isSkeleton(item) ? <div>{sk(72)}<div style={{ marginTop: 8 }}>{sk(96)}</div></div> : <div className="stage-compact"><b>{item.stage.final_documents}/{item.document_count} final</b><span>{item.stage.rejected_objects} 拒绝 · {item.stage.stage6_warnings} 警告</span></div>) },
@@ -141,36 +142,53 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       </Space>
     </section>}
     <section className="metric-strip polyinfo-metrics">
-      <Metric icon={<ShieldCheck size={19} />} label="锚点 F1" value={`${(activeCollection.anchor.f1 * 100).toFixed(1)}%`} tone="blue" />
-      <Metric icon={<Check size={19} />} label="数值一致" value={activeCollection.anchor.matched} tone="green" />
-      <Metric icon={<Beaker size={19} />} label="样品绑定" value={`${(activeCollection.quality.sample_binding_coverage * 100).toFixed(1)}%`} tone="cyan" />
-      <Metric icon={<FileSearch size={19} />} label="证据绑定" value={`${(activeCollection.quality.evidence_coverage * 100).toFixed(1)}%`} tone="violet" />
-      <Metric icon={<Database size={19} />} label="配对文献" value={`${activeCollection.paired_documents}/${activeCollection.document_count}`} tone="orange" />
+      <Metric icon={<ShieldCheck size={19} />} label="锚点 F1" value={`${(activeCollection.anchor.f1 * 100).toFixed(1)}%`} tone="ink" />
+      <Metric icon={<Check size={19} />} label="数值一致" value={activeCollection.anchor.matched} tone="ink" />
+      <Metric icon={<Beaker size={19} />} label="样品绑定" value={`${(activeCollection.quality.sample_binding_coverage * 100).toFixed(1)}%`} tone="ink" />
+      <Metric icon={<FileSearch size={19} />} label="证据绑定" value={`${(activeCollection.quality.evidence_coverage * 100).toFixed(1)}%`} tone="ink" />
+      <Metric icon={<Database size={19} />} label="配对文献" value={`${activeCollection.paired_documents}/${activeCollection.document_count}`} tone="ink" />
     </section>
     <div className="quality-analysis-grid">
       <section className="work-panel quality-analysis-panel">
         <div className="analysis-panel-heading"><div><strong><span className="title-icon"><ShieldCheck size={15} /></span>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
-        <ScoreBar label="Precision" value={activeCollection.anchor.precision} />
-        <ScoreBar label="Recall" value={activeCollection.anchor.recall} color="#0f8a72" />
-        <ScoreBar label="F1" value={activeCollection.anchor.f1} color="#7b5aa6" />
+        <ScoreBar label="Precision" value={activeCollection.anchor.precision} color="#3f6fb5" />
+        <ScoreBar label="Recall" value={activeCollection.anchor.recall} color="#2f9e8f" />
+        <ScoreBar label="F1" value={activeCollection.anchor.f1} color="#6f6aa8" />
         <div className="alignment-summary compact"><span className="matched"><b>{activeCollection.anchor.matched}</b>数值一致</span><span className="different"><b>{activeCollection.anchor.value_diff}</b>同名值不同</span><span className="pi-only"><b>{activeCollection.anchor.polyinfo_only}</b>仅 PoLyInfo</span><span className="web-only"><b>{activeCollection.anchor.extraction_only}</b>仅本批次</span></div>
       </section>
       <section className="work-panel quality-analysis-panel">
         <div className="analysis-panel-heading"><div><strong><span className="title-icon"><Database size={15} /></span>候选记录完整度</strong><span>检查关系和证据是否存在，不等同于人工确认其语义正确</span></div><Tag color="green">PIPELINE QUALITY</Tag></div>
-        <ScoreBar label="性质绑定合法样品" value={activeCollection.quality.sample_binding_coverage} color="#0f8a72" />
-        <ScoreBar label="性质绑定原文证据" value={activeCollection.quality.evidence_coverage} color="#1177bb" />
-        <ScoreBar label="单位字段完整" value={activeCollection.quality.unit_completeness} color="#7b5aa6" />
-        <ScoreBar label="测量条件关联" value={activeCollection.quality.condition_coverage} color="#d27a16" />
+        <ScoreBar label="性质绑定合法样品" value={activeCollection.quality.sample_binding_coverage} color="#2f9e8f" />
+        <ScoreBar label="性质绑定原文证据" value={activeCollection.quality.evidence_coverage} color="#3f6fb5" />
+        <ScoreBar label="单位字段完整" value={activeCollection.quality.unit_completeness} color="#6f6aa8" />
+        <ScoreBar label="测量条件关联" value={activeCollection.quality.condition_coverage} color="#b07f3c" />
       </section>
     </div>
     <section className="work-panel stage-evolution-panel">
       <div className="analysis-panel-heading"><div><strong><span className="title-icon"><GitBranch size={15} /></span>当前批次的阶段变化</strong><span>同一批次从 Stage 4 原始抽取到 Stage 4R 恢复、候选汇总和 Stage 6 发布</span></div><Tag>{activeCollection.strict_compliance_claimed ? "STRICT" : "PREVIEW"}</Tag></div>
-      <div className="stage-evolution-track">
-        <div><span>Stage 4 初始性质</span><strong>{activeCollection.stage.stage4_pre_properties}</strong><small>LLM / 规则初始结果</small></div><ArrowRight size={18} />
-        <div><span>Stage 4R 后</span><strong>{activeCollection.stage.stage4_post_properties}</strong><small>迁移 {activeCollection.stage.stage4r_migrated} · 跳过 {activeCollection.stage.stage4r_skipped}</small></div><ArrowRight size={18} />
-        <div><span>候选记录</span><strong>{activeCollection.stage.candidate_properties}</strong><small>含跨阶段汇总结果</small></div><ArrowRight size={18} />
-        <div><span>Stage 6 发布</span><strong>{activeCollection.stage.final_properties}</strong><small>拒绝对象 {activeCollection.stage.rejected_objects}</small></div>
-      </div>
+      <ol className="stage-flow">
+        {[
+          { key: "s4", index: "01", name: "Stage 4 · 初始抽取", value: activeCollection.stage.stage4_pre_properties, foot: "LLM / 规则初始结果" },
+          { key: "s4r", index: "02", name: "Stage 4R · 恢复", value: activeCollection.stage.stage4_post_properties, foot: `迁移 ${activeCollection.stage.stage4r_migrated} · 跳过 ${activeCollection.stage.stage4r_skipped} · 恢复 ${activeCollection.stage.stage4r_recovered}` },
+          { key: "cand", index: "03", name: "候选汇总", value: activeCollection.stage.candidate_properties, foot: "含跨阶段汇总结果" },
+          { key: "s6", index: "04", name: "Stage 6 · 发布", value: activeCollection.stage.final_properties, foot: `拒绝 ${activeCollection.stage.rejected_objects} · 警告 ${activeCollection.stage.stage6_warnings}` },
+        ].map((step, i, arr) => {
+          const prev = i === 0 ? null : arr[i - 1].value;
+          const delta = prev === null || prev === 0 ? null : step.value - (prev as number);
+          const rate = prev ? Math.min(999, Math.round((step.value / (prev as number)) * 100)) : null;
+          const isLast = i === arr.length - 1;
+          return (
+            <li key={step.key} className={`stage-flow-step${isLast ? " is-final" : ""}`}>
+              <div className="stage-flow-node"><span className="stage-flow-index">{step.index}</span></div>
+              <div className="stage-flow-card">
+                <div className="stage-flow-top"><span className="stage-flow-name">{step.name}</span>{delta !== null && delta !== 0 && <span className={`stage-flow-delta ${delta > 0 ? "up" : "down"}`}>{delta > 0 ? `+${delta}` : delta}</span>}</div>
+                <div className="stage-flow-value">{step.value.toLocaleString()}{rate !== null && <em>{rate}% 留存</em>}</div>
+                <p className="stage-flow-foot">{step.foot}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </section>
   </div> : <Empty description="没有可比较的批次质量摘要" />;
 
@@ -199,7 +217,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
 
   return <div className="page-stack upload-page polyinfo-results-page">
     <div className="ucard polyinfo-tabs-card">
-    <Tabs className="batch-comparison-tabs" defaultActiveKey="overview" tabBarExtraContent={{ right: <Select className="batch-collection-select" value={activeCollection?.collection_id} onChange={onCollection} options={batchCollections.map((item) => ({ value: item.collection_id, label: `${item.collection_kind === "review" ? "审阅" : "生产"} · ${item.result_date} · ${item.collection_id}` }))} placeholder="选择批次" /> }} items={[
+    <Tabs className="batch-comparison-tabs" defaultActiveKey="overview" tabBarExtraContent={{ right: <BatchSwitcher collections={batchCollections} value={activeCollection?.collection_id} onChange={onCollection} compact /> }} items={[
       { key: "overview", label: "质量总览", children: qualityOverview },
       { key: "evolution", label: `批次演进 (${batchCollections.length})`, children: batchEvolution },
       { key: "papers", label: `文献逐篇 (${polyInfoTotals.matched})`, children: paperDetails },

@@ -18,9 +18,9 @@ export function PageTitle({ title, description, meta, actions }: { title: string
     </div>
   );
 }
-export function ScoreBar({ value, label, color = "#0066cc" }: { value: number; label: string; color?: string }) {
+export function ScoreBar({ value, label, color = "#3f6fb5" }: { value: number; label: string; color?: string }) {
   const percent = Math.round(value * 1000) / 10;
-  return <div className="quality-score"><div><span>{label}</span><strong>{percent.toFixed(1)}%</strong></div><Progress percent={percent} showInfo={false} strokeColor={color} trailColor="#e6ebf0" size="small" /></div>;
+  return <div className="quality-score"><div><span>{label}</span><strong>{percent.toFixed(1)}%</strong></div><Progress percent={percent} showInfo={false} strokeColor={color} trailColor="#e8ebf0" strokeLinecap="round" size="small" /></div>;
 }
 export function Metric({ icon, label, value, tone }: { icon: ReactNode; label: string; value: ReactNode; tone: string }) {
   return <div className="metric-item"><div className={`metric-icon ${tone}`}>{icon}</div><div><span>{label}</span><strong>{value}</strong></div></div>;
