@@ -8,7 +8,7 @@ import { displayPaperTitle } from "./utils/format";
 import { API_BASE } from "./types";
 import { EntityDrawer, EvidenceDrawer, PolyInfoComparisonDrawer } from "./components/drawers";
 
-import logoUrl from "./assets/logo.svg";
+import logoUrl from "./assets/logo2.png";
 
 function AppShell() {
   const pathname = useLocation().pathname;
