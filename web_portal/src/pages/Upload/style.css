@@ -80,7 +80,7 @@
 /* 仅上传页两卡等高需要纵向 flex */
 .upload-grid .ucard { display: flex; flex-direction: column; height: 100%; }
 .pipe-card::before { background: linear-gradient(90deg, #1f5eff, #7c3aed 60%, #38bdf8); }
-.ucard:hover { border-color: #d3dbe5; box-shadow: 0 2px 4px rgba(16,24,40,.06), 0 14px 36px rgba(30,44,61,.12); transform: translateY(-1px); }
+/* .ucard:hover { border-color: #d3dbe5; box-shadow: 0 2px 4px rgba(16,24,40,.06), 0 14px 36px rgba(30,44,61,.12); transform: translateY(-1px); } */
 .ucard-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 2px 2px 14px; border-bottom: 1px solid #edf0f5; }
 .ucard-head h3 { margin: 0; font-size: 14.5px; font-weight: 750; letter-spacing: -.01em; color: #131c26; }
 .ucard-head p { margin: 4px 0 0; color: #6b7686; font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 420px; }
