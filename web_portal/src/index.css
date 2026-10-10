@@ -93,7 +93,7 @@ button, input, select, textarea, h1, h2, h3, h4, h5, h6, em, strong, small, labe
 
 .tool-brand strong { font-size: 15px; letter-spacing: 0; }
 
-.tool-brand strong span { color: #34415a; font-weight: 600; }
+.tool-brand strong span { color: #34415a; font-weight: 700; }
 
 .side-nav { padding: 15px 10px; display: grid; gap: 6px; }
 
@@ -528,7 +528,7 @@ code, pre, .ant-typography code { font-family: inherit !important; }
 .brand-symbol.as-toggle { border: 0 !important; background: transparent !important; padding: 4px !important; border-radius: 8px !important; cursor: pointer !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
 .brand-symbol.as-toggle:hover { background: #e4e8ef !important; }
 .brand-symbol.as-toggle:focus-visible { outline: 2px solid #1f5eff !important; outline-offset: 2px !important; }
-.tool-brand strong { font-size: 14px !important; font-weight: 600 !important; color: #1d2129 !important; white-space: nowrap !important; }
+.tool-brand strong { font-size: 14px !important; font-weight: 700 !important; color: #1d2129 !important; white-space: nowrap !important; }
 /* ===== 品牌标题高级感优化 ===== */
 .brand-title { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 1px; line-height: 1; }
 .brand-name { display: inline-flex !important; align-items: baseline !important; gap: 5px; margin: 0 !important; font-size: 16px !important; font-weight: 800 !important; letter-spacing: .2px !important; line-height: 1.1 !important; white-space: nowrap !important; background: linear-gradient(92deg, #0f2a6b 0%, #1f5eff 55%, #00a2c7 100%) !important; -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important; -webkit-text-fill-color: transparent !important; }
@@ -562,50 +562,159 @@ code, pre, .ant-typography code { font-family: inherit !important; }
   .precision-ui .candidate-banner:not(.in-content), .candidate-banner:not(.in-content) { margin: 8px 8px 0 !important; }
   .candidate-banner.in-content { margin: 0 auto 12px !important; }
 }
-/* ===== 布局唯一真相来源：本文件内此前所有 .tool-shell / .tool-sidebar / .tool-content
-   重复定义均以此处为准；历史 Next 残留 web_portal/app/globals.css 已删除 ===== */
-html, body, #root { height: 100% !important; }
-body { overflow: hidden !important; }
+/* ===== Sidebar：严格复刻 web_portal/stitch/index.html =====
+   宽度 256px / 白底 / 右边框 slate-200 / font-family 系统栈 / body #F8FAFC */
 .tool-shell.precision-ui, .tool-shell {
   height: 100vh !important; min-height: 100vh !important; max-height: 100vh !important;
   overflow: hidden !important; padding-top: 0 !important;
-  padding-left: 232px !important; background: #f4f5f7 !important;
+  padding-left: 256px !important; background: #F8FAFC !important;
 }
 .tool-shell.precision-ui.is-collapsed, .tool-shell.is-collapsed { padding-left: 64px !important; }
 .precision-ui .tool-sidebar, .tool-sidebar {
-  width: 232px !important; background: #f4f5f7 !important;
-  border-right: 0 !important; box-shadow: none !important; color: #1d2129 !important;
+  width: 256px !important; background: #fff !important;
+  border-right: 1px solid rgba(226,232,240,.9) !important; box-shadow: none !important;
+  color: #1e293b !important; display: flex !important; flex-direction: column !important;
+  flex-shrink: 0 !important; min-height: 100vh !important; user-select: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 .precision-ui.is-collapsed .tool-sidebar, .is-collapsed .tool-sidebar { width: 64px !important; }
-.precision-ui .tool-content, .tool-content {
-  height: calc(100vh - 24px) !important; min-height: 0 !important; max-height: calc(100vh - 24px) !important;
-  margin: 12px 12px 12px 12px !important; box-sizing: border-box !important;
+/* 品牌头：p-5 / border-b slate-100 */
+.precision-ui .tool-brand, .tool-brand {
+  position: relative; height: auto !important; min-height: 0 !important;
+  padding: 20px !important; gap: 0 !important; border-bottom: 1px solid #f1f5f9 !important;
+  display: flex !important; align-items: center !important; justify-content: space-between !important;
+  color: #1e293b !important;
+}
+.brand-id { display: flex !important; align-items: center !important; gap: 10px !important; min-width: 0 !important; }
+.brand-mark {
+  width: 36px !important; height: 36px !important; flex: 0 0 36px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  border-radius: 12px !important; color: #fff !important;
+  background: linear-gradient(to top right, #4f46e5, #8b5cf6) !important;
+  box-shadow: 0 4px 6px -1px rgba(99,102,241,.3), 0 2px 4px -2px rgba(99,102,241,.3) !important;
+  border: none !important; padding: 0 !important;
+}
+.brand-mark svg { width: 20px !important; height: 20px !important; }
+.brand-text { display: flex !important; flex-direction: column !important; line-height: 1.3 !important; }
+.brand-name {
+  display: flex !important; align-items: center !important; gap: 6px !important; margin: 0 !important;
+  font-size: 15px !important; font-weight: 700 !important; letter-spacing: -.025em !important;
+  line-height: 1.3 !important; color: #0f172a !important; white-space: nowrap !important;
+  background: none !important; -webkit-text-fill-color: #0f172a !important;
+}
+.brand-name em {
+  font-style: normal !important; font-size: 12px !important; font-weight: 600 !important;
+  padding: 2px 6px !important; border-radius: 6px !important; line-height: 1.3 !important;
+  background: #eef2ff !important; color: #4f46e5 !important; -webkit-text-fill-color: #4f46e5 !important;
+  border: 1px solid rgba(199,210,254,.6) !important; letter-spacing: 0 !important;
+}
+.brand-title { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 0; line-height: 1.3; }
+.brand-sub { font-size: 11px !important; font-weight: 400 !important; letter-spacing: 0 !important; color: #94a3b8 !important; white-space: nowrap !important; }
+/* 收起按钮：p-1.5 rounded-lg slate-400 hover */
+.brand-collapse {
+  margin-left: auto !important; width: 28px !important; height: 28px !important; flex: 0 0 28px !important;
+  align-self: center !important; display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  border: 0 !important; border-radius: 8px !important; background: transparent !important;
+  color: #94a3b8 !important; cursor: pointer !important; transition: color .15s, background .15s !important;
+}
+.brand-collapse:hover { background: #f1f5f9 !important; color: #475569 !important; }
+.brand-collapse svg { width: 16px !important; height: 16px !important; }
+.brand-mark.as-toggle { border: none !important; background: linear-gradient(to top right, #4f46e5, #8b5cf6) !important; padding: 0 !important; border-radius: 12px !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.brand-mark.as-toggle:hover { filter: brightness(1.08) !important; }
+.brand-mark.as-toggle:focus-visible { outline: 2px solid #4f46e5 !important; outline-offset: 2px !important; }
+/* 收起态：隐藏 brand-collapse（JSX 已不再渲染），品牌区居中，logo 可点击展开 */
+.is-collapsed .tool-brand { padding: 12px 0 !important; justify-content: center !important; }
+.is-collapsed .brand-id { justify-content: center !important; }
+.is-collapsed .brand-collapse { display: none !important; }
+/* ===== 滚动修复：body 恢复滚动，内容区为页面唯一滚动容器 ===== */
+html, body, #root { height: auto !important; min-height: 100% !important; }
+body { overflow-y: auto !important; overflow-x: hidden !important; }
+.tool-shell.precision-ui, .tool-shell { height: auto !important; min-height: 100vh !important; max-height: none !important; overflow: visible !important; }
+.precision-ui .tool-sidebar, .tool-sidebar { position: fixed !important; top: 0 !important; left: 0 !important; bottom: 0 !important; height: 100vh !important; overflow-y: auto !important; }
+.precision-ui .tool-content, .tool-content { height: auto !important; min-height: calc(100vh - 24px) !important; max-height: none !important; overflow: visible !important; }
+/* 导航区：flex-1 py-4 px-3 space-y-6 */
+.precision-ui .tool-sidebar .side-nav, .tool-sidebar .side-nav {
+  flex: 1 1 auto !important; display: flex !important; flex-direction: column !important;
+  align-items: stretch !important; justify-content: flex-start !important;
+  gap: 24px !important; padding: 16px 12px !important;
   overflow-y: auto !important; overflow-x: hidden !important;
-  background: var(--surface-2) !important; border: 1px solid var(--border) !important; border-radius: 14px !important;
-  box-shadow: none !important; background-clip: padding-box !important;
 }
-.tool-content > .page-stack { padding-bottom: 12px !important; }
-
-/* 导航图标保持与菜单文字同色，不额外添加图标底色。 */
-.tool-sidebar .side-nav a .side-nav-icon,
-.tool-sidebar .side-nav a:hover .side-nav-icon,
-.tool-sidebar .side-nav a.active .side-nav-icon,
-.tool-sidebar .side-secondary .ant-btn-icon,
-.tool-sidebar .side-secondary .ant-btn:hover .ant-btn-icon,
-.mobile-nav a .side-nav-icon,
-.mobile-nav a.active .side-nav-icon,
-.mobile-nav a:not(.active) .side-nav-icon {
-  color: inherit !important;
-  background: transparent !important;
-  box-shadow: none !important;
+.tool-sidebar .side-nav::-webkit-scrollbar, .tool-sidebar .custom-scroll::-webkit-scrollbar { width: 5px !important; height: 5px !important; }
+.tool-sidebar .side-nav::-webkit-scrollbar-track { background: transparent !important; }
+.tool-sidebar .side-nav::-webkit-scrollbar-thumb { background: #e2e8f0 !important; border-radius: 9999px !important; }
+.side-group { display: flex !important; flex-direction: column !important; }
+.side-group-title {
+  margin: 0 !important; padding: 0 12px 8px !important;
+  font-size: 11px !important; font-weight: 600 !important; letter-spacing: .05em !important;
+  text-transform: uppercase !important; color: #94a3b8 !important; line-height: 1.4 !important;
 }
+.side-group-title:first-child { padding-top: 0 !important; }
+.side-links { display: flex !important; flex-direction: column !important; gap: 4px !important; }
+/* 菜单项：gap-3 px-3 py-2 rounded-xl text-sm font-medium */
+.precision-ui .tool-sidebar .side-nav a, .tool-sidebar .side-nav a {
+  flex: 0 0 auto !important; height: auto !important; min-height: 0 !important;
+  padding: 8px 12px !important; gap: 12px !important; border-radius: 12px !important;
+  font-size: 14px !important; font-weight: 500 !important; line-height: 1.4 !important;
+  color: #475569 !important; border: 1px solid transparent !important; background: transparent !important;
+  box-shadow: none !important; text-decoration: none !important; white-space: nowrap !important;
+  display: flex !important; align-items: center !important; width: 100% !important;
+  transition: color .15s, background .15s !important;
+}
+.tool-sidebar .side-nav a svg { width: 16px !important; height: 16px !important; flex: 0 0 16px !important; color: #94a3b8 !important; }
+.tool-sidebar .side-nav a:hover { background: #f8fafc !important; color: #0f172a !important; }
+.tool-sidebar .side-nav a:hover svg { color: #94a3b8 !important; }
+.tool-sidebar .side-nav a.active {
+  background: rgba(238,242,255,.8) !important; color: #4f46e5 !important; font-weight: 500 !important;
+  border: 1px solid rgba(199,210,254,.6) !important;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05) !important;
+}
+.tool-sidebar .side-nav a.active svg { color: #4f46e5 !important; }
+.tool-sidebar .side-nav a .side-nav-icon {
+  width: 16px !important; height: 16px !important; flex: 0 0 16px !important;
+  display: inline-flex !important; place-items: center !important; border-radius: 0 !important;
+  color: inherit !important; background: transparent !important; box-shadow: none !important;
+}
+.tool-sidebar .side-nav a .side-nav-icon svg { width: 16px !important; height: 16px !important; color: currentColor !important; }
+.tool-sidebar .side-nav a i { margin-left: auto !important; color: #94a3b8 !important; font-size: 11px !important; font-style: normal !important; }
+.tool-sidebar .side-nav a > span:not(.side-nav-icon) { overflow: hidden !important; text-overflow: ellipsis !important; }
+/* 底部：p-3 border-t slate-100 space-y-2 */
+.tool-sidebar .side-secondary {
+  flex: 0 0 auto !important; position: static !important; margin: 0 !important; padding: 12px !important;
+  border-top: 1px solid #f1f5f9 !important; display: flex !important; flex-direction: column !important; gap: 8px !important;
+}
+.tool-sidebar .side-secondary .side-evo {
+  display: flex !important; align-items: center !important; gap: 10px !important;
+  padding: 8px 12px !important; border-radius: 12px !important;
+  font-size: 12px !important; font-weight: 500 !important; color: #475569 !important;
+  text-decoration: none !important; transition: background .15s !important;
+}
+.tool-sidebar .side-secondary .side-evo svg { width: 16px !important; height: 16px !important; color: #64748b !important; }
+.tool-sidebar .side-secondary .side-evo:hover { background: #f8fafc !important; }
+.tool-sidebar .side-secondary .side-settings-btn {
+  width: 100% !important; display: flex !important; align-items: center !important; justify-content: center !important;
+  gap: 8px !important; padding: 10px 12px !important; border-radius: 12px !important; border: 0 !important;
+  font-size: 12px !important; font-weight: 600 !important; color: #fff !important;
+  background: #0f172a !important; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05) !important;
+  cursor: pointer !important; text-decoration: none !important; transition: background .15s !important;
+  height: auto !important; min-height: 0 !important;
+}
+.tool-sidebar .side-secondary .side-settings-btn svg { width: 14px !important; height: 14px !important; color: #94a3b8 !important; }
+.tool-sidebar .side-secondary .side-settings-btn:hover { background: #1e293b !important; color: #fff !important; }
+.tool-sidebar .side-secondary .side-settings-btn.is-icon { width: 100% !important; }
+.side-login-btn { margin-top: 8px !important; height: 36px !important; display: flex !important; align-items: center !important; justify-content: center !important; background: #0f172a !important; color: #fff !important; border-radius: 12px !important; font-size: 12px !important; font-weight: 600 !important; text-decoration: none !important; }
+.side-login-btn:hover { background: #1e293b !important; color: #fff !important; }
+.tool-brand strong { display: inline-flex !important; align-items: center !important; line-height: 1.3 !important; margin: 0 !important; }
+.is-collapsed .tool-brand { padding: 12px 0 !important; justify-content: center !important; }
+.tool-brand strong { font-size: 14px !important; font-weight: 700 !important; color: #0f172a !important; white-space: nowrap !important; }
+.is-collapsed .tool-sidebar .side-nav a, .is-collapsed .tool-sidebar .side-secondary .side-settings-btn { justify-content: center !important; padding: 8px 0 !important; }
+.is-collapsed .tool-sidebar .side-nav a > span:not(.side-nav-icon), .is-collapsed .tool-sidebar .side-nav a i, .is-collapsed .side-group-title, .is-collapsed .side-login-btn, .is-collapsed .side-evo span, .is-collapsed .side-settings-btn span { display: none !important; }
 
 @media (max-width: 620px) {
   .tool-shell.precision-ui, .tool-shell,
   .tool-shell.precision-ui.is-collapsed, .tool-shell.is-collapsed { padding-left: 0 !important; }
   .precision-ui .tool-sidebar, .tool-sidebar { display: none !important; }
   .precision-ui .tool-content, .tool-content {
-    margin: 8px !important; height: calc(100vh - 16px) !important; max-height: calc(100vh - 16px) !important;
+    margin: 8px !important; height: auto !important; min-height: calc(100vh - 16px) !important; max-height: none !important; overflow: visible !important;
   }
 }
 

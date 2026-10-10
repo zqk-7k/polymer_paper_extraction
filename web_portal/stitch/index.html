@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PolymerLit Extractor - 高分子文献智能抽取</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for Custom Theme Settings -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Micro-Styling & Transitions -->
+<style data-purpose="custom-enhancements">
+    .step-node:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 36px;
+      bottom: -16px;
+      width: 2px;
+      background-color: #f1f5f9;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased font-sans min-h-screen flex flex-col md:flex-row">
+<!-- BEGIN: LeftSidebar -->
+<!-- Left-hand navigation sidebar preserving original taxonomy and navigation flow -->
+<aside class="w-full md:w-64 bg-white border-r border-slate-200/90 flex flex-col shrink-0 min-h-screen select-none" data-purpose="sidebar-navigation">
+<!-- Workspace Brand Header -->
+<div class="p-5 flex items-center justify-between border-b border-slate-100">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-100">
+<svg class="w-5 h-5" viewbox="0 0 32 32" fill="none">
+<path d="M7.5 6.5v19" stroke="#fff" stroke-width="3.4" stroke-linecap="round"></path>
+<path d="M7.5 6.5h6.8a4.9 4.9 0 0 1 0 9.8H7.5" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M19.5 8.2h6M19.5 16h5M19.5 23.8h6" stroke="#c7d2fe" stroke-width="3.4" stroke-linecap="round"></path>
+<path d="M19.5 8.2v15.6" stroke="#fff" stroke-width="3.4" stroke-linecap="round"></path>
+<circle cx="19.5" cy="8.2" r="2.1" fill="#fff"></circle>
+<circle cx="7.5" cy="25.5" r="2.1" fill="#c7d2fe"></circle>
+</svg>
+</div>
+<div>
+<div class="text-[15px] font-bold tracking-tight text-slate-900 flex items-center gap-1.5">
+            PolymerLit
+            <span class="text-xs font-semibold px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-600 border border-indigo-100/60">Extractor</span>
+</div>
+<div class="text-[11px] text-slate-400 font-normal">高分子文献智能抽取</div>
+</div>
+</div>
+<!-- Collapse Panel Toggle Button -->
+<button aria-label="收起侧边栏" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M11 19l-7-7 7-7m8 14l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Navigation Menu Items Group -->
+<div class="flex-1 py-4 px-3 space-y-6 overflow-y-auto custom-scroll">
+<!-- Group 1: 文献抽取 -->
+<div>
+<div class="px-3 pb-2 text-[11px] font-semibold tracking-wider text-slate-400 uppercase">文献抽取</div>
+<nav class="space-y-1">
+<!-- Active Item: 上传文献 -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium bg-indigo-50/80 text-indigo-600 shadow-sm border border-indigo-100/60 transition-all" href="#">
+<svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>上传文献</span>
+</a>
+<!-- Regular Item: 历史任务 -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>历史任务</span>
+</a>
+</nav>
+</div>
+<!-- Group 2: 结果浏览 -->
+<div>
+<div class="px-3 pb-2 text-[11px] font-semibold tracking-wider text-slate-400 uppercase">结果浏览</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>批处理结果</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>批次对照</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>样品详情</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Bottom Controls -->
+<div class="p-3 border-t border-slate-100 space-y-2">
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>最新进化结果</span>
+</a>
+<button class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm" type="button">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>系统设置</span>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainWorkbenchContent -->
+<!-- Two-column responsive workbench content container -->
+<main class="flex-1 p-4 lg:p-7 overflow-y-auto" data-purpose="workbench-content">
+<div class="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- BEGIN: LeftWorkbenchColumn -->
+<!-- Left Column: Task Creation & FAQ -->
+<section class="lg:col-span-6 space-y-6">
+<!-- Main Form Card: 新建抽取任务 -->
+<div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-6">
+<!-- Card Header -->
+<div class="flex items-center justify-between pb-4 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-sm shadow">
+<svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-base font-bold text-slate-900 leading-tight">新建抽取任务</h1>
+<p class="text-xs text-slate-500 mt-0.5">PDF · 最大 50 MB · 密码内存态不落盘</p>
+</div>
+</div>
+<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700 tracking-wider">01</span>
+</div>
+<!-- Step 1: 选择 PDF 文件 -->
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slate-900 text-white text-[11px] font-bold flex items-center justify-center">1</span>
+<span class="text-sm font-bold text-slate-800">选择 PDF 文件</span>
+</div>
+<!-- Upload Drop Area -->
+<div class="border-2 border-dashed border-indigo-200 hover:border-indigo-400 rounded-2xl p-7 bg-slate-50/60 hover:bg-indigo-50/20 text-center transition-all cursor-pointer">
+<div class="w-12 h-12 mx-auto rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md mb-3">
+<svg class="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-sm font-semibold text-slate-800">拖拽 PDF 到此处，或点击选择</p>
+<p class="text-xs text-slate-500 mt-1 mb-4">仅支持可读取文本的论文 PDF · 最大 50 MB</p>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-indigo-600 bg-white border border-indigo-200 rounded-xl hover:bg-indigo-50 transition-colors shadow-sm" type="button">
+                浏览文件
+              </button>
+</div>
+<div class="text-xs text-slate-400 bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+              尚未选择文件 — 选择后显示真实文件名与大小。
+            </div>
+</div>
+<!-- Step 2: 填写本次任务凭据 -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slate-900 text-white text-[11px] font-bold flex items-center justify-center">2</span>
+<span class="text-sm font-bold text-slate-800">填写本次任务凭据</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                内存态 · 不落盘
+              </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+<!-- DMX API Key Input -->
+<div>
+<label class="block text-xs font-semibold text-slate-600 mb-1.5" for="dmxKey">DMX API Key</label>
+<div class="relative">
+<input class="w-full text-xs font-mono rounded-xl border-slate-200 bg-slate-50/50 py-2.5 pl-3 pr-8 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all" id="dmxKey" placeholder="sk-..." type="password"/>
+<button aria-label="显示/隐藏密钥" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- MinerU API Key Input -->
+<div>
+<label class="block text-xs font-semibold text-slate-600 mb-1.5" for="mineruKey">MinerU API Key</label>
+<div class="relative">
+<input class="w-full text-xs font-mono rounded-xl border-slate-200 bg-slate-50/50 py-2.5 pl-3 pr-8 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all" id="mineruKey" placeholder="minerU-..." type="password"/>
+<button aria-label="显示/隐藏密钥" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<p class="text-[11px] text-slate-400 pt-0.5">输入两个密钥后方可提交，任务结束后内存清除。</p>
+</div>
+<!-- Step 3: 确认并提交 -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-slate-900 text-white text-[11px] font-bold flex items-center justify-center">3</span>
+<span class="text-sm font-bold text-slate-800">确认并提交</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-3">
+<!-- Primary Submission Button (Disabled default state as in screenshot) -->
+<button class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs text-slate-400 bg-slate-200 cursor-not-allowed transition-all" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>开始抽取</span>
+</button>
+<!-- Example Loader Button -->
+<button class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm" type="button">
+<span>加载已完成示例</span>
+</button>
+</div>
+<p class="text-xs text-slate-400">先选择 PDF 文件。</p>
+<!-- Security Notice Box -->
+<div class="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-500 text-xs">
+<svg class="w-4 h-4 text-slate-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>文件写入独立任务目录；请使用个人密钥并在服务商控制台核对用量。</span>
+</div>
+</div>
+</div>
+<!-- FAQ Section: 常见问题 -->
+<div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+<div class="border-b border-slate-100 pb-3">
+<h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+<svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+              常见问题
+            </h2>
+<p class="text-xs text-slate-400 mt-0.5">抽取失败先看这里</p>
+</div>
+<!-- FAQ Item 1 -->
+<div class="p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/50 space-y-1.5">
+<div class="text-xs font-semibold text-slate-900 flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-slate-900 text-white text-[10px] flex items-center justify-center font-bold">Q</span>
+              支持哪些论文？
+            </div>
+<p class="text-xs text-slate-500 pl-6 leading-relaxed">
+              英文聚合物 / 电介质 / 储能方向论文 PDF，优先选择出版商原版可复制文本文件。
+            </p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/50 flex items-center justify-between">
+<div class="text-xs font-semibold text-slate-900 flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-slate-900 text-white text-[10px] flex items-center justify-center font-bold">Q</span>
+              密钥会被保存吗？
+            </div>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- FAQ Item 3 -->
+<div class="p-3.5 rounded-xl border border-slate-200/80 bg-slate-50/50 flex items-center justify-between">
+<div class="text-xs font-semibold text-slate-900 flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-slate-900 text-white text-[10px] flex items-center justify-center font-bold">Q</span>
+              中途可以关闭页面吗？
+            </div>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</section>
+<!-- END: LeftWorkbenchColumn -->
+<!-- BEGIN: RightWorkbenchColumn -->
+<!-- Right Column: Pipeline Status & Expected Extraction Outputs -->
+<section class="lg:col-span-6 space-y-6">
+<!-- Pipeline Progress Card: 抽取流水线 -->
+<div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-6">
+<!-- Card Header -->
+<div class="flex items-center justify-between pb-4 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h2 class="text-base font-bold text-slate-900 leading-tight">抽取流水线</h2>
+<p class="text-xs text-slate-500 mt-0.5">提交后显示真实阶段状态</p>
+</div>
+</div>
+<span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-600 text-white tracking-wider">02</span>
+</div>
+<!-- Progress Percentage Block -->
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
+<div class="space-y-1">
+<span class="text-xs font-semibold text-slate-500">0 / 7 阶段完成</span>
+<div class="w-48 bg-slate-200 h-2 rounded-full overflow-hidden">
+<div class="bg-indigo-600 h-full w-0 rounded-full transition-all duration-500"></div>
+</div>
+</div>
+<div class="text-2xl font-black text-slate-800">0%</div>
+</div>
+<!-- Detailed 7 Pipeline Stages -->
+<div class="space-y-4 pt-1">
+<!-- Stage 1 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">1</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">文档解析与加载</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Document Parsing</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">解析 PDF、表格、图片、页码和版面块</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+<!-- Stage 2 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">2</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">材料指标识别</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Material Mention</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">定位聚合物、添加剂、缩写和商品名</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+<!-- Stage 3 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">3</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">聚合物实体归一</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Entity Resolution</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">统一名称并保留无法确定的歧义</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+<!-- Stage 4 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">4</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">样品与加工过程</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Sample &amp; Process</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">恢复样品、配方及过程输入输出关系</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+<!-- Stage 5 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">5</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">性质与测量条件</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Property Extraction</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">抽取性质、单位、方法和测试条件</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+<!-- Stage 6 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">6</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">表征与证据绑定</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Characterization</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">记录表征结果并绑定原文证据</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+<!-- Stage 7 -->
+<div class="relative flex items-start justify-between step-node">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full border border-slate-200 bg-white text-slate-500 font-semibold text-xs flex items-center justify-center shrink-0">7</span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-slate-800">候选结果构建</span>
+<span class="text-[10px] font-medium text-slate-400 border border-slate-200 px-1.5 py-0.2 rounded">Result Building</span>
+</div>
+<p class="text-xs text-slate-400 mt-0.5">汇总候选 JSON、警告和可审核记录</p>
+</div>
+</div>
+<span class="text-[11px] font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">等待中</span>
+</div>
+</div>
+<!-- Bottom Idle State Banner -->
+<div class="bg-slate-50/70 border border-dashed border-slate-200 rounded-xl p-3 text-center text-xs text-slate-400">
+            暂无运行中的任务 — 左侧上传并开始抽取。
+          </div>
+</div>
+<!-- Extraction Outcomes Card: 本次抽取将得到什么 -->
+<div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+<!-- Card Header -->
+<div class="border-b border-slate-100 pb-3">
+<h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+<svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+              本次抽取将得到什么
+            </h3>
+<p class="text-xs text-slate-400 mt-0.5">结构化聚合结果 · 可直接进入审核</p>
+</div>
+<!-- 4 Grid Feature Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
+<!-- Result Feature 1: 聚合物档案 -->
+<div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition-colors flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-indigo-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="space-y-0.5">
+<div class="text-xs font-bold text-slate-900">聚合物档案</div>
+<div class="text-[11px] text-slate-500">名称 / 缩写 / SMILES / 分子量 / 分子式</div>
+</div>
+</div>
+<!-- Result Feature 2: 样品卡片 -->
+<div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition-colors flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="space-y-0.5">
+<div class="text-xs font-bold text-slate-900">样品卡片</div>
+<div class="text-[11px] text-slate-500">配比 / 加工条件 / 厚度 / 测试方法</div>
+</div>
+</div>
+<!-- Result Feature 3: 性能数据点 -->
+<div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition-colors flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-violet-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="space-y-0.5">
+<div class="text-xs font-bold text-slate-900">性能数据点</div>
+<div class="text-[11px] text-slate-500">介电 / 击穿 / 能量密度 · 含数值与单位</div>
+</div>
+</div>
+<!-- Result Feature 4: 溯源定位 -->
+<div class="p-3.5 rounded-xl border border-slate-100 bg-slate-50/70 hover:bg-slate-50 transition-colors flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="space-y-0.5">
+<div class="text-xs font-bold text-slate-900">溯源定位</div>
+<div class="text-[11px] text-slate-500">每条记录保留原文页码与表格编号</div>
+</div>
+</div>
+</div>
+<!-- Bottom Time Estimate Footnote -->
+<div class="pt-1 flex items-center gap-1.5 text-[11px] text-slate-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>典型论文约 3-8 分钟</span>
+</div>
+</div>
+</section>
+<!-- END: RightWorkbenchColumn -->
+</div>
+</main>
+<!-- END: MainWorkbenchContent -->
+</body></html>

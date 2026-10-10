@@ -1,5 +1,5 @@
 
-import { AlertTriangle, ArrowLeft, CheckCircle2, Download, FileSearch, FileUp, FlaskConical, GitBranchPlus, GitCompareArrows, History as HistoryIcon, Layers3, PanelLeftClose } from "lucide-react";
+import { AlertTriangle, ArrowLeft, CheckCircle2, Download, FileSearch } from "lucide-react";
 import { Button, ConfigProvider, Space, Tag, Tooltip, message } from "antd";
 import zhCN from "antd/locale/zh_CN";
 import { Link, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from "react-router-dom";
@@ -39,11 +39,11 @@ function AppShell() {
     : candidate ? displayPaperTitle(candidate.paper, "抽取结果") : "抽取结果";
 
   const navItems = [
-    { key: "upload", label: "上传文献", icon: FileUp, href: "/upload" },
-    { key: "history", label: "历史任务", icon: HistoryIcon, href: "/history" },
-    { key: "batch", label: "批处理结果", icon: Layers3, href: "/batch" },
-    { key: "polyinfo", label: "批次对照", icon: GitCompareArrows, href: "/polyinfo" },
-    { key: "sample", label: "样品详情", icon: FlaskConical, href: "/sample" },
+    { key: "upload", label: "上传文献", path: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12", href: "/upload" },
+    { key: "history", label: "历史任务", path: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", href: "/history" },
+    { key: "batch", label: "批处理结果", path: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10", href: "/batch" },
+    { key: "polyinfo", label: "批次对照", path: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4", href: "/polyinfo" },
+    { key: "sample", label: "样品详情", path: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z", href: "/sample" },
   ];
   const isActive = (key: string) => segment === key;
 
@@ -87,56 +87,90 @@ function AppShell() {
     >
       {contextHolder}
       <div className={`tool-shell precision-ui no-topbar ${collapsed ? "is-collapsed" : ""}`}>
-        <aside className="tool-sidebar">
+        <aside className="tool-sidebar" data-purpose="sidebar-navigation">
           <div className="tool-brand">
-            {collapsed ? (
-              <button className="brand-symbol as-toggle" aria-label="展开侧栏" title="展开侧栏" onClick={() => setCollapsed(false)}>
-                <img src={logoUrl} alt="PolymerLit logo" width={30} height={30} />
-              </button>
-            ) : (
-              <div className="brand-symbol"><img src={logoUrl} alt="PolymerLit logo" width={30} height={30} /></div>
-            )}
+            <div className="brand-id">
+              {collapsed ? (
+                <button type="button" className="brand-mark as-toggle" aria-label="展开侧边栏" title="展开侧边栏" onClick={() => setCollapsed(false)}>
+                  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <path d="M7.5 6.5v19" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" />
+                    <path d="M7.5 6.5h6.8a4.9 4.9 0 0 1 0 9.8H7.5" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M19.5 8.2h6M19.5 16h5M19.5 23.8h6" stroke="#c7d2fe" strokeWidth="3.4" strokeLinecap="round" />
+                    <path d="M19.5 8.2v15.6" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" />
+                    <circle cx="19.5" cy="8.2" r="2.1" fill="#fff" />
+                    <circle cx="7.5" cy="25.5" r="2.1" fill="#c7d2fe" />
+                  </svg>
+                </button>
+              ) : (
+                <span className="brand-mark" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                    <path d="M7.5 6.5v19" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" />
+                    <path d="M7.5 6.5h6.8a4.9 4.9 0 0 1 0 9.8H7.5" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M19.5 8.2h6M19.5 16h5M19.5 23.8h6" stroke="#c7d2fe" strokeWidth="3.4" strokeLinecap="round" />
+                    <path d="M19.5 8.2v15.6" stroke="#fff" strokeWidth="3.4" strokeLinecap="round" />
+                    <circle cx="19.5" cy="8.2" r="2.1" fill="#fff" />
+                    <circle cx="7.5" cy="25.5" r="2.1" fill="#c7d2fe" />
+                  </svg>
+                </span>
+              )}
+              {!collapsed && (
+                <span className="brand-text">
+                  <strong className="brand-name">PolymerLit <em>Extractor</em></strong>
+                  <span className="brand-sub">高分子文献智能抽取</span>
+                </span>
+              )}
+            </div>
             {!collapsed && (
-              <div className="brand-title">
-                <strong className="brand-name">PolymerLit <em>Extractor</em></strong>
-                <span className="brand-sub">高分子文献智能抽取</span>
-              </div>
-            )}
-            {!collapsed && (
-              <button className="brand-collapse" aria-label="收起侧栏" onClick={() => setCollapsed(true)}>
-                <PanelLeftClose size={18} />
+              <button className="brand-collapse" aria-label="收起侧边栏" title="收起侧边栏" onClick={() => setCollapsed(true)}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d="M11 19l-7-7 7-7m8 14l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </button>
             )}
           </div>
-          <nav className="side-nav" aria-label="主导航">
-            {!collapsed && <p className="side-group-title">文献抽取</p>}
-            {navItems.slice(0, 2).map((item) => {
-              const Icon = item.icon;
-              const active = isActive(item.key);
-              return (
-                <Link key={item.key} to={item.href} className={active ? "active" : ""} title={item.label}>
-                  <span className={`side-nav-icon side-nav-icon-${item.key}`} aria-hidden="true"><Icon size={17} strokeWidth={2} /></span>
-                  {!collapsed && <span>{item.label}</span>}
-                </Link>
-              );
-            })}
-            {!collapsed && <p className="side-group-title">结果浏览</p>}
-            {navItems.slice(2).map((item) => {
-              const Icon = item.icon;
-              const active = isActive(item.key);
-              return (
-                <Link key={item.key} to={item.href} className={active ? "active" : ""} title={item.label}>
-                  <span className={`side-nav-icon side-nav-icon-${item.key}`} aria-hidden="true"><Icon size={17} strokeWidth={2} /></span>
-                  {!collapsed && <span>{item.label}</span>}
-                  {!collapsed && item.key === "sample" && !candidate && <i>待生成</i>}
-                </Link>
-              );
-            })}
+          <nav className="side-nav custom-scroll" aria-label="主导航">
+            <div className="side-group">
+              {!collapsed && <p className="side-group-title">文献抽取</p>}
+              <div className="side-links">
+                {navItems.slice(0, 2).map((item) => {
+                  const active = isActive(item.key);
+                  return (
+                    <Link key={item.key} to={item.href} className={active ? "active" : ""} title={item.label}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d={item.path} strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      {!collapsed && <span>{item.label}</span>}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="side-group">
+              {!collapsed && <p className="side-group-title">结果浏览</p>}
+              <div className="side-links">
+                {navItems.slice(2).map((item) => {
+                  const active = isActive(item.key);
+                  return (
+                    <Link key={item.key} to={item.href} className={active ? "active" : ""} title={item.label}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d={item.path} strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      {!collapsed && <span>{item.label}</span>}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </nav>
           <div className="side-secondary">
-            <Button type="text" href={`${API_BASE}/api/reports/evolution`} target="_blank" title="最新进化版本与实验结果" icon={<GitBranchPlus size={17} strokeWidth={2} />}>{!collapsed && "最新进化结果"}</Button>
-            {/* <button title="系统设置"><Settings size={16} strokeWidth={1.8} />{!collapsed && <span>系统设置</span>}</button> */}
-            {!collapsed && <Link to="/upload" className="side-login-btn" title="系统设置" onClick={(e) => { e.preventDefault(); message.info("系统设置功能正在开发中，敬请期待"); }}>系统设置</Link>}
+            <a className="side-evo" href={`${API_BASE}/api/reports/evolution`} target="_blank" rel="noreferrer" title="最新进化版本与实验结果">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              {!collapsed && <span>最新进化结果</span>}
+            </a>
+            {!collapsed ? (
+              <Link to="/upload" className="side-settings-btn" title="系统设置" onClick={(e) => { e.preventDefault(); message.info("系统设置功能正在开发中，敬请期待"); }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" strokeLinecap="round" strokeLinejoin="round" /><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                <span>系统设置</span>
+              </Link>
+            ) : (
+              <button type="button" className="side-settings-btn is-icon" title="系统设置" onClick={() => message.info("系统设置功能正在开发中，敬请期待")}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" strokeLinecap="round" strokeLinejoin="round" /><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </button>
+            )}
           </div>
         </aside>
 
@@ -175,7 +209,7 @@ function AppShell() {
         </main>
 
         <nav className="mobile-nav" aria-label="移动端导航">
-          {navItems.map((item) => { const Icon = item.icon; return <Link key={item.key} to={item.href} className={isActive(item.key) ? "active" : ""}><span className={`side-nav-icon side-nav-icon-${item.key}`} aria-hidden="true"><Icon size={18} strokeWidth={2} /></span><span>{item.label}</span></Link>; })}
+          {navItems.map((item) => { return <Link key={item.key} to={item.href} className={isActive(item.key) ? "active" : ""}><svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path d={item.path} strokeLinecap="round" strokeLinejoin="round" /></svg><span>{item.label}</span></Link>; })}
         </nav>
       </div>
 
