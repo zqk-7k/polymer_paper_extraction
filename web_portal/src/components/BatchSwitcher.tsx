@@ -1,6 +1,7 @@
 import { Empty, Input, Popover } from "antd";
 import { Check, ChevronDown, Layers3, Search } from "lucide-react";
-import { useMemo, useState } from "react";
+import type { InputRef } from "antd";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { BatchCollectionSummary } from "../types";
 
 export default function BatchSwitcher({
@@ -16,6 +17,13 @@ export default function BatchSwitcher({
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const searchRef = useRef<InputRef>(null);
+  useEffect(() => {
+    if (open) {
+      const timer = window.setTimeout(() => searchRef.current?.focus(), 0);
+      return () => window.clearTimeout(timer);
+    }
+  }, [open]);
   const active =
     collections.find((item) => item.collection_id === value) ??
     collections.find((item) => item.is_active) ??
@@ -38,13 +46,13 @@ export default function BatchSwitcher({
         <span className="batch-switcher-count">{collections.length}</span>
       </div>
       <Input
+        ref={searchRef}
         className="batch-switcher-search"
         prefix={<Search size={14} />}
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="搜索批次编号或日期"
         allowClear
-        autoFocus
       />
       <div className="batch-switcher-list" role="listbox" aria-label="数据批次">
         {filtered.length ? filtered.map((item) => {
