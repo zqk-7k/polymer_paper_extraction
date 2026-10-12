@@ -50,7 +50,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
         <section className="ucard input-card submit-card">
           <div className="ucard-head">
             <div className="ucard-title">
-              <span className="title-icon dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+              <span className="title-icon light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
               <div className="ucard-titles"><h3>新建抽取任务</h3><p>PDF · 最大 50 MB · 密钥内存态不落盘</p></div>
             </div>
             <span className="step-chip">01</span>

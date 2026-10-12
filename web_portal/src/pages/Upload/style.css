@@ -185,15 +185,9 @@
 /* 下方补充区：两卡，与上方双卡同列宽对齐 */
 .upload-extra { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: stretch; }
 .upload-extra .ucard { display: flex; flex-direction: column; height: 100%; }
-.ucard-title { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 auto; }
-.ucard-titles { min-width: 0; flex: 1 1 auto; }
-.ucard-titles h3 { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.35; color: #131c26; }
-.ucard-titles p { margin: 2px 0 0 !important; line-height: 1.5; }
-.upload-page .title-icon { display: grid !important; place-items: center !important; flex: 0 0 36px !important; width: 36px !important; min-width: 36px !important; max-width: 36px !important; height: 36px !important; min-height: 36px !important; max-height: 36px !important; line-height: 0 !important; box-sizing: border-box !important; align-self: center !important; border-radius: 12px !important; margin-right: 0 !important; vertical-align: initial !important;  }
-.upload-page .title-icon svg { width: 20px !important; height: 20px !important; flex: 0 0 auto !important; display: block !important; margin: 0 !important; padding: 0 !important; }
-.upload-page .title-icon.dark { background: #131c26 !important; color: #818cf8 !important; border: 0 !important; }
-.upload-page .title-icon.dark svg { color: #818cf8 !important; }
-.upload-page .title-icon.light { background: #eef2ff !important; border: 1px solid #e0e7ff !important; color: #4f46e5 !important; box-shadow: none !important; }
+/* ucard-title / ucard-titles / title-icon 已收归 index.css 全站公共样式，此处仅保留 upload 特有的 dark 变体 */
+.title-icon.dark { background: #131c26 !important; color: #818cf8 !important; border: 0 !important; }
+.title-icon.dark svg { color: #818cf8 !important; }
 .step-chip { flex: 0 0 auto; align-self: center; font-size: 12px; font-weight: 600; letter-spacing: .02em; color: #334155; background: #f1f5f9; border: 0; border-radius: 999px; padding: 4px 10px; box-shadow: none; }
 .pipe-card .step-chip { background: #4f46e5; color: #fff; box-shadow: none; }
 /* 下方补充区标题：去掉背景方块，对齐 stitch：icon 与标题同行，p 缩进与 icon 对齐 */
@@ -203,7 +197,6 @@
 .faq-card .extra-titles h3 svg { color: #475569; }
 .output-card .extra-titles h3 svg { color: #4f46e5; }
 .extra-titles p { margin: 2px 0 0 24px !important; line-height: 1.5; font-size: 12px; color: #94a3b8; }
-.ucard-titles h3, .ucard-titles p { text-align: left; }
 .mem-pill { display: inline-flex; align-items: center; gap: 4px; font-style: normal; font-size: 11px; font-weight: 500; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 999px; padding: 2px 8px; }
 .mem-pill i { width: 6px; height: 6px; border-radius: 50%; background: #10b981; }
 .output-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; align-content: start; }

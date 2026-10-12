@@ -3,7 +3,7 @@
 import { Button, Input, Progress, Skeleton, Space, Table, Tabs, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import type React from "react";
-import { Anchor, Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, Workflow } from "lucide-react";
+import { Anchor, Beaker, Check, Database, FileSearch, GitBranch, RefreshCw, Search, ShieldCheck, TableProperties, TrendingUp, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { BatchCollectionSummary, BatchResultSummary, PolyInfoSummary } from "../../types";
 import { API_BASE } from "../../types";
@@ -142,22 +142,22 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       </Space>
     </section>}
     <section className="metric-strip polyinfo-metrics">
-      <Metric icon={<ShieldCheck size={19} />} label="锚点 F1" value={`${(activeCollection.anchor.f1 * 100).toFixed(1)}%`} tone="ink" />
-      <Metric icon={<Check size={19} />} label="数值一致" value={activeCollection.anchor.matched} tone="ink" />
-      <Metric icon={<Beaker size={19} />} label="样品绑定" value={`${(activeCollection.quality.sample_binding_coverage * 100).toFixed(1)}%`} tone="ink" />
-      <Metric icon={<FileSearch size={19} />} label="证据绑定" value={`${(activeCollection.quality.evidence_coverage * 100).toFixed(1)}%`} tone="ink" />
-      <Metric icon={<Database size={19} />} label="配对文献" value={`${activeCollection.paired_documents}/${activeCollection.document_count}`} tone="ink" />
+      <Metric icon={<ShieldCheck size={19} />} label="锚点 F1" value={`${(activeCollection.anchor.f1 * 100).toFixed(1)}%`} tone="blue" />
+      <Metric icon={<Check size={19} />} label="数值一致" value={activeCollection.anchor.matched} tone="green" />
+      <Metric icon={<Beaker size={19} />} label="样品绑定" value={`${(activeCollection.quality.sample_binding_coverage * 100).toFixed(1)}%`} tone="violet" />
+      <Metric icon={<FileSearch size={19} />} label="证据绑定" value={`${(activeCollection.quality.evidence_coverage * 100).toFixed(1)}%`} tone="cyan" />
+      <Metric icon={<Database size={19} />} label="配对文献" value={`${activeCollection.paired_documents}/${activeCollection.document_count}`} tone="orange" />
     </section>
     <div className="quality-analysis-grid">
       <section className="work-panel quality-analysis-panel">
-        <div className="analysis-panel-heading"><div><strong><span className="title-icon"><Anchor size={15} /></span>PoLyInfo 锚点一致性</strong><span>名称规范化、单位换算和 1% 数值容差后的记录级比较</span></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
+        <div className="analysis-panel-heading"><div className="ucard-title"><span className="title-icon"><Anchor size={15} /></span><div className="ucard-titles"><h3>PoLyInfo 锚点一致性</h3><p>名称规范化、单位换算和 1% 数值容差后的记录级比较</p></div></div><Tag color="blue">REFERENCE-ALIGNED</Tag></div>
         <ScoreBar label="Precision" value={activeCollection.anchor.precision} color="#3f6fb5" />
         <ScoreBar label="Recall" value={activeCollection.anchor.recall} color="#2f9e8f" />
         <ScoreBar label="F1" value={activeCollection.anchor.f1} color="#6f6aa8" />
         <div className="alignment-summary compact"><span className="matched"><b>{activeCollection.anchor.matched}</b>数值一致</span><span className="different"><b>{activeCollection.anchor.value_diff}</b>同名值不同</span><span className="pi-only"><b>{activeCollection.anchor.polyinfo_only}</b>仅 PoLyInfo</span><span className="web-only"><b>{activeCollection.anchor.extraction_only}</b>仅本批次</span></div>
       </section>
       <section className="work-panel quality-analysis-panel">
-        <div className="analysis-panel-heading"><div><strong><span className="title-icon"><Database size={15} /></span>候选记录完整度</strong><span>检查关系和证据是否存在，不等同于人工确认其语义正确</span></div><Tag color="green">PIPELINE QUALITY</Tag></div>
+        <div className="analysis-panel-heading"><div className="ucard-title"><span className="title-icon"><Database size={15} /></span><div className="ucard-titles"><h3>候选记录完整度</h3><p>检查关系和证据是否存在，不等同于人工确认其语义正确</p></div></div><Tag color="green">PIPELINE QUALITY</Tag></div>
         <ScoreBar label="性质绑定合法样品" value={activeCollection.quality.sample_binding_coverage} color="#2f9e8f" />
         <ScoreBar label="性质绑定原文证据" value={activeCollection.quality.evidence_coverage} color="#3f6fb5" />
         <ScoreBar label="单位字段完整" value={activeCollection.quality.unit_completeness} color="#6f6aa8" />
@@ -165,7 +165,7 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       </section>
     </div>
     <section className="work-panel stage-evolution-panel">
-      <div className="analysis-panel-heading"><div><strong><span className="title-icon"><GitBranch size={15} /></span>当前批次的阶段变化</strong><span>同一批次从 Stage 4 原始抽取到 Stage 4R 恢复、候选汇总和 Stage 6 发布</span></div><Tag>{activeCollection.strict_compliance_claimed ? "STRICT" : "PREVIEW"}</Tag></div>
+      <div className="analysis-panel-heading"><div className="ucard-title"><span className="title-icon"><GitBranch size={15} /></span><div className="ucard-titles"><h3>当前批次的阶段变化</h3><p>同一批次从 Stage 4 原始抽取到 Stage 4R 恢复、候选汇总和 Stage 6 发布</p></div></div><Tag>{activeCollection.strict_compliance_claimed ? "STRICT" : "PREVIEW"}</Tag></div>
       <ol className="stage-flow">
         {[
           { key: "s4", index: "01", name: "Stage 4 · 初始抽取", value: activeCollection.stage.stage4_pre_properties, foot: "LLM / 规则初始结果" },
@@ -205,13 +205,13 @@ function PolyInfoResultsPage({ loading, rows, batchResults, batchCollections, se
       <span className="evolution-notice-tag">READING GUIDE</span>
     </div>
     <section className="work-panel batch-evolution-panel">
-      <div className="polyinfo-table-toolbar"><div><strong>生产与审阅批次的质量演进</strong><span>不同文献集合的记录级指标不可直接当作同一测试集的提升；审阅批次单独标记，逐篇差异可在下一页核查。</span></div><Tag color="blue">{batchCollections.length} 批次</Tag></div>
+      <div className="polyinfo-table-toolbar"><div className="ucard-title"><span className="title-icon"><TrendingUp size={15} /></span><div className="ucard-titles"><h3>生产与审阅批次的质量演进</h3><p>不同文献集合的记录级指标不可直接当作同一测试集的提升；审阅批次单独标记，逐篇差异可在下一页核查。</p></div></div><Tag color="blue">{batchCollections.length} 批次</Tag></div>
       <Table rowKey="collection_id" columns={evolutionColumns} dataSource={showEvolutionSkeleton ? evolutionSkeletonRows : batchCollections} pagination={showEvolutionSkeleton ? false : zhPagination()} scroll={{ x: 1500 }} />
     </section>
   </div>;
 
   const paperDetails = <section className="work-panel polyinfo-table-panel">
-    <div className="polyinfo-table-toolbar"><div><strong>真实 PoLyInfo 文献记录</strong><span>当前显示 {filtered.length} / {rows.length} 篇；逐篇查看聚合物、样品、性质和原始字段差异。</span></div><Input value={search} onChange={(event) => setSearch(event.target.value)} prefix={<Search size={15} />} placeholder="搜索 reference_no、DOI、期刊或聚合物" allowClear /></div>
+    <div className="polyinfo-table-toolbar"><div className="ucard-title"><span className="title-icon"><TableProperties size={15} /></span><div className="ucard-titles"><h3>真实 PoLyInfo 文献记录</h3><span>当前显示 {filtered.length} / {rows.length} 篇；逐篇查看聚合物、样品、性质和原始字段差异。</span></div></div><Input value={search} onChange={(event) => setSearch(event.target.value)} prefix={<Search size={15} />} placeholder="搜索 reference_no、DOI、期刊或聚合物" allowClear /></div>
     <Table rowKey="ref_no" columns={columns} dataSource={showPaperSkeleton ? paperSkeletonRows : filtered} pagination={showPaperSkeleton ? false : zhPagination({ pageSize: 12, showSizeChanger: false })} scroll={{ x: 1280 }} rowClassName={(item) => !isSkeleton(item) && (item as PolyInfoSummary).has_batch_result ? "polyinfo-linked-row" : ""} locale={{ emptyText: <Empty description="没有读取到 PoLyInfo 原始记录" /> }} />
   </section>;
 

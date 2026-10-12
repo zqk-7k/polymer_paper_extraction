@@ -83,12 +83,7 @@
 .ant-table-wrapper.ant-table-wrapper-loading .ant-table-tbody > tr > td { background-image: linear-gradient(90deg,#eef1f5 25%,#e2e7ee 37%,#eef1f5 63%) !important; background-size: 400% 100% !important; animation: table-skeleton 1.4s ease infinite !important; color: transparent !important; }
 .ant-table-wrapper.ant-table-wrapper-loading .ant-table-tbody > tr > td * { visibility: hidden !important; }
 @keyframes table-skeleton { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
-/* identity header: bordered + centered per screenshot */
-.polymer-identity-panel.ucard .ucard-head { border: 1px solid #e6e9ee !important; border-radius: 12px !important; background: #fbfcfd !important; justify-content: center !important; text-align: center !important; padding: 16px 20px !important; }
-.polymer-identity-panel.ucard .ucard-head > div { display: flex !important; flex-direction: column !important; align-items: center !important; }
-.polymer-identity-panel.ucard .ucard-head h3, .polymer-identity-panel.ucard .ucard-head p { text-align: center !important; max-width: none !important; }
-.polymer-identity-panel.ucard .ucard-head .step-chip { display: none !important; }
-
+/* identity header：复用全站 ucard-title，不再另起字号字重 */
 /* Identity card: a clear two-step reading order — identify the structure, then verify its metadata. */
 .polymer-page .polymer-identity-panel.ucard {
   display: block;
@@ -115,15 +110,11 @@
   text-align: left !important;
 }
 
-.polymer-page .polymer-identity-panel.ucard .ucard-head > div {
+.polymer-page .polymer-identity-panel.ucard .ucard-head > div:not(.ucard-title) {
   display: block !important;
   text-align: left !important;
   align-items: initial !important;
 }
-
-.identity-kicker { display: block; margin-bottom: 5px; color: #55708e; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
-.polymer-page .polymer-identity-panel .ucard-head h3 { margin: 0 !important; color: #17263a; font-size: 20px; line-height: 1.25; text-align: left !important; }
-.polymer-page .polymer-identity-panel .ucard-head p { margin: 5px 0 0 !important; color: #69778a; font-size: 12px; line-height: 1.5; text-align: left !important; }
 .identity-status { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; color: #28684b; background: #edf8f1; border: 1px solid #ccebd8; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
 .identity-status i { width: 7px; height: 7px; display: block; border-radius: 50%; background: #27a269; box-shadow: 0 0 0 3px rgba(39,162,105,.12); }
 
@@ -166,5 +157,4 @@
 .polymer-page .ant-btn-primary{ background:#4f46e5 !important; border-color:#4f46e5 !important; box-shadow:0 4px 12px rgba(79,70,229,.25) !important; }
 .polymer-page .ant-btn-primary:not(:disabled):hover{ background:#4338ca !important; border-color:#4338ca !important; }
 .identity-status{ color:#4338ca !important; background:#eef2ff !important; border-color:#c7d2fe !important; } .identity-status i{ background:#4f46e5 !important; box-shadow:0 0 0 3px rgba(79,70,229,.14) !important; }
-.identity-kicker{ color:#6366f1 !important; }
 .ant-pagination .ant-pagination-item-active{ border-color:#4f46e5 !important; } .ant-pagination .ant-pagination-item-active a{ color:#4f46e5 !important; }

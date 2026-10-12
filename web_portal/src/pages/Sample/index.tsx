@@ -74,7 +74,7 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
       </section>
 
       <section className="ucard sample-process-panel">
-        <div className="ucard-head"><div><h3><span className="title-icon"><Workflow size={15} /></span>工艺与样品谱系</h3><p>按工艺顺序展示当前样品的上游输入与下游输出 · {relatedProcessSteps.length} steps</p></div><span className="lineage-legend"><i className="lg-in" />输入<i className="lg-cur" />当前<i className="lg-out" />输出</span></div>
+        <div className="ucard-head"><div className="ucard-title"><span className="title-icon"><Workflow size={15} /></span><div className="ucard-titles"><h3>工艺与样品谱系</h3><p>按工艺顺序展示当前样品的上游输入与下游输出 · {relatedProcessSteps.length} steps</p></div></div><span className="lineage-legend"><i className="lg-in" />输入<i className="lg-cur" />当前<i className="lg-out" />输出</span></div>
         {relatedProcessSteps.length ? <div className="lineage-rail">{relatedProcessSteps.map((step, idx) => {
           const isProduced = step.output_sample_ids.includes(sample.sample_id);
           const isConsumed = step.input_sample_ids.includes(sample.sample_id);
@@ -103,7 +103,7 @@ function SamplePage({ candidate, selectedId, pdfUrl, onExport, onEvidence, onSam
       </section>
 
       <section className="ucard sample-property-table">
-        <div className="ucard-head"><div><h3><span className="title-icon"><Gauge size={15} /></span>性质数据</h3><p>每条性质保留数值、单位、测量语境、置信度与原文证据 · {properties.length} records</p></div></div>
+        <div className="ucard-head"><div className="ucard-title"><span className="title-icon"><Gauge size={15} /></span><div className="ucard-titles"><h3>性质数据</h3><p>每条性质保留数值、单位、测量语境、置信度与原文证据 · {properties.length} records</p></div></div></div>
         {properties.length ? <Table rowKey="property_id" columns={propertyColumns} dataSource={properties} pagination={zhPagination({ pageSize: 10, hideOnSinglePage: true })} scroll={{ x: 1080 }} /> : <Empty description="本次性质阶段未生成可用观测" />}
       </section>
     </div>

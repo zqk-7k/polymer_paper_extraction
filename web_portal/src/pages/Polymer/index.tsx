@@ -31,10 +31,9 @@ function PolymerPage({ candidate, entityId, pdfUrl, onExport, onBack, onSample }
     
     <section className="ucard polymer-identity-panel">
       <div className="ucard-head">
-        <div>
-          <span className="identity-kicker">ENTITY PROFILE</span>
-          <h3><span className="title-icon"><Atom size={15} /></span>聚合物身份</h3>
-          <p>先确认这是哪个聚合物实体，再查看它关联的样品和性质。</p>
+        <div className="ucard-title">
+          <span className="title-icon"><Atom size={15} /></span>
+          <div className="ucard-titles"><span className="ucard-kicker">ENTITY PROFILE</span><h3>聚合物身份</h3><p>先确认这是哪个聚合物实体，再查看它关联的样品和性质。</p></div>
         </div>
         <span className="identity-status"><i />已识别实体</span>
       </div>
@@ -58,7 +57,7 @@ function PolymerPage({ candidate, entityId, pdfUrl, onExport, onBack, onSample }
       </div>
     </section>
     
-    <section className="ucard polymer-sample-table"><div className="ucard-head"><div><h3><span className="title-icon"><TestTubes size={15} /></span>样品列表</h3><p>Number of data points: {samples.length} · PID = {systemPid(entity)}</p></div></div><div className="polymer-table-wrap"><Table rowKey="sample_id" columns={columns} dataSource={samples} pagination={zhPagination({ pageSize: 10, hideOnSinglePage: true })} scroll={{ x: 1040 }} locale={{ emptyText: <Empty description="该聚合物尚未绑定样品" /> }} /></div></section>
+    <section className="ucard polymer-sample-table"><div className="ucard-head"><div className="ucard-title"><span className="title-icon"><TestTubes size={15} /></span><div className="ucard-titles"><h3>样品列表</h3><p>Number of data points: {samples.length} · PID = {systemPid(entity)}</p></div></div></div><div className="polymer-table-wrap"><Table rowKey="sample_id" columns={columns} dataSource={samples} pagination={zhPagination({ pageSize: 10, hideOnSinglePage: true })} scroll={{ x: 1040 }} locale={{ emptyText: <Empty description="该聚合物尚未绑定样品" /> }} /></div></section>
   </div>;
 }
 

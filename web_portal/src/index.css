@@ -25,20 +25,32 @@
   --title-icon-fg: #38414f;
 }
 
-/* —— 卡片标题图标：全站统一的克制型 title-icon —— */
+/* —— 卡片标题：全站统一为 upload 页 ucard-title 标准 ——
+   div.ucard-title > span.title-icon + div.ucard-titles > h3 + p；
+   h3 16px/650，p 与 h3 左对齐；图标 36px 圆角12，底 #eef2ff，图标 #4f46e5 */
+.ucard-title { display: flex !important; align-items: center !important; gap: 12px !important; min-width: 0 !important; flex: 1 1 auto !important; }
+.ucard-titles { min-width: 0 !important; flex: 1 1 auto !important; }
+.ucard-titles h3 { margin: 0 !important; font-size: 16px !important; font-weight: 650 !important; line-height: 1.35 !important; color: #131c26 !important; text-align: left !important; }
+.ucard-titles h3 .title-icon { margin-right: 0 !important; }
+.ucard-titles p { margin: 2px 0 0 !important; line-height: 1.5 !important; font-size: 12.5px !important; color: #6b7686 !important; text-align: left !important; }
+.ucard-titles .ucard-kicker { display: block !important; margin-bottom: 2px !important; font-size: 10.5px !important; font-weight: 700 !important; letter-spacing: .08em !important; color: #8a94a6 !important; }
 .title-icon {
-  flex: 0 0 28px !important; width: 28px !important; height: 28px !important;
-  display: inline-flex !important; align-items: center !important; justify-content: center !important;
-  border-radius: 8px; line-height: 1 !important;
-  background: var(--title-icon-bg); color: var(--title-icon-fg);
-  border: 1px solid #e2e7ee; vertical-align: middle !important;
+  flex: 0 0 36px !important; width: 36px !important; min-width: 36px !important; max-width: 36px !important;
+  height: 36px !important; min-height: 36px !important; max-height: 36px !important;
+  display: inline-grid !important; place-items: center !important; align-self: center !important;
+  border-radius: 12px !important; line-height: 0 !important; box-sizing: border-box !important;
+  background: #eef2ff !important; color: #4f46e5 !important;
+  border: 1px solid #e0e7ff !important; box-shadow: none !important; vertical-align: initial !important;
 }
-.title-icon svg { display: block !important; width: 15px !important; height: 15px !important; margin: 0 !important; padding: 0 !important; flex: 0 0 auto !important; }
+.title-icon svg { display: block !important; width: 20px !important; height: 20px !important; margin: 0 !important; padding: 0 !important; flex: 0 0 auto !important; }
 .ucard-head h3, .panel-heading h4, .analysis-panel-heading strong,
 .table-section-heading h4, .identity-data-heading b, .identity-section-title b,
 .quality-analysis-panel .work-panel-title, .work-panel-title {
-  display: flex !important; align-items: center !important; gap: 8px !important;
+  display: flex !important; align-items: center !important; gap: 12px !important;
 }
+.analysis-panel-heading { display: flex !important; align-items: flex-start !important; justify-content: space-between !important; gap: 12px !important; }
+/* analysis-panel-heading 直接复用 ucard-title / ucard-titles，不再另起一套字号字重 */
+.analysis-panel-heading .ucard-title { padding: 0 !important; border: 0 !important; }
 .analysis-panel-heading strong .title-icon, .ucard-head h3 .title-icon { margin-right: 2px !important; align-self: center !important; flex-shrink: 0 !important; }
 .ucard-head { align-items: center !important; }
 

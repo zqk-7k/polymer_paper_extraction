@@ -1,7 +1,7 @@
 import type React from "react";
 import { Button, Skeleton, Space, Table, Tag, Tooltip, Typography, Empty } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { Beaker, Boxes, ChevronRight, FileSearch, Gauge, RefreshCw } from "lucide-react";
+import { Beaker, Boxes, ChevronRight, FileSearch, Gauge, History, RefreshCw } from "lucide-react";
 import type { BatchCollectionSummary, BatchResultSummary, ExtractionJob, ResultStats } from "../types";
 import { displayPaperMeta, displayPaperTitle, formatTaskTime } from "../utils/format";
 import { Metric, zhPagination } from "./common";
@@ -144,7 +144,7 @@ export function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, 
     */}
     <section className="ucard history-metrics-card">
       <div className="ucard-head" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-        <div><h3>关系规模总览<Tooltip placement="right" title={kind === "history" ? "数据源 · web_runtime/tasks。仅展示网页端任务，不混入离线批处理；运行中与失败任务保留用于追踪。" : `数据源 · batch_results/${batchCollection}${activeCollection?.collection_kind === "review" ? "（审阅批次，非生产）" : ""}。当前模式：${batchMode}。${activeCollection?.collection_kind === "review" ? `完整展示 ${activeCollection.document_count} 篇候选，其中 ${activeCollection.publication_status.partial} 篇仍为 partial；` : ""}批处理结果仅供审核对比，是否可入库以科学校验状态为准。`}><span className="overview-help" style={{ display: "inline-grid", placeItems: "center", width: 16, height: 16, marginLeft: 6, borderRadius: "50%", border: "1px solid #c3cbd6", color: "#7b879b", fontSize: 11, lineHeight: 1, cursor: "help", verticalAlign: "2px" }}>?</span></Tooltip></h3><p>{kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}</p></div>
+        <div className="ucard-title"><span className="title-icon"><Boxes size={15} /></span><div className="ucard-titles"><h3>关系规模总览<Tooltip placement="right" title={kind === "history" ? "数据源 · web_runtime/tasks。仅展示网页端任务，不混入离线批处理；运行中与失败任务保留用于追踪。" : `数据源 · batch_results/${batchCollection}${activeCollection?.collection_kind === "review" ? "（审阅批次，非生产）" : ""}。当前模式：${batchMode}。${activeCollection?.collection_kind === "review" ? `完整展示 ${activeCollection.document_count} 篇候选，其中 ${activeCollection.publication_status.partial} 篇仍为 partial；` : ""}批处理结果仅供审核对比，是否可入库以科学校验状态为准。`}><span className="overview-help" style={{ display: "inline-grid", placeItems: "center", width: 16, height: 16, marginLeft: 6, borderRadius: "50%", border: "1px solid #c3cbd6", color: "#7b879b", fontSize: 11, lineHeight: 1, cursor: "help", verticalAlign: "2px" }}>?</span></Tooltip></h3><p>{kind === "history" ? "WEB EXTRACTION HISTORY" : `OFFLINE BATCH · ${batchCollection.toUpperCase()}`}</p></div></div>
         {kind === "batch" && <BatchSwitcher collections={batchCollections} value={activeCollection?.collection_id || selectedCollectionId} onChange={onCollection} compact />}
       </div>
       <div className="history-metrics">
@@ -155,7 +155,7 @@ export function ArchiveResultsPage({ kind, loading, historyTasks, batchResults, 
       </div>
     </section>
     <section className="ucard history-table-card">
-      <div className="ucard-head"><div><h3>{kind === "history" ? "网页任务记录" : `${batchCollection} 文献记录`}</h3><p>每行显示文献及其关系链规模，点击后进入完整关系、图谱和样品详情。</p></div></div>
+      <div className="ucard-head"><div className="ucard-title"><span className="title-icon">{kind === "history" ? <History size={15} /> : <FileSearch size={15} />}</span><div className="ucard-titles"><h3>{kind === "history" ? "网页任务记录" : `${batchCollection} 文献记录`}</h3><p>每行显示文献及其关系链规模，点击后进入完整关系、图谱和样品详情。</p></div></div></div>
       <div className="history-table-wrap">
         <Table rowKey="key" columns={columns} dataSource={showSkeleton ? skeletonRows : rows} pagination={showSkeleton ? false : zhPagination({ pageSize: 10 })} scroll={{ x: 1110 }} locale={{ emptyText: <Empty description={kind === "history" ? "还没有网页抽取记录" : "未发现可发布的批处理结果"} /> }} />
       </div>
