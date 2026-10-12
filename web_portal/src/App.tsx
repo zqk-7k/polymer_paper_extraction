@@ -91,7 +91,7 @@ function AppShell() {
         <aside className="tool-sidebar" data-purpose="sidebar-navigation">
           <div className="tool-brand">
             <div className="brand-id">
-              <img src={logoUrl} alt="PolymerLit" className="brand-logo-img as-toggle" onClick={collapsed ? () => setCollapsed(false) : undefined} style={collapsed ? { cursor: "pointer" } : undefined} />
+              <button type="button" className="brand-logo-btn as-toggle" onClick={collapsed ? () => setCollapsed(false) : undefined} aria-label={collapsed ? "展开侧边栏" : "PolymerLit"} title={collapsed ? "展开侧边栏" : "PolymerLit"} style={collapsed ? { cursor: "pointer" } : undefined} disabled={!collapsed}><img src={logoUrl} alt="PolymerLit" className="brand-logo-img" /></button>
               {/* 旧版 SVG brand-mark 已注释，改用 @logo3.png 作为 logo
               {collapsed ? (
                 <button type="button" className="brand-mark as-toggle" aria-label="展开侧边栏" title="展开侧边栏" onClick={() => setCollapsed(false)}>
