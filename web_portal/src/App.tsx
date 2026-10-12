@@ -62,8 +62,8 @@ function AppShell() {
       locale={zhCN}
       theme={{
         token: {
-          colorPrimary: "#1f5eff",
-          colorInfo: "#1f5eff",
+          colorPrimary: "#4f46e5",
+          colorInfo: "#4f46e5",
           colorSuccess: "#16a34a",
           colorWarning: "#d97706",
           colorError: "#e5484d",
@@ -79,8 +79,9 @@ function AppShell() {
         },
         components: {
           Button: { fontWeight: 600 },
-          Table: { headerBg: "#F5F7F9", headerColor: "#394555", cellPaddingBlock: 14, cellPaddingInline: 16 },
-          Tabs: { itemSelectedColor: "#0066CC", inkBarColor: "#0066CC", titleFontSize: 15 },
+          Table: { headerBg: "#F5F6FA", headerColor: "#394555", cellPaddingBlock: 14, cellPaddingInline: 16 },
+          Tabs: { itemSelectedColor: "#4f46e5", inkBarColor: "#4f46e5", titleFontSize: 15 },
+          Pagination: { colorPrimary: "#4f46e5", itemActiveBg: "#eef2ff" },
           Segmented: { itemSelectedBg: "#FFFFFF", trackBg: "#EDF1F5" },
         },
       }}

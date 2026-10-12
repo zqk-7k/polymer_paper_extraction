@@ -161,3 +161,10 @@
   .polymer-page .identity-data-grid > span:nth-last-child(2) { border-bottom: 1px solid #e8edf2; }
   .polymer-page .identity-data-grid > span:last-child { border-bottom: 0; }
 }
+
+/* unified indigo override */
+.polymer-page .ant-btn-primary{ background:#4f46e5 !important; border-color:#4f46e5 !important; box-shadow:0 4px 12px rgba(79,70,229,.25) !important; }
+.polymer-page .ant-btn-primary:not(:disabled):hover{ background:#4338ca !important; border-color:#4338ca !important; }
+.identity-status{ color:#4338ca !important; background:#eef2ff !important; border-color:#c7d2fe !important; } .identity-status i{ background:#4f46e5 !important; box-shadow:0 0 0 3px rgba(79,70,229,.14) !important; }
+.identity-kicker{ color:#6366f1 !important; }
+.ant-pagination .ant-pagination-item-active{ border-color:#4f46e5 !important; } .ant-pagination .ant-pagination-item-active a{ color:#4f46e5 !important; }

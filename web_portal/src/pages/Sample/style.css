@@ -57,9 +57,10 @@
 .flow-chip-name { display: flex; align-items: center; gap: 8px; color: #24344b; font-size: 12.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .flow-chip-id { color: #9aa7b8; font-size: 10.5px; font-family: ui-monospace, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .flow-chip-cur { flex: 0 0 auto; font-size: 10px; font-weight: 700; color: #0f766e; background: #e6f5f3; border-radius: 4px; padding: 1px 6px; }
-.flow-chip.is-current { background: #f0f5f1; border-color: #9dbfae; box-shadow: inset 3px 0 0 #1c6b4a; cursor: default; }
-.flow-chip.is-current .flow-chip-name { color: #1c3a2d; }
-.flow-chip.is-current .flow-chip-id { color: #5f7a6d; }
+.flow-chip.is-current { background: #4f46e5; border-color: #4f46e5; box-shadow: 0 1px 5px rgba(79,70,229,.35); cursor: default; }
+.flow-chip.is-current .flow-chip-name { color: #fff; }
+.flow-chip.is-current .flow-chip-id { color: rgba(255,255,255,.8); }
+.flow-chip.is-current .flow-chip-cur { color: #4f46e5; background: #fff; }
 
 /* OUTPUT: small-size mini nodes (pill, inline-wrap) */
 .flow-col.is-out .flow-chips { gap: 5px; }
@@ -70,7 +71,7 @@
 .flow-col.is-out .flow-chip-id { font-size: 10px; max-width: 110px; }
 .flow-col.is-out .flow-chip-cur { padding: 0 5px; line-height: 16px; }
 .flow-col.is-out .flow-chip:hover:not(:disabled) { box-shadow: none; }
-.flow-col.is-out .flow-chip.is-current { background: #0f766e; border-color: #0f766e; box-shadow: 0 1px 5px rgba(15,118,110,.35); }
+.flow-col.is-out .flow-chip.is-current { background: #4f46e5; border-color: #4f46e5; box-shadow: 0 1px 5px rgba(79,70,229,.35); }
 .flow-col.is-out .flow-chip.is-current::before { background: #fff; }
 .flow-col.is-out .flow-chip.is-current .flow-chip-name { color: #fff; }
 .flow-col.is-out .flow-chip.is-current .flow-chip-id { color: rgba(255,255,255,.75); }
@@ -79,7 +80,7 @@
 .flow-op { display: flex; align-items: center; justify-content: center;  }
 .flow-op-icon { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; color: #7b8aa0; border: 1px solid #e2e8f0; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(30,45,70,.08); }
 
-.process-node { align-self: start; margin-top: 2px; text-align: center; padding: 14px 10px 12px; background: #fff; border: 1px solid #d8e0ea; border-radius: 10px; box-shadow: 0 2px 8px rgba(30,45,70,.07); }
+.process-node { margin-top: 2px; text-align: center; padding: 14px 10px 12px; background: #fff; border: 1px solid #d8e0ea; border-radius: 10px; box-shadow: 0 2px 8px rgba(30,45,70,.07); }
 .process-node .node-kicker { display: inline-block; color: #5b6b82; background: #eef2f6; border-radius: 4px; padding: 2px 7px; font-size: 10px; font-weight: 700; letter-spacing: .06em; margin-bottom: 6px; }
 .process-node strong { display: block; color: #1e2f45; font-size: 13.5px; line-height: 1.4; }
 .process-node small { display: block; margin-top: 4px; color: #9aa7b8; font-size: 10px; font-family: ui-monospace, monospace; }
@@ -112,3 +113,15 @@
   .lineage-step { grid-template-columns: 30px minmax(0,1fr); }
   .lineage-title strong { white-space: normal; }
 }
+
+/* unified indigo override */
+.sample-property-page .ant-btn-primary,.results-page .ant-btn-primary,.polyinfo-results-page .ant-btn-primary{ background:#4f46e5 !important; border-color:#4f46e5 !important; box-shadow:0 4px 12px rgba(79,70,229,.25) !important; }
+.sample-property-page .ant-btn-primary:not(:disabled):hover,.results-page .ant-btn-primary:not(:disabled):hover,.polyinfo-results-page .ant-btn-primary:not(:disabled):hover{ background:#4338ca !important; border-color:#4338ca !important; }
+.flow-chip.is-current{ background:#4f46e5 !important; border-color:#4f46e5 !important; box-shadow:0 1px 5px rgba(79,70,229,.35) !important; }
+.flow-chip.is-current .flow-chip-name{ color:#fff !important; }
+.flow-chip.is-current .flow-chip-id{ color:rgba(255,255,255,.8) !important; }
+.flow-chip.is-current .flow-chip-cur{ color:#4f46e5 !important; background:#fff !important; }
+.meta-links code.meta-step{ background:#4f46e5 !important; border-color:#4f46e5 !important; }
+.meta-links code.is-cur{ color:#4338ca !important; background:#eef2ff !important; border-color:#c7d2fe !important; }
+.rel-tag.is-gen{ background:#eef2ff !important; color:#4338ca !important; }
+.ant-pagination .ant-pagination-item-active{ border-color:#4f46e5 !important; } .ant-pagination .ant-pagination-item-active a{ color:#4f46e5 !important; }
