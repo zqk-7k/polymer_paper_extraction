@@ -8,7 +8,7 @@ import { displayPaperTitle } from "./utils/format";
 import { API_BASE } from "./types";
 import { EntityDrawer, EvidenceDrawer, PolyInfoComparisonDrawer } from "./components/drawers";
 
-import logoUrl from "./assets/logo2.png";
+import logoUrl from "./assets/logo3.png";
 
 function AppShell() {
   const pathname = useLocation().pathname;
@@ -91,6 +91,8 @@ function AppShell() {
         <aside className="tool-sidebar" data-purpose="sidebar-navigation">
           <div className="tool-brand">
             <div className="brand-id">
+              <img src={logoUrl} alt="PolymerLit" className="brand-logo-img as-toggle" onClick={collapsed ? () => setCollapsed(false) : undefined} style={collapsed ? { cursor: "pointer" } : undefined} />
+              {/* 旧版 SVG brand-mark 已注释，改用 @logo3.png 作为 logo
               {collapsed ? (
                 <button type="button" className="brand-mark as-toggle" aria-label="展开侧边栏" title="展开侧边栏" onClick={() => setCollapsed(false)}>
                   <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -114,6 +116,7 @@ function AppShell() {
                   </svg>
                 </span>
               )}
+              */}
               {!collapsed && (
                 <span className="brand-text">
                   <strong className="brand-name">PolymerLit <em>Extractor</em></strong>

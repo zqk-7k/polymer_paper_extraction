@@ -634,6 +634,9 @@ code, pre, .ant-typography code { font-family: inherit !important; }
 .brand-mark.as-toggle { border: none !important; background: linear-gradient(to top right, #4f46e5, #8b5cf6) !important; padding: 0 !important; border-radius: 12px !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; }
 .brand-mark.as-toggle:hover { filter: brightness(1.08) !important; }
 .brand-mark.as-toggle:focus-visible { outline: 2px solid #4f46e5 !important; outline-offset: 2px !important; }
+/* 图片 logo（替换旧版 SVG brand-mark，原 brand-mark 代码已在 App.tsx 中注释保留） */
+.brand-logo-img { width: 36px !important; height: 36px !important; flex: 0 0 36px !important; display: block !important; object-fit: contain !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.brand-logo-img.as-toggle { cursor: pointer !important; }
 /* 收起态：隐藏 brand-collapse（JSX 已不再渲染），品牌区居中，logo 可点击展开 */
 .is-collapsed .tool-brand { padding: 12px 0 !important; justify-content: center !important; }
 .is-collapsed .brand-id { justify-content: center !important; }
