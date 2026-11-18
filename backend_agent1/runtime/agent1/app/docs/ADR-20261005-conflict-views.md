@@ -1,0 +1,9 @@
+# Adoption 1.3: preserve declarations, merge equal effective conflict views
+
+The fixed adoption1.2 confirmation ended with 7 delivered / 1 incomplete. The remaining source exposed the same conflict under a material and the global candidate. Equal same-ID payloads were rejected merely because the effective list repeated an ID. Root evidence is recorded after sealing; no reference answer is used in the implementation or tests.
+
+New jobs use `identity-adoption/1.3`. Effective conflict views suppress only dictionary-equal records with a nonempty ID; raw local/global declarations remain untouched. No ignored chemical/evidence fields or inferred equivalence. Different payloads sharing an ID remain visible and produce `SOURCE_CONFLICT_ID_PAYLOAD_COLLISION`. Missing fields, references, alternatives and resolution evidence remain errors. Unresolved identity conflicts still need broader names; hypothetical corrections stay hypothetical.
+
+Historical1.2 jobs retain duplicate-ID rejection and their original context hash semantics. Adoption context hashes include the actual candidate policy, preventing cross-version receipt reuse. Old jobs, failed results, bundle versions and adoption pointers are preserved; no migration is implicit. Kernel0.9.0 and model-naming contract1.1 are unchanged. No reading, naming or paper-specific prompt changes accompany this fix.
+
+Neutral positive/negative tests include divergent raw values, stereo, charge, ports, resolution, source, property and scope; malformed duplicate declarations, unresolved/hypothesis naming checks, historical hashes, version staleness and unrelated evidence scope. Engineering checks are not chemical accuracy or preferred IUPAC/PIN certification. A new implementation-bound real CLI preflight and a new raw-source job are required before any delivery gain is claimed.

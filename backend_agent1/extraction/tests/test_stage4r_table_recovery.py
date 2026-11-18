@@ -1,0 +1,485 @@
+import json
+from pathlib import Path
+
+from stages.stage4r_table_recovery import (
+    IMPLEMENTATION_VERSION,
+    _cache_is_valid,
+    _migrate_resolved_unresolved,
+    _prepare_stage4_input,
+    _resolve_unresolved_sample,
+    _row_label_candidates,
+    _sha256_json,
+    build_parser,
+    infer_entity_id,
+    misaligned_header_columns,
+    next_unresolved_number,
+)
+
+
+def test_unresolved_ids_only_append_after_existing_ids() -> None:
+    stage4 = {"unresolved_properties": [
+        {"unresolved_id": "uprop002"},
+        {"unresolved_id": "uprop010"},
+    ]}
+    assert next_unresolved_number(stage4) == 11
+
+
+def test_unique_row_label_resolves_to_sample_entity() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=["Sample-A"],
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[
+            {"sample_label_raw": "Sample-A", "polymer_name": "Poly A", "refers_to_entity": "pe001"},
+            {"sample_label_raw": "Sample-B", "polymer_name": "Poly B", "refers_to_entity": "pe002"},
+        ],
+        table_entities={},
+    )
+    assert entity == "pe001"
+    assert basis == "row_label_exact_entity_alias"
+
+
+def test_ambiguous_multi_entity_document_does_not_choose_first() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=["unknown row"],
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[],
+        table_entities={},
+    )
+    assert entity is None
+    assert basis == "entity_ambiguous"
+
+
+def test_single_existing_table_entity_is_safe_fallback() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=[],
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[],
+        table_entities={"T_1_1": {"pe002"}},
+    )
+    assert entity == "pe002"
+    assert basis == "table_existing_entity"
+
+from types import SimpleNamespace
+from stages.stage4r_table_recovery import build_unresolved_property, mark_header_derived_evidence
+
+
+def test_build_uses_normalized_property_name_not_trailing_data_header() -> None:
+    table = SimpleNamespace(block_id="T_1_1", page=1, bbox=None)
+    cell = SimpleNamespace(row_index=2, column_index=1, text="2.8")
+    target = SimpleNamespace(row_index=3, column_index=1, text="1.5")
+    item = build_unresolved_property(
+        unresolved_id="uprop001",
+        entity_id="pe001",
+        cell_report={
+            "cell_id": "T_1_1:r0003:c0001",
+            "row_index": 3,
+            "column_index": 1,
+            "text": "1.5",
+            "column_headers": ["E' / MPa", "1.3", "2.8"],
+            "row_headers": ["Sample A"],
+            "property_name_normalized": "dynamic_tensile_properties",
+        },
+        table=table,
+        cells=[cell, target],
+    )
+    assert item["property_name_raw"] == "dynamic_tensile_properties"
+    assert item["property_name_raw"] not in {"2.8", "-"}
+    assert item["evidence"][0]["source_sentence"] == "1.5"
+    assert item["evidence"][0]["table_locator"]["cell_id"] == (
+        "T_1_1:r0003:c0001"
+    )
+
+
+def test_tga_weight_loss_percent_is_not_temperature_unit() -> None:
+    table = SimpleNamespace(block_id="T_1_2", page=1, bbox=None)
+    cell = SimpleNamespace(row_index=2, column_index=1, text="256")
+    item = build_unresolved_property(
+        unresolved_id="uprop002", entity_id="pe001",
+        cell_report={"cell_id": "T_1_2:r0002:c0001", "row_index": 2,
+                     "column_index": 1, "text": "256",
+                     "column_headers": ["T_{3%} (N2)"], "row_headers": ["HI"],
+                     "property_name_normalized": "thermal_decomposition_temperature"},
+        table=table, cells=[cell],
+    )
+    assert "unit_raw" not in item
+
+
+def test_tga_weight_loss_header_evidence_does_not_fake_cell_value() -> None:
+    table = SimpleNamespace(block_id="T_1_3", page=1, bbox=None)
+    cell = SimpleNamespace(row_index=2, column_index=1, text="256")
+    item = build_unresolved_property(
+        unresolved_id="uprop003", entity_id="pe001",
+        cell_report={"cell_id": "T_1_3:r0002:c0001", "row_index": 2,
+                     "column_index": 1, "text": "256",
+                     "column_headers": ["T_{10%} (N2)"], "row_headers": ["HI"],
+                     "property_name_normalized": "thermal_decomposition_weight_loss"},
+        table=table, cells=[cell],
+    )
+    item["value_raw"] = "10"
+    item["unit_raw"] = "%"
+    mark_header_derived_evidence(item, level="10", column_headers=["T_{10%} (N2)"])
+    locator = item["evidence"][0]["table_locator"]
+    assert locator["locator_role"] == "derived_from_column_header"
+    assert "cell_id" not in locator
+    assert locator["cell_value"] == "10%"
+
+
+
+
+def test_exact_row_label_beats_shorter_nested_sample_label() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=["0-2-0-I"],
+        row_index=3,
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[
+            {"sample_label_raw": "0-2", "refers_to_entity": "pe001"},
+            {"sample_label_raw": "0-2-0-I", "refers_to_entity": "pe002"},
+        ],
+        table_entities={},
+    )
+    assert entity == "pe002"
+    assert basis == "row_label_exact_entity_alias"
+
+
+def test_unique_stage3_sample_entity_is_safe_fallback() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=[],
+        row_index=2,
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[
+            {"sample_label_raw": "A", "refers_to_entity": "pe001"},
+            {"sample_label_raw": "B", "refers_to_entity": "pe001"},
+        ],
+        table_entities={},
+    )
+    assert entity == "pe001"
+    assert basis == "document_samples_single_entity"
+
+
+def test_longest_alias_does_not_bind_blend_to_one_component() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=["50/50 Blend", "PM (EO/PO) polymer"],
+        row_index=4,
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[],
+        entity_aliases={"pe002": {"PM (EO/PO)"}},
+        table_entities={},
+    )
+    assert entity is None
+    assert basis == "entity_ambiguous"
+
+
+def test_single_sample_entity_fallback_requires_empty_row_label() -> None:
+    entity, basis = infer_entity_id(
+        row_headers=["Electrical conductivity (S/cm)"],
+        row_index=1,
+        table_id="T_1_1",
+        valid_entity_ids={"pe001", "pe002"},
+        samples=[{"sample_label_raw": "COC", "refers_to_entity": "pe001"}],
+        table_entities={"T_1_1": {"pe001"}},
+    )
+    assert entity is None
+    assert basis == "entity_ambiguous"
+
+
+def _cell(row: int, column: int, text: str, row_span: int = 1, column_span: int = 1):
+    return SimpleNamespace(
+        row_index=row,
+        column_index=column,
+        text=text,
+        row_span=row_span,
+        column_span=column_span,
+    )
+
+
+def test_continuation_row_inherits_polymer_code_from_row_above() -> None:
+    # 这类表把同一聚合物的多条工艺写成续行，编号只印在该组第一行，
+    # 续行的编号列是空白（含义是"同上"）。不向上填充，续行只剩 ['c', 'HTS']，
+    # 实体必然推不出来。
+    cells = [
+        _cell(0, 0, "2a"), _cell(0, 1, "0-2-0-9"), _cell(0, 2, "HTS"), _cell(0, 3, "265"),
+        _cell(1, 0, "b"), _cell(1, 1, ""), _cell(1, 2, "HTS"), _cell(1, 3, "295"),
+        _cell(2, 0, "c"), _cell(2, 1, ""), _cell(2, 2, "HTS"), _cell(2, 3, "320"),
+    ]
+    assert "0-2-0-9" in _row_label_candidates(cells, row_index=2, column_index=3)
+
+
+def test_row_label_candidates_do_not_borrow_code_from_rows_below() -> None:
+    cells = [
+        _cell(0, 0, "1"), _cell(0, 1, ""), _cell(0, 2, "380"),
+        _cell(1, 0, "2"), _cell(1, 1, "0-2-0-9"), _cell(1, 2, "265"),
+    ]
+    assert "0-2-0-9" not in _row_label_candidates(cells, row_index=0, column_index=2)
+
+
+def _unresolved(
+    *,
+    row_label: str | None,
+    entity_id: str = "pe001",
+    row_index: int = 1,
+) -> dict:
+    return {
+        "unresolved_id": "uprop010",
+        "entity_id": entity_id,
+        "property_name_raw": "glass transition temperature",
+        "value_raw": "120",
+        "reason": "sample_ambiguous",
+        "evidence": [{
+            "block_id": "T_1_1",
+            "page": 1,
+            "bbox": None,
+            "source_type": "table",
+            "source_sentence": "120",
+            "table_locator": {
+                "table_id": "T_1_1",
+                "cell_id": f"T_1_1:r{row_index:04d}:c0002",
+                "row_index": row_index,
+                "column_index": 2,
+                "row_label": row_label,
+                "column_label": "Tg / °C",
+                "cell_value": "120",
+            },
+        }],
+    }
+
+
+def test_unresolved_sample_uses_unique_direct_label() -> None:
+    result = _resolve_unresolved_sample(
+        _unresolved(row_label="Group A / PC-1"),
+        samples=[{
+            "sample_id": "s001",
+            "sample_label_raw": "PC-1",
+            "refers_to_entity": "pe001",
+        }],
+        tables={},
+        allow_filled_up=False,
+    )
+    assert result["status"] == "accepted"
+    assert result["sample_id"] == "s001"
+    assert result["resolution_basis"] == "table_locator_row_label"
+
+
+def test_filled_up_sample_binding_requires_explicit_opt_in(monkeypatch) -> None:
+    table = SimpleNamespace(cells=[
+        _cell(0, 0, "1"),
+        _cell(0, 1, "PC-1"),
+        _cell(0, 2, "110"),
+        _cell(1, 0, "2"),
+        _cell(1, 1, ""),
+        _cell(1, 2, "120"),
+    ])
+    monkeypatch.setattr(
+        "stages.stage4r_table_recovery.table_cells_for",
+        lambda value: value.cells,
+    )
+    kwargs = {
+        "item": _unresolved(row_label=None),
+        "samples": [{
+            "sample_id": "s001",
+            "sample_label_raw": "PC-1",
+            "refers_to_entity": "pe001",
+        }],
+        "tables": {"T_1_1": table},
+    }
+    pending = _resolve_unresolved_sample(
+        **kwargs,
+        allow_filled_up=False,
+    )
+    accepted = _resolve_unresolved_sample(
+        **kwargs,
+        allow_filled_up=True,
+    )
+    assert pending["status"] == "filled_up_pending_review"
+    assert accepted["status"] == "accepted"
+    assert accepted["resolution_basis"] == "row_cell_filled_up"
+
+
+def test_entity_conflict_is_rejected_before_migration() -> None:
+    result = _resolve_unresolved_sample(
+        _unresolved(row_label="PC-1", entity_id="pe999"),
+        samples=[{
+            "sample_id": "s001",
+            "sample_label_raw": "PC-1",
+            "refers_to_entity": "pe001",
+        }],
+        tables={},
+        allow_filled_up=False,
+    )
+    assert result["status"] == "entity_conflict"
+    assert result["sample_entity_id"] == "pe001"
+
+
+def test_migration_only_appends_property_and_condition_ids() -> None:
+    stage4 = {
+        "measurement_conditions": [{"condition_id": "mc004"}],
+        "properties": [{"property_id": "prop009"}],
+        "unresolved_properties": [_unresolved(row_label="PC-1")],
+    }
+    migrated, audit = _migrate_resolved_unresolved(stage4, [{
+        "unresolved_id": "uprop010",
+        "status": "accepted",
+        "sample_id": "s001",
+        "entity_id": "pe001",
+        "resolution_basis": "table_locator_row_label",
+        "matched_label": "PC-1",
+        "cell_id": "T_1_1:r0001:c0002",
+    }])
+    assert [item["property_id"] for item in migrated["properties"]] == [
+        "prop009",
+        "prop010",
+    ]
+    assert [item["condition_id"] for item in migrated["measurement_conditions"]] == [
+        "mc004",
+        "mc005",
+    ]
+    assert migrated["unresolved_properties"] == []
+    assert migrated["properties"][-1]["sample_id"] == "s001"
+    assert migrated["properties"][-1]["measurement_context"] == {
+        "condition_status": "not_reported",
+    }
+    assert audit[0]["unresolved_id"] == "uprop010"
+    assert audit[0]["property_id"] == "prop010"
+
+
+def test_missing_header_colspan_marks_shifted_columns_untrustworthy() -> None:
+    # 表头漏写 colspan：`Method of polymerization` 实际占 HTS/LTS 两个子列，
+    # 表头只给 1 列，数据行仍按 2 列写，于是该列往右整条表头左移一格 ——
+    # col3 挂着 `PMT, °C.` 却装着 LTS 文字，col4 的数值（真的 PMT）被贴上
+    # η_inh 的标签。这些列的性质名不可信。
+    cells = [
+        _cell(0, 0, "Polymer"), _cell(0, 1, "Hydrazide"),
+        _cell(0, 2, "Method of polymerization"), _cell(0, 3, "PMT, °C."),
+        _cell(0, 4, r"$\eta_{inh}$ (DMSO)"),
+        _cell(1, 0, "0-2-0-9"), _cell(1, 1, "9"), _cell(1, 2, "HTS"), _cell(1, 3, ""),
+        _cell(1, 4, "265"),
+        _cell(2, 0, "0-6-0-9"), _cell(2, 1, "6"), _cell(2, 2, ""), _cell(2, 3, "LTS"),
+        _cell(2, 4, "318"),
+    ]
+    assert misaligned_header_columns(cells, {0}) == {3, 4}
+
+
+def test_wordy_sample_column_alone_is_not_treated_as_misaligned() -> None:
+    # 样品名列同样是"整列文字"，但它的表头就写着 Sample，本来就不该有数值。
+    # 只看"整列文字"会把几乎每张表的首列都误判成错位。
+    cells = [
+        _cell(0, 0, "Sample"), _cell(0, 1, "Tensile strength (MPa)"), _cell(0, 2, "Tg (°C)"),
+        _cell(1, 0, "PDLA"), _cell(1, 1, "45"), _cell(1, 2, "58"),
+        _cell(2, 0, "PLGA"), _cell(2, 1, "38"), _cell(2, 2, "47"),
+    ]
+    assert misaligned_header_columns(cells, {0}) == set()
+
+
+def test_empty_numeric_column_is_not_treated_as_misaligned() -> None:
+    # 论文没测这一项，留了一整列空 —— 不是错位，不该整片放弃右侧的列。
+    cells = [
+        _cell(0, 0, "Sample"), _cell(0, 1, "Tg (°C)"), _cell(0, 2, "Comments"),
+        _cell(1, 0, "PDLA"), _cell(1, 1, ""), _cell(1, 2, "brittle film"),
+        _cell(2, 0, "PLGA"), _cell(2, 1, ""), _cell(2, 2, "clear film"),
+    ]
+    assert misaligned_header_columns(cells, {0}) == set()
+
+
+def test_parser_accepts_batch_runner_compatibility_arguments(tmp_path: Path) -> None:
+    args = build_parser().parse_args([
+        "--input-root", str(tmp_path),
+        "--output-root", str(tmp_path),
+        "--ref-no", "reference_no_0000001",
+        "--config", str(tmp_path / "pipeline.yaml"),
+        "--apply",
+        "--force",
+    ])
+    assert args.apply is True
+    assert args.force is True
+
+
+def test_prepare_stage4_input_uses_backup_when_forcing_applied_result(tmp_path: Path) -> None:
+    stage4 = tmp_path / "stage4_properties.json"
+    preview = tmp_path / "stage4_properties.recovery_preview.json"
+    report = tmp_path / "stage4r_recovery.json"
+    backup = tmp_path / "stage4_properties.pre_recovery.json"
+    stage4.write_text("recovered", encoding="utf-8")
+    preview.write_text("recovered", encoding="utf-8")
+    report.write_text("{}", encoding="utf-8")
+    backup.write_text("original", encoding="utf-8")
+
+    source, cached = _prepare_stage4_input(
+        stage4_path=stage4,
+        preview_path=preview,
+        report_path=report,
+        backup_path=backup,
+        apply=True,
+        force=True,
+        in_place=True,
+    )
+
+    assert cached is False
+    assert source == backup
+    assert backup.read_text(encoding="utf-8") == "original"
+
+
+def test_prepare_stage4_input_refreshes_backup_for_new_stage4(tmp_path: Path) -> None:
+    stage4 = tmp_path / "stage4_properties.json"
+    preview = tmp_path / "stage4_properties.recovery_preview.json"
+    report = tmp_path / "stage4r_recovery.json"
+    backup = tmp_path / "stage4_properties.pre_recovery.json"
+    stage4.write_text("new-stage4", encoding="utf-8")
+    preview.write_text("old-recovery", encoding="utf-8")
+    report.write_text("{}", encoding="utf-8")
+    backup.write_text("old-stage4", encoding="utf-8")
+
+    source, cached = _prepare_stage4_input(
+        stage4_path=stage4,
+        preview_path=preview,
+        report_path=report,
+        backup_path=backup,
+        apply=True,
+        force=False,
+        in_place=True,
+    )
+
+    assert cached is False
+    assert source == stage4
+    assert backup.read_text(encoding="utf-8") == "new-stage4"
+
+
+def test_stage4r_cache_requires_matching_inputs_settings_and_output(
+    tmp_path: Path,
+) -> None:
+    preview = tmp_path / "stage4_properties.recovery_preview.json"
+    report = tmp_path / "stage4r_recovery.json"
+    preview_payload = {"document_id": "reference_no_0000001"}
+    input_hashes = {"stage4_properties.json": "abc"}
+    settings = {
+        "threshold": 0.8,
+        "apply": False,
+        "allow_filled_up_sample_binding": False,
+    }
+    preview.write_text(
+        json.dumps(preview_payload),
+        encoding="utf-8",
+    )
+    report.write_text(json.dumps({
+        "implementation_version": IMPLEMENTATION_VERSION,
+        "input_hashes": input_hashes,
+        "settings": settings,
+        "output_sha256": _sha256_json(preview_payload),
+    }), encoding="utf-8")
+
+    assert _cache_is_valid(
+        report_path=report,
+        preview_path=preview,
+        input_hashes=input_hashes,
+        settings=settings,
+    )
+    assert not _cache_is_valid(
+        report_path=report,
+        preview_path=preview,
+        input_hashes={"stage4_properties.json": "changed"},
+        settings=settings,
+    )

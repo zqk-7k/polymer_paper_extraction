@@ -1,0 +1,2885 @@
+{
+  "survey_schema_version": "stage4t_table_structure_survey.v0.1",
+  "survey_version": "0.1.0",
+  "batch_root": "extraction/tests/fixtures/stage4t_snapshots",
+  "document_count": 20,
+  "table_count": 59,
+  "failure_count": 0,
+  "failures": [],
+  "summary": {
+    "direction_counts": {
+      "column_samples": 2,
+      "mixed": 1,
+      "row_samples": 38,
+      "unknown": 18
+    },
+    "sample_axis_counts": {
+      "both": 1,
+      "column": 2,
+      "row": 38,
+      "unknown": 18
+    },
+    "unit_location_counts": {
+      "caption": 1,
+      "cell": 7,
+      "header": 27,
+      "multiple": 19,
+      "not_found": 5
+    },
+    "warning_counts": {
+      "header_rows_not_detected": 1,
+      "numeric_table_without_property_columns": 30,
+      "numeric_table_without_sample_axis": 13,
+      "variable_row_width_or_spans": 27
+    },
+    "tables_with_property_columns": 24,
+    "tables_with_numeric_cells": 54
+  },
+  "documents": [
+    {
+      "document_id": "reference_no_0020284",
+      "table_count": 8,
+      "tables": [
+        {
+          "table_id": "T_3_49",
+          "page": 3,
+          "section": "Methods",
+          "caption": "Table I Preparation of Polycarbonates by Two-phase Phase-transfer-catalyzed Polycondensation with TCF at 25°C for 2 h $^{a}$",
+          "row_count": 7,
+          "column_count": 5,
+          "cell_count": 35,
+          "numeric_cell_count": 12,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 2,
+              "header_context": [
+                "$\\eta_{\\text{inh}}^{\\text{b}}$ (dL/g)"
+              ],
+              "property_name": "intrinsic_viscosity"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "%",
+              "dL/g"
+            ],
+            "cell": [],
+            "caption": [
+              "°C"
+            ]
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_3_58",
+          "page": 3,
+          "section": "Results",
+          "caption": "Table II Elemental Analysis and IR Data of Various Polycarbonates",
+          "row_count": 9,
+          "column_count": 10,
+          "cell_count": 74,
+          "numeric_cell_count": 42,
+          "header_rows": [
+            0,
+            1,
+            2
+          ],
+          "header_level_count": 3,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "cm",
+              "C",
+              "%",
+              "%",
+              "C",
+              "C",
+              "C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_4_61",
+          "page": 4,
+          "section": "Results",
+          "caption": "Table III Synthesis of Bisphenol S-based Homopolycarbonate by Two-phase Polycondensation $^{4}$",
+          "row_count": 15,
+          "column_count": 6,
+          "cell_count": 86,
+          "numeric_cell_count": 39,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 13
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 4,
+              "header_context": [
+                "Polymer",
+                "$η_{inh}^c/dL/g$"
+              ],
+              "property_name": "intrinsic_viscosity"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "c",
+              "dL/g"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_5_70",
+          "page": 5,
+          "section": "Results",
+          "caption": "Table IV Bragg Angle Position and X-ray Data of Various Polycarbonates",
+          "row_count": 7,
+          "column_count": 4,
+          "cell_count": 28,
+          "numeric_cell_count": 18,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "deg",
+              "Å",
+              "Degree",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_5_74",
+          "page": 5,
+          "section": "Results",
+          "caption": "Table V Solubility of Polycarbonates $^{4}$",
+          "row_count": 7,
+          "column_count": 12,
+          "cell_count": 84,
+          "numeric_cell_count": 0,
+          "header_rows": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "header_level_count": 7,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "not_found",
+          "unit_hits": {
+            "header": [],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_6_81",
+          "page": 6,
+          "section": "Results",
+          "caption": "Table VI Thermal Properties of Polycarbonates Based on Various Bisphenols $^{4}$",
+          "row_count": 7,
+          "column_count": 8,
+          "cell_count": 56,
+          "numeric_cell_count": 41,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "$T_{d}^{i}$ $(^{\\circ}\\text{C})^{b}$"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "$T_{d}^{10\\%}$ $(^{\\circ}\\text{C})^{b}$"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            },
+            {
+              "column_index": 3,
+              "header_context": [
+                "$T_{d}^{20\\%}$ $(^{\\circ}\\text{C})$"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            },
+            {
+              "column_index": 4,
+              "header_context": [
+                "$T_{d}^{30\\%}$ $(^{\\circ}\\text{C})$"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            },
+            {
+              "column_index": 5,
+              "header_context": [
+                "$T_{d}^{50\\%}$ $(^{\\circ}\\text{C})$"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            },
+            {
+              "column_index": 7,
+              "header_context": [
+                "$T_{g}$ $(^{\\circ}\\text{C})$"
+              ],
+              "property_name": "glass_transition_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "C",
+              "%",
+              "C",
+              "%",
+              "C",
+              "%",
+              "C",
+              "%",
+              "C",
+              "%",
+              "c",
+              "g",
+              "C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_7_84",
+          "page": 7,
+          "section": "Results",
+          "caption": "Table VII The Contact Angle and Limiting Oxygen Index of Polycarbonates",
+          "row_count": 7,
+          "column_count": 4,
+          "cell_count": 28,
+          "numeric_cell_count": 18,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "Contact Angle $(\\theta_w)^a$"
+              ],
+              "property_name": "contact_angle"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "LOI"
+              ],
+              "property_name": "oxygen_index"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_8_102",
+          "page": 8,
+          "section": "Conclusion",
+          "caption": "Table VIII Surface and Thermal Properties of Bisphenol S-based and/or Bisphenol A-based Homopolycarbonates and Copolycarbonates $^{4}$",
+          "row_count": 9,
+          "column_count": 8,
+          "cell_count": 66,
+          "numeric_cell_count": 41,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [
+            {
+              "column_index": 3,
+              "header_context": [
+                "Surface and Thermal Properties",
+                "$η_{inh}$ (dL/g) $^d$"
+              ],
+              "property_name": "intrinsic_viscosity"
+            },
+            {
+              "column_index": 4,
+              "header_context": [
+                "Surface and Thermal Properties",
+                "$θ_w$ (Degrees) $^e$"
+              ],
+              "property_name": "contact_angle"
+            },
+            {
+              "column_index": 5,
+              "header_context": [
+                "Surface and Thermal Properties",
+                "$T_g$ (°C) $^f$"
+              ],
+              "property_name": "glass_transition_temperature"
+            },
+            {
+              "column_index": 6,
+              "header_context": [
+                "Surface and Thermal Properties",
+                "$T_d^{10\\%}$ (°C) $^g$"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "c",
+              "dL/g",
+              "°C",
+              "%",
+              "°C",
+              "g",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_sample_axis",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0021296",
+      "table_count": 7,
+      "tables": [
+        {
+          "table_id": "T_1_11",
+          "page": 1,
+          "section": "Introduction",
+          "caption": "Table I. Yields and Physical Parameters of the Synthesized Diacetylene Diols",
+          "row_count": 5,
+          "column_count": 4,
+          "cell_count": 20,
+          "numeric_cell_count": 9,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C"
+            ],
+            "cell": [
+              "%",
+              "°C",
+              "J/g"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_2_22",
+          "page": 2,
+          "section": "Methods",
+          "caption": "Table II. Structures of Various R and R' Groups in the DA-Polyesters",
+          "row_count": 7,
+          "column_count": 3,
+          "cell_count": 21,
+          "numeric_cell_count": 0,
+          "header_rows": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "header_level_count": 7,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_3_36",
+          "page": 3,
+          "section": "Results",
+          "caption": "Table III. Yields, Appearance and Intrinsic Viscosities of the as-Synthesised DA-Polyesters",
+          "row_count": 4,
+          "column_count": 6,
+          "cell_count": 24,
+          "numeric_cell_count": 8,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "%",
+              "W",
+              "W",
+              "W",
+              "W"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_5_61",
+          "page": 5,
+          "section": "Results",
+          "caption": "Table IV. WAXD Results of the as-Synthesised DA-Polyesters Showing the Values of 2u, d and $\\mathrm { I } / \\mathrm { I } _ { 0 }$",
+          "row_count": 5,
+          "column_count": 12,
+          "cell_count": 52,
+          "numeric_cell_count": 36,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "not_found",
+          "unit_hits": {
+            "header": [],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_6_64",
+          "page": 6,
+          "section": "Results",
+          "caption": "Table V. List of $\\mathrm { T _ { 3 \\% } }$ and Percentage of Residue Data for the DA-Polyesters",
+          "row_count": 4,
+          "column_count": 5,
+          "cell_count": 20,
+          "numeric_cell_count": 12,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "°C"
+            ],
+            "caption": [
+              "%"
+            ]
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_7_77",
+          "page": 7,
+          "section": "Results",
+          "caption": "Table VI. DSC Results of the Synthesised DA-Polyesters",
+          "row_count": 5,
+          "column_count": 5,
+          "cell_count": 25,
+          "numeric_cell_count": 10,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "column_samples",
+          "sample_axis": "column",
+          "sample_axis_candidates": [
+            {
+              "axis": "column",
+              "score": 4
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "°C",
+              "J/g",
+              "°C",
+              "J/g"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_8_91",
+          "page": 8,
+          "section": "Conclusion",
+          "caption": "Table VII. Summary of DMA Results of HT and OT(2) Showing $T _ { g } ,$ Peak tan d Values and Room Temperature Storage Moduli of the as-Processed and Thermally Treated Samples",
+          "row_count": 5,
+          "column_count": 7,
+          "cell_count": 30,
+          "numeric_cell_count": 17,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 1
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "°C",
+              "°C"
+            ],
+            "cell": [
+              "°C",
+              "GPa",
+              "°C"
+            ],
+            "caption": [
+              "g"
+            ]
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0025452",
+      "table_count": 2,
+      "tables": [
+        {
+          "table_id": "T_6_40",
+          "page": 6,
+          "section": "Introduction",
+          "caption": "Table 1. Samples content with various monomer fractions.",
+          "row_count": 11,
+          "column_count": 7,
+          "cell_count": 77,
+          "numeric_cell_count": 47,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 10
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "%",
+              "mmol",
+              "mmol",
+              "mmol",
+              "mmol",
+              "mmol"
+            ],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_12_66",
+          "page": 12,
+          "section": "Results",
+          "caption": "Table 2. Properties of the studied polyimide aerogels.",
+          "row_count": 11,
+          "column_count": 8,
+          "cell_count": 88,
+          "numeric_cell_count": 60,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 10
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 3,
+              "header_context": [
+                "density (g/cm3)"
+              ],
+              "property_name": "density"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "g",
+              "%",
+              "%",
+              "MPa",
+              "°C"
+            ],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%"
+            ],
+            "caption": []
+          },
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0033617",
+      "table_count": 1,
+      "tables": [
+        {
+          "table_id": "T_5_64",
+          "page": 5,
+          "section": "Results",
+          "caption": "Electrochromic Properties of P(TMPMT-co-Th) and PTh",
+          "row_count": 5,
+          "column_count": 4,
+          "cell_count": 18,
+          "numeric_cell_count": 0,
+          "header_rows": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "header_level_count": 5,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "not_found",
+          "unit_hits": {
+            "header": [],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0037268",
+      "table_count": 3,
+      "tables": [
+        {
+          "table_id": "T_11_95",
+          "page": 11,
+          "section": "Methods",
+          "caption": "Table I. Description of Biodegradable Polymers and Blends Studied",
+          "row_count": 16,
+          "column_count": 5,
+          "cell_count": 80,
+          "numeric_cell_count": 45,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "g",
+              "g/mol"
+            ],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "DL",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_17_134",
+          "page": 17,
+          "section": "Methods",
+          "caption": "Table II. Measured Physical parameters of Biodegradable polymers and their Blends",
+          "row_count": 16,
+          "column_count": 6,
+          "cell_count": 96,
+          "numeric_cell_count": 69,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 2,
+              "header_context": [
+                "$T_g^oC$"
+              ],
+              "property_name": "glass_transition_temperature"
+            },
+            {
+              "column_index": 3,
+              "header_context": [
+                "$T_m^oC$"
+              ],
+              "property_name": "melting_temperature"
+            },
+            {
+              "column_index": 5,
+              "header_context": [
+                "Surface Energy, $mJ/m^2$ (160 °C)"
+              ],
+              "property_name": "surface_tension"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "KJ/mol",
+              "Degree",
+              "°C",
+              "°C"
+            ],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "%",
+              "DL",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%"
+            ],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_19_142",
+          "page": 19,
+          "section": "Methods",
+          "caption": "Table III. Polymer-Solvent and Polymer-Polymer Interaction Coefficients",
+          "row_count": 31,
+          "column_count": 4,
+          "cell_count": 104,
+          "numeric_cell_count": 41,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 37
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0037607",
+      "table_count": 1,
+      "tables": [
+        {
+          "table_id": "T_3_58",
+          "page": 3,
+          "section": "Methods",
+          "caption": "Table 1. Polymerization conditions of different monomers, polymer data, and thermal properties (from DSC and TGA) of the dye-labeled polymers; polydispersity and $\\overline { { M } } _ { \\mathfrak { n } }$ were determined by GPC with polystyrene standards using THF as solvent.",
+          "row_count": 9,
+          "column_count": 8,
+          "cell_count": 69,
+          "numeric_cell_count": 42,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 4
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 6,
+              "header_context": [
+                "$T_{g}$",
+                "°C"
+              ],
+              "property_name": "glass_transition_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "g",
+              "%",
+              "mol",
+              "%",
+              "g",
+              "mol",
+              "°C",
+              "°C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0037645",
+      "table_count": 3,
+      "tables": [
+        {
+          "table_id": "T_2_27",
+          "page": 2,
+          "section": "Results",
+          "caption": "Table 1. Data from Gel Permeation Chromatography Analysis in Line with Multiangle Laser Light Scattering (GPC-MALLS)",
+          "row_count": 8,
+          "column_count": 6,
+          "cell_count": 48,
+          "numeric_cell_count": 35,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 4
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "w",
+              "mL/g",
+              "nm",
+              "g"
+            ],
+            "cell": [
+              "C",
+              "C",
+              "C",
+              "c"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_3_38",
+          "page": 3,
+          "section": "Results",
+          "caption": "Table 2. Differential Scanning Calorimetry (DSC) and Thermogravimetric Analysis (TGA) Data for the Boron Quinolate Polymers",
+          "row_count": 4,
+          "column_count": 7,
+          "cell_count": 28,
+          "numeric_cell_count": 18,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "column_samples",
+          "sample_axis": "column",
+          "sample_axis_candidates": [
+            {
+              "axis": "column",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "g",
+              "°C",
+              "°C",
+              "%",
+              "c"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_3_44",
+          "page": 3,
+          "section": "Results",
+          "caption": "Table 3. Photophysical Data of the Organoboron Quinolate Polymers",
+          "row_count": 8,
+          "column_count": 7,
+          "cell_count": 51,
+          "numeric_cell_count": 36,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "nm",
+              "mol",
+              "cm",
+              "nm",
+              "c",
+              "%",
+              "nm",
+              "nm",
+              "c"
+            ],
+            "cell": [
+              "C",
+              "C",
+              "C"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0037886",
+      "table_count": 5,
+      "tables": [
+        {
+          "table_id": "T_3_48",
+          "page": 3,
+          "section": "Results",
+          "caption": "Table 1. Fuoss-Kirkwood Parameters ofSubvitreous Zone and the Relaxation Strengths Evaluated as $\\begin{array} { r } { \\Delta \\varepsilon _ { i } \\ = \\ \\frac { 2 \\varepsilon _ { \\mathrm { m a x } , i } ^ { \\prime \\prime } } { m _ { i } } . } \\end{array}$",
+          "row_count": 17,
+          "column_count": 7,
+          "cell_count": 119,
+          "numeric_cell_count": 112,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "Hz",
+              "K",
+              "K"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_6_84",
+          "page": 6,
+          "section": "Results",
+          "caption": "Table2.Havriliak-NegamiFitParametersfromthee@(x)atDifferentTemperaturesfora-Relaxation Journal of Polymer Science: Part B: Polymer Physics DOI 10.1002/polb",
+          "row_count": 12,
+          "column_count": 8,
+          "cell_count": 96,
+          "numeric_cell_count": 88,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "σ [S/cm]"
+              ],
+              "property_name": "electric_conductivity"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "K",
+              "cm"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_8_101",
+          "page": 8,
+          "section": "Results",
+          "caption": "Table 3. Summary ofEnergy Contributions (kJ $\\mathbf { m o l } ^ { - 1 } )$ , Dipolar Moment (D), and Energy Barrier (kJ $\\mathbf { m o l } ^ { - 1 } )$ Calculated by MMX for the Chair-to-Chair Interconversion of P4THPMA [Color figure can be viewed in the online issue, which is available at www.interscience.wiley.com.] MMX (energy of optimized geometry); Str (Stretching contribution); Bnd (Bond contribution); OOP (out-of-plane contribution); StrBnd (Bond stretching-angle bending contribution); Tor (Torsion contribution); VDW (van der Waals contribution); DPDP (electrostatic contribution); HF (Heat ofFormation); SE (Strain Energy); l (dipole moment).",
+          "row_count": 12,
+          "column_count": 6,
+          "cell_count": 68,
+          "numeric_cell_count": 45,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 10
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "kJ",
+              "mol"
+            ],
+            "cell": [],
+            "caption": [
+              "kJ",
+              "kJ"
+            ]
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_9_108",
+          "page": 9,
+          "section": "Results",
+          "caption": "Table 4. Summary of the Conformational Energy (MMX) (kJ $\\mathrm { m o l ^ { - 1 } } )$ and Strain Energy (SE) derived from FF-Optimized geometries, Corresponding to Chair-to-Chair Interconversion ofPCHMA, P4THPMA, and PDMA",
+          "row_count": 13,
+          "column_count": 6,
+          "cell_count": 63,
+          "numeric_cell_count": 39,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "kJ",
+              "mol"
+            ],
+            "cell": [
+              "kJ",
+              "mol",
+              "kJ",
+              "mol",
+              "kJ",
+              "mol",
+              "kJ",
+              "mol",
+              "kJ",
+              "mol",
+              "kJ",
+              "mol"
+            ],
+            "caption": [
+              "kJ"
+            ]
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_10_124",
+          "page": 10,
+          "section": "Results",
+          "caption": "Table 5. Parameters Used for the Evaluation ofNumber ofEntities Involved in the c-Relaxation",
+          "row_count": 8,
+          "column_count": 4,
+          "cell_count": 32,
+          "numeric_cell_count": 21,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 7
+            },
+            {
+              "axis": "column",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "caption",
+          "unit_hits": {
+            "header": [],
+            "cell": [],
+            "caption": [
+              "c"
+            ]
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0037921",
+      "table_count": 0,
+      "tables": []
+    },
+    {
+      "document_id": "reference_no_0038527",
+      "table_count": 2,
+      "tables": [
+        {
+          "table_id": "T_3_44",
+          "page": 3,
+          "section": "Results",
+          "caption": "Table 1. Physical Properties of Rg(Th-m,n/p) and Rn(Th-5,4/8)",
+          "row_count": 17,
+          "column_count": 8,
+          "cell_count": 136,
+          "numeric_cell_count": 99,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 15
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 6,
+              "header_context": [
+                "$T_{m}^{g}$ (°C)"
+              ],
+              "property_name": "melting_temperature"
+            },
+            {
+              "column_index": 7,
+              "header_context": [
+                "$T_{c}^{h}$ (°C)"
+              ],
+              "property_name": "crystallization_temperature"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "g/mol",
+              "w",
+              "c",
+              "g/mol",
+              "nm",
+              "g",
+              "°C",
+              "c",
+              "°C"
+            ],
+            "cell": [
+              "j",
+              "j",
+              "k",
+              "k",
+              "k",
+              "k"
+            ],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_5_69",
+          "page": 5,
+          "section": "Results",
+          "caption": "Table 2. Interlayer Distances of Rg(Th-m,n/p) and Rn(Th-5,4/8)",
+          "row_count": 8,
+          "column_count": 7,
+          "cell_count": 50,
+          "numeric_cell_count": 30,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 7
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "deg"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0038813",
+      "table_count": 5,
+      "tables": [
+        {
+          "table_id": "T_5_77",
+          "page": 5,
+          "section": "Results",
+          "caption": "Table 1. Characterization of polymers",
+          "row_count": 33,
+          "column_count": 4,
+          "cell_count": 60,
+          "numeric_cell_count": 40,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 32
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "cm",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_5_78",
+          "page": 5,
+          "section": "Results",
+          "caption": "Table 2. Elemental analysis, viscosity, and molecular weights of polymers",
+          "row_count": 26,
+          "column_count": 8,
+          "cell_count": 145,
+          "numeric_cell_count": 80,
+          "header_rows": [
+            0,
+            1,
+            2
+          ],
+          "header_level_count": 3,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [
+            {
+              "column_index": 4,
+              "header_context": [
+                "$\\eta_{\\text{inh}}$ (dl/g) $^a$",
+                "$\\eta_{\\text{inh}}$ (dl/g) $^a$",
+                "1AQA-PPDI"
+              ],
+              "property_name": "intrinsic_viscosity"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "dl/g",
+              "C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_sample_axis",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_6_86",
+          "page": 6,
+          "section": "Results",
+          "caption": "Table 3. Thermal analysis of the polymers",
+          "row_count": 9,
+          "column_count": 6,
+          "cell_count": 54,
+          "numeric_cell_count": 40,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 8
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "$T_{g}$ (°C)"
+              ],
+              "property_name": "glass_transition_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "g",
+              "°C",
+              "°C",
+              "°C",
+              "°C",
+              "°C",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_7_97",
+          "page": 7,
+          "section": "Results",
+          "caption": "Table 4. UV–Vis absorption of poly(amide-urea)s<sup>a</sup>",
+          "row_count": 5,
+          "column_count": 4,
+          "cell_count": 20,
+          "numeric_cell_count": 8,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "mixed",
+          "sample_axis": "both",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 4
+            },
+            {
+              "axis": "column",
+              "score": 2
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "nm",
+              "nm"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_7_98",
+          "page": 7,
+          "section": "Results",
+          "caption": "Table 5. Solubility of poly(amide-urea)s",
+          "row_count": 9,
+          "column_count": 7,
+          "cell_count": 63,
+          "numeric_cell_count": 0,
+          "header_rows": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "header_level_count": 9,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "not_found",
+          "unit_hits": {
+            "header": [],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0039705",
+      "table_count": 3,
+      "tables": [
+        {
+          "table_id": "T_5_80",
+          "page": 5,
+          "section": "Methods",
+          "caption": "Table 1. Molecular Weight, Yield, and Absorption Maximum of Polymers",
+          "row_count": 7,
+          "column_count": 6,
+          "cell_count": 42,
+          "numeric_cell_count": 30,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "nm",
+              "nm"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_6_84",
+          "page": 6,
+          "section": "Methods",
+          "caption": "Table 2. TGA Data of Polymers Ia–IIc",
+          "row_count": 7,
+          "column_count": 4,
+          "cell_count": 28,
+          "numeric_cell_count": 20,
+          "header_rows": [],
+          "header_level_count": 0,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 7
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "%",
+              "%",
+              "%",
+              "°C"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "header_rows_not_detected",
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_7_93",
+          "page": 7,
+          "section": "Methods",
+          "caption": "Table 3. Liquid Crystalline and Thermal Properties of Polymers",
+          "row_count": 8,
+          "column_count": 9,
+          "cell_count": 65,
+          "numeric_cell_count": 42,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "$T_g$ (°C)",
+                "$T_g$ (°C)"
+              ],
+              "property_name": "glass_transition_temperature"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "DSC (°C)",
+                "$T_m$"
+              ],
+              "property_name": "melting_temperature"
+            },
+            {
+              "column_index": 5,
+              "header_context": [
+                "HOPM (°C)",
+                "$T_m$"
+              ],
+              "property_name": "melting_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "°C",
+              "°C",
+              "°C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0042246",
+      "table_count": 1,
+      "tables": [
+        {
+          "table_id": "T_3_62",
+          "page": 3,
+          "section": null,
+          "caption": "Table 1 Glass transition temperature $( T _ { \\mathrm { g } } , \\mathrm { o n s e t } )$ ）, melting point $( T _ { \\mathrm { m } } , \\mathrm { p e a k \\ t o p } )$ ）, heat of fusion （ ΔH）, storage modulus（E’ at 25 ℃）and AC ionic conductivity（ $( \\sigma _ { i }$ at 25 ℃）of NBR, electrolytes and the blends.",
+          "row_count": 12,
+          "column_count": 7,
+          "cell_count": 74,
+          "numeric_cell_count": 29,
+          "header_rows": [
+            0,
+            1,
+            2
+          ],
+          "header_level_count": 3,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 14
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 2,
+              "header_context": [
+                "$T_{\\text{g}} / ^{\\circ}\\text{C}$",
+                "-65",
+                "-25"
+              ],
+              "property_name": "glass_transition_temperature"
+            },
+            {
+              "column_index": 3,
+              "header_context": [
+                "$T_{\\text{m}} / ^{\\circ}\\text{C}$",
+                "-",
+                "-"
+              ],
+              "property_name": "melting_temperature"
+            },
+            {
+              "column_index": 4,
+              "header_context": [
+                "$\\Delta H / \\text{kJ mol}^{-1}$",
+                "-",
+                "-"
+              ],
+              "property_name": "heat_of_fusion"
+            },
+            {
+              "column_index": 5,
+              "header_context": [
+                "$E' / \\text{MPa}$",
+                "1.3",
+                "2.8"
+              ],
+              "property_name": "dynamic_tensile_properties"
+            },
+            {
+              "column_index": 6,
+              "header_context": [
+                "$\\sigma_{i} / \\text{S cm}^{-1}$",
+                "-",
+                "-"
+              ],
+              "property_name": "electric_conductivity"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "g",
+              "C",
+              "C",
+              "kJ",
+              "mol",
+              "MPa",
+              "cm"
+            ],
+            "cell": [],
+            "caption": [
+              "g",
+              "k"
+            ]
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0042367",
+      "table_count": 2,
+      "tables": [
+        {
+          "table_id": "T_2_31",
+          "page": 2,
+          "section": "Methods",
+          "caption": "TABLE 1 Mixing ratio of thin film polymer blends based on PDLLA, PLGA and PCL",
+          "row_count": 10,
+          "column_count": 4,
+          "cell_count": 40,
+          "numeric_cell_count": 18,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 9
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "%",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_7_98",
+          "page": 7,
+          "section": "Results",
+          "caption": "TABLE 2 Tensile strength and Young’s modulus of PDLLA, PLGA and PCL",
+          "row_count": 4,
+          "column_count": 3,
+          "cell_count": 12,
+          "numeric_cell_count": 6,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "Tensile strength (Mpa)"
+              ],
+              "property_name": "tensile_stress_at_break"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "Young's Modulus (Gpa)"
+              ],
+              "property_name": "tensile_modulus"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "Mpa",
+              "Gpa"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0042480",
+      "table_count": 2,
+      "tables": [
+        {
+          "table_id": "T_7_73",
+          "page": 7,
+          "section": "Results",
+          "caption": "Table 1 The structure analysis and inherent viscosities $( \\eta _ { \\mathrm { i n h } } )$ of polymers",
+          "row_count": 6,
+          "column_count": 6,
+          "cell_count": 31,
+          "numeric_cell_count": 16,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 5,
+              "header_context": [
+                "ηinh, dL g-1",
+                "ηinh, dL g-1"
+              ],
+              "property_name": "intrinsic_viscosity"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "%",
+              "cm",
+              "dL",
+              "g",
+              "C"
+            ],
+            "cell": [
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_8_84",
+          "page": 8,
+          "section": "Results",
+          "caption": "Table 2 The mechanical and thermal properties of polymers",
+          "row_count": 6,
+          "column_count": 5,
+          "cell_count": 26,
+          "numeric_cell_count": 16,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "Mechanical properties",
+                "Tensile strength (MPa)"
+              ],
+              "property_name": "tensile_stress_at_break"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "Mechanical properties",
+                "Tensile modulus (GPa)"
+              ],
+              "property_name": "tensile_modulus"
+            },
+            {
+              "column_index": 3,
+              "header_context": [
+                "Mechanical properties",
+                "Elongation at break (%)"
+              ],
+              "property_name": "elongation_at_break"
+            },
+            {
+              "column_index": 4,
+              "header_context": [
+                "$T_{\\text{d}}$ (°C)",
+                "$T_{\\text{d}}$ (°C)"
+              ],
+              "property_name": "thermal_decomposition_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "°C",
+              "MPa",
+              "GPa",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0043541",
+      "table_count": 1,
+      "tables": [
+        {
+          "table_id": "T_4_49",
+          "page": 4,
+          "section": "Results",
+          "caption": "Table 1. Table 1. Contact angles and surface free energy of hydrophilic polymer brushes.",
+          "row_count": 9,
+          "column_count": 5,
+          "cell_count": 42,
+          "numeric_cell_count": 21,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 16
+            },
+            {
+              "axis": "column",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "°c",
+              "°c",
+              "°c",
+              "°c",
+              "°c",
+              "°c"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0043590",
+      "table_count": 4,
+      "tables": [
+        {
+          "table_id": "T_1_19",
+          "page": 1,
+          "section": "Methods",
+          "caption": "TABLE I Properties of the Matrix Polymer and Conductive fillers",
+          "row_count": 9,
+          "column_count": 4,
+          "cell_count": 36,
+          "numeric_cell_count": 15,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 3
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "cell",
+          "unit_hits": {
+            "header": [],
+            "cell": [
+              "cm",
+              "kg",
+              "nm",
+              "mL",
+              "g",
+              "g"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns"
+          ]
+        },
+        {
+          "table_id": "T_2_42",
+          "page": 2,
+          "section": "Results",
+          "caption": "TABLE II Cell Size of the Foam Injection molded Composites",
+          "row_count": 7,
+          "column_count": 6,
+          "cell_count": 37,
+          "numeric_cell_count": 25,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 5
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 2,
+              "header_context": [
+                "Cell Density (×106cells/cm3)",
+                "Cell Density (×106cells/cm3)"
+              ],
+              "property_name": "density"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_4_63",
+          "page": 4,
+          "section": "Results",
+          "caption": "TABLE III Fiber Length in Carbon Fiber Filled Composites",
+          "row_count": 5,
+          "column_count": 3,
+          "cell_count": 15,
+          "numeric_cell_count": 0,
+          "header_rows": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "header_level_count": 5,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "not_found",
+          "unit_hits": {
+            "header": [],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": []
+        },
+        {
+          "table_id": "T_5_67",
+          "page": 5,
+          "section": "Results",
+          "caption": "TABLE IV Fiber Orientation factors of the Injection molded Composites",
+          "row_count": 13,
+          "column_count": 6,
+          "cell_count": 63,
+          "numeric_cell_count": 42,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 12
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0043955",
+      "table_count": 3,
+      "tables": [
+        {
+          "table_id": "T_2_37",
+          "page": 2,
+          "section": null,
+          "caption": "Table 1. Polymerizations of PFP Ester-Functionalized Phenylacetylenes (Monomers 1 3)<sup>a</sup>",
+          "row_count": 25,
+          "column_count": 6,
+          "cell_count": 135,
+          "numeric_cell_count": 78,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 21
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "w",
+              "c",
+              "w",
+              "c"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_4_62",
+          "page": 4,
+          "section": null,
+          "caption": "Table 2. Polymer Reactions between PFP Ester-Functionalized PPAs and Amines<sup>a</sup>",
+          "row_count": 16,
+          "column_count": 6,
+          "cell_count": 81,
+          "numeric_cell_count": 48,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 6
+            }
+          ],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "%",
+              "w",
+              "w"
+            ],
+            "cell": [
+              "C",
+              "C",
+              "C",
+              "C",
+              "C",
+              "C"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_6_85",
+          "page": 6,
+          "section": null,
+          "caption": "Table 3. Preparation ofFunctional PPAs with Diferent Ratio of Two Side Chains<sup>a</sup>",
+          "row_count": 7,
+          "column_count": 6,
+          "cell_count": 42,
+          "numeric_cell_count": 30,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "c",
+              "%",
+              "w",
+              "w"
+            ],
+            "cell": [
+              "C",
+              "%",
+              "%",
+              "C",
+              "%",
+              "%",
+              "C",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%",
+              "%"
+            ],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_property_columns",
+            "numeric_table_without_sample_axis"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0073324",
+      "table_count": 3,
+      "tables": [
+        {
+          "table_id": "T_3_34",
+          "page": 3,
+          "section": "Results",
+          "caption": "TABLE I. Aliphatic Polyhydrazides $^{a}$ See experimental section for codes. $^{b}$ HTS = High temperature solution polymerization; LTS = low temperature solution polymerization. $^{c}$ Determination of McFarlane and Miller. $^{13}$ $^{d}$ Determination of Moldehauer and Bock. $^{7,8}$",
+          "row_count": 25,
+          "column_count": 10,
+          "cell_count": 241,
+          "numeric_cell_count": 85,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 5
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 8,
+              "header_context": [
+                "PMT, °C.",
+                "PMT, °C."
+              ],
+              "property_name": "melting_temperature"
+            },
+            {
+              "column_index": 9,
+              "header_context": [
+                "M.P. °C.",
+                "M.P. °C."
+              ],
+              "property_name": "melting_temperature"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "°C",
+              "°C"
+            ],
+            "cell": [
+              "c",
+              "c",
+              "c",
+              "c",
+              "c",
+              "c",
+              "c",
+              "c",
+              "c",
+              "c",
+              "c"
+            ],
+            "caption": [
+              "c"
+            ]
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_4_37",
+          "page": 4,
+          "section": "Results",
+          "caption": "TABLE II\nAliphatic and Mixed Copolyhydrazides $^{a}$ See experimental section for codes. $^{b}$ See footnote b in Table I. $^{c}$ Preparation of McFarlane and Miller. $^{13}$",
+          "row_count": 18,
+          "column_count": 10,
+          "cell_count": 172,
+          "numeric_cell_count": 40,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 9
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 7,
+              "header_context": [
+                "PMT, °C.",
+                "PMT, °C."
+              ],
+              "property_name": "melting_temperature"
+            },
+            {
+              "column_index": 8,
+              "header_context": [
+                "$\\eta_{inh}$ (DMSO)",
+                "$\\eta_{inh}$ (DMSO)"
+              ],
+              "property_name": "intrinsic_viscosity"
+            }
+          ],
+          "unit_location": "multiple",
+          "unit_hits": {
+            "header": [
+              "°C"
+            ],
+            "cell": [
+              "c",
+              "g"
+            ],
+            "caption": [
+              "c"
+            ]
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        },
+        {
+          "table_id": "T_6_50",
+          "page": 6,
+          "section": "Results",
+          "caption": "TABLE III 0-I/0-6 Copolymers",
+          "row_count": 7,
+          "column_count": 6,
+          "cell_count": 37,
+          "numeric_cell_count": 9,
+          "header_rows": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "header_level_count": 4,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "$\\eta_{inh}$ (DMSO)",
+                "$\\eta_{inh}$ (DMSO)",
+                "—",
+                "—"
+              ],
+              "property_name": "intrinsic_viscosity"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "PMT °C.",
+                "PMT °C.",
+                "290",
+                "293"
+              ],
+              "property_name": "melting_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "%",
+              "°C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_sample_axis",
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    },
+    {
+      "document_id": "reference_no_0101911",
+      "table_count": 3,
+      "tables": [
+        {
+          "table_id": "T_3_58",
+          "page": 3,
+          "section": "Abstract",
+          "caption": "TABLE 1 | Mechanical properties of PVC/ABS blends with different ABS core–shell particle contents.",
+          "row_count": 6,
+          "column_count": 4,
+          "cell_count": 24,
+          "numeric_cell_count": 20,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "Impact strength (J/m)"
+              ],
+              "property_name": "izod_impact"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "Tensile strength (MPa)"
+              ],
+              "property_name": "tensile_stress_at_break"
+            },
+            {
+              "column_index": 3,
+              "header_context": [
+                "Elongation at break (%)"
+              ],
+              "property_name": "elongation_at_break"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "J",
+              "MPa",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_4_70",
+          "page": 4,
+          "section": "Abstract",
+          "caption": "TABLE 2 | Mechanical properties of PVC/ABS/SMIA composites.",
+          "row_count": 6,
+          "column_count": 4,
+          "cell_count": 24,
+          "numeric_cell_count": 20,
+          "header_rows": [
+            0
+          ],
+          "header_level_count": 1,
+          "direction": "unknown",
+          "sample_axis": "unknown",
+          "sample_axis_candidates": [],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "Impact strength (J/m)"
+              ],
+              "property_name": "izod_impact"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "Tensile strength (MPa)"
+              ],
+              "property_name": "tensile_stress_at_break"
+            },
+            {
+              "column_index": 3,
+              "header_context": [
+                "Elongation at break (%)"
+              ],
+              "property_name": "elongation_at_break"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "J",
+              "MPa",
+              "%"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "numeric_table_without_sample_axis"
+          ]
+        },
+        {
+          "table_id": "T_5_83",
+          "page": 5,
+          "section": "Abstract",
+          "caption": "TABLE 3 | Glass transition temperatures of PVC/ABS/SMIA composites with different SMIA contents.",
+          "row_count": 6,
+          "column_count": 4,
+          "cell_count": 21,
+          "numeric_cell_count": 11,
+          "header_rows": [
+            0,
+            1
+          ],
+          "header_level_count": 2,
+          "direction": "row_samples",
+          "sample_axis": "row",
+          "sample_axis_candidates": [
+            {
+              "axis": "row",
+              "score": 1
+            }
+          ],
+          "property_column_candidates": [
+            {
+              "column_index": 1,
+              "header_context": [
+                "Temperature (°C)",
+                "$Tg_1$ (°C)"
+              ],
+              "property_name": "glass_transition_temperature"
+            },
+            {
+              "column_index": 2,
+              "header_context": [
+                "Temperature (°C)",
+                "$Tg_2$ (°C)"
+              ],
+              "property_name": "glass_transition_temperature"
+            }
+          ],
+          "unit_location": "header",
+          "unit_hits": {
+            "header": [
+              "°C",
+              "°C",
+              "°C",
+              "°C"
+            ],
+            "cell": [],
+            "caption": []
+          },
+          "warnings": [
+            "variable_row_width_or_spans"
+          ]
+        }
+      ]
+    }
+  ]
+}

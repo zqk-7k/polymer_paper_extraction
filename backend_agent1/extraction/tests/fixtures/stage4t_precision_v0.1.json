@@ -1,0 +1,99 @@
+{
+  "schema_version": "stage4t_precision_fixture.v0.1",
+  "created_at": "2026-08-21",
+  "purpose": "Stage 4T precision、样品绑定、表格完整性与不完整响应的人工评测基线",
+  "cases": [
+    {
+      "doc_id": "reference_no_0038813",
+      "table_id": "T_6_86",
+      "eligible": true,
+      "table_role": "multi_sample_multi_property",
+      "sample_rows": [
+        {"sample_id": "s002", "label": "1AQA-PPDI", "values": [190, 229, 327, 475, 49]},
+        {"sample_id": "s003", "label": "1AQA-NDI", "values": [185, 223, 320, 471, 46]},
+        {"sample_id": "s004", "label": "1AQA-MDI", "values": [178, 216, 316, 468, 45]},
+        {"sample_id": "s005", "label": "1AQA-H $_{12}$ MDI", "values": [156, 200, 291, 449, 38]},
+        {"sample_id": "s006", "label": "2AQA-PPDI", "values": [184, 224, 322, 472, 47]},
+        {"sample_id": "s007", "label": "2AQA-NDI", "values": [178, 218, 314, 466, 44]},
+        {"sample_id": "s008", "label": "2AQA-MDI", "values": [168, 212, 310, 461, 43]},
+        {"sample_id": "s009", "label": "2AQA-H $_{12}$ MDI", "values": [148, 192, 285, 443, 36]}
+      ],
+      "columns": [
+        {"index": 1, "raw_column": "Tg (°C)", "expected_kind": "glass_transition_temperature", "unit": "C"},
+        {"index": 2, "raw_column": "Ti (°C)", "expected_kind": "thermal_decomposition_temperature", "unit": "C", "weight_loss_percent": 2},
+        {"index": 3, "raw_column": "T10 (°C)", "expected_kind": "thermal_decomposition_temperature", "unit": "C", "weight_loss_percent": 10},
+        {"index": 4, "raw_column": "Tmax (°C)", "expected_kind": "thermal_decomposition_temperature", "unit": "C"},
+        {"index": 5, "raw_column": "Char yield at 700°C (%)", "expected_kind": "char_yield", "unit": "%", "temperature": 700, "forbid_kind": ["thermal_decomposition_temperature"]}
+      ],
+      "expected_counts": {
+        "table_numeric_cells": 40,
+        "glass_transition_temperature": 8,
+        "thermal_decomposition_temperature": 24,
+        "thermal_mass_fraction_by_weight_loss": 16,
+        "char_yield": 8,
+        "observations_if_weight_loss_is_split": 56,
+        "mutually_exclusive_property_mapping_conflicts": 0
+      },
+      "forbidden_pairs": [
+        {
+          "conflict_class": "thermal_mass_vs_decomposition",
+          "left_kinds": [
+            "char_yield",
+            "thermal_mass_fraction_at_temperature",
+            "residual_mass_fraction",
+            "mass_loss_fraction"
+          ],
+          "right_kinds": ["thermal_decomposition_temperature"],
+          "expected_conflicts": 0,
+          "sentinel": "char_yield_to_thermal_decomposition_temperature"
+        },
+        {
+          "conflict_class": "glass_transition_vs_melting",
+          "left_kinds": ["glass_transition_temperature"],
+          "right_kinds": ["melting_temperature"],
+          "expected_conflicts": 0
+        },
+        {
+          "conflict_class": "viscosity_vs_molecular_weight",
+          "left_kinds": [
+            "inherent_viscosity",
+            "intrinsic_viscosity",
+            "reduced_viscosity",
+            "specific_viscosity"
+          ],
+          "right_kinds": [
+            "molecular_weight",
+            "number_average_molecular_weight",
+            "weight_average_molecular_weight",
+            "viscosity_average_molecular_weight",
+            "z_average_molecular_weight"
+          ],
+          "expected_conflicts": 0
+        }
+      ],
+      "sample_id_by_row": {
+        "1": "s002", "2": "s003", "3": "s004", "4": "s005",
+        "5": "s006", "6": "s007", "7": "s008", "8": "s009"
+      }
+    },
+    {
+      "doc_id": "reference_no_0033617",
+      "table_id": "T_5_64",
+      "eligible": true,
+      "table_role": "multi_row_state_series",
+      "expected_status": "semantic_validation_failure",
+      "required_series_subject": "sample_or_polymer_entity",
+      "reason": "series point 必须关联 Sample 或 PolymerEntity；未绑定主体不得以成功态发布"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "table_id": null,
+      "eligible": true,
+      "table_role": "incomplete_llm_response",
+      "expected_status": "candidate_partial",
+      "forbid_status": ["success"],
+      "required_diagnostic_keywords": ["仅保留示例序列", "完整输出需补全"],
+      "reason": "JSON 可解析不等于内容完整；尾随诊断必须保留，空壳不得发布为成功"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+import hashlib
+import json
+from pathlib import Path
+
+from preview.validate_published_batches import (
+    ABSOLUTE_PATH_RE,
+    validate_collection,
+    validate_root,
+)
+
+
+def _write_valid_collection(root: Path) -> Path:
+    collection = root / "preview_smoke_20260810"
+    result_dir = collection / "reference_no_0000001"
+    result_dir.mkdir(parents=True)
+    candidate = {
+        "document_id": "reference_no_0000001",
+        "paper": {},
+        "polymer_entities": [],
+        "samples": [],
+        "process_steps": [],
+        "property_observations": [],
+        "evidence": [],
+        "publication": {"status": "complete"},
+    }
+    artifacts = {
+        "candidate.json": json.dumps(candidate),
+        "report_candidate.html": "<html>report</html>",
+    }
+    files = []
+    for name, content in artifacts.items():
+        payload = content.encode()
+        (result_dir / name).write_bytes(payload)
+        files.append({"name": name, "size_bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest()})
+    index = {
+        "schema_version": "polymerlit-batch/2.0",
+        "generated_at": "2026-08-10T10:00:00+08:00",
+        "result_date": "2026-08-10",
+        "result_mode": "preview",
+        "pipeline": {
+            "mode": "preview",
+            "git_commit": "a" * 40,
+            "config_sha256": "b" * 64,
+            "stages": [
+                "stage0_document",
+                "stage1_material_mention",
+                "stage2_polymer_entity",
+                "stage3_sample_process",
+                "stage4_property",
+                "stage4r_table_recovery",
+                "stage5_characterization",
+                "candidate_publish",
+            ],
+        },
+        "documents": [{"reference_no": "reference_no_0000001", "result_dir": "reference_no_0000001", "files": files}],
+    }
+    (collection / "RESULT_INDEX.json").write_text(json.dumps(index), encoding="utf-8")
+    return collection
+
+
+def test_valid_v2_collection_passes(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    errors, warnings = validate_collection(collection)
+    assert errors == []
+    assert warnings == []
+
+
+def test_missing_stage4r_provenance_fails(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    index_path = collection / "RESULT_INDEX.json"
+    index = json.loads(index_path.read_text())
+    index["pipeline"]["stages"].remove("stage4r_table_recovery")
+    index_path.write_text(json.dumps(index))
+    errors, _ = validate_collection(collection)
+    assert any("stage4r_table_recovery" in error for error in errors)
+
+
+def test_candidate_hash_mismatch_fails(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    (collection / "reference_no_0000001" / "candidate.json").write_text("{}")
+    errors, _ = validate_collection(collection)
+    assert any("SHA-256 mismatch" in error for error in errors)
+
+
+def test_legacy_hash_is_not_enforced_across_platform_line_endings(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    index_path = collection / "RESULT_INDEX.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    index["schema_version"] = "polymerlit-batch/1.0"
+    index.pop("pipeline")
+    index["documents"][0]["files"][0]["sha256"] = "0" * 64
+    index_path.write_text(json.dumps(index), encoding="utf-8")
+
+    errors, warnings = validate_collection(collection)
+
+    assert errors == []
+    assert any("legacy index" in warning for warning in warnings)
+
+
+def test_v2_text_hash_uses_canonical_lf_line_endings(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    candidate_path = collection / "reference_no_0000001" / "candidate.json"
+    original = candidate_path.read_bytes()
+    candidate_path.write_bytes(original.replace(b", ", b", \r\n"))
+    normalized = candidate_path.read_bytes().replace(b"\r\n", b"\n")
+    index_path = collection / "RESULT_INDEX.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    record = index["documents"][0]["files"][0]
+    record["size_bytes"] = len(normalized)
+    record["sha256"] = hashlib.sha256(normalized).hexdigest()
+    index_path.write_text(json.dumps(index), encoding="utf-8")
+
+    errors, _ = validate_collection(collection)
+
+    assert errors == []
+
+
+def test_dangling_entity_reference_fails(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    candidate_path = collection / "reference_no_0000001" / "candidate.json"
+    candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
+    candidate["polymer_entities"] = [{"entity_id": "pe001"}]
+    candidate["samples"] = [{"sample_id": "s001", "refers_to_entity": "pe999"}]
+    candidate_path.write_text(json.dumps(candidate), encoding="utf-8")
+
+    index_path = collection / "RESULT_INDEX.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    normalized = candidate_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    record = index["documents"][0]["files"][0]
+    record["size_bytes"] = len(normalized)
+    record["sha256"] = hashlib.sha256(normalized).hexdigest()
+    index_path.write_text(json.dumps(index), encoding="utf-8")
+
+    errors, _ = validate_collection(collection)
+
+    assert any("dangling references" in error for error in errors)
+
+
+def test_partial_review_collection_is_valid_but_non_production(tmp_path: Path) -> None:
+    collection = tmp_path / "demo5_review_20260823"
+    result_dir = collection / "reference_no_0000001"
+    result_dir.mkdir(parents=True)
+    candidate = {
+        "document_id": "reference_no_0000001",
+        "publication": {"status": "partial"},
+    }
+    (result_dir / "candidate.json").write_text(json.dumps(candidate), encoding="utf-8")
+    for name in (
+        "report_candidate.html",
+        "stage4t_shadow.json",
+        "stage4r_unified_audit.json",
+        "stage5_characterizations.json",
+        "stage5_shards.json",
+        "stage6_validation.json",
+    ):
+        content = "<html></html>" if name.endswith(".html") else "{}"
+        (result_dir / name).write_text(content, encoding="utf-8")
+    review_index = {
+        "schema_version": "polymerlit-review/1.0",
+        "generated_at": "2026-08-23T14:00:00+08:00",
+        "result_date": "2026-08-23",
+        "result_mode": "review",
+        "production_eligible": False,
+        "pipeline": {"mode": "preview", "git_commit": "a" * 40},
+        "documents": [{
+            "reference_no": "reference_no_0000001",
+            "result_dir": "reference_no_0000001",
+            "publication_status": "partial",
+        }],
+    }
+    (collection / "REVIEW_INDEX.json").write_text(
+        json.dumps(review_index), encoding="utf-8"
+    )
+
+    errors, warnings = validate_root(tmp_path)
+
+    assert errors == []
+    assert any("non-production review collection" in warning for warning in warnings)
+
+
+def test_review_collection_rejects_result_index(tmp_path: Path) -> None:
+    collection = _write_valid_collection(tmp_path)
+    (collection / "REVIEW_INDEX.json").write_text("{}", encoding="utf-8")
+
+    errors, _ = validate_root(tmp_path)
+
+    assert any("must not contain RESULT_INDEX.json" in error for error in errors)
+
+
+def test_absolute_path_regex_matches_real_local_paths() -> None:
+    """真实本地绝对路径必须被拦下，否则发布数据会泄露作者机器布局。"""
+    for text in (
+        r"saved to C:\Users\alice\out.json",
+        r'"source": "D:\1work\polymer"',
+        r"C:\Windows\system32",
+        "/Users/alice/repo/candidate.json",
+        "/home/bob/repo/candidate.json",
+    ):
+        assert ABSOLUTE_PATH_RE.search(text), text
+
+
+def test_absolute_path_regex_ignores_json_escapes_in_evidence_text() -> None:
+    r"""抽取正文里的 JSON 转义序列不是本地路径。
+
+    证据文本以冒号结尾时，raw JSON 会写成 `used:\"`，裸的 `[A-Za-z]:\\`
+    会把 `d:\` 当成盘符。这些是合法数据，不能因此拒绝发布。
+    """
+    for text in (
+        r'mobilities - was used:\",\n        \"table_locator\": null',
+        r'satisfy the following equations:\",\n   \"table_locator\": null',
+        r"the following equations:\n",
+    ):
+        assert not ABSOLUTE_PATH_RE.search(text), text

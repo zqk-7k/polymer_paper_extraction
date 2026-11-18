@@ -1,0 +1,1467 @@
+import json
+import tempfile
+import unittest
+from decimal import Decimal
+from pathlib import Path
+
+
+from schema.polymer_schema import (
+    ConditionQuantity,
+    Evidence,
+    PropertySeries,
+    ProcessStep,
+    Stage0Element,
+    Stage1Document,
+    Stage2Document,
+    Stage3Document,
+    StageCost,
+    TokenUsageSummary,
+)
+from stages.table_grid import parse_table_cells
+from stages.stage5_characterization import (
+    DEFAULT_VOCABULARY_PATH,
+    extract_characterizations,
+    load_characterization_vocabulary,
+)
+from stages.stage6_validate_merge import (
+    _validate_sample_binding_evidence,
+    run_stage6,
+    validate_and_merge,
+)
+from tests.test_stage5_characterization import (
+    FTIR_SENTENCE,
+    FakeClient,
+    UnresolvedStage4LinkClient,
+    rendered_prompt,
+    stage0_document,
+    stage2_document,
+    stage3_document,
+    stage4_document,
+    stage4_with_unresolved_method,
+)
+
+
+def test_stage6_reports_sample_binding_evidence_conflict() -> None:
+    from types import SimpleNamespace
+
+    stage3 = SimpleNamespace(samples=[
+        SimpleNamespace(sample_id="s001", sample_label_raw="PC-1"),
+        SimpleNamespace(sample_id="s002", sample_label_raw="PC-2"),
+    ])
+    evidence = SimpleNamespace(model_dump=lambda mode="python": {
+        "table_locator": {"row_label": "PC-2"}
+    })
+    prop = SimpleNamespace(property_id="prop001", unresolved_id=None, sample_id="s001", evidence=[evidence])
+    stage4 = SimpleNamespace(properties=[prop], unresolved_properties=[])
+    warnings = []
+    _validate_sample_binding_evidence(stage3, stage4, warnings)
+    assert any(item.code == "sample_binding_evidence_conflict" for item in warnings)
+
+
+def stage1_document() -> Stage1Document:
+    digest = "9" * 64
+    return Stage1Document.model_validate({
+        "schema_version": "1.0",
+        "document_id": "reference_no_0000002",
+        "material_mentions": [{
+            "mention_id": "m001",
+            "text": "PB",
+            "mention_role": "abbreviation",
+            "evidence": {
+                "block_id": "P_2_0",
+                "page": 2,
+                "bbox": [5, 6, 7, 8],
+                "source_type": "text",
+                "source_sentence": FTIR_SENTENCE,
+            },
+        }],
+        "provenance": {
+            "provider": "test",
+            "model": "fake",
+            "models": ["fake"],
+            "prompt_id": "polymer.stage1.material_mention",
+            "prompt_version": "1.0.0",
+            "prompt_sha256": digest,
+            "input_hash": digest,
+            "model_config_hash": digest,
+            "cache_key": digest,
+            "output_schema_version": "material_mention_schema.v1",
+            "implementation_version": "1.0.0",
+            "chunk_count": 1,
+        },
+        "warnings": [],
+    })
+
+
+def stage5_document():
+    methods, vocabulary, vocabulary_hash = (
+        load_characterization_vocabulary(DEFAULT_VOCABULARY_PATH)
+    )
+    return extract_characterizations(
+        stage0_document(),
+        stage2_document(),
+        stage3_document(),
+        stage4_document(),
+        FakeClient(),
+        rendered_prompt(),
+        methods,
+        vocabulary,
+        vocabulary_hash,
+    )
+
+
+def all_stages():
+    return (
+        stage0_document(),
+        stage1_document(),
+        stage2_document(),
+        stage3_document(),
+        stage4_document(),
+        stage5_document(),
+    )
+
+
+def _specialized_observation(
+    specialized_id: str,
+    *,
+    source_field: str,
+    semantic_label: str,
+    value_raw: str,
+    value_kind: str = "categorical",
+    categorical_value: str | None = None,
+    source_stage: str = "stage4",
+) -> dict[str, object]:
+    """构造一条已发布的 specialized 观测，evidence 走 stage0 已有的 P_2_0 块。"""
+    obs: dict[str, object] = {
+        "specialized_id": specialized_id,
+        "sample_id": "s001",
+        "value_raw": value_raw,
+        "value_kind": value_kind,
+        "unit_raw": None,
+        "method_raw": None,
+        "source_field": source_field,
+        "semantic_label": semantic_label,
+        "publication_status": "published",
+        "reason": None,
+        "sample_resolution_status": "resolved",
+        "source_stage": source_stage,
+        "evidence": [{
+            "block_id": "P_2_0",
+            "page": 2,
+            "bbox": [5, 6, 7, 8],
+            "source_type": "text",
+            "source_sentence": FTIR_SENTENCE,
+        }],
+    }
+    if value_kind == "categorical":
+        obs["categorical_value"] = categorical_value or value_raw
+    return obs
+
+
+class Stage6SpecializedMergeTests(unittest.TestCase):
+    """specialized 是加性通道：final 计数须等于 stage4 + stage5，且不回流 properties。"""
+
+    def _stages_with_specialized(
+        self,
+        *,
+        stage4_items: list[dict[str, object]],
+        stage5_items: list[dict[str, object]],
+    ) -> list[object]:
+        stages = list(all_stages())
+        stage4_payload = stages[4].model_dump(mode="json")
+        stage4_payload["specialized_property_observations"] = stage4_items
+        stages[4] = type(stages[4]).model_validate(stage4_payload)
+        stage5_payload = stages[5].model_dump(mode="json")
+        stage5_payload["specialized_property_observations"] = stage5_items
+        stages[5] = type(stages[5]).model_validate(stage5_payload)
+        return stages
+
+    def test_specialized_observations_from_both_stages_are_conserved(self) -> None:
+        stages = self._stages_with_specialized(
+            stage4_items=[_specialized_observation(
+                "sp001",
+                source_field="characteristics_of_material",
+                semantic_label="characteristics_of_material",
+                value_raw="linear",
+            )],
+            stage5_items=[_specialized_observation(
+                "sp002",
+                source_field="crystallographic_data",
+                semantic_label="two_theta",
+                value_raw="19.5",
+            )],
+        )
+        # 基线：同一批 stage 产物，但 specialized 数组为空
+        baseline_stages = self._stages_with_specialized(
+            stage4_items=[], stage5_items=[]
+        )
+        baseline, _ = validate_and_merge(*baseline_stages)
+        assert baseline is not None
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertEqual(validation.error_count, 0)
+        assert final is not None
+        # 守恒：stage4(1) + stage5(1) == final(2)
+        self.assertEqual(len(final.specialized_property_observations), 2)
+        self.assertEqual(
+            [item.specialized_id for item in final.specialized_property_observations],
+            ["sp001", "sp002"],
+        )
+        # 加性通道：specialized 不得回流进 properties，故 properties 数量与基线一致
+        self.assertEqual(
+            len(final.property_observations),
+            len(baseline.property_observations),
+        )
+
+    def test_specialized_evidence_ids_are_assigned_from_registry(self) -> None:
+        stages = self._stages_with_specialized(
+            stage4_items=[_specialized_observation(
+                "sp001",
+                source_field="characteristics_of_material",
+                semantic_label="characteristics_of_material",
+                value_raw="Thermoplastic",
+            )],
+            stage5_items=[],
+        )
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertEqual(validation.error_count, 0)
+        assert final is not None
+        observation = final.specialized_property_observations[0]
+        self.assertTrue(observation.evidence_ids)
+        # evidence_id 必须指向 final.evidence 中真实存在的条目
+        self.assertTrue(set(observation.evidence_ids) <= {
+            item.evidence_id for item in final.evidence
+        })
+
+    def test_empty_specialized_arrays_stay_empty(self) -> None:
+        """历史产物没有该字段时不得凭空产生观测（向后兼容）。"""
+        stages = self._stages_with_specialized(stage4_items=[], stage5_items=[])
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertEqual(validation.error_count, 0)
+        assert final is not None
+        self.assertEqual(final.specialized_property_observations, [])
+
+    def test_preview_preserves_evidence_used_only_by_specialized(self) -> None:
+        stages = self._stages_with_specialized(stage4_items=[_specialized_observation(
+            "sp001", source_field="characteristics_of_material",
+            semantic_label="characteristics_of_material", value_raw="linear",
+        )], stage5_items=[])
+        # Give specialized its own valid source, not shared by scalar properties.
+        stages[0].elements.append(Stage0Element(
+            block_id="P_special", type="text", page=2, source_block_index=999,
+            text="The sample was linear.",
+        ))
+        item = stages[4].specialized_property_observations[0]
+        item.evidence[0] = type(item.evidence[0]).model_validate({
+            "block_id": "P_special", "page": 2, "source_type": "text",
+            "source_sentence": "The sample was linear.",
+        })
+        final, validation = validate_and_merge(*stages, preview=True)
+        assert final is not None, validation
+        kept = final.specialized_property_observations[0]
+        registry = {e.evidence_id: e for e in final.evidence}
+        assert registry[kept.evidence_ids[0]].block_id == "P_special"
+        invalid = final.model_dump(mode="json")
+        invalid["evidence"] = [e for e in invalid["evidence"] if e["block_id"] != "P_special"]
+        with self.assertRaises(ValueError):
+            type(final).model_validate(invalid)
+
+    def test_preview_isolates_specialized_with_invalid_source(self) -> None:
+        good = _specialized_observation(
+            "sp002", source_field="characteristics_of_material",
+            semantic_label="characteristics_of_material", value_raw="linear",
+        )
+        bad = _specialized_observation(
+            "sp001", source_field="characteristics_of_material",
+            semantic_label="characteristics_of_material", value_raw="linear",
+        )
+        bad["evidence"][0]["block_id"] = "nonexistent"
+        stages = self._stages_with_specialized(stage4_items=[bad, good], stage5_items=[])
+        final, validation = validate_and_merge(*stages, preview=True)
+        assert final is not None, validation
+        assert [x.specialized_id for x in final.specialized_property_observations] == ["sp002"]
+        assert "sp001" in {x.object_id for x in final.rejected_objects}
+
+
+class Stage6Tests(unittest.TestCase):
+    def test_copolymer_type_is_preserved_in_final_entity_and_sample(self) -> None:
+        stages = list(all_stages())
+        stage2_payload = stages[2].model_dump(mode="json")
+        stage2_payload["polymer_entities"][0]["polymer_type"] = "copolymer"
+        stage2_payload["polymer_entities"][0]["copolymer_type"] = "block"
+        stages[2] = Stage2Document.model_validate(stage2_payload)
+        stage3_payload = stages[3].model_dump(mode="json")
+        stage3_payload["samples"][0]["polymer_type"] = "copolymer"
+        stage3_payload["samples"][0]["copolymer_type"] = "block"
+        stage3_payload["samples"][0]["material_type"] = "compound"
+        stages[3] = Stage3Document.model_validate(stage3_payload)
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertEqual(validation.error_count, 0)
+        assert final is not None
+        self.assertEqual(final.polymer_entities[0].copolymer_type, "block")
+        self.assertEqual(final.samples[0].copolymer_type, "block")
+        self.assertEqual(final.samples[0].material_type, "compound")
+
+    def test_merges_and_deduplicates_evidence(self) -> None:
+        stages = list(all_stages())
+        condition = stages[4].measurement_conditions[0]
+        condition.temperature = ConditionQuantity.model_validate({
+            "raw": "-85 °C",
+            "value": -85,
+            "unit": "°C",
+            "evidence": [condition.evidence.model_dump(mode="python")],
+        })
+        condition.condition_status = "reported"
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertEqual(validation.error_count, 0)
+        self.assertEqual(validation.status, "passed_with_warnings")
+        self.assertEqual(
+            [item.code for item in validation.warnings],
+            ["paper_metadata_incomplete"],
+        )
+        self.assertLess(len(final.evidence), 9)
+        self.assertEqual(
+            len(final.property_observations),
+            2,
+        )
+        self.assertTrue(final.material_mentions[0].evidence_ids)
+        self.assertNotIn(
+            "evidence",
+            final.material_mentions[0].model_dump(),
+        )
+        self.assertEqual(len(final.provenance), 6)
+        self.assertEqual(final.schema_version, "1.7")
+        self.assertIsNotNone(final.characterizations[0].confidence)
+        self.assertEqual(final.cost_summary.status, "partial")
+        self.assertEqual(
+            final.quality_metrics.stage4_methods_with_characterization.ratio,
+            1.0,
+        )
+        self.assertIsNotNone(
+            final.property_observations[0].measurement_context
+        )
+        temperature = final.measurement_conditions[0].temperature
+        self.assertIsNotNone(temperature)
+        assert temperature is not None
+        self.assertEqual(temperature.evidence, [])
+        self.assertTrue(temperature.evidence_ids)
+        self.assertTrue(set(temperature.evidence_ids) <= {
+            item.evidence_id for item in final.evidence
+        })
+
+    def test_property_series_points_are_merged_with_coverage(self) -> None:
+        stages = list(all_stages())
+        stage4 = stages[4].model_copy(deep=True)
+        evidence = stage4.properties[0].evidence[0]
+        confidence = {"score": 0.8}
+        stage4.property_series = [PropertySeries.model_validate({
+            "series_id": "series001",
+            "sample_id": "s001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "stress",
+            "measurement_context": {
+                "condition_status": "not_reported",
+            },
+            "points": [{
+                "point_id": "pt001",
+                "sample_id": "s001",
+                "entity_id": "pe001",
+                "sample_resolution_status": "resolved",
+                "coordinates": [{
+                    "name_raw": "strain",
+                    "value_raw": "10%",
+                    "unit_raw": "%",
+                    "evidence": evidence.model_dump(mode="python"),
+                }],
+                "value_raw": "3.2",
+                "coverage_status": "covered",
+                "measurement_context": {
+                    "condition_status": "not_reported",
+                },
+                "evidence": [evidence.model_dump(mode="python")],
+                "confidence": confidence,
+            }],
+            "coverage": {
+                "expected": 1,
+                "covered": 1,
+                "missing": 0,
+                "not_applicable": 0,
+                "ratio": 1.0,
+            },
+            "evidence": [evidence.model_dump(mode="python")],
+            "confidence": confidence,
+        })]
+        stages[4] = stage4
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertEqual(validation.error_count, 0)
+        self.assertEqual(len(final.property_series), 1)
+        self.assertEqual(final.property_series[0].points[0].point_id, "pt001")
+        self.assertEqual(
+            final.property_series[0].points[0].coordinates[0].value_raw,
+            "10%",
+        )
+        self.assertTrue(
+            final.property_series[0].points[0].coordinates[0].evidence_ids
+        )
+        self.assertEqual(
+            final.quality_metrics.series_points_covered.ratio,
+            1.0,
+        )
+
+    def test_aggregate_property_keeps_multiple_series_references(self) -> None:
+        stages = list(all_stages())
+        stage4 = stages[4].model_copy(deep=True)
+        evidence = stage4.properties[0].evidence[0]
+        confidence = {"score": 0.8}
+
+        def series(series_id: str, point_id: str) -> PropertySeries:
+            return PropertySeries.model_validate({
+                "series_id": series_id,
+                "sample_id": "s001",
+                "entity_id": "pe001",
+                "sample_resolution_status": "resolved",
+                "property_name_raw": stage4.properties[0].property_name_raw,
+                "observation_group_id": "pog001",
+                "measurement_context": {
+                    "condition_status": "not_reported",
+                },
+                "points": [{
+                    "point_id": point_id,
+                    "sample_id": "s001",
+                    "entity_id": "pe001",
+                    "sample_resolution_status": "resolved",
+                    "coordinates": [{
+                        "name_raw": "row",
+                        "value_raw": point_id,
+                        "evidence": evidence.model_dump(mode="python"),
+                    }],
+                    "value_raw": "1",
+                    "coverage_status": "covered",
+                    "measurement_context": {
+                        "condition_status": "not_reported",
+                    },
+                    "evidence": [evidence.model_dump(mode="python")],
+                    "confidence": confidence,
+                }],
+                "coverage": {
+                    "expected": 1,
+                    "covered": 1,
+                    "missing": 0,
+                    "not_applicable": 0,
+                    "ratio": 1.0,
+                },
+                "evidence": [evidence.model_dump(mode="python")],
+                "confidence": confidence,
+            })
+
+        stage4.property_series = [
+            series("series001", "pt001"),
+            series("series002", "pt002"),
+        ]
+        prop = stage4.properties[0]
+        prop.observation_group_id = "pog001"
+        prop.observation_role = "aggregate"
+        prop.series_id = None
+        prop.series_ids = ["series001", "series002"]
+        stages[4] = stage4
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertEqual(validation.error_count, 0)
+        self.assertEqual(
+            final.property_observations[0].series_ids,
+            ["series001", "series002"],
+        )
+        self.assertNotIn(
+            "unknown_series_reference",
+            [item.code for item in validation.errors],
+        )
+
+    def test_stage6_enriches_legacy_table_locator(self) -> None:
+        stages = list(all_stages())
+        body = (
+            "<table><tr><td>Sample</td><td>Value</td></tr>"
+            "<tr><td>S1</td><td>3.2</td></tr></table>"
+        )
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="T_2_9",
+            type="table",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_block_index=9,
+            table_body=body,
+            table_cells=None,
+        ))
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="T_2_9",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="table",
+            source_sentence="3.2",
+            table_locator={
+                "table_id": "T_2_9",
+                "row_label": "S1",
+                "column_label": "Value",
+                "cell_value": "3.2",
+            },
+        )]
+        stages[0] = stage0
+        stages[4] = stage4
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertEqual(validation.error_count, 0)
+        property_item = next(
+            item
+            for item in final.property_observations
+            if getattr(item, "property_id", None) == "prop001"
+        )
+        evidence_item = next(
+            item
+            for item in final.evidence
+            if item.evidence_id in property_item.evidence_ids
+        )
+        self.assertEqual(
+            evidence_item.table_locator["cell_id"],
+            "T_2_9:r0001:c0001",
+        )
+
+    def test_stage6_accepts_stable_blank_table_cell_locator(self) -> None:
+        stages = list(all_stages())
+        body = (
+            "<table><tr><td>Sample</td><td>Value</td></tr>"
+            "<tr><td>S1</td><td></td></tr></table>"
+        )
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="T_2_9",
+            type="table",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_block_index=9,
+            table_body=body,
+            table_cells=parse_table_cells(body, "T_2_9"),
+        ))
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="T_2_9",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="table",
+            source_sentence="S1",
+            table_locator={
+                "table_id": "T_2_9",
+                "row_label": "S1",
+                "column_label": "Value",
+                "cell_value": None,
+                "cell_id": "T_2_9:r0001:c0001",
+                "row_index": 1,
+                "column_index": 1,
+            },
+        )]
+        stages[0] = stage0
+        stages[4] = stage4
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        self.assertNotIn(
+            "invalid_table_locator",
+            [item.code for item in validation.errors],
+        )
+        self.assertNotIn(
+            "table_locator_stable_cell_unresolved",
+            [item.code for item in validation.warnings],
+        )
+
+    def test_stage6_rejects_unstable_blank_table_cell_locator(self) -> None:
+        stages = list(all_stages())
+        body = (
+            "<table><tr><td>Sample</td><td>Value</td></tr>"
+            "<tr><td>S1</td><td></td></tr></table>"
+        )
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="T_2_9",
+            type="table",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_block_index=9,
+            table_body=body,
+            table_cells=None,
+        ))
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="T_2_9",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="table",
+            source_sentence="S1",
+            table_locator={
+                "table_id": "T_2_9",
+                "row_label": "S1",
+                "column_label": "Value",
+                "cell_value": None,
+            },
+        )]
+        stages[0] = stage0
+        stages[4] = stage4
+
+        _, validation = validate_and_merge(*stages)
+
+        self.assertIn(
+            "invalid_table_locator",
+            [item.code for item in validation.errors],
+        )
+
+    def test_calculated_stage_cost_is_included_in_total(self) -> None:
+        stages = list(all_stages())
+        stage1 = stages[1].model_copy(deep=True)
+        stage1.provenance.usage = TokenUsageSummary.model_validate({
+            "input_tokens": 1000,
+            "output_tokens": 100,
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "billable_input_tokens": 1000,
+            "total_tokens": 1100,
+        })
+        stage1.provenance.cost = StageCost.model_validate({
+            "status": "calculated",
+            "currency": "CNY",
+            "input_per_million": "2",
+            "output_per_million": "10",
+            "input_cost": "0.002",
+            "output_cost": "0.001",
+            "total_cost": "0.003",
+        })
+        stages[1] = stage1
+
+        final, _ = validate_and_merge(*stages)
+
+        assert final is not None
+        self.assertEqual(final.cost_summary.total_cost, Decimal("0.003"))
+        stage_cost = next(
+            item
+            for item in final.cost_summary.stages
+            if item.stage == "stage1_material_mention"
+        )
+        self.assertEqual(stage_cost.cost.status, "calculated")
+
+    def test_invalid_evidence_blocks_publication(self) -> None:
+        stages = list(all_stages())
+        bad_stage1 = stages[1].model_copy(deep=True)
+        bad_stage1.material_mentions[0].evidence.source_sentence = (
+            "not present in source"
+        )
+        stages[1] = bad_stage1
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNone(final)
+        self.assertIn(
+            "evidence_not_in_source",
+            [item.code for item in validation.errors],
+        )
+
+    def test_ocr_not_done_blocks_publication(self) -> None:
+        stages = list(all_stages())
+        bad_stage0 = stages[0].model_copy(deep=True)
+        bad_stage0.ocr["status"] = "failed"
+        stages[0] = bad_stage0
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNone(final)
+        self.assertIn(
+            "ocr_not_done",
+            [item.code for item in validation.errors],
+        )
+
+    def test_orphan_sample_is_warning(self) -> None:
+        stages = list(all_stages())
+        stage3 = stages[3].model_copy(deep=True)
+        stage3.samples.append(
+            stage3.samples[0].model_copy(update={"sample_id": "s002"})
+        )
+        stages[3] = stage3
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        self.assertIn(
+            "orphan_sample",
+            [item.code for item in validation.warnings],
+        )
+
+    def test_polymer_name_contamination_is_warning(self) -> None:
+        stages = list(all_stages())
+        stage3 = stages[3].model_copy(deep=True)
+        stage3.samples[0].polymer_name = "dried PB film"
+        stages[3] = stage3
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        self.assertIn(
+            "polymer_name_contamination",
+            [item.code for item in validation.warnings],
+        )
+
+    def test_generic_process_and_unsupported_parameter_are_warnings(self) -> None:
+        stages = list(all_stages())
+        stage3 = stages[3].model_copy(deep=True)
+        stage3.process_steps.append(ProcessStep(
+            step_id="ps001",
+            process_type="other",
+            input_sample_ids=[],
+            output_sample_ids=["s001"],
+            parameters={"temperature": "333 K"},
+            evidence=stage3.samples[0].evidence,
+        ))
+        stages[3] = stage3
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        codes = [item.code for item in validation.warnings]
+        self.assertIn("generic_process_type", codes)
+        self.assertIn("unsupported_specific_value", codes)
+        self.assertEqual(
+            final.quality_metrics.standard_process_steps.ratio,
+            0.0,
+        )
+
+    def test_missing_characterization_link_is_warning_and_metric(self) -> None:
+        stages = list(all_stages())
+        stage5 = stages[5].model_copy(deep=True)
+        stage5.characterizations[1].derived_property_ids = []
+        stages[5] = stage5
+
+        final, validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertIn(
+            "missing_characterization",
+            [item.code for item in validation.warnings],
+        )
+        self.assertEqual(
+            final.quality_metrics.stage4_methods_with_characterization.ratio,
+            0.0,
+        )
+
+    def test_unresolved_property_can_be_characterization_derivation(
+        self,
+    ) -> None:
+        methods, vocabulary, vocabulary_hash = (
+            load_characterization_vocabulary(DEFAULT_VOCABULARY_PATH)
+        )
+        stage4 = stage4_with_unresolved_method()
+        stage5 = extract_characterizations(
+            stage0_document(),
+            stage2_document(),
+            stage3_document(),
+            stage4,
+            UnresolvedStage4LinkClient(),
+            rendered_prompt(),
+            methods,
+            vocabulary,
+            vocabulary_hash,
+        )
+
+        final, validation = validate_and_merge(
+            stage0_document(),
+            stage1_document(),
+            stage2_document(),
+            stage3_document(),
+            stage4,
+            stage5,
+        )
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertNotIn(
+            "unknown_property_reference",
+            [item.code for item in validation.errors],
+        )
+        self.assertIn(
+            "uprop001",
+            final.characterizations[0].derived_property_ids,
+        )
+
+    def test_output_is_deterministic_and_ocr_is_whitelisted(self) -> None:
+        stages = list(all_stages())
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.ocr["api_key"] = "must-not-propagate"
+        stage0.ocr["download_url"] = "https://example.test/private"
+        stages[0] = stage0
+
+        first, first_validation = validate_and_merge(*stages)
+        second, second_validation = validate_and_merge(*stages)
+
+        self.assertIsNotNone(first)
+        self.assertIsNotNone(second)
+        assert first is not None and second is not None
+        self.assertEqual(
+            first.model_dump(mode="json"),
+            second.model_dump(mode="json"),
+        )
+        self.assertEqual(
+            first_validation.model_dump(mode="json"),
+            second_validation.model_dump(mode="json"),
+        )
+        serialized = json.dumps(first.provenance)
+        self.assertNotIn("api_key", serialized)
+        self.assertNotIn("download_url", serialized)
+
+    def test_invalid_input_removes_stale_final(self) -> None:
+        stages = all_stages()
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            paths = [root / f"stage{index}.json" for index in range(6)]
+            for path, model in zip(paths, stages):
+                path.write_text(
+                    json.dumps(model.model_dump(mode="json")),
+                    encoding="utf-8",
+                )
+            paths[1].write_text("{}", encoding="utf-8")
+            validation_path = root / "stage6_validation.json"
+            final_path = root / "final.json"
+            final_path.write_text('{"stale": true}', encoding="utf-8")
+            measurement_path = root / "measurement_publication.json"
+            measurement_path.write_text('{"stale": true}', encoding="utf-8")
+
+            validation, published = run_stage6(
+                "reference_no_0000002",
+                *paths,
+                validation_path,
+                final_path,
+            )
+
+            self.assertFalse(published)
+            self.assertEqual(validation.status, "failed")
+            self.assertTrue(validation_path.is_file())
+            self.assertFalse(final_path.exists())
+            self.assertFalse(measurement_path.exists())
+
+    def test_run_stage6_writes_null_doi_and_html_report(self) -> None:
+        stages = list(all_stages())
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="I_2_10",
+            type="image",
+            page=2,
+            source_block_index=10,
+            caption="Fig. 1. Test image",
+            image_path="images/fig1.png",
+            image_kind="chart",
+        ))
+        stages[0] = stage0
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            paths = [root / f"stage{index}.json" for index in range(6)]
+            for path, model in zip(paths, stages):
+                path.write_text(
+                    json.dumps(model.model_dump(mode="json")),
+                    encoding="utf-8",
+                )
+            validation_path = root / "stage6_validation.json"
+            final_path = root / "final.json"
+
+            _, published = run_stage6(
+                "reference_no_0000002",
+                *paths,
+                validation_path,
+                final_path,
+            )
+            written = json.loads(final_path.read_text(encoding="utf-8"))
+            source_report = (root / "report.html").read_text(encoding="utf-8")
+            self.assertIn("原文抽取结果", source_report)
+            report = (root / "standardized_report.html").read_text(encoding="utf-8")
+            measurements = json.loads((root / "measurement_publication.json").read_text(encoding="utf-8"))
+
+        self.assertTrue(published)
+        self.assertEqual(measurements["schema_version"], "measurement_publication.v1")
+        self.assertEqual(measurements["document_id"], written["document_id"])
+        self.assertIn("doi", written["paper"])
+        self.assertIsNone(written["paper"]["doi"])
+        self.assertIn("polymer_type", written["polymer_entities"][0])
+        self.assertIn("copolymer_type", written["polymer_entities"][0])
+        self.assertIn("polymer_type", written["samples"][0])
+        self.assertIn("copolymer_type", written["samples"][0])
+        self.assertIn("material_type", written["samples"][0])
+        self.assertIn('"cost_summary"', json.dumps(written))
+        self.assertEqual(
+            len(written["property_observations"]),
+            len(stages[4].properties) + len(stages[5].properties),
+        )
+        self.assertEqual(
+            len(written["property_series"]),
+            len(stages[4].property_series),
+        )
+        if written["property_series"]:
+            self.assertEqual(
+                len(written["property_series"][0]["points"]),
+                len(stages[4].property_series[0].points),
+            )
+        self.assertIn("unresolved_property_observations", written)
+        self.assertEqual(
+            written["measurement_publication_audit"]["schema_version"],
+            "measurement_publication_audit.v3",
+        )
+        self.assertEqual(
+            len(written["measurement_publication_audit"]["records"]),
+            len(written["property_observations"])
+            + len(written["unresolved_property_observations"])
+            + len(written["property_series"])
+            + len(written["specialized_property_observations"]),
+        )
+        self.assertIn('id="graph"', report)
+        self.assertIn('id="viewMode"', report)
+        self.assertIn('id="confidenceFilter"', report)
+        self.assertIn("Confidence 覆盖率", report)
+        self.assertIn("appendHighlightedText", report)
+        self.assertIn("reference_no_0000002", report)
+        self.assertIn("fig001", report)
+        self.assertIn("Fig. 1. Test image", report)
+
+
+class Stage6PreviewTests(unittest.TestCase):
+    """--preview-relaxed 只阻断硬安全问题，表示/语义差异保留并告警。"""
+
+    TABLE_BODY = (
+        "<table>"
+        "<tr><td>Sample</td><td>Td5 (°C)</td><td>Td50 (°C)</td></tr>"
+        "<tr><td>PC-1</td><td>394</td><td>446</td></tr>"
+        "</table>"
+    )
+
+    def _stages_with_table_evidence(self, locator, source_sentence):
+        stages = list(all_stages())
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="T_2_9",
+            type="table",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_block_index=9,
+            table_body=self.TABLE_BODY,
+            table_cells=parse_table_cells(self.TABLE_BODY, "T_2_9"),
+        ))
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="T_2_9",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="table",
+            source_sentence=source_sentence,
+            table_locator=locator,
+        )]
+        stages[0] = stage0
+        stages[4] = stage4
+        return stages
+
+    def _codes(self, issues):
+        return [issue.code for issue in issues]
+
+    def test_pipe_rendered_row_rejected_by_strict_accepted_by_preview(self) -> None:
+        """Stage 4R 写 "PC-1 | 394 | 446"，Stage 0 存的是 HTML。"""
+        locator = {
+            "table_id": "T_2_9",
+            "row_label": "PC-1",
+            "column_label": "Td50 (°C)",
+            "cell_value": "446",
+            "cell_id": "T_2_9:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+        }
+        stages = self._stages_with_table_evidence(locator, "PC-1 | 394 | 446")
+
+        _, strict = validate_and_merge(*stages)
+        self.assertIn("evidence_not_in_source", self._codes(strict.errors))
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        self.assertNotIn("evidence_not_in_source", self._codes(preview.errors))
+        self.assertTrue(
+            any(code.startswith("evidence_matched")
+                for code in self._codes(preview.warnings))
+        )
+
+    def test_preview_degrades_missing_row_label_when_cell_id_locates(self) -> None:
+        """表格首列为空时模型只能写 null，但 cell_id 仍能确定性定位。"""
+        locator = {
+            "table_id": "T_2_9",
+            "row_label": None,
+            "column_label": "Td50 (°C)",
+            "cell_value": "446",
+            "cell_id": "T_2_9:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+        }
+        stages = self._stages_with_table_evidence(locator, "446")
+
+        _, strict = validate_and_merge(*stages)
+        self.assertIn("invalid_table_locator", self._codes(strict.errors))
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        self.assertNotIn("invalid_table_locator", self._codes(preview.errors))
+        self.assertIn("table_locator_label_missing", self._codes(preview.warnings))
+
+    def test_preview_still_rejects_locator_pointing_at_wrong_cell(self) -> None:
+        """cell_id 指向的格子里是 394，locator 却声明 446 —— 这是真错。"""
+        locator = {
+            "table_id": "T_2_9",
+            "row_label": None,
+            "column_label": "Td50 (°C)",
+            "cell_value": "446",
+            "cell_id": "T_2_9:r0001:c0001",
+            "row_index": 1,
+            "column_index": 1,
+        }
+        stages = self._stages_with_table_evidence(locator, "446")
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertNotIn("prop001", {
+            item.property_id for item in final.property_observations
+        })
+        self.assertIn("prop001", {
+            item.object_id for item in final.rejected_objects or []
+        })
+        self.assertIn(
+            "invalid_table_locator",
+            {
+                code
+                for item in final.rejected_objects or []
+                for code in item.error_codes
+            },
+        )
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_keeps_sentence_mismatch_as_warning(self) -> None:
+        """block 存在但句子未逐字命中时，Preview 保留候选并告警。"""
+        stages = list(all_stages())
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="P_2_0",
+            page=2,
+            bbox=(5, 6, 7, 8),
+            source_type="text",
+            source_sentence=(
+                "The tensile strength reached 133 MPa after annealing at 250 °C "
+                "for 300 minutes in vacuum"
+            ),
+        )]
+        stages[4] = stage4
+
+        strict_final, strict = validate_and_merge(*stages)
+        self.assertIsNone(strict_final)
+        self.assertIn("evidence_not_in_source", self._codes(strict.errors))
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertIn("prop001", {
+            item.property_id for item in final.property_observations
+        })
+        self.assertIn("evidence_not_in_source", self._codes(preview.warnings))
+        self.assertFalse(final.rejected_objects)
+        self.assertTrue(final.preview_publication_summary.conservation_passed)
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_keeps_known_table_row_without_stable_cell_id(self) -> None:
+        """表格原文和行列标签可定位时，缺 cell_id 只告警不清空数值。"""
+        stages = list(all_stages())
+        body = (
+            "<table><tr><td>Sample</td><td>M̄ₙ</td></tr>"
+            "<tr><td>P IZO-1</td><td>10350</td></tr></table>"
+        )
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="T_2_9",
+            type="table",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_block_index=9,
+            table_body=body,
+            table_cells=None,
+        ))
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="T_2_9",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="table",
+            source_sentence="<tr><td>P IZO-1</td><td>10350</td></tr>",
+            table_locator={
+                "table_id": "T_2_9",
+                "row_label": "P IZO-1",
+                "column_label": "M̄ₙ",
+                "cell_value": None,
+                "cell_id": None,
+            },
+        )]
+        stages[0] = stage0
+        stages[4] = stage4
+
+        final, preview = validate_and_merge(*stages, preview=True)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertEqual(preview.errors, [])
+        self.assertIn("table_locator_weak_evidence", self._codes(preview.warnings))
+        self.assertIn("prop001", {item.property_id for item in final.property_observations})
+
+    def test_preview_keeps_known_block_with_metadata_mismatch(self) -> None:
+        """已知 block 的页码、bbox、类型不一致时，Preview 只告警。"""
+        stages = list(all_stages())
+        stage4 = stages[4].model_copy(deep=True)
+        stage4.properties[0].evidence = [Evidence(
+            block_id="P_2_0",
+            page=99,
+            bbox=(0, 0, 0, 0),
+            source_type="table",
+            source_sentence="a reported property value",
+        )]
+        stages[4] = stage4
+
+        strict_final, strict = validate_and_merge(*stages)
+        self.assertIsNone(strict_final)
+        self.assertTrue({
+            "evidence_page_mismatch",
+            "evidence_bbox_mismatch",
+            "evidence_type_mismatch",
+        } <= set(self._codes(strict.errors)))
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertIn("prop001", {
+            item.property_id for item in final.property_observations
+        })
+        warning_codes = set(self._codes(preview.warnings))
+        self.assertTrue({
+            "evidence_page_mismatch",
+            "evidence_bbox_mismatch",
+            "evidence_type_mismatch",
+            "evidence_not_in_source",
+        } <= warning_codes)
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_keeps_incomplete_locator_as_warning(self) -> None:
+        """已知表格但 locator 行列不完整时，Preview 保留候选并告警。"""
+        locator = {
+            "table_id": "T_2_9",
+            "row_label": None,
+            "column_label": None,
+            "cell_value": None,
+            "cell_id": None,
+        }
+        stages = self._stages_with_table_evidence(locator, "446")
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertIn("prop001", {
+            item.property_id for item in final.property_observations
+        })
+        self.assertIn("invalid_table_locator", self._codes(preview.warnings))
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_rejects_locator_with_unknown_cell_id(self) -> None:
+        locator = {
+            "table_id": "T_2_9",
+            "row_label": "PC-1",
+            "column_label": "Td50 (°C)",
+            "cell_value": "446",
+            "cell_id": "T_2_9:r0099:c0099",
+            "row_index": 1,
+            "column_index": 2,
+        }
+        stages = self._stages_with_table_evidence(locator, "446")
+
+        final, preview = validate_and_merge(*stages, preview=True)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertNotIn("prop001", {
+            item.property_id for item in final.property_observations
+        })
+        self.assertIn("prop001", {
+            item.object_id for item in final.rejected_objects or []
+        })
+        self.assertIn(
+            "unknown_table_cell",
+            {
+                code
+                for item in final.rejected_objects or []
+                for code in item.error_codes
+            },
+        )
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_prunes_unknown_derived_property_reference(self) -> None:
+        stages = list(all_stages())
+        stage5 = stages[5].model_copy(deep=True)
+        stage5.characterizations[0].derived_property_ids.append("prop999")
+        stages[5] = stage5
+
+        strict_final, strict = validate_and_merge(*stages)
+        self.assertIsNone(strict_final)
+        self.assertIn("unknown_property_reference", self._codes(strict.errors))
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertNotIn(
+            "prop999",
+            final.characterizations[0].derived_property_ids,
+        )
+        self.assertFalse(final.rejected_objects)
+        self.assertGreater(
+            final.preview_publication_summary.reference_cleanup_count,
+            0,
+        )
+        self.assertIn("preview_reference_pruned", self._codes(preview.warnings))
+
+    def test_preview_accepts_table_scope_locator_for_characterization(self) -> None:
+        stages = list(all_stages())
+        stage0 = stages[0].model_copy(deep=True)
+        stage0.elements.append(Stage0Element(
+            block_id="T_2_9",
+            type="table",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_block_index=9,
+            table_body=self.TABLE_BODY,
+            table_cells=parse_table_cells(self.TABLE_BODY, "T_2_9"),
+        ))
+        stages[0] = stage0
+        stage5 = stages[5].model_copy(deep=True)
+        stage5.characterizations[0].evidence = [Evidence(
+            block_id="T_2_9",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="table",
+            source_sentence="Sample",
+            table_locator={
+                "table_id": "T_2_9",
+                "row_label": "All polymers",
+                "column_label": "Tg, Tm, Ti",
+                "cell_value": None,
+                "cell_id": None,
+                "row_index": None,
+                "column_index": None,
+            },
+        )]
+        stages[5] = stage5
+
+        strict_final, strict = validate_and_merge(*stages)
+        self.assertIsNone(strict_final)
+        self.assertIn("invalid_table_locator", self._codes(strict.errors))
+
+        final, preview = validate_and_merge(*stages, preview=True)
+        self.assertIsNotNone(final)
+        assert final is not None
+        self.assertIn("char001", {
+            item.characterization_id for item in final.characterizations
+        })
+        self.assertIn(
+            "table_locator_table_scope_accepted",
+            self._codes(preview.warnings),
+        )
+
+    def test_preview_keeps_series_point_with_sentence_mismatch(self) -> None:
+        stages = list(all_stages())
+        stage4 = stages[4].model_copy(deep=True)
+        valid_evidence = stage4.properties[0].evidence[0]
+        bad_evidence = Evidence(
+            block_id="P_2_0",
+            page=2,
+            bbox=(1, 2, 3, 4),
+            source_type="text",
+            source_sentence="This fabricated point evidence is absent from the paper.",
+        )
+        confidence = {"score": 0.8}
+        series = PropertySeries.model_validate({
+            "series_id": "series001",
+            "sample_id": "s001",
+            "entity_id": "pe001",
+            "sample_resolution_status": "resolved",
+            "property_name_raw": "stress",
+            "measurement_context": {"condition_status": "not_reported"},
+            "points": [
+                {
+                    "point_id": "pt001",
+                    "sample_id": "s001",
+                    "entity_id": "pe001",
+                    "sample_resolution_status": "resolved",
+                    "coordinates": [],
+                    "value_raw": "3.2",
+                    "coverage_status": "covered",
+                    "measurement_context": {"condition_status": "not_reported"},
+                    "evidence": [bad_evidence.model_dump(mode="python")],
+                    "confidence": confidence,
+                },
+                {
+                    "point_id": "pt002",
+                    "sample_id": "s001",
+                    "entity_id": "pe001",
+                    "sample_resolution_status": "resolved",
+                    "coordinates": [],
+                    "value_raw": "4.1",
+                    "coverage_status": "covered",
+                    "measurement_context": {"condition_status": "not_reported"},
+                    "evidence": [valid_evidence.model_dump(mode="python")],
+                    "confidence": confidence,
+                },
+            ],
+            "coverage": {
+                "expected": 2,
+                "covered": 2,
+                "missing": 0,
+                "not_applicable": 0,
+                "ratio": 1.0,
+            },
+            "evidence": [valid_evidence.model_dump(mode="python")],
+            "confidence": confidence,
+        })
+        stage4.property_series = [series]
+        original_point_count = len(series.points)
+        rejected_point_id = "pt001"
+        stages[4] = stage4
+
+        final, preview = validate_and_merge(*stages, preview=True)
+
+        self.assertIsNotNone(final)
+        assert final is not None
+        final_series = next(
+            item for item in final.property_series
+            if item.series_id == series.series_id
+        )
+        self.assertEqual(len(final_series.points), original_point_count)
+        self.assertIn(
+            rejected_point_id,
+            {point.point_id for point in final_series.points},
+        )
+        self.assertEqual(
+            final_series.coverage.covered,
+            sum(
+                point.coverage_status == "covered"
+                for point in final_series.points
+            ),
+        )
+        self.assertEqual(final_series.coverage.missing, 0)
+        self.assertNotIn(rejected_point_id, {
+            item.object_id for item in final.rejected_objects or []
+        })
+        self.assertIn("evidence_not_in_source", self._codes(preview.warnings))
+        self.assertEqual(preview.errors, [])
+
+    def test_preview_metadata_written_to_final_json(self) -> None:
+        locator = {
+            "table_id": "T_2_9",
+            "row_label": "PC-1",
+            "column_label": "Td50 (°C)",
+            "cell_value": "446",
+            "cell_id": "T_2_9:r0001:c0002",
+            "row_index": 1,
+            "column_index": 2,
+        }
+        stages = self._stages_with_table_evidence(locator, "PC-1 | 394 | 446")
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            paths = [root / f"stage{index}.json" for index in range(6)]
+            for path, model in zip(paths, stages):
+                path.write_text(
+                    json.dumps(model.model_dump(mode="json")), encoding="utf-8"
+                )
+            final_path = root / "final.json"
+
+            _, published = run_stage6(
+                "reference_no_0000002",
+                *paths,
+                root / "stage6_validation.json",
+                final_path,
+                preview=True,
+            )
+            written = json.loads(final_path.read_text(encoding="utf-8"))
+            self.assertTrue((root / "report.html").is_file())
+
+        self.assertTrue(published)
+        self.assertEqual(written["validation_mode"], "preview")
+        self.assertEqual(
+            written["validation_summary"]["validation_status"], "degraded"
+        )
+        self.assertTrue(written["validation_summary"]["degraded_codes"])
+
+    def test_strict_run_carries_no_preview_metadata(self) -> None:
+        stages = list(all_stages())
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            paths = [root / f"stage{index}.json" for index in range(6)]
+            for path, model in zip(paths, stages):
+                path.write_text(
+                    json.dumps(model.model_dump(mode="json")), encoding="utf-8"
+                )
+            final_path = root / "final.json"
+            _, published = run_stage6(
+                "reference_no_0000002",
+                *paths,
+                root / "stage6_validation.json",
+                final_path,
+            )
+            written = json.loads(final_path.read_text(encoding="utf-8"))
+
+        self.assertTrue(published)
+        self.assertNotIn("validation_mode", written)
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+
+def test_unresolved_specialized_derivations_and_cross_stage_ids_survive_final_merge():
+    from schema.polymer_schema import FinalSpecializedPropertyObservation
+    stages=list(all_stages())
+    value=FinalSpecializedPropertyObservation(specialized_id='sp001',property_name_raw='Unknown',
+        value_kind='text',value_raw='5.906.03',text_value='5.906.03',sample_resolution_status='unresolved',
+        source_stage='stage4t',evidence=stages[4].properties[0].evidence,
+        publication_status='unresolved',reason='value_not_numeric',article_sample_key='raw A',
+        candidate_trace={'candidate_key':'a','source_cell_raw':'5.906.03'})
+    stages[4].specialized_property_observations=[value]
+    stages[5].specialized_property_observations=[value.model_copy(update={'source_stage':'stage5'})]
+    final,validation=validate_and_merge(*stages,preview=True)
+    assert final is not None and validation.error_count==0
+    records=final.specialized_property_observations
+    assert len(records)==2 and len({p.specialized_id for p in records})==2
+    assert all(p.value_raw=='5.906.03' and p.publication_status=='unresolved' for p in records)
+    assert all(p.value_derivation['status']=='not_numeric' for p in records)
+    assert records[1].candidate_trace['original_specialized_id']=='sp001'

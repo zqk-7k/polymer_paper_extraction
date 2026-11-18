@@ -1,0 +1,28 @@
+{
+"version":"rule-inventory/1.0","standard":"RSSOP 2002","checked_at":"2026-09-13","full_iupac_conformance":false,"scope":"22 numbered RSSOP rules; not the entire Purple Book or all organic nomenclature",
+"sources":{"seniority":"https://iupac.qmul.ac.uk/rssop/ss04.html","selection":"https://iupac.qmul.ac.uk/rssop/ss05.html","naming":"https://iupac.qmul.ac.uk/rssop/ss06t08.html","families":"https://iupac.qmul.ac.uk/BriefGuide/polymer.html"},
+"rules":[
+{"number":1,"title":"骨架子单元类别顺序","section":"4","source":"seniority","implementation":"PARTIAL","local_module":"chemical_rule_checks"},
+{"number":2,"title":"杂环之间的优先选择","section":"4.1","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":3,"title":"相同杂环体系的进一步选择","section":"4.1","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":4,"title":"杂原子顺序","section":"4.2","source":"seniority","implementation":"PARTIAL","local_module":"chemical_rule_checks"},
+{"number":5,"title":"单杂原子的取代程度","section":"4.2","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":6,"title":"单杂原子取代基排序","section":"4.2","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":7,"title":"杂原子链内的进一步选择","section":"4.2","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":8,"title":"碳环体系之间的选择","section":"4.3","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":9,"title":"相同碳环体系的进一步选择","section":"4.3","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":10,"title":"等长无环碳链的选择","section":"4.4","source":"seniority","implementation":"NOT_IMPLEMENTED"},
+{"number":11,"title":"简单单元的连接位次","section":"5.1","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":12,"title":"固定环编号与连接位置","section":"5.1","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":13,"title":"最高与次高子单元间路径","section":"5.2","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":14,"title":"等路径的次级选择","section":"5.2","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":15,"title":"两个相同最高子单元","section":"5.2","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":16,"title":"多个相同最高子单元","section":"5.2","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":17,"title":"自由价数的最终选择","section":"5.2","source":"selection","implementation":"NOT_IMPLEMENTED"},
+{"number":18,"title":"子单元与取代基命名","section":"6.1","source":"naming","implementation":"PARTIAL","local_module":"naming"},
+{"number":19,"title":"按次序组合单元名称","section":"6.2","source":"naming","implementation":"PARTIAL","local_module":"naming"},
+{"number":20,"title":"聚合物前缀与括号","section":"7","source":"naming","implementation":"PARTIAL","local_module":"naming"},
+{"number":21,"title":"端基与方向","section":"7","source":"naming","implementation":"PARTIAL","local_module":"end_naming"},
+{"number":22,"title":"聚合物链作为取代基","section":"8","source":"naming","implementation":"NOT_IMPLEMENTED"}
+],"notes":["PARTIAL means an implemented subset, not the full rule.","No independent chemical review is claimed.","Source-based, irregular, double-strand, inorganic and stereochemical nomenclature need separate profiles."]
+}

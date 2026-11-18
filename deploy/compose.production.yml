@@ -13,6 +13,7 @@ services:
       MAX_UPLOAD_BYTES: "52428800"
       REQUIRE_HTTPS_FOR_KEYS: "true"
       BATCH_RESULTS_COLLECTION: ${BATCH_RESULTS_COLLECTION:-}
+      PIPELINE_BACKEND: ${PIPELINE_BACKEND:-agent1_legacy}
     volumes:
       - ${RUNTIME_DIR:-/srv/polymerlit/runtime}:/app/web_runtime
       - ${POLYINFO_DIR:-/srv/polymerlit/polyinfo}:/data/polyinfo:ro

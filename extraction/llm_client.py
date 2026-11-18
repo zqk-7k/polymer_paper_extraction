@@ -6,6 +6,7 @@ import json
 import os
 import re
 import time
+import uuid
 from dataclasses import asdict, dataclass, field
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -50,6 +51,7 @@ class ResolvedLLMConfig:
     api_format: str = "openai-chat-completions"
     thinking_effort: str | None = None
     stream: bool = False
+    trust_env: bool = True
 
 
 @dataclass(frozen=True)
@@ -142,6 +144,8 @@ def llm_config_cache_payload(
         payload.pop("thinking_effort")
     if not resolved.stream:
         payload.pop("stream")
+    if resolved.trust_env:
+        payload.pop("trust_env")
     return payload
 
 
@@ -232,6 +236,9 @@ def resolve_llm_config(
         raise LLMConfigurationError("LLM stream 必须是布尔值")
     if stream and api_format != "anthropic-messages":
         raise LLMConfigurationError("stream 目前仅支持 anthropic-messages")
+    trust_env = resolved.get("trust_env", True)
+    if not isinstance(trust_env, bool):
+        raise LLMConfigurationError("LLM trust_env 必须是布尔值")
     return ResolvedLLMConfig(
         provider=provider,
         requested_model=requested_model,
@@ -246,6 +253,7 @@ def resolve_llm_config(
         api_format=api_format,
         thinking_effort=thinking_effort,
         stream=stream,
+        trust_env=trust_env,
     )
 
 
@@ -267,6 +275,51 @@ def _api_key(provider: str) -> str:
 
 
 _JSON_ESCAPE_CHARACTERS = frozenset('"\\/bfnrtu')
+
+
+_CONTROL_CHAR_RE = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f]')
+
+
+def _escape_control_chars_in_json_strings(text: str) -> tuple[str, bool]:
+    """把 JSON 字符串值内的非法控制字符（\x00-\x1f 但保留 \t \n \r）转成 \\uXXXX。
+
+    模型偶尔会把原文里的 SOH / STX 等字节原样写进字符串值，导致 json.loads 拒绝。
+    JSON 规范允许 \\uXXXX 转义所有码点，所以替换后语义不变。
+    只在 JSON 字符串内部操作（双引号内），结构字符保持原样。
+    """
+    output: list[str] = []
+    in_string = False
+    changed = False
+    index = 0
+    while index < len(text):
+        char = text[index]
+        if not in_string:
+            output.append(char)
+            if char == '"':
+                in_string = True
+            index += 1
+            continue
+        if char == '\\':
+            # 保留转义序列原样，跳过转义字符
+            output.append(char)
+            index += 1
+            if index < len(text):
+                output.append(text[index])
+                index += 1
+            continue
+        if char == '"':
+            output.append(char)
+            in_string = False
+            index += 1
+            continue
+        cp = ord(char)
+        if cp <= 0x1f and char not in '\t\n\r':
+            output.append(f'\\u{cp:04x}')
+            changed = True
+        else:
+            output.append(char)
+        index += 1
+    return ''.join(output), changed
 
 
 def _escape_invalid_json_string_backslashes(text: str) -> tuple[str, bool]:
@@ -322,9 +375,26 @@ def _extract_json_object_legacy(text: str) -> dict[str, Any]:
     )
     if fenced:
         stripped = fenced.group(1).strip()
+    data: Any = None
+    parsed = False
     try:
         data = json.loads(stripped)
+        parsed = True
     except json.JSONDecodeError:
+        # 原文遗留的控制字符（如 MinerU 给 cm⁻¹ 上标留下的 SOH）会让
+        # json.loads 直接拒绝。先做等价的 \uXXXX 转义再重试，
+        # 避免把"控制字符"误判成"截断"，污染失败归因。
+        cleaned, control_chars_escaped = _escape_control_chars_in_json_strings(
+            stripped
+        )
+        if control_chars_escaped:
+            stripped = cleaned
+            try:
+                data = json.loads(stripped)
+                parsed = True
+            except json.JSONDecodeError:
+                pass
+    if not parsed:
         start = stripped.find("{")
         end = stripped.rfind("}")
         if start < 0 or end <= start:
@@ -603,11 +673,15 @@ class LLMClient:
         session: requests.Session | None = None,
         api_key: str | None = None,
         pricing: LLMPricing | None = None,
+        audit_dir: Path | None = None,
     ) -> None:
         self.resolved = resolved
         self.session = session or requests.Session()
+        if not resolved.trust_env:
+            self.session.trust_env = False
         self.api_key = api_key or _api_key(resolved.provider)
         self.pricing = pricing
+        self.audit_dir = audit_dir
         self.call_history: list[LLMCallRecord] = []
         self.last_response: LLMJSONResponse | None = None
         self.last_raw_response: LLMRawResponse | None = None
@@ -624,6 +698,10 @@ class LLMClient:
         return cls(
             resolved,
             pricing=resolve_pricing_config(config, resolved.model),
+            audit_dir=(
+                Path(config["llm"]["request_audit_dir"]) / stage
+                if config.get("llm", {}).get("request_audit_dir") else None
+            ),
         )
 
     def call_json(
@@ -632,6 +710,36 @@ class LLMClient:
         user_message: str,
         *,
         max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        if self.audit_dir is None:
+            return self._call_json(system_prompt, user_message, max_tokens=max_tokens)
+        started = time.time()
+        self.last_raw_response = None
+        result = None
+        error_type = None
+        try:
+            result = self._call_json(system_prompt, user_message, max_tokens=max_tokens)
+            return result
+        except Exception as exc:
+            error_type = type(exc).__name__
+            raise
+        finally:
+            self.audit_dir.mkdir(parents=True, exist_ok=True)
+            payload = {
+                "started_at_unix": started, "elapsed_seconds": time.time() - started,
+                "request_model": self.resolved.model,
+                "model_config": llm_config_cache_payload(self.resolved),
+                "system_prompt": system_prompt, "user_message": user_message,
+                "max_tokens": max_tokens, "error_type": error_type,
+                "raw_response": asdict(self.last_raw_response) if self.last_raw_response else None,
+                "parsed_response": result.data if result else None,
+                "response_model": result.model if result else None,
+            }
+            path = self.audit_dir / f"{time.time_ns()}_{uuid.uuid4().hex}.json"
+            path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+
+    def _call_json(
+        self, system_prompt: str, user_message: str, *, max_tokens: int = 4096,
     ) -> LLMJSONResponse:
         if self.resolved.api_format == "anthropic-messages":
             url = f"{self.resolved.base_url}/messages"

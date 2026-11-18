@@ -1,0 +1,77 @@
+{
+  "schema_version": "source_text_reviews.v1",
+  "reviews": [
+    {
+      "review_id": "0037921_Tg_DSC",
+      "document_id": "reference_no_0037921",
+      "block_id": "P_7_70",
+      "source_text_sha256": "f9c2ceb57eae2811dcffafe1715bb31ad3b31c2982f955115f0736ce47554759",
+      "spans": {
+        "method": {
+          "start": 17,
+          "end": 20,
+          "text": "DSC"
+        },
+        "sample": {
+          "start": 35,
+          "end": 44,
+          "text": "polyimide"
+        },
+        "property": {
+          "start": 65,
+          "end": 93,
+          "text": "glass transition temperature"
+        },
+        "value": {
+          "start": 125,
+          "end": 130,
+          "text": "2 3 0"
+        },
+        "unit": {
+          "start": 131,
+          "end": 156,
+          "text": "^ { \\circ } \\mathrm { C }"
+        }
+      },
+      "standard_property_code": "STD:glass_transition_temperature",
+      "reviewer": "codex_source_text_review",
+      "basis": "The source explicitly assigns the DSC glass transition to 230 degrees C and explains that the DMA loss-tangent peak at 225 degrees C means Tg at that temperature. Separate methods are preserved; no figure digitization or external reference value was used."
+    },
+    {
+      "review_id": "0037921_Tg_DMA",
+      "document_id": "reference_no_0037921",
+      "block_id": "P_7_70",
+      "source_text_sha256": "f9c2ceb57eae2811dcffafe1715bb31ad3b31c2982f955115f0736ce47554759",
+      "spans": {
+        "method": {
+          "start": 399,
+          "end": 402,
+          "text": "DMA"
+        },
+        "sample": {
+          "start": 414,
+          "end": 423,
+          "text": "polyimide"
+        },
+        "property": {
+          "start": 521,
+          "end": 542,
+          "text": "\\mathrm { T _ { g } }"
+        },
+        "value": {
+          "start": 474,
+          "end": 479,
+          "text": "2 2 5"
+        },
+        "unit": {
+          "start": 480,
+          "end": 505,
+          "text": "^ { \\circ } \\mathrm { C }"
+        }
+      },
+      "standard_property_code": "STD:glass_transition_temperature",
+      "reviewer": "codex_source_text_review",
+      "basis": "The source explicitly assigns the DSC glass transition to 230 degrees C and explains that the DMA loss-tangent peak at 225 degrees C means Tg at that temperature. Separate methods are preserved; no figure digitization or external reference value was used."
+    }
+  ]
+}

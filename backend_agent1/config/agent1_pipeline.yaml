@@ -1,0 +1,140 @@
+llm:
+  default:
+    trust_env: false
+    provider: dmx
+    model: kimi-k3
+    base_url: https://www.dmxapi.cn/v1
+    api_format: anthropic-messages
+    thinking_effort: low
+    timeout_seconds: 600
+    max_retries: 0
+    retry_backoff_seconds: 2
+
+  stage_overrides:
+    meta_extract:
+      model: deepseek-v4.1-flash
+    stage1_material_mention:
+      model: doubao-seed-2-1-pro-260628
+      api_format: openai-chat-completions
+      thinking_effort: null
+    stage2_polymer_entity:
+      model: doubao-seed-2-1-pro-260628
+      api_format: openai-chat-completions
+      thinking_effort: null
+    stage4t_table_interpretation:
+      model: doubao-seed-2-1-pro-260628
+      api_format: openai-chat-completions
+      thinking_effort: null
+    stage3_sample_process:
+      model: deepseek-v4.1-flash
+    stage4_property:
+      model: deepseek-v4.1-flash
+      timeout_seconds: 900
+      max_retries: 0
+      stream: true
+    stage5_characterization:
+      model: deepseek-v4.1-flash
+      timeout_seconds: 900
+      max_retries: 0
+      stream: true
+    sample_binding_review:
+      model: deepseek-v4.1-flash
+      api_format: openai-chat-completions
+      thinking_effort: null
+      timeout_seconds: 300
+      max_retries: 1
+      stream: false
+
+pricing:
+  currency: CNY
+  models:
+    doubao-seed-2-1-pro-260628:
+      input_per_million: "6"
+      output_per_million: "30"
+      # 用户报价（CNY / M tokens）：缓存创建 0.017，缓存命中 1.2。
+      # 当前计费器仅计算普通输入/输出，尚未按缓存分类计费。
+    kimi-k3:
+      input_per_million: "17"
+      output_per_million: "101"
+    gpt-5.6-luna:
+      input_per_million: "6.75"
+      output_per_million: "40.48"
+    doubao-seed-2-0-lite-260215:
+      input_per_million: "0.81"
+      output_per_million: "4.86"
+    deepseek-v4.1-flash:
+      input_per_million: "4.32"
+      output_per_million: "29.15"
+
+stages:
+  sample_binding_review:
+    prompt_id: polymer.sample_binding_review
+    prompt_version: sample_binding_review.v2
+    max_tokens: 4096
+    max_llm_workers: 1
+    max_validation_retries: 0
+  meta_extract:
+    prompt_id: polymer.meta.extract
+  stage1_material_mention:
+    prompt_id: polymer.stage1.material_mention
+    input_sections: [Abstract, Methods, Results]
+    fallback_sections: [Introduction, Conclusion]
+    max_chunk_chars: 8000
+    max_tokens: 8192
+    max_validation_retries: 0
+  stage2_polymer_entity:
+    prompt_id: polymer.stage2.polymer_entity
+    input_sections: [Methods, Results]
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 32768
+  stage3_sample_process:
+    prompt_id: polymer.stage3.sample_process
+    input_sections: [DocumentTitle, Abstract, Introduction, Methods, Results, Conclusion, SupportingInformation, null]
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 128000
+  stage4_property:
+    prompt_id: polymer.stage4.property
+    input_sections: [DocumentTitle, Abstract, Introduction, Methods, Results, Conclusion, SupportingInformation, null]
+    vocabulary_path: polymer_schema.yaml
+    max_input_chars: 0
+    max_validation_retries: 0
+    max_tokens: 128000
+  stage5_characterization:
+    prompt_id: polymer.stage5.characterization
+    input_sections: [DocumentTitle, Abstract, Introduction, Methods, Results, Conclusion, SupportingInformation, null]
+    vocabulary_path: polymer_schema.yaml
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 128000
+    sharded_preview: false
+    shard_target_chars: 18000
+    shard_max_chars: 30000
+    # 默认串行，确认服务限流后可显式调大；结果仍按 shard 顺序合并。
+    shard_workers: 1
+    shard_max_tokens: 20000
+  stage4t_table_interpretation:
+    prompt_id: polymer.stage4t.table_interpretation
+    max_tokens: 4096
+    # Preview 默认对复杂/歧义表调用 LLM；普通表沿用确定性 Shadow。
+    llm_interpretation: true
+    # 默认串行；批处理会按 doc workers/LLM workers 自动限幅。
+    table_workers: 1
+    # 仅保留为 fixture/定向回归记录，不再作为生产调用白名单。
+    approved_tables:
+      - {doc_id: reference_no_0021296, table_id: T_8_91}
+      - {doc_id: reference_no_0038527, table_id: T_5_69}
+      - {doc_id: reference_no_0039705, table_id: T_6_84}
+      - {doc_id: reference_no_0043541, table_id: T_4_49}
+      - {doc_id: reference_no_0043590, table_id: T_1_19}
+
+concurrency:
+  max_doc_workers: 1
+  max_llm_workers: 1
+
+paths:
+  # null uses the repository-relative defaults resolved by each entry point.
+  input_dir: null
+  output_dir: null
+  source_root: null

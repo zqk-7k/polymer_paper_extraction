@@ -103,6 +103,8 @@ EVIDENCE_PREVIEW_ROOT = ROOT / "web_runtime" / "evidence_pages"
 POLYINFO_DATA_ROOT = Path(os.environ.get("POLYINFO_DATA_ROOT", str(ROOT.parent / "整理结果" / "polyinfo数据")))
 POLYINFO_GROUPS = ("有doi", "无doi")
 PYTHON = ROOT / ".venv" / "Scripts" / "python.exe"
+AGENT1_BACKEND_ROOT = ROOT / "backend_agent1"
+PIPELINE_BACKENDS = {"legacy", "agent1_legacy"}
 MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", 50 * 1024 * 1024))
 REQUIRE_HTTPS_FOR_KEYS = os.environ.get("REQUIRE_HTTPS_FOR_KEYS", "true").lower() not in {"0", "false", "no"}
 TASK_ID_RE = re.compile(r"^[a-f0-9]{12}$")
@@ -1158,6 +1160,61 @@ def _candidate_graph(candidate: dict[str, Any]) -> dict[str, Any]:
     return {"nodes": nodes, "edges": edges, "stats": {"node_counts": node_counts, "edge_count": len(edges)}}
 
 
+def _pipeline_backend() -> str:
+    """PIPELINE_BACKEND 选择任务使用的抽取引擎，缺省使用新引擎。"""
+    value = os.environ.get("PIPELINE_BACKEND", "agent1_legacy").strip().lower()
+    if value not in PIPELINE_BACKENDS:
+        allowed = " / ".join(sorted(PIPELINE_BACKENDS))
+        raise ValueError(f"PIPELINE_BACKEND={value!r} 不受支持；可选 {allowed}")
+    return value
+
+
+def _pipeline_python() -> Path:
+    configured = os.environ.get("PIPELINE_BACKEND_PYTHON")
+    if configured:
+        return Path(configured).expanduser()
+    # 新引擎需要 rdkit / PyMuPDF，必须用它自己的虚拟环境。
+    for candidate in (
+        AGENT1_BACKEND_ROOT / ".venv" / "Scripts" / "python.exe",
+        AGENT1_BACKEND_ROOT / ".venv" / "bin" / "python",
+    ):
+        if candidate.is_file():
+            return candidate
+    return PYTHON
+
+
+def _pipeline_command(task_root: Path, ref_no: str) -> list[str]:
+    backend = _pipeline_backend()
+    if backend == "legacy":
+        script_root = ROOT
+        python = PYTHON
+        config = ROOT / "extraction" / "config" / "pipeline.yaml"
+        env_file = ROOT / ".env"
+        workflow: list[str] = []
+    else:
+        script_root = AGENT1_BACKEND_ROOT
+        python = _pipeline_python()
+        config = AGENT1_BACKEND_ROOT / "extraction" / "config" / "pipeline.yaml"
+        env_file = AGENT1_BACKEND_ROOT / "ocr" / ".env"
+        workflow = ["--workflow", "legacy"]
+    return [
+        str(python if python.is_file() else "python"),
+        str(script_root / "pipeline_runner.py"),
+        *workflow,
+        "--input-dir", str(task_root / "source_pdfs"),
+        "--mineru-output", str(task_root / "work" / "mineru"),
+        "--organized-root", str(task_root / "work" / "organized"),
+        "--processed-output", str(task_root / "work" / "processed"),
+        "--output-dir", str(task_root / "output"),
+        "--config", str(config),
+        "--env-file", str(env_file),
+        "--ref-no", ref_no,
+        "--workers", "1",
+        "--llm-workers", "1",
+        "--preview",
+    ]
+
+
 def _run_pipeline(task_id: str, task_secrets: dict[str, str]) -> None:
     root = RUNTIME_ROOT / task_id
     record = _read_record(root)
@@ -1165,24 +1222,9 @@ def _run_pipeline(task_id: str, task_secrets: dict[str, str]) -> None:
     record["started_at"] = _utc_now()
     _write_record(root, record)
 
-    command = [
-        str(PYTHON if PYTHON.is_file() else "python"),
-        str(ROOT / "pipeline_runner.py"),
-        "--input-dir", str(root / "source_pdfs"),
-        "--mineru-output", str(root / "work" / "mineru"),
-        "--organized-root", str(root / "work" / "organized"),
-        "--processed-output", str(root / "work" / "processed"),
-        "--output-dir", str(root / "output"),
-        "--config", str(ROOT / "extraction" / "config" / "pipeline.yaml"),
-        "--env-file", str(ROOT / ".env"),
-        "--ref-no", record["ref_no"],
-        "--workers", "1",
-        "--llm-workers", "1",
-        "--preview",
-    ]
-
     log_path = root / "pipeline.log"
     try:
+        command = _pipeline_command(root, record["ref_no"])
         with log_path.open("w", encoding="utf-8", errors="replace") as log_file:
             pipeline_env = _load_pipeline_environment()
             pipeline_env.update(task_secrets)

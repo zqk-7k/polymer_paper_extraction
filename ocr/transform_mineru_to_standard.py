@@ -14,14 +14,16 @@ from typing import Any, Protocol
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-PACKAGE_ROOT = SCRIPT_DIR.parent
-EXTRACTION_ROOT = PACKAGE_ROOT / "extraction"
-DEFAULT_WORK_ROOT = PACKAGE_ROOT / "work_pdf_pipeline"
-DEFAULT_MINERU_OUTPUT = DEFAULT_WORK_ROOT / "mineru"
-DEFAULT_ORGANIZED_ROOT = DEFAULT_WORK_ROOT / "organized"
-DEFAULT_PROCESSED_OUTPUT = DEFAULT_WORK_ROOT / "processed"
-META_PROMPT_PATH = EXTRACTION_ROOT / "prompts" / "meta_extract.md"
-DEFAULT_PIPELINE_CONFIG = EXTRACTION_ROOT / "config" / "pipeline.yaml"
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+DEFAULT_MINERU_OUTPUT = (
+    PROJECT_ROOT / "polyinfo数据" / "sample_exprot_34" / "mineru_output"
+)
+DEFAULT_ORGANIZED_ROOT = PROJECT_ROOT / "wenxian"
+DEFAULT_PROCESSED_OUTPUT = PROJECT_ROOT / "processed_data"
+META_PROMPT_PATH = SCRIPT_DIR.parent / "extraction" / "prompts" / "meta_extract.md"
+DEFAULT_PIPELINE_CONFIG = (
+    SCRIPT_DIR.parent / "extraction" / "config" / "pipeline.yaml"
+)
 
 HTML_TABLE_RE = re.compile(r"<table\b.*?</table>", re.IGNORECASE | re.DOTALL)
 MARKDOWN_IMAGE_RE = re.compile(r"!\[[^\]]*]\((?P<path>[^)\s]+)")
@@ -74,8 +76,9 @@ class ConfiguredMetaExtractor:
     """把 extraction.llm_client 适配为预处理元数据接口。"""
 
     def __init__(self, config_path: Path) -> None:
-        if str(PACKAGE_ROOT) not in sys.path:
-            sys.path.insert(0, str(PACKAGE_ROOT))
+        code_root = SCRIPT_DIR.parent
+        if str(code_root) not in sys.path:
+            sys.path.insert(0, str(code_root))
         from extraction.llm_client import LLMClient
 
         self.client = LLMClient.from_pipeline_config(
@@ -470,6 +473,8 @@ def standardize_elements(
             element_type = "footnote"
         elif block_type == "aside_text":
             element_type = "text"
+        elif block_type == "code" and isinstance(block.get("code_body"), str):
+            element_type = "text"
         else:
             element_type = "unknown"
             warnings.append(_warning(
@@ -489,7 +494,7 @@ def standardize_elements(
         }
 
         if element_type in {"text", "title", "references", "footnote"}:
-            text = str(block.get("text") or "")
+            text = str(block.get("text") or block.get("code_body") or "")
             merged_source_ids: list[str] = []
             for v2_block_index, v2_block in v2_matches:
                 rendered, inline_indexes = _render_v2_text(v2_block)
@@ -519,6 +524,12 @@ def standardize_elements(
                 element["section"] = current_section
 
         elif element_type == "table":
+            table_notes: list[str] = []
+            for key in ("table_notes", "table_footnote", "footnotes", "notes"):
+                value = block.get(key)
+                for note in value if isinstance(value, list) else [value]:
+                    if isinstance(note, str) and note.strip() and note not in table_notes:
+                        table_notes.append(note)
             raw_body = str(block.get("table_body") or "")
             table_body = raw_body
             matched_table_index = next(
@@ -549,6 +560,7 @@ def standardize_elements(
             element.update({
                 "caption": _caption_text(block),
                 "table_body": table_body,
+                "table_notes": table_notes,
                 "image_path": _organized_image_path(
                     organized_root,
                     ref_no,
@@ -654,8 +666,9 @@ def validate_meta_payload(payload: Any) -> dict[str, Any]:
 
 
 def validate_meta_confidence(payload: Any) -> dict[str, Any]:
-    if str(PACKAGE_ROOT) not in sys.path:
-        sys.path.insert(0, str(PACKAGE_ROOT))
+    code_root = SCRIPT_DIR.parent
+    if str(code_root) not in sys.path:
+        sys.path.insert(0, str(code_root))
     from extraction.schema.polymer_schema import MetadataConfidence
 
     confidence = MetadataConfidence.model_validate(payload)
@@ -686,15 +699,13 @@ def extract_paper_meta(
     blocks: list[dict[str, Any]],
     extractor: MetaExtractor | None,
 ) -> tuple[dict[str, Any], str, dict[str, Any], list[dict[str, str]]]:
-    prompt = META_PROMPT_PATH.read_text(encoding="utf-8")
-    prompt_sha256 = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
     source_text, source_pages = _meta_source(blocks)
     extraction: dict[str, Any] = {
         "method": "llm",
         "provider": None,
         "model": None,
         "prompt_file": "prompts/meta_extract.md",
-        "prompt_sha256": prompt_sha256,
+        "prompt_sha256": None,
         "source_pages": source_pages,
     }
     if extractor is None:
@@ -711,6 +722,9 @@ def extract_paper_meta(
                 "未配置统一 LLM 元数据提取器；document JSON 已继续生成",
             )],
         )
+    prompt = META_PROMPT_PATH.read_text(encoding="utf-8")
+    prompt_sha256 = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+    extraction["prompt_sha256"] = prompt_sha256
 
     try:
         response = extractor.extract(prompt, source_text)

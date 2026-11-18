@@ -1,0 +1,541 @@
+schema_version: "1.0"
+
+# 来源：docs/17类性质完整对照.md 的 17 类、97 个公开条目。
+# 格式：normalized_name: [PoLyInfo代码, property_category]
+property_vocabulary:
+  density: [P1110, physical_property]
+  specific_volume: [P1110, physical_property]
+  refractive_index: [P2110, optical_property]
+  stress_optical_coefficient: [P2120, optical_property]
+  crystallization_kinetics: [P3150, thermal_property]
+  crystallization_temperature: [P3140, thermal_property]
+  glass_transition_temperature: [P3110, thermal_property]
+  heat_of_crystallization: [P3140, thermal_property]
+  heat_of_fusion: [P3130, thermal_property]
+  thermal_decomposition_temperature: [P3170, thermal_property]
+  # TGA 成对编码的失重档位：PolyInfo 把 "10% 失重温度" 记成两个点：
+  # 温度本身 + 失重百分比。原 98 项清单只有前者，后者无处可填。
+  thermal_decomposition_weight_loss: [P3170, thermal_property]
+  # PolyInfo 公开条目含 Contact angle（与表面张力同属 P5150 表面性质组），
+  # 原 97 项清单遗漏；缺该槽位会导致接触角列判对也无处可填。
+  contact_angle: [P5150, physicochemical_property]
+  lc_phase_transition_temperature: [P3160, thermal_property]
+  linear_expansion_coefficient: [P3180, thermal_property]
+  melting_temperature: [P3120, thermal_property]
+  specific_heat_capacity_cp: [P3210, thermal_property]
+  specific_heat_capacity_cv: [P3210, thermal_property]
+  thermal_conductivity: [P3190, thermal_property]
+  thermal_diffusivity: [P3190, thermal_property]
+  volume_expansion_coefficient: [P3180, thermal_property]
+  dielectric_breakdown_voltage: [P4110, electrical_property]
+  dielectric_constant_dc: [P4110, electrical_property]
+  dielectric_dispersion: [P4120, electrical_property]
+  electric_conductivity: [P4130, electrical_property]
+  surface_resistivity: [P4130, electrical_property]
+  volume_resistivity: [P4130, electrical_property]
+  cohesive_energy_density: [P5110, physicochemical_property]
+  gas_diffusion_coefficient_d: [P5140, physicochemical_property]
+  gas_permeability_coefficient_p: [P5140, physicochemical_property]
+  gas_solubility_coefficient_s: [P5140, physicochemical_property]
+  hansen_parameter_delta_d: [P5110, physicochemical_property]
+  hansen_parameter_delta_h: [P5110, physicochemical_property]
+  hansen_parameter_delta_p: [P5110, physicochemical_property]
+  interfacial_tension: [P5160, physicochemical_property]
+  solubility_parameter: [P5110, physicochemical_property]
+  surface_tension: [P5150, physicochemical_property]
+  water_absorption: [P5120, physicochemical_property]
+  water_vapor_transmission: [P5130, physicochemical_property]
+  diffusion_coefficient: [P6140, dilute_solution_property]
+  good_solvent: [P6170, dilute_solution_property]
+  intrinsic_viscosity: [P6120, dilute_solution_property]
+  non_solvent: [TERM-solvn, dilute_solution_property]
+  poor_solvent: [P6170, dilute_solution_property]
+  radius_of_gyration: [P6110, dilute_solution_property]
+  second_virial_coefficient: [P6150, dilute_solution_property]
+  sedimentation_coefficient: [P6130, dilute_solution_property]
+  solvent: [TERM-solvn, dilute_solution_property]
+  theta_solvent_theta_temperature: [P6160, dilute_solution_property]
+  melt_viscosity: [P7110, rheological_property]
+  dynamic_viscosity: [P7120, rheological_property]
+  dynamic_tensile_properties: [P8130, tensile_property]
+  elongation_at_break: [P8110, tensile_property]
+  elongation_at_yield: [P8110, tensile_property]
+  fiber_tensile_elongation_at_break: [P8110, tensile_property]
+  fiber_tensile_modulus: [P8110, tensile_property]
+  fiber_tensile_stress_at_break: [P8110, tensile_property]
+  tensile_modulus: [P8110, tensile_property]
+  tensile_stress_at_break: [P8110, tensile_property]
+  tensile_stress_at_yield: [P8110, tensile_property]
+  dynamic_shear_properties: [P8130, shear_property]
+  shear_modulus: [P8140, shear_property]
+  shear_stress_at_break: [P8140, shear_property]
+  shear_stress_at_yield: [P8140, shear_property]
+  dynamic_flexural_properties: [P8130, flexural_property]
+  flexural_modulus: [P8160, flexural_property]
+  flexural_stress_at_break: [P8160, flexural_property]
+  flexural_stress_at_yield: [P8160, flexural_property]
+  compressive_modulus: [P8180, compression_characteristic]
+  compressive_stress_at_break: [P8180, compression_characteristic]
+  compressive_stress_at_yield: [P8180, compression_characteristic]
+  dynamic_compressive_properties: [P8180, compression_characteristic]
+  compressive_creep_rupture_strength: [P8210, creep_characteristic]
+  compressive_creep_rupture_time: [P8210, creep_characteristic]
+  compressive_creep_strain: [P8210, creep_characteristic]
+  flexural_creep_rupture_strength: [P8210, creep_characteristic]
+  flexural_creep_rupture_time: [P8210, creep_characteristic]
+  flexural_creep_strain: [P8210, creep_characteristic]
+  tensile_creep_compliance: [P8210, creep_characteristic]
+  tensile_creep_modulus: [P8210, creep_characteristic]
+  tensile_creep_recovery: [P8210, creep_characteristic]
+  tensile_creep_rupture_strength: [P8210, creep_characteristic]
+  tensile_creep_rupture_time: [P8210, creep_characteristic]
+  tensile_creep_strain: [P8210, creep_characteristic]
+  brittleness_temperature: [P8540, heat_characteristic]
+  deflection_temperature_under_load: [P8530, heat_characteristic]
+  softening_temperature: [P8510, heat_characteristic]
+  vicat_softening_temperature: [P8520, heat_characteristic]
+  charpy_impact: [P8560, impact_strength]
+  izod_impact: [P8550, impact_strength]
+  rockwell_hardness: [P8570, hardness]
+  shore_hardness: [P8580, hardness]
+  oxygen_index: [P8630, heat_resistance_and_combustion]
+  ul_flammability_code_rating: [P8610, heat_resistance_and_combustion]
+  ul_temperature_index: [P8620, heat_resistance_and_combustion]
+  bulk_modulus: [P9160, other_property]
+  compressibility: [P9160, other_property]
+  g_value: [P9110, other_property]
+  pvt_relation: [P9150, other_property]
+  radiation_resistance: [P9120, other_property]
+
+# Stage 5 表征方法规范名与常见原文写法。
+characterization_methods:
+  FTIR:
+    aliases: [FTIR, Fourier transform infrared spectroscopy, infrared spectroscopy, infrared absorption, IR spectra]
+  NMR:
+    aliases: [NMR, nuclear magnetic resonance, 1H NMR, 13C NMR]
+  GPC:
+    aliases: [GPC, gel permeation chromatography, size exclusion chromatography]
+  DSC:
+    aliases: [DSC, differential scanning calorimetry]
+  DMA:
+    aliases: [DMA, dynamic mechanical analysis]
+  dilatometry:
+    aliases: [dilatometry, dilatometric, dila-tometric, dilatometrically, dilatometer, dilatometer measurement]
+  TGA:
+    aliases: [TGA, thermogravimetric analysis, thermal degradation]
+  XRD:
+    aliases: [XRD, X-ray diffraction, X-ray diffractions]
+  SEM:
+    aliases: [SEM, scanning electron microscopy]
+  TEM:
+    aliases: [TEM, transmission electron microscopy]
+  AFM:
+    aliases: [AFM, atomic force microscopy]
+  Raman:
+    aliases: [Raman, Raman spectroscopy]
+  SAXS:
+    aliases: [SAXS, small-angle X-ray scattering]
+  UV-Vis:
+    aliases: [UV-Vis, ultraviolet-visible spectroscopy]
+  viscometry:
+    aliases: [viscometry, viscosity measurement, viscosity measurements, intrinsic viscosity measurement, Ubbelohde viscometer, Ubbelohde-type viscometer, '[\eta]', '[\eta_{\text{max}}]']
+  turbidimetry:
+    aliases: [turbidimetry, turbidiometric titration, '[\Phi]', '[\Phi_{\text{max}}]']
+  swelling:
+    aliases: [swelling, swelling measurement, swelling measurements, equilibrium swelling, '[Q]', '[Q_{\text{max}}]']
+
+# Stage 5 Option B 专用数值性质；DSC/TGA/GPC 的宏观性质仍由 Stage 4 输出。
+stage5_property_vocabulary:
+  ftir_peak_wavenumber:
+    category: composition_structure
+    methods: [FTIR]
+  nmr_chemical_shift:
+    category: composition_structure
+    methods: [NMR]
+  raman_peak_wavenumber:
+    category: composition_structure
+    methods: [Raman]
+  xrd_diffraction_peak_2theta:
+    category: morphology
+    methods: [XRD]
+  xrd_crystallinity:
+    category: morphology
+    methods: [XRD]
+  morphology_domain_size:
+    category: morphology
+    methods: [SEM, TEM, AFM]
+  morphology_particle_size:
+    category: morphology
+    methods: [SEM, TEM, AFM]
+  saxs_scattering_peak:
+    category: morphology
+    methods: [SAXS]
+
+# PolyInfo 挂在 Sample 上的 9 类 specialized 性质。
+# 与 property_vocabulary（99 条 official）零重叠，唯一例外是黏度改道：
+# intrinsic_viscosity 精确匹配后归入 solution_viscosity，melt/dynamic 不改道。
+#
+# 每条含义：
+#   source_field   PolyInfo 9 个字段名之一；缺失即无发布资格
+#   value_kinds    允许的 value_kind，供 4R 分流时校验
+#   aliases        表头/正文文本，转义后按词边界匹配，禁止子串包含
+#   header_patterns 公式型写法专用正则，pattern 内自行容忍 LaTeX 反斜杠
+#   context_patterns 需同时命中的上下文，用于消歧
+#   stages         允许写入该 key 的 Stage
+specialized_property_vocabulary:
+  molecular_weight:
+    source_field: average_molecular_weight
+    value_kinds: [numeric_scalar, numeric_multiple]
+    aliases:
+      - molecular weight
+      - mol. wt
+      - average molecular mass
+      - average molar mass
+      - av. molar mass
+      - number average molecular weight
+      - weight average molecular weight
+    header_patterns:
+      - 'M\s*\?_?\s*\{?\s*[nwvz]\s*\}?'
+    stages: [stage4, stage4t, stage5]
+
+  solution_viscosity:
+    source_field: solution_viscosity
+    value_kinds: [numeric_scalar, numeric_multiple]
+    aliases:
+      - intrinsic viscosity
+      - inherent viscosity
+      - reduced viscosity
+      - specific viscosity
+      - relative viscosity
+    header_patterns:
+      - '\?eta\s*\?_?\s*\{?\s*(?:inh|red|sp|rel)\s*\}?'
+      - '\[\s*\?eta\s*\]'
+    stages: [stage4, stage4t]
+
+  crystallinity:
+    source_field: crystallinity
+    value_kinds: [numeric_scalar, numeric_multiple, text]
+    aliases:
+      - crystallinity
+      - degree of crystallinity
+      - crystalline fraction
+      - percent crystallinity
+    header_patterns:
+      - 'X\s*\?_?\s*\{?\s*c\s*\}?'
+    stages: [stage4, stage4t, stage5]
+
+  degree_of_polymerization:
+    source_field: degree_of_polymerization
+    value_kinds: [numeric_scalar, numeric_multiple]
+    aliases:
+      - degree of polymerization
+      - polymerization degree
+      - dp
+    stages: [stage4, stage4t]
+
+  # 第 5 类拆两个 key：d 值与 2θ 是同一张 XRD 表的两列，需分别绑定。
+  # header_patterns 容忍 '$2\theta$'——共享的 _normalized_text 不剥反斜杠，
+  # 故 pattern 自己吃掉可能存在的 '\'，不去改那个共享函数。
+  d_spacing:
+    source_field: crystallographic_data
+    value_kinds: [numeric_scalar, numeric_multiple]
+    aliases:
+      - d-spacing
+      - d spacing
+      - interlayer spacing
+      - interplanar distance
+      - interplanar spacing
+    header_patterns:
+      - '(?:^|\W)d\s*(?:-|\s)?\s*spacing'
+      - '(?:^|\W)d\s*\(\s*(?:\\?\s*(?:aa|text)|å|angstrom|nm)'
+    context_patterns:
+      - 'x-?ray|xrd|waxd|saxs|diffraction|bragg|reflection'
+    stages: [stage4t, stage5]
+
+  two_theta:
+    source_field: crystallographic_data
+    value_kinds: [numeric_scalar, numeric_multiple]
+    aliases:
+      - two theta
+      - diffraction angle
+    header_patterns:
+      - '2\s*\\?\s*(?:theta|θ)'
+    context_patterns:
+      - 'x-?ray|xrd|waxd|saxs|diffraction|bragg|reflection'
+    stages: [stage4t, stage5]
+
+  # 第 6~9 类为描述型：value_kind 恒为 text（第 9 类为 categorical）。
+  # 无数值分支，见方案 §4.2 / §4.6。
+  primary_structure_informations:
+    source_field: primary_structure_informations
+    value_kinds: [text]
+    aliases:
+      - chain structure
+      - primary structure
+      - end group
+      - branching
+      - crosslinking
+      - gel content
+    stages: [stage4, stage5]
+
+  morphology:
+    source_field: morphology
+    value_kinds: [text]
+    aliases:
+      - morphology
+      - domain structure
+      - phase structure
+      - lamellar structure
+      - spherulite
+    stages: [stage4, stage5]
+
+  stereoregularity:
+    source_field: stereoregularity
+    value_kinds: [text]
+    aliases:
+      - stereoregularity
+      - tacticity
+      - isotactic
+      - syndiotactic
+      - atactic
+      - cis content
+      - trans content
+    stages: [stage4, stage5]
+
+  # 第 9 类为闭集受控词表，非自由文本。33 个取值由全量 109 篇 GT 实测得出，
+  # 分 4 桶。写全 33 项而非仅 19 篇内出现的取值：闭集本身成本极低，
+  # 若只登记子集，19 篇外的文档会在合法取值上校验失败。
+  # 大小写按 GT 原样保留，匹配时不区分大小写。
+  characteristics_of_material:
+    source_field: characteristics_of_material
+    value_kinds: [categorical]
+    # aliases 用于 stage4t 表头确定性匹配；stage4 正文由 LLM prompt 处理。
+    # 故意只登记较精确的多词短语，避免 "type"/"form" 等单词误命中无关表头。
+    aliases:
+      - characteristics of material
+      - material characteristics
+      - polymer characteristics
+      - material type
+      - structure type
+    stages: [stage4, stage4t]
+    categorical_buckets:
+      shape_and_constructional_feature:
+        - linear
+        - comb
+        - crosslinked
+        - Ionomer
+        - branched
+        - polyelectrolyte
+      general_feature:
+        - Thermoplastic
+        - Elastomer
+        - Thermosetting
+      general_crystalline_state:
+        - Crystal
+        - Amorphous
+        - Liquid crystal
+      functional_feature:
+        - Thermally stable
+        - Thermostable
+        - Electroconductive
+        - Biodegradable
+        - electrolyte
+        - Flame-retardant
+        - Organo-soluble
+        - Semiconductive
+        - Non-linear optical(NLO)
+        - Gas separable
+        - Photochromic
+        - Hydrolytically stable
+        - Water soluble
+        - Photoluminescent
+        - Photocrosslinkable
+        - fluorescent
+        - Fluorescent and thermally stable
+        - Photocurable
+        - Photoconductive
+        - photorefractive
+        - Hydrolytically unstable
+
+
+# Step 3：登记全部已知 semantic_label。
+# 仅 9 类配置 vocabulary_key 与发布资格；其余登记但不发布。
+# 未登记的 label 由 4R 标 reason=semantic_unmapped。
+specialized_label_registry:
+  absorption_wavelength:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  aggregate_size:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  bulk_density:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  cell_density:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  char_yield:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  composition_ratio:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  crystallinity:
+    vocabulary_key: crystallinity
+    publishable: true
+  d_spacing:
+    vocabulary_key: d_spacing
+    publishable: true
+  degree_of_polymerization:
+    vocabulary_key: degree_of_polymerization
+    publishable: true
+  density:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  dielectric_relaxation_parameter:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  electrochromic_color_coordinate:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  elemental_composition:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  emission_wavelength:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  fiber_diameter:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  fiber_length:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  fiber_orientation_factor:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  filler_geometry:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  hydrodynamic_radius:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  infrared_absorption_peak:
+    vocabulary_key: null
+    publishable: false
+    reason: duplicate_channel
+    duplicate_of: ftir_peak_wavenumber
+  interlayer_spacing:
+    vocabulary_key: d_spacing
+    publishable: true
+    legacy_alias_of: d_spacing
+  loss_tangent_peak:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  mass_loss_fraction:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  molar_extinction_coefficient:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  molecular_weight:
+    vocabulary_key: molecular_weight
+    publishable: true
+  molecular_weight_distribution:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  nmr_chemical_shift:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  pore_volume:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  porosity:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  quantum_yield:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  refractive_index_increment:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  relative_intensity:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  residual_mass_fraction:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  shrinkage:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  solubility:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  specific_gravity:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  specific_surface_area:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  storage_modulus:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  transition_temperature_ti:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  void_fraction:
+    vocabulary_key: null
+    publishable: false
+    reason: not_in_specialized_scope
+  xray_diffraction_peak:
+    vocabulary_key: two_theta
+    publishable: true
+    legacy_alias_of: two_theta
+
+# Step 6 补全：第 6~9 类的 semantic_label 登记。
+# class 6/7/8 用下划线复数形式（与 vocabulary 的 key 完全一致）；
+# class 9 用 material_characteristic（与 4T role 同名，4T 已产出该 label）。
+  primary_structure_informations:
+    vocabulary_key: primary_structure_informations
+    publishable: true
+  morphology:
+    vocabulary_key: morphology
+    publishable: true
+  stereoregularity:
+    vocabulary_key: stereoregularity
+    publishable: true
+  material_characteristic:
+    vocabulary_key: characteristics_of_material
+    publishable: true

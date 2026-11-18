@@ -1,0 +1,138 @@
+llm:
+  default:
+    provider: dmx
+    model: gpt-5.6-terra
+    base_url: https://www.dmxapi.cn/v1
+    api_format: anthropic-messages
+    thinking_effort: low
+    timeout_seconds: 600
+    max_retries: 3
+    retry_backoff_seconds: 5
+  stage_overrides:
+    meta_extract:
+      model: doubao-seed-2-0-pro-260215
+      max_retries: 3
+      retry_backoff_seconds: 5
+    stage1_material_mention:
+      model: gpt-5.6-terra
+      api_format: openai-chat-completions
+      thinking_effort: null
+      max_retries: 3
+      retry_backoff_seconds: 5
+    stage2_polymer_entity:
+      model: gpt-5.6-terra
+      max_retries: 3
+      retry_backoff_seconds: 5
+    stage3_sample_process:
+      model: doubao-seed-2-0-pro-260215
+      max_retries: 3
+      retry_backoff_seconds: 5
+    stage4_property:
+      model: doubao-seed-2-0-pro-260215
+      timeout_seconds: 900
+      max_retries: 3
+      stream: true
+      retry_backoff_seconds: 5
+    stage5_characterization:
+      model: doubao-seed-2-0-pro-260215
+      timeout_seconds: 900
+      max_retries: 3
+      stream: true
+      retry_backoff_seconds: 5
+pricing:
+  currency: CNY
+  models:
+    gpt-5.6-terra:
+      input_per_million: '17'
+      output_per_million: '101'
+    gpt-5.6-luna:
+      input_per_million: '6.75'
+      output_per_million: '40.48'
+    doubao-seed-2-0-lite-260215:
+      input_per_million: '0.81'
+      output_per_million: '4.86'
+    doubao-seed-2-0-pro-260215:
+      input_per_million: '4.32'
+      output_per_million: '29.15'
+stages:
+  sample_binding_review:
+    prompt_id: polymer.sample_binding_review
+    prompt_version: sample_binding_review.v2
+    max_tokens: 4096
+    max_llm_workers: 1
+    max_validation_retries: 0
+  meta_extract:
+    prompt_id: polymer.meta.extract
+  stage1_material_mention:
+    prompt_id: polymer.stage1.material_mention
+    input_sections:
+    - Abstract
+    - Methods
+    - Results
+    fallback_sections:
+    - Introduction
+    - Conclusion
+    max_chunk_chars: 8000
+    max_tokens: 8192
+    max_validation_retries: 0
+  stage2_polymer_entity:
+    prompt_id: polymer.stage2.polymer_entity
+    input_sections:
+    - Methods
+    - Results
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 32768
+  stage3_sample_process:
+    prompt_id: polymer.stage3.sample_process
+    input_sections:
+    - Methods
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 32768
+  stage4_property:
+    prompt_id: polymer.stage4.property
+    input_sections:
+    - Methods
+    - Results
+    vocabulary_path: polymer_schema.yaml
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 128000
+  stage5_characterization:
+    prompt_id: polymer.stage5.characterization
+    input_sections:
+    - Methods
+    - Results
+    vocabulary_path: polymer_schema.yaml
+    max_input_chars: 120000
+    max_validation_retries: 0
+    max_tokens: 16384
+    sharded_preview: true
+    shard_target_chars: 18000
+    shard_max_chars: 30000
+    shard_workers: 1
+    shard_max_tokens: 20000
+  stage4t_table_interpretation:
+    prompt_id: polymer.stage4t.table_interpretation
+    max_tokens: 4096
+    llm_interpretation: true
+    table_workers: 1
+    approved_tables:
+    - doc_id: reference_no_0021296
+      table_id: T_8_91
+    - doc_id: reference_no_0038527
+      table_id: T_5_69
+    - doc_id: reference_no_0039705
+      table_id: T_6_84
+    - doc_id: reference_no_0043541
+      table_id: T_4_49
+    - doc_id: reference_no_0043590
+      table_id: T_1_19
+concurrency:
+  max_doc_workers: 6
+  max_llm_workers: 6
+paths:
+  input_dir: null
+  output_dir: null
+  source_root: null

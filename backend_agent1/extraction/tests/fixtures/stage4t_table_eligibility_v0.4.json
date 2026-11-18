@@ -1,0 +1,60 @@
+{
+  "schema_version": "stage4t_table_eligibility_fixture.v0.4",
+  "created_at": "2026-08-22",
+  "scope": "demo20_numeric_without_property_columns_or_unknown_direction",
+  "source_survey": "stage4t_table_structure_survey_20260821.json",
+  "classifications": [
+    "eligible_property",
+    "material_characteristic",
+    "condition_or_process",
+    "not_eligible",
+    "ambiguous"
+  ],
+  "cases": [
+    {"doc_id":"reference_no_0020284","table_id":"T_3_58","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["elemental_composition","infrared_absorption_peak"],"reason":"元素分析实测/计算值与 IR 峰位是材料表征，不应映射为通用性能性质。"},
+    {"doc_id":"reference_no_0020284","table_id":"T_5_70","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["xray_diffraction_peak","d_spacing","crystallinity"],"reason":"XRD 峰位、晶面间距与结晶度均为 Sample 级结构表征。"},
+    {"doc_id":"reference_no_0020284","table_id":"T_5_74","classification":"material_characteristic","eligible_modes":["categorical"],"target_families":["solubility"],"reason":"溶解性为定性材料表征；该表没有数值格。"},
+    {"doc_id":"reference_no_0020284","table_id":"T_8_102","classification":"eligible_property","eligible_modes":["numeric"],"mixed_content":true,"target_families":["inherent_viscosity","contact_angle","glass_transition_temperature","thermal_decomposition_temperature","residual_mass_fraction"],"reason":"多级表头同时包含配比、黏度、表面与热性质，需要列级拆分。"},
+
+    {"doc_id":"reference_no_0021296","table_id":"T_1_11","classification":"not_eligible","eligible_modes":[],"target_families":[],"reason":"主体是合成用二炔二醇小分子前体，不是聚合物 Sample。"},
+    {"doc_id":"reference_no_0021296","table_id":"T_2_22","classification":"not_eligible","eligible_modes":[],"target_families":[],"reason":"结构基团与聚合物代码索引表，无数值性质观测。"},
+    {"doc_id":"reference_no_0021296","table_id":"T_3_36","classification":"material_characteristic","eligible_modes":["numeric"],"mixed_content":true,"target_families":["intrinsic_viscosity"],"reason":"表中产率和外观是辅助信息，intrinsic viscosity 是 Sample 级表征。"},
+    {"doc_id":"reference_no_0021296","table_id":"T_5_61","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["xray_diffraction_peak","d_spacing","relative_intensity"],"reason":"WAXD 的 2theta、d 与相对强度属于结构表征。"},
+    {"doc_id":"reference_no_0021296","table_id":"T_6_64","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["thermal_decomposition_temperature","residual_mass_fraction"],"reason":"T3% 是失重阈值分解温度，800 C residue 是带温度条件的残余质量分数。"},
+    {"doc_id":"reference_no_0021296","table_id":"T_7_77","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["melting_temperature","heat_of_fusion","exotherm_temperature","exotherm_enthalpy"],"reason":"转置 DSC 表，行是性质、列是样品。"},
+    {"doc_id":"reference_no_0021296","table_id":"T_8_91","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["glass_transition_temperature","loss_tangent","storage_modulus"],"reason":"DMA 表按加工历史分组，包含 Tg、tan delta 与室温储能模量。"},
+
+    {"doc_id":"reference_no_0025452","table_id":"T_6_40","classification":"condition_or_process","eligible_modes":[],"target_families":["formulation_composition"],"reason":"各单体投料比例和 mmol 是样品配方/制备条件，不是性质观测。"},
+    {"doc_id":"reference_no_0033617","table_id":"T_5_64","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["electrochromic_color_coordinate"],"reason":"Ox/Red 状态下的 L/a/b 数值嵌在复合字符串中，是状态序列性质。"},
+    {"doc_id":"reference_no_0037268","table_id":"T_11_95","classification":"material_characteristic","eligible_modes":["numeric"],"mixed_content":true,"target_families":["molecular_weight"],"reason":"装载量和溶剂是实验条件，平均摩尔质量是材料表征，必须列级拆分。"},
+    {"doc_id":"reference_no_0037268","table_id":"T_19_142","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["polymer_solvent_interaction_parameter","polymer_polymer_interaction_parameter"],"reason":"chi12/chi23 是相互作用参数，不能误归为 morphology。"},
+    {"doc_id":"reference_no_0037645","table_id":"T_2_27","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["molecular_weight","degree_of_polymerization","molecular_weight_distribution","refractive_index_increment","hydrodynamic_radius"],"reason":"GPC-MALLS 表包含多项 Sample 级分子表征。"},
+    {"doc_id":"reference_no_0037645","table_id":"T_3_38","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["glass_transition_temperature","thermal_decomposition_temperature","mass_loss_fraction"],"reason":"转置 DSC/TGA 表，行是性质、列是样品。"},
+    {"doc_id":"reference_no_0037645","table_id":"T_3_44","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["absorption_wavelength","emission_wavelength","molar_extinction_coefficient","quantum_yield"],"reason":"溶液和薄膜条件下的光物理性质。"},
+
+    {"doc_id":"reference_no_0037886","table_id":"T_3_48","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["dielectric_relaxation_parameter"],"reason":"频率条件下的 beta/gamma 弛豫拟合与介电强度，需专用 characteristic 槽位。"},
+    {"doc_id":"reference_no_0037886","table_id":"T_6_84","classification":"eligible_property","eligible_modes":["numeric"],"mixed_content":true,"target_families":["electric_conductivity","dielectric_relaxation_parameter"],"reason":"温度是条件轴，电导率是明确性质，其余为 Havriliak-Negami 参数。"},
+    {"doc_id":"reference_no_0037886","table_id":"T_8_101","classification":"ambiguous","eligible_modes":[],"target_families":["calculated_conformational_energy","calculated_dipole_moment"],"reason":"MMX 计算的构象能量分量与偶极矩；是否接纳计算性质尚未完成 Schema 决策。"},
+    {"doc_id":"reference_no_0037886","table_id":"T_9_108","classification":"ambiguous","eligible_modes":[],"target_families":["calculated_conformational_energy","calculated_strain_energy","calculated_dipole_moment"],"reason":"FF 优化构象的计算结果，不应在未区分 calculated/experimental 前直接发布。"},
+    {"doc_id":"reference_no_0037886","table_id":"T_10_124","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["dielectric_constant","dielectric_strength","dipole_moment","relaxation_entity_density"],"reason":"介电常数、介电强度与弛豫实体数量属于介电材料表征。"},
+    {"doc_id":"reference_no_0038527","table_id":"T_5_69","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["xray_diffraction_peak","interlayer_spacing"],"reason":"2theta 序列与层间距属于结构表征。"},
+    {"doc_id":"reference_no_0038813","table_id":"T_5_77","classification":"material_characteristic","eligible_modes":["numeric"],"mixed_content":true,"target_families":["infrared_absorption_peak","nmr_chemical_shift"],"reason":"IR/NMR 数值是谱学表征，产率仅为辅助制备信息。"},
+    {"doc_id":"reference_no_0038813","table_id":"T_5_78","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["elemental_composition","inherent_viscosity","molecular_weight","molecular_weight_distribution"],"reason":"样品组行下含 Calcd/Found 子行，需要跨行样品绑定。"},
+    {"doc_id":"reference_no_0038813","table_id":"T_7_97","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["absorption_wavelength"],"reason":"同一行包含两组 Polymer/lambda-max 重复列。"},
+    {"doc_id":"reference_no_0038813","table_id":"T_7_98","classification":"material_characteristic","eligible_modes":["categorical"],"target_families":["solubility"],"reason":"多溶剂定性溶解性表，无数值格。"},
+    {"doc_id":"reference_no_0039705","table_id":"T_5_80","classification":"eligible_property","eligible_modes":["numeric"],"mixed_content":true,"target_families":["molecular_weight","molecular_weight_distribution","absorption_wavelength"],"reason":"分子量 characteristic 与溶液/薄膜吸收峰共存，需要列级分流。"},
+    {"doc_id":"reference_no_0039705","table_id":"T_6_84","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["thermal_decomposition_temperature","residual_mass_fraction"],"reason":"5%/50% 是失重阈值分解温度，800 C residue 是残余质量分数。"},
+
+    {"doc_id":"reference_no_0042367","table_id":"T_2_31","classification":"condition_or_process","eligible_modes":[],"target_families":["blend_composition"],"reason":"聚合物共混比例定义样品组成，不是性质。"},
+    {"doc_id":"reference_no_0043541","table_id":"T_4_49","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["contact_angle","surface_free_energy"],"reason":"转置表按刷层材料列出不同液体/状态的接触角和表面自由能。"},
+    {"doc_id":"reference_no_0043590","table_id":"T_1_19","classification":"eligible_property","eligible_modes":["numeric"],"mixed_content":true,"target_families":["electric_conductivity","specific_gravity","bulk_density","filler_geometry"],"reason":"基体和导电填料的性质与几何 characteristic 共表，需要按列/行语义分流。"},
+    {"doc_id":"reference_no_0043590","table_id":"T_4_63","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["fiber_length"],"reason":"发泡状态下的重均纤维长度属于复合材料结构表征。"},
+    {"doc_id":"reference_no_0043590","table_id":"T_5_67","classification":"material_characteristic","eligible_modes":["numeric"],"target_families":["void_fraction","fiber_orientation_factor"],"reason":"Core/Skin 条件下的孔隙率和纤维取向因子属于结构表征。"},
+    {"doc_id":"reference_no_0043955","table_id":"T_2_37","classification":"material_characteristic","eligible_modes":["numeric"],"mixed_content":true,"target_families":["molecular_weight","molecular_weight_distribution"],"reason":"催化剂/溶剂/产率是制备信息，Mw 与 Mw/Mn 是产物表征。"},
+    {"doc_id":"reference_no_0043955","table_id":"T_4_62","classification":"material_characteristic","eligible_modes":["numeric"],"mixed_content":true,"target_families":["molecular_weight","molecular_weight_distribution"],"reason":"反应物与产率是制备信息，Mw 与 Mw/Mn 是产物表征。"},
+    {"doc_id":"reference_no_0043955","table_id":"T_6_85","classification":"material_characteristic","eligible_modes":["numeric"],"mixed_content":true,"target_families":["composition_ratio","molecular_weight","molecular_weight_distribution"],"reason":"进料/实测侧链比例与分子量表征共存，当前 unknown 方向导致零输出。"},
+    {"doc_id":"reference_no_0073324","table_id":"T_6_50","classification":"eligible_property","eligible_modes":["numeric"],"mixed_content":true,"target_families":["inherent_viscosity","melting_temperature","solubility"],"reason":"组成是样品定义，黏度、PMT 与溶解性是观测；需同时承接数值和定性值。"},
+    {"doc_id":"reference_no_0101911","table_id":"T_3_58","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["impact_strength","tensile_stress_at_break","elongation_at_break"],"reason":"ABS 含量为条件/样品轴，后三列是机械性质及不确定度。"},
+    {"doc_id":"reference_no_0101911","table_id":"T_4_70","classification":"eligible_property","eligible_modes":["numeric"],"target_families":["impact_strength","tensile_stress_at_break","elongation_at_break"],"reason":"SMIA 含量为条件/样品轴，后三列是机械性质及不确定度。"}
+  ]
+}

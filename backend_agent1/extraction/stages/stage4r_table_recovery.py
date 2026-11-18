@@ -1,0 +1,1272 @@
+"""Preview-only Stage 4R：从明确缺失的表格格子确定性补入性质值。
+
+默认只写 stage4_properties.recovery_preview.json，不覆盖 Stage 4。使用 --apply
+时会先备份原文件，再写回 stage4_properties.json。
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import shutil
+import sys
+from collections import Counter, defaultdict
+from pathlib import Path
+from typing import Any, Mapping, Sequence
+
+EXTRACTION_ROOT = Path(__file__).resolve().parents[1]
+if str(EXTRACTION_ROOT) not in sys.path:
+    sys.path.insert(0, str(EXTRACTION_ROOT))
+
+from schema.polymer_schema import Stage0Document, Stage4Document
+from stages.table_grid import table_cells_for
+from stages.sample_catalog import family_members, normalize_label
+from stages.table_recall_audit import _infer_header_rows, audit_documents
+
+STAGE_ID = "stage4r_table_recovery"
+IMPLEMENTATION_VERSION = "0.2.1"
+_ID_RE = re.compile(r"^uprop(\d+)$")
+_PROPERTY_ID_RE = re.compile(r"^prop(\d+)$")
+_CONDITION_ID_RE = re.compile(r"^mc(\d+)$")
+
+
+def _norm(value: Any) -> str:
+    return re.sub(r"[^0-9a-z\u4e00-\u9fff]+", "", str(value or "").casefold())
+
+
+def _cell_ids(value: Any) -> set[str]:
+    result: set[str] = set()
+    if isinstance(value, Mapping):
+        locator = value.get("table_locator")
+        if isinstance(locator, Mapping) and isinstance(locator.get("cell_id"), str):
+            result.add(locator["cell_id"])
+        for child in value.values():
+            result.update(_cell_ids(child))
+    elif isinstance(value, list):
+        for child in value:
+            result.update(_cell_ids(child))
+    return result
+
+
+def next_unresolved_number(stage4: Mapping[str, Any]) -> int:
+    numbers = []
+    for item in stage4.get("unresolved_properties") or []:
+        match = _ID_RE.fullmatch(str(item.get("unresolved_id") or ""))
+        if match:
+            numbers.append(int(match.group(1)))
+    return max(numbers, default=0) + 1
+
+
+def _sample_entity_map(stage3: Mapping[str, Any]) -> tuple[dict[str, str], list[dict[str, Any]]]:
+    samples = [item for item in stage3.get("samples") or [] if isinstance(item, Mapping)]
+    mapping = {
+        str(item["sample_id"]): str(item["refers_to_entity"])
+        for item in samples
+        if item.get("sample_id") and item.get("refers_to_entity")
+    }
+    return mapping, [dict(item) for item in samples]
+
+
+def _entity_aliases(stage2: Mapping[str, Any]) -> dict[str, set[str]]:
+    aliases: dict[str, set[str]] = defaultdict(set)
+    for item in stage2.get("polymer_entities") or []:
+        if not isinstance(item, Mapping) or not item.get("entity_id"):
+            continue
+        entity_id = str(item["entity_id"])
+        for key in ("canonical_name", "normalized_name", "display_name"):
+            if item.get(key):
+                aliases[entity_id].add(str(item[key]))
+        for value in item.get("source_names") or []:
+            if value:
+                aliases[entity_id].add(str(value))
+    return aliases
+
+
+def _table_entities(stage4: Mapping[str, Any], sample_entities: Mapping[str, str]) -> dict[str, set[str]]:
+    result: dict[str, set[str]] = defaultdict(set)
+    for item in [
+        *(stage4.get("properties") or []),
+        *(stage4.get("unresolved_properties") or []),
+        *(stage4.get("property_series") or []),
+    ]:
+        if not isinstance(item, Mapping):
+            continue
+        entity = item.get("entity_id") or sample_entities.get(str(item.get("sample_id") or ""))
+        if not entity:
+            continue
+        for cell_id in _cell_ids(item):
+            result[cell_id.split(":", 1)[0]].add(str(entity))
+    return result
+
+
+
+def _row_label_candidates_with_basis(
+    cells: Sequence[Any],
+    row_index: int,
+    column_index: int,
+) -> list[tuple[str, str]]:
+    """取该行位于目标列左侧的所有单元格文本，作为样品标签候选。
+
+    审计器的 row_headers 会把"看起来像数值"的格子剔掉，而不少论文的样品编码
+    恰好是纯数字加连字符（0-2、0-2-0-6、0-4-0-10），于是真正的样品标签被当成
+    数值滤掉，infer_entity_id 拿到空的 row_headers 只能报 entity_ambiguous。
+    这里绕过该过滤，直接按网格取左侧标签列。
+
+    另外补一路**向上填充**：这类表把同一个聚合物的多条工艺写成续行，编号只印在
+    该组第一行，续行的编号列是空白：
+
+        2a | 0-2-0-9 | 2 |        | 9 | HTS |     | 265
+        b  |         |   | DiEt-2 | 9 | HTS | 295 |
+        c  |         | 2 |        | 9 | HTS | 320 |     <- 只剩 ['c', 'HTS']
+
+    续行拿不到 `0-2-0-9`，实体必然推不出来。空白在这类表里的含义就是"同上"，
+    所以逐列向上找最近的非空格子补进候选。补进来的只走 infer_entity_id 的
+    **精确相等**分支，且要求全局唯一命中；补错的词配不上任何实体名，最多让命中
+    变成两个而退回 entity_ambiguous（照旧跳过），不会造成错挂。
+    """
+    covering = [
+        cell
+        for cell in cells
+        if cell.row_index <= row_index < cell.row_index + cell.row_span
+        and cell.column_index < column_index
+    ]
+    out = [
+        (cell.text.strip(), "row_cell_direct")
+        for cell in sorted(covering, key=lambda item: item.column_index)
+        if cell.text.strip()
+    ]
+
+    filled = {cell.column_index for cell in covering if cell.text.strip()}
+    for column in range(column_index):
+        if column in filled:
+            continue
+        above = [
+            cell
+            for cell in cells
+            if cell.column_index == column
+            and cell.row_index + cell.row_span <= row_index
+            and cell.text.strip()
+        ]
+        if above:
+            out.append((
+                max(above, key=lambda item: item.row_index).text.strip(),
+                "row_cell_filled_up",
+            ))
+    return out
+
+
+def _row_label_candidates(
+    cells: Sequence[Any],
+    row_index: int,
+    column_index: int,
+) -> list[str]:
+    return [
+        value
+        for value, _ in _row_label_candidates_with_basis(
+            cells,
+            row_index,
+            column_index,
+        )
+    ]
+
+
+def _sample_label_index(
+    samples: Sequence[Mapping[str, Any]],
+) -> dict[str, list[Mapping[str, Any]]]:
+    index: dict[str, list[Mapping[str, Any]]] = defaultdict(list)
+    for sample in samples:
+        raw = str(sample.get("sample_label_raw") or "")
+        if family_members(raw) or sample.get("sample_level") == "sample_family":
+            continue
+        for raw_label in [raw, *(sample.get("sample_label_aliases") or [])]:
+            label = normalize_label(raw_label)
+            if label and sample not in index[label]:
+                index[label].append(sample)
+    return index
+
+
+def _split_row_label(value: Any) -> list[str]:
+    if not isinstance(value, str):
+        return []
+    return [part.strip() for part in re.split(r"\s+/\s+", value) if part.strip()]
+
+
+def _resolve_unresolved_sample(
+    item: Mapping[str, Any],
+    *,
+    samples: Sequence[Mapping[str, Any]],
+    tables: Mapping[str, Any],
+    allow_filled_up: bool,
+) -> dict[str, Any]:
+    label_index = _sample_label_index(samples)
+    candidate_records: list[dict[str, Any]] = []
+    has_cell_locator = False
+    for evidence in item.get("evidence") or []:
+        if not isinstance(evidence, Mapping):
+            continue
+        locator = evidence.get("table_locator")
+        if not isinstance(locator, Mapping):
+            continue
+        cell_id = locator.get("cell_id")
+        if isinstance(cell_id, str) and cell_id:
+            has_cell_locator = True
+        for label in _split_row_label(locator.get("row_label")):
+            candidate_records.append({
+                "label": label,
+                "basis": "table_locator_row_label",
+                "cell_id": cell_id,
+            })
+        table_id = locator.get("table_id")
+        table = tables.get(str(table_id or ""))
+        row_index = locator.get("row_index")
+        column_index = locator.get("column_index")
+        if (
+            table is None
+            or not isinstance(row_index, int)
+            or not isinstance(column_index, int)
+        ):
+            continue
+        cells = table_cells_for(table)
+        for label, basis in _row_label_candidates_with_basis(
+            cells,
+            row_index,
+            column_index,
+        ):
+            candidate_records.append({
+                "label": label,
+                "basis": basis,
+                "cell_id": cell_id,
+            })
+
+    base = {
+        "unresolved_id": item.get("unresolved_id"),
+        "entity_id": item.get("entity_id"),
+    }
+    if not has_cell_locator:
+        return {**base, "status": "missing_cell_locator"}
+
+    matched_samples: dict[str, Mapping[str, Any]] = {}
+    matched_records: list[tuple[Mapping[str, Any], dict[str, Any]]] = []
+    for record in candidate_records:
+        for sample in label_index.get(normalize_label(record["label"]), []):
+            sample_id = str(sample.get("sample_id") or "")
+            if not sample_id:
+                continue
+            matched_samples[sample_id] = sample
+            matched_records.append((sample, record))
+    if not matched_samples:
+        return {**base, "status": "label_not_found"}
+    if len(matched_samples) != 1:
+        return {
+            **base,
+            "status": "ambiguous",
+            "sample_ids": sorted(matched_samples),
+        }
+
+    sample = next(iter(matched_samples.values()))
+    sample_entity = sample.get("refers_to_entity")
+    if item.get("entity_id") and sample_entity and item.get("entity_id") != sample_entity:
+        return {
+            **base,
+            "status": "entity_conflict",
+            "sample_id": sample.get("sample_id"),
+            "sample_entity_id": sample_entity,
+        }
+
+    priority = {
+        "table_locator_row_label": 0,
+        "row_cell_direct": 1,
+        "row_cell_filled_up": 2,
+    }
+    matching = [
+        record
+        for matched_sample, record in matched_records
+        if matched_sample.get("sample_id") == sample.get("sample_id")
+    ]
+    chosen = min(matching, key=lambda record: priority[record["basis"]])
+    if chosen["basis"] == "row_cell_filled_up" and not allow_filled_up:
+        return {
+            **base,
+            "status": "filled_up_pending_review",
+            "sample_id": sample.get("sample_id"),
+            "matched_label": sample.get("sample_label_raw"),
+            "cell_id": chosen.get("cell_id"),
+        }
+    return {
+        **base,
+        "status": "accepted",
+        "sample_id": sample.get("sample_id"),
+        "entity_id": sample_entity or item.get("entity_id"),
+        "resolution_basis": chosen["basis"],
+        "matched_label": sample.get("sample_label_raw"),
+        "cell_id": chosen.get("cell_id"),
+    }
+
+
+def _next_number(items: Sequence[Mapping[str, Any]], key: str, pattern: re.Pattern[str]) -> int:
+    numbers = []
+    for item in items:
+        match = pattern.fullmatch(str(item.get(key) or ""))
+        if match:
+            numbers.append(int(match.group(1)))
+    return max(numbers, default=0) + 1
+
+
+def _condition_payload(
+    condition_id: str,
+    item: Mapping[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    context = dict(item.get("measurement_context") or {})
+    if not context:
+        context = {"condition_status": "not_reported"}
+    evidence = next(
+        (
+            dict(value)
+            for value in item.get("evidence") or []
+            if isinstance(value, Mapping)
+        ),
+        None,
+    )
+    if evidence is None:
+        raise ValueError(f"{item.get('unresolved_id')} 缺少 evidence")
+    condition = {
+        "condition_id": condition_id,
+        "temperature": context.get("temperature"),
+        "frequency": context.get("frequency"),
+        "humidity": context.get("humidity"),
+        "pressure": context.get("pressure"),
+        "wavelength": context.get("wavelength"),
+        "other_conditions": context.get("other_conditions") or {},
+        "other_condition_evidence": context.get("other_condition_evidence") or {},
+        "condition_status": context["condition_status"],
+        "evidence": evidence,
+        "confidence": item.get("confidence"),
+    }
+    return condition, context
+
+
+def _migrate_resolved_unresolved(
+    stage4: Mapping[str, Any],
+    resolutions: Sequence[Mapping[str, Any]],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    payload = json.loads(json.dumps(stage4, ensure_ascii=False))
+    accepted = {
+        str(item["unresolved_id"]): item
+        for item in resolutions
+        if item.get("status") == "accepted"
+    }
+    if not accepted:
+        return payload, []
+
+    next_property = _next_number(
+        payload.get("properties") or [],
+        "property_id",
+        _PROPERTY_ID_RE,
+    )
+    next_condition = _next_number(
+        payload.get("measurement_conditions") or [],
+        "condition_id",
+        _CONDITION_ID_RE,
+    )
+    retained = []
+    migrations: list[dict[str, Any]] = []
+    for item in payload.get("unresolved_properties") or []:
+        resolution = accepted.get(str(item.get("unresolved_id") or ""))
+        if resolution is None:
+            retained.append(item)
+            continue
+        property_id = f"prop{next_property:03d}"
+        condition_id = f"mc{next_condition:03d}"
+        next_property += 1
+        next_condition += 1
+        condition, context = _condition_payload(condition_id, item)
+        payload["measurement_conditions"].append(condition)
+        evidence = [dict(value) for value in item.get("evidence") or []]
+        payload["properties"].append({
+            "property_id": property_id,
+            "sample_id": resolution["sample_id"],
+            "property_name_raw": item["property_name_raw"],
+            "property_name_normalized": item.get("property_name_normalized"),
+            "property_code": item.get("property_code"),
+            "property_category": item.get("property_category"),
+            "molecular_weight_type": item.get("molecular_weight_type"),
+            "determination_method_raw": item.get("determination_method_raw"),
+            "observation_group_id": item.get("observation_group_id"),
+            "observation_role": item.get("observation_role", "single"),
+            "series_id": item.get("series_id"),
+            "series_ids": item.get("series_ids"),
+            "value_raw": item["value_raw"],
+            "value_min": item.get("value_min"),
+            "value_max": item.get("value_max"),
+            "unit_raw": item.get("unit_raw"),
+            "unit_normalized": item.get("unit_normalized"),
+            "measurement_condition_id": condition_id,
+            "measurement_context": context,
+            "source_type": evidence[0]["source_type"],
+            "evidence": evidence,
+            "confidence": item.get("confidence"),
+        })
+        migrations.append({
+            "unresolved_id": item["unresolved_id"],
+            "property_id": property_id,
+            "measurement_condition_id": condition_id,
+            "sample_id": resolution["sample_id"],
+            "entity_id": resolution.get("entity_id"),
+            "resolution_basis": resolution["resolution_basis"],
+            "matched_label": resolution["matched_label"],
+            "cell_id": resolution.get("cell_id"),
+        })
+    payload["unresolved_properties"] = retained
+    return payload, migrations
+
+
+def infer_entity_id(
+    *,
+    row_headers: Sequence[str],
+    row_index: int | None = None,
+    table_id: str,
+    valid_entity_ids: set[str],
+    samples: Sequence[Mapping[str, Any]],
+    entity_aliases: Mapping[str, set[str]] | None = None,
+    table_entities: Mapping[str, set[str]],
+    row_label_candidates: Sequence[str] | None = None,
+) -> tuple[str | None, str]:
+    row_parts = [_norm(value) for value in row_headers if _norm(value)]
+    aliases_by_entity: dict[str, set[str]] = defaultdict(set)
+    for sample in samples:
+        entity = str(sample.get("refers_to_entity") or "")
+        if entity not in valid_entity_ids:
+            continue
+        for label in (sample.get("sample_label_raw"), sample.get("polymer_name")):
+            if label_norm := _norm(label):
+                aliases_by_entity[entity].add(label_norm)
+    for entity, aliases in (entity_aliases or {}).items():
+        if entity not in valid_entity_ids:
+            continue
+        aliases_by_entity[entity].update(
+            alias_norm for alias in aliases if (alias_norm := _norm(alias))
+        )
+
+    exact_matches = {
+        entity
+        for entity, aliases in aliases_by_entity.items()
+        if any(row_part == alias for row_part in row_parts for alias in aliases)
+    }
+    if len(exact_matches) == 1:
+        return next(iter(exact_matches)), "row_label_exact_entity_alias"
+
+    # 仅保留最长的包含匹配，避免 0-2 与 0-2-0-I 同时命中造成假歧义。
+    best_length = 0
+    best_matches: set[str] = set()
+    for entity, aliases in aliases_by_entity.items():
+        for row_part in row_parts:
+            for alias in aliases:
+                if len(alias) < 3 or not (alias in row_part or row_part in alias):
+                    continue
+                score = min(len(alias), len(row_part))
+                if score > best_length:
+                    best_length = score
+                    best_matches = {entity}
+                elif score == best_length:
+                    best_matches.add(entity)
+    row_text = _norm(" ".join(row_headers))
+    mixture_markers = ("blend", "mixture", "composite", "共混", "混合", "复合")
+    if len(best_matches) == 1 and not any(marker in row_text for marker in mixture_markers):
+        return next(iter(best_matches)), "row_label_longest_entity_alias"
+
+    sample_entity_ids = {
+        str(sample.get("refers_to_entity"))
+        for sample in samples
+        if str(sample.get("refers_to_entity") or "") in valid_entity_ids
+    }
+    if not row_parts and len(sample_entity_ids) == 1:
+        return next(iter(sample_entity_ids)), "document_samples_single_entity"
+
+    existing = set(table_entities.get(table_id) or set()) & valid_entity_ids
+    if not row_parts and len(existing) == 1:
+        return next(iter(existing)), "table_existing_entity"
+    if len(valid_entity_ids) == 1:
+        return next(iter(valid_entity_ids)), "document_single_entity"
+
+    # 兜底：审计器把纯数字样品编码（0-2-0-6）当数值滤掉了，用未过滤的
+    # 左侧标签列重试一次严格匹配。只认精确相等，不做包含匹配 —— 包含匹配在
+    # 这类编码上极易假阳（0-2 是 0-2-0-6 的子串）。
+    extra_parts = [_norm(value) for value in (row_label_candidates or []) if _norm(value)]
+    extra_parts = [part for part in extra_parts if part not in set(row_parts)]
+    if extra_parts:
+        extra_exact = {
+            entity
+            for entity, aliases in aliases_by_entity.items()
+            if any(part == alias for part in extra_parts for alias in aliases)
+        }
+        if len(extra_exact) == 1:
+            return next(iter(extra_exact)), "row_cell_exact_entity_alias"
+
+    return None, "entity_ambiguous" if valid_entity_ids else "entity_not_found"
+
+
+def _row_sentence(cells: Sequence[Any], row_index: int) -> str:
+    row = sorted(
+        (cell for cell in cells if cell.row_index == row_index and cell.text.strip()),
+        key=lambda cell: cell.column_index,
+    )
+    return " | ".join(cell.text.strip() for cell in row)
+
+
+# 表头里出现的单位写法 -> 规范单位。只认白名单里的写法：表头层级里混着数据值
+# （'290'、'-25'、'1.3'）和样品名（'1AQA-PPDI'），靠"括号里的东西就是单位"
+# 这类结构规则会把它们当成单位。
+_UNIT_ALIASES: dict[str, str] = {
+    # 温度
+    "°c": "°C", "oc": "°C", "℃": "°C", "\\circ c": "°C", "deg c": "°C", "k": "K",
+    # 力学
+    "mpa": "MPa", "gpa": "GPa", "kpa": "kPa", "pa": "Pa",
+    # 冲击
+    "j/m": "J/m", "kj/m": "kJ/m", "j/m2": "J/m²", "kj/m2": "kJ/m²",
+    "j/m^2": "J/m²", "kj/m^2": "kJ/m²",
+    # 电学
+    "s/cm": "S/cm", "s/m": "S/m",
+    "ohm*cm": "Ω·cm", "ohm cm": "Ω·cm", "ω·cm": "Ω·cm", "ωcm": "Ω·cm",
+    "ohm*m": "Ω·m", "ω·m": "Ω·m",
+    "1/(ohm*cm)": "S/cm", "s cm-1": "S/cm", "scm-1": "S/cm",
+    # 黏度
+    "dl/g": "dL/g", "dlg-1": "dL/g", "dl g-1": "dL/g", "dl/g-1": "dL/g",
+    "ml/g": "mL/g",
+    # 密度 / 表面
+    "g/cm3": "g/cm³", "g/cm^3": "g/cm³", "gcm-3": "g/cm³",
+    "mj/m2": "mJ/m²", "mj/m^2": "mJ/m²", "mn/m": "mN/m", "dyn/cm": "dyn/cm",
+    # 热
+    "j/g": "J/g", "kj/mol": "kJ/mol", "kcal/mol": "kcal/mol", "kcal/g": "kcal/g",
+    "kj/g": "kJ/g", "cal/g": "cal/g", "j/mol": "J/mol",
+    "j/(g k)": "J/(g·K)",
+    # 分子量 / 其他
+    "g/mol": "g/mol", "gmol-1": "g/mol", "kg/mol": "kg/mol",
+    "%": "%", "wt%": "wt%", "vol%": "vol%", "mol%": "mol%",
+    "nm": "nm", "μm": "μm", "um": "μm", "mm": "mm", "cm": "cm", "å": "Å",
+    "hz": "Hz", "mhz": "MHz", "khz": "kHz",
+    # 角度（XRD 2θ、接触角）—— 与 `deg c` 的温度写法区分开。
+    "°": "deg", "º": "deg", "deg": "deg", "degree": "deg", "degrees": "deg",
+}
+
+# LaTeX 包装 —— 必须先整串剥掉再切片段，否则 `$(^{\circ}\text{C})$` 会被
+# 括号规则从 `\text{` 中间截断。
+_UNIT_STRIP_RE = re.compile(r"\\(?:text|mathrm|mathit|rm|it|bf)\s*\{([^{}]*)\}")
+_BRACKET_GROUP_RE = re.compile(r"[（(\[]([^）)\]]*)[）)\]]")
+_TRAILING_NUMBER_RE = re.compile(r"\d\s*$")
+# `T_g°C` 里的 °C 是单位；`Modulus at 160 °C` 里的 °C 是测试条件。差别就是
+# ° 前面是不是数字。
+_DEGREE_TAIL_RE = re.compile(r"(?<![\d])\s*(°\s*[a-z]?\.?)\s*$")
+# `kJ mol^{-1}`、`S cm⁻¹`、`dL g-1` —— 倒数指数就是分母。不折成 `/` 的话
+# 白名单里的 `kj/mol`、`s/cm`、`dl/g` 全都对不上。
+_INVERSE_EXP_RE = re.compile(r"\s*([a-zμω]+)\s*(?:\^\s*)?(?:-\s*1|⁻¹)(?![\d.])",
+                             re.IGNORECASE)
+
+
+def _normalize_unit_text(text: str) -> str:
+    """整串归一：剥 LaTeX、统一度数与欧姆写法、折算倒数指数，转小写。"""
+    value = str(text or "")
+    for _ in range(3):                       # \text{\circ C} 可能嵌套
+        value = _UNIT_STRIP_RE.sub(r"\1", value)
+    value = value.replace("\\%", "%").replace("\\,", " ").replace("\\;", " ")
+    value = value.replace("^\\circ", "°").replace("\\circ", "°").replace("^o", "°")
+    value = re.sub(r"°\s*([a-z])", r"°\1", value, flags=re.IGNORECASE)
+    value = value.replace("\\Omega", "ohm").replace("Ω", "ω")
+    value = value.replace("·", "*").replace("⋅", "*")
+    value = value.replace("$", "").replace("{", "").replace("}", "")
+    # 只在前面确实还有一个单位词时才折算，避免把孤零零的 `^-1` 当分母。
+    if _INVERSE_EXP_RE.search(value) and re.search(r"[a-zμω]", value):
+        value = _INVERSE_EXP_RE.sub(r"/\1", value)
+    return re.sub(r"\s+", " ", value).strip().casefold()
+
+
+def _clean_unit_token(text: str) -> str:
+    """把候选片段两端的括号与标点去掉。"""
+    return str(text or "").strip().strip("（）()[]").strip().strip(",.;:·*").strip()
+
+
+def _unit_candidates(header: str) -> list[str]:
+    """从一级表头里列出所有可能是单位的片段，按可信度从高到低。"""
+    norm = _normalize_unit_text(header)
+    if not norm:
+        return []
+    # 括号内多为单位，但也可能是测试条件（`(160 °C)`）；两种都留作候选，
+    # 靠白名单区分。同时准备一份去掉括号的正文，供逗号/斜杠切分用。
+    out: list[str] = list(_BRACKET_GROUP_RE.findall(norm))
+    bare = re.sub(r"[（(\[][^）)\]]*[）)\]]", " ", norm).strip()
+    out.append(norm)
+    out.append(bare)
+    out.extend(re.split(r"[,，;；]", bare))
+    for src in (bare, norm, *list(out)):
+        if not src:
+            continue
+        if "/" in src:                       # `T_g / °C`、`η_inh^c/dL/g`
+            out.append(src.split("/", 1)[1])
+        if "^" in src:                       # `T_g^oC`、`(^°C)^b`
+            out.append(src.rsplit("^", 1)[1])
+            out.append(src.split("^", 1)[1])
+        # 末尾的度数符号（`T_g°C`、`M.P. °C.`）。前面是数字时是测试条件不是单位。
+        if match := _DEGREE_TAIL_RE.search(src):
+            out.append(match.group(1))
+        tokens = src.split()
+        if len(tokens) > 1 and not _TRAILING_NUMBER_RE.search(tokens[-2]):
+            out.append(tokens[-1])
+    return out
+
+
+def infer_unit_from_headers(column_headers: Sequence[str]) -> str | None:
+    """从列头里认单位。认不出就返回 None —— 宁可留空，不要猜错。
+
+    单位在表头里的位置没有规律：括号内 `Tensile strength (MPa)`、斜杠后
+    `$T_g / ^\\circ C$`、逗号后 `PMT, °C.`、上标 `$T_g^oC$`，也可能自己
+    单占一级 `['$T_g$', '°C']`。所以扫描所有层级的所有候选片段，但**只接受
+    _UNIT_ALIASES 里的写法** —— 表头层级里混着数据值（'290'、'-25'）和样品名
+    （'1AQA-PPDI'），"括号里的就是单位"这类纯结构规则会把它们写成单位。
+    """
+    # Match the whole inverse resistance/length unit before a bare "cm".
+    for header in column_headers:
+        cleaned = re.sub(r"\\(?:text|mathrm|rm)\s*\{([^{}]*)\}", r"\1", str(header))
+        cleaned = re.sub(r"[\s${}]", "", cleaned).replace("−", "-")
+        if re.search(r"(?:\\Omega|Ω|ohm)\^-1(?:[·*.])?cm\^-1", cleaned, re.I):
+            return "S/cm"
+        if re.search(r"cm(?:\^-1|⁻¹|-1)(?!\d)", cleaned) and not re.search(r"(?:Ω|Omega|ohm|S/)", cleaned, re.I):
+            return "cm-1"
+        if re.search(r"(?:/Å|\\frac[^{}]*Å$)", cleaned) or cleaned == "Å":
+            return "Å"
+    for header in reversed([str(item) for item in column_headers if str(item).strip()]):
+        for candidate in _unit_candidates(header):
+            token = _clean_unit_token(candidate)
+            if token and (unit := _UNIT_ALIASES.get(token)):
+                return unit
+    return None
+
+
+# TGA 的失重档位就印在表头记号里（`$T_d^{10\%}$` 的 10%），PolyInfo 把它记成
+# 与温度配对的第二个点。这一步是纯确定性推导，不是第二次测量，所以只认
+# **表头明写百分号**的写法。`T_d^{i}`（initial）、`T_max` 一律不推：PolyInfo
+# 给 `T_i` 记的 2% 是录入约定，表头本身没说，猜它等于伪造测量条件。
+_WEIGHT_LOSS_LEVEL_RE = re.compile(
+    r"t\s*_?\s*\{?\s*d?\s*\}?\s*[\^_]\s*\{?\s*(\d{1,2}(?:\.\d)?)\s*\\?%",
+    re.IGNORECASE,
+)
+WEIGHT_LOSS_PROPERTY = "thermal_decomposition_weight_loss"
+THERMAL_DECOMPOSITION_PROPERTY = "thermal_decomposition_temperature"
+
+
+# 次选写法：`T_{10}` 这种把档位直接写成下标、不带百分号的列头。
+# 只在该列已被判为分解温度时才启用 —— 单看记号，`T_1`/`T_2` 也可能是弛豫
+# 时间、`T_90` 可能是结晶半峰，所以这条规则不能脱离 td 判定单独生效。
+_WEIGHT_LOSS_SUBSCRIPT_RE = re.compile(
+    r"t\s*_?\s*\{?\s*(\d{1,2})\s*\}?(?!\s*[\^\d])",
+    re.IGNORECASE,
+)
+
+
+def weight_loss_level_from_headers(column_headers: Sequence[str]) -> str | None:
+    """从列头记号里取失重百分比。取不到就返回 None —— 不猜。"""
+    headers = [str(item) for item in column_headers if str(item).strip()]
+    for header in reversed(headers):
+        if match := _WEIGHT_LOSS_LEVEL_RE.search(header):
+            return match.group(1)
+    for header in reversed(headers):
+        if match := _WEIGHT_LOSS_SUBSCRIPT_RE.search(header):
+            return match.group(1)
+    return None
+
+
+def build_unresolved_property(
+    *,
+    unresolved_id: str,
+    entity_id: str,
+    cell_report: Mapping[str, Any],
+    table: Any,
+    cells: Sequence[Any],
+) -> dict[str, Any]:
+    column_headers = [str(item) for item in cell_report.get("column_headers") or [] if str(item).strip()]
+    row_headers = [str(item) for item in cell_report.get("row_headers") or [] if str(item).strip()]
+    # Preview 首版使用审计器已经确认的规范性质名，避免多层表头中的前序
+    # 数据值或占位符被误写成 property_name_raw。
+    property_name = str(cell_report["property_name_normalized"]).strip()
+    row_index = int(cell_report["row_index"])
+    column_index = int(cell_report["column_index"])
+    value_raw = str(cell_report["text"]).strip()
+    # Stage 4R 已经知道稳定 cell_id，不再把整行重新渲染成管道文本。
+    # 直接保存 Stage 0 的单元格文本，使 evidence 与 locator 指向同一来源。
+    source_sentence = next(
+        (
+            str(cell.text)
+            for cell in cells
+            if cell.row_index == row_index
+            and cell.column_index == column_index
+        ),
+        value_raw,
+    ) or value_raw
+    bbox = list(table.bbox) if table.bbox is not None else None
+    item = {
+        "unresolved_id": unresolved_id,
+        "entity_id": entity_id,
+        "property_name_raw": property_name,
+        "value_raw": value_raw,
+        "reason": "sample_ambiguous",
+        "evidence": [{
+            "block_id": table.block_id,
+            "page": table.page,
+            "bbox": bbox,
+            "source_type": "table",
+            "source_sentence": source_sentence,
+            "table_locator": {
+                "table_id": table.block_id,
+                "cell_id": cell_report["cell_id"],
+                "row_index": row_index,
+                "column_index": column_index,
+                "row_label": " / ".join(row_headers) or None,
+                "column_label": " / ".join(column_headers) or None,
+                "cell_value": value_raw,
+            },
+        }],
+    }
+    # 单位就印在列头里，此前被整个丢掉，导致恢复层的记录全部无单位、
+    # 无法与 PolyInfo 的统一单位对齐。认不出时不写该字段。
+    unit = infer_unit_from_headers(column_headers)
+    # In TGA headers such as ``T_{3%} (N2)``, the percent belongs to the
+    # weight-loss condition. It is not the unit of the recovered temperature
+    # observation; leaving it blank is safer than publishing a false unit.
+    if property_name == THERMAL_DECOMPOSITION_PROPERTY and unit == "%":
+        unit = None
+    if unit:
+        item["unit_raw"] = unit
+    return item
+
+
+def mark_header_derived_evidence(
+    item: dict[str, Any],
+    *,
+    level: str,
+    column_headers: Sequence[str],
+) -> None:
+    """Mark a TGA loss percentage as derived from a column header.
+
+    The percentage in ``T_d^{10%}`` is a condition encoded by the header; it
+    is not the numeric value in the temperature cell.  Keeping the original
+    cell locator therefore creates a false ``cell_value`` conflict in Stage6.
+    The evidence remains table/row/column traceable while explicitly carrying
+    the derivation role.
+    """
+    evidence = item.get("evidence") or []
+    if not evidence:
+        return
+    evidence[0]["source_sentence"] = " / ".join(str(v) for v in column_headers if str(v).strip()) or str(level)
+    locator = evidence[0].get("table_locator") or {}
+    locator.pop("cell_id", None)
+    locator.pop("row_index", None)
+    locator.pop("column_index", None)
+    locator["locator_role"] = "derived_from_column_header"
+    locator["cell_value"] = f"{level}%"
+    evidence[0]["table_locator"] = locator
+
+
+_HEADER_TEXT_RE = re.compile(r"[A-Za-z一-鿿]{2,}")
+_HEADER_NUMBER_RE = re.compile(r"^[\s~<>=±(\[]*[-+]?\d")
+
+
+def misaligned_header_columns(
+    cells: Sequence[Any],
+    header_rows: set[int],
+) -> set[int]:
+    """找出列头与数据错位的列，返回不可信的列号集合。
+
+    这类表的 HTML 会漏写表头的 colspan。0073324 Table II 的
+    `Method of polymerization` 实际占 HTS / LTS 两个子列，表头却只给了 1 列，
+    而数据行仍按 2 列写，于是从该列往右整条表头左移一格：
+
+        表头  ... | Method of polymerizationb | PMT, °C. | η_inh (DMSO) | Comments
+        数据  ... | HTS |    (空)    |     342     |    1.43     |
+                              ^col7        ^col8         ^col9
+        -> col7 挂着 "PMT" 却装的是 HTS/LTS 文字，col8 的 342（真的 PMT）
+           被贴上 η_inh 的标签，写进恢复层就是错的性质名。
+
+    判据必须**只认这个错位**，不能顺手把正常表也判进去。样品名列（`PDLA`、
+    `COC`）同样是"整列文字"，但它的表头就写着 `Sample`，本来就不该有数值 ——
+    只看"整列文字"会把几乎每张表的首列都误判。所以要求两个条件同时成立：
+
+      1) 该列**自己独占**的表头（不跨列、因此不会串到邻列去）声明了一个数值量，
+         如 `PMT, °C.`、`T_g (°C)`；而该列数据全是文字、一个数都没有。
+      2) 它右侧存在**表头不像数值量、数据却全是数值**的列 —— 那就是被挤过去的
+         真数据列。正常表不会出现这种"数值跑到非数值表头下面"的组合。
+
+    两条都满足才认定该表表头整体左移，标记该列及其右侧所有列。
+    """
+    own_header: dict[int, list[str]] = defaultdict(list)
+    for cell in cells:
+        if cell.row_index in header_rows and (getattr(cell, "column_span", 1) or 1) == 1:
+            if text := cell.text.strip():
+                own_header[cell.column_index].append(text)
+
+    by_column: dict[int, list[str]] = defaultdict(list)
+    for cell in cells:
+        if cell.row_index in header_rows:
+            continue
+        if text := cell.text.strip():
+            by_column[cell.column_index].append(text)
+
+    def profile(column: int) -> tuple[int, int]:
+        values = by_column.get(column) or []
+        numeric = sum(1 for text in values if _HEADER_NUMBER_RE.match(text))
+        wordy = sum(
+            1 for text in values
+            if _HEADER_TEXT_RE.search(text) and not _HEADER_NUMBER_RE.match(text)
+        )
+        return numeric, wordy
+
+    for column in sorted(by_column):
+        numeric, wordy = profile(column)
+        if numeric or not wordy:
+            continue
+        header_text = " ".join(own_header.get(column) or [])
+        if not header_text or not _NUMERIC_HEADER_HINT_RE.search(header_text):
+            continue
+        # 条件 2：右侧要有"表头不像数值量、数据却全是数值"的列 —— 那正是被
+        # 挤过去的真数据列（`342` 落在 `η_inh (DMSO)` 名下）。缺了这条就只是
+        # 一个空的数值列（论文没测），不是错位，不该整片放弃。
+        shifted = any(
+            profile(later)[0] and not profile(later)[1]
+            and not _NUMERIC_HEADER_HINT_RE.search(" ".join(own_header.get(later) or []))
+            for later in by_column
+            if later > column
+        )
+        if shifted:
+            return set(range(column, max(by_column) + 1))
+    return set()
+
+
+# 表头里出现这些就说明该列本该是数值：温度/模量/强度等带单位或符号的写法。
+# 注意别写成会嵌进普通词里的片段 —— `M\.?P\.?` 会match "Sa(mp)le"、"co(mp)ound"，
+# 把每张表的样品名列都判成错位。所以带字母的项一律加词边界并要求真的有点号。
+_NUMERIC_HEADER_HINT_RE = re.compile(
+    r"°\s*[cCkK]|\bK\b|MPa|GPa|kPa|S\s*/\s*cm|Ω|ohm|J\s*/\s*[gm]|dL\s*/\s*g|"
+    r"\bPMT\b|\bM\.P\.|\bT_?[gmdc]\b|\bη",
+    re.IGNORECASE,
+)
+
+
+def recover_document(
+    stage0: Stage0Document,
+    stage2: Mapping[str, Any],
+    stage3: Mapping[str, Any],
+    stage4: Mapping[str, Any],
+    *,
+    threshold: float = 0.8,
+    allow_filled_up_sample_binding: bool = False,
+) -> tuple[Stage4Document, dict[str, Any]]:
+    original = Stage4Document.model_validate(stage4)
+    audit = audit_documents(stage0, stage4, threshold=threshold)
+    valid_entities = {
+        str(item.get("entity_id"))
+        for item in stage2.get("polymer_entities") or []
+        if isinstance(item, Mapping) and item.get("entity_id")
+    }
+    sample_entities, samples = _sample_entity_map(stage3)
+    entity_aliases = _entity_aliases(stage2)
+    table_entities = _table_entities(stage4, sample_entities)
+    tables = {item.block_id: item for item in stage0.elements if item.type == "table"}
+    existing_cells = _cell_ids(stage4)
+    next_number = next_unresolved_number(stage4)
+    additions: list[dict[str, Any]] = []
+    skipped: list[dict[str, Any]] = []
+
+    for table_report in audit.get("tables") or []:
+        table_id = str(table_report["table_id"])
+        table = tables.get(table_id)
+        if table is None:
+            continue
+        cells = table_cells_for(table)
+        bad_columns = misaligned_header_columns(cells, _infer_header_rows(cells))
+        for cell in table_report.get("missing_property_cells") or []:
+            cell_id = str(cell["cell_id"])
+            if cell_id in existing_cells:
+                continue
+            if int(cell["column_index"]) in bad_columns:
+                skipped.append({
+                    "cell_id": cell_id,
+                    "table_id": table_id,
+                    "property_name_normalized": cell.get("property_name_normalized"),
+                    "value_raw": cell.get("text"),
+                    "reason": "misaligned_table_header",
+                })
+                continue
+            if not str(cell.get("role_reason") or "").startswith("property_header:"):
+                skipped.append({
+                    "cell_id": cell_id,
+                    "table_id": table_id,
+                    "property_name_normalized": cell.get("property_name_normalized"),
+                    "value_raw": cell.get("text"),
+                    "reason": "unsafe_non_header_property_hint",
+                })
+                continue
+            entity_id, basis = infer_entity_id(
+                row_headers=cell.get("row_headers") or [],
+                row_index=cell.get("row_index"),
+                table_id=table_id,
+                valid_entity_ids=valid_entities,
+                samples=samples,
+                entity_aliases=entity_aliases,
+                table_entities=table_entities,
+                row_label_candidates=_row_label_candidates(
+                    cells,
+                    int(cell["row_index"]),
+                    int(cell["column_index"]),
+                ),
+            )
+            if entity_id is None:
+                skipped.append({
+                    "cell_id": cell_id,
+                    "table_id": table_id,
+                    "property_name_normalized": cell.get("property_name_normalized"),
+                    "value_raw": cell.get("text"),
+                    "reason": basis,
+                })
+                continue
+            item = build_unresolved_property(
+                unresolved_id=f"uprop{next_number:03d}",
+                entity_id=entity_id,
+                cell_report=cell,
+                table=table,
+                cells=cells,
+            )
+            next_number += 1
+            additions.append(item)
+            item["_entity_resolution_basis"] = basis
+            existing_cells.add(cell_id)
+
+            # TGA 成对编码：PolyInfo 把 "10% 失重温度" 拆成温度 + 失重百分比两个点。
+            # 百分比不是另一次测量，它就写在列头记号里，所以在温度落库的同时按
+            # 表头推出配对点，entity_resolution_basis 记来源，便于下游区分与回滚。
+            if str(cell.get("property_name_normalized") or "") == THERMAL_DECOMPOSITION_PROPERTY:
+                level = weight_loss_level_from_headers(cell.get("column_headers") or [])
+                if level is not None:
+                    paired = build_unresolved_property(
+                        unresolved_id=f"uprop{next_number:03d}",
+                        entity_id=entity_id,
+                        cell_report={**cell, "property_name_normalized": WEIGHT_LOSS_PROPERTY},
+                        table=table,
+                        cells=cells,
+                    )
+                    paired["value_raw"] = level
+                    paired["unit_raw"] = "%"
+                    mark_header_derived_evidence(
+                        paired,
+                        level=level,
+                        column_headers=cell.get("column_headers") or [],
+                    )
+                    next_number += 1
+                    additions.append(paired)
+                    paired["_entity_resolution_basis"] = "table_header_weight_loss_level"
+
+    # 第二遍：主循环只看 audit 报出的 "缺失格"。已经落库的 td 点（无论来自
+    # Stage-4 主链路还是上一轮 4R）不在其中，但它们同样需要配对的 td_wl 点。
+    # 这里按 column_label 里的失重档位补齐，已配对过的源格不重复发。
+    paired_sources: set[str] = set()
+    for item in additions:
+        evidence = item.get("evidence") or []
+        locator = (evidence[0].get("table_locator") or {}) if evidence else {}
+        if str(item.get("property_name_raw") or "") == WEIGHT_LOSS_PROPERTY:
+            paired_sources.add(str(locator.get("cell_id") or ""))
+
+    for bucket in ("properties", "unresolved_properties"):
+        for record in list(stage4.get(bucket) or []):
+            if not isinstance(record, Mapping):
+                continue
+            name = str(
+                record.get("property_name_normalized")
+                or record.get("property_name_raw")
+                or ""
+            )
+            if name != THERMAL_DECOMPOSITION_PROPERTY:
+                continue
+            evidence = record.get("evidence") or []
+            locator = (evidence[0].get("table_locator") or {}) if evidence else {}
+            source_cell_id = str(locator.get("cell_id") or "")
+            if not source_cell_id or source_cell_id in paired_sources:
+                continue
+            column_label = str(locator.get("column_label") or "")
+            level = weight_loss_level_from_headers([column_label])
+            if level is None:
+                continue
+            table = tables.get(str(locator.get("table_id") or ""))
+            if table is None:
+                continue
+            entity_id = str(record.get("entity_id") or "")
+            if not entity_id:
+                entity_id = str(sample_entities.get(str(record.get("sample_id") or "")) or "")
+            if entity_id not in valid_entities:
+                continue
+            paired_sources.add(source_cell_id)
+            paired = build_unresolved_property(
+                unresolved_id=f"uprop{next_number:03d}",
+                entity_id=entity_id,
+                cell_report={
+                    "cell_id": source_cell_id,
+                    "row_index": locator.get("row_index"),
+                    "column_index": locator.get("column_index"),
+                    "text": level,
+                    "property_name_normalized": WEIGHT_LOSS_PROPERTY,
+                    "column_headers": [column_label] if column_label else [],
+                    "row_headers": [str(locator.get("row_label") or "")],
+                },
+                table=table,
+                cells=table_cells_for(table),
+            )
+            paired["unit_raw"] = "%"
+            mark_header_derived_evidence(
+                paired,
+                level=level,
+                column_headers=[column_label] if column_label else [],
+            )
+            paired["_entity_resolution_basis"] = "table_header_weight_loss_level"
+            next_number += 1
+            additions.append(paired)
+
+    payload = original.model_dump(mode="json")
+    payload["unresolved_properties"].extend(
+        {key: value for key, value in item.items() if not key.startswith("_")}
+        for item in additions
+    )
+    if additions:
+        payload["warnings"].append({
+            "code": "stage4r_preview_table_recovery",
+            "message": f"Stage 4R Preview 确定性补入 {len(additions)} 个表格性质格；样品归属保留 unresolved。",
+            "recovered_cell_count": len(additions),
+            "skipped_ambiguous_count": len(skipped),
+        })
+    sample_resolutions = [
+        _resolve_unresolved_sample(
+            item,
+            samples=samples,
+            tables=tables,
+            allow_filled_up=allow_filled_up_sample_binding,
+        )
+        for item in payload["unresolved_properties"]
+    ]
+    payload, migrations = _migrate_resolved_unresolved(
+        payload,
+        sample_resolutions,
+    )
+    if migrations:
+        payload["warnings"].append({
+            "code": "stage4r_unique_sample_label_resolved",
+            "message": (
+                f"Stage 4R 按唯一 Stage 3 sample_label_raw 确定性归属 "
+                f"{len(migrations)} 条性质。"
+            ),
+            "resolved_count": len(migrations),
+            "filled_up_enabled": allow_filled_up_sample_binding,
+        })
+    merged = Stage4Document.model_validate(payload)
+    resolution_summary = Counter(
+        str(item.get("status") or "unknown")
+        for item in sample_resolutions
+    )
+    report = {
+        "stage": STAGE_ID,
+        "implementation_version": IMPLEMENTATION_VERSION,
+        "document_id": stage0.document_id,
+        "audit_summary": audit.get("summary"),
+        "recovered_count": len(additions),
+        "skipped_ambiguous_count": len(skipped),
+        "recovered": [
+            {
+                "unresolved_id": item["unresolved_id"],
+                "entity_id": item["entity_id"],
+                "property_name_raw": item["property_name_raw"],
+                "value_raw": item["value_raw"],
+                "cell_id": item["evidence"][0]["table_locator"].get("cell_id"),
+                "entity_resolution_basis": item["_entity_resolution_basis"],
+            }
+            for item in additions
+        ],
+        "skipped_ambiguous": skipped,
+        "sample_resolution_summary": dict(sorted(resolution_summary.items())),
+        "sample_resolution": sample_resolutions,
+        "property_id_migrations": migrations,
+    }
+    return merged, report
+
+
+def _load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _write_json(path: Path, value: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_suffix(path.suffix + ".tmp")
+    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
+    temp.replace(path)
+
+
+def _sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _sha256_json(value: Any) -> str:
+    canonical = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def _cache_is_valid(
+    *,
+    report_path: Path,
+    preview_path: Path,
+    input_hashes: Mapping[str, str],
+    settings: Mapping[str, Any],
+) -> bool:
+    if not report_path.is_file() or not preview_path.is_file():
+        return False
+    try:
+        report = _load_json(report_path)
+        preview = _load_json(preview_path)
+    except (OSError, ValueError, json.JSONDecodeError):
+        return False
+    return (
+        report.get("implementation_version") == IMPLEMENTATION_VERSION
+        and report.get("input_hashes") == dict(input_hashes)
+        and report.get("settings") == dict(settings)
+        and report.get("output_sha256") == _sha256_json(preview)
+    )
+
+
+def _same_file_content(left: Path, right: Path) -> bool:
+    return left.is_file() and right.is_file() and left.read_bytes() == right.read_bytes()
+
+
+def _prepare_stage4_input(
+    *,
+    stage4_path: Path,
+    preview_path: Path,
+    report_path: Path,
+    backup_path: Path,
+    apply: bool,
+    force: bool,
+    in_place: bool,
+    cache_valid: bool = False,
+) -> tuple[Path, bool]:
+    already_applied = in_place and _same_file_content(stage4_path, preview_path)
+    if not force and cache_valid:
+        if not apply or already_applied:
+            return stage4_path, True
+    if not apply or not in_place:
+        if already_applied and backup_path.is_file():
+            return backup_path, False
+        return stage4_path, False
+    if already_applied and backup_path.is_file():
+        return backup_path, False
+    shutil.copy2(stage4_path, backup_path)
+    return stage4_path, False
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input-root", type=Path, required=True)
+    parser.add_argument("--output-root", type=Path)
+    parser.add_argument("--ref-no", required=True)
+    parser.add_argument("--config", type=Path, help="兼容批处理器；Stage 4R 不读取模型配置")
+    parser.add_argument("--threshold", type=float, default=0.8)
+    parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument(
+        "--allow-filled-up-sample-binding",
+        action="store_true",
+        help="允许将向上填充得到的唯一标签用于 Sample 归属；默认仅报告待复核",
+    )
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+    input_root = args.input_root.expanduser().resolve()
+    output_root = (args.output_root or input_root).expanduser().resolve()
+    ref_dir = args.ref_no if args.ref_no.startswith("reference_no_") else f"reference_no_{args.ref_no}"
+    source = input_root / ref_dir
+    target = output_root / ref_dir
+    target.mkdir(parents=True, exist_ok=True)
+    stage4_path = source / "stage4_properties.json"
+    preview_path = target / "stage4_properties.recovery_preview.json"
+    report_path = target / "stage4r_recovery.json"
+    backup_path = target / "stage4_properties.pre_recovery.json"
+    in_place = source.resolve() == target.resolve()
+    stage4_is_applied = in_place and _same_file_content(stage4_path, preview_path)
+    fingerprint_stage4 = (
+        backup_path
+        if stage4_is_applied and backup_path.is_file()
+        else stage4_path
+    )
+    input_hashes = {
+        "stage0_blocks.json": _sha256_file(source / "stage0_blocks.json"),
+        "stage2_entities.json": _sha256_file(source / "stage2_entities.json"),
+        "stage3_process.json": _sha256_file(source / "stage3_process.json"),
+        "stage4_properties.json": _sha256_file(fingerprint_stage4),
+    }
+    settings = {
+        "threshold": args.threshold,
+        "apply": bool(args.apply),
+        "allow_filled_up_sample_binding": bool(
+            args.allow_filled_up_sample_binding
+        ),
+    }
+    cache_valid = _cache_is_valid(
+        report_path=report_path,
+        preview_path=preview_path,
+        input_hashes=input_hashes,
+        settings=settings,
+    )
+    stage4_input_path, cached = _prepare_stage4_input(
+        stage4_path=stage4_path,
+        preview_path=preview_path,
+        report_path=report_path,
+        backup_path=backup_path,
+        apply=bool(args.apply),
+        force=bool(args.force),
+        in_place=in_place,
+        cache_valid=cache_valid,
+    )
+    if cached:
+        print(f"[cached] {ref_dir}: Stage 4R Preview 已存在")
+        return 0
+    stage0 = Stage0Document.model_validate_json((source / "stage0_blocks.json").read_text(encoding="utf-8"))
+    stage2 = _load_json(source / "stage2_entities.json")
+    stage3 = _load_json(source / "stage3_process.json")
+    stage4 = _load_json(stage4_input_path)
+    merged, report = recover_document(
+        stage0,
+        stage2,
+        stage3,
+        stage4,
+        threshold=args.threshold,
+        allow_filled_up_sample_binding=(
+            args.allow_filled_up_sample_binding
+        ),
+    )
+    report["input_hashes"] = input_hashes
+    report["settings"] = settings
+    report["output_sha256"] = _sha256_json(merged.model_dump(mode="json"))
+    _write_json(report_path, report)
+    _write_json(preview_path, merged.model_dump(mode="json"))
+    if args.apply:
+        destination = target / "stage4_properties.json"
+        _write_json(destination, merged.model_dump(mode="json"))
+    print(json.dumps({
+        "document_id": merged.document_id,
+        "recovered_count": report["recovered_count"],
+        "skipped_ambiguous_count": report["skipped_ambiguous_count"],
+        "preview_path": str(preview_path),
+        "applied": bool(args.apply),
+    }, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

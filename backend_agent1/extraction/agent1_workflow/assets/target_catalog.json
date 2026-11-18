@@ -1,0 +1,2777 @@
+{
+  "version": "unified_targets.1020.v1",
+  "targets": [
+    {
+      "target_id": "property_vocabulary:density",
+      "property_key": "density",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:density",
+      "aliases": [
+        "density"
+      ],
+      "definition": [
+        "P1110",
+        "physical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:specific_volume",
+      "property_key": "specific_volume",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:specific_volume",
+      "aliases": [
+        "specific volume",
+        "specific_volume"
+      ],
+      "definition": [
+        "P1110",
+        "physical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:refractive_index",
+      "property_key": "refractive_index",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:refractive_index",
+      "aliases": [
+        "refractive index",
+        "refractive_index"
+      ],
+      "definition": [
+        "P2110",
+        "optical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:stress_optical_coefficient",
+      "property_key": "stress_optical_coefficient",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:stress_optical_coefficient",
+      "aliases": [
+        "stress optical coefficient",
+        "stress_optical_coefficient"
+      ],
+      "definition": [
+        "P2120",
+        "optical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:crystallization_kinetics",
+      "property_key": "crystallization_kinetics",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:crystallization_kinetics",
+      "aliases": [
+        "crystallization kinetics",
+        "crystallization_kinetics"
+      ],
+      "definition": [
+        "P3150",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:crystallization_temperature",
+      "property_key": "crystallization_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:crystallization_temperature",
+      "aliases": [
+        "crystallization temperature",
+        "crystallization_temperature"
+      ],
+      "definition": [
+        "P3140",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:glass_transition_temperature",
+      "property_key": "glass_transition_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:glass_transition_temperature",
+      "aliases": [
+        "glass transition temperature",
+        "glass_transition_temperature"
+      ],
+      "definition": [
+        "P3110",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:heat_of_crystallization",
+      "property_key": "heat_of_crystallization",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:heat_of_crystallization",
+      "aliases": [
+        "heat of crystallization",
+        "heat_of_crystallization"
+      ],
+      "definition": [
+        "P3140",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:heat_of_fusion",
+      "property_key": "heat_of_fusion",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:heat_of_fusion",
+      "aliases": [
+        "heat of fusion",
+        "heat_of_fusion"
+      ],
+      "definition": [
+        "P3130",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:thermal_decomposition_temperature",
+      "property_key": "thermal_decomposition_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:thermal_decomposition_temperature",
+      "aliases": [
+        "thermal decomposition temperature",
+        "thermal_decomposition_temperature"
+      ],
+      "definition": [
+        "P3170",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": true,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:thermal_decomposition_weight_loss",
+      "property_key": "thermal_decomposition_weight_loss",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:thermal_decomposition_weight_loss",
+      "aliases": [
+        "thermal decomposition weight loss",
+        "thermal_decomposition_weight_loss"
+      ],
+      "definition": [
+        "P3170",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:contact_angle",
+      "property_key": "contact_angle",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:contact_angle",
+      "aliases": [
+        "contact angle",
+        "contact_angle"
+      ],
+      "definition": [
+        "P5150",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:lc_phase_transition_temperature",
+      "property_key": "lc_phase_transition_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:lc_phase_transition_temperature",
+      "aliases": [
+        "lc phase transition temperature",
+        "lc_phase_transition_temperature"
+      ],
+      "definition": [
+        "P3160",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:linear_expansion_coefficient",
+      "property_key": "linear_expansion_coefficient",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:linear_expansion_coefficient",
+      "aliases": [
+        "linear expansion coefficient",
+        "linear_expansion_coefficient"
+      ],
+      "definition": [
+        "P3180",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:melting_temperature",
+      "property_key": "melting_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:melting_temperature",
+      "aliases": [
+        "melting temperature",
+        "melting_temperature"
+      ],
+      "definition": [
+        "P3120",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:specific_heat_capacity_cp",
+      "property_key": "specific_heat_capacity_cp",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:specific_heat_capacity_cp",
+      "aliases": [
+        "specific heat capacity cp",
+        "specific_heat_capacity_cp"
+      ],
+      "definition": [
+        "P3210",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:specific_heat_capacity_cv",
+      "property_key": "specific_heat_capacity_cv",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:specific_heat_capacity_cv",
+      "aliases": [
+        "specific heat capacity cv",
+        "specific_heat_capacity_cv"
+      ],
+      "definition": [
+        "P3210",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:thermal_conductivity",
+      "property_key": "thermal_conductivity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:thermal_conductivity",
+      "aliases": [
+        "thermal conductivity",
+        "thermal_conductivity"
+      ],
+      "definition": [
+        "P3190",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:thermal_diffusivity",
+      "property_key": "thermal_diffusivity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:thermal_diffusivity",
+      "aliases": [
+        "thermal diffusivity",
+        "thermal_diffusivity"
+      ],
+      "definition": [
+        "P3190",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:volume_expansion_coefficient",
+      "property_key": "volume_expansion_coefficient",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:volume_expansion_coefficient",
+      "aliases": [
+        "volume expansion coefficient",
+        "volume_expansion_coefficient"
+      ],
+      "definition": [
+        "P3180",
+        "thermal_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dielectric_breakdown_voltage",
+      "property_key": "dielectric_breakdown_voltage",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dielectric_breakdown_voltage",
+      "aliases": [
+        "dielectric breakdown voltage",
+        "dielectric_breakdown_voltage"
+      ],
+      "definition": [
+        "P4110",
+        "electrical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dielectric_constant_dc",
+      "property_key": "dielectric_constant_dc",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dielectric_constant_dc",
+      "aliases": [
+        "dielectric constant dc",
+        "dielectric_constant_dc"
+      ],
+      "definition": [
+        "P4110",
+        "electrical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dielectric_dispersion",
+      "property_key": "dielectric_dispersion",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dielectric_dispersion",
+      "aliases": [
+        "dielectric dispersion",
+        "dielectric_dispersion"
+      ],
+      "definition": [
+        "P4120",
+        "electrical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:electric_conductivity",
+      "property_key": "electric_conductivity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:electric_conductivity",
+      "aliases": [
+        "electric conductivity",
+        "electric_conductivity"
+      ],
+      "definition": [
+        "P4130",
+        "electrical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:surface_resistivity",
+      "property_key": "surface_resistivity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:surface_resistivity",
+      "aliases": [
+        "surface resistivity",
+        "surface_resistivity"
+      ],
+      "definition": [
+        "P4130",
+        "electrical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:volume_resistivity",
+      "property_key": "volume_resistivity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:volume_resistivity",
+      "aliases": [
+        "volume resistivity",
+        "volume_resistivity"
+      ],
+      "definition": [
+        "P4130",
+        "electrical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:cohesive_energy_density",
+      "property_key": "cohesive_energy_density",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:cohesive_energy_density",
+      "aliases": [
+        "cohesive energy density",
+        "cohesive_energy_density"
+      ],
+      "definition": [
+        "P5110",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:gas_diffusion_coefficient_d",
+      "property_key": "gas_diffusion_coefficient_d",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:gas_diffusion_coefficient_d",
+      "aliases": [
+        "gas diffusion coefficient d",
+        "gas_diffusion_coefficient_d"
+      ],
+      "definition": [
+        "P5140",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:gas_permeability_coefficient_p",
+      "property_key": "gas_permeability_coefficient_p",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:gas_permeability_coefficient_p",
+      "aliases": [
+        "gas permeability coefficient p",
+        "gas_permeability_coefficient_p"
+      ],
+      "definition": [
+        "P5140",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:gas_solubility_coefficient_s",
+      "property_key": "gas_solubility_coefficient_s",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:gas_solubility_coefficient_s",
+      "aliases": [
+        "gas solubility coefficient s",
+        "gas_solubility_coefficient_s"
+      ],
+      "definition": [
+        "P5140",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:hansen_parameter_delta_d",
+      "property_key": "hansen_parameter_delta_d",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:hansen_parameter_delta_d",
+      "aliases": [
+        "hansen parameter delta d",
+        "hansen_parameter_delta_d"
+      ],
+      "definition": [
+        "P5110",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:hansen_parameter_delta_h",
+      "property_key": "hansen_parameter_delta_h",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:hansen_parameter_delta_h",
+      "aliases": [
+        "hansen parameter delta h",
+        "hansen_parameter_delta_h"
+      ],
+      "definition": [
+        "P5110",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:hansen_parameter_delta_p",
+      "property_key": "hansen_parameter_delta_p",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:hansen_parameter_delta_p",
+      "aliases": [
+        "hansen parameter delta p",
+        "hansen_parameter_delta_p"
+      ],
+      "definition": [
+        "P5110",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:interfacial_tension",
+      "property_key": "interfacial_tension",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:interfacial_tension",
+      "aliases": [
+        "interfacial tension",
+        "interfacial_tension"
+      ],
+      "definition": [
+        "P5160",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:solubility_parameter",
+      "property_key": "solubility_parameter",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:solubility_parameter",
+      "aliases": [
+        "solubility parameter",
+        "solubility_parameter"
+      ],
+      "definition": [
+        "P5110",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:surface_tension",
+      "property_key": "surface_tension",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:surface_tension",
+      "aliases": [
+        "surface tension",
+        "surface_tension"
+      ],
+      "definition": [
+        "P5150",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:water_absorption",
+      "property_key": "water_absorption",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:water_absorption",
+      "aliases": [
+        "water absorption",
+        "water_absorption"
+      ],
+      "definition": [
+        "P5120",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:water_vapor_transmission",
+      "property_key": "water_vapor_transmission",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:water_vapor_transmission",
+      "aliases": [
+        "water vapor transmission",
+        "water_vapor_transmission"
+      ],
+      "definition": [
+        "P5130",
+        "physicochemical_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:diffusion_coefficient",
+      "property_key": "diffusion_coefficient",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:diffusion_coefficient",
+      "aliases": [
+        "diffusion coefficient",
+        "diffusion_coefficient"
+      ],
+      "definition": [
+        "P6140",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:good_solvent",
+      "property_key": "good_solvent",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:good_solvent",
+      "aliases": [
+        "good solvent",
+        "good_solvent"
+      ],
+      "definition": [
+        "P6170",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:intrinsic_viscosity",
+      "property_key": "intrinsic_viscosity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:solution_viscosity",
+      "aliases": [
+        "intrinsic viscosity",
+        "intrinsic_viscosity"
+      ],
+      "definition": [
+        "P6120",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:non_solvent",
+      "property_key": "non_solvent",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:non_solvent",
+      "aliases": [
+        "non solvent",
+        "non_solvent"
+      ],
+      "definition": [
+        "TERM-solvn",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:poor_solvent",
+      "property_key": "poor_solvent",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:poor_solvent",
+      "aliases": [
+        "poor solvent",
+        "poor_solvent"
+      ],
+      "definition": [
+        "P6170",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:radius_of_gyration",
+      "property_key": "radius_of_gyration",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:radius_of_gyration",
+      "aliases": [
+        "radius of gyration",
+        "radius_of_gyration"
+      ],
+      "definition": [
+        "P6110",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:second_virial_coefficient",
+      "property_key": "second_virial_coefficient",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:second_virial_coefficient",
+      "aliases": [
+        "second virial coefficient",
+        "second_virial_coefficient"
+      ],
+      "definition": [
+        "P6150",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:sedimentation_coefficient",
+      "property_key": "sedimentation_coefficient",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:sedimentation_coefficient",
+      "aliases": [
+        "sedimentation coefficient",
+        "sedimentation_coefficient"
+      ],
+      "definition": [
+        "P6130",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:solvent",
+      "property_key": "solvent",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:solvent",
+      "aliases": [
+        "solvent"
+      ],
+      "definition": [
+        "TERM-solvn",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:theta_solvent_theta_temperature",
+      "property_key": "theta_solvent_theta_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:theta_solvent_theta_temperature",
+      "aliases": [
+        "theta solvent theta temperature",
+        "theta_solvent_theta_temperature"
+      ],
+      "definition": [
+        "P6160",
+        "dilute_solution_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:melt_viscosity",
+      "property_key": "melt_viscosity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:melt_viscosity",
+      "aliases": [
+        "melt viscosity",
+        "melt_viscosity"
+      ],
+      "definition": [
+        "P7110",
+        "rheological_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dynamic_viscosity",
+      "property_key": "dynamic_viscosity",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dynamic_viscosity",
+      "aliases": [
+        "dynamic viscosity",
+        "dynamic_viscosity"
+      ],
+      "definition": [
+        "P7120",
+        "rheological_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dynamic_tensile_properties",
+      "property_key": "dynamic_tensile_properties",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dynamic_tensile_properties",
+      "aliases": [
+        "dynamic tensile properties",
+        "dynamic_tensile_properties"
+      ],
+      "definition": [
+        "P8130",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:elongation_at_break",
+      "property_key": "elongation_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:elongation_at_break",
+      "aliases": [
+        "elongation at break",
+        "elongation_at_break"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:elongation_at_yield",
+      "property_key": "elongation_at_yield",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:elongation_at_yield",
+      "aliases": [
+        "elongation at yield",
+        "elongation_at_yield"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:fiber_tensile_elongation_at_break",
+      "property_key": "fiber_tensile_elongation_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:fiber_tensile_elongation_at_break",
+      "aliases": [
+        "fiber tensile elongation at break",
+        "fiber_tensile_elongation_at_break"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:fiber_tensile_modulus",
+      "property_key": "fiber_tensile_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:fiber_tensile_modulus",
+      "aliases": [
+        "fiber tensile modulus",
+        "fiber_tensile_modulus"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:fiber_tensile_stress_at_break",
+      "property_key": "fiber_tensile_stress_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:fiber_tensile_stress_at_break",
+      "aliases": [
+        "fiber tensile stress at break",
+        "fiber_tensile_stress_at_break"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_modulus",
+      "property_key": "tensile_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_modulus",
+      "aliases": [
+        "tensile modulus",
+        "tensile_modulus"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_stress_at_break",
+      "property_key": "tensile_stress_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_stress_at_break",
+      "aliases": [
+        "tensile stress at break",
+        "tensile_stress_at_break"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_stress_at_yield",
+      "property_key": "tensile_stress_at_yield",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_stress_at_yield",
+      "aliases": [
+        "tensile stress at yield",
+        "tensile_stress_at_yield"
+      ],
+      "definition": [
+        "P8110",
+        "tensile_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dynamic_shear_properties",
+      "property_key": "dynamic_shear_properties",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dynamic_shear_properties",
+      "aliases": [
+        "dynamic shear properties",
+        "dynamic_shear_properties"
+      ],
+      "definition": [
+        "P8130",
+        "shear_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:shear_modulus",
+      "property_key": "shear_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:shear_modulus",
+      "aliases": [
+        "shear modulus",
+        "shear_modulus"
+      ],
+      "definition": [
+        "P8140",
+        "shear_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:shear_stress_at_break",
+      "property_key": "shear_stress_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:shear_stress_at_break",
+      "aliases": [
+        "shear stress at break",
+        "shear_stress_at_break"
+      ],
+      "definition": [
+        "P8140",
+        "shear_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:shear_stress_at_yield",
+      "property_key": "shear_stress_at_yield",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:shear_stress_at_yield",
+      "aliases": [
+        "shear stress at yield",
+        "shear_stress_at_yield"
+      ],
+      "definition": [
+        "P8140",
+        "shear_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dynamic_flexural_properties",
+      "property_key": "dynamic_flexural_properties",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dynamic_flexural_properties",
+      "aliases": [
+        "dynamic flexural properties",
+        "dynamic_flexural_properties"
+      ],
+      "definition": [
+        "P8130",
+        "flexural_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:flexural_modulus",
+      "property_key": "flexural_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:flexural_modulus",
+      "aliases": [
+        "flexural modulus",
+        "flexural_modulus"
+      ],
+      "definition": [
+        "P8160",
+        "flexural_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:flexural_stress_at_break",
+      "property_key": "flexural_stress_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:flexural_stress_at_break",
+      "aliases": [
+        "flexural stress at break",
+        "flexural_stress_at_break"
+      ],
+      "definition": [
+        "P8160",
+        "flexural_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:flexural_stress_at_yield",
+      "property_key": "flexural_stress_at_yield",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:flexural_stress_at_yield",
+      "aliases": [
+        "flexural stress at yield",
+        "flexural_stress_at_yield"
+      ],
+      "definition": [
+        "P8160",
+        "flexural_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressive_modulus",
+      "property_key": "compressive_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressive_modulus",
+      "aliases": [
+        "compressive modulus",
+        "compressive_modulus"
+      ],
+      "definition": [
+        "P8180",
+        "compression_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressive_stress_at_break",
+      "property_key": "compressive_stress_at_break",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressive_stress_at_break",
+      "aliases": [
+        "compressive stress at break",
+        "compressive_stress_at_break"
+      ],
+      "definition": [
+        "P8180",
+        "compression_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressive_stress_at_yield",
+      "property_key": "compressive_stress_at_yield",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressive_stress_at_yield",
+      "aliases": [
+        "compressive stress at yield",
+        "compressive_stress_at_yield"
+      ],
+      "definition": [
+        "P8180",
+        "compression_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:dynamic_compressive_properties",
+      "property_key": "dynamic_compressive_properties",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:dynamic_compressive_properties",
+      "aliases": [
+        "dynamic compressive properties",
+        "dynamic_compressive_properties"
+      ],
+      "definition": [
+        "P8180",
+        "compression_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressive_creep_rupture_strength",
+      "property_key": "compressive_creep_rupture_strength",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressive_creep_rupture_strength",
+      "aliases": [
+        "compressive creep rupture strength",
+        "compressive_creep_rupture_strength"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressive_creep_rupture_time",
+      "property_key": "compressive_creep_rupture_time",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressive_creep_rupture_time",
+      "aliases": [
+        "compressive creep rupture time",
+        "compressive_creep_rupture_time"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressive_creep_strain",
+      "property_key": "compressive_creep_strain",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressive_creep_strain",
+      "aliases": [
+        "compressive creep strain",
+        "compressive_creep_strain"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:flexural_creep_rupture_strength",
+      "property_key": "flexural_creep_rupture_strength",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:flexural_creep_rupture_strength",
+      "aliases": [
+        "flexural creep rupture strength",
+        "flexural_creep_rupture_strength"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:flexural_creep_rupture_time",
+      "property_key": "flexural_creep_rupture_time",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:flexural_creep_rupture_time",
+      "aliases": [
+        "flexural creep rupture time",
+        "flexural_creep_rupture_time"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:flexural_creep_strain",
+      "property_key": "flexural_creep_strain",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:flexural_creep_strain",
+      "aliases": [
+        "flexural creep strain",
+        "flexural_creep_strain"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_creep_compliance",
+      "property_key": "tensile_creep_compliance",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_creep_compliance",
+      "aliases": [
+        "tensile creep compliance",
+        "tensile_creep_compliance"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_creep_modulus",
+      "property_key": "tensile_creep_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_creep_modulus",
+      "aliases": [
+        "tensile creep modulus",
+        "tensile_creep_modulus"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_creep_recovery",
+      "property_key": "tensile_creep_recovery",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_creep_recovery",
+      "aliases": [
+        "tensile creep recovery",
+        "tensile_creep_recovery"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_creep_rupture_strength",
+      "property_key": "tensile_creep_rupture_strength",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_creep_rupture_strength",
+      "aliases": [
+        "tensile creep rupture strength",
+        "tensile_creep_rupture_strength"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_creep_rupture_time",
+      "property_key": "tensile_creep_rupture_time",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_creep_rupture_time",
+      "aliases": [
+        "tensile creep rupture time",
+        "tensile_creep_rupture_time"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:tensile_creep_strain",
+      "property_key": "tensile_creep_strain",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:tensile_creep_strain",
+      "aliases": [
+        "tensile creep strain",
+        "tensile_creep_strain"
+      ],
+      "definition": [
+        "P8210",
+        "creep_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:brittleness_temperature",
+      "property_key": "brittleness_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:brittleness_temperature",
+      "aliases": [
+        "brittleness temperature",
+        "brittleness_temperature"
+      ],
+      "definition": [
+        "P8540",
+        "heat_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:deflection_temperature_under_load",
+      "property_key": "deflection_temperature_under_load",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:deflection_temperature_under_load",
+      "aliases": [
+        "deflection temperature under load",
+        "deflection_temperature_under_load"
+      ],
+      "definition": [
+        "P8530",
+        "heat_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:softening_temperature",
+      "property_key": "softening_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:softening_temperature",
+      "aliases": [
+        "softening temperature",
+        "softening_temperature"
+      ],
+      "definition": [
+        "P8510",
+        "heat_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:vicat_softening_temperature",
+      "property_key": "vicat_softening_temperature",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:vicat_softening_temperature",
+      "aliases": [
+        "vicat softening temperature",
+        "vicat_softening_temperature"
+      ],
+      "definition": [
+        "P8520",
+        "heat_characteristic"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:charpy_impact",
+      "property_key": "charpy_impact",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:charpy_impact",
+      "aliases": [
+        "charpy impact",
+        "charpy_impact"
+      ],
+      "definition": [
+        "P8560",
+        "impact_strength"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:izod_impact",
+      "property_key": "izod_impact",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:izod_impact",
+      "aliases": [
+        "izod impact",
+        "izod_impact"
+      ],
+      "definition": [
+        "P8550",
+        "impact_strength"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:rockwell_hardness",
+      "property_key": "rockwell_hardness",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:rockwell_hardness",
+      "aliases": [
+        "rockwell hardness",
+        "rockwell_hardness"
+      ],
+      "definition": [
+        "P8570",
+        "hardness"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:shore_hardness",
+      "property_key": "shore_hardness",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:shore_hardness",
+      "aliases": [
+        "shore hardness",
+        "shore_hardness"
+      ],
+      "definition": [
+        "P8580",
+        "hardness"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:oxygen_index",
+      "property_key": "oxygen_index",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:oxygen_index",
+      "aliases": [
+        "oxygen index",
+        "oxygen_index"
+      ],
+      "definition": [
+        "P8630",
+        "heat_resistance_and_combustion"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:ul_flammability_code_rating",
+      "property_key": "ul_flammability_code_rating",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:ul_flammability_code_rating",
+      "aliases": [
+        "ul flammability code rating",
+        "ul_flammability_code_rating"
+      ],
+      "definition": [
+        "P8610",
+        "heat_resistance_and_combustion"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:ul_temperature_index",
+      "property_key": "ul_temperature_index",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:ul_temperature_index",
+      "aliases": [
+        "ul temperature index",
+        "ul_temperature_index"
+      ],
+      "definition": [
+        "P8620",
+        "heat_resistance_and_combustion"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:bulk_modulus",
+      "property_key": "bulk_modulus",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:bulk_modulus",
+      "aliases": [
+        "bulk modulus",
+        "bulk_modulus"
+      ],
+      "definition": [
+        "P9160",
+        "other_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:compressibility",
+      "property_key": "compressibility",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:compressibility",
+      "aliases": [
+        "compressibility"
+      ],
+      "definition": [
+        "P9160",
+        "other_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:g_value",
+      "property_key": "g_value",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:g_value",
+      "aliases": [
+        "g value",
+        "g_value"
+      ],
+      "definition": [
+        "P9110",
+        "other_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:pvt_relation",
+      "property_key": "pvt_relation",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:pvt_relation",
+      "aliases": [
+        "pvt relation",
+        "pvt_relation"
+      ],
+      "definition": [
+        "P9150",
+        "other_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "property_vocabulary:radiation_resistance",
+      "property_key": "radiation_resistance",
+      "section": "property_vocabulary",
+      "canonical_target_id": "property_vocabulary:radiation_resistance",
+      "aliases": [
+        "radiation resistance",
+        "radiation_resistance"
+      ],
+      "definition": [
+        "P9120",
+        "other_property"
+      ],
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:ftir_peak_wavenumber",
+      "property_key": "ftir_peak_wavenumber",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:ftir_peak_wavenumber",
+      "aliases": [
+        "ftir peak wavenumber",
+        "ftir_peak_wavenumber"
+      ],
+      "definition": {
+        "category": "composition_structure",
+        "methods": [
+          "FTIR"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "FTIR"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:nmr_chemical_shift",
+      "property_key": "nmr_chemical_shift",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:nmr_chemical_shift",
+      "aliases": [
+        "nmr chemical shift",
+        "nmr_chemical_shift"
+      ],
+      "definition": {
+        "category": "composition_structure",
+        "methods": [
+          "NMR"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "NMR"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:raman_peak_wavenumber",
+      "property_key": "raman_peak_wavenumber",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:raman_peak_wavenumber",
+      "aliases": [
+        "raman peak wavenumber",
+        "raman_peak_wavenumber"
+      ],
+      "definition": {
+        "category": "composition_structure",
+        "methods": [
+          "Raman"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "Raman"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:xrd_diffraction_peak_2theta",
+      "property_key": "xrd_diffraction_peak_2theta",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:xrd_diffraction_peak_2theta",
+      "aliases": [
+        "xrd diffraction peak 2theta",
+        "xrd_diffraction_peak_2theta"
+      ],
+      "definition": {
+        "category": "morphology",
+        "methods": [
+          "XRD"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "XRD"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:xrd_crystallinity",
+      "property_key": "xrd_crystallinity",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:xrd_crystallinity",
+      "aliases": [
+        "xrd crystallinity",
+        "xrd_crystallinity"
+      ],
+      "definition": {
+        "category": "morphology",
+        "methods": [
+          "XRD"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "XRD"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:morphology_domain_size",
+      "property_key": "morphology_domain_size",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:morphology_domain_size",
+      "aliases": [
+        "morphology domain size",
+        "morphology_domain_size"
+      ],
+      "definition": {
+        "category": "morphology",
+        "methods": [
+          "SEM",
+          "TEM",
+          "AFM"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "SEM",
+        "TEM",
+        "AFM"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:morphology_particle_size",
+      "property_key": "morphology_particle_size",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:morphology_particle_size",
+      "aliases": [
+        "morphology particle size",
+        "morphology_particle_size"
+      ],
+      "definition": {
+        "category": "morphology",
+        "methods": [
+          "SEM",
+          "TEM",
+          "AFM"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "SEM",
+        "TEM",
+        "AFM"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "stage5_property_vocabulary:saxs_scattering_peak",
+      "property_key": "saxs_scattering_peak",
+      "section": "stage5_property_vocabulary",
+      "canonical_target_id": "stage5_property_vocabulary:saxs_scattering_peak",
+      "aliases": [
+        "saxs scattering peak",
+        "saxs_scattering_peak"
+      ],
+      "definition": {
+        "category": "morphology",
+        "methods": [
+          "SAXS"
+        ]
+      },
+      "source_field": null,
+      "value_kinds": [
+        "raw_value"
+      ],
+      "methods": [
+        "SAXS"
+      ],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:molecular_weight",
+      "property_key": "molecular_weight",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:molecular_weight",
+      "aliases": [
+        "av. molar mass",
+        "average molar mass",
+        "average molecular mass",
+        "mol. wt",
+        "molecular weight",
+        "molecular_weight",
+        "number average molecular weight",
+        "weight average molecular weight"
+      ],
+      "definition": {
+        "source_field": "average_molecular_weight",
+        "value_kinds": [
+          "numeric_scalar",
+          "numeric_multiple"
+        ],
+        "aliases": [
+          "molecular weight",
+          "mol. wt",
+          "average molecular mass",
+          "average molar mass",
+          "av. molar mass",
+          "number average molecular weight",
+          "weight average molecular weight"
+        ],
+        "header_patterns": [
+          "M\\s*\\?_?\\s*\\{?\\s*[nwvz]\\s*\\}?"
+        ],
+        "stages": [
+          "stage4",
+          "stage4t",
+          "stage5"
+        ]
+      },
+      "source_field": "average_molecular_weight",
+      "value_kinds": [
+        "numeric_scalar",
+        "numeric_multiple"
+      ],
+      "methods": [],
+      "subtype_required": true,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:solution_viscosity",
+      "property_key": "solution_viscosity",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:solution_viscosity",
+      "aliases": [
+        "inherent viscosity",
+        "intrinsic viscosity",
+        "reduced viscosity",
+        "relative viscosity",
+        "solution viscosity",
+        "solution_viscosity",
+        "specific viscosity"
+      ],
+      "definition": {
+        "source_field": "solution_viscosity",
+        "value_kinds": [
+          "numeric_scalar",
+          "numeric_multiple"
+        ],
+        "aliases": [
+          "intrinsic viscosity",
+          "inherent viscosity",
+          "reduced viscosity",
+          "specific viscosity",
+          "relative viscosity"
+        ],
+        "header_patterns": [
+          "\\?eta\\s*\\?_?\\s*\\{?\\s*(?:inh|red|sp|rel)\\s*\\}?",
+          "\\[\\s*\\?eta\\s*\\]"
+        ],
+        "stages": [
+          "stage4",
+          "stage4t"
+        ]
+      },
+      "source_field": "solution_viscosity",
+      "value_kinds": [
+        "numeric_scalar",
+        "numeric_multiple"
+      ],
+      "methods": [],
+      "subtype_required": true,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:crystallinity",
+      "property_key": "crystallinity",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:crystallinity",
+      "aliases": [
+        "crystalline fraction",
+        "crystallinity",
+        "degree of crystallinity",
+        "percent crystallinity"
+      ],
+      "definition": {
+        "source_field": "crystallinity",
+        "value_kinds": [
+          "numeric_scalar",
+          "numeric_multiple",
+          "text"
+        ],
+        "aliases": [
+          "crystallinity",
+          "degree of crystallinity",
+          "crystalline fraction",
+          "percent crystallinity"
+        ],
+        "header_patterns": [
+          "X\\s*\\?_?\\s*\\{?\\s*c\\s*\\}?"
+        ],
+        "stages": [
+          "stage4",
+          "stage4t",
+          "stage5"
+        ]
+      },
+      "source_field": "crystallinity",
+      "value_kinds": [
+        "numeric_scalar",
+        "numeric_multiple",
+        "text"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:degree_of_polymerization",
+      "property_key": "degree_of_polymerization",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:degree_of_polymerization",
+      "aliases": [
+        "degree of polymerization",
+        "degree_of_polymerization",
+        "dp",
+        "polymerization degree"
+      ],
+      "definition": {
+        "source_field": "degree_of_polymerization",
+        "value_kinds": [
+          "numeric_scalar",
+          "numeric_multiple"
+        ],
+        "aliases": [
+          "degree of polymerization",
+          "polymerization degree",
+          "dp"
+        ],
+        "stages": [
+          "stage4",
+          "stage4t"
+        ]
+      },
+      "source_field": "degree_of_polymerization",
+      "value_kinds": [
+        "numeric_scalar",
+        "numeric_multiple"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:d_spacing",
+      "property_key": "d_spacing",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:d_spacing",
+      "aliases": [
+        "d spacing",
+        "d-spacing",
+        "d_spacing",
+        "interlayer spacing",
+        "interplanar distance",
+        "interplanar spacing"
+      ],
+      "definition": {
+        "source_field": "crystallographic_data",
+        "value_kinds": [
+          "numeric_scalar",
+          "numeric_multiple"
+        ],
+        "aliases": [
+          "d-spacing",
+          "d spacing",
+          "interlayer spacing",
+          "interplanar distance",
+          "interplanar spacing"
+        ],
+        "header_patterns": [
+          "(?:^|\\W)d\\s*(?:-|\\s)?\\s*spacing",
+          "(?:^|\\W)d\\s*\\(\\s*(?:\\\\?\\s*(?:aa|text)|å|angstrom|nm)"
+        ],
+        "context_patterns": [
+          "x-?ray|xrd|waxd|saxs|diffraction|bragg|reflection"
+        ],
+        "stages": [
+          "stage4t",
+          "stage5"
+        ]
+      },
+      "source_field": "crystallographic_data",
+      "value_kinds": [
+        "numeric_scalar",
+        "numeric_multiple"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:two_theta",
+      "property_key": "two_theta",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:two_theta",
+      "aliases": [
+        "diffraction angle",
+        "two theta",
+        "two_theta"
+      ],
+      "definition": {
+        "source_field": "crystallographic_data",
+        "value_kinds": [
+          "numeric_scalar",
+          "numeric_multiple"
+        ],
+        "aliases": [
+          "two theta",
+          "diffraction angle"
+        ],
+        "header_patterns": [
+          "2\\s*\\\\?\\s*(?:theta|θ)"
+        ],
+        "context_patterns": [
+          "x-?ray|xrd|waxd|saxs|diffraction|bragg|reflection"
+        ],
+        "stages": [
+          "stage4t",
+          "stage5"
+        ]
+      },
+      "source_field": "crystallographic_data",
+      "value_kinds": [
+        "numeric_scalar",
+        "numeric_multiple"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:primary_structure_informations",
+      "property_key": "primary_structure_informations",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:primary_structure_informations",
+      "aliases": [
+        "branching",
+        "chain structure",
+        "crosslinking",
+        "end group",
+        "gel content",
+        "primary structure",
+        "primary structure informations",
+        "primary_structure_informations"
+      ],
+      "definition": {
+        "source_field": "primary_structure_informations",
+        "value_kinds": [
+          "text"
+        ],
+        "aliases": [
+          "chain structure",
+          "primary structure",
+          "end group",
+          "branching",
+          "crosslinking",
+          "gel content"
+        ],
+        "stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      "source_field": "primary_structure_informations",
+      "value_kinds": [
+        "text"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:morphology",
+      "property_key": "morphology",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:morphology",
+      "aliases": [
+        "domain structure",
+        "lamellar structure",
+        "morphology",
+        "phase structure",
+        "spherulite"
+      ],
+      "definition": {
+        "source_field": "morphology",
+        "value_kinds": [
+          "text"
+        ],
+        "aliases": [
+          "morphology",
+          "domain structure",
+          "phase structure",
+          "lamellar structure",
+          "spherulite"
+        ],
+        "stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      "source_field": "morphology",
+      "value_kinds": [
+        "text"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:stereoregularity",
+      "property_key": "stereoregularity",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:stereoregularity",
+      "aliases": [
+        "atactic",
+        "cis content",
+        "isotactic",
+        "stereoregularity",
+        "syndiotactic",
+        "tacticity",
+        "trans content"
+      ],
+      "definition": {
+        "source_field": "stereoregularity",
+        "value_kinds": [
+          "text"
+        ],
+        "aliases": [
+          "stereoregularity",
+          "tacticity",
+          "isotactic",
+          "syndiotactic",
+          "atactic",
+          "cis content",
+          "trans content"
+        ],
+        "stages": [
+          "stage4",
+          "stage5"
+        ]
+      },
+      "source_field": "stereoregularity",
+      "value_kinds": [
+        "text"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    },
+    {
+      "target_id": "specialized_property_vocabulary:characteristics_of_material",
+      "property_key": "characteristics_of_material",
+      "section": "specialized_property_vocabulary",
+      "canonical_target_id": "specialized_property_vocabulary:characteristics_of_material",
+      "aliases": [
+        "characteristics of material",
+        "characteristics_of_material",
+        "material characteristics",
+        "material type",
+        "polymer characteristics",
+        "structure type"
+      ],
+      "definition": {
+        "source_field": "characteristics_of_material",
+        "value_kinds": [
+          "categorical"
+        ],
+        "aliases": [
+          "characteristics of material",
+          "material characteristics",
+          "polymer characteristics",
+          "material type",
+          "structure type"
+        ],
+        "stages": [
+          "stage4",
+          "stage4t"
+        ],
+        "categorical_buckets": {
+          "shape_and_constructional_feature": [
+            "linear",
+            "comb",
+            "crosslinked",
+            "Ionomer",
+            "branched",
+            "polyelectrolyte"
+          ],
+          "general_feature": [
+            "Thermoplastic",
+            "Elastomer",
+            "Thermosetting"
+          ],
+          "general_crystalline_state": [
+            "Crystal",
+            "Amorphous",
+            "Liquid crystal"
+          ],
+          "functional_feature": [
+            "Thermally stable",
+            "Thermostable",
+            "Electroconductive",
+            "Biodegradable",
+            "electrolyte",
+            "Flame-retardant",
+            "Organo-soluble",
+            "Semiconductive",
+            "Non-linear optical(NLO)",
+            "Gas separable",
+            "Photochromic",
+            "Hydrolytically stable",
+            "Water soluble",
+            "Photoluminescent",
+            "Photocrosslinkable",
+            "fluorescent",
+            "Fluorescent and thermally stable",
+            "Photocurable",
+            "Photoconductive",
+            "photorefractive",
+            "Hydrolytically unstable"
+          ]
+        }
+      },
+      "source_field": "characteristics_of_material",
+      "value_kinds": [
+        "categorical"
+      ],
+      "methods": [],
+      "subtype_required": false,
+      "owner_policy": "existing_sample_or_explicit_material_or_series_scope"
+    }
+  ],
+  "configured_field_count": 117,
+  "section_counts": {
+    "property_vocabulary": 99,
+    "stage5_property_vocabulary": 8,
+    "specialized_property_vocabulary": 10
+  },
+  "relationships": [
+    {
+      "left": "property_vocabulary:intrinsic_viscosity",
+      "right": "specialized_property_vocabulary:solution_viscosity",
+      "kind": "exact_intrinsic_subtype_reroute"
+    },
+    {
+      "left": "stage5_property_vocabulary:xrd_diffraction_peak_2theta",
+      "right": "specialized_property_vocabulary:two_theta",
+      "kind": "related_requires_same_method_source_and_context"
+    },
+    {
+      "left": "stage5_property_vocabulary:xrd_crystallinity",
+      "right": "specialized_property_vocabulary:crystallinity",
+      "kind": "method_specific_subtype_not_blindly_merged"
+    },
+    {
+      "left": "property_vocabulary:thermal_decomposition_weight_loss",
+      "right": "property_vocabulary:thermal_decomposition_temperature",
+      "kind": "threshold_relation_not_duplicate"
+    }
+  ],
+  "field_count_is_not_distinct_scientific_property_count": true
+}

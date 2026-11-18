@@ -1,0 +1,447 @@
+{
+  "elapsed_seconds": 0.2,
+  "evidence": [
+    {
+      "find": ",-",
+      "matched_literals": 3,
+      "matched_occurrences": 21,
+      "rationale": "a stray hyphen after a comma separator (4,4,- -> 4,4-); no locant is changed",
+      "replace": "-",
+      "rule_id": "SR-COMMA-HYPHEN",
+      "unvalidated_examples": [
+        {
+          "literal": "1,1,-dimethylethyl 4-ethenylperbenzoate",
+          "occurrences": 1,
+          "repaired": "1,1-dimethylethyl 4-ethenylperbenzoate"
+        },
+        {
+          "literal": "2,2,4,4,-tetramethyl-1,3-cyclobutylene carbonate",
+          "occurrences": 1,
+          "repaired": "2,2,4,4-tetramethyl-1,3-cyclobutylene carbonate"
+        }
+      ],
+      "validated_examples": [
+        {
+          "literal": "2,2,3,3,4,4,-hexafluoropentane-1,5-diol",
+          "occurrences": 19,
+          "repaired": "2,2,3,3,4,4-hexafluoropentane-1,5-diol"
+        }
+      ],
+      "validated_literals": 1,
+      "validated_occurrences": 19
+    },
+    {
+      "find": "--",
+      "matched_literals": 1,
+      "matched_occurrences": 2,
+      "rationale": "a doubled separator inside a locant list",
+      "replace": "-",
+      "rule_id": "SR-DOUBLED-HYPHEN",
+      "unvalidated_examples": [
+        {
+          "literal": "diphenyl N,N'-(pentane-1,5--diyl)dicarbamate",
+          "occurrences": 2,
+          "repaired": "diphenyl N,N'-(pentane-1,5-diyl)dicarbamate"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": ",,",
+      "matched_literals": 1,
+      "matched_occurrences": 1,
+      "rationale": "a doubled separator inside a locant list",
+      "replace": ",",
+      "rule_id": "SR-DOUBLED-COMMA",
+      "unvalidated_examples": [
+        {
+          "literal": "2',3''',,5''',6'-tetraphenyl-4,4''''-diamino-p-quinquephenyl",
+          "occurrences": 1,
+          "repaired": "2',3''',5''',6'-tetraphenyl-4,4''''-diamino-p-quinquephenyl"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": "bipheny-",
+      "matched_literals": 2,
+      "matched_occurrences": 22,
+      "rationale": "dropout of the final l of biphenyl- before a locant",
+      "replace": "biphenyl-",
+      "rule_id": "SR-BIPHENY-MISSING-L",
+      "unvalidated_examples": [],
+      "validated_examples": [
+        {
+          "literal": "6,6'-(bipheny-4,4'-diyldioxy)dihexanol",
+          "occurrences": 21,
+          "repaired": "6,6'-(biphenyl-4,4'-diyldioxy)dihexanol"
+        },
+        {
+          "literal": "bipheny-4,4'-diol",
+          "occurrences": 1,
+          "repaired": "biphenyl-4,4'-diol"
+        }
+      ],
+      "validated_literals": 2,
+      "validated_occurrences": 22
+    },
+    {
+      "find": "dicarbnyl",
+      "matched_literals": 3,
+      "matched_occurrences": 17,
+      "rationale": "dropout of o in dicarbonyl",
+      "replace": "dicarbonyl",
+      "rule_id": "SR-DICARBNYL",
+      "unvalidated_examples": [],
+      "validated_examples": [
+        {
+          "literal": "biphenyl-4,4'-dicarbnyl dichloride",
+          "occurrences": 15,
+          "repaired": "biphenyl-4,4'-dicarbonyl dichloride"
+        },
+        {
+          "literal": "biphenyl-3,4'-dicarbnyl dichloride",
+          "occurrences": 1,
+          "repaired": "biphenyl-3,4'-dicarbonyl dichloride"
+        },
+        {
+          "literal": "biphenyl-3,3'-dicarbnyl dichloride",
+          "occurrences": 1,
+          "repaired": "biphenyl-3,3'-dicarbonyl dichloride"
+        }
+      ],
+      "validated_literals": 3,
+      "validated_occurrences": 17
+    },
+    {
+      "find": "hydoxymethyl",
+      "matched_literals": 2,
+      "matched_occurrences": 12,
+      "rationale": "transposed ro in hydroxymethyl",
+      "replace": "hydroxymethyl",
+      "rule_id": "SR-HYDOXYMETHYL",
+      "unvalidated_examples": [
+        {
+          "literal": "2,2-dimethyl-4,5-bis(hydoxymethyl)-1,3-dioxolane",
+          "occurrences": 11,
+          "repaired": "2,2-dimethyl-4,5-bis(hydroxymethyl)-1,3-dioxolane"
+        },
+        {
+          "literal": "2,2-diethyl-4,5-bis(hydoxymethyl)-1,3-dioxolane",
+          "occurrences": 1,
+          "repaired": "2,2-diethyl-4,5-bis(hydroxymethyl)-1,3-dioxolane"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": "trtramethyl",
+      "matched_literals": 1,
+      "matched_occurrences": 7,
+      "rationale": "garbled tetramethyl",
+      "replace": "tetramethyl",
+      "rule_id": "SR-TRTRAMETHYL",
+      "unvalidated_examples": [
+        {
+          "literal": "1,4-bis(sulfanylmethyl)-2,3,5,6-trtramethylbenzene",
+          "occurrences": 7,
+          "repaired": "1,4-bis(sulfanylmethyl)-2,3,5,6-tetramethylbenzene"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": "dihydrophtalazin",
+      "matched_literals": 6,
+      "matched_occurrences": 9,
+      "rationale": "missing h in phthalazin",
+      "replace": "dihydrophthalazin",
+      "rule_id": "SR-DIHYDROPHTALAZIN",
+      "unvalidated_examples": [
+        {
+          "literal": "7,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "7,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "6,7'-oxybis(4-phenyl-1,2-dihydrophtalazin-1-one)",
+          "occurrences": 2,
+          "repaired": "6,7'-oxybis(4-phenyl-1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "6,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophtalazin-1-one)",
+          "occurrences": 2,
+          "repaired": "6,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "4,4'-oxybis(1,4-phenylene)bis(1,2-dihydrophtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "4,4'-oxybis(1,4-phenylene)bis(1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "4,4'-[oxybis(1,4-phenylene)]bis(1,2-dihydrophtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "4,4'-[oxybis(1,4-phenylene)]bis(1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "4,4'-[sulfanediylbis(1,4-phenylene)]bis(1,2-dihydrophtalazin-1-one)",
+          "occurrences": 2,
+          "repaired": "4,4'-[sulfanediylbis(1,4-phenylene)]bis(1,2-dihydrophthalazin-1-one)"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": "fluorenne",
+      "matched_literals": 1,
+      "matched_occurrences": 2,
+      "rationale": "doubled n in fluorene",
+      "replace": "fluorene",
+      "rule_id": "SR-FLUORENNE",
+      "unvalidated_examples": [
+        {
+          "literal": "4,4'-[9H-fluorenne-9,9-diylbis(1,4-phenyleneoxy)]dinaphthalene-1,8:1',8'-tetracarboxylic dianhydride",
+          "occurrences": 2,
+          "repaired": "4,4'-[9H-fluorene-9,9-diylbis(1,4-phenyleneoxy)]dinaphthalene-1,8:1',8'-tetracarboxylic dianhydride"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": "diniline",
+      "matched_literals": 5,
+      "matched_occurrences": 8,
+      "rationale": "dropout of a in dianiline",
+      "replace": "dianiline",
+      "rule_id": "SR-DINILINE",
+      "unvalidated_examples": [],
+      "validated_examples": [
+        {
+          "literal": "3,3'-[sulfonylbis(4,1-phenyleneoxy)]diniline",
+          "occurrences": 2,
+          "repaired": "3,3'-[sulfonylbis(4,1-phenyleneoxy)]dianiline"
+        },
+        {
+          "literal": "3,3'-sulfonyldiniline",
+          "occurrences": 2,
+          "repaired": "3,3'-sulfonyldianiline"
+        },
+        {
+          "literal": "4,4'-[oxybis(4,1-phenyleneoxy)]diniline",
+          "occurrences": 1,
+          "repaired": "4,4'-[oxybis(4,1-phenyleneoxy)]dianiline"
+        },
+        {
+          "literal": "4,4'-[sulfonylbis(4,1-phenyleneoxy)]diniline",
+          "occurrences": 1,
+          "repaired": "4,4'-[sulfonylbis(4,1-phenyleneoxy)]dianiline"
+        },
+        {
+          "literal": "4,4'-sulfonyldiniline",
+          "occurrences": 2,
+          "repaired": "4,4'-sulfonyldianiline"
+        }
+      ],
+      "validated_literals": 5,
+      "validated_occurrences": 8
+    },
+    {
+      "find": "tertbutyl",
+      "matched_literals": 1,
+      "matched_occurrences": 3,
+      "rationale": "missing hyphen in the tert-butyl prefix",
+      "replace": "tert-butyl",
+      "rule_id": "SR-TERTBUTYL",
+      "unvalidated_examples": [
+        {
+          "literal": "6,6'-bis(4-tertbutylphenyl)biphenyl-3,3',4,4'-tetracarboxylic anhydride",
+          "occurrences": 3,
+          "repaired": "6,6'-bis(4-tert-butylphenyl)biphenyl-3,3',4,4'-tetracarboxylic anhydride"
+        }
+      ],
+      "validated_examples": [],
+      "validated_literals": 0,
+      "validated_occurrences": 0
+    },
+    {
+      "find": "phtal",
+      "matched_literals": 17,
+      "matched_occurrences": 26,
+      "rationale": "missing h in phthal",
+      "replace": "phthal",
+      "rule_id": "SR-PHTAL",
+      "unvalidated_examples": [
+        {
+          "literal": "6,7'-oxybis(1,2-dihydro-4-phenylphtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "6,7'-oxybis(1,2-dihydro-4-phenylphthalazin-1-one)"
+        },
+        {
+          "literal": "7,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "7,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "6,7'-oxybis(4-phenyl-1,2-dihydrophtalazin-1-one)",
+          "occurrences": 2,
+          "repaired": "6,7'-oxybis(4-phenyl-1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "6,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophtalazin-1-one)",
+          "occurrences": 2,
+          "repaired": "6,7'-(1-methylethane-1,1-diyl)bis(4-phenyl-1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "4,4'-oxybis(1,4-phenylene)bis(1,2-dihydrophtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "4,4'-oxybis(1,4-phenylene)bis(1,2-dihydrophthalazin-1-one)"
+        },
+        {
+          "literal": "4,4'-[oxybis(1,4-phenylene)]bis(1,2-dihydrophtalazin-1-one)",
+          "occurrences": 1,
+          "repaired": "4,4'-[oxybis(1,4-phenylene)]bis(1,2-dihydrophthalazin-1-one)"
+        }
+      ],
+      "validated_examples": [
+        {
+          "literal": "terephtalic acid",
+          "occurrences": 1,
+          "repaired": "terephthalic acid"
+        },
+        {
+          "literal": "isophtalic acid",
+          "occurrences": 1,
+          "repaired": "isophthalic acid"
+        }
+      ],
+      "validated_literals": 2,
+      "validated_occurrences": 2
+    }
+  ],
+  "generated_at": "2026-09-16T09:29:32Z",
+  "generator": "tools/build_repair_declarations.py",
+  "generator_sha256": "390f2cab7311fcf759565c060a3c0c3469c6f11b4b0274d021c7888feedeaa6e",
+  "input": {
+    "blocked_literals": 11525,
+    "blocked_occurrences": 18271,
+    "catalog": "D:\\work\\szlab\\project\\on going\\agent\\polymer project\\Polymer_Identity_V1\\data\\catalog_rows.jsonl",
+    "catalog_sha256": "f3c20544ff962ad7301438c5452da71edc9b8d636d8039e6b78b28e599de3d83",
+    "evidence_run": "D:\\work\\szlab\\project\\on going\\agent\\polymer project\\Polymer_Identity_V1\\runs\\CATALOG-PARSE-LEVERS-20260916T062000Z\\levers.json",
+    "evidence_sha256": "057c91e83ee8a86796b3084e51629b48328f134bf2a880e13beb50d4786e179b",
+    "records_in_evidence_run": 15882
+  },
+  "projection": {
+    "note": "projection only: the measured number comes from the full pipeline run",
+    "records_unlocked_examples": [
+      "P090070",
+      "P090071",
+      "P090513",
+      "P100290",
+      "P100291",
+      "P100292",
+      "P400266",
+      "P402053",
+      "P430259",
+      "P430301",
+      "P430305",
+      "P430306",
+      "P432132",
+      "P492010",
+      "P492024",
+      "P492030",
+      "P901035",
+      "P903428",
+      "P903429",
+      "P904462"
+    ],
+    "records_unlocked_if_all_declared_rules_apply": 20
+  },
+  "rules": [
+    {
+      "find": ",-",
+      "rationale": "a stray hyphen after a comma separator (4,4,- -> 4,4-); no locant is changed",
+      "replace": "-",
+      "rule_id": "SR-COMMA-HYPHEN"
+    },
+    {
+      "find": "--",
+      "rationale": "a doubled separator inside a locant list",
+      "replace": "-",
+      "rule_id": "SR-DOUBLED-HYPHEN"
+    },
+    {
+      "find": ",,",
+      "rationale": "a doubled separator inside a locant list",
+      "replace": ",",
+      "rule_id": "SR-DOUBLED-COMMA"
+    },
+    {
+      "find": "bipheny-",
+      "rationale": "dropout of the final l of biphenyl- before a locant",
+      "replace": "biphenyl-",
+      "rule_id": "SR-BIPHENY-MISSING-L"
+    },
+    {
+      "find": "dicarbnyl",
+      "rationale": "dropout of o in dicarbonyl",
+      "replace": "dicarbonyl",
+      "rule_id": "SR-DICARBNYL"
+    },
+    {
+      "find": "hydoxymethyl",
+      "rationale": "transposed ro in hydroxymethyl",
+      "replace": "hydroxymethyl",
+      "rule_id": "SR-HYDOXYMETHYL"
+    },
+    {
+      "find": "trtramethyl",
+      "rationale": "garbled tetramethyl",
+      "replace": "tetramethyl",
+      "rule_id": "SR-TRTRAMETHYL"
+    },
+    {
+      "find": "dihydrophtalazin",
+      "rationale": "missing h in phthalazin",
+      "replace": "dihydrophthalazin",
+      "rule_id": "SR-DIHYDROPHTALAZIN"
+    },
+    {
+      "find": "fluorenne",
+      "rationale": "doubled n in fluorene",
+      "replace": "fluorene",
+      "rule_id": "SR-FLUORENNE"
+    },
+    {
+      "find": "diniline",
+      "rationale": "dropout of a in dianiline",
+      "replace": "dianiline",
+      "rule_id": "SR-DINILINE"
+    },
+    {
+      "find": "tertbutyl",
+      "rationale": "missing hyphen in the tert-butyl prefix",
+      "replace": "tert-butyl",
+      "rule_id": "SR-TERTBUTYL"
+    },
+    {
+      "find": "phtal",
+      "rationale": "missing h in phthal",
+      "replace": "phthal",
+      "rule_id": "SR-PHTAL"
+    }
+  ],
+  "scope": "declared spelling repairs only; each repaired text must be accepted by polymer.registry.local_rule_chain, one rule per name, raw text preserved",
+  "version": "declared-spelling-repair/0.1"
+}

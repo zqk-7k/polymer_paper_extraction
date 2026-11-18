@@ -1,0 +1,4889 @@
+"""Stage 5：抽取 Characterization 与结构表征数值。"""
+
+from __future__ import annotations
+
+import argparse
+import concurrent.futures
+import copy
+import json
+import re
+import sys
+import time
+from dataclasses import dataclass
+from decimal import Decimal
+from pathlib import Path
+from typing import Any, Callable, Mapping
+
+import yaml
+from pydantic import ValidationError
+
+
+EXTRACTION_ROOT = Path(__file__).resolve().parents[1]
+if str(EXTRACTION_ROOT) not in sys.path:
+    sys.path.insert(0, str(EXTRACTION_ROOT))
+
+from llm_client import (
+    DEFAULT_CONFIG_PATH,
+    LLMCallCost,
+    LLMCallRecord,
+    LLMClient,
+    LLMJSONResponse,
+    LLMRawResponse,
+    LLMRequestError,
+    LLMTokenUsage,
+    extract_json_object,
+    llm_failure_artifact,
+    llm_config_cache_payload,
+    load_pipeline_config,
+    parse_json_response,
+    resolve_llm_config,
+    resolve_pricing_config,
+    summarize_client_calls,
+)
+from prompt_loader import PromptLoader, RenderedPrompt
+from schema.polymer_schema import (
+    compact_confidence_payload,
+    Characterization,
+    CharacterizationCandidate,
+    CharacterizationStageResponse,
+    FinalSpecializedPropertyObservation,
+    SpecializedPropertyCandidate,
+    Stage0Document,
+    Stage0Element,
+    Stage2Document,
+    Stage3Document,
+    Stage4Document,
+    Stage5Document,
+    Stage5PropertyCandidate,
+    Stage5PropertyObservation,
+    Stage5Provenance,
+)
+from stages.stage4_property import (
+    _element_source_text,
+    _materialize_evidence,
+    _materialize_measurement_context,
+    _normalize_evidence,
+    _normalize_measurement_context,
+    _normalize_raw_across_evidence,
+    _resolve_surface_text,
+    _resolve_vocabulary_path,
+    _sha256_json,
+    write_json_atomic,
+)
+from stages.specialized_vocabulary import (
+    get_specialized_vocabulary,
+    SpecializedVocabulary,
+)
+from stages.table_grid import resolve_table_locator, table_cells_for
+from stages.value_normalization import normalize_observation
+from stages.final_unit_conversion import parse_numeric
+
+
+STAGE_ID = "stage5_characterization"
+OUTPUT_SCHEMA_VERSION = "characterization_schema.v4"
+IMPLEMENTATION_VERSION = "1.9.3"
+# 1.8.5 Preview 将无主体 Characterization 及其派生性质写入独立审计 sidecar；
+# 1.8.4 Preview specialized 按实际值类型分派，并保留可确定的数值 bounds/unit；
+# 1.8.3 Preview 将无条件值的 measurement_context 降级为空并保留对象；
+# 1.8.2 Preview 保留已绑定 evidence 的未完全匹配 raw 字段；表格 locator
+# 先按 Stage0 cell 唯一修复，无法唯一修复时保留候选并记录 warning。
+# 1.8.1 语义校验绕过按 candidate_partial 处理；分片审计支持增量落盘、旧 raw 回放、
+# 可选有界并发和 shard 耗时记录。
+# 1.8.0 Preview 默认按表征方法分片；逐对象校验内聚在 extract_shard，
+# 每个 shard 保存原始响应和解析诊断，局部失败不再清空整篇。
+# 1.7.1 Preview 对 Schema 合法但 evidence 语义失败的响应保留候选；
+# 无法安全结构化时生成 degraded 空壳，Strict 行为不变。
+# 1.7.0 仅增加 Preview 确定性收敛与表级方法证据支持；
+# 旧版本成功产物仍满足当前输出契约，故缓存可复用。
+
+
+_PREVIEW_NUMERIC_TOKEN_RE = re.compile(
+    r"[+-]?(?:\d[\d\s,]*(?:\.\d+)?|\.\d+)"
+)
+
+
+def _preview_numeric_surface_match(
+    source: str,
+    candidate: str,
+) -> bool:
+    """允许正文中的 LaTeX/HTML 数字分隔与候选值匹配。"""
+    tokens = [
+        re.sub(r"[^0-9]", "", match.group(0))
+        for match in _PREVIEW_NUMERIC_TOKEN_RE.finditer(candidate)
+    ]
+    tokens = [token for token in tokens if token]
+    if not tokens:
+        return False
+    compact_source = re.sub(r"[^0-9]", "", source)
+    # 逐个数字 token 检查，避免把整段正文中的数字拼成一个值。
+    source_projection = source
+    for token in tokens:
+        pattern = r"(?<!\d)" + r"\D*".join(re.escape(char) for char in token)
+        if re.search(pattern + r"(?!\d)", source_projection):
+            continue
+        # 处理正文中数字被其它数学标记包围、导致边界不连续的情况。
+        if token not in compact_source:
+            return False
+    return True
+
+
+def _preview_surface_supported(value: Any, sources: list[str]) -> bool:
+    if not isinstance(value, str):
+        return True
+    if any(ord(character) < 32 for character in value):
+        return False
+    if re.search(r"\\u[0-9a-fA-F]{4}", value):
+        return False
+    return any(
+        _resolve_surface_text(source, value) is not None
+        or _preview_numeric_surface_match(source, value)
+        for source in sources
+    )
+
+
+def _preview_raw_or_original(
+    value: str,
+    evidence: list[Any],
+    block_map: dict[str, Stage0Element],
+    field_name: str,
+    *,
+    allow_unverified: bool,
+) -> str:
+    try:
+        return _normalize_raw_across_evidence(
+            value,
+            evidence,
+            block_map,
+            field_name,
+        )
+    except ValueError:
+        sources = [
+            _element_source_text(block_map[item.block_id])
+            for item in evidence
+            if item.block_id in block_map
+        ]
+        if _preview_surface_supported(value, sources) or allow_unverified:
+            return value
+        raise
+
+
+def _table_cell_covers_row(cell: Any, row_index: int) -> bool:
+    return cell.row_index <= row_index < cell.row_index + cell.row_span
+
+
+def _table_cell_covers_column(cell: Any, column_index: int) -> bool:
+    return (
+        cell.column_index
+        <= column_index
+        < cell.column_index + cell.column_span
+    )
+
+
+def _canonical_table_locator_labels(
+    block: Stage0Element,
+    value_cell: Any,
+) -> dict[str, str]:
+    cells = table_cells_for(block)
+    row_cells = [
+        cell for cell in cells
+        if cell.text.strip() and _table_cell_covers_row(cell, value_cell.row_index)
+    ]
+    row_label = min(
+        row_cells,
+        key=lambda cell: (cell.column_index, cell.row_index),
+    ).text.strip() if row_cells else "row"
+    headers = [
+        cell for cell in cells
+        if cell.text.strip()
+        and cell.row_index < value_cell.row_index
+        and _table_cell_covers_column(cell, value_cell.column_index)
+    ]
+    column_label = sorted(
+        headers,
+        key=lambda cell: (-cell.row_index, cell.column_span, cell.column_index),
+    )[0].text.strip() if headers else "value"
+    return {
+        "row_label": row_label,
+        "column_label": column_label,
+        "cell_value": value_cell.text.strip() or None,
+    }
+
+
+def _repair_preview_table_locators(
+    payload: dict[str, Any],
+    blocks: list[Stage0Element] | tuple[Stage0Element, ...],
+) -> list[dict[str, Any]]:
+    """按 Stage0 表格唯一解析 locator；无法唯一解析时保留原候选。"""
+    block_map = {block.block_id: block for block in blocks}
+    warnings: list[dict[str, Any]] = []
+
+    def visit(value: Any, path: str) -> None:
+        if isinstance(value, dict):
+            locator = value.get("table_locator")
+            block = block_map.get(str(value.get("block_id") or ""))
+            if isinstance(locator, dict) and block is not None and block.type == "table":
+                original = dict(locator)
+                lookup = dict(locator)
+                for field in ("cell_id", "row_index", "column_index"):
+                    lookup[field] = None
+                stable = resolve_table_locator(block, lookup)
+                if stable is not None:
+                    cells = table_cells_for(block)
+                    value_cell = next(
+                        (cell for cell in cells if cell.cell_id == stable.get("cell_id")),
+                        None,
+                    )
+                    if value_cell is not None:
+                        locator.update(_canonical_table_locator_labels(block, value_cell))
+                        locator.update(stable)
+                        locator["table_id"] = block.block_id
+                        changed = {
+                            key: locator.get(key)
+                            for key in (
+                                "table_id", "row_label", "column_label",
+                                "cell_value", "cell_id", "row_index", "column_index",
+                            )
+                            if original.get(key) != locator.get(key)
+                        }
+                        if changed:
+                            warnings.append({
+                                "stage": STAGE_ID,
+                                "code": "preview_table_locator_repaired",
+                                "message": "Preview 模式已将表格 locator 归一到唯一 Stage0 cell",
+                                "field_path": f"{path}.table_locator",
+                                "table_id": block.block_id,
+                                "cell_id": value_cell.cell_id,
+                                "changed": changed,
+                            })
+                else:
+                    warnings.append({
+                        "stage": STAGE_ID,
+                        "code": "preview_table_locator_unresolved",
+                        "message": "Preview 模式无法将表格 locator 唯一解析到 Stage0 cell；候选保留待复核",
+                        "field_path": f"{path}.table_locator",
+                        "table_id": block.block_id,
+                        "locator": original,
+                    })
+            for key, child in value.items():
+                visit(child, f"{path}.{key}" if path else key)
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                visit(child, f"{path}[{index}]")
+
+    visit(payload, "")
+    return warnings
+
+
+def _normalize_preview_evidence(
+    candidate: PropertyEvidenceCandidate,
+    block_map: dict[str, Stage0Element],
+    anchors: list[str],
+) -> PropertyEvidenceCandidate:
+    """Preview 允许句子表面不完全一致，但不允许未知 block。"""
+    try:
+        return _normalize_evidence(
+            candidate,
+            block_map,
+            anchors,
+            allow_table_reference=True,
+        )
+    except ValueError:
+        block = block_map.get(candidate.block_id)
+        if block is None:
+            raise
+        source = _element_source_text(block)
+        resolved_sentence = _resolve_surface_text(
+            source,
+            candidate.source_sentence,
+        )
+        if resolved_sentence is None:
+            resolved_anchor = None
+            if candidate.table_locator is not None:
+                for value in (
+                    candidate.table_locator.cell_value,
+                    candidate.table_locator.row_label,
+                    candidate.table_locator.column_label,
+                ):
+                    if value:
+                        resolved_anchor = _resolve_surface_text(source, value)
+                        if resolved_anchor is not None:
+                            break
+            if resolved_anchor is None:
+                for anchor in anchors:
+                    if not anchor:
+                        continue
+                    resolved_anchor = _resolve_surface_text(source, anchor)
+                    if resolved_anchor is not None:
+                        break
+            resolved_sentence = resolved_anchor or source[:800]
+        return candidate.model_copy(update={
+            "source_sentence": resolved_sentence,
+        })
+# Old materialized outputs bypass numeric/reference repairs. Saved raw responses
+# remain available through explicit offline shard replay with current validation.
+COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS: tuple[str, ...] = ()
+DEFAULT_INPUT_SECTIONS = ("Methods", "Results")
+DEFAULT_VOCABULARY_PATH = EXTRACTION_ROOT / "config" / "polymer_schema.yaml"
+STAGE5_PROPERTY_CATEGORIES = {"composition_structure", "morphology", "material_characteristics"}
+
+MethodVocabulary = dict[str, tuple[str, ...]]
+Stage5PropertyVocabulary = dict[str, tuple[str, frozenset[str]]]
+STAGE5_EXACT_METHOD_ALIASES = {
+    "FTIR": ("FT-IR", "IR"),
+    "SEM": ("scanning electron microscope",),
+    "TGA": ("thermogravimetric analyses",),
+    "viscometry": ("inherent viscosities",),
+}
+
+
+@dataclass(frozen=True)
+class Stage5Shard:
+    shard_id: str
+    method_normalized: str
+    blocks: tuple[Stage0Element, ...]
+    context_chars: int
+    oversize: bool = False
+
+
+@dataclass
+class Stage5ShardResult:
+    shard: Stage5Shard
+    status: str
+    characterizations: list[Characterization]
+    properties: list[Stage5PropertyObservation]
+    specialized_observations: list[FinalSpecializedPropertyObservation]
+    warnings: list[dict[str, Any]]
+    audit: dict[str, Any]
+    model: str | None = None
+
+
+class Stage5Error(RuntimeError):
+    """Stage 5 输入、词表、LLM 响应或输出验证失败。"""
+
+
+def _parallel_shard_client(client: Any) -> Any:
+    """为并发 shard 创建独立客户端，同时共享文档级调用审计。"""
+    if type(client) is not LLMClient:
+        return client
+    cloned = LLMClient(
+        client.resolved,
+        api_key=client.api_key,
+        pricing=client.pricing,
+        audit_dir=client.audit_dir,
+    )
+    # list.append 在当前 CPython 运行时是原子的；共享列表让文档级
+    # usage/cost 汇总仍能看到各 shard 的调用记录。
+    cloned.call_history = client.call_history
+    return cloned
+
+
+class _FailureReplayClient:
+    """仅返回已保存响应，不发起网络请求。"""
+
+    def __init__(
+        self,
+        *,
+        resolved: Any,
+        pricing: Any,
+        response: LLMJSONResponse,
+        record: LLMCallRecord,
+        failure_path: Path,
+    ) -> None:
+        self.resolved = resolved
+        self.pricing = pricing
+        self.response = response
+        self.record = record
+        self.failure_path = failure_path
+        self.call_history: list[LLMCallRecord] = []
+        self.calls = 0
+
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        if self.calls:
+            raise Stage5Error("failure 响应只允许离线回放一次")
+        self.calls += 1
+        self.call_history.append(self.record)
+        return self.response
+
+
+class _ShardReplayClient:
+    """从已验证 cache key 的 shard raw response 离线回放。"""
+
+    def __init__(
+        self,
+        resolved: Any,
+        response: LLMJSONResponse,
+        raw_response: LLMRawResponse,
+    ) -> None:
+        self.resolved = resolved
+        self.response = response
+        self.last_raw_response = raw_response
+        self.call_history: list[LLMCallRecord] = []
+        self.calls = 0
+
+    def call_json(
+        self,
+        system_prompt: str,
+        user_message: str,
+        *,
+        max_tokens: int = 4096,
+    ) -> LLMJSONResponse:
+        if self.calls:
+            raise Stage5Error("shard cache 响应只允许离线回放一次")
+        self.calls += 1
+        return self.response
+
+
+def _failure_replay_client(
+    failure_path: Path,
+    config: dict[str, Any],
+) -> _FailureReplayClient:
+    if not failure_path.is_file():
+        raise Stage5Error(f"缺少 Stage 5 failure 文件：{failure_path}")
+    try:
+        failure = json.loads(failure_path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise Stage5Error(f"Stage 5 failure 文件无效：{failure_path}") from exc
+    raw = failure.get("raw_response") if isinstance(failure, dict) else None
+    if not isinstance(raw, dict) or not isinstance(raw.get("content"), str):
+        raise Stage5Error("Stage 5 failure 未保存可回放的 raw response")
+    try:
+        data = extract_json_object(raw["content"])
+    except LLMRequestError as exc:
+        raise Stage5Error(
+            f"Stage 5 failure raw response 无法解析为 JSON 对象：{exc}"
+        ) from exc
+    if not isinstance(data, dict):
+        raise Stage5Error("Stage 5 failure raw response 必须是 JSON 对象")
+
+    usage_data = raw.get("usage") if isinstance(raw.get("usage"), dict) else {}
+    usage = LLMTokenUsage(
+        input_tokens=int(usage_data.get("input_tokens") or 0),
+        output_tokens=int(usage_data.get("output_tokens") or 0),
+        cache_creation_input_tokens=int(
+            usage_data.get("cache_creation_input_tokens") or 0
+        ),
+        cache_read_input_tokens=int(
+            usage_data.get("cache_read_input_tokens") or 0
+        ),
+    )
+    cost_data = raw.get("cost") if isinstance(raw.get("cost"), dict) else None
+    cost = (
+        LLMCallCost(
+            currency=str(cost_data["currency"]),
+            input_per_million=Decimal(str(cost_data["input_per_million"])),
+            output_per_million=Decimal(str(cost_data["output_per_million"])),
+            input_cost=Decimal(str(cost_data["input_cost"])),
+            output_cost=Decimal(str(cost_data["output_cost"])),
+            total_cost=Decimal(str(cost_data["total_cost"])),
+        )
+        if cost_data is not None
+        else None
+    )
+    provider = str(raw.get("provider") or "unknown")
+    model = str(raw.get("model") or "unknown")
+    resolved = resolve_llm_config(config, STAGE_ID)
+    pricing = resolve_pricing_config(config, resolved.model)
+    response = LLMJSONResponse(
+        data=data,
+        provider=provider,
+        model=model,
+        usage=usage,
+        cost=cost,
+    )
+    record = LLMCallRecord(
+        provider=provider,
+        model=model,
+        usage=usage,
+        cost=cost,
+        usage_available=bool(usage_data),
+    )
+    return _FailureReplayClient(
+        resolved=resolved,
+        pricing=pricing,
+        response=response,
+        record=record,
+        failure_path=failure_path,
+    )
+
+
+def _load_model(path: Path, model: type[Any], label: str) -> Any:
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8-sig"))
+        cleaned, _ = compact_confidence_payload(raw)
+        return model.model_validate(cleaned)
+    except OSError as exc:
+        raise Stage5Error(f"无法读取 {label}：{path}") from exc
+    except json.JSONDecodeError as exc:
+        raise Stage5Error(f"{label} JSON 无效：{path}") from exc
+    except ValidationError as exc:
+        raise Stage5Error(f"{label} 未通过 Schema：{path.name}") from exc
+
+
+def load_stage0_document(path: Path) -> Stage0Document:
+    return _load_model(path, Stage0Document, "Stage 0")
+
+
+def load_stage2_document(path: Path) -> Stage2Document:
+    return _load_model(path, Stage2Document, "Stage 2")
+
+
+def load_stage3_document(path: Path) -> Stage3Document:
+    return _load_model(path, Stage3Document, "Stage 3")
+
+
+def load_stage4_document(path: Path) -> Stage4Document:
+    return _load_model(path, Stage4Document, "Stage 4")
+
+
+def load_characterization_vocabulary(
+    path: Path,
+) -> tuple[MethodVocabulary, Stage5PropertyVocabulary, str]:
+    try:
+        raw = yaml.safe_load(path.read_text(encoding="utf-8-sig")) or {}
+    except (OSError, yaml.YAMLError) as exc:
+        raise Stage5Error(f"表征词表无效：{path}") from exc
+    if raw.get("schema_version") != "1.0":
+        raise Stage5Error("表征词表 schema_version 必须为 1.0")
+
+    method_entries = raw.get("characterization_methods")
+    if not isinstance(method_entries, dict) or not method_entries:
+        raise Stage5Error("characterization_methods 必须为非空对象")
+    methods: MethodVocabulary = {}
+    for name, spec in method_entries.items():
+        aliases = spec.get("aliases") if isinstance(spec, dict) else None
+        if (
+            not isinstance(name, str)
+            or not name.strip()
+            or not isinstance(aliases, list)
+            or not aliases
+            or not all(
+                isinstance(alias, str) and alias.strip() for alias in aliases
+            )
+        ):
+            raise Stage5Error(f"表征方法词表条目无效：{name!r}")
+        methods[name.strip()] = tuple(alias.strip() for alias in aliases)
+
+    property_entries = raw.get("stage5_property_vocabulary")
+    if not isinstance(property_entries, dict) or not property_entries:
+        raise Stage5Error("stage5_property_vocabulary 必须为非空对象")
+    properties: Stage5PropertyVocabulary = {}
+    for name, spec in property_entries.items():
+        category = spec.get("category") if isinstance(spec, dict) else None
+        allowed_methods = spec.get("methods") if isinstance(spec, dict) else None
+        if (
+            not isinstance(name, str)
+            or not re.fullmatch(r"[a-z][a-z0-9_]*", name)
+            or category not in STAGE5_PROPERTY_CATEGORIES
+            or not isinstance(allowed_methods, list)
+            or not allowed_methods
+            or not all(
+                isinstance(method, str) and method in methods
+                for method in allowed_methods
+            )
+        ):
+            raise Stage5Error(f"Stage 5 性质词表条目无效：{name!r}")
+        properties[name] = (category, frozenset(allowed_methods))
+    return methods, properties, _sha256_json(raw)
+
+
+def _upstream_evidence_block_ids(
+    entities: Stage2Document,
+    process: Stage3Document,
+    properties: Stage4Document,
+) -> set[str]:
+    return {
+        entity.evidence.block_id for entity in entities.polymer_entities
+    } | {
+        sample.evidence.block_id for sample in process.samples
+    } | {
+        step.evidence.block_id for step in process.process_steps
+    } | {
+        condition.evidence.block_id
+        for condition in properties.measurement_conditions
+    } | {
+        evidence.block_id
+        for item in properties.properties
+        for evidence in item.evidence
+    } | {
+        evidence.block_id
+        for item in properties.unresolved_properties
+        for evidence in item.evidence
+    }
+
+
+def select_context_blocks(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    properties: Stage4Document,
+    *,
+    input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
+    max_input_chars: int = 120000,
+    allow_oversize: bool = False,
+) -> tuple[list[Stage0Element], list[dict[str, Any]], int]:
+    if max_input_chars < 2000:
+        raise ValueError("max_input_chars 不得小于 2000")
+    element_map = {element.block_id: element for element in document.elements}
+    referenced_ids = _upstream_evidence_block_ids(
+        entities,
+        process,
+        properties,
+    )
+    missing = sorted(referenced_ids - set(element_map))
+    if missing:
+        raise Stage5Error(f"上游输出引用了未知 block：{missing}")
+
+    section_ids = {
+        element.block_id
+        for element in document.elements
+        if element.section in input_sections
+        and element.type in {
+            "text",
+            "title",
+            "table",
+            "image",
+            "equation",
+            "footnote",
+        }
+        and bool(_element_source_text(element))
+    }
+    selected_ids = section_ids | referenced_ids
+    blocks = [
+        element
+        for element in document.elements
+        if element.block_id in selected_ids
+        and bool(_element_source_text(element))
+    ]
+    context_chars = sum(
+        len(_element_source_text(element)) + 220 for element in blocks
+    )
+    if context_chars > max_input_chars and not allow_oversize:
+        raise Stage5Error(
+            f"{document.document_id} Stage 5 上下文 {context_chars} 字符，"
+            f"超过 max_input_chars={max_input_chars}"
+        )
+    warnings: list[dict[str, Any]] = []
+    if context_chars > max_input_chars:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "stage5_context_will_be_sharded",
+            "message": (
+                f"Stage 5 上下文 {context_chars} 字符超过整篇上限 "
+                f"{max_input_chars}，将按表征方法分片"
+            ),
+        })
+    if not section_ids and (entities.polymer_entities or process.samples):
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "section_fallback",
+            "message": (
+                "Methods/Results 为空，仅使用上游 evidence block；结果需人工复核"
+            ),
+        })
+    return blocks, warnings, context_chars
+
+
+def _block_chars(block: Stage0Element) -> int:
+    return len(_element_source_text(block)) + 220
+
+
+def _method_slug(method: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", method.casefold()).strip("_")
+    return slug or "method"
+
+
+def plan_shards(
+    blocks: list[Stage0Element],
+    methods: MethodVocabulary,
+    *,
+    target_chars: int = 18000,
+    max_chars: int = 30000,
+) -> tuple[list[Stage5Shard], list[str]]:
+    """按表征方法生成可复现分片；无方法证据的 block 显式返回。"""
+    if target_chars < 2000:
+        raise ValueError("shard_target_chars 不得小于 2000")
+    if max_chars < target_chars:
+        raise ValueError("shard_max_chars 不得小于 shard_target_chars")
+
+    method_indices: dict[str, set[int]] = {name: set() for name in methods}
+    explicitly_routed: set[int] = set()
+    for index, block in enumerate(blocks):
+        matched = _method_names_for_raw(_element_source_text(block), methods)
+        for method in matched:
+            method_indices[method].add(index)
+            explicitly_routed.add(index)
+
+    # 同一方法标题/仪器描述附近的结果段通常不重复写方法名。只扩一格，
+    # 并要求 section 相同，避免把整篇 Results 都复制到每个 shard。
+    for indices in method_indices.values():
+        explicit = sorted(indices)
+        for index in explicit:
+            for neighbor in (index - 1, index + 1):
+                if (
+                    0 <= neighbor < len(blocks)
+                    and blocks[neighbor].section == blocks[index].section
+                    and neighbor not in explicitly_routed
+                ):
+                    indices.add(neighbor)
+
+    shards: list[Stage5Shard] = []
+    for method in methods:
+        routed = [blocks[index] for index in sorted(method_indices[method])]
+        if not routed:
+            continue
+        chunks: list[list[Stage0Element]] = []
+        current: list[Stage0Element] = []
+        current_chars = 0
+        for block in routed:
+            size = _block_chars(block)
+            if current and current_chars + size > max_chars:
+                chunks.append(current)
+                current = []
+                current_chars = 0
+            current.append(block)
+            current_chars += size
+            if current_chars >= target_chars:
+                chunks.append(current)
+                current = []
+                current_chars = 0
+        if current:
+            chunks.append(current)
+        for index, chunk in enumerate(chunks, start=1):
+            context_chars = sum(_block_chars(block) for block in chunk)
+            shards.append(Stage5Shard(
+                shard_id=f"{_method_slug(method)}_{index:03d}",
+                method_normalized=method,
+                blocks=tuple(chunk),
+                context_chars=context_chars,
+                oversize=context_chars > max_chars,
+            ))
+
+    # Material characteristics fallback: 无方法关键词，但含 33 个受控词之一。
+    vocab = get_specialized_vocabulary()
+    material_char_entry = vocab.get("characteristics_of_material")
+    if material_char_entry and material_char_entry.categorical_buckets:
+        terms = [
+            value
+            for values in material_char_entry.categorical_buckets.values()
+            for value in values
+        ]
+        # 用负向环视替代 \b，避免括号等特殊字符破坏边界检测
+        patterns = [
+            rf"(?<![0-9a-zA-Z]){re.escape(term)}(?![0-9a-zA-Z])"
+            for term in terms
+        ]
+        pattern = re.compile("|".join(patterns), re.IGNORECASE)
+    else:
+        pattern = None
+    material_char_indices: set[int] = set()
+    if pattern is not None:
+        for index, block in enumerate(blocks):
+            if index in explicitly_routed:
+                continue
+            if pattern.search(_element_source_text(block)):
+                material_char_indices.add(index)
+                explicitly_routed.add(index)
+
+    if material_char_indices:
+        routed_mc = [blocks[index] for index in sorted(material_char_indices)]
+        chunks: list[list[Stage0Element]] = []
+        current: list[Stage0Element] = []
+        current_chars = 0
+        for block in routed_mc:
+            size = _block_chars(block)
+            if current and current_chars + size > max_chars:
+                chunks.append(current)
+                current = []
+                current_chars = 0
+            current.append(block)
+            current_chars += size
+            if current_chars >= target_chars:
+                chunks.append(current)
+                current = []
+                current_chars = 0
+        if current:
+            chunks.append(current)
+        for index, chunk in enumerate(chunks, start=1):
+            context_chars = sum(_block_chars(block) for block in chunk)
+            shards.append(Stage5Shard(
+                shard_id=f"material_characteristics_{index:03d}",
+                method_normalized="material_characteristics",
+                blocks=tuple(chunk),
+                context_chars=context_chars,
+                oversize=context_chars > max_chars,
+            ))
+
+    unrouted = [
+        block.block_id
+        for index, block in enumerate(blocks)
+        if index not in explicitly_routed
+    ]
+    return shards, unrouted
+
+
+def _user_message(
+    document_id: str,
+    entities: Stage2Document,
+    process: Stage3Document,
+    properties: Stage4Document,
+    blocks: list[Stage0Element],
+    methods: MethodVocabulary,
+    stage5_properties: Stage5PropertyVocabulary,
+    validation_feedback: str | None = None,
+) -> str:
+    entity_data = [
+        {
+            "entity_id": item.entity_id,
+            "polymer_name": item.polymer_name,
+            "source_names": item.source_names,
+            "variant_of": item.variant_of,
+            "resolved_from_mentions": item.resolved_from_mentions,
+        }
+        for item in entities.polymer_entities
+    ]
+    sample_data = [
+        {
+            "sample_id": item.sample_id,
+            "sample_kind": item.sample_kind,
+            "refers_to_entity": item.refers_to_entity,
+            "polymer_name": item.polymer_name,
+            "sample_label_raw": item.sample_label_raw,
+            "produced_by_step_ids": [step.step_id for step in process.process_steps if item.sample_id in step.output_sample_ids],
+        }
+        for item in process.samples
+    ]
+    stage4_data = [
+        {
+            "property_id": item.property_id,
+            "sample_id": item.sample_id,
+            "entity_id": next(
+                (
+                    sample.refers_to_entity
+                    for sample in process.samples
+                    if sample.sample_id == item.sample_id
+                ),
+                None,
+            ),
+            "resolution_status": "resolved",
+            "property_name_raw": item.property_name_raw,
+            "property_name_normalized": item.property_name_normalized,
+            "value_raw": item.value_raw,
+            "unit_raw": item.unit_raw,
+            "determination_method_raw": item.determination_method_raw,
+            "observation_group_id": item.observation_group_id,
+        }
+        for item in properties.properties
+    ] + [
+        {
+            "property_id": item.unresolved_id,
+            "sample_id": None,
+            "entity_id": item.entity_id,
+            "resolution_status": "unresolved",
+            "property_name_raw": item.property_name_raw,
+            "property_name_normalized": item.property_name_normalized,
+            "value_raw": item.value_raw,
+            "unit_raw": item.unit_raw,
+            "determination_method_raw": item.determination_method_raw,
+            "observation_group_id": item.observation_group_id,
+        }
+        for item in properties.unresolved_properties
+    ]
+    stage4_series_data = [
+        {
+            "series_id": item.series_id,
+            "sample_id": item.sample_id,
+            "entity_id": item.entity_id,
+            "sample_resolution_status": item.sample_resolution_status,
+            "property_name_raw": item.property_name_raw,
+            "property_name_normalized": item.property_name_normalized,
+            "determination_method_raw": item.determination_method_raw,
+            "point_count": len(item.points),
+        }
+        for item in properties.property_series
+    ]
+    method_data = {
+        name: {"aliases": list(aliases)}
+        for name, aliases in methods.items()
+    }
+    stage5_property_data = {
+        name: {
+            "property_category": category,
+            "allowed_methods": sorted(allowed_methods),
+        }
+        for name, (category, allowed_methods) in stage5_properties.items()
+    }
+    block_data = [
+        {
+            "block_id": block.block_id,
+            "page": block.page,
+            "type": block.type,
+            "section": block.section,
+            "source_text": _element_source_text(block),
+        }
+        for block in blocks
+    ]
+    message = (
+        f"document_id: {document_id}\n"
+        "--- BEGIN UNTRUSTED POLYMER ENTITIES ---\n"
+        + json.dumps(entity_data, ensure_ascii=False, indent=2)
+        + "\n--- END UNTRUSTED POLYMER ENTITIES ---\n"
+        "--- BEGIN UNTRUSTED SAMPLES ---\n"
+        + json.dumps(sample_data, ensure_ascii=False, indent=2)
+        + "\n--- END UNTRUSTED SAMPLES ---\n"
+        "--- BEGIN UNTRUSTED PROCESS STEPS ---\n"
+        + json.dumps([step.model_dump(mode="json") for step in process.process_steps], ensure_ascii=False)
+        + "\n--- END UNTRUSTED PROCESS STEPS ---\n"
+        "--- BEGIN EXISTING STAGE 4 PROPERTIES ---\n"
+        + json.dumps(stage4_data, ensure_ascii=False, indent=2)
+        + "\n--- END EXISTING STAGE 4 PROPERTIES ---\n"
+        "--- BEGIN EXISTING STAGE 4 SERIES ---\n"
+        + json.dumps(stage4_series_data, ensure_ascii=False, indent=2)
+        + "\n--- END EXISTING STAGE 4 SERIES ---\n"
+        "--- BEGIN CONTROLLED CHARACTERIZATION METHODS ---\n"
+        + json.dumps(method_data, ensure_ascii=False, indent=2)
+        + "\n--- END CONTROLLED CHARACTERIZATION METHODS ---\n"
+        "--- BEGIN CONTROLLED STAGE 5 PROPERTY VOCABULARY ---\n"
+        + json.dumps(stage5_property_data, ensure_ascii=False, indent=2)
+        + "\n--- END CONTROLLED STAGE 5 PROPERTY VOCABULARY ---\n"
+        "--- BEGIN UNTRUSTED METHODS AND RESULTS BLOCKS ---\n"
+        + json.dumps(block_data, ensure_ascii=False, indent=2)
+        + "\n--- END UNTRUSTED METHODS AND RESULTS BLOCKS ---"
+    )
+    if validation_feedback:
+        message += (
+            "\n\n上一次响应未通过校验。请重新输出完整 JSON。"
+            f"错误类型：{validation_feedback}"
+        )
+    return message
+
+
+def _validation_feedback(error: Exception) -> str:
+    if isinstance(error, ValidationError):
+        parts = []
+        for item in error.errors(include_url=False, include_input=False):
+            location = ".".join(str(part) for part in item.get("loc") or ())
+            parts.append(f"{location}: {item.get('msg', 'validation error')}")
+        return "; ".join(parts)[:800]
+    return str(error)[:800]
+
+
+def _method_names_for_raw(
+    method_raw: str,
+    methods: MethodVocabulary,
+) -> set[str]:
+    normalized_raw = re.sub(
+        r"[^a-z0-9]+",
+        " ",
+        re.sub(r"\bn\s*\.\s*m\s*\.\s*r\s*\.?", "nmr", method_raw.casefold()),
+    ).strip()
+    if not normalized_raw:
+        return set()
+    matches: set[str] = set()
+    for name, aliases in methods.items():
+        for candidate in (
+            name,
+            *aliases,
+            *STAGE5_EXACT_METHOD_ALIASES.get(name, ()),
+        ):
+            normalized_candidate = re.sub(
+                r"[^a-z0-9]+",
+                " ",
+                candidate.casefold(),
+            ).strip()
+            padded_raw = f" {normalized_raw} "
+            padded_candidate = f" {normalized_candidate} "
+            symbolic_alias = any(
+                character in candidate for character in "[]{}\\$"
+            )
+            if symbolic_alias and normalized_candidate != normalized_raw:
+                continue
+            if (
+                normalized_candidate == normalized_raw
+                or padded_candidate in padded_raw
+                or padded_raw in padded_candidate
+            ):
+                matches.add(name)
+                break
+    return matches
+
+
+def _normalize_characterization(
+    item: CharacterizationCandidate,
+    block_map: dict[str, Stage0Element],
+    methods: MethodVocabulary,
+    *,
+    allow_unverified: bool = False,
+) -> CharacterizationCandidate:
+    if item.method_normalized not in methods and item.method_normalized != "unmapped":
+        raise ValueError(
+            f"未知 method_normalized：{item.method_normalized}"
+        )
+    if item.method_normalized != "unmapped" and item.method_normalized not in _method_names_for_raw(
+        item.method_raw,
+        methods,
+    ):
+        raise ValueError(
+            f"{item.characterization_id}.method_raw 与 "
+            "method_normalized 不匹配"
+        )
+    anchors = [item.method_raw]
+    if item.instrument:
+        anchors.append(item.instrument)
+    anchors.extend(item.parameters.values())
+    evidence = [
+        (
+            _normalize_preview_evidence(
+                candidate,
+                block_map,
+                anchors,
+            )
+            if allow_unverified
+            else _normalize_evidence(
+            candidate,
+            block_map,
+            anchors,
+            allow_table_reference=True,
+            )
+        )
+        for candidate in item.evidence
+    ]
+    method_raw = _preview_raw_or_original(
+        item.method_raw,
+        evidence,
+        block_map,
+        f"{item.characterization_id}.method_raw",
+        allow_unverified=allow_unverified,
+    )
+    instrument = (
+        _preview_raw_or_original(
+            item.instrument,
+            evidence,
+            block_map,
+            f"{item.characterization_id}.instrument",
+            allow_unverified=allow_unverified,
+        )
+        if item.instrument
+        else None
+    )
+    parameters = {
+        key: _preview_raw_or_original(
+            value,
+            evidence,
+            block_map,
+            f"{item.characterization_id}.parameters.{key}",
+            allow_unverified=allow_unverified,
+        )
+        for key, value in item.parameters.items()
+    }
+    measurement_context = (
+        _normalize_measurement_context(
+            item.measurement_context,
+            evidence,
+            block_map,
+            item.characterization_id,
+        )
+        if item.measurement_context is not None
+        else None
+    )
+    return item.model_copy(update={
+        "method_raw": method_raw,
+        "instrument": instrument,
+        "parameters": parameters,
+        "measurement_context": measurement_context,
+        "evidence": evidence,
+    })
+
+
+def _normalize_stage5_property(
+    item: Stage5PropertyCandidate,
+    block_map: dict[str, Stage0Element],
+    characterization: CharacterizationCandidate,
+    vocabulary: Stage5PropertyVocabulary,
+    *,
+    allow_unverified: bool = False,
+) -> Stage5PropertyCandidate:
+    entry = vocabulary.get(item.property_name_normalized)
+    if entry is None:
+        raise ValueError(
+            f"未知 Stage 5 property_name_normalized："
+            f"{item.property_name_normalized}"
+        )
+    category, allowed_methods = entry
+    if item.property_category != category:
+        raise ValueError("Stage 5 性质名称与类别不匹配")
+    if characterization.method_normalized not in allowed_methods:
+        raise ValueError(
+            f"{item.property_name_normalized} 不允许由 "
+            f"{characterization.method_normalized} 产生"
+        )
+
+    anchors = [item.property_name_raw, item.value_raw]
+    for value in (
+        item.unit_raw,
+        item.spectral_assignment,
+        item.solvent,
+    ):
+        if value:
+            anchors.append(value)
+    evidence = [
+        (
+            _normalize_preview_evidence(candidate, block_map, anchors)
+            if allow_unverified
+            else _normalize_evidence(candidate, block_map, anchors)
+        )
+        for candidate in item.evidence
+    ]
+    try:
+        property_name_raw = _preview_raw_or_original(
+            item.property_name_raw,
+            evidence,
+            block_map,
+            f"{item.property_id}.property_name_raw",
+            allow_unverified=allow_unverified,
+        )
+    except ValueError:
+        property_name_raw = _preview_raw_or_original(
+            item.value_raw,
+            evidence,
+            block_map,
+            f"{item.property_id}.property_name_raw",
+            allow_unverified=allow_unverified,
+        )
+    updates: dict[str, Any] = {
+        "property_name_raw": property_name_raw,
+        "value_raw": _preview_raw_or_original(
+            item.value_raw,
+            evidence,
+            block_map,
+            f"{item.property_id}.value_raw",
+            allow_unverified=allow_unverified,
+        ),
+        "evidence": evidence,
+    }
+    for field in ("unit_raw", "spectral_assignment", "solvent"):
+        value = getattr(item, field)
+        updates[field] = (
+            _preview_raw_or_original(
+                value,
+                evidence,
+                block_map,
+                f"{item.property_id}.{field}",
+                allow_unverified=allow_unverified,
+            )
+            if value
+            else None
+        )
+    if item.measurement_context is not None:
+        updates["measurement_context"] = _normalize_measurement_context(
+            item.measurement_context,
+            evidence,
+            block_map,
+            item.property_id,
+        )
+    numeric = normalize_observation({
+        "value_raw": updates["value_raw"],
+        "unit_raw": updates.get("unit_raw"),
+        "unit_normalized": item.unit_normalized,
+    })
+    if numeric.get("normalization_status") == "normalized":
+        updates["unit_normalized"] = numeric.get("normalized_unit")
+        if numeric.get("normalized_value_min") is not None:
+            updates["value_min"] = numeric["normalized_value_min"]
+            updates["value_max"] = numeric.get("normalized_value_max")
+        elif numeric.get("normalized_value") is not None:
+            updates["value_min"] = numeric["normalized_value"]
+            updates["value_max"] = numeric["normalized_value"]
+    return item.model_copy(update=updates)
+
+
+def _stage5_property_dedupe_key(
+    item: Stage5PropertyCandidate,
+) -> tuple[Any, ...]:
+    evidence_key = tuple(
+        (
+            evidence.block_id,
+            evidence.source_sentence,
+            evidence.table_locator.row_label
+            if evidence.table_locator is not None else None,
+            evidence.table_locator.column_label
+            if evidence.table_locator is not None else None,
+            evidence.table_locator.cell_value
+            if evidence.table_locator is not None else None,
+        )
+        for evidence in item.evidence
+    )
+    return (
+        item.characterization_id,
+        item.sample_id,
+        item.entity_id,
+        tuple(item.sample_ids or []),
+        tuple(item.entity_ids or []),
+        item.property_name_normalized,
+        item.value_raw,
+        evidence_key,
+    )
+
+
+def _validate_response(
+    response: LLMJSONResponse,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    blocks: list[Stage0Element],
+    methods: MethodVocabulary,
+    vocabulary: Stage5PropertyVocabulary,
+    preview_scope_warnings: list[dict[str, Any]] | None = None,
+) -> CharacterizationStageResponse:
+    cleaned_data, _ = compact_confidence_payload(response.data)
+    parsed = CharacterizationStageResponse.model_validate(cleaned_data)
+    entity_ids = {item.entity_id for item in entities.polymer_entities}
+    sample_ids = {item.sample_id for item in process.samples}
+    sample_entities = {
+        item.sample_id: item.refers_to_entity
+        for item in process.samples
+    }
+    unresolved_by_id = {
+        item.unresolved_id: item
+        for item in stage4.unresolved_properties
+    }
+    stage4_property_ids = {
+        item.property_id for item in stage4.properties
+    } | set(unresolved_by_id)
+    stage5_property_ids = {item.property_id for item in parsed.properties}
+    series_by_id = {
+        item.series_id: item for item in stage4.property_series
+    }
+    block_map = {block.block_id: block for block in blocks}
+
+    characterizations = []
+    seen_characterizations: set[tuple[Any, ...]] = set()
+    for item in parsed.characterizations:
+        series_references = set(item.series_ids or [])
+        if item.series_id is not None:
+            series_references.add(item.series_id)
+        unknown_series = sorted(series_references - set(series_by_id))
+        if unknown_series:
+            raise ValueError(
+                f"{item.characterization_id} 引用了未知 series：{unknown_series}"
+            )
+        if item.sample_id is not None and item.sample_id not in sample_ids:
+            raise ValueError(
+                f"{item.characterization_id} 引用了未知 sample："
+                f"{item.sample_id}"
+            )
+        if item.entity_id is not None and item.entity_id not in entity_ids:
+            raise ValueError(
+                f"{item.characterization_id} 引用了未知 entity："
+                f"{item.entity_id}"
+            )
+        unknown_samples = sorted(set(item.sample_ids or []) - sample_ids)
+        if unknown_samples:
+            raise ValueError(
+                f"{item.characterization_id} 引用了未知 samples：{unknown_samples}"
+            )
+        unknown_entities = sorted(set(item.entity_ids or []) - entity_ids)
+        if unknown_entities:
+            raise ValueError(
+                f"{item.characterization_id} 引用了未知 entities：{unknown_entities}"
+            )
+        if item.sample_ids is not None and item.entity_ids is not None:
+            mapped_entities = {
+                sample_entities.get(sample_id) for sample_id in item.sample_ids
+            }
+            if None in mapped_entities or mapped_entities != set(item.entity_ids):
+                raise ValueError(
+                    f"{item.characterization_id} 的多 Sample 与多 Entity 范围不一致"
+                )
+        sample_entity = (
+            sample_entities.get(item.sample_id)
+            if item.sample_id is not None
+            else None
+        )
+        if (
+            item.entity_id is not None
+            and sample_entity is not None
+            and item.entity_id != sample_entity
+        ):
+            raise ValueError(
+                f"{item.characterization_id} 的 sample 与 entity 不一致"
+            )
+        mismatched_series = sorted(
+            series_id
+            for series_id in series_references
+            if (
+                item.sample_id != series_by_id[series_id].sample_id
+                or (item.entity_id or sample_entity)
+                != series_by_id[series_id].entity_id
+            )
+        )
+        if mismatched_series:
+            raise ValueError(
+                f"{item.characterization_id} 与 Series 的归属不一致："
+                f"{mismatched_series}"
+            )
+        unknown_properties = sorted(
+            set(item.derived_property_ids)
+            - stage4_property_ids
+            - stage5_property_ids
+        )
+        if unknown_properties:
+            raise ValueError(
+                f"{item.characterization_id} 引用了未知 property："
+                f"{unknown_properties}"
+            )
+        owner_entity = item.entity_id or sample_entity
+        mismatched_unresolved = sorted(
+            property_id
+            for property_id in item.derived_property_ids
+            if property_id in unresolved_by_id
+            and unresolved_by_id[property_id].entity_id != owner_entity
+        )
+        if mismatched_unresolved:
+            raise ValueError(
+                f"{item.characterization_id} 跨实体引用 unresolved property："
+                f"{mismatched_unresolved}"
+            )
+        normalized = _normalize_characterization(
+            item,
+            block_map,
+            methods,
+            allow_unverified=preview_scope_warnings is not None,
+        )
+        # 去重键必须能区分「同一方法在不同位置的两次表征」。
+        # 只用 (方法, sample, entity) 会把 reference_no_0071569 中
+        # 薄膜 IR（P_8_66，N—H 3420/C=O 1685）与 KBr 压片 IR
+        # （P_8_72，1760/1168/840）判成重复——它们是两次独立测量。
+        # 因此把证据来源与派生 property 一并纳入：真正的重复输出
+        # 这两项也必然相同，而不同测量至少有一项不同。
+        key = (
+            normalized.method_normalized,
+            normalized.sample_id or tuple(normalized.sample_ids or []),
+            normalized.entity_id or tuple(normalized.entity_ids or []),
+            tuple(sorted(
+                evidence.block_id for evidence in normalized.evidence
+            )),
+            tuple(sorted(normalized.derived_property_ids)),
+        )
+        if key in seen_characterizations:
+            raise ValueError("存在重复 Characterization")
+        seen_characterizations.add(key)
+        characterizations.append(normalized)
+
+    for property_item in stage4.properties:
+        if not property_item.determination_method_raw:
+            continue
+        matching_methods = _method_names_for_raw(
+            property_item.determination_method_raw,
+            methods,
+        )
+        if not matching_methods:
+            continue
+        has_link = any(
+            item.method_normalized in matching_methods
+            and item.sample_id == property_item.sample_id
+            and property_item.property_id in item.derived_property_ids
+            for item in characterizations
+        )
+        if not has_link:
+            raise ValueError(
+                f"{property_item.property_id} 的测定方法 "
+                f"{property_item.determination_method_raw!r} "
+                "缺少同一样品 Characterization 回链"
+            )
+    for property_item in stage4.unresolved_properties:
+        if not property_item.determination_method_raw:
+            continue
+        matching_methods = _method_names_for_raw(
+            property_item.determination_method_raw,
+            methods,
+        )
+        if not matching_methods:
+            continue
+        has_link = any(
+            item.method_normalized in matching_methods
+            and property_item.unresolved_id in item.derived_property_ids
+            and (
+                item.entity_id
+                or (
+                    sample_entities.get(item.sample_id)
+                    if item.sample_id is not None
+                    else None
+                )
+            )
+            == property_item.entity_id
+            for item in characterizations
+        )
+        if not has_link:
+            raise ValueError(
+                f"{property_item.unresolved_id} 的测定方法 "
+                f"{property_item.determination_method_raw!r} "
+                "缺少同一实体 Characterization 回链"
+            )
+    for series_item in stage4.property_series:
+        if not series_item.determination_method_raw:
+            continue
+        matching_methods = _method_names_for_raw(
+            series_item.determination_method_raw,
+            methods,
+        )
+        if not matching_methods:
+            continue
+        has_link = any(
+            item.method_normalized in matching_methods
+            and series_item.series_id
+            in ({item.series_id} if item.series_id is not None else set())
+            | set(item.series_ids or [])
+            for item in characterizations
+        )
+        if not has_link:
+            raise ValueError(
+                f"{series_item.series_id} 的测定方法 "
+                f"{series_item.determination_method_raw!r} "
+                "缺少 Characterization 回链"
+            )
+
+    characterization_map = {
+        item.characterization_id: item for item in characterizations
+    }
+    properties = []
+    seen_properties: set[tuple[Any, ...]] = set()
+    for item in parsed.properties:
+        if item.sample_id is not None and item.sample_id not in sample_ids:
+            raise ValueError(
+                f"{item.property_id} 引用了未知 sample：{item.sample_id}"
+            )
+        if item.entity_id is not None and item.entity_id not in entity_ids:
+            raise ValueError(
+                f"{item.property_id} 引用了未知 entity：{item.entity_id}"
+            )
+        unknown_samples = sorted(set(item.sample_ids or []) - sample_ids)
+        if unknown_samples:
+            raise ValueError(
+                f"{item.property_id} 引用了未知 samples：{unknown_samples}"
+            )
+        unknown_entities = sorted(set(item.entity_ids or []) - entity_ids)
+        if unknown_entities:
+            raise ValueError(
+                f"{item.property_id} 引用了未知 entities：{unknown_entities}"
+            )
+        owner = characterization_map[item.characterization_id]
+        scope_mismatch = (
+            item.sample_id != owner.sample_id
+            or item.entity_id != owner.entity_id
+            or item.sample_ids != owner.sample_ids
+            or item.entity_ids != owner.entity_ids
+            or item.sample_resolution_status != owner.sample_resolution_status
+        )
+        item_sample_ids = set(item.sample_ids or [])
+        if item.sample_id is not None:
+            item_sample_ids.add(item.sample_id)
+        item_entity_ids = set(item.entity_ids or [])
+        if item.entity_id is not None:
+            item_entity_ids.add(item.entity_id)
+        preview_subscope = (
+            preview_scope_warnings is not None
+            and owner.sample_resolution_status == "multi_resolved"
+            and bool(item_sample_ids or item_entity_ids)
+            and item_sample_ids.issubset(set(owner.sample_ids or []))
+            and item_entity_ids.issubset(set(owner.entity_ids or []))
+        )
+        if scope_mismatch and not preview_subscope:
+            raise ValueError(
+                f"{item.property_id} 与所属 Characterization 的主体范围不一致"
+            )
+        if scope_mismatch:
+            preview_scope_warnings.append({
+                "property_id": item.property_id,
+                "characterization_id": owner.characterization_id,
+                "sample_id": item.sample_id,
+                "entity_id": item.entity_id,
+            })
+        normalized = _normalize_stage5_property(
+            item,
+            block_map,
+            owner,
+            vocabulary,
+            allow_unverified=preview_scope_warnings is not None,
+        )
+        key = _stage5_property_dedupe_key(normalized)
+        if key in seen_properties:
+            raise ValueError("存在重复 Stage 5 PropertyObservation")
+        seen_properties.add(key)
+        properties.append(normalized)
+    return parsed.model_copy(update={
+        "characterizations": characterizations,
+        "properties": properties,
+    })
+
+
+def _apply_stage5_compatibility_repairs(
+    payload: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    repaired = copy.deepcopy(payload)
+    warnings: list[dict[str, Any]] = []
+
+    alias_paths: list[str] = []
+
+    def normalize_evidence_alias(value: Any, path: str) -> None:
+        if isinstance(value, dict):
+            if (
+                isinstance(value.get("block_id"), str)
+                and "source_text" in value
+                and "source_sentence" not in value
+            ):
+                value["source_sentence"] = value.pop("source_text")
+                alias_paths.append(path or "$")
+            for key, child in list(value.items()):
+                normalize_evidence_alias(child, f"{path}.{key}" if path else key)
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                normalize_evidence_alias(child, f"{path}[{index}]")
+
+    normalize_evidence_alias(repaired, "")
+    if alias_paths:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "source_text_alias_normalized",
+            "message": "evidence.source_text 已确定性改名为 source_sentence",
+            "field_paths": alias_paths,
+        })
+
+    singleton_paths: list[str] = []
+    characterizations = repaired.get("characterizations")
+    if isinstance(characterizations, list):
+        for index, item in enumerate(characterizations):
+            if not isinstance(item, dict):
+                continue
+            series_ids = item.get("series_ids")
+            if (
+                isinstance(series_ids, list)
+                and len(series_ids) == 1
+                and not item.get("series_id")
+            ):
+                item["series_id"] = series_ids[0]
+                item.pop("series_ids", None)
+                singleton_paths.append(f"characterizations[{index}]")
+    if singleton_paths:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "singleton_series_ids_normalized",
+            "message": "单元素 series_ids 已确定性迁移为 series_id",
+            "field_paths": singleton_paths,
+        })
+    return repaired, warnings
+
+
+def _salvage_candidate_response_payload(
+    payload: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """逐对象保留 Schema 合法候选，并重建 Stage 5 反向引用。"""
+    rejected: list[dict[str, Any]] = []
+    kept_characterizations: list[dict[str, Any]] = []
+    seen_characterization_ids: set[str] = set()
+    for index, raw in enumerate(payload.get("characterizations") or []):
+        try:
+            item = CharacterizationCandidate.model_validate(raw)
+        except (ValidationError, ValueError) as exc:
+            rejected.append({
+                "collection": "characterizations",
+                "index": index,
+                "object_id": raw.get("characterization_id") if isinstance(raw, dict) else None,
+                "reason": _validation_feedback(exc),
+            })
+            continue
+        if item.characterization_id in seen_characterization_ids:
+            rejected.append({
+                "collection": "characterizations",
+                "index": index,
+                "object_id": item.characterization_id,
+                "reason": "duplicate characterization_id",
+            })
+            continue
+        seen_characterization_ids.add(item.characterization_id)
+        kept_characterizations.append(item.model_dump(mode="json", exclude_none=True))
+
+    kept_properties: list[dict[str, Any]] = []
+    seen_property_ids: set[str] = set()
+    for index, raw in enumerate(payload.get("properties") or []):
+        try:
+            item = Stage5PropertyCandidate.model_validate(raw)
+        except (ValidationError, ValueError) as exc:
+            rejected.append({
+                "collection": "properties",
+                "index": index,
+                "object_id": raw.get("property_id") if isinstance(raw, dict) else None,
+                "reason": _validation_feedback(exc),
+            })
+            continue
+        if item.characterization_id not in seen_characterization_ids:
+            rejected.append({
+                "collection": "properties",
+                "index": index,
+                "object_id": item.property_id,
+                "reason": "unknown or rejected characterization_id",
+            })
+            continue
+        if item.property_id in seen_property_ids:
+            rejected.append({
+                "collection": "properties",
+                "index": index,
+                "object_id": item.property_id,
+                "reason": "duplicate property_id",
+            })
+            continue
+        seen_property_ids.add(item.property_id)
+        kept_properties.append(item.model_dump(mode="json", exclude_none=True))
+
+    property_owners = {
+        item["property_id"]: item["characterization_id"]
+        for item in kept_properties
+    }
+    for item in kept_characterizations:
+        existing = [
+            ref
+            for ref in item.get("derived_property_ids") or []
+            if not str(ref).startswith("prop_s5_")
+        ]
+        existing.extend(
+            property_id
+            for property_id, owner_id in property_owners.items()
+            if owner_id == item["characterization_id"]
+        )
+        item["derived_property_ids"] = list(dict.fromkeys(existing))
+
+    kept_specialized = []
+    seen_specialized_ids: set[str] = set()
+    for index, raw in enumerate(payload.get("specialized_property_observations") or []):
+        try:
+            item = SpecializedPropertyCandidate.model_validate(raw)
+            if item.specialized_id in seen_specialized_ids:
+                raise ValueError("duplicate specialized_id")
+        except (ValidationError, ValueError) as exc:
+            rejected.append({"collection": "specialized_property_observations", "index": index,
+                             "raw_object": copy.deepcopy(raw), "reason": _validation_feedback(exc)})
+            continue
+        seen_specialized_ids.add(item.specialized_id)
+        kept_specialized.append(item.model_dump(mode="json", exclude_none=True))
+    salvaged = {
+        "characterizations": kept_characterizations,
+        "properties": kept_properties,
+        "specialized_property_observations": kept_specialized,
+    }
+    CharacterizationStageResponse.model_validate(salvaged)
+    return salvaged, rejected
+
+
+def _repair_candidate_response_payload(
+    payload: dict[str, Any],
+    stage4: Stage4Document | None = None,
+    process: Stage3Document | None = None,
+    blocks: list[Stage0Element] | tuple[Stage0Element, ...] = (),
+    methods: MethodVocabulary | None = None,
+    *,
+    preview_relaxed: bool = False,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """将已知 Series 从性质引用字段迁移到专用关系字段。"""
+    compatible, compatibility_warnings = _apply_stage5_compatibility_repairs(
+        payload
+    )
+    repaired, dropped_confidence_fields = compact_confidence_payload(compatible)
+    warnings: list[dict[str, Any]] = list(compatibility_warnings)
+    # An absent sample is an unresolved relation, not an invalid measurement.
+    # Keep the original declaration in the warning; never invent an identity.
+    if preview_relaxed:
+        for item in repaired.get("specialized_property_observations") or []:
+            if (isinstance(item, dict) and item.get("sample_resolution_status") == "resolved"
+                    and item.get("sample_id") is None):
+                original = copy.deepcopy(item)
+                item["sample_resolution_status"] = "unresolved"
+                warnings.append({"stage": STAGE_ID, "code": "specialized_identity_unresolved",
+                                 "message": "resolved 声明缺少 sample_id，保留数值并标记未解析身份",
+                                 "raw_object": original})
+    if dropped_confidence_fields:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "confidence_fields_compacted",
+            "message": "confidence 已确定性收敛为仅保留 score",
+            "fields": list(dict.fromkeys(dropped_confidence_fields)),
+        })
+    characterizations = repaired.get("characterizations")
+    if preview_relaxed:
+        # LLM occasionally emits condition_status=reported with no actual
+        # condition value.  The context is optional metadata; it must not
+        # invalidate the characterization and all properties owned by it.
+        for collection_name in ("characterizations", "properties"):
+            collection = repaired.get(collection_name)
+            if not isinstance(collection, list):
+                continue
+            for index, item in enumerate(collection):
+                if not isinstance(item, dict):
+                    continue
+                context = item.get("measurement_context")
+                if not isinstance(context, dict):
+                    continue
+                has_condition = any(
+                    context.get(field) is not None
+                    for field in (
+                        "temperature",
+                        "frequency",
+                        "humidity",
+                        "pressure",
+                        "wavelength",
+                    )
+                ) or bool(context.get("other_conditions"))
+                if (
+                    not has_condition
+                    and context.get("condition_status") != "not_reported"
+                ):
+                    item["measurement_context"] = None
+                    warnings.append({
+                        "stage": STAGE_ID,
+                        "code": "preview_measurement_context_downgraded",
+                        "message": "Preview 已将无条件值的 measurement_context 降级为空，并保留所属对象",
+                        "field_path": f"{collection_name}[{index}].measurement_context",
+                        "original_condition_status": context.get(
+                            "condition_status"
+                        ),
+                    })
+    if not isinstance(characterizations, list):
+        return repaired, warnings
+    block_map = {block.block_id: block for block in blocks}
+
+    if preview_relaxed and block_map:
+        warnings.extend(_repair_preview_table_locators(repaired, blocks))
+
+    if preview_relaxed:
+        for collection_name in ("characterizations", "properties"):
+            collection = repaired.get(collection_name)
+            if not isinstance(collection, list):
+                continue
+            for index, item in enumerate(collection):
+                if not isinstance(item, dict):
+                    continue
+                changed = False
+                for field in ("sample_ids", "entity_ids"):
+                    if item.get(field) == []:
+                        item[field] = None
+                        changed = True
+                status = item.get("sample_resolution_status")
+                if status == "multi_resolved" and item.get("sample_id"):
+                    item["sample_ids"] = None
+                    item["entity_ids"] = None
+                    item["sample_resolution_status"] = "resolved"
+                    changed = True
+                elif status == "multi_resolved" and item.get("entity_id"):
+                    item["sample_ids"] = None
+                    item["entity_ids"] = None
+                    item["sample_resolution_status"] = "unresolved"
+                    changed = True
+                elif status == "multi_resolved":
+                    sample_ids = item.get("sample_ids")
+                    entity_ids = item.get("entity_ids")
+                    if isinstance(sample_ids, list) and len(sample_ids) == 1:
+                        item["sample_id"] = sample_ids[0]
+                        item["entity_id"] = (
+                            entity_ids[0]
+                            if isinstance(entity_ids, list) and len(entity_ids) == 1
+                            else None
+                        )
+                        item["sample_ids"] = None
+                        item["entity_ids"] = None
+                        item["sample_resolution_status"] = "resolved"
+                        changed = True
+                    elif isinstance(entity_ids, list) and len(entity_ids) == 1:
+                        item["entity_id"] = entity_ids[0]
+                        item["sample_ids"] = None
+                        item["entity_ids"] = None
+                        item["sample_resolution_status"] = "unresolved"
+                        changed = True
+                elif (
+                    item.get("sample_id") is None
+                    and item.get("entity_id") is None
+                    and (
+                        isinstance(item.get("sample_ids"), list)
+                        and len(item["sample_ids"]) >= 2
+                        or isinstance(item.get("entity_ids"), list)
+                        and len(item["entity_ids"]) >= 2
+                    )
+                ):
+                    item["sample_resolution_status"] = "multi_resolved"
+                    changed = True
+                if changed:
+                    warnings.append({
+                        "stage": STAGE_ID,
+                        "code": "preview_subject_scope_normalized",
+                        "message": "Preview 模式已将冲突或空的主体字段收敛为单一合法范围",
+                        "field_path": f"{collection_name}[{index}]",
+                    })
+
+    if preview_relaxed and stage4 is not None and methods is not None:
+        linked_series_ids = {
+            series_id
+            for item in characterizations
+            if isinstance(item, dict)
+            for series_id in (
+                [item.get("series_id")]
+                + (
+                    item.get("series_ids")
+                    if isinstance(item.get("series_ids"), list)
+                    else []
+                )
+            )
+            if isinstance(series_id, str)
+        }
+        existing_characterization_ids = {
+            str(item.get("characterization_id"))
+            for item in characterizations
+            if isinstance(item, dict)
+        }
+        next_characterization_index = max(
+            (
+                int(match.group(1))
+                for item_id in existing_characterization_ids
+                if (match := re.fullmatch(r"char(\d+)", item_id))
+            ),
+            default=0,
+        ) + 1
+        for series in stage4.property_series:
+            method_raw = series.determination_method_raw
+            if (
+                series.series_id in linked_series_ids
+                or not method_raw
+                or series.sample_resolution_status not in {
+                    "resolved", "unresolved"
+                }
+            ):
+                continue
+            matching_methods = _method_names_for_raw(method_raw, methods)
+            if len(matching_methods) != 1:
+                continue
+            method_normalized = next(iter(matching_methods))
+            aliases = (
+                method_normalized,
+                *methods[method_normalized],
+                *STAGE5_EXACT_METHOD_ALIASES.get(method_normalized, ()),
+            )
+            surfaces = {
+                surface
+                for alias in aliases
+                if (surface := _resolve_surface_text(method_raw, alias))
+                is not None
+            }
+            if not surfaces:
+                continue
+            method_surface = max(surfaces, key=len)
+            evidence = [
+                {
+                    "block_id": item.block_id,
+                    "source_sentence": item.source_sentence,
+                    "table_locator": (
+                        dict(item.table_locator)
+                        if isinstance(item.table_locator, dict)
+                        else (
+                            item.table_locator.model_dump(mode="json")
+                            if item.table_locator is not None
+                            else None
+                        )
+                    ),
+                }
+                for item in series.evidence
+            ]
+            if not evidence:
+                continue
+            characterization_id = f"char{next_characterization_index:03d}"
+            next_characterization_index += 1
+            characterizations.append({
+                "characterization_id": characterization_id,
+                "method_raw": method_surface,
+                "method_normalized": method_normalized,
+                "sample_id": series.sample_id,
+                "entity_id": series.entity_id,
+                "sample_resolution_status": series.sample_resolution_status,
+                "series_id": series.series_id,
+                "derived_property_ids": [],
+                "evidence": evidence,
+                "confidence": {"score": 0.5},
+            })
+            linked_series_ids.add(series.series_id)
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "preview_characterization_synthesized_from_series",
+                "message": (
+                    "Preview 模式已从方法唯一匹配且主体明确的 Stage 4 Series "
+                    "补建低置信度 Characterization"
+                ),
+                "characterization_id": characterization_id,
+                "series_id": series.series_id,
+                "method_normalized": method_normalized,
+            })
+
+    if preview_relaxed:
+        for collection_name in ("characterizations", "properties"):
+            collection = repaired.get(collection_name)
+            if not isinstance(collection, list):
+                continue
+            for index, item in enumerate(collection):
+                if not isinstance(item, dict):
+                    continue
+                evidence = item.get("evidence")
+                if not isinstance(evidence, list) or len(evidence) < 2:
+                    continue
+                incomplete_table_evidence = [
+                    candidate
+                    for candidate in evidence
+                    if isinstance(candidate, dict)
+                    and candidate.get("table_locator") is None
+                    and (
+                        block_map.get(str(candidate.get("block_id") or ""))
+                        is not None
+                    )
+                    and block_map[str(candidate["block_id"])].type == "table"
+                ]
+                if not incomplete_table_evidence:
+                    continue
+                retained = [
+                    candidate
+                    for candidate in evidence
+                    if candidate not in incomplete_table_evidence
+                ]
+                if not retained:
+                    continue
+                item["evidence"] = retained
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_incomplete_table_evidence_removed",
+                    "message": (
+                        "Preview 模式已移除缺少 table_locator 的附加表格 evidence；"
+                        "同一对象仍保留其他原文 evidence"
+                    ),
+                    "field_path": f"{collection_name}[{index}].evidence",
+                    "block_ids": [
+                        candidate["block_id"]
+                        for candidate in incomplete_table_evidence
+                    ],
+                })
+
+    explicit_all_sample_ids: list[str] = []
+    explicit_all_entity_ids: list[str] = []
+    if process is not None:
+        explicit_samples = [
+            sample
+            for sample in process.samples
+            if sample.sample_kind == "synthesis_batch"
+            and sample.refers_to_entity is not None
+        ]
+        explicit_all_sample_ids = [sample.sample_id for sample in explicit_samples]
+        explicit_all_entity_ids = list(dict.fromkeys(
+            sample.refers_to_entity for sample in explicit_samples
+            if sample.refers_to_entity is not None
+        ))
+    characterization_scopes: dict[str, tuple[list[str], list[str]]] = {}
+    explicit_all_block_ids = {
+        block.block_id
+        for block in blocks
+        if re.search(
+            r"\ball\s+synthesi[sz]ed\s+polymers\b",
+            _element_source_text(block),
+            re.I,
+        )
+    }
+    for index, item in enumerate(characterizations):
+        if not isinstance(item, dict):
+            continue
+        evidence = item.get("evidence")
+        sentences = [
+            str(candidate.get("source_sentence") or "")
+            for candidate in evidence
+            if isinstance(candidate, dict)
+        ] if isinstance(evidence, list) else []
+        explicitly_all_synthesized = any(
+            re.search(r"\ball\s+synthesi[sz]ed\s+polymers\b", sentence, re.I)
+            for sentence in sentences
+        ) or any(
+            str(candidate.get("block_id") or "") in explicit_all_block_ids
+            for candidate in evidence
+            if isinstance(candidate, dict)
+        ) if isinstance(evidence, list) else False
+        if (
+            item.get("sample_id") is None
+            and item.get("entity_id") is None
+            and explicitly_all_synthesized
+            and len(explicit_all_sample_ids) >= 2
+            and len(explicit_all_entity_ids) >= 2
+        ):
+            item["sample_ids"] = explicit_all_sample_ids
+            item["entity_ids"] = explicit_all_entity_ids
+            item["sample_resolution_status"] = "multi_resolved"
+            characterization_id = str(item.get("characterization_id") or "")
+            characterization_scopes[characterization_id] = (
+                explicit_all_sample_ids,
+                explicit_all_entity_ids,
+            )
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "explicit_all_samples_scope_expanded",
+                "message": (
+                    "原文明示 all synthesized polymers；已展开为 Stage 3 中"
+                    "全部带明确实体的 synthesis_batch"
+                ),
+                "field_path": f"characterizations[{index}]",
+                "sample_ids": explicit_all_sample_ids,
+                "entity_ids": explicit_all_entity_ids,
+            })
+        method_raw = item.get("method_raw")
+        if not isinstance(method_raw, str) or not method_raw:
+            continue
+        current_evidence = item.get("evidence")
+        evidence_items = (
+            current_evidence if isinstance(current_evidence, list) else []
+        )
+        if any(
+            isinstance(candidate.get("block_id"), str)
+            and candidate["block_id"] in block_map
+            and _resolve_surface_text(
+                _element_source_text(block_map[candidate["block_id"]]),
+                method_raw,
+            ) is not None
+            for candidate in evidence_items
+            if isinstance(candidate, dict)
+        ):
+            continue
+        unique_blocks = [
+            block
+            for block in blocks
+            if _resolve_surface_text(
+                _element_source_text(block),
+                method_raw,
+            ) is not None
+        ]
+        if len(unique_blocks) != 1:
+            continue
+        block = unique_blocks[0]
+        item.setdefault("evidence", []).append({
+            "block_id": block.block_id,
+            "source_sentence": _element_source_text(block),
+        })
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "characterization_method_evidence_supplemented",
+            "message": (
+                "method_raw 仅在一个输入 block 中逐字出现；"
+                "已补入该原文 evidence"
+            ),
+            "field_path": f"characterizations[{index}].method_raw",
+            "block_id": block.block_id,
+        })
+
+    if preview_relaxed:
+        for index, item in enumerate(characterizations):
+            if not isinstance(item, dict):
+                continue
+            evidence = item.get("evidence")
+            if not isinstance(evidence, list) or len(evidence) < 2:
+                continue
+            incomplete_table_evidence = [
+                candidate
+                for candidate in evidence
+                if isinstance(candidate, dict)
+                and candidate.get("table_locator") is None
+                and (
+                    block_map.get(str(candidate.get("block_id") or ""))
+                    is not None
+                )
+                and block_map[str(candidate["block_id"])].type == "table"
+            ]
+            retained = [
+                candidate
+                for candidate in evidence
+                if candidate not in incomplete_table_evidence
+            ]
+            if not incomplete_table_evidence or not retained:
+                continue
+            item["evidence"] = retained
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "preview_incomplete_table_evidence_removed",
+                "message": (
+                    "Preview 模式已移除缺少 table_locator 的附加表格 evidence；"
+                    "同一对象仍保留其他原文 evidence"
+                ),
+                "field_path": f"characterizations[{index}].evidence",
+                "block_ids": [
+                    candidate["block_id"]
+                    for candidate in incomplete_table_evidence
+                ],
+            })
+    if preview_relaxed and block_map:
+        for index, item in enumerate(characterizations):
+            if not isinstance(item, dict):
+                continue
+            evidence = item.get("evidence")
+            if not isinstance(evidence, list) or len(evidence) < 2:
+                continue
+            unlocatable = [
+                candidate
+                for candidate in evidence
+                if isinstance(candidate, dict)
+                and (
+                    block := block_map.get(
+                        str(candidate.get("block_id") or "")
+                    )
+                ) is not None
+                and _resolve_surface_text(
+                    _element_source_text(block),
+                    str(candidate.get("source_sentence") or ""),
+                ) is None
+            ]
+            retained = [
+                candidate for candidate in evidence
+                if candidate not in unlocatable
+            ]
+            if not unlocatable or not retained:
+                continue
+            item["evidence"] = retained
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "preview_unlocatable_additional_evidence_removed",
+                "message": (
+                    "Preview 模式已移除无法回定位到 Stage 0 block 的附加 "
+                    "Characterization evidence"
+                ),
+                "field_path": f"characterizations[{index}].evidence",
+                "block_ids": [
+                    candidate.get("block_id") for candidate in unlocatable
+                ],
+            })
+    if preview_relaxed and methods is not None:
+        for index, item in enumerate(characterizations):
+            if not isinstance(item, dict):
+                continue
+            method_raw = item.get("method_raw")
+            method_normalized = item.get("method_normalized")
+            if (
+                not isinstance(method_raw, str)
+                or not isinstance(method_normalized, str)
+                or method_normalized not in methods
+            ):
+                continue
+            evidence = item.get("evidence")
+            evidence_items = evidence if isinstance(evidence, list) else []
+            sources = [
+                source
+                for candidate in evidence_items
+                if isinstance(candidate, dict)
+                for source in [candidate.get("source_sentence")]
+                if isinstance(source, str)
+            ]
+            if any(method_raw in source for source in sources):
+                continue
+            aliases = (
+                method_normalized,
+                *methods[method_normalized],
+                *STAGE5_EXACT_METHOD_ALIASES.get(method_normalized, ()),
+            )
+            surfaces = {
+                surface
+                for alias in aliases
+                for source in sources
+                if (surface := _resolve_surface_text(source, alias)) is not None
+            }
+            if not surfaces:
+                continue
+            item["method_raw"] = max(surfaces, key=len)
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "preview_characterization_method_surface_recovered",
+                "message": "Preview 模式已将表征方法恢复为 evidence 中唯一匹配的原文词形",
+                "field_path": f"characterizations[{index}].method_raw",
+                "method_normalized": method_normalized,
+            })
+    if preview_relaxed and block_map:
+        for index, item in enumerate(characterizations):
+            if not isinstance(item, dict):
+                continue
+            evidence = item.get("evidence")
+            evidence_items = evidence if isinstance(evidence, list) else []
+            sources: list[str] = []
+            for candidate in evidence_items:
+                if not isinstance(candidate, dict):
+                    continue
+                block = block_map.get(str(candidate.get("block_id") or ""))
+                if block is not None:
+                    sources.append(_element_source_text(block))
+                    continue
+                source_sentence = candidate.get("source_sentence")
+                if isinstance(source_sentence, str):
+                    sources.append(source_sentence)
+
+            def supported(value: Any) -> bool:
+                return _preview_surface_supported(value, sources)
+
+            def evidence_sources(value: Any) -> list[str]:
+                if not isinstance(value, list):
+                    return []
+                result: list[str] = []
+                for candidate in value:
+                    if not isinstance(candidate, dict):
+                        continue
+                    source_sentence = candidate.get("source_sentence")
+                    if isinstance(source_sentence, str):
+                        result.append(source_sentence)
+                    block = block_map.get(str(candidate.get("block_id") or ""))
+                    if block is not None:
+                        result.append(_element_source_text(block))
+                return result
+
+            unverified_fields: list[str] = []
+            if item.get("instrument") and not supported(item["instrument"]):
+                unverified_fields.append("instrument")
+            parameters = item.get("parameters")
+            if isinstance(parameters, dict):
+                unverified_fields.extend(
+                    f"parameters.{key}"
+                    for key, value in parameters.items()
+                    if not supported(value)
+                )
+            context = item.get("measurement_context")
+            if isinstance(context, dict):
+                for field in (
+                    "temperature",
+                    "frequency",
+                    "humidity",
+                    "pressure",
+                    "wavelength",
+                ):
+                    quantity = context.get(field)
+                    if isinstance(quantity, dict):
+                        raw = quantity.get("raw")
+                        field_sources = evidence_sources(quantity.get("evidence"))
+                        if isinstance(raw, str) and not _preview_surface_supported(
+                            raw,
+                            field_sources,
+                        ):
+                            unverified_fields.append(
+                                f"measurement_context.{field}"
+                            )
+                other_conditions = context.get("other_conditions")
+                if isinstance(other_conditions, dict):
+                    condition_evidence = context.get(
+                        "other_condition_evidence"
+                    )
+                    if isinstance(condition_evidence, dict):
+                        for key, value in other_conditions.items():
+                            if not _preview_surface_supported(
+                                value,
+                                evidence_sources(condition_evidence.get(key)),
+                            ):
+                                unverified_fields.append(
+                                    f"measurement_context.other_conditions.{key}"
+                                )
+                    else:
+                        unverified_fields.append(
+                            "measurement_context.other_conditions"
+                        )
+            if unverified_fields:
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_unverified_characterization_details",
+                    "message": "Preview 模式保留可选表征细节，并标记为待复核",
+                    "field_path": f"characterizations[{index}]",
+                    "fields": unverified_fields,
+                })
+    properties = repaired.get("properties")
+    if preview_relaxed and isinstance(properties, list):
+        for index, item in enumerate(properties):
+            if not isinstance(item, dict):
+                continue
+            changed: dict[str, str] = {}
+            for plural, singular in (
+                ("sample_ids", "sample_id"),
+                ("entity_ids", "entity_id"),
+            ):
+                values = item.get(plural)
+                if (
+                    item.get(singular) is None
+                    and isinstance(values, list)
+                    and len(values) == 1
+                    and isinstance(values[0], str)
+                ):
+                    item[singular] = values[0]
+                    item[plural] = None
+                    changed[plural] = singular
+            if changed:
+                item["sample_resolution_status"] = "resolved"
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_singleton_subject_scope_normalized",
+                    "message": "Preview 模式已将单元素主体列表归一为单值字段",
+                    "field_path": f"properties[{index}]",
+                    "fields": changed,
+                })
+
+    if preview_relaxed and isinstance(properties, list) and block_map:
+        retained_properties = []
+        removed_property_ids: set[str] = set()
+        for index, item in enumerate(properties):
+            if not isinstance(item, dict):
+                retained_properties.append(item)
+                continue
+            evidence = item.get("evidence")
+            evidence_items = evidence if isinstance(evidence, list) else []
+            sources: list[str] = []
+            for candidate in evidence_items:
+                if not isinstance(candidate, dict):
+                    continue
+                block = block_map.get(str(candidate.get("block_id") or ""))
+                if block is not None:
+                    sources.append(_element_source_text(block))
+                    continue
+                source_sentence = candidate.get("source_sentence")
+                if isinstance(source_sentence, str):
+                    sources.append(source_sentence)
+
+            def supported(field: str) -> bool:
+                value = item.get(field)
+                return (
+                    not isinstance(value, str)
+                    or _preview_surface_supported(value, sources)
+                )
+
+            property_id = item.get("property_id")
+            unknown_evidence_blocks = [
+                candidate.get("block_id")
+                for candidate in evidence_items
+                if not isinstance(candidate, dict)
+                or candidate.get("block_id") not in block_map
+            ]
+            if unknown_evidence_blocks:
+                if isinstance(property_id, str):
+                    removed_property_ids.add(property_id)
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_hard_boundary_unknown_evidence",
+                    "message": "Preview 硬边界：evidence 指向未知 Stage0 block，候选隔离",
+                    "field_path": f"properties[{index}].evidence",
+                    "property_id": property_id,
+                    "block_ids": unknown_evidence_blocks,
+                })
+                continue
+            if not supported("value_raw"):
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_unverified_stage5_property",
+                    "message": "Preview 模式保留 value_raw，并标记为原文待复核",
+                    "field_path": f"properties[{index}].value_raw",
+                    "property_id": property_id,
+                })
+            unsupported_optional_fields = [
+                field
+                for field in ("unit_raw", "spectral_assignment", "solvent")
+                if item.get(field) and not supported(field)
+            ]
+            if unsupported_optional_fields:
+                if "unit_raw" in unsupported_optional_fields:
+                    item["unit_normalized"] = None
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_unverified_stage5_optional_fields",
+                    "message": "Preview 模式保留可选字段，并标记为原文待复核",
+                    "field_path": f"properties[{index}]",
+                    "property_id": property_id,
+                    "fields": unsupported_optional_fields,
+                })
+            retained_properties.append(item)
+        if removed_property_ids:
+            for characterization in characterizations:
+                if not isinstance(characterization, dict):
+                    continue
+                derived_ids = characterization.get("derived_property_ids")
+                if isinstance(derived_ids, list):
+                    characterization["derived_property_ids"] = [
+                        item for item in derived_ids
+                        if item not in removed_property_ids
+                    ]
+        repaired["properties"] = retained_properties
+        properties = retained_properties
+    if isinstance(properties, list):
+        for index, item in enumerate(properties):
+            if not isinstance(item, dict):
+                continue
+            scope = characterization_scopes.get(str(
+                item.get("characterization_id") or ""
+            ))
+            if (
+                scope is None
+                or item.get("sample_id") is not None
+                or item.get("entity_id") is not None
+            ):
+                continue
+            item["sample_ids"], item["entity_ids"] = scope
+            item["sample_resolution_status"] = "multi_resolved"
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_property_subject_scope_inherited",
+                "message": "Stage 5 property 已继承所属 Characterization 的明确多主体范围",
+                "field_path": f"properties[{index}]",
+            })
+
+    known_series = (
+        {item.series_id for item in stage4.property_series}
+        if stage4 is not None
+        else set()
+    )
+    series_map = (
+        {item.series_id: item for item in stage4.property_series}
+        if stage4 is not None
+        else {}
+    )
+    for index, item in enumerate(characterizations):
+        if not isinstance(item, dict):
+            continue
+        series_id = item.get("series_id")
+        series_ids = item.get("series_ids")
+        references = (
+            [series_id]
+            if isinstance(series_id, str)
+            else (
+                series_ids
+                if isinstance(series_ids, list)
+                and all(isinstance(value, str) for value in series_ids)
+                else []
+            )
+        )
+        referenced_series = [
+            series_map[value] for value in references if value in series_map
+        ]
+        if (
+            item.get("sample_resolution_status") != "unresolved"
+            or item.get("sample_id") is not None
+            or item.get("entity_id") is not None
+            or item.get("sample_ids") is not None
+            or item.get("entity_ids") is not None
+            or not references
+            or len(referenced_series) != len(references)
+            or any(
+                series.sample_resolution_status != "unresolved"
+                or not series.points
+                for series in referenced_series
+            )
+            or any(
+                point.sample_resolution_status != "resolved"
+                or point.sample_id is None
+                or point.entity_id is None
+                for series in referenced_series
+                for point in series.points
+            )
+        ):
+            continue
+        scopes: list[tuple[list[str], list[str], dict[str, str]]] = []
+        conflicting_subject = False
+        for series in referenced_series:
+            sample_ids = list(dict.fromkeys(
+                point.sample_id for point in series.points
+                if point.sample_id is not None
+            ))
+            entity_ids = list(dict.fromkeys(
+                point.entity_id for point in series.points
+                if point.entity_id is not None
+            ))
+            sample_entities: dict[str, str] = {}
+            for point in series.points:
+                previous = sample_entities.setdefault(
+                    str(point.sample_id),
+                    str(point.entity_id),
+                )
+                if previous != point.entity_id:
+                    conflicting_subject = True
+                    break
+            scopes.append((sample_ids, entity_ids, sample_entities))
+        sample_ids, entity_ids, sample_entities = scopes[0]
+        same_scope = all(
+            set(candidate_samples) == set(sample_ids)
+            and set(candidate_entities) == set(entity_ids)
+            and candidate_mapping == sample_entities
+            for candidate_samples, candidate_entities, candidate_mapping in scopes[1:]
+        )
+        compatible_scope = same_scope
+        if preview_relaxed and not same_scope:
+            maximal_scopes = [
+                candidate
+                for candidate in scopes
+                if all(
+                    set(other_samples).issubset(set(candidate[0]))
+                    and set(other_entities).issubset(set(candidate[1]))
+                    and all(
+                        candidate[2].get(sample_id) == entity_id
+                        for sample_id, entity_id in other_mapping.items()
+                    )
+                    for other_samples, other_entities, other_mapping in scopes
+                )
+            ]
+            if len(maximal_scopes) == 1:
+                sample_ids, entity_ids, sample_entities = maximal_scopes[0]
+                compatible_scope = True
+        if (
+            conflicting_subject
+            or not compatible_scope
+            or len(sample_ids) < 2
+            or len(entity_ids) < 2
+        ):
+            continue
+        item["sample_ids"] = sample_ids
+        item["entity_ids"] = entity_ids
+        item["sample_resolution_status"] = "multi_resolved"
+        characterization_id = str(item.get("characterization_id") or "")
+        characterization_scopes[characterization_id] = (
+            sample_ids,
+            entity_ids,
+        )
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "series_point_subject_scope_inherited",
+            "message": (
+                "Characterization 已从关联且主体范围一致的跨主体 Series points "
+                "继承完整主体范围"
+            ),
+            "field_path": f"characterizations[{index}]",
+            "series_ids": references,
+            "sample_ids": sample_ids,
+            "entity_ids": entity_ids,
+        })
+
+    if isinstance(properties, list):
+        for index, item in enumerate(properties):
+            if not isinstance(item, dict):
+                continue
+            scope = characterization_scopes.get(str(
+                item.get("characterization_id") or ""
+            ))
+            if (
+                scope is None
+                or item.get("sample_resolution_status") != "unresolved"
+                or item.get("sample_id") is not None
+                or item.get("entity_id") is not None
+                or item.get("sample_ids") is not None
+                or item.get("entity_ids") is not None
+            ):
+                continue
+            item["sample_ids"], item["entity_ids"] = scope
+            item["sample_resolution_status"] = "multi_resolved"
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_property_subject_scope_inherited",
+                "message": "Stage 5 property 已继承所属 Characterization 的明确多主体范围",
+                "field_path": f"properties[{index}]",
+            })
+
+    for index, item in enumerate(characterizations):
+        if not isinstance(item, dict):
+            continue
+        series_id = item.get("series_id")
+        series_ids = item.get("series_ids")
+        derived_ids = item.get("derived_property_ids")
+        if not isinstance(derived_ids, list):
+            continue
+        references = []
+        if isinstance(series_id, str) and series_id:
+            references.append(series_id)
+        if isinstance(series_ids, list):
+            references.extend(
+                candidate
+                for candidate in series_ids
+                if isinstance(candidate, str) and candidate
+            )
+        migrated = [
+            candidate
+            for candidate in derived_ids
+            if isinstance(candidate, str) and candidate in known_series
+        ]
+        references = list(dict.fromkeys([*references, *migrated]))
+        removable = set(references) & set(derived_ids)
+        if not removable:
+            continue
+        item["derived_property_ids"] = [
+            property_id
+            for property_id in derived_ids
+            if property_id not in removable
+        ]
+        if len(references) == 1:
+            item["series_id"] = references[0]
+            item.pop("series_ids", None)
+            code = "duplicate_series_derived_reference_removed"
+            message = (
+                f"{item.get('characterization_id') or f'characterizations[{index}]'} "
+                f"的 series_id {references[0]} 已从 derived_property_ids 移除"
+            )
+        else:
+            item["series_id"] = None
+            item["series_ids"] = references
+            code = "series_references_moved_from_derived_properties"
+            message = (
+                f"{item.get('characterization_id') or f'characterizations[{index}]'} "
+                "的已知 Series 已从 derived_property_ids 迁移到 series_ids"
+            )
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": code,
+            "message": message,
+            "field_path": f"characterizations[{index}].derived_property_ids",
+            "series_ids": references,
+        })
+    if preview_relaxed:
+        unscoped_characterization_ids = {
+            str(item.get("characterization_id"))
+            for item in characterizations
+            if isinstance(item, dict)
+            and item.get("sample_resolution_status") == "unresolved"
+            and all(
+                item.get(field) is None
+                for field in (
+                    "sample_id",
+                    "entity_id",
+                    "sample_ids",
+                    "entity_ids",
+                )
+            )
+        }
+        if unscoped_characterization_ids:
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "unresolved_characterization_identity",
+                "message": (
+                    "表征材料身份未解析，保留方法、参数及派生性质，不猜测 entity_id"
+                ),
+                "characterization_ids": sorted(
+                    unscoped_characterization_ids
+                ),
+            })
+    characterization_map = {
+        item.get("characterization_id"): item
+        for item in characterizations
+        if isinstance(item, dict)
+        and isinstance(item.get("characterization_id"), str)
+    }
+    if preview_relaxed and isinstance(properties, list):
+        scope_fields = (
+            "sample_id",
+            "entity_id",
+            "sample_ids",
+            "entity_ids",
+            "sample_resolution_status",
+        )
+        for index, property_item in enumerate(properties):
+            if not isinstance(property_item, dict):
+                continue
+            owner = characterization_map.get(
+                property_item.get("characterization_id")
+            )
+            if owner is None or all(
+                property_item.get(field) == owner.get(field)
+                for field in scope_fields
+            ):
+                continue
+            property_sample_ids = set(property_item.get("sample_ids") or [])
+            if property_item.get("sample_id") is not None:
+                property_sample_ids.add(property_item["sample_id"])
+            property_entity_ids = set(property_item.get("entity_ids") or [])
+            if property_item.get("entity_id") is not None:
+                property_entity_ids.add(property_item["entity_id"])
+            valid_multi_subject_subset = (
+                owner.get("sample_resolution_status") == "multi_resolved"
+                and bool(property_sample_ids or property_entity_ids)
+                and property_sample_ids.issubset(set(owner.get("sample_ids") or []))
+                and property_entity_ids.issubset(set(owner.get("entity_ids") or []))
+            )
+            if valid_multi_subject_subset:
+                continue
+            for field in scope_fields:
+                property_item[field] = copy.deepcopy(owner.get(field))
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "preview_property_subject_scope_aligned",
+                "message": "Preview 模式已将冲突的派生性质主体对齐到所属 Characterization",
+                "field_path": f"properties[{index}]",
+                "characterization_id": property_item.get("characterization_id"),
+            })
+    if isinstance(properties, list):
+        for index, property_item in enumerate(properties):
+            if not isinstance(property_item, dict):
+                continue
+            property_id = property_item.get("property_id")
+            characterization_id = property_item.get("characterization_id")
+            owner = characterization_map.get(characterization_id)
+            if (
+                not isinstance(property_id, str)
+                or owner is None
+            ):
+                continue
+            current_owners = [
+                candidate_id
+                for candidate_id, candidate in characterization_map.items()
+                if property_id in (candidate.get("derived_property_ids") or [])
+            ]
+            if current_owners:
+                if (
+                    not preview_relaxed
+                    or current_owners == [characterization_id]
+                ):
+                    continue
+                for current_owner_id in current_owners:
+                    current_owner = characterization_map[current_owner_id]
+                    current_owner["derived_property_ids"] = [
+                        candidate
+                        for candidate in (
+                            current_owner.get("derived_property_ids") or []
+                        )
+                        if candidate != property_id
+                    ]
+                derived_ids = owner.get("derived_property_ids")
+                if not isinstance(derived_ids, list):
+                    continue
+                derived_ids.append(property_id)
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_property_back_reference_reassigned",
+                    "message": (
+                        "Preview 模式已按 property.characterization_id "
+                        "修正冲突的 derived_property_ids 反向引用"
+                    ),
+                    "field_path": f"properties[{index}].characterization_id",
+                    "characterization_id": characterization_id,
+                    "previous_characterization_ids": current_owners,
+                    "property_id": property_id,
+                })
+                continue
+            derived_ids = owner.get("derived_property_ids")
+            if not isinstance(derived_ids, list):
+                continue
+            derived_ids.append(property_id)
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "derived_property_back_reference_completed",
+                "message": (
+                    "Stage 5 property 已明确引用唯一 Characterization；"
+                    "已补齐其 derived_property_ids 反向引用"
+                ),
+                "field_path": (
+                    f"properties[{index}].characterization_id"
+                ),
+                "characterization_id": characterization_id,
+                "property_id": property_id,
+            })
+    return repaired, warnings
+
+
+def _materialize(
+    parsed: CharacterizationStageResponse,
+    blocks: list[Stage0Element],
+    specialized_vocabulary: SpecializedVocabulary | None = None,
+) -> tuple[
+    list[Characterization],
+    list[Stage5PropertyObservation],
+    list[FinalSpecializedPropertyObservation],
+]:
+    block_map = {block.block_id: block for block in blocks}
+    def source_type_for(item: Stage5PropertyCandidate) -> str:
+        block_id = item.evidence[0].block_id
+        block = block_map.get(block_id)
+        if block is None:
+            raise ValueError(f"Stage 5 property 引用了未知 evidence block：{block_id}")
+        return block.type
+    characterization_id_map = {
+        item.characterization_id: f"char{index:03d}"
+        for index, item in enumerate(parsed.characterizations, start=1)
+    }
+    property_id_map = {
+        item.property_id: f"prop_s5_{index:03d}"
+        for index, item in enumerate(parsed.properties, start=1)
+    }
+    characterizations = [
+        Characterization(
+            characterization_id=characterization_id_map[
+                item.characterization_id
+            ],
+            method_raw=item.method_raw,
+            method_normalized=item.method_normalized,
+            article_sample_key=item.article_sample_key,
+            sample_id=item.sample_id,
+            entity_id=item.entity_id,
+            sample_ids=item.sample_ids,
+            entity_ids=item.entity_ids,
+            sample_resolution_status=item.sample_resolution_status,
+            series_id=item.series_id,
+            series_ids=item.series_ids,
+            instrument=item.instrument,
+            measurement_context=(
+                _materialize_measurement_context(
+                    item.measurement_context, block_map
+                )
+                if item.measurement_context is not None
+                else None
+            ),
+            parameters=item.parameters,
+            result_summary=item.result_summary,
+            derived_property_ids=[
+                property_id_map.get(property_id, property_id)
+                for property_id in item.derived_property_ids
+            ],
+            evidence=[
+                _materialize_evidence(evidence, block_map)
+                for evidence in item.evidence
+            ],
+            confidence=item.confidence,
+        )
+        for item in parsed.characterizations
+    ]
+    properties = [
+        Stage5PropertyObservation(
+            property_id=property_id_map[item.property_id],
+            characterization_id=characterization_id_map[
+                item.characterization_id
+            ],
+            sample_id=item.sample_id,
+            entity_id=item.entity_id,
+            sample_ids=item.sample_ids,
+            entity_ids=item.entity_ids,
+            sample_resolution_status=item.sample_resolution_status,
+            property_name_raw=item.property_name_raw,
+            property_name_normalized=item.property_name_normalized,
+            property_category=item.property_category,
+            value_raw=item.value_raw,
+            value_min=item.value_min,
+            value_max=item.value_max,
+            unit_raw=item.unit_raw,
+            unit_normalized=item.unit_normalized,
+            measurement_context=(
+                _materialize_measurement_context(
+                    item.measurement_context, block_map
+                )
+                if item.measurement_context is not None
+                else None
+            ),
+            spectral_assignment=item.spectral_assignment,
+            solvent=item.solvent,
+            source_stage=item.source_stage,
+            source_type=source_type_for(item),
+            evidence=[
+                _materialize_evidence(evidence, block_map)
+                for evidence in item.evidence
+            ],
+            confidence=item.confidence,
+        )
+        for item in parsed.properties
+    ]
+    from stages.numeric_value_semantics import preserve_numeric_fields
+    from stages.source_context_semantics import derive_parameter_sources
+    properties = [preserve_numeric_fields(candidate, item, block_map)
+                  for candidate, item in zip(parsed.properties, properties)]
+    characterizations = [item.model_copy(update={"parameter_sources": derive_parameter_sources(item, properties, block_map)})
+                         for item in characterizations]
+    specialized_observations = _materialize_specialized(
+        parsed.specialized_property_observations,
+        block_map,
+        specialized_vocabulary,
+    )
+    return characterizations, properties, specialized_observations
+
+
+def _materialize_specialized(
+    candidates: list[SpecializedPropertyCandidate],
+    block_map: dict[str, Stage0Element],
+    specialized_vocabulary: SpecializedVocabulary | None,
+) -> list[FinalSpecializedPropertyObservation]:
+    """把 Stage 5 轻量候选按词表补全为最终 specialized 观测。
+
+    与 Stage 4 同构：词表未命中记 semantic_unmapped，categorical 取值越界记
+    categorical_value_out_of_range，两者都落 unresolved 而非丢弃，保证召回审计
+    能看到模型确实抽到过（见方案 §5.1）。
+    """
+    observations: list[FinalSpecializedPropertyObservation] = []
+    if specialized_vocabulary is None:
+        return observations
+    for index, item in enumerate(candidates, start=1):
+        specialized_id = f"sp{index:03d}"
+        evidence = [
+            _materialize_evidence(ev, block_map) for ev in item.evidence
+        ]
+        matched_entry = specialized_vocabulary.match(
+            item.property_name_raw.strip().lower(),
+            stage="stage5",
+            context="",
+        )
+        if matched_entry is None:
+            observations.append(FinalSpecializedPropertyObservation(
+                specialized_id=specialized_id,
+                property_name_raw=item.property_name_raw,
+                source_field=None,
+                semantic_label=None,
+                variant=None,
+                value_kind="text",
+                value_raw=item.value_raw,
+                text_value=item.value_raw,
+                unit_raw=item.unit_raw,
+                method_raw=item.method_raw,
+                sample_id=item.sample_id,
+                sample_resolution_status=item.sample_resolution_status,
+                source_stage="stage5",
+                evidence=evidence,
+                evidence_ids=[],
+                publication_status="unresolved",
+                reason="semantic_unmapped",
+            ))
+            continue
+
+        value_kind = matched_entry.value_kinds[0]
+        numeric_projection: dict[str, Any] | None = None
+        parsed_numeric = parse_numeric(item.value_raw)
+        if ("numeric_multiple" in matched_entry.value_kinds
+                and parsed_numeric is not None and parsed_numeric["kind"] == "multiple"):
+            multiple_projection = normalize_observation({
+                "value_raw": item.value_raw,
+                "value_kind": "numeric_multiple",
+                "unit_raw": item.unit_raw,
+            })
+            if multiple_projection.get("normalized_value_secondary") is not None:
+                value_kind = "numeric_multiple"
+                numeric_projection = multiple_projection
+        if (
+            numeric_projection is None
+            and "numeric_scalar" in matched_entry.value_kinds
+        ):
+            scalar_projection = normalize_observation({
+                "value_raw": item.value_raw,
+                "value_kind": "numeric_scalar",
+                "unit_raw": item.unit_raw,
+            })
+            if scalar_projection.get("restored_value") is not None:
+                value_kind = "numeric_scalar"
+                numeric_projection = scalar_projection
+        if (
+            numeric_projection is None
+            and "categorical" in matched_entry.value_kinds
+            and matched_entry.categorical_bucket_for(item.value_raw)
+        ):
+            value_kind = "categorical"
+        elif (
+            numeric_projection is None
+            and "text" in matched_entry.value_kinds
+        ):
+            value_kind = "text"
+        text_value = None
+        categorical_value = None
+        value_min = None
+        value_max = None
+        unit_normalized = None
+        unit_status = (
+            "raw_only" if item.unit_raw else "missing"
+        )
+        if numeric_projection is not None:
+            primary = numeric_projection.get(
+                "normalized_value",
+                numeric_projection.get("restored_value"),
+            )
+            secondary = numeric_projection.get("normalized_value_secondary")
+            if primary is not None:
+                if value_kind == "numeric_multiple" and secondary is not None:
+                    all_values = numeric_projection.get("restored_values") or [primary, secondary]
+                    value_min = min(all_values)
+                    value_max = max(all_values)
+                else:
+                    value_min = primary
+                    value_max = primary
+            unit_normalized = numeric_projection.get("normalized_unit")
+            if numeric_projection.get("normalization_status") == "normalized":
+                unit_status = "normalized" if unit_normalized else unit_status
+        if value_kind == "categorical":
+            if matched_entry.categorical_bucket_for(item.value_raw):
+                categorical_value = item.value_raw.strip()
+            else:
+                observations.append(FinalSpecializedPropertyObservation(
+                    specialized_id=specialized_id,
+                    property_name_raw=item.property_name_raw,
+                    source_field=matched_entry.source_field,
+                    semantic_label=matched_entry.key,
+                    variant=None,
+                    value_kind=value_kind,
+                    value_raw=item.value_raw,
+                    categorical_value=None,
+                    unit_raw=item.unit_raw,
+                    method_raw=item.method_raw,
+                    sample_id=item.sample_id,
+                    sample_resolution_status=item.sample_resolution_status,
+                    source_stage="stage5",
+                    evidence=evidence,
+                    evidence_ids=[],
+                    publication_status="unresolved",
+                    reason="categorical_value_out_of_range",
+                ))
+                continue
+        elif value_kind == "text":
+            text_value = item.value_raw.strip()
+        elif numeric_projection is None:
+            observations.append(FinalSpecializedPropertyObservation(
+                specialized_id=specialized_id,
+                property_name_raw=item.property_name_raw,
+                source_field=matched_entry.source_field,
+                semantic_label=matched_entry.key,
+                variant=None,
+                value_kind=value_kind,
+                value_raw=item.value_raw,
+                value_min=None,
+                value_max=None,
+                unit_raw=item.unit_raw,
+                unit_normalized=None,
+                unit_status=unit_status,
+                method_raw=item.method_raw,
+                sample_id=item.sample_id,
+                sample_resolution_status=item.sample_resolution_status,
+                source_stage="stage5",
+                evidence=evidence,
+                evidence_ids=[],
+                publication_status="unresolved",
+                reason="numeric_value_unparseable",
+            ))
+            continue
+
+        observations.append(FinalSpecializedPropertyObservation(
+            specialized_id=specialized_id,
+            property_name_raw=item.property_name_raw,
+            source_field=matched_entry.source_field,
+            semantic_label=matched_entry.key,
+            variant=None,
+            value_kind=value_kind,
+            value_raw=item.value_raw,
+            value_min=value_min,
+            value_max=value_max,
+            numeric_values=(numeric_projection.get("restored_values") or []) if numeric_projection else [],
+            categorical_value=categorical_value,
+            text_value=text_value,
+            unit_raw=item.unit_raw,
+            unit_normalized=unit_normalized,
+            unit_status=unit_status,
+            method_raw=item.method_raw,
+            sample_id=item.sample_id,
+            sample_resolution_status=item.sample_resolution_status,
+            source_stage="stage5",
+            evidence=evidence,
+            evidence_ids=[],
+            publication_status="published",
+            reason=None,
+        ))
+    return observations
+
+
+def _json_safe(value: Any) -> Any:
+    if isinstance(value, Decimal):
+        return str(value)
+    if isinstance(value, dict):
+        return {str(key): _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe(item) for item in value]
+    return value
+
+
+def _response_audit_payload(
+    client: Any,
+    response: LLMJSONResponse | None,
+) -> dict[str, Any] | None:
+    raw = getattr(client, "last_raw_response", None)
+    if raw is not None:
+        return _json_safe({
+            "provider": raw.provider,
+            "model": raw.model,
+            "finish_reason": raw.finish_reason,
+            "content": raw.content,
+            "usage": vars(raw.usage),
+            "cost": vars(raw.cost) if raw.cost is not None else None,
+        })
+    if response is None:
+        return None
+    parsed = response.parsed_json
+    return _json_safe({
+        "provider": response.provider,
+        "model": response.model,
+        "finish_reason": None,
+        "content": json.dumps(response.data, ensure_ascii=False),
+        "usage": vars(response.usage),
+        "cost": vars(response.cost) if response.cost is not None else None,
+        "parse_source": parsed.parse_source if parsed is not None else None,
+        "parse_warnings": list(parsed.warnings) if parsed is not None else [],
+        "prefix_text": parsed.prefix_text if parsed is not None else "",
+        "trailing_text": parsed.trailing_text if parsed is not None else "",
+    })
+
+
+def _materialize_shard_with_salvage(
+    parsed: CharacterizationStageResponse,
+    blocks: list[Stage0Element],
+    specialized_vocabulary: SpecializedVocabulary | None = None,
+) -> tuple[
+    list[Characterization],
+    list[Stage5PropertyObservation],
+    list[FinalSpecializedPropertyObservation],
+    list[dict[str, Any]],
+]:
+    materialized_characterizations: list[Characterization] = []
+    materialized_properties: list[Stage5PropertyObservation] = []
+    materialized_specialized: list[FinalSpecializedPropertyObservation] = []
+    rejected: list[dict[str, Any]] = []
+
+    for candidate in parsed.characterizations:
+        owned = [
+            item
+            for item in parsed.properties
+            if item.characterization_id == candidate.characterization_id
+        ]
+        try:
+            group = CharacterizationStageResponse(
+                characterizations=[candidate],
+                properties=owned,
+            )
+            group_characterizations, group_properties, _ = _materialize(
+                group, blocks
+            )
+        except (KeyError, ValidationError, ValueError) as group_error:
+            non_stage5_refs = [
+                item
+                for item in candidate.derived_property_ids
+                if not item.startswith("prop_s5_")
+            ]
+            base_candidate = candidate.model_copy(update={
+                "derived_property_ids": non_stage5_refs,
+            })
+            try:
+                base_group = CharacterizationStageResponse(
+                    characterizations=[base_candidate],
+                    properties=[],
+                )
+                group_characterizations, _, _s = _materialize(base_group, blocks)
+            except (KeyError, ValidationError, ValueError) as exc:
+                rejected.append({
+                    "collection": "characterizations",
+                    "object_id": candidate.characterization_id,
+                    "raw_candidate": candidate.model_dump(mode="json"),
+                    "dependent_properties": [item.model_dump(mode="json") for item in owned],
+                    "reason": _validation_feedback(exc),
+                    "group_reason": _validation_feedback(group_error),
+                })
+                continue
+            group_properties = []
+            for property_candidate in owned:
+                single_candidate = base_candidate.model_copy(update={
+                    "derived_property_ids": [
+                        *non_stage5_refs,
+                        property_candidate.property_id,
+                    ],
+                })
+                try:
+                    single_group = CharacterizationStageResponse(
+                        characterizations=[single_candidate],
+                        properties=[property_candidate],
+                    )
+                    _, single_properties, _ = _materialize(single_group, blocks)
+                    group_properties.extend(single_properties)
+                except (KeyError, ValidationError, ValueError) as exc:
+                    rejected.append({
+                        "collection": "properties",
+                        "object_id": property_candidate.property_id,
+                        "raw_candidate": property_candidate.model_dump(mode="json"),
+                        "reason": _validation_feedback(exc),
+                    })
+
+        new_characterization_id = (
+            f"char{len(materialized_characterizations) + 1:03d}"
+        )
+        property_id_map: dict[str, str] = {}
+        for item in group_properties:
+            new_property_id = f"prop_s5_{len(materialized_properties) + 1:03d}"
+            property_id_map[item.property_id] = new_property_id
+            materialized_properties.append(item.model_copy(update={
+                "property_id": new_property_id,
+                "characterization_id": new_characterization_id,
+            }))
+        materialized_characterizations.append(
+            group_characterizations[0].model_copy(update={
+                "characterization_id": new_characterization_id,
+                "derived_property_ids": [
+                    property_id_map.get(item, item)
+                    for item in group_characterizations[0].derived_property_ids
+                    if not item.startswith("prop_s5_") or item in property_id_map
+                ],
+            })
+        )
+    # A specialized candidate may cite a block outside this shard. Isolate that
+    # candidate with its evidence instead of losing the entire shard to KeyError.
+    block_map = {block.block_id: block for block in blocks}
+    for index, candidate in enumerate(parsed.specialized_property_observations, 1):
+        missing = sorted({ev.block_id for ev in candidate.evidence} - block_map.keys())
+        try:
+            if missing:
+                raise ValueError("evidence_outside_shard: " + ", ".join(missing))
+            if specialized_vocabulary is None:
+                raise ValueError("specialized_vocabulary_unavailable")
+            items = _materialize_specialized([candidate], block_map, specialized_vocabulary)
+            for item in items:
+                materialized_specialized.append(item.model_copy(update={
+                    "specialized_id": f"sp{len(materialized_specialized) + 1:03d}",
+                }))
+        except (KeyError, ValidationError, ValueError) as exc:
+            rejected.append({
+                "collection": "specialized_property_observations",
+                "object_id": f"specialized_candidate_{index:03d}",
+                "reason": _validation_feedback(exc),
+                "missing_block_ids": missing,
+                "raw_candidate": candidate.model_dump(mode="json"),
+            })
+    return (
+        materialized_characterizations,
+        materialized_properties,
+        materialized_specialized,
+        rejected,
+    )
+
+
+def _stage5_shard_cache_key(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    client: Any,
+    prompt: RenderedPrompt,
+    vocabulary_sha256: str,
+    shard: Stage5Shard,
+    *,
+    implementation_version: str = IMPLEMENTATION_VERSION,
+) -> str:
+    return _sha256_json({
+        "document_id": document.document_id,
+        "entities": entities.model_dump(mode="json"),
+        "process": process.model_dump(mode="json"),
+        "stage4": stage4.model_dump(mode="json"),
+        "shard_id": shard.shard_id,
+        "method_normalized": shard.method_normalized,
+        "blocks": [block.model_dump(mode="json") for block in shard.blocks],
+        "prompt_id": prompt.prompt_id,
+        "prompt_version": prompt.version,
+        "prompt_sha256": prompt.sha256,
+        "vocabulary_sha256": vocabulary_sha256,
+        "model_config": llm_config_cache_payload(client.resolved),
+        "implementation_version": implementation_version,
+    })
+
+
+def _cached_shard_result(
+    shard: Stage5Shard,
+    cached: dict[str, Any] | None,
+    cache_keys: set[str],
+) -> Stage5ShardResult | None:
+    if not isinstance(cached, dict) or cached.get("cache_key") not in cache_keys:
+        return None
+    if cached.get("status") not in {"complete", "candidate_partial"}:
+        return None
+    output = cached.get("result")
+    if not isinstance(output, dict):
+        return None
+    try:
+        characterizations = [
+            Characterization.model_validate(item)
+            for item in output.get("characterizations") or []
+        ]
+        properties = [
+            Stage5PropertyObservation.model_validate(item)
+            for item in output.get("properties") or []
+        ]
+        specialized = [
+            FinalSpecializedPropertyObservation.model_validate(item)
+            for item in output.get("specialized_property_observations") or []
+        ]
+    except (ValidationError, ValueError, TypeError):
+        return None
+    warnings = list(cached.get("warnings") or [])
+    status = str(cached["status"])
+    if any(
+        isinstance(item, dict)
+        and item.get("code") == "preview_shard_semantic_validation_bypassed"
+        for item in warnings
+    ):
+        status = "candidate_partial"
+    audit = copy.deepcopy(cached)
+    audit["status"] = status
+    if audit.get("attempts"):
+        audit["attempts"][-1]["status"] = status
+    audit["cache_hit"] = True
+    return Stage5ShardResult(
+        shard=shard,
+        status=status,
+        characterizations=characterizations,
+        properties=properties,
+        specialized_observations=specialized,
+        warnings=warnings,
+        audit=audit,
+        model=str(cached.get("model") or "") or None,
+    )
+
+
+def _cached_shard_replay_client(
+    client: Any,
+    cached: dict[str, Any] | None,
+    cache_keys: set[str],
+    *,
+    allow_legacy_without_cache_key: bool = False,
+    allow_cache_key_mismatch: bool = False,
+) -> _ShardReplayClient | None:
+    if not isinstance(cached, dict):
+        return None
+    cache_key_matches = cached.get("cache_key") in cache_keys
+    if not cache_key_matches and not allow_cache_key_mismatch and not (
+        allow_legacy_without_cache_key and "cache_key" not in cached
+    ):
+        return None
+    attempts = cached.get("attempts")
+    if not isinstance(attempts, list) or not attempts:
+        return None
+    raw = attempts[-1].get("raw_response")
+    if not isinstance(raw, dict) or not isinstance(raw.get("content"), str):
+        return None
+    try:
+        parsed = parse_json_response(raw["content"])
+    except LLMRequestError:
+        return None
+    usage_data = raw.get("usage") if isinstance(raw.get("usage"), dict) else {}
+    usage = LLMTokenUsage(
+        input_tokens=int(usage_data.get("input_tokens") or 0),
+        output_tokens=int(usage_data.get("output_tokens") or 0),
+        cache_creation_input_tokens=int(
+            usage_data.get("cache_creation_input_tokens") or 0
+        ),
+        cache_read_input_tokens=int(
+            usage_data.get("cache_read_input_tokens") or 0
+        ),
+    )
+    provider = str(raw.get("provider") or client.resolved.provider)
+    model = str(raw.get("model") or client.resolved.model)
+    response = LLMJSONResponse(
+        data=parsed.data,
+        provider=provider,
+        model=model,
+        usage=usage,
+        parsed_json=parsed,
+    )
+    raw_response = LLMRawResponse(
+        provider=provider,
+        model=model,
+        finish_reason=(
+            str(raw["finish_reason"])
+            if raw.get("finish_reason") is not None
+            else None
+        ),
+        content=raw["content"],
+        usage=usage,
+        cost=None,
+    )
+    return _ShardReplayClient(client.resolved, response, raw_response)
+
+
+def _legacy_shard_entry_matches(
+    shard: Stage5Shard,
+    cached: dict[str, Any] | None,
+) -> bool:
+    if not isinstance(cached, dict) or "cache_key" in cached:
+        return False
+    return (
+        cached.get("shard_id") == shard.shard_id
+        and cached.get("method_normalized") == shard.method_normalized
+        and cached.get("block_ids")
+        == [block.block_id for block in shard.blocks]
+        and cached.get("context_chars") == shard.context_chars
+        and bool(cached.get("oversize")) == shard.oversize
+    )
+
+
+def extract_shard(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    client: Any,
+    prompt: RenderedPrompt,
+    methods: MethodVocabulary,
+    vocabulary: Stage5PropertyVocabulary,
+    shard: Stage5Shard,
+    *,
+    max_validation_retries: int,
+    max_tokens: int,
+    specialized_vocabulary: SpecializedVocabulary | None = None,
+) -> Stage5ShardResult:
+    started_at = time.time()
+    started_clock = time.perf_counter()
+    shard_methods = {shard.method_normalized: methods.get(shard.method_normalized, ())}
+    shard_vocabulary = {
+        name: entry
+        for name, entry in vocabulary.items()
+        if shard.method_normalized in entry[1]
+    }
+    audit: dict[str, Any] = {
+        "shard_id": shard.shard_id,
+        "method_normalized": shard.method_normalized,
+        "block_ids": [block.block_id for block in shard.blocks],
+        "context_chars": shard.context_chars,
+        "oversize": shard.oversize,
+        "started_at": started_at,
+        "attempts": [],
+    }
+    feedback: str | None = None
+    warnings: list[dict[str, Any]] = []
+    last_error: Exception | None = None
+
+    for attempt in range(max_validation_retries + 1):
+        response: LLMJSONResponse | None = None
+        previous_raw = getattr(client, "last_raw_response", None)
+        attempt_audit: dict[str, Any] = {"attempt": attempt + 1}
+        try:
+            response = client.call_json(
+                prompt.text,
+                _user_message(
+                    document.document_id,
+                    entities,
+                    process,
+                    stage4,
+                    list(shard.blocks),
+                    shard_methods,
+                    shard_vocabulary,
+                    feedback,
+                ),
+                max_tokens=max_tokens,
+            )
+            unscoped_preview_candidates = _collect_unscoped_preview_candidates(
+                response.data
+            )
+            if unscoped_preview_candidates:
+                attempt_audit["preview_unscoped_candidates"] = (
+                    unscoped_preview_candidates
+                )
+            repaired, repair_warnings = _repair_candidate_response_payload(
+                response.data,
+                stage4,
+                process,
+                list(shard.blocks),
+                shard_methods,
+                preview_relaxed=True,
+            )
+            warnings.extend(repair_warnings)
+            rejected: list[dict[str, Any]] = []
+            semantic_bypass_reason: str | None = None
+            try:
+                parsed = _validate_response(
+                    LLMJSONResponse(
+                        data=repaired,
+                        provider=response.provider,
+                        model=response.model,
+                        usage=response.usage,
+                        cost=response.cost,
+                    ),
+                    entities,
+                    process,
+                    stage4,
+                    list(shard.blocks),
+                    shard_methods,
+                    shard_vocabulary,
+                    preview_scope_warnings=[],
+                )
+            except ValidationError:
+                salvaged, rejected = _salvage_candidate_response_payload(repaired)
+                try:
+                    parsed = _validate_response(
+                        LLMJSONResponse(
+                            data=salvaged,
+                            provider=response.provider,
+                            model=response.model,
+                            usage=response.usage,
+                            cost=response.cost,
+                        ),
+                        entities,
+                        process,
+                        stage4,
+                        list(shard.blocks),
+                        shard_methods,
+                        shard_vocabulary,
+                        preview_scope_warnings=[],
+                    )
+                except ValueError as exc:
+                    parsed = CharacterizationStageResponse.model_validate(salvaged)
+                    semantic_bypass_reason = _validation_feedback(exc)
+            except ValueError as exc:
+                parsed = CharacterizationStageResponse.model_validate(repaired)
+                semantic_bypass_reason = _validation_feedback(exc)
+
+            characterizations, properties, shard_specialized, materialize_rejected = (
+                _materialize_shard_with_salvage(
+                    parsed,
+                    list(shard.blocks),
+                    specialized_vocabulary=specialized_vocabulary,
+                )
+            )
+            rejected.extend(materialize_rejected)
+            if semantic_bypass_reason is not None:
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_shard_semantic_validation_bypassed",
+                    "message": "分片候选通过 Schema，但语义校验需人工复核",
+                    "shard_id": shard.shard_id,
+                    "reason": semantic_bypass_reason,
+                })
+            if rejected:
+                warnings.append({
+                    "stage": STAGE_ID,
+                    "code": "preview_shard_objects_rejected",
+                    "message": "分片内非法对象已隔离，合法对象继续保留",
+                    "shard_id": shard.shard_id,
+                    "items": rejected,
+                })
+            is_partial = bool(rejected or semantic_bypass_reason)
+            attempt_audit.update({
+                "status": "candidate_partial" if is_partial else "complete",
+                "raw_response": _response_audit_payload(client, response),
+                "rejected_objects": rejected,
+                "characterization_count": len(characterizations),
+                "property_count": len(properties),
+                "rejected_count": len(rejected),
+            })
+            audit["attempts"].append(attempt_audit)
+            status = "candidate_partial" if is_partial else "complete"
+            audit["status"] = status
+            audit["ended_at"] = time.time()
+            audit["duration_seconds"] = round(
+                time.perf_counter() - started_clock,
+                3,
+            )
+            return Stage5ShardResult(
+                shard=shard,
+                status=status,
+                characterizations=characterizations,
+                properties=properties,
+                specialized_observations=shard_specialized,
+                warnings=warnings,
+                audit=audit,
+                model=response.model,
+            )
+        except (LLMRequestError, ValidationError, ValueError) as exc:
+            last_error = exc
+            feedback = _validation_feedback(exc)
+            current_raw = getattr(client, "last_raw_response", None)
+            attempt_audit.update({
+                "status": "failed",
+                "error_type": type(exc).__name__,
+                "error": feedback,
+                "raw_response": (
+                    _response_audit_payload(client, response)
+                    if current_raw is not previous_raw or response is not None
+                    else None
+                ),
+            })
+            audit["attempts"].append(attempt_audit)
+            if attempt >= max_validation_retries:
+                break
+
+    audit["status"] = "failed"
+    audit["error"] = _validation_feedback(last_error or ValueError("empty"))
+    audit["ended_at"] = time.time()
+    audit["duration_seconds"] = round(
+        time.perf_counter() - started_clock,
+        3,
+    )
+    return Stage5ShardResult(
+        shard=shard,
+        status="failed",
+        characterizations=[],
+        properties=[],
+        specialized_observations=[],
+        warnings=warnings,
+        audit=audit,
+        model=(
+            getattr(getattr(client, "last_raw_response", None), "model", None)
+        ),
+    )
+
+
+def _collect_unscoped_preview_candidates(
+    payload: Any,
+) -> list[dict[str, Any]]:
+    """在正式物化前保存无法关联主体的原始 Stage 5 候选。
+
+    这是 Preview 审计数据，不参与 Stage5Document 校验或发布；只复制原始
+    characterization 及其派生 properties，并保留两者的 evidence 锚点。
+    """
+
+    if not isinstance(payload, dict):
+        return []
+    characterizations = payload.get("characterizations")
+    if not isinstance(characterizations, list):
+        return []
+    properties = payload.get("properties")
+    property_items = properties if isinstance(properties, list) else []
+    candidates: list[dict[str, Any]] = []
+    for index, item in enumerate(characterizations):
+        if not isinstance(item, dict):
+            continue
+        if item.get("sample_resolution_status") != "unresolved":
+            continue
+        if any(
+            item.get(field) is not None
+            for field in ("sample_id", "entity_id", "sample_ids", "entity_ids")
+        ):
+            continue
+        characterization_id = item.get("characterization_id")
+        linked_properties = [
+            copy.deepcopy(property_item)
+            for property_item in property_items
+            if isinstance(property_item, dict)
+            and property_item.get("characterization_id") == characterization_id
+        ]
+        evidence: list[dict[str, Any]] = []
+        for source in [item, *linked_properties]:
+            source_evidence = source.get("evidence")
+            if not isinstance(source_evidence, list):
+                continue
+            for evidence_item in source_evidence:
+                if not isinstance(evidence_item, dict):
+                    continue
+                marker = json.dumps(
+                    evidence_item,
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    default=str,
+                )
+                if any(
+                    json.dumps(
+                        existing,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                        default=str,
+                    ) == marker
+                    for existing in evidence
+                ):
+                    continue
+                evidence.append(copy.deepcopy(evidence_item))
+        candidate_suffix = (
+            str(characterization_id)
+            if isinstance(characterization_id, str) and characterization_id
+            else f"index_{index + 1:03d}"
+        )
+        candidates.append({
+            "candidate_id": f"stage5_raw_{candidate_suffix}",
+            "candidate_type": "characterization",
+            "characterization_id": characterization_id,
+            "sample_resolution_status": "unresolved",
+            "publication_status": "candidate_only",
+            "reason": "subject_unresolved",
+            "raw_object": {
+                "characterization": copy.deepcopy(item),
+                "properties": linked_properties,
+            },
+            "evidence": evidence,
+        })
+    return candidates
+
+
+def _characterization_merge_key(item: Characterization) -> tuple[Any, ...]:
+    return (
+        item.method_normalized,
+        item.sample_id,
+        item.entity_id,
+        tuple(item.sample_ids or []),
+        tuple(item.entity_ids or []),
+        item.series_id,
+        tuple(item.series_ids or []),
+        tuple((ev.block_id, ev.source_sentence) for ev in item.evidence),
+    )
+
+
+def _property_merge_key(item: Stage5PropertyObservation) -> tuple[Any, ...]:
+    return (
+        item.sample_id,
+        item.entity_id,
+        tuple(item.sample_ids or []),
+        tuple(item.entity_ids or []),
+        item.property_name_normalized,
+        item.value_raw,
+        item.unit_normalized or item.unit_raw,
+        tuple((ev.block_id, ev.source_sentence) for ev in item.evidence),
+    )
+
+
+def merge_shards(
+    results: list[Stage5ShardResult],
+) -> tuple[
+    list[Characterization],
+    list[Stage5PropertyObservation],
+    list[FinalSpecializedPropertyObservation],
+]:
+    characterizations: list[Characterization] = []
+    properties: list[Stage5PropertyObservation] = []
+    specialized: list[FinalSpecializedPropertyObservation] = []
+    characterization_index: dict[tuple[Any, ...], int] = {}
+    property_keys: set[tuple[Any, ...]] = set()
+
+    for result in results:
+        properties_by_owner: dict[str, list[Stage5PropertyObservation]] = {}
+        for item in result.properties:
+            properties_by_owner.setdefault(item.characterization_id, []).append(item)
+        for item in result.characterizations:
+            key = _characterization_merge_key(item)
+            existing_index = characterization_index.get(key)
+            if existing_index is None:
+                new_id = f"char{len(characterizations) + 1:03d}"
+                non_stage5_refs = [
+                    ref
+                    for ref in item.derived_property_ids
+                    if not ref.startswith("prop_s5_")
+                ]
+                characterizations.append(item.model_copy(update={
+                    "characterization_id": new_id,
+                    "derived_property_ids": non_stage5_refs,
+                }))
+                existing_index = len(characterizations) - 1
+                characterization_index[key] = existing_index
+            owner = characterizations[existing_index]
+            new_property_ids: list[str] = []
+            for property_item in properties_by_owner.get(
+                item.characterization_id, []
+            ):
+                property_key = _property_merge_key(property_item)
+                if property_key in property_keys:
+                    continue
+                property_keys.add(property_key)
+                new_property_id = f"prop_s5_{len(properties) + 1:03d}"
+                properties.append(property_item.model_copy(update={
+                    "property_id": new_property_id,
+                    "characterization_id": owner.characterization_id,
+                }))
+                new_property_ids.append(new_property_id)
+            if new_property_ids:
+                characterizations[existing_index] = owner.model_copy(update={
+                    "derived_property_ids": list(dict.fromkeys([
+                        *owner.derived_property_ids,
+                        *new_property_ids,
+                    ])),
+                })
+        # Specialized observations are not per-characterization; collect from all shards
+        for item in result.specialized_observations:
+            new_id = f"sp{len(specialized) + 1:03d}"
+            specialized.append(item.model_copy(update={"specialized_id": new_id}))
+    return characterizations, properties, specialized
+
+
+def _cache_components(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    prompt: RenderedPrompt,
+    vocabulary_sha256: str,
+    client: LLMClient,
+    *,
+    implementation_version: str = IMPLEMENTATION_VERSION,
+    preview_relaxed: bool = False,
+    sharded: bool = False,
+    shard_target_chars: int = 18000,
+    shard_max_chars: int = 30000,
+) -> tuple[str, str, str]:
+    input_hash = _sha256_json({
+        "stage0": document.model_dump(mode="json"),
+        "stage2": entities.model_dump(mode="json"),
+        "stage3": process.model_dump(mode="json"),
+        "stage4": stage4.model_dump(mode="json"),
+    })
+    model_config_hash = _sha256_json(
+        llm_config_cache_payload(client.resolved)
+    )
+    cache_key = _sha256_json({
+        "input_hash": input_hash,
+        "prompt_id": prompt.prompt_id,
+        "prompt_version": prompt.version,
+        "rendered_prompt_hash": prompt.sha256,
+        "vocabulary_sha256": vocabulary_sha256,
+        "model_config_hash": model_config_hash,
+        "output_schema_version": OUTPUT_SCHEMA_VERSION,
+        "implementation_version": implementation_version,
+        "preview_relaxed": preview_relaxed,
+        "sharded": sharded,
+        "shard_target_chars": shard_target_chars if sharded else None,
+        "shard_max_chars": shard_max_chars if sharded else None,
+    })
+    return input_hash, model_config_hash, cache_key
+
+
+def extract_characterizations(
+    document: Stage0Document,
+    entities: Stage2Document,
+    process: Stage3Document,
+    stage4: Stage4Document,
+    client: LLMClient,
+    prompt: RenderedPrompt,
+    methods: MethodVocabulary,
+    vocabulary: Stage5PropertyVocabulary,
+    vocabulary_sha256: str,
+    *,
+    input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
+    max_input_chars: int = 120000,
+    max_validation_retries: int = 1,
+    max_tokens: int = 16384,
+    preview_relaxed: bool = False,
+    sharded: bool = False,
+    shard_target_chars: int = 18000,
+    shard_max_chars: int = 30000,
+    shard_workers: int = 1,
+    diagnostic_sink: dict[str, Any] | None = None,
+    preview_audit_sink: dict[str, Any] | None = None,
+    shard_cache: dict[str, dict[str, Any]] | None = None,
+    diagnostic_writer: Callable[[dict[str, Any]], None] | None = None,
+    allow_legacy_shard_replay: bool = False,
+    replay_shard_responses: bool = False,
+) -> Stage5Document:
+    if shard_workers < 1:
+        raise ValueError("shard_workers 必须大于 0")
+    if replay_shard_responses and not sharded:
+        raise ValueError("Offline shard replay requires sharded mode")
+    history_start = len(getattr(client, "call_history", []))
+    preview_audit_candidates: list[dict[str, Any]] = []
+    preview_audit_keys: set[str] = set()
+    preview_audit_seen_count = 0
+
+    def collect_preview_audit_candidates(
+        candidates: Any,
+        *,
+        source: Mapping[str, Any] | None = None,
+    ) -> None:
+        nonlocal preview_audit_seen_count
+        if not preview_relaxed or not isinstance(candidates, list):
+            return
+        for candidate in candidates:
+            if not isinstance(candidate, dict):
+                continue
+            preview_audit_seen_count += 1
+            candidate = copy.deepcopy(candidate)
+            if source:
+                candidate["source"] = {
+                    str(key): value for key, value in source.items()
+                }
+            key = json.dumps(
+                candidate.get("raw_object"),
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            )
+            if key in preview_audit_keys:
+                continue
+            preview_audit_keys.add(key)
+            preview_audit_candidates.append(candidate)
+
+    if preview_audit_sink is not None:
+        preview_audit_sink.update({
+            "schema_version": "stage5_preview_audit.v0.1",
+            "document_id": document.document_id,
+            "source_stage": STAGE_ID,
+            "candidates": [],
+        })
+    if not (
+        document.document_id
+        == entities.document_id
+        == process.document_id
+        == stage4.document_id
+    ):
+        raise Stage5Error(
+            "Stage 0、Stage 2、Stage 3 与 Stage 4 document_id 不一致"
+        )
+    blocks, warnings, context_chars = select_context_blocks(
+        document,
+        entities,
+        process,
+        stage4,
+        input_sections=input_sections,
+        max_input_chars=max_input_chars,
+        allow_oversize=sharded,
+    )
+    if sharded:
+        shards, unrouted_block_ids = plan_shards(
+            blocks,
+            methods,
+            target_chars=shard_target_chars,
+            max_chars=shard_max_chars,
+        )
+        results: list[Stage5ShardResult] = []
+        parallel_shards = (
+            shard_workers > 1
+            and len(shards) > 1
+            and bool(entities.polymer_entities)
+            and type(client) is LLMClient
+        )
+        if diagnostic_sink is not None:
+            diagnostic_sink.update({
+                "schema_version": "stage5_shards.v0.2",
+                "document_id": document.document_id,
+                "status": "running",
+                "shard_count": len(shards),
+                "unrouted_block_ids": unrouted_block_ids,
+                "shards": [],
+                "parallelism": {
+                    "requested_workers": shard_workers,
+                    "effective_workers": (
+                        min(shard_workers, len(shards))
+                        if parallel_shards
+                        else 1
+                    ),
+                    "enabled": parallel_shards,
+                    "fallback_reason": (
+                        None
+                        if parallel_shards
+                        else (
+                            "custom_or_replay_client"
+                            if shard_workers > 1 and type(client) is not LLMClient
+                            else "single_shard_or_one_worker"
+                        )
+                    ),
+                },
+            })
+            if diagnostic_writer is not None:
+                diagnostic_writer(diagnostic_sink)
+
+        def process_shard(shard: Stage5Shard) -> Stage5ShardResult:
+            shard_client = (
+                _parallel_shard_client(client)
+                if parallel_shards
+                else client
+            )
+            shard_key = _stage5_shard_cache_key(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    shard_client,
+                    prompt,
+                    vocabulary_sha256,
+                    shard,
+            )
+            compatible_shard_keys = {
+                _stage5_shard_cache_key(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    shard_client,
+                    prompt,
+                    vocabulary_sha256,
+                    shard,
+                    implementation_version=compatible_version,
+                )
+                for compatible_version
+                in COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS
+            }
+            cache_keys = {shard_key, *compatible_shard_keys}
+            cached_entry = (shard_cache or {}).get(shard.shard_id)
+            result = None if replay_shard_responses else _cached_shard_result(
+                shard,
+                cached_entry,
+                cache_keys,
+            )
+            if result is None:
+                replay_client = _cached_shard_replay_client(
+                    shard_client,
+                    cached_entry,
+                    cache_keys,
+                    allow_legacy_without_cache_key=(
+                        allow_legacy_shard_replay
+                        and _legacy_shard_entry_matches(shard, cached_entry)
+                    ),
+                    allow_cache_key_mismatch=(replay_shard_responses
+                        and isinstance(cached_entry, dict)
+                        and cached_entry.get("block_ids") == [b.block_id for b in shard.blocks]
+                        and cached_entry.get("method_normalized") == shard.method_normalized),
+                )
+                if replay_shard_responses and replay_client is None:
+                    warning = {"stage": STAGE_ID, "code": "offline_shard_response_unavailable",
+                        "shard_id": shard.shard_id,
+                        "message": "No matching saved response; offline mode made no model call"}
+                    return Stage5ShardResult(shard=shard, status="not_executed_no_saved_response",
+                        characterizations=[], properties=[], specialized_observations=[], warnings=[warning],
+                        audit={"shard_id": shard.shard_id, "method_normalized": shard.method_normalized,
+                            "block_ids": [b.block_id for b in shard.blocks], "status": "not_executed_no_saved_response",
+                            "cache_key": shard_key, "raw_replayed": False, "attempts": [], "warnings": [warning]})
+                result = extract_shard(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    replay_client or shard_client,
+                    prompt,
+                    methods,
+                    vocabulary,
+                    shard,
+                    max_validation_retries=(
+                        0
+                        if replay_client is not None
+                        else max_validation_retries
+                    ),
+                    max_tokens=max_tokens,
+                    specialized_vocabulary=get_specialized_vocabulary(),
+                )
+                if replay_client is not None:
+                    result.warnings.append({
+                        "stage": STAGE_ID,
+                        "code": "stage5_shard_response_replayed",
+                        "message": "已使用旧分片 raw response 离线重放当前校验",
+                        "shard_id": shard.shard_id,
+                    })
+                result.audit.update({
+                    "cache_key": shard_key,
+                    "cache_hit": replay_client is not None,
+                    "raw_replayed": replay_client is not None,
+                    "model": result.model,
+                    "warnings": result.warnings,
+                    "result": {
+                        "characterizations": [
+                            item.model_dump(mode="json", exclude_none=True)
+                            for item in result.characterizations
+                        ],
+                        "properties": [
+                            item.model_dump(mode="json", exclude_none=True)
+                            for item in result.properties
+                        ],
+                        "specialized_property_observations": [
+                            item.model_dump(mode="json", exclude_none=True)
+                            for item in result.specialized_observations
+                        ],
+                    },
+                })
+            else:
+                result.audit["cache_key"] = shard_key
+            return result
+
+        if entities.polymer_entities:
+            if parallel_shards:
+                with concurrent.futures.ThreadPoolExecutor(
+                    max_workers=min(shard_workers, len(shards))
+                ) as executor:
+                    futures = [
+                        executor.submit(process_shard, shard)
+                        for shard in shards
+                    ]
+                    # 按计划顺序消费 future，保证 merge、ID 和审计顺序稳定。
+                    for future in futures:
+                        result = future.result()
+                        results.append(result)
+                        if diagnostic_sink is not None:
+                            diagnostic_sink["shards"].append(result.audit)
+                            if diagnostic_writer is not None:
+                                diagnostic_writer(diagnostic_sink)
+            else:
+                for shard in shards:
+                    result = process_shard(shard)
+                    results.append(result)
+                    if diagnostic_sink is not None:
+                        diagnostic_sink["shards"].append(result.audit)
+                        if diagnostic_writer is not None:
+                            diagnostic_writer(diagnostic_sink)
+        characterizations, properties, specialized = merge_shards(results)
+        for result in results:
+            warnings.extend(result.warnings)
+            for attempt in result.audit.get("attempts") or []:
+                if isinstance(attempt, dict):
+                    candidates = attempt.get("preview_unscoped_candidates")
+                    if not isinstance(candidates, list):
+                        raw_response = attempt.get("raw_response")
+                        content = (
+                            raw_response.get("content")
+                            if isinstance(raw_response, dict)
+                            else None
+                        )
+                        if isinstance(content, str):
+                            try:
+                                candidates = _collect_unscoped_preview_candidates(
+                                    parse_json_response(content).data
+                                )
+                            except (LLMRequestError, TypeError, ValueError):
+                                candidates = []
+                    collect_preview_audit_candidates(
+                        candidates,
+                        source={
+                            "scope": "shard_attempt",
+                            "shard_id": result.shard.shard_id,
+                            "attempt": attempt.get("attempt"),
+                        },
+                    )
+        if preview_audit_sink is not None:
+            preview_audit_sink["candidates"] = preview_audit_candidates
+            preview_audit_sink["candidate_count"] = len(
+                preview_audit_candidates
+            )
+            preview_audit_sink["raw_candidate_count"] = preview_audit_seen_count
+        partial_shards = [
+            result.shard.shard_id
+            for result in results
+            if result.status != "complete"
+        ]
+        if not shards:
+            status = "complete_no_evidence"
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_no_eligible_evidence",
+                "message": "未识别到受控表征方法证据，未调用模型",
+            })
+        elif partial_shards:
+            status = "candidate_partial"
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_shards_partial",
+                "message": "部分 Stage 5 分片失败或含被隔离对象",
+                "blocking": True,
+                "shard_ids": partial_shards,
+            })
+        else:
+            status = "success"
+        actual_models = list(dict.fromkeys(
+            result.model for result in results if result.model
+        ))
+        if not actual_models:
+            actual_models = [client.resolved.model]
+        call_count = max(
+            0,
+            len(getattr(client, "call_history", [])) - history_start,
+        )
+        usage, cost = summarize_client_calls(
+            client,
+            history_start,
+            call_count=call_count,
+        )
+        input_hash, model_config_hash, cache_key = _cache_components(
+            document,
+            entities,
+            process,
+            stage4,
+            prompt,
+            vocabulary_sha256,
+            client,
+            preview_relaxed=preview_relaxed,
+            sharded=True,
+            shard_target_chars=shard_target_chars,
+            shard_max_chars=shard_max_chars,
+        )
+        if diagnostic_sink is not None:
+            diagnostic_sink["status"] = status
+            if diagnostic_writer is not None:
+                diagnostic_writer(diagnostic_sink)
+        characterizations, properties, specialized = _inherit_output_entities(characterizations, properties, specialized, entities, process)
+        return Stage5Document(
+            document_id=document.document_id,
+            characterizations=characterizations,
+            properties=properties,
+            specialized_property_observations=specialized,
+            provenance=Stage5Provenance(
+                provider=client.resolved.provider,
+                model=actual_models[-1],
+                models=actual_models,
+                prompt_id=prompt.prompt_id,
+                prompt_version=prompt.version,
+                prompt_sha256=prompt.sha256,
+                vocabulary_sha256=vocabulary_sha256,
+                input_hash=input_hash,
+                model_config_hash=model_config_hash,
+                cache_key=cache_key,
+                output_schema_version=OUTPUT_SCHEMA_VERSION,
+                implementation_version=IMPLEMENTATION_VERSION,
+                context_block_count=len(blocks),
+                context_chars=context_chars,
+                call_count=call_count,
+                usage=usage,
+                cost=cost,
+                status=status,
+            ),
+            warnings=warnings,
+        )
+    actual_models: list[str] = []
+    successful_repair_warnings: list[dict[str, Any]] = []
+    preview_scope_warnings: list[dict[str, Any]] = []
+    preview_semantic_bypass_reason: str | None = None
+    preview_degraded_reason: str | None = None
+
+    if blocks:
+        feedback = None
+        last_error: Exception | None = None
+        parsed: CharacterizationStageResponse | None = None
+        for attempt in range(max_validation_retries + 1):
+            try:
+                response = client.call_json(
+                    prompt.text,
+                    _user_message(
+                        document.document_id,
+                        entities,
+                        process,
+                        stage4,
+                        blocks,
+                        methods,
+                        vocabulary,
+                        feedback,
+                    ),
+                    max_tokens=max_tokens,
+                )
+                # A received response consumed a request even if local validation fails.
+                actual_models.append(response.model)
+                collect_preview_audit_candidates(
+                    _collect_unscoped_preview_candidates(response.data),
+                    source={
+                        "scope": "document_attempt",
+                        "attempt": attempt + 1,
+                    },
+                )
+                repaired_payload, repair_warnings = (
+                    _repair_candidate_response_payload(
+                        response.data,
+                        stage4,
+                        process,
+                        blocks,
+                        methods,
+                        preview_relaxed=preview_relaxed,
+                    )
+                )
+                try:
+                    parsed = _validate_response(
+                        LLMJSONResponse(
+                            data=repaired_payload,
+                            provider=response.provider,
+                            model=response.model,
+                            usage=response.usage,
+                            cost=response.cost,
+                        ),
+                        entities,
+                        process,
+                        stage4,
+                        blocks,
+                        methods,
+                        vocabulary,
+                        preview_scope_warnings=(
+                            preview_scope_warnings
+                            if preview_relaxed
+                            else None
+                        ),
+                    )
+                except ValueError as exc:
+                    if not preview_relaxed:
+                        raise
+                    # Preview 只要求响应结构可用；原文/evidence 语义失败时
+                    # 保留已通过 Schema 的候选，Strict 继续负责完整合规。
+                    try:
+                        parsed = CharacterizationStageResponse.model_validate(repaired_payload)
+                        rejected = []
+                    except ValidationError:
+                        salvaged_payload, rejected = _salvage_candidate_response_payload(repaired_payload)
+                        parsed = CharacterizationStageResponse.model_validate(salvaged_payload)
+                    if rejected:
+                        repair_warnings.append({"stage": STAGE_ID, "code": "stage5_schema_objects_rejected",
+                            "message": "按单条候选隔离结构错误，保留其余结果", "blocking": True,
+                            "items": rejected})
+                        if not (parsed.characterizations or parsed.properties or parsed.specialized_property_observations):
+                            preview_degraded_reason = _validation_feedback(exc)
+                    preview_semantic_bypass_reason = _validation_feedback(exc)
+                successful_repair_warnings = repair_warnings
+                last_error = None
+                break
+            except (LLMRequestError, ValidationError, ValueError) as exc:
+                last_error = exc
+                feedback = _validation_feedback(exc)
+                if attempt >= max_validation_retries:
+                    break
+        if last_error is not None or parsed is None:
+            failure_reason = _validation_feedback(
+                last_error or ValueError("empty")
+            )
+            if preview_relaxed:
+                parsed = CharacterizationStageResponse()
+                preview_degraded_reason = failure_reason
+            else:
+                raise Stage5Error(
+                    f"{document.document_id} 响应校验失败：{failure_reason}"
+                ) from last_error
+    else:
+        parsed = CharacterizationStageResponse()
+
+    warnings.extend(successful_repair_warnings)
+    unscoped_specialized = [item.specialized_id for item in parsed.specialized_property_observations
+                           if item.sample_id is None and item.entity_id is None]
+    if unscoped_specialized:
+        warnings.append({"stage": STAGE_ID, "code": "unresolved_specialized_identity",
+                         "message": "专门性质材料身份未解析，保留原名、值和证据，不猜测身份",
+                         "specialized_ids": unscoped_specialized})
+    if preview_scope_warnings:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_property_subject_subscope_retained",
+            "message": (
+                "Preview 模式已保留多主体 Characterization 下的明确单主体性质；"
+                "需在正式数据中复核"
+            ),
+            "items": preview_scope_warnings,
+        })
+    if isinstance(client, _FailureReplayClient):
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "failure_response_replayed",
+            "message": "已离线回放保存的 Stage 5 响应，未请求模型",
+            "source": client.failure_path.name,
+        })
+    try:
+        spvocab = get_specialized_vocabulary()
+        characterizations, properties, specialized = _materialize(
+            parsed, blocks, specialized_vocabulary=spvocab
+        )
+    except (KeyError, ValidationError, ValueError) as exc:
+        # A single candidate may cite evidence from another context block.
+        # Salvage each characterization/property/specialized object before
+        # treating the whole response as failed.  This keeps strict runs
+        # fail-closed for an entirely unusable response while preventing one
+        # dangling evidence reference from discarding valid neighbors.
+        salvaged = _materialize_shard_with_salvage(
+            parsed, list(blocks), specialized_vocabulary=spvocab
+        )
+        characterizations, properties, specialized, rejected = salvaged
+        if rejected and (characterizations or properties or specialized):
+            warnings.append({
+                "stage": STAGE_ID,
+                "code": "stage5_objects_rejected",
+                "message": "单个 Stage 5 候选物化失败，已隔离并保留其余候选",
+                "blocking": True,
+                "items": rejected,
+                "original_error": _validation_feedback(exc),
+            })
+        elif not (characterizations or properties or specialized):
+            if not preview_relaxed:
+                raise Stage5Error(
+                    f"{document.document_id} 响应物化失败：{_validation_feedback(exc)}"
+                ) from exc
+            parsed = CharacterizationStageResponse()
+            characterizations, properties, specialized = _materialize(
+                parsed, blocks, specialized_vocabulary=spvocab
+            )
+            preview_degraded_reason = (
+                "结构化候选无法安全物化：" + _validation_feedback(exc)
+            )
+    if preview_semantic_bypass_reason is not None:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_semantic_validation_bypassed",
+            "message": (
+                "Preview 已保留 Schema 合法候选，并跳过原文/evidence "
+                "语义对应校验；Strict 模式仍会报错"
+            ),
+            "reason": preview_semantic_bypass_reason,
+        })
+    if preview_degraded_reason is not None:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "preview_degraded_empty_shell",
+            "message": (
+                "模型响应无法安全结构化，Preview 已生成 degraded 空壳结果"
+            ),
+            "degraded": True,
+            "blocking": True,
+            "reason": preview_degraded_reason,
+        })
+    unresolved_characterizations = [
+        item.characterization_id
+        for item in characterizations
+        if item.sample_resolution_status == "unresolved"
+    ]
+    if unresolved_characterizations:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "unresolved_characterizations",
+            "message": (
+                f"{len(unresolved_characterizations)} 条表征无法可靠关联具体 Sample"
+            ),
+            "characterization_ids": unresolved_characterizations,
+        })
+    unresolved_properties = [
+        item.property_id
+        for item in properties
+        if item.sample_resolution_status == "unresolved"
+    ]
+    if unresolved_properties:
+        warnings.append({
+            "stage": STAGE_ID,
+            "code": "unresolved_stage5_properties",
+            "message": (
+                f"{len(unresolved_properties)} 条 Stage 5 性质无法可靠关联具体 Sample"
+            ),
+            "property_ids": unresolved_properties,
+        })
+    if preview_audit_sink is not None:
+        preview_audit_sink["candidates"] = preview_audit_candidates
+        preview_audit_sink["candidate_count"] = len(preview_audit_candidates)
+        preview_audit_sink["raw_candidate_count"] = preview_audit_seen_count
+
+    input_hash, model_config_hash, cache_key = _cache_components(
+        document,
+        entities,
+        process,
+        stage4,
+        prompt,
+        vocabulary_sha256,
+        client,
+        preview_relaxed=preview_relaxed,
+        sharded=False,
+    )
+    unique_models = list(dict.fromkeys(actual_models))
+    if not unique_models:
+        unique_models = [client.resolved.model]
+    usage, cost = summarize_client_calls(
+        client,
+        history_start,
+        call_count=len(actual_models),
+    )
+    provenance = Stage5Provenance(
+        provider=client.resolved.provider,
+        model=unique_models[-1],
+        models=unique_models,
+        prompt_id=prompt.prompt_id,
+        prompt_version=prompt.version,
+        prompt_sha256=prompt.sha256,
+        vocabulary_sha256=vocabulary_sha256,
+        input_hash=input_hash,
+        model_config_hash=model_config_hash,
+        cache_key=cache_key,
+        output_schema_version=OUTPUT_SCHEMA_VERSION,
+        implementation_version=IMPLEMENTATION_VERSION,
+        context_block_count=len(blocks),
+        context_chars=context_chars,
+        call_count=len(actual_models),
+        usage=usage,
+        cost=cost,
+        status="candidate_partial" if preview_degraded_reason or preview_semantic_bypass_reason
+            or any(w.get("blocking") for w in warnings) else "success",
+    )
+    characterizations, properties, specialized = _inherit_output_entities(characterizations, properties, specialized, entities, process)
+    return Stage5Document(
+        document_id=document.document_id,
+        characterizations=characterizations,
+        properties=properties,
+        specialized_property_observations=specialized,
+        provenance=provenance,
+        warnings=warnings,
+    )
+
+
+def _inherit_output_entities(characterizations, properties, specialized, entities, process):
+    from stages.subject_lineage import inherit_entity_ids
+    groups = {"characterizations": characterizations, "properties": properties,
+              "specialized_property_observations": specialized}
+    payload = inherit_entity_ids({key: [item.model_dump(mode="json") for item in items] for key, items in groups.items()},
+                                 entities.model_dump(mode="json"), process.model_dump(mode="json"))
+    return tuple([type(item).model_validate(row) for item, row in zip(items, payload[key])] for key, items in groups.items())
+
+
+def _upgrade_cached_subjects(cached, output_path, entities, process):
+    chars, props, specialized = _inherit_output_entities(cached.characterizations, cached.properties, cached.specialized_property_observations, entities, process)
+    updated = cached.model_copy(update={"characterizations": chars, "properties": props, "specialized_property_observations": specialized})
+    if updated != cached:
+        updated.warnings = [*updated.warnings, {"code": "entity_ids_materialized_from_stage3", "message": "Existing sample references enriched with explicit entity IDs"}]
+        write_json_atomic(output_path, updated.model_dump(mode="json", exclude_none=True))
+
+
+def run_stage5(
+    stage0_path: Path,
+    stage2_path: Path,
+    stage3_path: Path,
+    stage4_path: Path,
+    output_path: Path,
+    client: LLMClient,
+    prompt: RenderedPrompt,
+    methods: MethodVocabulary,
+    vocabulary: Stage5PropertyVocabulary,
+    vocabulary_sha256: str,
+    *,
+    force: bool = False,
+    input_sections: tuple[str, ...] = DEFAULT_INPUT_SECTIONS,
+    max_input_chars: int = 120000,
+    max_validation_retries: int = 1,
+    max_tokens: int = 16384,
+    preview_relaxed: bool = False,
+    sharded: bool = False,
+    shard_target_chars: int = 18000,
+    shard_max_chars: int = 30000,
+    shard_workers: int = 1,
+    diagnostics_path: Path | None = None,
+    replay_shards: bool = False,
+) -> tuple[Path, bool]:
+    document = load_stage0_document(stage0_path)
+    entities = load_stage2_document(stage2_path)
+    process = load_stage3_document(stage3_path)
+    stage4 = load_stage4_document(stage4_path)
+    _, _, expected_cache_key = _cache_components(
+        document,
+        entities,
+        process,
+        stage4,
+        prompt,
+        vocabulary_sha256,
+        client,
+        preview_relaxed=preview_relaxed,
+        sharded=sharded,
+        shard_target_chars=shard_target_chars,
+        shard_max_chars=shard_max_chars,
+    )
+    resolved_diagnostics_path = diagnostics_path or output_path.with_name(
+        "stage5_shards.json"
+    )
+    preview_audit_path = output_path.with_name("stage5_preview_audit.json")
+    legacy_shard_output_validated = False
+    if output_path.is_file() and not force and not replay_shards:
+        try:
+            cached = Stage5Document.model_validate_json(
+                output_path.read_text(encoding="utf-8-sig")
+            )
+            if (
+                cached.provenance.cache_key == expected_cache_key
+                and cached.provenance.status != "candidate_partial"
+                and (not sharded or resolved_diagnostics_path.is_file())
+                and (not preview_relaxed or preview_audit_path.is_file())
+            ):
+                _upgrade_cached_subjects(cached, output_path, entities, process)
+                return output_path, True
+            for compatible_version in COMPATIBLE_CACHE_IMPLEMENTATION_VERSIONS:
+                _, _, compatible_cache_key = _cache_components(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    prompt,
+                    vocabulary_sha256,
+                    client,
+                    implementation_version=compatible_version,
+                    preview_relaxed=preview_relaxed,
+                    sharded=sharded,
+                    shard_target_chars=shard_target_chars,
+                    shard_max_chars=shard_max_chars,
+                )
+                if (
+                    cached.provenance.implementation_version
+                    == compatible_version
+                    and cached.provenance.cache_key == compatible_cache_key
+                    and cached.provenance.status != "candidate_partial"
+                    and (not sharded or resolved_diagnostics_path.is_file())
+                    and (not preview_relaxed or preview_audit_path.is_file())
+                ):
+                    _upgrade_cached_subjects(cached, output_path, entities, process)
+                    return output_path, True
+            if sharded and cached.provenance.implementation_version == "1.8.0":
+                _, _, legacy_cache_key = _cache_components(
+                    document,
+                    entities,
+                    process,
+                    stage4,
+                    prompt,
+                    vocabulary_sha256,
+                    client,
+                    implementation_version="1.8.0",
+                    preview_relaxed=preview_relaxed,
+                    sharded=True,
+                    shard_target_chars=shard_target_chars,
+                    shard_max_chars=shard_max_chars,
+                )
+                legacy_shard_output_validated = (
+                    cached.provenance.cache_key == legacy_cache_key
+                    and cached.provenance.status
+                    in {"success", "candidate_partial"}
+                    and (not preview_relaxed or preview_audit_path.is_file())
+                )
+        except (OSError, ValidationError):
+            pass
+
+    diagnostics: dict[str, Any] = {}
+    preview_audit: dict[str, Any] = {}
+    existing_shard_cache: dict[str, dict[str, Any]] = {}
+    allow_legacy_shard_replay = False
+    if sharded and resolved_diagnostics_path.is_file() and (not force or replay_shards):
+        try:
+            existing_diagnostics = json.loads(
+                resolved_diagnostics_path.read_text(encoding="utf-8-sig")
+            )
+            if isinstance(existing_diagnostics, dict):
+                allow_legacy_shard_replay = (
+                    legacy_shard_output_validated
+                    and existing_diagnostics.get("schema_version")
+                    == "stage5_shards.v0.1"
+                    and existing_diagnostics.get("document_id")
+                    == document.document_id
+                )
+                if replay_shards and existing_diagnostics.get("document_id") == document.document_id:
+                    allow_legacy_shard_replay = True
+                existing_shard_cache = {
+                    str(item["shard_id"]): item
+                    for item in existing_diagnostics.get("shards") or []
+                    if isinstance(item, dict)
+                    and isinstance(item.get("shard_id"), str)
+                }
+        except (OSError, json.JSONDecodeError, TypeError):
+            existing_shard_cache = {}
+
+    def write_diagnostics(payload: dict[str, Any]) -> None:
+        write_json_atomic(resolved_diagnostics_path, payload)
+
+    result = extract_characterizations(
+        document,
+        entities,
+        process,
+        stage4,
+        client,
+        prompt,
+        methods,
+        vocabulary,
+        vocabulary_sha256,
+        input_sections=input_sections,
+        max_input_chars=max_input_chars,
+        max_validation_retries=max_validation_retries,
+        max_tokens=max_tokens,
+        preview_relaxed=preview_relaxed,
+        sharded=sharded,
+        shard_target_chars=shard_target_chars,
+        shard_max_chars=shard_max_chars,
+        shard_workers=shard_workers,
+        diagnostic_sink=diagnostics,
+        preview_audit_sink=preview_audit if preview_relaxed else None,
+        shard_cache=existing_shard_cache,
+        diagnostic_writer=write_diagnostics if sharded else None,
+        allow_legacy_shard_replay=allow_legacy_shard_replay,
+        replay_shard_responses=replay_shards,
+    )
+    write_json_atomic(
+        output_path,
+        result.model_dump(mode="json", exclude_none=True),
+    )
+    if preview_relaxed:
+        candidates = preview_audit.get("candidates") or []
+        write_json_atomic(
+            preview_audit_path,
+            {
+                "schema_version": "stage5_preview_audit.v0.1",
+                "document_id": document.document_id,
+                "source_stage": STAGE_ID,
+                "publication_status": "candidate_only",
+                "candidate_count": len(candidates),
+                "candidates": candidates,
+                "accounting": {
+                    "raw_unscoped_candidates": int(
+                        preview_audit.get("raw_candidate_count") or len(candidates)
+                    ),
+                    "preserved": len(candidates),
+                    "duplicate_candidates_collapsed": max(
+                        0,
+                        int(
+                            preview_audit.get("raw_candidate_count")
+                            or len(candidates)
+                        ) - len(candidates),
+                    ),
+                },
+            },
+        )
+    return output_path, False
+
+
+def _stage_config(config: dict[str, Any]) -> dict[str, Any]:
+    stages = config.get("stages") or {}
+    stage = stages.get(STAGE_ID) or {}
+    if not isinstance(stage, dict):
+        raise Stage5Error(f"配置 {STAGE_ID} 必须是对象")
+    return stage
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="执行 Stage 5 表征抽取")
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--ref-no")
+    mode.add_argument("--batch", action="store_true")
+    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH)
+    parser.add_argument("--input-root", type=Path)
+    parser.add_argument("--output-root", type=Path)
+    parser.add_argument("--vocabulary", type=Path)
+    parser.add_argument("--max-input-chars", type=int)
+    parser.add_argument(
+        "--sharded",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="按表征方法分片；默认仅 Preview 按配置启用",
+    )
+    parser.add_argument(
+        "--shard-workers",
+        type=int,
+        help="Stage 5 分片并发数；默认 1，需结合 LLM 限流显式启用",
+    )
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument(
+        "--preview-relaxed",
+        action="store_true",
+        help="演示模式：确定性归一化可保留的主体范围结果",
+    )
+    parser.add_argument(
+        "--replay-failure",
+        action="store_true",
+        help="离线回放现有 stage5_failure.json，不请求模型",
+    )
+    parser.add_argument(
+        "--replay-shards",
+        action="store_true",
+        help="离线回放现有 stage5_shards.json 的 raw response，并重新执行当前校验",
+    )
+    return parser
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+    config_path = args.config.expanduser().resolve()
+    config = load_pipeline_config(config_path)
+    stage_config = _stage_config(config)
+    paths = config.get("paths") or {}
+    output_root = (
+        args.output_root.expanduser().resolve()
+        if args.output_root
+        else Path(paths.get("output_dir") or EXTRACTION_ROOT / "output").resolve()
+    )
+    input_root = (
+        args.input_root.expanduser().resolve()
+        if args.input_root
+        else output_root
+    )
+    vocabulary_path = (
+        args.vocabulary.expanduser().resolve()
+        if args.vocabulary
+        else _resolve_vocabulary_path(
+            stage_config.get("vocabulary_path") or DEFAULT_VOCABULARY_PATH,
+            config_path=config_path,
+        )
+    )
+    methods, vocabulary, vocabulary_sha256 = (
+        load_characterization_vocabulary(vocabulary_path)
+    )
+    prompt_id = str(
+        stage_config.get("prompt_id") or "polymer.stage5.characterization"
+    )
+    prompt = PromptLoader().render_stage_prompt(
+        prompt_id,
+        CharacterizationStageResponse,
+        expected_stage=STAGE_ID,
+        expected_output_schema=OUTPUT_SCHEMA_VERSION,
+    )
+    if args.replay_failure and not args.ref_no:
+        raise Stage5Error("--replay-failure 必须与单篇 --ref-no 配合使用")
+    if args.replay_shards and args.replay_failure:
+        raise Stage5Error("--replay-shards 不能与 --replay-failure 同时使用")
+    client = (
+        _failure_replay_client(
+            input_root / args.ref_no / "stage5_failure.json",
+            config,
+        )
+        if args.replay_failure
+        else LLMClient.from_pipeline_config(
+            stage=STAGE_ID,
+            config_path=config_path,
+        )
+    )
+    input_sections = tuple(
+        stage_config.get("input_sections") or DEFAULT_INPUT_SECTIONS
+    )
+    max_input_chars = int(
+        args.max_input_chars
+        or stage_config.get("max_input_chars")
+        or 90000
+    )
+    max_validation_retries = (
+        0
+        if args.replay_failure
+        else int(stage_config.get("max_validation_retries", 1))
+    )
+    max_tokens = int(stage_config.get("max_tokens") or 16384)
+    sharded = (
+        bool(args.sharded)
+        if args.sharded is not None
+        else bool(
+            args.preview_relaxed
+            and stage_config.get("sharded_preview", False)
+        )
+    )
+    if args.replay_failure:
+        sharded = False
+    shard_target_chars = int(
+        stage_config.get("shard_target_chars") or 18000
+    )
+    shard_max_chars = int(stage_config.get("shard_max_chars") or 30000)
+    shard_workers = int(stage_config.get("shard_workers") or 1)
+    if args.shard_workers is not None:
+        shard_workers = args.shard_workers
+    if shard_workers < 1:
+        raise Stage5Error("shard_workers 必须大于 0")
+    shard_max_tokens = int(stage_config.get("shard_max_tokens") or 12000)
+
+    if args.ref_no:
+        ref_nos = [args.ref_no]
+    else:
+        ref_nos = sorted(
+            path.parent.name
+            for path in input_root.glob("reference_no_*/stage4_properties.json")
+        )
+    if not ref_nos:
+        raise Stage5Error(f"未找到 Stage 4 输出：{input_root}")
+
+    failures: list[tuple[str, str]] = []
+    for ref_no in ref_nos:
+        history_start = len(client.call_history)
+        try:
+            output_path, cached = run_stage5(
+                input_root / ref_no / "stage0_blocks.json",
+                input_root / ref_no / "stage2_entities.json",
+                input_root / ref_no / "stage3_process.json",
+                input_root / ref_no / "stage4_properties.json",
+                output_root / ref_no / "stage5_characterizations.json",
+                client,
+                prompt,
+                methods,
+                vocabulary,
+                vocabulary_sha256,
+                force=args.force,
+                input_sections=input_sections,
+                max_input_chars=max_input_chars,
+                max_validation_retries=max_validation_retries,
+                max_tokens=shard_max_tokens if sharded else max_tokens,
+                preview_relaxed=args.preview_relaxed,
+                sharded=sharded,
+                shard_target_chars=shard_target_chars,
+                shard_max_chars=shard_max_chars,
+                shard_workers=shard_workers,
+                diagnostics_path=(
+                    output_root / ref_no / "stage5_shards.json"
+                ),
+                replay_shards=args.replay_shards,
+            )
+            state = "cached" if cached else "done"
+            print(f"[{state}] {ref_no} -> {output_path}")
+        except Exception as exc:
+            if not args.replay_failure:
+                write_json_atomic(
+                    output_root / ref_no / "stage5_failure.json",
+                    llm_failure_artifact(
+                        client,
+                        stage=STAGE_ID,
+                        document_id=ref_no,
+                        error=exc,
+                        history_start=history_start,
+                    ),
+                )
+            failures.append((ref_no, type(exc).__name__))
+            print(f"[failed] {ref_no}: {exc}", file=sys.stderr)
+    print(f"Stage 5 完成：成功 {len(ref_nos) - len(failures)}，失败 {len(failures)}")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,769 @@
+{
+  "schema_version": "gt_exclusions.v1",
+  "created": "2026-08-31",
+  "purpose": "抽取流程范围修正版；在原图读数清单基础上排除派生值、表外记录和非 PDF xlsx 数据",
+  "exclusions": [
+    {
+      "doc_id": "reference_no_0037921",
+      "row_id": "223",
+      "reason": "image_reading",
+      "source_locator": "Figure 5"
+    },
+    {
+      "doc_id": "reference_no_0037921",
+      "row_id": "224",
+      "reason": "image_reading",
+      "source_locator": "Figure 5"
+    },
+    {
+      "doc_id": "reference_no_0037921",
+      "row_id": "225",
+      "reason": "image_reading",
+      "source_locator": "Figure 5"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "342",
+      "reason": "image_reading",
+      "source_locator": "Figure 3"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "352",
+      "reason": "image_reading",
+      "source_locator": "Figure 3"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "360",
+      "reason": "image_reading",
+      "source_locator": "Figure 3"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "366",
+      "reason": "image_reading",
+      "source_locator": "Figure 3"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "477",
+      "reason": "image_reading",
+      "source_locator": "Figure 3"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "461",
+      "reason": "image_reading",
+      "source_locator": "Figure 3"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "502",
+      "reason": "image_reading",
+      "source_locator": "DSC curve"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "512",
+      "reason": "image_reading",
+      "source_locator": "DSC curve"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "519",
+      "reason": "image_reading",
+      "source_locator": "DSC curve"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "421",
+      "reason": "derived_value",
+      "source_locator": "kJ/mol table converted to kcal/mol"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "440",
+      "reason": "derived_value",
+      "source_locator": "kJ/mol table converted to kcal/mol"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "449",
+      "reason": "derived_value",
+      "source_locator": "kJ/mol table converted to kcal/mol"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "470",
+      "reason": "derived_value",
+      "source_locator": "kJ/mol table converted to kcal/mol"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "343",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "344",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "346",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "348",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "350",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "355",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "357",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "361",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "364",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "367",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "369",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "371",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "373",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "375",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "377",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "381",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "383",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "385",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "387",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "389",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "391",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "393",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "397",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "401",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "405",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "408",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "410",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "412",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "414",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "418",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "424",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "426",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "428",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "430",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "432",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "434",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "436",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "438",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "444",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "446",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "451",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "453",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "456",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "458",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "465",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "467",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "471",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042246",
+      "row_id": "473",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_3_62/text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "486",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "487",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "488",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "490",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "491",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "492",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "493",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "494",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "496",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "497",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "498",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "499",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "500",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "501",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "503",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "504",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "505",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "506",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "507",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "508",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "509",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "510",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "511",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "513",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0042367",
+      "row_id": "514",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "not present in Stage0 Table T_7_98 or text"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "564",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "566",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "568",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "570",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "572",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "574",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "576",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "578",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "580",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "582",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "584",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "586",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "588",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "590",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "592",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0043590",
+      "row_id": "594",
+      "reason": "not_in_extraction_scope",
+      "source_locator": "origin=xlsx; outside PDF extraction flow"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "654",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 10"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "657",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 9"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "665",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 9"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "668",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 9"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "676",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 9"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "679",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 9"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "680",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 10"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "686",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 10"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "688",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 9"
+    },
+    {
+      "doc_id": "reference_no_0101911",
+      "row_id": "692",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Taken from the fig. 10"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "596",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "597",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "598",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "599",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "600",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "601",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "602",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "603",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "604",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.11"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "605",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo correlation: Water contact angle (Fig.12 series)"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "606",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo remark: Water contact angle, taken from the Fig.12"
+    },
+    {
+      "doc_id": "reference_no_0043955",
+      "row_id": "607",
+      "reason": "image_reading",
+      "source_locator": "PolyInfo correlation: Water contact angle (Fig.12 series)"
+    }
+  ]
+}

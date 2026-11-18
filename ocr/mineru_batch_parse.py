@@ -20,6 +20,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 DEFAULT_INPUT_DIR = PROJECT_ROOT / "polyinfo数据" / "sample_exprot_34"
 TERMINAL_STATES = {"done", "failed"}
+FILES_PER_MINUTE = 50
+RATE_WINDOW_SECONDS = 60.0
 
 
 def load_env_file(env_path: Path) -> None:
@@ -82,9 +84,10 @@ def normalize_ref_no(value: str) -> str:
     """将文献编号、PDF 文件名统一为 reference_no_XXXXXXX。"""
     ref_no = Path(value.strip()).stem
     if ref_no.endswith("_document"):
-        ref_no = ref_no.removesuffix("_document")
-    suffix = ref_no.removeprefix("reference_no_")
-    if not ref_no.startswith("reference_no_") or not suffix.isdigit():
+        ref_no = ref_no[: -len("_document")]
+    prefix = "reference_no_"
+    suffix = ref_no[len(prefix):] if ref_no.startswith(prefix) else ref_no
+    if not ref_no.startswith(prefix) or not suffix.isdigit():
         raise ValueError(f"无效文献编号：{value!r}")
     return ref_no
 
@@ -319,6 +322,10 @@ def download_results(
     return done_count, failed_count
 
 
+def iter_chunks(items: list[Path], size: int) -> list[list[Path]]:
+    return [items[start : start + size] for start in range(0, len(items), size)]
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="批量上传本地 PDF 到 MinerU，并下载解析结果。")
     parser.add_argument("--input-dir", type=Path, default=DEFAULT_INPUT_DIR)
@@ -341,6 +348,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--no-extract", action="store_true", help="只下载 ZIP，不解压")
     parser.add_argument("--poll-interval", type=float, default=15.0)
     parser.add_argument("--timeout-minutes", type=float, default=120.0)
+    parser.add_argument(
+        "--files-per-minute",
+        type=int,
+        default=FILES_PER_MINUTE,
+        help="每 60 秒最多提交的文件数（MinerU 限制为 50，默认 50）",
+    )
     return parser
 
 def main() -> int:
@@ -364,11 +377,21 @@ def main() -> int:
         "Content-Type": "application/json",
     })
 
+    done_count = failed_count = 0
     if args.batch_id:
         batch_id = args.batch_id
         expected_count = None
         print(f"继续查询已有批次：{batch_id}")
+        results = poll_batch(
+            session, batch_id, output_dir, args.poll_interval,
+            args.timeout_minutes, expected_count
+        )
+        done_count, failed_count = download_results(
+            session, results, output_dir, extract_zip=not args.no_extract
+        )
     else:
+        if not 1 <= args.files_per_minute <= FILES_PER_MINUTE:
+            raise ValueError(f"files-per-minute 必须在 1 到 {FILES_PER_MINUTE} 之间")
         pdf_files = select_pdfs(
             input_dir,
             ref_nos=args.ref_no,
@@ -376,27 +399,32 @@ def main() -> int:
             max_documents=args.max_documents,
         )
         print(f"发现 {len(pdf_files)} 个 PDF：{input_dir}")
-        batch_id, upload_urls = apply_upload_urls(session, pdf_files, args)
-        expected_count = len(pdf_files)
-        write_json(
-            output_dir / f"batch_{batch_id}_manifest.json",
-            build_manifest(batch_id, input_dir, pdf_files, args),
-        )
-        print(f"已创建批次：{batch_id}")
-        upload_files(session, pdf_files, upload_urls)
-        print("全部文件已上传，MinerU 将自动提交解析任务。")
-
-    results = poll_batch(
-        session,
-        batch_id,
-        output_dir,
-        args.poll_interval,
-        args.timeout_minutes,
-        expected_count,
-    )
-    done_count, failed_count = download_results(
-        session, results, output_dir, extract_zip=not args.no_extract
-    )
+        chunks = iter_chunks(pdf_files, args.files_per_minute)
+        window_started = None
+        for chunk_index, chunk in enumerate(chunks, start=1):
+            if window_started is not None:
+                elapsed = time.monotonic() - window_started
+                if elapsed < RATE_WINDOW_SECONDS:
+                    wait_seconds = RATE_WINDOW_SECONDS - elapsed
+                    print(f"达到每分钟提交上限，等待 {wait_seconds:.1f} 秒后继续。")
+                    time.sleep(wait_seconds)
+            window_started = time.monotonic()
+            batch_id, upload_urls = apply_upload_urls(session, chunk, args)
+            write_json(
+                output_dir / f"batch_{batch_id}_manifest.json",
+                build_manifest(batch_id, input_dir, chunk, args),
+            )
+            print(f"已创建批次 {chunk_index}/{len(chunks)}：{batch_id}")
+            upload_files(session, chunk, upload_urls)
+            results = poll_batch(
+                session, batch_id, output_dir, args.poll_interval,
+                args.timeout_minutes, len(chunk)
+            )
+            done, failed = download_results(
+                session, results, output_dir, extract_zip=not args.no_extract
+            )
+            done_count += done
+            failed_count += failed
     print(f"完成：成功下载 {done_count} 个，失败 {failed_count} 个。")
     print(f"本地结果目录：{output_dir}")
     return 1 if failed_count else 0

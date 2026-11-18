@@ -1,0 +1,777 @@
+{
+ "version": "iupac-rule-coverage/2.0",
+ "generated_at": "2026-09-16",
+ "scope": "RSSOP 2002 单链规律聚合物 22 条编号规则 + Brief Guide 关系限定词；不是整本 Purple Book 或全部有机命名",
+ "ladder": {
+  "L0": "登记（官方定位与边界）",
+  "L1": "可判定检查（前置条件+reason_code，不产出名称）",
+  "L2": "有界候选生成（候选名称或路径决策）",
+  "L3": "一致性档案（逐规则判定齐全）",
+  "L4": "独立审核（外部，禁止自证）"
+ },
+ "official_documents": {
+  "brief-guide-2012": {
+   "title": "Brief Guide to Polymer Nomenclature",
+   "url": "https://iupac.qmul.ac.uk/BriefGuide/polymer.html",
+   "verified_at": "2026-09-16",
+   "evidence": "runs/IUPAC-COV-P0-20260916T033448Z/external/brief-guide.html"
+  },
+  "rssop-1-3": {
+   "title": "RSSOP 2002 Introduction, Glossary and Fundamental Principles",
+   "url": "https://iupac.qmul.ac.uk/rssop/ss01t03.html",
+   "verified_at": "2026-09-16",
+   "evidence": "runs/IUPAC-COV-P0-20260916T033448Z/external/ss01t03.html"
+  },
+  "rssop-4": {
+   "title": "RSSOP 2002 Seniority of Subunits (Rules 1–10)",
+   "url": "https://iupac.qmul.ac.uk/rssop/ss04.html",
+   "verified_at": "2026-09-16",
+   "evidence": "runs/IUPAC-COV-P0-20260916T033448Z/external/ss04.html"
+  },
+  "rssop-5": {
+   "title": "RSSOP 2002 Selection of the Preferred CRU (Rules 11–17)",
+   "url": "https://iupac.qmul.ac.uk/rssop/ss05.html",
+   "verified_at": "2026-09-16",
+   "evidence": "runs/IUPAC-COV-P0-20260916T033448Z/external/ss05.html"
+  },
+  "rssop-6-8": {
+   "title": "RSSOP 2002 Naming the CRU and the Polymer (Rules 18–22)",
+   "url": "https://iupac.qmul.ac.uk/rssop/ss06t08.html",
+   "verified_at": "2026-09-16",
+   "evidence": "runs/IUPAC-COV-P0-20260916T033448Z/external/ss06t08.html"
+  }
+ },
+ "supersedes": {
+  "registry": "data/iupac_rule_inventory.json",
+  "version": "rule-inventory/1.0",
+  "checked_at": "2026-09-13",
+  "sha256": "9de48ebf3e3e6c4f6863bb177b4c991bd2359b22f358169522240811e6304588",
+  "v1_level_counts": {
+   "PARTIAL": 6,
+   "NOT_IMPLEMENTED": 16
+  },
+  "differences_documented_in": "differences_vs_v1"
+ },
+ "level_counts": {
+  "L0": 13,
+  "L1": 4,
+  "L2": 5
+ },
+ "rules": [
+  {
+   "number": 1,
+   "title": "骨架子单元类别顺序",
+   "section": "4",
+   "official_document": "rssop-4",
+   "official_locator": "§4 Seniority of Subunits (Rule 1)",
+   "level": "L1",
+   "implementation": "CLASSIFY_ONLY",
+   "entry_points": [
+    "polymer/chemical_rule_checks.py:seniority_class"
+   ],
+   "rule_cards": [
+    "PI-SENIORITY-001"
+   ],
+   "tests": [
+    "tests/test_ab_chemical_capability.py"
+   ],
+   "boundary": "仅按两端口骨架构型判定类别，不做全部并列决胜",
+   "next_action": "登记正反例；补全 §4.1–§4.4 的类别判定",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 2,
+   "title": "杂环之间的优先选择",
+   "section": "4.1",
+   "official_document": "rssop-4",
+   "official_locator": "§4.1 Heterocyclic rings and ring systems (Rules 2, 3)",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "需要环系优先比较，尚无父体词表",
+   "next_action": "先做环系优先级检查（可判定、不产出名称）",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 3,
+   "title": "相同杂环体系的进一步选择",
+   "section": "4.1",
+   "official_document": "rssop-4",
+   "official_locator": "§4.1 Heterocyclic rings and ring systems (Rules 2, 3)",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "同环系内进一步选择未实现",
+   "next_action": "与 Rule 2 同批",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 4,
+   "title": "杂原子顺序",
+   "section": "4.2",
+   "official_document": "rssop-4",
+   "official_locator": "§4.2 Heteroatom chains (Rules 4–7), Rule 4",
+   "level": "L1",
+   "implementation": "PARTIAL",
+   "entry_points": [
+    "polymer/chemical_rule_checks.py:seniority_class"
+   ],
+   "rule_cards": [
+    "PI-SENIORITY-001",
+    "PI-PATH13-001"
+   ],
+   "tests": [],
+   "boundary": "杂原子顺序表仅覆盖 O/S/Se/Te/N/P/As/Sb/Bi/Si/Ge/Sn/Pb/B/Hg；不含取代度决胜",
+   "next_action": "补 Rule 5 取代度前置条件",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 5,
+   "title": "单杂原子的取代程度",
+   "section": "4.2",
+   "official_document": "rssop-4",
+   "official_locator": "§4.2 Heteroatom chains, Rule 5",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "单杂原子取代程度未实现",
+   "next_action": "与 Rule 4 同批",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 6,
+   "title": "单杂原子取代基排序",
+   "section": "4.2",
+   "official_document": "rssop-4",
+   "official_locator": "§4.2 Heteroatom chains, Rule 6",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "单杂原子取代基排序",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 7,
+   "title": "杂原子链内的进一步选择",
+   "section": "4.2",
+   "official_document": "rssop-4",
+   "official_locator": "§4.2 Heteroatom chains, Rule 7",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "杂原子链内进一步选择",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 8,
+   "title": "碳环体系之间的选择",
+   "section": "4.3",
+   "official_document": "rssop-4",
+   "official_locator": "§4.3 Carbocyclic rings and ring systems (Rules 8, 9)",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "碳环体系之间选择",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 9,
+   "title": "相同碳环体系的进一步选择",
+   "section": "4.3",
+   "official_document": "rssop-4",
+   "official_locator": "§4.3 Carbocyclic rings and ring systems (Rules 8, 9)",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "同碳环体系进一步选择",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 10,
+   "title": "等长无环碳链的选择",
+   "section": "4.4",
+   "official_document": "rssop-4",
+   "official_locator": "§4.4 Acyclic carbon chains (Rule 10)",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "等长无环碳链选择",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 11,
+   "title": "简单单元的连接位次",
+   "section": "5.1",
+   "official_document": "rssop-5",
+   "official_locator": "§5.1 Simple CRUs (Rules 11, 12)",
+   "level": "L1",
+   "implementation": "BOUNDED_LOCANT_DECISION_STEPS_3_4",
+   "entry_points": [
+    "polymer/cru_locant_selection.py:locant_selection"
+   ],
+   "rule_cards": [
+    "PI-CRU-SELECTION-001"
+   ],
+   "tests": [
+    "tests/test_iupac_cru_locant_selection.py"
+   ],
+   "boundary": "§5.1 步骤 3（自由价最低位次）与步骤 4（取代基最低位次）有界实现",
+   "next_action": "把方向决定接入命名装配后再评估 L2",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 12,
+   "title": "固定环编号与连接位置",
+   "section": "5.1",
+   "official_document": "rssop-5",
+   "official_locator": "§5.1 Simple CRUs (Rules 11, 12)",
+   "level": "L1",
+   "implementation": "BOUNDED_LOCANT_DECISION_STEPS_3_4",
+   "entry_points": [
+    "polymer/cru_locant_selection.py:locant_selection"
+   ],
+   "rule_cards": [
+    "PI-CRU-SELECTION-001"
+   ],
+   "tests": [
+    "tests/test_iupac_cru_locant_selection.py"
+   ],
+   "boundary": "§5.1 固定环编号方向的有界实现（单环、环杂原子不超过两个）",
+   "next_action": "环系统编号扩展（稠环/多杂原子）另行登记",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 13,
+   "title": "最高与次高子单元间路径",
+   "section": "5.2",
+   "official_document": "rssop-5",
+   "official_locator": "§5.2 Complex CRUs (Rules 13–17), Rule 13",
+   "level": "L2",
+   "implementation": "BOUNDED_RULE13_PROFILE",
+   "entry_points": [
+    "polymer/backbone_direction.py:direction_evidence"
+   ],
+   "rule_cards": [
+    "PI-PATH13-001"
+   ],
+   "tests": [
+    "tests/test_b_direction_profile.py",
+    "tests/test_b_direction_integration.py"
+   ],
+   "boundary": "仅饱和无支链、两个不同孤立 O/S/N 子单元；等长路径不解析；不是通用优选 CRU 证明",
+   "next_action": "扩展 Rule 13 子类，保持等长路径为 UNKNOWN",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 14,
+   "title": "等路径的次级选择",
+   "section": "5.2",
+   "official_document": "rssop-5",
+   "official_locator": "§5.2 Complex CRUs, Rule 14",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "backbone_direction 明确不处理等路径",
+   "next_action": "等路径次级选择",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 15,
+   "title": "两个相同最高子单元",
+   "section": "5.2",
+   "official_document": "rssop-5",
+   "official_locator": "§5.2 Complex CRUs, Rule 15",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "两个相同最高子单元",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 16,
+   "title": "多个相同最高子单元",
+   "section": "5.2",
+   "official_document": "rssop-5",
+   "official_locator": "§5.2 Complex CRUs, Rule 16",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "多个相同最高子单元",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 17,
+   "title": "自由价数的最终选择",
+   "section": "5.2",
+   "official_document": "rssop-5",
+   "official_locator": "§5.2 Complex CRUs, Rule 17",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "自由价数最终选择",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 18,
+   "title": "子单元与取代基命名",
+   "section": "6.1",
+   "official_document": "rssop-6-8",
+   "official_locator": "§6.1 Naming subunits (Rule 18)",
+   "level": "L2",
+   "implementation": "BOUNDED_ORGANIC_NAMING_SUBSET",
+   "entry_points": [
+    "polymer/graph_naming_v09.py:name_unit",
+    "polymer/naming.py:name_from_unit",
+    "polymer/family_rules.py:extended_systematic"
+   ],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "有界有机命名子集；未覆盖家族保持 OUT_OF_SCOPE，不猜名",
+   "next_action": "按 CU 失败桶扩展（抽样 11/40 为完整分解失败）",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 19,
+   "title": "按次序组合单元名称",
+   "section": "6.2",
+   "official_document": "rssop-6-8",
+   "official_locator": "§6.2 Naming the preferred CRU (Rule 19)",
+   "level": "L2",
+   "implementation": "BOUNDED_UNIT_NAME_ASSEMBLY",
+   "entry_points": [
+    "polymer/naming.py:name_from_unit"
+   ],
+   "rule_cards": [
+    "PI-PATH13-001"
+   ],
+   "tests": [],
+   "boundary": "组合名称生成有界；组合前置判定（Rule 19 条件）不完整",
+   "next_action": "补 Rule 19 前置判定",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 20,
+   "title": "聚合物前缀与括号",
+   "section": "7",
+   "official_document": "rssop-6-8",
+   "official_locator": "§7 Naming the Polymer (Rules 20, 21)",
+   "level": "L2",
+   "implementation": "BOUNDED_PREFIX_AND_BRACKETS",
+   "entry_points": [
+    "polymer/graph_naming_v09.py:name_unit"
+   ],
+   "rule_cards": [
+    "PI-BRACKET-001"
+   ],
+   "tests": [
+    "tests/test_v09_graph_naming_and_migration.py"
+   ],
+   "boundary": "括号/前缀输出有界；嵌套括号检查为工程校验，不等同官方条款认证",
+   "next_action": "登记括号正反例",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 21,
+   "title": "端基与方向",
+   "section": "7",
+   "official_document": "rssop-6-8",
+   "official_locator": "§7 Naming the Polymer (Rules 20, 21)",
+   "level": "L2",
+   "implementation": "BOUNDED_END_GROUP_PROFILE",
+   "entry_points": [
+    "polymer/end_naming.py:name_with_end_groups",
+    "polymer/finite_chains.py:compile_finite_chain"
+   ],
+   "rule_cards": [
+    "PI-BRACKET-001"
+   ],
+   "tests": [
+    "tests/test_v07_end_naming.py"
+   ],
+   "boundary": "端基与方向仅在有限链模型内处理；超出范围显式拒绝",
+   "next_action": "衔接 2021 修订范围",
+   "independent_review": "NOT_RUN"
+  },
+  {
+   "number": 22,
+   "title": "聚合物链作为取代基",
+   "section": "8",
+   "official_document": "rssop-6-8",
+   "official_locator": "§8 Polymer Chain as a Substituent (Rule 22)",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "2021 irregular/star/comb/brush 推荐已修订本范围",
+   "next_action": "与架构族（P2）同批实现",
+   "independent_review": "NOT_RUN"
+  }
+ ],
+ "relationship_qualifiers": [
+  {
+   "id": "BG-3.1-source-naming",
+   "title": "来源命名（均聚物）",
+   "official_locator": "§3.1 Homopolymers",
+   "level": "L2",
+   "implementation": "SOURCE_NAME_CANDIDATE",
+   "entry_points": [
+    "polymer/naming.py:source_name"
+   ],
+   "rule_cards": [
+    "PI-SOURCE-001"
+   ],
+   "tests": [],
+   "boundary": "来源名称候选；来源名不蕴含实际聚合事实",
+   "next_action": "登记来源式命名的接受性边界",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  },
+  {
+   "id": "BG-3.2-copolymer-connectives",
+   "title": "共聚连接词 co/stat/ran/alt/per",
+   "official_locator": "§3.2 Copolymers, Table 1 (co/stat/ran/alt/per)",
+   "level": "L1",
+   "implementation": "RELATION_OPERATORS_PRESERVED",
+   "entry_points": [],
+   "rule_cards": [
+    "PI-SEQUENCE-001"
+   ],
+   "tests": [],
+   "boundary": "保留关系算子与出现位置；不主张 CRU 级证明",
+   "next_action": "登记每个连接词的正反例",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  },
+  {
+   "id": "BG-3.2-block",
+   "title": "嵌段限定",
+   "official_locator": "§3.2 Copolymers, Table 1 (block)",
+   "level": "L1",
+   "implementation": "RELATION_OPERATORS_PRESERVED",
+   "entry_points": [],
+   "rule_cards": [
+    "PI-BLOCK-001"
+   ],
+   "tests": [],
+   "boundary": "嵌段位置来自描述，不推断实际聚合顺序",
+   "next_action": "登记正反例",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  },
+  {
+   "id": "BG-3.2-graft",
+   "title": "接枝角色",
+   "official_locator": "§3.2 Copolymers, Table 1 (graft; first name is main chain)",
+   "level": "L1",
+   "implementation": "RELATION_OPERATORS_PRESERVED",
+   "entry_points": [],
+   "rule_cards": [
+    "PI-GRAFT-001"
+   ],
+   "tests": [],
+   "boundary": "主链在前按来源文本保留；不补造未报告的主支链",
+   "next_action": "登记正反例",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  },
+  {
+   "id": "BG-3.3-blend",
+   "title": "共混组合",
+   "official_locator": "§3.3 Non-linear polymers, Table 2 (blend)",
+   "level": "L1",
+   "implementation": "RELATION_OPERATORS_PRESERVED",
+   "entry_points": [],
+   "rule_cards": [
+    "PI-BLEND-001"
+   ],
+   "tests": [],
+   "boundary": "未列齐成员保持未知，不由目录标签补造",
+   "next_action": "登记正反例",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  },
+  {
+   "id": "BG-3.3-other-qualifiers",
+   "title": "comb/complex/cyclic/branch/network/ipn/sipn/star 等",
+   "official_locator": "§3.3 Non-linear polymers, Table 2（blend 之外各行）",
+   "level": "L0",
+   "implementation": "NOT_IMPLEMENTED",
+   "entry_points": [],
+   "rule_cards": [],
+   "tests": [],
+   "boundary": "",
+   "next_action": "P2 架构族逐词表登记与检查",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  },
+  {
+   "id": "BG-4.1-irregular",
+   "title": "不规则构造单元描述",
+   "official_locator": "§4.1 Regular single-strand organic polymers (irregular polymers)",
+   "level": "L1",
+   "implementation": "DESCRIPTOR_RETAINED_NAMING_REFUSED",
+   "entry_points": [],
+   "rule_cards": [
+    "PI-IRREGULAR-001"
+   ],
+   "tests": [],
+   "boundary": "不规则描述保留；不生成规律 CRU 名称",
+   "next_action": "登记边界正反例",
+   "independent_review": "NOT_RUN",
+   "official_document": "brief-guide-2012"
+  }
+ ],
+ "document_sections": [
+  {
+   "id": "RSSOP-1-3-fundamental",
+   "title": "Introduction, Glossary and Fundamental Principles",
+   "official_locator": "§1–§3 Fundamental Principles",
+   "level": "L2",
+   "implementation": "BOUNDED_CRU_CANDIDATE",
+   "entry_points": [
+    "polymer/naming.py:name_from_unit",
+    "polymer/graph_naming_v09.py:name_unit"
+   ],
+   "rule_cards": [
+    "PI-CRU-001"
+   ],
+   "tests": [],
+   "boundary": "构造重复单元候选命名有界；不是完整 CRU 选择证明",
+   "next_action": "与 P1 同批扩展",
+   "independent_review": "NOT_RUN",
+   "official_document": "rssop-1-3"
+  }
+ ],
+ "project_checks": [
+  {
+   "id": "PI-IDENTITY-001",
+   "title": "Identity snapshot and object roles",
+   "level": "L2",
+   "implementation": "EXECUTED_PROJECT_CHECK",
+   "entry_points": [],
+   "tests": [],
+   "boundary": "项目工程检查，不是 IUPAC 条款；无官方 URL",
+   "next_action": "保持非官方显示",
+   "independent_review": "NOT_RUN",
+   "rule_cards": [
+    "PI-IDENTITY-001"
+   ]
+  },
+  {
+   "id": "PI-PORTS-001",
+   "title": "Declared two-port implementation scope",
+   "level": "L1",
+   "implementation": "EXECUTED_PROJECT_CHECK",
+   "entry_points": [],
+   "tests": [],
+   "boundary": "项目工程检查，不是 IUPAC 条款；无官方 URL",
+   "next_action": "保持非官方显示",
+   "independent_review": "NOT_RUN",
+   "rule_cards": [
+    "PI-PORTS-001"
+   ]
+  },
+  {
+   "id": "PI-UNIT-WINDOW-001",
+   "title": "Explicit repeat-unit connection window",
+   "level": "L1",
+   "implementation": "EXECUTED_PROJECT_CHECK",
+   "entry_points": [
+    "polymer/unit_evidence.py:enrich_unit_evidence",
+    "polymer/repeat_connection.py:repeat_window"
+   ],
+   "tests": [
+    "tests/test_b_unit_evidence.py"
+   ],
+   "boundary": "项目工程检查；窗口可视化不等于周期证明",
+   "next_action": "保持非官方显示",
+   "independent_review": "NOT_RUN",
+   "rule_cards": [
+    "PI-UNIT-WINDOW-001"
+   ]
+  },
+  {
+   "id": "PI-LOCANT-MAPPING-001",
+   "title": "Graph-checked parent locants",
+   "level": "L1",
+   "implementation": "EXECUTED_PROJECT_CHECK",
+   "entry_points": [
+    "polymer/unit_evidence.py:locant_mapping"
+   ],
+   "tests": [
+    "tests/test_b_unit_evidence.py"
+   ],
+   "boundary": "项目工程检查；位次映射不等于命名合规证明",
+   "next_action": "保持非官方显示",
+   "independent_review": "NOT_RUN",
+   "rule_cards": [
+    "PI-LOCANT-MAPPING-001"
+   ]
+  }
+ ],
+ "other_standards": [
+  {
+   "standard": "Source-based nomenclature (2016)",
+   "url": null,
+   "registered": false,
+   "project_state": "仅有来源名称候选，无版本化来源式规则包",
+   "verification": "LISTED_NOT_RECHECKED_IN_THIS_RUN"
+  },
+  {
+   "standard": "Preferred names of constitutional units (2016)",
+   "url": null,
+   "registered": false,
+   "project_state": "优选/可接受/过时名称未分表版本化",
+   "verification": "LISTED_NOT_RECHECKED_IN_THIS_RUN"
+  },
+  {
+   "standard": "Structure-based nomenclature for irregular/star/comb/brush polymers (2021)",
+   "url": null,
+   "registered": false,
+   "project_state": "Rule 22 与星形/梳形/刷形架构命名未实现",
+   "verification": "LISTED_NOT_RECHECKED_IN_THIS_RUN"
+  },
+  {
+   "standard": "Basic classification and definitions of polymerization reactions (2025)",
+   "url": null,
+   "registered": false,
+   "project_state": "未用于反应证据；分类术语不等于反应条件证据",
+   "verification": "LISTED_NOT_RECHECKED_IN_THIS_RUN"
+  },
+  {
+   "standard": "Stereochemistry / isotope / charge / salt in polymer names",
+   "url": null,
+   "registered": false,
+   "project_state": "名称生成显式拒绝（STEREO_ISOTOPE_OR_RADICAL_NAMING_NOT_IMPLEMENTED）",
+   "verification": "OBSERVED_IN_RUN_PROBE"
+  }
+ ],
+ "differences_vs_v1": [
+  {
+   "rule": 13,
+   "v1": "NOT_IMPLEMENTED",
+   "v2": "L2 BOUNDED_RULE13_PROFILE",
+   "reason": "backbone_direction/unit_evidence 在 v1 冻结（2026-09-13）之后加入并有测试",
+   "evidence": [
+    "polymer/backbone_direction.py",
+    "tests/test_b_direction_profile.py",
+    "tests/test_b_direction_integration.py"
+   ]
+  },
+  {
+   "rule": 1,
+   "v1": "PARTIAL",
+   "v2": "L1 CLASSIFY_ONLY",
+   "reason": "级别命名统一到阶梯，能力不变",
+   "evidence": [
+    "polymer/chemical_rule_checks.py:seniority_class"
+   ]
+  },
+  {
+   "rule": 4,
+   "v1": "PARTIAL",
+   "v2": "L1 PARTIAL",
+   "reason": "级别命名统一到阶梯，能力不变",
+   "evidence": [
+    "polymer/chemical_rule_checks.py:HETERO_ORDER"
+   ]
+  },
+  {
+   "rule": 18,
+   "v1": "PARTIAL",
+   "v2": "L2 BOUNDED_ORGANIC_NAMING_SUBSET",
+   "reason": "级别命名统一到阶梯，能力不变",
+   "evidence": [
+    "polymer/graph_naming_v09.py"
+   ]
+  },
+  {
+   "rule": 19,
+   "v1": "PARTIAL",
+   "v2": "L2 BOUNDED_UNIT_NAME_ASSEMBLY",
+   "reason": "级别命名统一到阶梯，能力不变",
+   "evidence": [
+    "polymer/naming.py"
+   ]
+  },
+  {
+   "rule": 20,
+   "v1": "PARTIAL",
+   "v2": "L2 BOUNDED_PREFIX_AND_BRACKETS",
+   "reason": "级别命名统一到阶梯，能力不变",
+   "evidence": [
+    "polymer/graph_naming_v09.py"
+   ]
+  },
+  {
+   "rule": 21,
+   "v1": "PARTIAL",
+   "v2": "L2 BOUNDED_END_GROUP_PROFILE",
+   "reason": "级别命名统一到阶梯，能力不变",
+   "evidence": [
+    "polymer/end_naming.py"
+   ]
+  },
+  {
+   "rule": 11,
+   "v1": "NOT_IMPLEMENTED",
+   "v2": "L1 BOUNDED_LOCANT_DECISION_STEPS_3_4",
+   "reason": "Rule 11 步骤 3/4 有界判定器加入并有测试（位次与方向，不产出名称）",
+   "evidence": [
+    "polymer/cru_locant_selection.py:locant_selection",
+    "tests/test_iupac_cru_locant_selection.py"
+   ]
+  },
+  {
+   "rule": 12,
+   "v1": "NOT_IMPLEMENTED",
+   "v2": "L1 BOUNDED_LOCANT_DECISION_STEPS_3_4",
+   "reason": "Rule 12 固定环编号方向有界判定加入并有测试（单环、杂原子不超过两个）",
+   "evidence": [
+    "polymer/cru_locant_selection.py:locant_selection",
+    "tests/test_iupac_cru_locant_selection.py"
+   ]
+  }
+ ],
+ "non_claims": [
+  "登记不等于实现",
+  "候选名称不等于优选 IUPAC 名称",
+  "preferred_iupac_name 未签发",
+  "full_iupac_conformance=false",
+  "独立审核 NOT_RUN",
+  "OPSIN 或目录名称不作为 golden 答案"
+ ]
+}

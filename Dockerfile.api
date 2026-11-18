@@ -19,7 +19,8 @@ RUN pip install --no-cache-dir --retries 5 --timeout 60 \
 
 COPY . .
 RUN touch /app/.env \
-    && mkdir -p /app/web_runtime/tasks /app/web_runtime/evidence_pages
+    && mkdir -p /app/web_runtime/tasks /app/web_runtime/evidence_pages /app/backend_agent1/ocr \
+    && touch /app/backend_agent1/ocr/.env
 
 EXPOSE 8000
 

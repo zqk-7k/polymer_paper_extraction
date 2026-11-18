@@ -1,0 +1,40 @@
+{
+  "scheme": "agent1.relaxed_validation.20261102",
+  "papers": [
+    "0020284",
+    "0038527",
+    "0038813",
+    "0021296"
+  ],
+  "arms": {
+    "A": "Fresh original Stage1/2 directory",
+    "B": "Frozen reviewed agent1 directory"
+  },
+  "group_input_utf8_bytes": 300000,
+  "native_identity_input_utf8_bytes": 240000,
+  "prose_group_chars": 8500,
+  "stage3_max_output_tokens": 16384,
+  "stage4n_max_output_tokens": 16384,
+  "stage4t_max_output_tokens": 12288,
+  "stage5_max_output_tokens": 16384,
+  "native_max_output_tokens": 16384,
+  "max_unchanged_attempts": 1,
+  "branch_workers": 4,
+  "model_quality_review": false,
+  "numeric_conversion": false,
+  "budget_note": "Local complete-input ceiling, not a provider context limit. Full article prose and compact table text are retained; no semantic routing or format conversion.",
+  "output_truncation_fallback_tokens": 32768,
+  "vision": false,
+  "agent1_missing_policy": "fail_no_fallback",
+  "probe_workers": 4,
+  "probe_timeout_seconds": 1200,
+  "fulltext_input_utf8_bytes": 240000,
+  "stage5_handoff_policy": "characterization_fields_only",
+  "max_model_concurrency": 4,
+  "spectrum_contract": "shared_spectrum_groups.v2",
+  "stage_output_truncation_fallback_tokens": {
+    "stage4_property": 65536,
+    "stage5_characterization": 65536,
+    "stage3_sample_process": 65536
+  }
+}
