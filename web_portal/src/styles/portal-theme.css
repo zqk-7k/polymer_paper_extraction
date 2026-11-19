@@ -1,0 +1,386 @@
+/* Shared reference theme, based on the supplied 1672 × 941 image. */
+:root {
+  --brand:#2457ce;
+  --brand-dark:#284780;
+  --brand-soft:#e1e8fb;
+  --text:#142037;
+  --muted:#64728c;
+  --page:#eef1f7;
+  --content-max:none
+}
+
+html {
+  scrollbar-gutter:auto
+}
+body {
+  background:#eef1f7
+}
+
+.reference-ui.tool-shell {
+  padding:0 0 0 256px!important;
+  background:transparent!important;
+  isolation:isolate
+}
+
+.reference-ui .portal-background {
+  position:fixed;
+  inset:0 0 0 256px;
+  z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 36% 30%,#f8faff,transparent 56%),linear-gradient(130deg,#e8ecf4,#f6f8fc 64%,#e8edf6)
+}
+
+.portal-background-molecule {
+  position:absolute;
+  top:4px;
+  right:32px;
+  width:180px;
+  height:64px;
+  opacity:.38;
+}
+
+
+
+.reference-ui .tool-content {
+  position:relative;
+  margin:0!important;
+  padding:22px 33px 28px 22px!important;
+  min-height:100vh!important;
+  width:100%!important;
+  max-width:none!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important
+}
+
+.reference-ui .tool-sidebar {
+  width:256px!important;
+  border:0!important;
+  background:linear-gradient(140deg,#f1f3f9,#fafbfd)!important;
+  box-shadow:4px 0 18px #263f7510!important;
+  font-family:var(--font-family)!important
+}
+
+.reference-ui .tool-brand {
+  height:72px!important;
+  padding:18px 24px!important;
+  border-bottom:1px solid #e7ebf4!important
+}
+
+.reference-ui .brand-id {
+  gap:9px!important
+}
+
+
+.reference-ui .brand-name {
+  font-size:18px!important;
+  font-weight:750!important;
+  letter-spacing:-.4px!important
+}
+.reference-ui .brand-sub {
+  font-size:10px!important;
+  color:#79859b!important;
+  font-weight:600!important;
+  margin-top:2px
+}
+
+.reference-ui .brand-collapse {
+  position:absolute;
+  right:4px;
+  opacity:0;
+  width:30px!important;
+  height:30px!important;
+  padding:6px!important;
+  border-radius:9px;
+  color:#64748b;
+  transition:opacity .15s ease,background .15s ease,color .15s ease
+}
+.reference-ui .brand-collapse svg {
+  width:18px!important;
+  height:18px!important
+}
+.reference-ui .brand-collapse:hover {
+  background:#e8edf7;
+  color:#2c4a7c
+}
+.reference-ui .tool-brand:hover .brand-collapse,.reference-ui .brand-collapse:focus-visible {
+  opacity:1
+}
+
+.reference-ui .tool-sidebar .side-nav {
+  padding:16px!important;
+  gap:23px!important
+}
+.reference-ui .side-group-title {
+  margin:0 0 5px!important;
+  padding:0 10px!important;
+  font-size:12px!important;
+  line-height:15px!important;
+  font-weight:600!important;
+  color:#65728c!important
+}
+
+.reference-ui .side-links {
+  gap:0!important
+}
+.reference-ui .tool-sidebar .side-nav a {
+  height:36px!important;
+  min-height:36px!important;
+  padding:8px 11px!important;
+  gap:13px!important;
+  border-radius:13px!important;
+  font-size:14px!important;
+  font-weight:650!important;
+  color:#41516e!important
+}
+
+.reference-ui .tool-sidebar .side-nav a svg {
+  color:#4e607f!important;
+  width:16px!important;
+  height:16px!important
+}
+.reference-ui .tool-sidebar .side-nav a.active {
+  background:#dbe3f9!important;
+  color:#2353cb!important;
+  box-shadow:inset 0 1px 2px #fff6!important
+}
+.reference-ui .tool-sidebar .side-nav a.active svg {
+  color:#1855ed!important
+}
+.reference-ui .tool-sidebar .side-nav a:hover {
+  background:#e6ebf7!important
+}
+
+.reference-ui .tool-sidebar .side-secondary {
+  padding:12px 20px 29px!important;
+  border-top:1px solid #e9edf4!important;
+  gap:10px!important
+}
+.reference-ui .tool-sidebar .side-secondary .side-evo {
+  padding:6px 8px!important;
+  height:26px!important;
+  color:#58657d!important;
+  font-size:12px!important;
+  font-weight:650!important
+}
+.reference-ui .tool-sidebar .side-secondary .side-settings-btn {
+  height:42px!important;
+  border-radius:14px!important;
+  background:linear-gradient(140deg,#25314f,#162039)!important;
+  color:white!important;
+  box-shadow:0 3px 7px #172b4920,inset 0 1px 2px #ffffff20!important;
+  font-size:14px!important
+}
+.reference-ui .tool-sidebar .side-secondary .side-settings-btn svg {
+  color:#e3eafa!important
+}
+
+.reference-ui.is-collapsed {
+  padding-left:64px!important
+}
+.reference-ui.is-collapsed .portal-background {
+  left:64px
+}
+.reference-ui.is-collapsed .tool-sidebar {
+  width:64px!important
+}
+.reference-ui.is-collapsed .tool-brand {
+  padding:18px 0!important
+}
+.reference-ui.is-collapsed .side-secondary {
+  padding:12px 8px 29px!important
+}
+
+.reference-ui .ucard,.reference-ui .upload-hero {
+  border:1px solid #ffffffa8!important;
+  border-radius:17px!important;
+  background:linear-gradient(180deg,#ffffff38 0,#ffffffa6 120px,#ffffffef 300px)!important;
+  -webkit-backdrop-filter:blur(2px) saturate(1.06);
+  backdrop-filter:blur(2px) saturate(1.06);
+  box-shadow:0 5px 12px #253c6810,inset 0 1px 0 #fff!important
+}
+
+.reference-ui .ucard-head {
+  border-bottom:1px solid #e9edf5!important
+}
+.reference-ui .ucard-head h3,.reference-ui .ucard-titles h3 {
+  font-size:18px!important;
+  font-weight:750!important;
+  color:#080e18!important;
+  line-height:24px!important
+}
+.reference-ui .ucard-head p,.reference-ui .ucard-titles p {
+  color:#66738c!important;
+  font-size:12px!important;
+  line-height:17px!important
+}
+.reference-ui .title-icon {
+  background:linear-gradient(140deg,#e3e8f5,#edf0f7)!important;
+  color:#213e80!important;
+  border:0!important;
+  box-shadow:inset 0 1px 2px #fff!important
+}
+
+.reference-ui .ant-btn-primary,.reference-ui .start-btn.ant-btn-primary {
+  background:linear-gradient(170deg,#405da5,#284681)!important;
+  color:#fff!important;
+  border-color:#5576b9!important;
+  box-shadow:0 3px 6px #243e7726,inset 0 1px 2px #ffffff38!important
+}
+.reference-ui .ant-btn-primary:not(:disabled):hover {
+  background:linear-gradient(170deg,#496db9,#233e78)!important
+}
+.reference-ui .ant-btn-primary:disabled {
+  opacity:.75!important
+}
+
+.reference-ui .ant-input-affix-wrapper,.reference-ui .ant-select-selector {
+  border-color:#e1e6f0!important;
+  background:#ffffffcf!important;
+  border-radius:12px!important;
+  box-shadow:0 2px 5px #344b7710
+}
+.reference-ui .ant-table-thead>tr>th {
+  background:#edf1f8!important;
+  color:#52617c!important
+}
+.reference-ui .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color:#2555c4!important
+}
+.reference-ui .ant-tabs-ink-bar {
+  background:#2555c4!important
+}
+.reference-ui a {
+  color:#2457cf!important
+}
+.reference-ui :focus-visible {
+  outline:2px solid #356af0;
+  outline-offset:3px
+}
+.reference-ui .upload-hero::before,.reference-ui .upload-hero::after {
+  content:none!important
+}
+
+@media(max-width:1100px) {
+  .reference-ui .tool-content {
+  padding:20px 20px 28px!important
+}
+
+}
+
+@media(max-width:767px) {
+  .reference-ui.tool-shell,.reference-ui.tool-shell.is-collapsed {
+  padding-left:0!important
+}
+.reference-ui .portal-background {
+  left:0!important
+}
+.reference-ui .tool-sidebar {
+  display:none!important
+}
+.reference-ui .tool-content {
+  padding:20px 14px 90px!important
+}
+.reference-ui .mobile-nav {
+  background:#f8fafff5;
+  border-top:1px solid #dfe5f1
+}
+.reference-ui .mobile-nav a {
+  color:#60708d!important
+}
+.reference-ui .mobile-nav a.active {
+  color:#2356cc!important
+}
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .reference-ui *,.reference-ui *::before,.reference-ui *::after {
+  animation:none!important;
+  transition:none!important
+}
+
+}
+
+/* Final specificity guards against legacy structural rules. */
+.tool-shell.precision-ui.reference-ui {
+  padding-left:256px!important
+}
+
+.tool-shell.precision-ui.reference-ui.is-collapsed {
+  padding-left:64px!important
+}
+
+.reference-ui .input-actions .start-btn.ant-btn-primary {
+  border-radius:21px!important
+}
+
+
+
+.reference-ui .tool-sidebar .side-nav a {
+  border:0!important
+}
+
+@media(max-width:767px) {
+  .tool-shell.precision-ui.reference-ui,.tool-shell.precision-ui.reference-ui.is-collapsed {
+  padding-left:0!important
+}
+
+}
+
+
+/* Central interaction states, loaded after legacy page rules. */
+.reference-ui .input-actions .ant-btn { transition:transform 180ms cubic-bezier(.22,1,.36,1),box-shadow 180ms cubic-bezier(.22,1,.36,1),background 180ms cubic-bezier(.22,1,.36,1); }
+.reference-ui .ant-btn.ant-btn-primary:not(:disabled):hover {
+  background:linear-gradient(170deg,#4b70b5,#2c508f)!important;
+  border-color:#507abd!important;
+  color:#fff!important;
+  box-shadow:0 5px 12px #284c8733,inset 0 1px 2px #ffffff40!important;
+  transform:translateY(-1px)!important;
+}
+.reference-ui .ant-btn.ant-btn-default:not(:disabled):hover {
+  background:linear-gradient(#f7faff,#eaf1fc)!important;
+  border-color:#9db7df!important;
+  color:#234f9d!important;
+  box-shadow:0 3px 8px #294b8120!important;
+}
+.reference-ui .ant-btn.ant-btn-primary:not(:disabled):active,
+.reference-ui .ant-btn.ant-btn-default:not(:disabled):active {
+  transform:translateY(0)!important;
+  box-shadow:inset 0 1px 3px #24467520!important;
+}
+@media(max-width:767px) {
+  .reference-ui .portal-background-molecule { width:140px; height:64px; top:4px; right:12px; opacity:.3; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .reference-ui .ant-btn.ant-btn-primary:not(:disabled):hover { transform:none!important; }
+}
+/* Full-width raster composition, exported at 2560 × 1440. Auto height keeps
+   image proportions intact; the alpha canvas blends into the shared surface. */
+.reference-ui .portal-background-molecule {
+  inset:0;
+  width:auto;
+  height:auto;
+  opacity:.9;
+  background-image:url('/upload-art/molecular-portal-large.png');
+  background-size:1280px auto;
+  background-position:right top;
+  background-repeat:no-repeat;
+}
+@media(max-width:767px) {
+  .reference-ui .portal-background-molecule {
+    inset:0;
+    width:auto;
+    height:auto;
+    opacity:.44;
+    background-size:800px auto;
+    background-position:right top;
+  }
+}
+
+/* Enlarge the supplied logo without stretching or recoloring it. */
+.reference-ui .brand-logo-img { width:48px!important; height:48px!important; flex:0 0 48px!important; object-fit:contain!important; }
+.reference-ui .tool-brand { padding:12px 20px!important; }
+.reference-ui .brand-id { gap:10px!important; }
+/* Shared top band keeps the molecular artwork visible above the cards on every route. */.reference-ui.is-collapsed .tool-brand { padding:12px 0!important; }

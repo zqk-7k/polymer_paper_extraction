@@ -2,9 +2,9 @@
   color-scheme: light;
   --radius: 12px;
   --radius-sm: 8px;
-  --brand: #4f46e5;
-  --brand-dark: #4338ca;
-  --brand-soft: #eef2ff;
+  --brand: #2555c4;
+  --brand-dark: #204599;
+  --brand-soft: #edf3fc;
   --ink: #1d2129;
   --ink-2: #38414f;
   --page: #f4f5f7;
@@ -27,7 +27,7 @@
 
 /* —— 卡片标题：全站统一为 upload 页 ucard-title 标准 ——
    div.ucard-title > span.title-icon + div.ucard-titles > h3 + p；
-   h3 16px/650，p 与 h3 左对齐；图标 36px 圆角12，底 #eef2ff，图标 #4f46e5 */
+   h3 16px/650，p 与 h3 左对齐；图标 36px 圆角12，底 #edf3fc，图标 #2555c4 */
 .ucard-title { display: flex !important; align-items: center !important; gap: 12px !important; min-width: 0 !important; flex: 1 1 auto !important; }
 .ucard-titles { min-width: 0 !important; flex: 1 1 auto !important; }
 .ucard-titles h3 { margin: 0 !important; font-size: 16px !important; font-weight: 650 !important; line-height: 1.35 !important; color: #131c26 !important; text-align: left !important; }
@@ -39,7 +39,7 @@
   height: 36px !important; min-height: 36px !important; max-height: 36px !important;
   display: inline-grid !important; place-items: center !important; align-self: center !important;
   border-radius: 12px !important; line-height: 0 !important; box-sizing: border-box !important;
-  background: #eef2ff !important; color: #4f46e5 !important;
+  background: #edf3fc !important; color: #2555c4 !important;
   border: 1px solid #e0e7ff !important; box-shadow: none !important; vertical-align: initial !important;
 }
 .title-icon svg { display: block !important; width: 20px !important; height: 20px !important; margin: 0 !important; padding: 0 !important; flex: 0 0 auto !important; }
@@ -602,22 +602,22 @@ code, pre, .ant-typography code { font-family: inherit !important; }
   width: 36px !important; height: 36px !important; flex: 0 0 36px !important;
   display: flex !important; align-items: center !important; justify-content: center !important;
   border-radius: 12px !important; color: #fff !important;
-  background: linear-gradient(to top right, #4f46e5, #8b5cf6) !important;
-  box-shadow: 0 4px 6px -1px rgba(99,102,241,.3), 0 2px 4px -2px rgba(99,102,241,.3) !important;
+  background: linear-gradient(to top right, #2555c4, #8b5cf6) !important;
+  box-shadow: 0 4px 6px -1px rgba(79,121,189,.3), 0 2px 4px -2px rgba(79,121,189,.3) !important;
   border: none !important; padding: 0 !important;
 }
 .brand-mark svg { width: 20px !important; height: 20px !important; }
 .brand-text { display: flex !important; flex-direction: column !important; line-height: 1.3 !important; }
 .brand-name {
   display: flex !important; align-items: center !important; gap: 6px !important; margin: 0 !important;
-  font-size: 15px !important; font-weight: 700 !important; letter-spacing: -.025em !important;
+  font-size: 18px !important; font-weight: 700 !important; letter-spacing: -.025em !important;
   line-height: 1.3 !important; color: #0f172a !important; white-space: nowrap !important;
   background: none !important; -webkit-text-fill-color: #0f172a !important;
 }
 .brand-name em {
   font-style: normal !important; font-size: 12px !important; font-weight: 600 !important;
   padding: 2px 6px !important; border-radius: 6px !important; line-height: 1.3 !important;
-  background: #eef2ff !important; color: #4f46e5 !important; -webkit-text-fill-color: #4f46e5 !important;
+  background: #edf3fc !important; color: #2555c4 !important; -webkit-text-fill-color: #2555c4 !important;
   border: 1px solid rgba(199,210,254,.6) !important; letter-spacing: 0 !important;
 }
 .brand-title { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 0; line-height: 1.3; }
@@ -631,14 +631,14 @@ code, pre, .ant-typography code { font-family: inherit !important; }
 }
 .brand-collapse:hover { background: #f1f5f9 !important; color: #475569 !important; }
 .brand-collapse svg { width: 16px !important; height: 16px !important; }
-.brand-mark.as-toggle { border: none !important; background: linear-gradient(to top right, #4f46e5, #8b5cf6) !important; padding: 0 !important; border-radius: 12px !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.brand-mark.as-toggle { border: none !important; background: linear-gradient(to top right, #2555c4, #8b5cf6) !important; padding: 0 !important; border-radius: 12px !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; }
 .brand-mark.as-toggle:hover { filter: brightness(1.08) !important; }
-.brand-mark.as-toggle:focus-visible { outline: 2px solid #4f46e5 !important; outline-offset: 2px !important; }
+.brand-mark.as-toggle:focus-visible { outline: 2px solid #2555c4 !important; outline-offset: 2px !important; }
 /* 图片 logo（替换旧版 SVG brand-mark，原 brand-mark 代码已在 App.tsx 中注释保留） */
 .brand-logo-img { width: 36px !important; height: 36px !important; flex: 0 0 36px !important; display: block !important; object-fit: contain !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
 .brand-logo-btn { background: transparent !important; border: none !important; padding: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; border-radius: 8px !important; }
 .brand-logo-btn.as-toggle { cursor: pointer !important; }
-.brand-logo-btn:focus-visible { outline: 2px solid #4f46e5 !important; outline-offset: 2px !important; }
+.brand-logo-btn:focus-visible { outline: 2px solid #2555c4 !important; outline-offset: 2px !important; }
 .brand-logo-btn:disabled { cursor: default !important; }
 /* 收起态：隐藏 brand-collapse（JSX 已不再渲染），品牌区居中，logo 可点击展开 */
 .is-collapsed .tool-brand { padding: 12px 0 !important; justify-content: center !important; }
@@ -682,11 +682,11 @@ body { overflow-y: auto !important; overflow-x: hidden !important; }
 .tool-sidebar .side-nav a:hover { background: #f8fafc !important; color: #0f172a !important; }
 .tool-sidebar .side-nav a:hover svg { color: #94a3b8 !important; }
 .tool-sidebar .side-nav a.active {
-  background: rgba(238,242,255,.8) !important; color: #4f46e5 !important; font-weight: 500 !important;
+  background: rgba(238,242,255,.8) !important; color: #2555c4 !important; font-weight: 500 !important;
   border: 1px solid rgba(199,210,254,.6) !important;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.05) !important;
 }
-.tool-sidebar .side-nav a.active svg { color: #4f46e5 !important; }
+.tool-sidebar .side-nav a.active svg { color: #2555c4 !important; }
 .tool-sidebar .side-nav a .side-nav-icon {
   width: 16px !important; height: 16px !important; flex: 0 0 16px !important;
   display: inline-flex !important; place-items: center !important; border-radius: 0 !important;
@@ -790,7 +790,7 @@ body { overflow-y: auto !important; overflow-x: hidden !important; }
 .batch-switcher2-meta small { color: #a0a1a9; font-size: 9px; white-space: nowrap; }
 .batch-switcher2-chevron { width: 28px; height: 28px; display: grid; place-items: center; color: #868790; border-radius: 7px; transition: color .16s ease, background .16s ease, transform .18s ease; }
 .batch-switcher2:hover .batch-switcher2-chevron { color: #302f36; background: #ededf0; }
-.batch-switcher2.is-open .batch-switcher2-chevron { color: #4f46e5; background: #ecebff; transform: rotate(180deg); }
+.batch-switcher2.is-open .batch-switcher2-chevron { color: #2555c4; background: #ecebff; transform: rotate(180deg); }
 
 .batch-switcher-popover { --antd-arrow-background-color: #fff; }
 .batch-switcher-popover .ant-popover-inner { width: 430px; padding: 0 !important; overflow: hidden; background: #fff !important; border: 1px solid #dedfe5; border-radius: 14px !important; box-shadow: 0 18px 48px rgba(24,24,27,.13), 0 3px 10px rgba(24,24,27,.06) !important; }
@@ -855,13 +855,13 @@ body { overflow-y: auto !important; overflow-x: hidden !important; }
 }
 
 /* ===== Unified premium theme (history/batch/polyinfo/sample/results/polymer) ===== */
-:root{ --brand:#4f46e5; --brand-dark:#4338ca; --ring:#4f46e5; --title-icon-bg:#eef2ff; --title-icon-fg:#4f46e5; }
+:root{ --brand:#2555c4; --brand-dark:#204599; --ring:#2555c4; --title-icon-bg:#edf3fc; --title-icon-fg:#2555c4; }
 /* sidebar active */
-.side-nav button.active{ color:#4f46e5; background:#eef2ff; }
-.side-nav button:hover{ color:#4f46e5; background:#f5f3ff; }
+.side-nav button.active{ color:#2555c4; background:#edf3fc; }
+.side-nav button:hover{ color:#2555c4; background:#f5f3ff; }
 /* primary buttons: restrained indigo */
-.ant-btn-primary, .start-btn.ant-btn-primary{ background:#4f46e5 !important; border-color:#4f46e5 !important; color:#fff !important; font-weight:600 !important; box-shadow:0 4px 12px rgba(79,70,229,.25) !important; border-radius:10px !important; }
-.ant-btn-primary:not(:disabled):hover, .start-btn.ant-btn-primary:not(:disabled):hover{ background:#4338ca !important; border-color:#4338ca !important; box-shadow:0 6px 18px rgba(79,70,229,.35) !important; }
+.ant-btn-primary, .start-btn.ant-btn-primary{ background:#2555c4 !important; border-color:#2555c4 !important; color:#fff !important; font-weight:600 !important; box-shadow:0 4px 12px rgba(37,85,196,.25) !important; border-radius:10px !important; }
+.ant-btn-primary:not(:disabled):hover, .start-btn.ant-btn-primary:not(:disabled):hover{ background:#204599 !important; border-color:#204599 !important; box-shadow:0 6px 18px rgba(37,85,196,.35) !important; }
 .report-primary-btn.ant-btn-primary{
   background:#2f4357 !important;
   border-color:#2f4357 !important;
@@ -881,11 +881,11 @@ body { overflow-y: auto !important; overflow-x: hidden !important; }
   opacity:.55;
 }
 /* pagination: indigo theme */
-.ant-pagination .ant-pagination-item-active{ border-color:#4f46e5 !important; }
-.ant-pagination .ant-pagination-item-active a{ color:#4f46e5 !important; }
-.ant-pagination .ant-pagination-item:hover{ border-color:#4f46e5 !important; }
-.ant-pagination .ant-pagination-item:hover a{ color:#4f46e5 !important; }
-.ant-pagination .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination .ant-pagination-next:hover .ant-pagination-item-link{ color:#4f46e5 !important; border-color:#4f46e5 !important; }
+.ant-pagination .ant-pagination-item-active{ border-color:#2555c4 !important; }
+.ant-pagination .ant-pagination-item-active a{ color:#2555c4 !important; }
+.ant-pagination .ant-pagination-item:hover{ border-color:#2555c4 !important; }
+.ant-pagination .ant-pagination-item:hover a{ color:#2555c4 !important; }
+.ant-pagination .ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination .ant-pagination-next:hover .ant-pagination-item-link{ color:#2555c4 !important; border-color:#2555c4 !important; }
 /* cards: flatter, hairline, consistent radius */
 .ucard{ border:1px solid #e5e7f0 !important; border-radius:14px !important; box-shadow:0 1px 2px rgba(16,24,40,.05) !important; }
 .ucard-head{ border-bottom:1px solid #eef1f6 !important; padding-bottom:12px !important; }
@@ -896,24 +896,24 @@ body { overflow-y: auto !important; overflow-x: hidden !important; }
 .ant-table-tbody > tr:hover > td{ background:#f6f7ff !important; }
 .ant-table-tbody > tr > td{ color:#2b3445 !important; }
 /* hero: keep upload flat style, unify accent bar to indigo */
-.upload-hero::before{ background:#4f46e5 !important; }
+.upload-hero::before{ background:#2555c4 !important; }
 .upload-hero::after{ letter-spacing:.28em !important; }
-.upload-eyebrow{ color:#4338ca !important; background:#eef2ff !important; border-color:#ddd6fe !important; }
-.upload-eyebrow::before{ background:#4f46e5 !important; box-shadow:0 0 0 3px rgba(79,70,229,.14) !important; }
+.upload-eyebrow{ color:#204599 !important; background:#edf3fc !important; border-color:#d6e2f6 !important; }
+.upload-eyebrow::before{ background:#2555c4 !important; box-shadow:0 0 0 3px rgba(37,85,196,.14) !important; }
 /* tabs */
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{ color:#4f46e5 !important; }
-.ant-tabs-ink-bar{ background:#4f46e5 !important; }
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{ color:#2555c4 !important; }
+.ant-tabs-ink-bar{ background:#2555c4 !important; }
 /* tags / links: remove teal AI feel */
 .ant-tag{ border-radius:999px !important; }
-a, .name-link, .sample-id-link{ color:#4f46e5 !important; }
+a, .name-link, .sample-id-link{ color:#2555c4 !important; }
 /* inputs focus ring */
-.ant-input-affix-wrapper-focused, .ant-input-affix-wrapper:focus-within, .ant-input:focus, .ant-select-focused .ant-select-selector{ border-color:#4f46e5 !important; box-shadow:0 0 0 3px rgba(79,70,229,.12) !important; }
+.ant-input-affix-wrapper-focused, .ant-input-affix-wrapper:focus-within, .ant-input:focus, .ant-select-focused .ant-select-selector{ border-color:#2555c4 !important; box-shadow:0 0 0 3px rgba(37,85,196,.12) !important; }
 /* step chips / dots: indigo instead of dark-teal */
-.step-chip{ background:#eef2ff !important; color:#4338ca !important; box-shadow:none !important; border:1px solid #ddd6fe !important; }
-.pipe-card .step-chip{ background:#4f46e5 !important; color:#fff !important; border-color:#4f46e5 !important; }
-.pipe-item.complete .pipe-dot{ background:#4f46e5 !important; border-color:#4f46e5 !important; box-shadow:0 3px 8px rgba(79,70,229,.3) !important; }
-.pipe-item.complete .pipe-status{ color:#4338ca !important; background:#eef2ff !important; }
-.lineage-index{ color:#4338ca !important; background:#eef2ff !important; border-color:#ddd6fe !important; }
+.step-chip{ background:#edf3fc !important; color:#204599 !important; box-shadow:none !important; border:1px solid #d6e2f6 !important; }
+.pipe-card .step-chip{ background:#2555c4 !important; color:#fff !important; border-color:#2555c4 !important; }
+.pipe-item.complete .pipe-dot{ background:#2555c4 !important; border-color:#2555c4 !important; box-shadow:0 3px 8px rgba(37,85,196,.3) !important; }
+.pipe-item.complete .pipe-status{ color:#204599 !important; background:#edf3fc !important; }
+.lineage-index{ color:#204599 !important; background:#edf3fc !important; border-color:#d6e2f6 !important; }
 
 /* ===== action buttons unified: export / agent-report / evidence / source-page ===== */
 .detail-topbar .ant-btn, .polyinfo-evo-actions .ant-btn, .drawer-action-btn.ant-btn{
@@ -921,21 +921,21 @@ a, .name-link, .sample-id-link{ color:#4f46e5 !important; }
   display:inline-flex !important; align-items:center !important; justify-content:center !important; gap:6px !important;
 }
 .detail-topbar .ant-btn-default{
-  background:#fff !important; color:#4f46e5 !important; box-shadow:0 2px 0 rgba(0,0,0,.02) !important;
+  background:#fff !important; color:#2555c4 !important; box-shadow:0 2px 0 rgba(0,0,0,.02) !important;
 }
 .polyinfo-evo-actions .ant-btn-default{
   background:#fff !important; border:1px solid #e2e7ee !important; color:#2b3445 !important; box-shadow:0 1px 2px rgba(16,24,40,.06) !important;
 }
-.detail-topbar .ant-btn-default:hover{ border-color:#4338ca !important; color:#4338ca !important; background:#eef2ff !important; box-shadow:none !important; }
+.detail-topbar .ant-btn-default:hover{ border-color:#204599 !important; color:#204599 !important; background:#edf3fc !important; box-shadow:none !important; }
 .polyinfo-evo-actions .ant-btn-default:hover{
-  border-color:#4f46e5 !important; color:#4338ca !important; background:#eef2ff !important; box-shadow:none !important;
+  border-color:#2555c4 !important; color:#204599 !important; background:#edf3fc !important; box-shadow:none !important;
 }
 .detail-topbar .ant-btn-primary, .polyinfo-evo-actions .ant-btn-primary, .drawer-action-btn.ant-btn-primary{
-  background:#4f46e5 !important; border-color:#4f46e5 !important; color:#fff !important;
-  box-shadow:0 4px 12px rgba(79,70,229,.25) !important;
+  background:#2555c4 !important; border-color:#2555c4 !important; color:#fff !important;
+  box-shadow:0 4px 12px rgba(37,85,196,.25) !important;
 }
 .detail-topbar .ant-btn-primary:not(:disabled):hover, .polyinfo-evo-actions .ant-btn-primary:not(:disabled):hover, .drawer-action-btn.ant-btn-primary:not(:disabled):hover{
-  background:#4338ca !important; border-color:#4338ca !important;
+  background:#204599 !important; border-color:#204599 !important;
 }
 .drawer-action-btn.ant-btn{ width:100% !important; height:38px !important; margin-top:12px; }
 .drawer-action-btn.ant-btn-default{ background:#fff !important; border:1px solid #e2e7ee !important; color:#2b3445 !important; }
@@ -946,10 +946,10 @@ a, .name-link, .sample-id-link{ color:#4f46e5 !important; }
   background:#fff !important; border:1px solid #e2e7ee !important; color:#5b6474 !important; box-shadow:none !important;
 }
 .evidence-icon-btn.ant-btn:hover, button[aria-label="查看实体证据"].ant-btn:not(:disabled):hover, button[aria-label="查看聚合物证据"].ant-btn:not(:disabled):hover, button[aria-label="查看性质证据"].ant-btn:not(:disabled):hover, button[aria-label="打开 PoLyInfo 对应论文"].ant-btn:hover{
-  border-color:#4f46e5 !important; color:#4f46e5 !important; background:#eef2ff !important;
+  border-color:#2555c4 !important; color:#2555c4 !important; background:#edf3fc !important;
 }
-.meta-evidence-btn.ant-btn-primary{ background:#4f46e5 !important; border-color:#4f46e5 !important; border-radius:8px !important; box-shadow:0 2px 8px rgba(79,70,229,.28) !important; }
-.meta-evidence-btn.ant-btn-primary:not(:disabled):hover{ background:#4338ca !important; border-color:#4338ca !important; }
+.meta-evidence-btn.ant-btn-primary{ background:#2555c4 !important; border-color:#2555c4 !important; border-radius:8px !important; box-shadow:0 2px 8px rgba(37,85,196,.28) !important; }
+.meta-evidence-btn.ant-btn-primary:not(:disabled):hover{ background:#204599 !important; border-color:#204599 !important; }
 
 /* ===== button alignment: primary group -> same as "打开 Agent 与自进化报告"; default group -> same as "打开全量差异报告" ===== */
 .history-open-btn.ant-btn-primary,
@@ -962,8 +962,8 @@ a, .name-link, .sample-id-link{ color:#4f46e5 !important; }
 .polyinfo-results-page .ant-btn-primary,
 .history-page .upload-hero-side .ant-btn-primary,
 .report-primary-btn.ant-btn-primary{
-  background:#4f46e5 !important; border-color:#4f46e5 !important; color:#fff !important;
-  font-weight:600 !important; box-shadow:0 4px 12px rgba(79,70,229,.25) !important;
+  background:#2555c4 !important; border-color:#2555c4 !important; color:#fff !important;
+  font-weight:600 !important; box-shadow:0 4px 12px rgba(37,85,196,.25) !important;
   border-radius:10px !important; transform:none !important;
 }
 .history-open-btn.ant-btn-primary:not(:disabled):hover,
@@ -976,14 +976,14 @@ a, .name-link, .sample-id-link{ color:#4f46e5 !important; }
 .polyinfo-results-page .ant-btn-primary:not(:disabled):hover,
 .history-page .upload-hero-side .ant-btn-primary:not(:disabled):hover,
 .report-primary-btn.ant-btn-primary:not(:disabled):hover{
-  background:#4338ca !important; border-color:#4338ca !important; color:#fff !important;
-  box-shadow:0 6px 18px rgba(79,70,229,.35) !important; transform:none !important;
+  background:#204599 !important; border-color:#204599 !important; color:#fff !important;
+  box-shadow:0 6px 18px rgba(37,85,196,.35) !important; transform:none !important;
 }
 .history-open-btn.ant-btn-primary:disabled,
 .input-actions .start-btn.ant-btn-primary:disabled,
 .pipe-foot .ant-btn-primary:disabled{ opacity:.55 !important; }
 .input-actions .ant-btn-default{
-  background:#fff !important; color:#4f46e5 !important;
+  background:#fff !important; color:#2555c4 !important;
   font-weight:600 !important; box-shadow:0 2px 0 rgba(0,0,0,.02) !important; border-radius:10px !important;
 }
 .history-page .upload-hero-side .ant-btn-default{
@@ -991,11 +991,11 @@ a, .name-link, .sample-id-link{ color:#4f46e5 !important; }
   font-weight:400 !important; box-shadow:0 2px 0 rgba(0,0,0,.02) !important; border-radius:10px !important;
 }
 .input-actions .ant-btn-default:not(:disabled):hover{
-  border-color:#4338ca !important; color:#4338ca !important; background:#eef2ff !important;
+  border-color:#204599 !important; color:#204599 !important; background:#edf3fc !important;
   box-shadow:0 2px 0 rgba(0,0,0,.02) !important; transform:none !important;
 }
 .history-page .upload-hero-side .ant-btn-default:not(:disabled):hover{
-  border-color:#4f46e5 !important; color:#4f46e5 !important; background:#fff !important;
+  border-color:#2555c4 !important; color:#2555c4 !important; background:#fff !important;
   box-shadow:0 2px 0 rgba(0,0,0,.02) !important; transform:none !important;
 }
 /* relation segmented control: calm, active white pill */

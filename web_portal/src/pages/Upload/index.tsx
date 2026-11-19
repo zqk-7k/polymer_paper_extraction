@@ -1,12 +1,12 @@
 "use client";
 
 import { Alert, Button, Input, Progress, Typography, Upload } from "antd";
-import { Activity, ArrowRight, BadgeCheck, Check, ClipboardList, FileText, FileUp, FileCheck2, Layers, ListChecks, LoaderCircle, Play, ShieldCheck, Sparkles, Timer, X } from "lucide-react";
+import { ArrowRight, Check, FileText, LoaderCircle, Play, ShieldCheck, Timer, X } from "lucide-react";
 import type { ExtractionJob, HealthState, JobStage } from "../../types";
 import { formatBytes, stageCatalog, stageStatusLabel } from "../../utils/format";
 import { useExtraction } from "../../store/extraction";
 import "./style.css";
-const { Title, Text, Paragraph } = Typography;
+const { Text } = Typography;
 const { Dragger } = Upload;
 
 function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, mineruApiKey, onFile, onDmxApiKey, onMineruApiKey, onStart, onRefresh, onLoadSample, onOpenResults }: {
@@ -36,7 +36,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
     <div className="upload-page">
 
       {apiChecked && !health && (
-        <Alert className="upload-alert" type="warning" showIcon message="本地抽取服务尚未启动"
+        <Alert className="upload-alert service-alert" type="warning" showIcon message="本地抽取服务尚未启动"
           description="运行项目根目录的 start_web_tool.ps1 后刷新状态。前端不会伪造抽取进度。"
           action={<Button size="small" onClick={onRefresh}>重新检测</Button>} />
       )}
@@ -109,7 +109,7 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
                   <Button type="primary" size="middle" loading={uploading} disabled={!canStart} icon={!uploading ? <Play size={14} /> : undefined} onClick={onStart} className="start-btn">开始抽取</Button>
                   <Button size="middle" onClick={onLoadSample}>加载已完成示例</Button>
                 </div>
-                {!canStart && <p className="gate-hint">{!file ? "先选择 PDF 文件。" : !health ? "等待抽取服务连接。" : !keysReady ? "还差 API 密钥未填写（就在上方）。" : running ? "任务运行中，请稍候。" : ""}</p>}
+                {!canStart && file && <p className="gate-hint">{!file ? "先选择 PDF 文件。" : !health ? "等待抽取服务连接。" : !keysReady ? "还差 API 密钥未填写（就在上方）。" : running ? "任务运行中，请稍候。" : ""}</p>}
               </div>
             </li>
           </ol>
@@ -166,21 +166,21 @@ function UploadPage({ file, job, health, apiChecked, uploading, dmxApiKey, miner
           <div className="ucard-head">
             <div className="extra-titles"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" /></svg>常见问题</h3><p>抽取失败先看这里</p></div>
           </div>
-          <details open><summary>支持哪些论文？</summary><p>英文聚合物 / 电介质 / 储能方向论文 PDF，优先选择出版商原版可复制文本文件。</p></details>
+          <details><summary>支持哪些论文？</summary><p>英文聚合物 / 电介质 / 储能方向论文 PDF，优先选择出版商原版可复制文本文件。</p></details>
           <details><summary>密钥会被保存吗？</summary><p>不会。密钥只保存在浏览器内存中，随本次任务提交，刷新或关闭即清除。</p></details>
           <details><summary>中途可以关闭页面吗？</summary><p>不建议。流水线按 Stage 0–5 顺序推进，关闭后需重新提交任务。</p></details>
         </section>
 
         <section className="ucard extra-card output-card">
           <div className="ucard-head">
-            <div className="extra-titles"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" strokeLinecap="round" strokeLinejoin="round" /></svg>本次抽取将得到什么</h3><p>结构化聚合结果 · 可直接进入审核</p></div>
+            <div className="extra-titles"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" strokeLinecap="round" strokeLinejoin="round" /></svg>本次抽取得到什么</h3><p>结构化聚合结果 · 可直接进入审核</p></div>
           </div>
           <ul className="output-list">
             {[
-              { cls: "c1", path: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10", t: "聚合物档案", d: "名称 / 缩写 / SMILES / 分子量 / 分子式" },
+              { cls: "c1", path: "m3 6 9-4 9 4-9 4-9-4Zm0 6 9 4 9-4M3 18l9 4 9-4", t: "聚合物档案", d: "名称 / 缩写 / SMILES / 分子量 / 分子式" },
               { cls: "c2", path: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z", t: "样品卡片", d: "配比 / 加工条件 / 厚度 / 测试方法" },
-              { cls: "c3", path: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6", t: "性能数据点", d: "介电 / 击穿 / 能量密度 · 含数值与单位" },
-              { cls: "c4", path: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", t: "溯源定位", d: "每条记录保留原文页码与表格编号" },
+              { cls: "c3", path: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6", t: "性能数据点", d: "介电 / 力学 / 热性能 / 含数值与单位" },
+              { cls: "c4", path: "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-4 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0Zm-4 0h-2", t: "溯源定位", d: "每条记录保留原文页码与表格编号" },
             ].map((item) => (
               <li key={item.t}>
                 <span className={`output-icon ${item.cls}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d={item.path} strokeLinecap="round" strokeLinejoin="round" /></svg></span>

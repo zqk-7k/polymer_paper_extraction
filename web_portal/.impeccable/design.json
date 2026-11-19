@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T00:00:00Z",
+  "title": "Design System: PolymerLit Portal",
+  "extensions": {
+    "colorMeta": {
+      "brand": {
+        "role": "primary",
+        "displayName": "Brand blue"
+      },
+      "brand-dark": {
+        "role": "primary",
+        "displayName": "Dark blue"
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Page blue-gray"
+      },
+      "memory-surface": {
+        "role": "secondary",
+        "displayName": "Memory green"
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "Card title",
+        "purpose": "Shared card headings."
+      },
+      "body": {
+        "displayName": "Interface body",
+        "purpose": "Body copy and action labels."
+      },
+      "navigation": {
+        "displayName": "Sidebar navigation",
+        "purpose": "Grouped route links."
+      },
+      "caption": {
+        "displayName": "Card caption",
+        "purpose": "Supporting card subtitles."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 5px 12px #253c6810,inset 0 1px 0 #fff",
+        "purpose": "Shared raised cards and upload hero."
+      },
+      {
+        "name": "sidebar",
+        "value": "4px 0 18px #263f7510",
+        "purpose": "Separate sidebar from the content canvas."
+      },
+      {
+        "name": "primary-action",
+        "value": "0 3px 6px #243e7726,inset 0 1px 2px #ffffff38",
+        "purpose": "Blue gradient primary actions."
+      },
+      {
+        "name": "input",
+        "value": "0 2px 5px #344b7710",
+        "purpose": "Input and select wrappers."
+      },
+      {
+        "name": "active-navigation",
+        "value": "inset 0 1px 2px #fff6",
+        "purpose": "Selected route highlight."
+      }
+    ],
+    "motion": [
+      {
+        "name": "navigation-state",
+        "value": "color .15s, background .15s",
+        "purpose": "Existing sidebar link transition."
+      },
+      {
+        "name": "upload-dropzone",
+        "value": "all .2s ease",
+        "purpose": "Existing dropzone transition."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation:none!important;transition:none!important",
+        "purpose": "Applied throughout the reference shell when prefers-reduced-motion is reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "upload-compact",
+        "value": "1250px"
+      },
+      {
+        "name": "upload-stack",
+        "value": "1100px"
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "767px"
+      },
+      {
+        "name": "upload-single-controls",
+        "value": "560px"
+      }
+    ],
+    "molecularArtwork": {
+      "renderer": "scripts/render-molecular-art.cjs",
+      "method": "Deterministic per-pixel depth-tested spherical atoms and cylindrical bonds composing several complete small molecules at varied scales and rigid rotations; the portal uses a horizontal alpha falloff across the top band, the FAQ a radial falloff. No inter-molecular bonds.",
+      "data": [
+        "src/data/molecules/benzene.json",
+        "src/data/molecules/ethane.json",
+        "src/data/molecules/water.json",
+        "src/data/molecules/octane.json",
+        "src/data/molecules/hexane.json"
+      ],
+      "source": "https://cccbdb.nist.gov/",
+      "model": "Decorative molecular drift of benzene (C6H6), ethane (C2H6), water (H2O) and idealized C8H18/C6H14 all-trans segments; illustrative ball-and-stick radii and colors, not electron density or identification of the extracted polymer.",
+      "shared": {
+        "asset": "public/upload-art/molecular-portal-large.png",
+        "dimensions": "2560x1440",
+        "backgroundSize": "1280px auto",
+        "opacity": 0.64,
+        "mobileBackgroundSize": "800px auto",
+        "mobileOpacity": 0.44,
+        "mobileBreakpoint": "767px",
+        "implementation": "Empty decorative div inside PortalBackground; CSS raster background. Cards use a translucent top gradient (fading to opaque by 300px) so the artwork reads through the upper part of the top-right card on every route."
+      },
+      "faq": {
+        "asset": "public/upload-art/molecular-faq-large.png",
+        "dimensions": "1600x480",
+        "backgroundSize": "cover",
+        "opacity": 0.36,
+        "mobileBackgroundSize": "cover",
+        "mobileOpacity": 0.3,
+        "mobileBreakpoint": "560px",
+        "implementation": "Noninteractive ::before layer with proportional cover sizing; underlying card gradient also fills the card.",
+        "position": "center top"
+      }
+    },
+    "uploadGrid": {
+      "columns": "minmax(0,.938fr) minmax(0,1fr)",
+      "gap": "18px",
+      "appliesTo": [
+        "upload-grid",
+        "upload-extra"
+      ],
+      "purpose": "FAQ matches the submit card width exactly.",
+      "stackAt": "1100px"
+    }
+  },
+  "components": [
+    {
+      "name": "Upload primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Native blue gradient action with Upload's pill geometry.",
+      "html": "<button class=\"ds-primary\">开始抽取</button>",
+      "css": ".ds-primary{font-family:var(--font-family,MiSans,'PingFang SC',sans-serif);font-size:14px;font-weight:600;height:40px;padding:0 24px;border:1px solid #5576b9;border-radius:21px;background:linear-gradient(170deg,#405da5,#284681);color:#fff;box-shadow:0 3px 6px #243e7726,inset 0 1px 2px #ffffff38;cursor:pointer}.ds-primary:not(:disabled):hover{background:linear-gradient(170deg,#496db9,#233e78)}.ds-primary:disabled{opacity:.75}.ds-primary:focus-visible{outline:2px solid #356af0;outline-offset:3px}"
+    },
+    {
+      "name": "Upload secondary action",
+      "kind": "button",
+      "refersTo": "upload-action",
+      "description": "Pale companion to the primary upload action.",
+      "html": "<button class=\"ds-secondary\">取消</button>",
+      "css": ".ds-secondary{font-family:var(--font-family,MiSans,'PingFang SC',sans-serif);font-size:14px;font-weight:600;height:40px;padding:0 24px;border-radius:21px;border:1px solid #e0e6f1;background:linear-gradient(#fbfcff,#f0f3f9);color:#1552ed;box-shadow:0 2px 5px #233e761a,inset 0 1px 1px #fff;cursor:pointer}.ds-secondary:focus-visible{outline:2px solid #356af0;outline-offset:3px}"
+    },
+    {
+      "name": "Credential field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Compact credential control using the shared field surface.",
+      "html": "<label class=\"ds-field-label\">API Key<input class=\"ds-field\" type=\"password\" placeholder=\"请输入 API Key\" /></label>",
+      "css": ".ds-field-label{display:grid;gap:3px;font-family:var(--font-family,MiSans,'PingFang SC',sans-serif);font-size:12px;font-weight:650;color:#0a0d14}.ds-field{height:36px;padding:3px 10px;border:1px solid #e1e6f0;border-radius:12px;background:#ffffffcf;box-shadow:0 2px 5px #344b7710;color:var(--text,#142037);font:inherit}.ds-field::placeholder{color:#5e6c84}.ds-field:focus-visible{outline:2px solid #356af0;outline-offset:3px}"
+    },
+    {
+      "name": "Sidebar route",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "Selected navigation row with a native link and inline stroke icon.",
+      "html": "<nav aria-label=\"主导航\"><a class=\"ds-route\" href=\"#/upload\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>上传文献</a></nav>",
+      "css": ".ds-route{display:flex;align-items:center;gap:13px;height:36px;padding:8px 11px;border:0;border-radius:13px;font-family:var(--font-family,MiSans,'PingFang SC',sans-serif);font-size:14px;font-weight:650;color:#2353cb;background:#dbe3f9;box-shadow:inset 0 1px 2px #fff6;text-decoration:none;transition:color .15s,background .15s}.ds-route svg{width:16px;height:16px;color:#1855ed}.ds-route:hover{background:#e6ebf7}.ds-route:focus-visible{outline:2px solid #356af0;outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-route{transition:none}}"
+    },
+    {
+      "name": "Shared card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Pale raised container and shared title treatment.",
+      "html": "<section class=\"ds-card\"><header class=\"ds-card-head\"><h3>上传文献</h3><p>选择 PDF 文献</p></header></section>",
+      "css": ".ds-card{padding:14px 24px 20px;border:1px solid #ffffffa8;border-radius:17px;background:linear-gradient(180deg,#ffffff38 0,#ffffffa6 120px,#ffffffef 300px);-webkit-backdrop-filter:blur(2px) saturate(1.06);backdrop-filter:blur(2px) saturate(1.06);box-shadow:0 5px 12px #253c6810,inset 0 1px 0 #fff;font-family:var(--font-family,MiSans,'PingFang SC',sans-serif)}.ds-card-head{padding-bottom:12px;border-bottom:1px solid #e9edf5}.ds-card h3{margin:0;color:#080e18;font-size:18px;line-height:24px;font-weight:750}.ds-card p{margin:2px 0 0;color:#66738c;font-size:12px;line-height:17px}"
+    },
+    {
+      "name": "Memory indicator",
+      "kind": "chip",
+      "refersTo": "memory-chip",
+      "description": "Contextual green status pill with an outlined dot.",
+      "html": "<span class=\"ds-memory\"><i aria-hidden=\"true\"></i>内存</span>",
+      "css": ".ds-memory{display:inline-flex;align-items:center;gap:4px;border:0;border-radius:999px;padding:1px 7px;font-family:var(--font-family,MiSans,'PingFang SC',sans-serif);font-size:10px;font-weight:650;line-height:18px;color:#235e4e;background:#aeeacb}.ds-memory i{width:6px;height:6px;border:1px solid #245e4e;border-radius:50%;background:transparent}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Pinned screenshot reference",
+    "overview": "The user's pinned screenshot is the visual authority. The implemented portal uses a pale blue-gray canvas, softly raised white cards, rounded inset controls, dark blue gradient actions, and compact Chinese interface typography. This document records the current implementation; it introduces no product strategy or new brand metaphor.\n\nThe shared shell carries the same sidebar, background, card surfaces, and control treatments across portal routes. Native interactive UI remains the working interface; image crops supply the brand mark and decorative document detail, while large transparent PNG compositions supply light icy-blue molecular artwork, deterministically rendered from NIST experimental ethane coordinates.",
+    "keyCharacteristics": [
+      "Cool layered pale surfaces with restrained blue accents.",
+      "Compact labels and strong card titles.",
+      "Soft exterior shadows and white inset highlights.",
+      "Shared navigation and background with route-specific content layouts."
+    ],
+    "rules": [
+      {
+        "name": "The Layered Surface Rule",
+        "body": "Use the implemented pale gradients and white highlights together; a flat white replacement loses the reference's material depth.",
+        "section": "colors"
+      },
+      {
+        "name": "The Shared Depth Rule",
+        "body": "Keep the same ambient card treatment across routes; reserve smaller inset highlights for controls and nested status panels.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do treat the pinned screenshot and final reference cascade as authority.",
+      "Do reuse the shared sidebar and decorative background.",
+      "Do preserve responsive layouts, visible keyboard focus, and reduced-motion handling.",
+      "Do scope Upload's fixed desktop card composition to Upload."
+    ],
+    "donts": [
+      "Don't restore earlier legacy geometry over the reference theme.",
+      "Don't replace functional UI with a screenshot.",
+      "Don't introduce unrelated typography or card materials.",
+      "Don't infer unsupported product or brand commitments from imagery.",
+      "Do not invent molecular topology or stretch atom imagery. Use the deterministic PNG exports; preserve NIST ethane connectivity, rigid rotations, spherical atoms, cylindrical bonds, uniform orthographic scaling and fully contained molecules. Separate molecules have no inter-molecular bonds."
+    ]
+  }
+}

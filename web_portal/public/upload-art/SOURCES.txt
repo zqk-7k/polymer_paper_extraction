@@ -1,0 +1,29 @@
+Active raster decorations extracted from the user-provided reference screenshot (2026-11-18):
+brand-mark.png: original rectangle x=22, y=21, width=34, height=32.
+document-decoration.png: original rectangle x=744, y=224, width=125, height=140.
+
+Molecular raster artwork follows the user's light icy-blue reference direction.
+molecular-portal-large.png: transparent PNG, 2560 x 1440, shared portal background.
+molecular-faq-large.png: transparent PNG, 1600 x 480, FAQ decorative background.
+Both are deterministic exports from scripts/render-molecular-art.cjs using the
+small-molecule models in src/data/molecules. Regenerate from the repository root with:
+node web_portal/scripts/render-molecular-art.cjs
+The short all-trans oligomers are rebuilt from idealized parameters (C-C 1.54 A,
+C-H 1.091 A, C-C-C 112 deg) with:
+node web_portal/scripts/build-polyethylene-chain.cjs 8 web_portal/src/data/molecules/octane.json
+node web_portal/scripts/build-polyethylene-chain.cjs 6 web_portal/src/data/molecules/hexane.json
+The renderer uses per-pixel depth-tested spherical atoms and cylindrical bonds;
+there is no native SVG molecular component and no generated molecular topology.
+Each motif is one complete, real molecule: benzene C6H6, ethane C2H6, water H2O
+and idealized C8H18 / C6H14 segments. Bond lengths, angles and ethane coordinates
+follow NIST CCCBDB experimental geometry (https://cccbdb.nist.gov/) and standard values.
+The portal composition scatters the motifs at varied scales and rigid rotations
+across the top-right band with a horizontal alpha falloff, so the artwork reads
+as a molecular drift rather than a single chain strip. The FAQ uses a compact
+radial cluster. Only rigid rotations and a uniform orthographic scale are applied;
+atoms remain spherical. Each complete molecule stays within image bounds. Separate
+molecules have no bonds between them.
+CSS uses automatic height to preserve proportions and reduces opacity for readable UI text.
+Ball-and-stick radii/colors are illustrative; the model does not depict electron density or identify the extracted polymer.
+
+Brand update: sidebar and boot use src/assets/logo2.png. Only color was changed to the #2353cb theme palette; original1254x1254 dimensions, pixel geometry and alpha mask are retained. Public logo2.png and PNG favicons32/192/180 derive from the same recolored source. brand-mark.png is a legacy unused crop.
