@@ -21,6 +21,10 @@ llm:
       model: doubao-seed-2-1-pro-260628
       api_format: openai-chat-completions
       thinking_effort: null
+      # Single whole-document entity-resolution call; large papers run close to
+      # the 600s default (observed 545s). Keep a wide margin so it is not killed
+      # mid-generation.
+      timeout_seconds: 1800
     stage4t_table_interpretation:
       model: doubao-seed-2-1-pro-260628
       api_format: openai-chat-completions
