@@ -41,6 +41,13 @@ const eslintConfig = defineConfig([
       "jsx-a11y/label-has-associated-control": "warn",
     },
   },
+  {
+    // Standalone Node utility scripts are CommonJS; require() is their module API.
+    files: ["scripts/**/*.{cjs,js}"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
